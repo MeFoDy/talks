@@ -15,6 +15,15 @@
     margin-bottom: 0;
 }
 
+.slide.slide-centered {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+}
+
 .slide .header-note {
     opacity: 0.5;
     font-size: small;
