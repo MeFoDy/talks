@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible"
+	      content="ie=edge">
+	<meta name="viewport"
+	      content="width=device-width, initial-scale=1">
+	<link rel="stylesheet"
+	      href="shower/themes/ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet"
+	      href="prism/prism.min.css">
+	<link rel="stylesheet"
+	      href="styles/style.css">
+</head>
+
+<body class="shower list">
+
+	<header class="caption">
+		<h1>Houdini — великий разоблачитель</h1>
+		<p>
+			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Capital Decision.
+		</p>
+	</header>
+
+
+	<section class="slide clear"
+	         id="cover">
+		<h2>Houdini — великий разоблачитель</h2>
+		<p>
+			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>
+		</p>
+		<figure>
+			<img class="cover"
+			     src="pictures/cover.jpg"
+			     alt="Hands on the orange typewriter in a park">
+			<figcaption class="white">
+				<a href="https://pixabay.com/en/vienna-rabbit-hat-magic-witchcraft-358565/">pixabay.com</a>
+			</figcaption>
+		</figure>
+
+		<style>
+			#cover h2 {
+				margin: 30px 0 0;
+				font-size: 80px;
+			}
+
+			#cover p {
+				margin: 10px 0 0;
+				font-size: 30px;
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide">
+		<h2>Конвейер рендеринга в браузере</h2>
+		<svg class="render-block">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<footer>
+			<p>Упрощенно процесс рендеринга страницы в браузере можно разделить на 6 этапов: Parser, DOM/CSSOM, Cascade, Layout, Paint
+				и Composite.</p>
+		</footer>
+
+		<style>
+			.render-block {
+				width: 100%;
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-pipeline-parser">
+		<h2>Конвейер рендеринга в браузере</h2>
+		<svg class="render-block">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<ol>
+			<li>Скачивание и парсинг HTML, CSS и JavaScript</li>
+		</ol>
+		<footer>
+			<p>На первом этапе браузер скачивает файлы HTML, CSS и JavaScript. Исходные тексты разбираются и приводятся в исправленный
+				и понятный браузеру вид.</p>
+		</footer>
+
+		<style>
+			.nd-pipeline-parser {
+				--nd-render-parse-color: var(--color-active);
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-pipeline-dom">
+		<h2>Конвейер рендеринга в браузере</h2>
+		<svg class="render-block">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<ol>
+			<li class="not-active-item">Скачивание и парсинг HTML, CSS и JavaScript</li>
+			<li>Построение Document Object Model и CSS Object Model</li>
+		</ol>
+		<footer>
+			<p>На втором этапе на основе полученного исходного текста формируется два дерева, DOM и CSSOM, причем каждому листу DOM ставится
+				в соответствие свой узел CSSOM.</p>
+		</footer>
+
+		<style>
+			.nd-pipeline-dom {
+				--nd-render-parse-color: var(--color-inactive);
+				--nd-render-dom-color: var(--color-active);
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-pipeline-cascade">
+		<h2>Конвейер рендеринга в браузере</h2>
+		<svg class="render-block">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<ol>
+			<li class="not-active-item">Скачивание и парсинг HTML, CSS и JavaScript</li>
+			<li class="not-active-item">Построение Document Object Model и CSS Object Model</li>
+			<li>Формирование дерева рендеринга</li>
+		</ol>
+		<footer>
+			<p>К полученным DOM и CSSOM применяются правила каскада, внутренние правила браузера, и на основании этого формируется render
+				tree.
+			</p>
+		</footer>
+
+		<style>
+			.nd-pipeline-cascade {
+				--nd-render-parse-color: var(--color-inactive);
+				--nd-render-dom-color: var(--color-inactive);
+				--nd-render-cascade-color: var(--color-active);
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-pipeline-layout">
+		<h2>Конвейер рендеринга в браузере</h2>
+		<svg class="render-block">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<ol>
+			<li class="not-active-item">Скачивание и парсинг HTML, CSS и JavaScript</li>
+			<li class="not-active-item">Построение Document Object Model и CSS Object Model</li>
+			<li class="not-active-item">Формирование дерева рендеринга</li>
+			<li>Расчет положения на странице каждого элемента дерева рендеринга</li>
+		</ol>
+		<footer>
+			<p>Для каждого элемента render tree рассчитывается его положение на странице в текущий момент времени. При необходимости
+				элементы разбиваются на разные слои.</p>
+		</footer>
+
+		<style>
+			.nd-pipeline-layout {
+				--nd-render-parse-color: var(--color-inactive);
+				--nd-render-dom-color: var(--color-inactive);
+				--nd-render-cascade-color: var(--color-inactive);
+				--nd-render-layout-color: var(--color-active);
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-pipeline-paint">
+		<h2>Конвейер рендеринга в браузере</h2>
+		<svg class="render-block">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<ol>
+			<li class="not-active-item">Скачивание и парсинг HTML, CSS и JavaScript</li>
+			<li class="not-active-item">Построение Document Object Model и CSS Object Model</li>
+			<li class="not-active-item">Формирование дерева рендеринга</li>
+			<li class="not-active-item">Расчет положения на странице каждого элемента дерева рендеринга</li>
+			<li>Отрисовка пикселей каждого слоя</li>
+		</ol>
+		<footer>
+			<p>На этапе отрисовки каждый слой формирует готовый для отображения в браузере массив пикселей.</p>
+		</footer>
+
+		<style>
+			.nd-pipeline-paint {
+				--nd-render-parse-color: var(--color-inactive);
+				--nd-render-dom-color: var(--color-inactive);
+				--nd-render-cascade-color: var(--color-inactive);
+				--nd-render-layout-color: var(--color-inactive);
+				--nd-render-paint-color: var(--color-active);
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-pipeline-composite">
+		<h2>Конвейер рендеринга в браузере</h2>
+		<svg class="render-block">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<ol>
+			<li class="not-active-item">Скачивание и парсинг HTML, CSS и JavaScript</li>
+			<li class="not-active-item">Построение Document Object Model и CSS Object Model</li>
+			<li class="not-active-item">Формирование дерева рендеринга</li>
+			<li class="not-active-item">Расчет положения на странице каждого элемента дерева рендеринга</li>
+			<li class="not-active-item">Отрисовка пикселей каждого слоя</li>
+			<li>Компоновка слоев и отображение в видимой области браузера</li>
+		</ol>
+		<footer>
+			<p>Отрисованные на каждом слое пиксели компонуются в один общий слой и отображаются на экране.</p>
+		</footer>
+
+		<style>
+			.nd-pipeline-composite {
+				--nd-render-parse-color: var(--color-inactive);
+				--nd-render-dom-color: var(--color-inactive);
+				--nd-render-cascade-color: var(--color-inactive);
+				--nd-render-layout-color: var(--color-inactive);
+				--nd-render-paint-color: var(--color-inactive);
+				--nd-render-composite-color: var(--color-active);
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-pipeline-total">
+		<h2>Конвейер рендеринга в браузере</h2>
+		<svg class="render-block">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<ol>
+			<li class="not-active-item">Магия</li>
+			<li>Можем влиять на процесс из JavaScript</li>
+			<li class="not-active-item">Магия</li>
+			<li class="not-active-item">Магия</li>
+			<li class="not-active-item">Магия</li>
+			<li class="not-active-item">Магия</li>
+		</ol>
+		<footer>
+			<p>Из всех шести этапов веб-разработчики могут явно влиять всего на один: построение DOM/CSSOM. По сути, движок рендеринга —
+				это «черный ящик», и почти все, что в нем происходит — некая браузерная «магия», основанная на спецификациях W3C.</p>
+		</footer>
+
+		<style>
+			.nd-pipeline-total {
+				--nd-render-parse-color: var(--color-inactive);
+				--nd-render-dom-color: lightgreen;
+				--nd-render-cascade-color: var(--color-inactive);
+				--nd-render-layout-color: var(--color-inactive);
+				--nd-render-paint-color: var(--color-inactive);
+				--nd-render-composite-color: var(--color-inactive);
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide clear black">
+		<img class="cover"
+		     src="./pictures/sad.gif"
+		     style="width: 100%;">
+		<footer>
+			<p>Неужели все так плохо?</p>
+		</footer>
+	</section>
+
+
+	<section class="slide nd-extend-the-web">
+		<h2 class="shout">
+			<a href="https://extensiblewebmanifesto.org">extensiblewebmanifesto.org</a>
+		</h2>
+		<footer>
+			<p>10 июня 2013 года авторы веб-спецификаций и разработчики из ведущих IT-компаний подписали веб-манифест, который должен
+				призвать разработчиков браузеров к более открытому и простому процессу интеграции новых возможностей в производство.</p>
+		</footer>
+
+		<style>
+			.nd-extend-the-web .shout {
+				font-size: 70px;
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide">
+		<h2>
+			The Extensible Web Manifesto
+			<small class="header-note">10.06.2013</small>
+		</h2>
+		<blockquote>
+			<p>Focus on adding new low-level capabilities to the web platform that are secure and efficient.</p>
+		</blockquote>
+		<blockquote>
+			<p>Expose low-level capabilities that explain existing features, such as HTML and CSS, allowing authors to understand and
+				replicate them.</p>
+		</blockquote>
+		<blockquote>
+			<p>Simplify and streamline the longer-term process of standardizing new APIs, which will already have implementations and
+				significant real-world usage.</p>
+		</blockquote>
+		<footer>
+			<p>Некоторые пункты манифеста связаны с невозможностью явно контролировать конвейер рендеринга в браузерах.</p>
+		</footer>
+	</section>
+
+
+	<section class="slide nd-manifesto-rus">
+		<h2>The Extensible Web Manifesto
+			<small class="header-note">10.06.2013</small>
+		</h2>
+		<blockquote>
+			<p>Сосредоточиться на добавлении новых безопасных и эффективных низкоуровневых возможностей веб-платформы.</p>
+		</blockquote>
+		<blockquote>
+			<p>Раскрывать низкоуровневые возможности, которые объясняют существующие функции, такие как HTML и CSS, позволяя авторам
+				понимать и воспроизводить их.</p>
+		</blockquote>
+		<blockquote>
+			<p>Упростить и оптимизировать долгосрочный процесс стандартизации новых API, которые будут иметь применение и значительное
+				использование в реальных условиях.</p>
+		</blockquote>
+		<footer>
+			<p>Авторы манифеста призывают разработчиков браузеров предоставить доступ к low-level API, чтобы, даже не обладая сложными
+				и специфическими знаниями, веб-разработчики могли внедрять новые возможности еще до того, как их начнет нативно поддерживать
+				браузер.
+			</p>
+		</footer>
+
+		<style>
+			.nd-manifesto-rus blockquote {
+				font-size: 22px;
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide">
+		У JS - полифиллы.
+	</section>
+
+
+	<section class="slide">
+		Термин полифилл
+		<br> Полифиллы появились в 2010 году (https://remysharp.com/2010/10/08/what-is-a-polyfill). Remy Sharp — Introducing HTML5.
+	</section>
+
+
+	<section class="slide">
+		Как полифиллы применяются в браузере: monkey patching, underscore, lodash, Babel
+	</section>
+
+
+	<section class="slide">
+		Shadow DOM, Custom Elements —> Polymer
+	</section>
+
+
+	<section class="slide">
+		Полифиллы для CSS: препроцессоры, постпроцессоры
+	</section>
+
+
+	<section class="slide">
+		polyfill.js
+	</section>
+
+
+	<section class="slide">
+		<img class="cover"
+		     src="./pictures/houdini-working-group-meeting.jpg"
+		     alt=""> CSS-TAG Houdini Task Force
+	</section>
+
+
+	<section class="slide">
+		<img src="./pictures/houdini.jpg"
+		     alt="Гарри Гудини"
+		     height=100>
+		<br>Гарри Гудини — не только великий фокусник и иллюзионист, но и разоблачитель "магии".
+		<br>проект Houdini — те же цели
+	</section>
+
+
+	<section class="slide nd-houdini-api">
+		<figure class="cover">
+			<img src="./pictures/houdini-api.png"
+			     alt="Новые спецификации Houdini">
+			<figcaption>Новые спецификации Houdini для работы с конвейером рендеринга </figcaption>
+		</figure>
+
+		<style>
+			.nd-houdini-api figcaption {
+				text-align: center;
+				font-size: 20px;
+				font-style: italic;
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide">
+		Houdini — коллекция API: список
+		<br> https://github.com/w3c/css-houdini-drafts
+		<br> https://drafts.css-houdini.org
+	</section>
+
+
+	<section class="slide">
+		CSS Custom Properties
+		<br>синтаксис, пример использования
+	</section>
+
+
+	<section class="slide">
+		Box Tree API
+		<br> описание идеи
+	</section>
+
+
+	<section class="slide">
+		CSS Parser API
+		<br> https://github.com/WICG/CSS-Parser-API
+		<br> Parser API — пока идея. Позволит самостоятельно обрабатывать синтаксическое дерево CSS и превращать его в понятный движку
+		CSS. Можно будет добавлять свои директивы, псевдоселекторы, значения свойств (высокопроизводительный PostCSS в браузере).
+	</section>
+
+
+	<section class="slide">
+		CSS Typed OM
+		<br> https://drafts.css-houdini.org/css-typed-om/
+		<br> Как мы обычно задаем стили через JS? Число превращаем в строку, затем подставляем в стили, там оно снова превращается
+		в число. Потери тактов процессора и тяжело читаемо. TOM — решает эти проблемы, отделяет типы от значений, позволяет задавать
+		и получать данные.
+	</section>
+
+
+	<section class="slide">
+		пример кода для CSS Typed OM
+	</section>
+
+
+	<section class="slide">
+		полифилл
+		<br> https://github.com/css-typed-om/typed-om
+	</section>
+
+
+	<section class="slide">
+		<h2 class="center">
+			<img src="./pictures/chrome-canary.svg"
+			     height="30"> chrome://flags
+		</h2>
+		<img src="./pictures/experimental-flag.jpg"
+		     class="cover"
+		     alt="Experimental flag">
+	</section>
+
+
+	<section class="slide">
+		Worklets
+		<br>https://drafts.css-houdini.org/worklets/
+		<br> Worklet — урезанный Worker с ограниченными правами и работающий параллельно основному потоку -> нет доступа к DOM. Решение
+		— Proxy. Полифилл к Compositor Worklet (устаревший).
+	</section>
+
+
+	<section class="slide">
+		<pre><code>
+				window.someWorklet.addModule("someWorklet.js»).then(…);
+
+				registerSomeWorklet(‘someWorkletName’, class {
+				   process(arg) {
+					  …
+				   }
+				});</code></pre>
+	</section>
+
+
+	<section class="slide">
+		CSS Painting API
+		<br> https://drafts.css-houdini.org/css-paint-api/
+		<br> https://drafts.css-houdini.org/css-paint-api/EXPLAINER.md
+		<br>Paint API. Дает перерисовывать все, где есть image. По сути — облегченный canvas. inputProperties — для оптимизации. Мы
+		показываем браузеру, когда нам нужно вызвать paint.
+		<br>* background-image
+		<br>* border-image
+		<br>* list-style-image
+		<br>* content
+		<br>* НЕ cursor
+	</section>
+
+
+	<section class="slide">
+		пример кода для Paint API
+		<br>
+		<pre><code>class myPaint {
+			// Input properties from element to look for
+			static get inputProperties() { return ['--foo']; }
+			// Input arguments that can be passed to `paint` function
+			static get inputArguments() { return ['<color>']; }
+			// Alpha allowed?
+			// static get alpha() { return true; } // https://github.com/w3c/css-houdini-drafts/commit/869c59a203085c4a1635c225e7cbfc47fc830adc
+			static get contextOptions() { return { alpha: true }; }
+			paint(ctx, size, props, args) {
+			  // ctx - drawing context
+			  // size - size of the box being painted
+			  // props - inputProperties
+			  // args - array of passed-in arguments
+
+			  // Paint code goes here.
+			}
+		  }</code></pre>
+	</section>
+
+
+	<section class="slide">
+		демо 1
+		<a href="./demos/1_ripple/index.html">ripple</a>
+	</section>
+
+
+	<section class="slide">
+		демо 2
+		<a href="./demos/2_border-colors/index.html">border-colors</a>
+	</section>
+
+
+	<section class="slide">
+		демо 3
+		<a href="./demos/3_border-slicer/index.html">border-slicer</a>
+	</section>
+
+
+	<section class="slide">
+		демо 5
+		<a href="./demos/5_image-placeholder/index.html">image placeholder</a>
+	</section>
+
+
+	<section class="slide">
+		CSS Properties and Values API
+		<br> https://drafts.css-houdini.org/css-properties-values-api/
+		<br>Как анимировать custom property? (пример: sidebar) Но переменные — это строки. Движок браузера не знает, как их анимировать,
+		потому что сложно вычислить разницу в 20% между строкой A и B. Properties and Values API — спасает. На самом деле, это
+		всего один метод, который позволяет назначить тип для переменной, дать начальное значение и др.
+	</section>
+
+
+	<section class="slide">
+		пример кода для CSS Properties and Values API
+		<br>
+		<pre><code>.add-my-paint {
+				background-image: paint(my-paint);
+				--circle-color: blue;
+			  }
+
+			  elem.animate([
+				{'--circle-color': 'red'},
+				{'--circle-color': 'blue'}
+			  ], {
+				direction: 'alternate', duration: 5000, iterations: 10
+			  });</code></pre>
+	</section>
+
+
+	<section class="slide">
+		Карта наследования классов CSSStyleValue
+	</section>
+
+
+	<section class="slide">
+		демо 4
+		<a href="./demos/4_sidebar/index.html">sidebar</a>
+	</section>
+
+
+	<section class="slide">
+		CSS Layout API
+		<br>Layout API — сложная, но полезная магия. Можно сделать решение на нем, и если оно будет полезным, инженеры браузеров могут
+		реализовать это решение на C++ (или на чем написано движок браузера), чтобы сделать это решение более производительным.
+	</section>
+
+
+	<section class="slide">
+		пример кода для CSS Layout API
+	</section>
+
+
+	<section class="slide">
+		Animation Worklet
+		<br> https://github.com/WICG/animation-worklet
+		<br> Анимации, привязанные к scroll — большая дыра в производительности. Текущее решение: если элемент находится на отдельном
+		слое (will-change), то процессор GPU только вычислит его изменения и сделает merge слоев вместо полной перерисовки всего
+		большого слоя. Но 60FPS все равно тяжело достичь.
+	</section>
+
+
+	<section class="slide">
+		пример кода Animation Worklet
+		<br>http://dassur.ma/things/animworklet/
+	</section>
+
+
+	<section class="slide">
+		демо Animation Worklet
+	</section>
+
+
+	<section class="slide">
+		Font Metrics API
+		<br> Font Metrics API — позволит вычислять различные метрики шрифтов, к которым на данный момент доступа нет. Как посчитать
+		точную ширину текста? А если он не помещается в ширину окна?
+	</section>
+
+
+	<section class="slide">
+		Почему houdini хорош?
+		<br>http://bfgeek.com/houdini/2015/09/14/the-performance-of-houdini-paint/
+		<br> * производительность
+		<br> * оптимизации
+		<br> * эргономичность
+	</section>
+
+
+	<section class="slide">
+		Недостатки:
+		<br> так как ворклеты загружаются асинхронно, то они не блокируют рендеринг. Поэтому здесь, как у шрифтов, появляется моргание
+		при отрисовке. Как будут решать проблему — пока неизвестно.
+		<br> пока не работает.
+		<br> сложность кода, верстальщикам нужно будет учить еще и все эти API.
+	</section>
+
+
+	<section class="slide">
+		Почему стоит попробовать уже сейчас?
+		<br>* когда включат - уже будет навык
+		<br>* возможность повлиять на спецификацию
+		<br>* ценность на рынке труда
+	</section>
+
+
+	<section class="slide">
+		Как долго ждать?
+		<br> * часть уже реализована в Canary и за флагами в Chrome
+		<br> * Layout API - в конце 2017 (https://www.youtube.com/watch?v=RNkwDR1o4u0)
+		<br> * все API сильно зависят друг от друга
+	</section>
+
+
+	<section class="slide">
+		Что с другими браузерами?
+		<br> http://ishoudinireadyyet.com
+	</section>
+
+
+	<section class="slide nd-materials">
+		<h2>Материалы по теме</h2>
+		<p class="list-header">Статьи</p>
+		<ol>
+			<li>
+				<a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of</a>
+				by Philip Walton
+			</li>
+			<li>
+				<a href="https://developers.google.com/web/updates/2016/05/houdini">Houdini: Demystifying CSS</a>
+				by Alex Surma
+			</li>
+		</ol>
+		<p class="list-header">Видео</p>
+		<ol>
+			<li>
+				<a href="https://vimeo.com/232982766">Philip Walton | Polyfills & Houdini | Browser API Special</a>
+				— CSS Day 2017
+			</li>
+			<li>
+				<a href="https://www.youtube.com/watch?v=66E0_QFnmlA">Serg Hospodarets: CSS Houdini - from CSS variables to JavaScript and back</a>
+				— Frontend United
+			</li>
+			<li>
+				<a href="https://www.youtube.com/watch?v=sE3ttkP15f8">Houdini: Demystifying the Future of CSS</a>
+				— Google I/O 2016
+			</li>
+			<li>
+				<a href="https://www.youtube.com/watch?v=RNkwDR1o4u0">Magic Tricks with CSS Houdini (Sam Richard)</a>
+				— Full Stack Fest 2017
+			</li>
+		</ol>
+
+		<style>
+			.nd-materials ol {
+				font-size: 20px;
+			}
+
+		</style>
+	</section>
+
+
+	<svg xmlns="http://www.w3.org/2000/svg"
+	     style="display: none;">
+		<symbol id="nd-render-picture"
+		        viewbox="0 0 800 100">
+			<style>
+				.nd-render-block {
+					fill-opacity: null;
+					stroke-opacity: null;
+					stroke: #000;
+				}
+
+				.nd-render-text {
+					stroke-width: 0;
+				}
+
+				.nd-render-path {
+					fill: #fff;
+					stroke-width: 2;
+				}
+
+			</style>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-parse-color)"
+				      d="M47.8 13.9h107.2l35.8 35.8-35.8 35.8H47.8L83.6 49.8 47.8 13.9z"
+				      class="nd-render-path" />
+				<text class="nd-render-text"
+				      x="100.1"
+				      y="55.6"
+				      font-size="17">Parser</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-dom-color)"
+				      d="M161.8 13.9h107.3l35.8 35.8-35.7 35.8H161.8l35.8-35.8-35.7-35.8z"
+				      class="nd-render-path" />
+				<text class="nd-render-text"
+				      x="213"
+				      y="45.6"
+				      font-size="17">DOM &#x2F;</text>
+				<text class="nd-render-text"
+				      x="204.1"
+				      y="66.6"
+				      font-size="17">CSSOM</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-cascade-color)"
+				      d="M274.9 13.9h107.2l35.8 35.8-35.8 35.8H274.9l35.8-35.8-35.7-35.8z"
+				      class="nd-render-path" />
+				<text class="nd-render-text"
+				      x="319.3"
+				      y="55.6"
+				      font-size="17">Cascade</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-layout-color)"
+				      d="M387.9 13.9h107.2l35.8 35.8-35.8 35.8H387.9l35.8-35.8-35.7-35.8z"
+				      class="nd-render-path" />
+				<text class="nd-render-text"
+				      x="440.3"
+				      y="55.6"
+				      font-size="17">Layout</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-paint-color)"
+				      d="M501 13.9H608.2l35.8 35.8-35.8 35.8H501l35.8-35.8-35.7-35.8z"
+				      class="nd-render-path" />
+				<text class="nd-render-text"
+				      x="556.4"
+				      y="55.6"
+				      font-size="17">Paint</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-composite-color)"
+				      d="M614 13.9h107.2l35.8 35.8-35.8 35.8H614l35.8-35.8-35.7-35.8z"
+				      class="nd-render-path" />
+				<text class="nd-render-text"
+				      x="656.4"
+				      y="55.6"
+				      font-size="17">Composite</text>
+			</g>
+		</symbol>
+	</svg>
+
+
+
+	<footer class="badge">
+		<a href="https://github.com/shower/shower">Powered by Shower</a>
+	</footer>
+
+	<div class="progress"></div>
+
+	<script src="shower/shower.min.js"></script>
+	<script src="prism/prism.min.js"></script>
+
+</body>
+
+</html>

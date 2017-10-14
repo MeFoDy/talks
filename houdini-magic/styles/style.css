@@ -1,0 +1,33 @@
+:root {
+    --color-inactive: #ccc;
+    --color-active: orange;
+
+    --nd-render-parse-color: #fff;
+    --nd-render-dom-color: #fff;
+    --nd-render-cascade-color: #fff;
+    --nd-render-layout-color: #fff;
+    --nd-render-paint-color: #fff;
+    --nd-render-composite-color: #fff;
+}
+
+.slide .list-header {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.slide .header-note {
+    opacity: 0.5;
+    font-size: small;
+}
+
+.slide .not-active-item {
+    color: #999;
+}
+
+.slide footer {
+    line-height: 1.5;
+}
+
+.nd-pipeline ol {
+    font-size: 20px;
+}
