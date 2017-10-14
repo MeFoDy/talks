@@ -37,7 +37,7 @@ function drawFrame(tick, color, bgColor) {
     for (let j = -margin; j < countVertical; j++) {
         ctx.beginPath()
         for (let i = 0; i < countHorisontal; i++) {
-            ctx.lineTo(i * margin, j * margin + margin * 10 * noise(100 * i / w, j * 100 / h, tick / 100));
+            ctx.lineTo(i * margin, j * margin + margin * 10 * noise(100 * i / 800, j * 100 / 800, tick / 100));
         }
         ctx.stroke();
     }

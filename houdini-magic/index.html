@@ -29,8 +29,9 @@
 	<section class="slide clear"
 	         id="cover">
 		<h2>Houdini — великий разоблачитель</h2>
+		<hr>
 		<p>
-			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>
+			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Capital Decision
 		</p>
 		<figure>
 			<img class="cover"
@@ -43,13 +44,21 @@
 
 		<style>
 			#cover h2 {
-				margin: 30px 0 0;
-				font-size: 80px;
+				margin: 30px 0 20px;
+				font-size: 70px;
+			}
+
+			#cover hr {
+				border-color: #ccc;
+				margin-left: 0;
+				width: 300px;
+				opacity: 0.5;
 			}
 
 			#cover p {
-				margin: 10px 0 0;
-				font-size: 30px;
+				margin: 0;
+				font-size: 20px;
+				color: #585a5e;
 			}
 
 		</style>
@@ -278,21 +287,14 @@
 	</section>
 
 
-	<section class="slide nd-extend-the-web">
-		<h2 class="shout">
+	<section class="slide">
+		<h2 class="shout shout-mini">
 			<a href="https://extensiblewebmanifesto.org">extensiblewebmanifesto.org</a>
 		</h2>
 		<footer>
 			<p>10 июня 2013 года авторы веб-спецификаций и разработчики из ведущих IT-компаний подписали веб-манифест, который должен
 				призвать разработчиков браузеров к более открытому и простому процессу интеграции новых возможностей в производство.</p>
 		</footer>
-
-		<style>
-			.nd-extend-the-web .shout {
-				font-size: 70px;
-			}
-
-		</style>
 	</section>
 
 
@@ -326,8 +328,8 @@
 			<p>Сосредоточиться на добавлении новых безопасных и эффективных низкоуровневых возможностей веб-платформы.</p>
 		</blockquote>
 		<blockquote>
-			<p>Раскрывать низкоуровневые возможности, которые объясняют существующие функции, такие как HTML и CSS, позволяя авторам
-				понимать и воспроизводить их.</p>
+			<p>Раскрывать низкоуровневые возможности, что объяснит существующие функции, такие как HTML и CSS, позволяя авторам понимать
+				и воспроизводить их.</p>
 		</blockquote>
 		<blockquote>
 			<p>Упростить и оптимизировать долгосрочный процесс стандартизации новых API, которые будут иметь применение и значительное
@@ -422,8 +424,67 @@
 
 
 	<section class="slide">
-		CSS Custom Properties
-		<br>синтаксис, пример использования
+		<h2 class="shout shout-mini">CSS Custom Properties</h2>
+	</section>
+
+
+	<section class="slide">
+		<pre><code class="language-css">/* CSS */
+:root {
+	--r: 255;
+	--g: 20;
+	--b: 147;
+	--deeppink-color: rgb(var(--r), var(--g), var(--b));
+}
+.pink-element {
+	--element-width: 200px;
+	--element-border-width: 20px;
+	background-color: var(--deeppink-color);
+	width: calc(var(--element-width) + var(--element-border-width));
+}</code></pre>
+	</section>
+
+
+	<section class="slide">
+		<pre><code class="language-js">// JavaScript
+const isSupported = CSS.supports('--custom', 'property');
+
+// Получить значение custom property
+const pinkElement = document.querySelector('.pink-element');
+const elementWidth = window
+   .getComputedStyle(pinkElement)
+   .getPropertyValue('--element-width');
+
+// Изменить custom property для узла
+pinkElement.style.setProperty('--element-width', '300px');
+
+// Изменить custom property в :root
+document.documentElement.style.setProperty('--r', 190);</code></pre>
+	</section>
+
+
+	<section class="slide">
+		<img src="./pictures/caniuse-custom-properties.jpg"
+		     class="cover"
+		     alt="Custom Properties — caniuse.com">
+	</section>
+
+
+	<section class="slide slide-codepen clear black">
+		<p data-height="100%"
+		   data-theme-id="default"
+		   data-class="codepen"
+		   data-slug-hash="OxgObM"
+		   data-default-tab="css,result"
+		   data-user="dark_mefody"
+		   data-embed-version="2"
+		   data-pen-title="#DailyCssImages - Day 17. Zombie"
+		   class="codepen cover">See the Pen
+			<a href="https://codepen.io/dark_mefody/pen/OxgObM/">#DailyCssImages - Day 17. Zombie</a> by Nikita Dubko (
+			<a href="https://codepen.io/dark_mefody">@dark_mefody</a>) on
+			<a href="https://codepen.io">CodePen</a>.</p>
+		<script async
+		        src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 	</section>
 
 
@@ -603,6 +664,13 @@
 
 
 	<section class="slide">
+		<h2 class="shout shout-mini">display: layout(hexagon);
+			<br>
+			<a href="http://localhost/~asd/talks/houdini-magic/demos/6_hexagon-layout/">демо</a></h2>
+	</section>
+
+
+	<section class="slide">
 		Animation Worklet
 		<br> https://github.com/WICG/animation-worklet
 		<br> Анимации, привязанные к scroll — большая дыра в производительности. Текущее решение: если элемент находится на отдельном
@@ -685,16 +753,16 @@
 		<p class="list-header">Видео</p>
 		<ol>
 			<li>
+				<a href="https://www.youtube.com/watch?v=sE3ttkP15f8">Houdini: Demystifying the Future of CSS</a>
+				— Google I/O 2016
+			</li>
+			<li>
 				<a href="https://vimeo.com/232982766">Philip Walton | Polyfills & Houdini | Browser API Special</a>
 				— CSS Day 2017
 			</li>
 			<li>
 				<a href="https://www.youtube.com/watch?v=66E0_QFnmlA">Serg Hospodarets: CSS Houdini - from CSS variables to JavaScript and back</a>
-				— Frontend United
-			</li>
-			<li>
-				<a href="https://www.youtube.com/watch?v=sE3ttkP15f8">Houdini: Demystifying the Future of CSS</a>
-				— Google I/O 2016
+				— Frontend United 2017
 			</li>
 			<li>
 				<a href="https://www.youtube.com/watch?v=RNkwDR1o4u0">Magic Tricks with CSS Houdini (Sam Richard)</a>
@@ -704,7 +772,7 @@
 
 		<style>
 			.nd-materials ol {
-				font-size: 20px;
+				font-size: 19px;
 			}
 
 		</style>

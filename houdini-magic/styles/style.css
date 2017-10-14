@@ -28,6 +28,24 @@
     line-height: 1.5;
 }
 
+.slide .shout-mini {
+    font-size: 80px;
+}
+
 .nd-pipeline ol {
     font-size: 20px;
+}
+
+.slide pre code[class*="language-"] {
+    line-height: 1.5;
+    font-size: 20px;
+}
+
+.slide.slide-codepen {
+    padding: 30px;
+}
+
+.slide.slide-codepen .codepen,
+.slide.slide-codepen .cp_embed_wrapper {
+    height: 100%;
 }
