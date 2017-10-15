@@ -857,6 +857,28 @@ style.then(console.log);
 	</section>
 
 
+	<section class="slide nd-pipeline nd-parse-api-total">
+		<svg class="render-block cover">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<footer>
+			<p>CSS Parse API позволяет управлять этапом Parser конвейера рендеринга браузера. Ставим галочку.</p>
+		</footer>
+
+		<style>
+			.nd-parse-api-total {
+				--nd-render-parse-color: var(--color-checked);
+				--nd-render-dom-color: lightgreen;
+				--nd-render-cascade-color: var(--color-inactive);
+				--nd-render-layout-color: var(--color-inactive);
+				--nd-render-paint-color: var(--color-inactive);
+				--nd-render-composite-color: var(--color-inactive);
+			}
+
+		</style>
+	</section>
+
+
 	<section class="slide">
 		<h2 class="shout shout-mini">CSS Typed OM</h2>
 	</section>
@@ -1032,10 +1054,41 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 	initialValue: "80px"
 } /* CSS */</code></pre>
 		<footer>
-			<p>Как анимировать CSS Custom Property (например, ширину sidebar)? CSS-переменные — это строки. Движок браузера не знает,
-				как их анимировать, потому что сложно вычислить разницу в 20% между строками "A" и "B".
+			<p>
+				Как анимировать CSS Custom Property (например, ширину sidebar)? CSS-переменные — это строки. Движок браузера не знает, как
+				их анимировать, потому что сложно вычислить разницу в 20% между строками "A" и "B".
 				<mark>CSS Properties and Values API</mark> — решение проблемы. На самом деле API имеет всего один метод, который позволяет
-				назначить тип для переменной, задать ее начальное значение и наследуемость.</p>
+				назначить тип для переменной, задать ее начальное значение и наследуемость.
+			</p>
+		</footer>
+	</section>
+
+
+	<section class="slide">
+		<h2>syntax</h2>
+		<p class="double">
+			&lt;length&gt;
+			<br>&lt;number&gt;
+			<br>&lt;percentage&gt;
+			<br>&lt;length-percentage&gt;
+			<br>&lt;color&gt;
+			<br>&lt;image&gt;
+			<br>&lt;url&gt;
+			<br>&lt;integer&gt;
+			<br>&lt;angle&gt;
+			<br>&lt;time&gt;
+			<br>&lt;resolution&gt;
+			<br>&lt;transform-function&gt;
+			<br>
+			<br>&lt;length | number&gt;
+			<br>&lt;length+&gt;
+			<br>small | smaller
+		</p>
+		<footer>
+			<p>
+				Параметр
+				<code>syntax</code> может иметь одно из представленных на слайде значений.
+			</p>
 		</footer>
 	</section>
 
@@ -1047,84 +1100,183 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 	</section>
 
 
-	<section class="slide">
-		<h2>Worklets</h2>
-		<br>https://drafts.css-houdini.org/worklets/
-		<br> Worklet — урезанный Worker с ограниченными правами и работающий параллельно основному потоку -> нет доступа к DOM. Решение
-		— Proxy. Полифилл к Compositor Worklet (устаревший).
-	</section>
+	<section class="slide nd-pipeline nd-typed-api-total">
+		<svg class="render-block cover">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<footer>
+			<p>CSS Properties and Values API частично позволяет управлять этапом Cascade конвейера рендеринга браузера. Ставим галочку.</p>
+		</footer>
 
-
-	<section class="slide">
-		<pre><code>
-				window.someWorklet.addModule("someWorklet.js»).then(…);
-
-				registerSomeWorklet(‘someWorkletName’, class {
-				   process(arg) {
-					  …
-				   }
-				});</code></pre>
-	</section>
-
-
-	<section class="slide">
-		CSS Painting API
-		<br> https://drafts.css-houdini.org/css-paint-api/
-		<br> https://drafts.css-houdini.org/css-paint-api/EXPLAINER.md
-		<br>Paint API. Дает перерисовывать все, где есть image. По сути — облегченный canvas. inputProperties — для оптимизации. Мы
-		показываем браузеру, когда нам нужно вызвать paint.
-		<br>* background-image
-		<br>* border-image
-		<br>* list-style-image
-		<br>* content
-		<br>* НЕ cursor
-	</section>
-
-
-	<section class="slide">
-		пример кода для Paint API
-		<br>
-		<pre><code>class myPaint {
-			// Input properties from element to look for
-			static get inputProperties() { return ['--foo']; }
-			// Input arguments that can be passed to `paint` function
-			static get inputArguments() { return ['<color>']; }
-			// Alpha allowed?
-			// static get alpha() { return true; } // https://github.com/w3c/css-houdini-drafts/commit/869c59a203085c4a1635c225e7cbfc47fc830adc
-			static get contextOptions() { return { alpha: true }; }
-			paint(ctx, size, props, args) {
-			  // ctx - drawing context
-			  // size - size of the box being painted
-			  // props - inputProperties
-			  // args - array of passed-in arguments
-
-			  // Paint code goes here.
+		<style>
+			.nd-typed-api-total {
+				--nd-render-parse-color: var(--color-checked);
+				--nd-render-dom-color: lightgreen;
+				--nd-render-cascade-color: var(--color-checked);
+				--nd-render-layout-color: var(--color-inactive);
+				--nd-render-paint-color: var(--color-inactive);
+				--nd-render-composite-color: var(--color-inactive);
 			}
-		  }</code></pre>
+
+		</style>
 	</section>
 
 
 	<section class="slide">
-		демо 1
-		<a href="./demos/1_ripple/index.html">ripple</a>
+		<h2 class="shout shout-mini">Worklets</h2>
+		<footer>
+			<p>
+				<mark>Worklet</mark> — урезанный Worker с ограниченными правами и работающий параллельно основному потоку. У него нет доступа
+				к DOM, поэтому работать он может только с теми объектами, к которым он непосредственно привязан, и только во время вызова
+				определенного события в своем
+				<i>event loop</i>.
+			</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		демо 2
-		<a href="./demos/2_border-colors/index.html">border-colors</a>
+		<pre><code class="language-js">// app.js — псевдокод
+window.someWorklet
+	.addModule('some-worklet.js')
+	.then(_ => {
+		console.log('some-worklet — loaded');
+	});
+
+// some-worklet.js — псевдокод
+registerSomeWorklet('some-worklet-name', class {
+	process(arg) {
+		// do magic
+	}
+});</code></pre>
+		<footer>
+			<p>Общая схема создания ворклета выглядит следующим образом.</p>
+			<p>
+				Метод
+				<code>registerSomeWorklet</code> вторым аргументом принимает
+				<code>class</code>. Сделано это для того, чтобы можно было полноценно применять возможности ООП.
+			</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		демо 3
-		<a href="./demos/3_border-slicer/index.html">border-slicer</a>
+		<h2 class="shout shout-mini">CSS Painting API 🎨</h2>
+		<footer>
+			<p>
+				Если внутри вас сидит художник, или дизайнер на проекте «так видит», а заказчик это видение одобряет, то
+				<mark>CSS Painting API</mark> может решить часть ваших проблем.
+			</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		демо 5
-		<a href="./demos/5_image-placeholder/index.html">image placeholder</a>
+		<h2>CSS Painting API</h2>
+		<p>Можно применять для отрисовки свойств:</p>
+		<ul>
+			<li>background-image</li>
+			<li>border-image</li>
+			<li>list-style-image</li>
+			<li>content</li>
+			<li style="text-decoration: line-through;">cursor</li>
+		</ul>
+		<footer>
+			<p>
+				<mark>CSS Painting API</mark> дает возможность определять, как должен отрисовываться элемент, который является изображением:
+				<i>background-image</i>,
+				<i>border-image</i>,
+				<i>list-style-image</i>,
+				<i>content</i>. По сути холст для рисования — облегченный canvas. Для оптимизации производительности repaint вызывается
+				только тогда, когда произошли изменения в
+				<code>inputProperties</code> или
+				<code>inputArguments</code>.
+			</p>
+		</footer>
+	</section>
+
+
+	<section class="slide">
+		<pre><code class="language-js">// my-paint.js
+class MyPaint {
+	static get inputProperties() { return ['--foo']; }
+	static get inputArguments() { return ['&lt;color&gt;']; }
+	static get contextOptions() { return { alpha: true }; }
+	paint(ctx, geom, properties, args) {
+		// ctx - контекст для рисования, как в canvas
+		// geom - размеры доступной для рисования области
+		// properties - свойства, на которые реагирует paintWorklet
+		// args - переданные в paintWorklet аргументы
+		// Можно рисовать почти как на обычном canvas
+	}
+}
+registerPaint('my-paint', MyPaint);</code></pre>
+	</section>
+
+	<section class="slide">
+		<pre><code class="language-css">/* style.css */
+.multi-border {
+	--foo: deeppink;
+	background-image: paint(my-paint);
+}</code></pre>
+		<pre><code class="language-js">// app.js
+CSS.registerProperty({
+	name: '--foo',
+	syntax: '&lt;color&gt;',
+	inherits: true,
+	initialValue: 'black',
+});
+CSS.paintWorklet.addModule('my-paint.js');</code></pre>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini">демо
+			<a href="./demos/1_ripple/index.html">ripple</a>
+		</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini">демо
+			<a href="./demos/2_border-colors/index.html">border-colors</a>
+		</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini">демо
+			<a href="./demos/3_border-slicer/index.html">border-slicer</a>
+		</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini">демо
+			<a href="./demos/5_image-placeholder/index.html">image-placeholder</a>
+		</h2>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-paint-api-total">
+		<svg class="render-block cover">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<footer>
+			<p>CSS Painting API позволяет управлять этапом Paint конвейера рендеринга браузера. Ставим галочку.</p>
+		</footer>
+
+		<style>
+			.nd-paint-api-total {
+				--nd-render-parse-color: var(--color-checked);
+				--nd-render-dom-color: lightgreen;
+				--nd-render-cascade-color: var(--color-checked);
+				--nd-render-layout-color: var(--color-inactive);
+				--nd-render-paint-color: var(--color-checked);
+				--nd-render-composite-color: var(--color-inactive);
+			}
+
+		</style>
 	</section>
 
 
@@ -1147,9 +1299,8 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">display: layout(hexagon);
-			<br>
-			<a href="./demos/6_hexagon-layout/">демо</a>
+		<h2 class="shout shout-mini">демо
+			<a href="./demos/6_hexagon-layout/index.html">layout(hexagon)</a>
 		</h2>
 	</section>
 
