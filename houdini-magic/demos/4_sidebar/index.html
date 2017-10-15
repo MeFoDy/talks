@@ -102,6 +102,14 @@
         border-radius: var(--border-radius);
     }
 
+    .button {
+        height: 40px;
+        font-size: 20px;
+        line-height: 20px;
+        color: white;
+        cursor: pointer;
+    }
+
 </style>
 
 <div class="container">
@@ -138,16 +146,20 @@
         <div class="block"></div>
         <div class="block"></div>
         <div class="block"></div>
+        <button class="block button">R</button>
     </div>
 </div>
 
 <script>
-
-    CSS.registerProperty({
-        name: '--sidebar-width',
-        syntax: '<length>',
-        initialValue: '80px',
-        inherits: true,
+    const button = document.querySelector('.button');
+    button.addEventListener('click', function buttonClick() {
+        CSS.registerProperty({
+            name: '--sidebar-width',
+            syntax: '<length>',
+            initialValue: '80px',
+            inherits: true,
+        });
+        button.removeEventListener('click', buttonClick);
     });
 
     let isOpened = false;

@@ -960,6 +960,12 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 				</ul>
 			</li>
 		</ul>
+		<footer>
+			<p>
+				<mark>CSS Typed OM</mark> определяет иерархию классов возможных значений CSS-свойств.
+			</p>
+		</footer>
+
 		<style>
 			.nd-css-style-value {
 				font-size: 19px;
@@ -1009,7 +1015,40 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		Worklets
+		<h2 class="shout shout-mini">CSS Properties and Values API</h2>
+	</section>
+
+
+	<section class="slide">
+		<pre><code class="language-js">CSS.registerProperty({
+	name: '--sidebar-width',
+	syntax: '&lt;length&gt;',
+	inherits: true,
+	initialValue: '80px'
+}); // JS</code></pre>
+		<pre class="next"><code class="language-css">@property --sidebar-width {
+	syntax: "&lt;length&gt;",
+	inherits: true,
+	initialValue: "80px"
+} /* CSS */</code></pre>
+		<footer>
+			<p>Как анимировать CSS Custom Property (например, ширину sidebar)? CSS-переменные — это строки. Движок браузера не знает,
+				как их анимировать, потому что сложно вычислить разницу в 20% между строками "A" и "B".
+				<mark>CSS Properties and Values API</mark> — решение проблемы. На самом деле API имеет всего один метод, который позволяет
+				назначить тип для переменной, задать ее начальное значение и наследуемость.</p>
+		</footer>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini">демо
+			<a href="./demos/4_sidebar/index.html">sidebar</a>
+		</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2>Worklets</h2>
 		<br>https://drafts.css-houdini.org/worklets/
 		<br> Worklet — урезанный Worker с ограниченными правами и работающий параллельно основному потоку -> нет доступа к DOM. Решение
 		— Proxy. Полифилл к Compositor Worklet (устаревший).
@@ -1090,38 +1129,6 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		CSS Properties and Values API
-		<br> https://drafts.css-houdini.org/css-properties-values-api/
-		<br>Как анимировать custom property? (пример: sidebar) Но переменные — это строки. Движок браузера не знает, как их анимировать,
-		потому что сложно вычислить разницу в 20% между строкой A и B. Properties and Values API — спасает. На самом деле, это
-		всего один метод, который позволяет назначить тип для переменной, дать начальное значение и др.
-	</section>
-
-
-	<section class="slide">
-		пример кода для CSS Properties and Values API
-		<br>
-		<pre><code>.add-my-paint {
-				background-image: paint(my-paint);
-				--circle-color: blue;
-			  }
-
-			  elem.animate([
-				{'--circle-color': 'red'},
-				{'--circle-color': 'blue'}
-			  ], {
-				direction: 'alternate', duration: 5000, iterations: 10
-			  });</code></pre>
-	</section>
-
-
-	<section class="slide">
-		демо 4
-		<a href="./demos/4_sidebar/index.html">sidebar</a>
-	</section>
-
-
-	<section class="slide">
 		Box Tree API
 		<br> описание идеи
 	</section>
@@ -1150,6 +1157,17 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 	<section class="slide">
 		Animation API
 		<br> https://github.com/web-animations/web-animations-js
+		<pre><code>.add-my-paint {
+	background-image: paint(my-paint);
+		--circle-color: blue;
+	}
+
+	elem.animate([
+		{'--circle-color': 'red'},
+		{'--circle-color': 'blue'}
+	], {
+		direction: 'alternate', duration: 5000, iterations: 10
+	});</code></pre>
 	</section>
 
 
