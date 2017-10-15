@@ -401,15 +401,15 @@
 	<section class="slide">
 		<h2>Polyfill</h2>
 		<pre><code class="language-js">(function(self) {
-		'use strict';
-		if (self.es2020feature) {
-			return;
-		}
-		self.es2020feature = function() {
-			// Do some magic
-		};
-		self.es2020feature.polyfill = true;
-	})(this);</code></pre>
+	'use strict';
+	if (self.es2020feature) {
+		return;
+	}
+	self.es2020feature = function() {
+		// Do some magic
+	};
+	self.es2020feature.polyfill = true;
+})(this);</code></pre>
 		<footer>
 			<p>
 				Чтобы написать свой polyfill, достаточно применить
@@ -426,13 +426,13 @@
 			<a href="ponyfill.com">ponyfill.com</a>
 		</p>
 		<pre><code class="language-js">// is-nan-ponyfill.js
-	module.exports = function (value) {
-		return value !== value;
-	};
+module.exports = function (value) {
+	return value !== value;
+};
 
-	// app.js
-	var isNanPonyfill = require('is-nan-ponyfill');
-	isNanPonyfill(5);</code></pre>
+// app.js
+var isNanPonyfill = require('is-nan-ponyfill');
+isNanPonyfill(5);</code></pre>
 		<footer>
 			<p>
 				Сторонники чистых функций и противники side-эффектов используют другой подход —
@@ -908,12 +908,69 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 				строк в значения CSS-свойств.
 			</p>
 			<p>
-				<i>Частично реализована</i> в Chrome (за флагом). Метод
-				<code>get()</code> вне Worklet возвращает
-				<code>null</code>. Некоторые типы, вроде
+				<i>Частично реализована</i> в Chrome (за флагом). Вместо
+				<code>element.computedStyleMap()</code> необходимо использовать
+				<code>window.getComputedStyleMap(element)</code>. Некоторые типы, вроде
 				<code>CSSMathSum</code>, пока не доступны в глобальном пространстве имен.
 			</p>
 		</footer>
+	</section>
+
+
+	<section class="slide nd-css-style-value">
+		<h2>Иерархия возможных значений свойств</h2>
+		<ul>
+			<li class="next">
+				<b>CSSStyleValue</b>
+				<ul>
+					<li class="next">CSSUnparsedValue
+						<i class="note">--my-custom-property: some custom value list</i>
+					</li>
+					<li class="next">CSSKeywordValue
+						<i class="note">border-image: initial</i>
+					</li>
+					<li class="next">CSSNumericValue
+						<ul>
+							<li class="next">CSSUnitValue
+								<i class="note">height: 2px</i>
+							</li>
+							<li class="next">CSSMathValue
+								<i class="note">width: calc(1em + 5px)</i>
+							</li>
+						</ul>
+					</li>
+					<li class="next">CSSPositionValue
+						<i class="note">object-position: top 50%</i>
+					</li>
+					<li class="next">CSSTransformValue
+						<i class="note">transform: translate(5px, 10em)</i>
+					</li>
+					<li class="next">CSSResourceValue
+						<i class="note">background-image: url(picture.jpg)</i>
+						<ul>
+							<li class="next">CSSImageValue
+								<i class="note">list-style-image: linear-gradient(red 0, blue 100%)</i>
+							</li>
+							<li class="next">CSSFontFaceValue
+								<i class="note">@font-face { ... }</i>
+							</li>
+						</ul>
+					</li>
+
+				</ul>
+			</li>
+		</ul>
+		<style>
+			.nd-css-style-value {
+				font-size: 19px;
+			}
+
+			.nd-css-style-value i.note {
+				margin-left: 20px;
+				color: #999;
+			}
+
+		</style>
 	</section>
 
 
@@ -1055,11 +1112,6 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 			  ], {
 				direction: 'alternate', duration: 5000, iterations: 10
 			  });</code></pre>
-	</section>
-
-
-	<section class="slide">
-		Карта наследования классов CSSStyleValue
 	</section>
 
 

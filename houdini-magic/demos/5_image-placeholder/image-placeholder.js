@@ -26,10 +26,10 @@ registerPaint('image-with-placeholder', class {
             img = properties.get('--image'),
             tick = parseInt(properties.get('--tick').toString());
         switch (img.state) {
-            case 'ready':
+            case 'loaded':
                 ctx.drawImage(img, 0, 0, geom.width, geom.height);
                 break;
-            case 'invalid':
+            case 'error':
                 // draw invalid image placeholder
                 break;
             default:
