@@ -1187,10 +1187,7 @@ registerSomeWorklet('some-worklet-name', class {
 				<i>background-image</i>,
 				<i>border-image</i>,
 				<i>list-style-image</i>,
-				<i>content</i>. По сути холст для рисования — облегченный canvas. Для оптимизации производительности repaint вызывается
-				только тогда, когда произошли изменения в
-				<code>inputProperties</code> или
-				<code>inputArguments</code>.
+				<i>content</i>.
 			</p>
 		</footer>
 	</section>
@@ -1211,11 +1208,21 @@ class MyPaint {
 	}
 }
 registerPaint('my-paint', MyPaint);</code></pre>
+		<footer>
+			<p>
+				По сути холст для рисования — облегченный canvas.
+			</p>
+			<p>
+				Для оптимизации производительности repaint вызывается только тогда, когда произошли изменения в
+				<code>inputProperties</code> или
+				<code>inputArguments</code>.
+			</p>
+		</footer>
 	</section>
 
 	<section class="slide">
 		<pre><code class="language-css">/* style.css */
-.multi-border {
+.my-element {
 	--foo: deeppink;
 	background-image: paint(my-paint);
 }</code></pre>
@@ -1227,6 +1234,13 @@ CSS.registerProperty({
 	initialValue: 'black',
 });
 CSS.paintWorklet.addModule('my-paint.js');</code></pre>
+		<footer>
+			<p>
+				За вызов ворклета при отрисовки элемента отвечает функция CSS
+				<code>paint()</code>. Первым аргументом в нее необходимо передать имя ворклета, дальше через запятую можно передать аргументы, соответствующие
+				типам, описанным в ворклете.
+			</p>
+		</footer>
 	</section>
 
 
@@ -1280,21 +1294,181 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 	</section>
 
 
-	<section class="slide">
-		Box Tree API
-		<br> описание идеи
+	<section class="slide nd-box-api">
+		<h2>Box Tree API</h2>
+		<pre><code class="language-html">&lt;style&gt;
+p::first-line { color: green; }
+p::first-letter { color: red; }
+&lt;/style&gt;
+
+&lt;p&gt;foo &lt;i&gt;bar baz&lt;/i&gt;&lt;/p&gt;</code></pre>
+		<div class="example">
+			<p>foo
+				<i>bar baz</i>
+			</p>
+			<div class="firstline-box next"></div>
+			<div class="secondline-box next"></div>
+			<div class="firstletter-box next"></div>
+			<div class="oo-box next"></div>
+			<div class="bar-box next"></div>
+			<div class="baz-box next"></div>
+		</div>
+
+		<footer>
+			<p>
+				Как вы думаете, сколько контейнеров генерирует браузер после обработки такого кода?
+				<ol>
+					<li>контейнер первой строки;</li>
+					<li>контейнер второй строки;</li>
+					<li>контейнер для первого символа;</li>
+					<li>контейнер для оставшихся символов
+						<code>oo</code>;</li>
+					<li>контейнер для
+						<code>bar</code>;</li>
+					<li>контейнер для
+						<code>baz</code>.</li>
+				</ol>
+			</p>
+			<p>
+				Суть Box Tree API в том, чтобы дать разработчикам возможность получать размеры и положение этих фрагментов.
+			</p>
+		</footer>
+
+		<style>
+			.nd-box-api .example {
+				font-size: 60px;
+				width: 200px;
+				line-height: 1;
+				position: relative;
+			}
+
+			.nd-box-api .example .next {
+				position: absolute;
+				display: block;
+				border: 3px solid green;
+			}
+
+			.nd-box-api .example .firstline-box {
+				width: 188px;
+				height: 60px;
+				top: 0;
+				left: 0;
+			}
+
+			.nd-box-api .example .secondline-box {
+				width: 188px;
+				height: 60px;
+				top: 60px;
+				left: 0;
+				border-color: blue;
+			}
+
+			.nd-box-api .example .firstletter-box {
+				width: 20px;
+				height: 54px;
+				top: 3px;
+				left: 3px;
+				border-color: magenta;
+			}
+
+			.nd-box-api .example .oo-box {
+				width: 72px;
+				height: 54px;
+				top: 3px;
+				left: 23px;
+				border-color: cyan;
+			}
+
+			.nd-box-api .example .bar-box {
+				width: 90px;
+				height: 54px;
+				top: 3px;
+				left: 95px;
+				border-color: orange;
+			}
+
+			.nd-box-api .example .baz-box {
+				width: 90px;
+				height: 54px;
+				top: 63px;
+				left: 3px;
+				border-color: red;
+			}
+
+			.nd-box-api .example p::first-line {
+				color: green;
+			}
+
+			.nd-box-api .example p::first-letter {
+				color: red;
+			}
+
+		</style>
 	</section>
 
 
 	<section class="slide">
-		CSS Layout API
-		<br>Layout API — сложная, но полезная магия. Можно сделать решение на нем, и если оно будет полезным, инженеры браузеров могут
-		реализовать это решение на C++ (или на чем написано движок браузера), чтобы сделать это решение более производительным.
+		<h2 class="shout shout-mini">CSS Layout API 🚀</h2>
+		<footer>
+			<p>
+				<mark>CSS Layout API</mark> — самое сложное, и при этом самое мощное нововведение CSS Houdini. Оно позволит вмешиваться прямо
+				в этап расположения элементов на странице. Раскладку вроде grid и flexbox можно будет установить как npm-пакет, подключить
+				к странице и управлять ею собственными параметрами.
+			</p>
+			<p>
+				Если разработанная раскладка будет полезна многим (например, masonry), вендоры могут реализовать ее на языке, на котором
+				написан движок браузера, чтобы сделать его более производительным.
+			</p>
+		</footer>
+	</section>
+
+
+	<section class="slide nd-layout-example">
+		<pre><code class="language-js">registerLayout('my-layout', class myLayout {
+	static get inputProperties() { return ['--foo']; }
+
+	static get childrenInputProperties() { return ['--bar']; }
+
+	static get childDisplay() { return 'normal'; } // normal | block
+
+	*intrinsicSizes(children, styleMap) {
+		// Вычислить внутрении размеры элемента
+	}
+
+	*layout(space, children, styleMap, edges, breakToken) {
+		// Разместить всех children внутри space, учитывая edges
+	}
+});</code></pre>
+
+		<footer>
+			<p>
+				На первый взгляд, реализация layout worklet выглядит просто, но в спецификации до сих пор много нерешенных моментов. Layout
+				API сильно зависит от Box Tree API, и обе спецификации пока носят статус набора идей. Однако на конференции Full Stack
+				Fest 2017 Сэм Ричардс поделился внутренней информацией о том, что к концу года в Chrome Canary за флагом может появиться
+				более-менее работоспособное API.
+			</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		пример кода для CSS Layout API
+		<pre><code class="language-css">/* CSS */
+.layout-example {
+	--foo: 5;
+	display: layout(my-layout);
+}
+
+.layout-example .child {
+	--bar: 200px;
+}</code></pre>
+		<pre><code class="language-js">// JavaScript
+window.layoutWorklet.addModule('my-layout.js');</code></pre>
+		<footer>
+			<p>
+				Если написание собственной раскладки все-таки немного Rocket Science, то ее использование такое же простое, как и использование
+				других ворклетов.
+			</p>
+		</footer>
 	</section>
 
 
@@ -1334,6 +1508,7 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 	<section class="slide">
 		пример кода Animation Worklet
+		<br> https://github.com/GoogleChromeLabs/houdini-samples
 		<br>http://dassur.ma/things/animworklet/
 	</section>
 
