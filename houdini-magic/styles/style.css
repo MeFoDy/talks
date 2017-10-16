@@ -52,6 +52,11 @@
     width: 100%;
 }
 
+.slide pre.line-numbers > code {
+    margin-left: 0;
+    padding-left: 0;
+}
+
 .slide.slide-codepen {
     padding: 30px;
 }

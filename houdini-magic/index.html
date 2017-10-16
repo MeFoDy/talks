@@ -1479,89 +1479,264 @@ window.layoutWorklet.addModule('my-layout.js');</code></pre>
 	</section>
 
 
-	<section class="slide">
-		Animation API
-		<br> https://github.com/web-animations/web-animations-js
-		<pre><code>.add-my-paint {
-	background-image: paint(my-paint);
-		--circle-color: blue;
-	}
+	<section class="slide nd-pipeline nd-paint-api-total">
+		<svg class="render-block cover">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<footer>
+			<p>CSS Layout API позволяет управлять этапом Layout конвейера рендеринга браузера. Ставим галочку.</p>
+		</footer>
 
-	elem.animate([
-		{'--circle-color': 'red'},
-		{'--circle-color': 'blue'}
-	], {
-		direction: 'alternate', duration: 5000, iterations: 10
-	});</code></pre>
+		<style>
+			.nd-paint-api-total {
+				--nd-render-parse-color: var(--color-checked);
+				--nd-render-dom-color: lightgreen;
+				--nd-render-cascade-color: var(--color-checked);
+				--nd-render-layout-color: var(--color-checked);
+				--nd-render-paint-color: var(--color-checked);
+				--nd-render-composite-color: var(--color-inactive);
+			}
+
+		</style>
 	</section>
 
 
 	<section class="slide">
-		Animation Worklet
-		<br> https://github.com/WICG/animation-worklet
-		<br>https://github.com/GoogleChromeLabs/houdini-samples/tree/master/animation-worklet
-		<br> Анимации, привязанные к scroll — большая дыра в производительности. Текущее решение: если элемент находится на отдельном
-		слое (will-change), то процессор GPU только вычислит его изменения и сделает merge слоев вместо полной перерисовки всего
-		большого слоя. Но 60FPS все равно тяжело достичь.
+		<h2 class="shout shout-mini">
+			CSS Animation Worklet API
+		</h2>
 	</section>
 
 
 	<section class="slide">
-		пример кода Animation Worklet
-		<br> https://github.com/GoogleChromeLabs/houdini-samples
-		<br>http://dassur.ma/things/animworklet/
+		<h2>Web Animations</h2>
+		<pre><code class="language-js">// JavaScript
+const element = document.querySelector('.my-element');
+element.animate([
+	{'--some-color': 'red',  'opacity': 0 },
+	{'--some-color': 'blue', 'opacity': 1},
+], {
+	direction: 'alternate',
+	duration: 5000,
+	iterations: 10, // Infinity
+});</code></pre>
+		<p class="next">
+			<a href="https://github.com/web-animations/web-animations-js">Polyfill</a>
+		</p>
+		<footer>
+			<p>
+				<mark>CSS Animation Worklet API</mark> тесно связана со спецификацией
+				<mark>Web Animations</mark>, которая позволяет через JavaScript нативно и эффективно анимировать CSS-свойства. Так как браузерная
+				поддержка пока скудная, пробовать API на вкус лучше с помощью
+				<a href="https://github.com/web-animations/web-animations-js">полифилла</a>.
+			</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		демо Animation Worklet
+		<pre><code class="language-js">// worklet.js
+registerAnimator(
+	'scroll-position-animator',
+	class {
+		constructor(options) {
+			this.options = options;
+		}
+
+		animate(currentTime, effect) {
+			effect.children.forEach((children) => {
+				children.localTime = currentTime;
+			});
+		}
+	});
+</code></pre>
+		<footer>
+			<p>
+				Анимации, привязанные к scroll — большая дыра в производительности. 60FPS во всех браузерах пока что тяжело достичь. Но если
+				переложить эту задачу на
+				<mark>CSS Animation Worklet API</mark>, то производительность вырастет в разы.
+			</p>
+			<p>
+				Для обработки анимаций в отдельном потоке нужно зарегистрировать свой Animator.
+			</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		Font Metrics API
-		<br> Font Metrics API — позволит вычислять различные метрики шрифтов, к которым на данный момент доступа нет. Как посчитать
-		точную ширину текста? А если он не помещается в ширину окна?
+		<pre class="cover line-numbers"><code class="language-js" style="font-size: 18px; line-height: 24px;">// app.js
+animationWorklet.addModule('worklet.js').then(() => {
+	const animatorName = 'scroll-position-animator';
+	const scrollSource = document.querySelector('.page-wrapper');
+	const scrollToTopElemet = document.querySelector('.scroll-to-top');
+
+	const scrollToTopFrames = [
+		new KeyframeEffect(
+			scrollToTopElemet,
+			[
+				{ 'transform': 'translateY(80px)', 'opacity': '0' },
+				{ 'transform': 'translateY(0)', 'opacity': '1' }
+			],
+			{ duration: 1, iterations: 1, fill: 'both' }),
+	];
+	const scrollToTopTimeline = new ScrollTimeline({
+		scrollSource,
+		orientation: 'vertical',
+		startScrollOffset: '200px',
+		endScrollOffset: '280px',
+	});
+	const scrollToTopAnimation =
+		new WorkletAnimation(animatorName, scrollToTopFrames, scrollToTopTimeline);
+	scrollToTopAnimation.play();
+});</code></pre>
+		<footer>
+			<p>
+				Здесь самое длинное полотно кода в докладе :)
+			</p>
+			<p>
+				Как вы можете заметить, здесь используется целая куча API:
+				<i>KeyframeEffect</i>,
+				<i>ScrollTimeline</i>,
+				<i>WorkletAnimation</i>. Все вместе они позволяют добиться высокой производительности даже с очень сложными анимациями.
+				А если совместить все это с
+				<mark>Intersection Observer API</mark>, то можно еще больше повысить плавность графики.
+			</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		Почему houdini хорош?
-		<br>http://bfgeek.com/houdini/2015/09/14/the-performance-of-houdini-paint/
-		<br> * производительность
-		<br> * оптимизации
-		<br> * эргономичность
+		<h2 class="shout shout-mini">демо
+			<a href="./demos/7_scroll-animation/index.html">scroll-animation</a>
+		</h2>
 	</section>
 
 
 	<section class="slide">
-		Недостатки:
-		<br> так как ворклеты загружаются асинхронно, то они не блокируют рендеринг. Поэтому здесь, как у шрифтов, появляется моргание
-		при отрисовке. Как будут решать проблему — пока неизвестно.
-		<br> пока не работает.
-		<br> сложность кода, верстальщикам нужно будет учить еще и все эти API.
+		<h2 class="shout shout-mini">
+			демо
+			<a href="http://googlechromelabs.github.io/houdini-samples/">от Google</a>
+		</h2>
+	</section>
+
+
+	<section class="slide nd-pipeline nd-paint-api-total">
+		<svg class="render-block cover">
+			<use xlink:href="#nd-render-picture">
+		</svg>
+		<footer>
+			<p>Этап Composite конвейера рендеринга браузера тоже открыт. Ставим галочку.</p>
+		</footer>
+
+		<style>
+			.nd-paint-api-total {
+				--nd-render-parse-color: var(--color-checked);
+				--nd-render-dom-color: lightgreen;
+				--nd-render-cascade-color: var(--color-checked);
+				--nd-render-layout-color: var(--color-checked);
+				--nd-render-paint-color: var(--color-checked);
+				--nd-render-composite-color: var(--color-checked);
+			}
+
+		</style>
+	</section>
+
+
+	<section class="slide clear black">
+		<img src="./pictures/success.gif"
+		     alt="Friends"
+		     style="width:100%;"
+		     class="cover">
+		<footer>
+			<p>Получается, что CSS Houdini дает нам контроль над всеми этапами рендеринга страницы?</p>
+			<p>
+				<b>Да!</b> И это восхитительно!</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		Почему стоит попробовать уже сейчас?
-		<br>* когда включат - уже будет навык
-		<br>* возможность повлиять на спецификацию
-		<br>* ценность на рынке труда
+		<h2 class="shout shout-mini">Font Metrics API</h2>
 	</section>
 
 
 	<section class="slide">
-		Как долго ждать?
-		<br> * часть уже реализована в Canary и за флагами в Chrome
-		<br> * Layout API - в конце 2017 (https://www.youtube.com/watch?v=RNkwDR1o4u0)
-		<br> * все API сильно зависят друг от друга
+		<img src="./pictures/glyph_metrics.png"
+		     alt="Метрики шрифтов"
+		     class="cover">
+		<footer>
+			<p>
+				<mark>Font Metrics API</mark> позволит вычислять различные метрики шрифтов, к которым на данный момент доступа нет. Как посчитать
+				точную ширину символа? Чему равна разница в высоте между буквами
+				<b>x</b> и
+				<b>j</b>? Разработчики шрифтов работают с большим количеством метрик, но веб-разработчикам они пока недоступны явно.
+			</p>
+		</footer>
+	</section>
+
+
+	<section class="slide clear black">
+		<img src="./pictures/barnie.gif"
+		     style="width:100%;"
+		     class="cover"
+		     alt="Барни Стинсон">
+		<footer>
+			<p>
+				Пока мозг еще удерживает полученную информацию, коротко сформулируем, что же нового нам несет CSS Houdini.
+			</p>
+		</footer>
 	</section>
 
 
 	<section class="slide">
-		Что с другими браузерами?
-		<br> http://ishoudinireadyyet.com
+		<h2>Почему Houdini хорош?</h2>
+		<ol>
+			<li class="next">производительность;</li>
+			<li class="next">удобство использования;</li>
+			<li class="next">возможность написания полифиллов для CSS;</li>
+			<li class="next">меньше различий между браузерами;</li>
+			<li class="next">полный контроль.</li>
+		</ol>
+	</section>
+
+
+	<section class="slide">
+		<h2>Недостатки Houdini</h2>
+		<ol>
+			<li class="next">еще несколько спецификаций, которых нужно долго ждать;</li>
+			<li class="next">не решает проблему поддержки старых браузеров;</li>
+			<li class="next">для эффективной разработки нужно еще больше знаний;</li>
+			<li class="next">асинхронная природа Worklets — моргание стилей.</li>
+		</ol>
+	</section>
+
+
+	<section class="slide">
+		<img src="./pictures/is-houdini-ready.jpg"
+		     alt="http://ishoudinireadyyet.com"
+		     class="cover">
+		<footer>
+			<p>
+				Как обстоят дела с другими браузерами?
+			</p>
+			<p>
+				Не только команда Chrome занимается внедрением спецификаций в ночные сборки браузера. Даже Safari изъявили желание поучаствовать
+				в разработке и реализации спецификации.
+			</p>
+		</footer>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini">
+			<a href="http://ishoudinireadyyet.com">ishoudinireadyyet.com</a>
+		</h2>
+		<footer>
+			<p>
+				Алекс Сурма из Google поддерживает в актуальном состоянии сведения о доступности Houdini API в различных браузерах по ссылке
+				<a href="http://ishoudinireadyyet.com">ishoudinireadyyet.com</a>.
+			</p>
+		</footer>
 	</section>
 
 
@@ -1608,7 +1783,7 @@ window.layoutWorklet.addModule('my-layout.js');</code></pre>
 
 
 	<section class="slide">
-		<h2>Спасибо за внимание</h2>
+		<h2>Спасибо за внимание!</h2>
 		<p>
 			<b>слайды: </b>
 			<a href="https://mefody.github.io/talks/houdini-magic/">https://mefody.github.io/talks/houdini-magic/</a>
