@@ -46,19 +46,21 @@
 			#cover h2 {
 				margin: 30px 0 20px;
 				font-size: 70px;
+				color: white;
+				text-shadow: 0 0 2px rgb(39, 17, 11), 5px 3px 10px rgba(39, 17, 11, 0.7);
 			}
 
 			#cover hr {
-				border-color: #ccc;
+				border-color: white;
 				margin-left: 0;
 				width: 300px;
-				opacity: 0.5;
+				opacity: 0.7;
 			}
 
 			#cover p {
 				margin: 0;
-				font-size: 20px;
-				color: #585a5e;
+				font-size: 24px;
+				color: black;
 			}
 
 		</style>
@@ -278,9 +280,8 @@
 
 
 	<section class="slide clear black">
-		<img class="cover"
-		     src="./pictures/sad.gif"
-		     style="width: 100%;">
+		<img class="cover height"
+		     src="./pictures/sad.gif">
 		<footer>
 			<p>Неужели все так плохо?</p>
 		</footer>
@@ -289,7 +290,7 @@
 
 	<section class="slide">
 		<h2 class="shout shout-mini">
-			<a href="https://extensiblewebmanifesto.org">extensiblewebmanifesto.org</a>
+			<a href="https://extensiblewebmanifesto.org">The Extensible Web Manifesto</a>
 		</h2>
 		<footer>
 			<p>10 июня 2013 года авторы веб-спецификаций и разработчики из ведущих IT-компаний подписали веб-манифест, который должен
@@ -622,9 +623,8 @@ Polyfill({
 
 
 	<section class="slide clear black">
-		<img class="cover"
-		     src="./pictures/travolta.gif"
-		     style="width: 100%;">
+		<img class="cover height"
+		     src="./pictures/travolta.gif">
 		<footer>
 			<p>И что делать? Куда идти дальше?</p>
 		</footer>
@@ -641,8 +641,8 @@ Polyfill({
 
 	<section class="slide">
 		<img class="cover"
-		     src="./pictures/houdini-working-group-meeting.jpg"
-		     alt="">
+		     src="./pictures/houdini-task-force.jpg"
+		     alt="CSS-TAG Houdini Task Force">
 		<footer>
 			<p>С 6 по 8 февраля 2015 года в офисе Google в Сиднее (Австралия)
 				<a href="https://log.csswg.org/irc.w3.org/houdini/2015-02-06/">состоялась</a> первая встреча рабочей группы CSS Houdini, на которой было принято много важных решений и планов дальнейших
@@ -652,10 +652,10 @@ Polyfill({
 	</section>
 
 
-	<section class="slide black">
+	<section class="slide black clear">
 		<img src="./pictures/houdini.jpg"
 		     alt="Гарри Гудини"
-		     class="cover">
+		     class="cover height">
 		<footer>
 			<p>Может возникнуть вопрос, почему проект назвали Houdini?</p>
 			<p>Гарри Гудини — знаменитый иллюзионист начала 20 века, который прославился не только сложными трюками с наручниками и побегами,
@@ -692,25 +692,26 @@ Polyfill({
 
 
 	<section class="slide nd-houdini-api-list">
-		<figure class="cover">
-			<img src="./pictures/css-tag-houdini-specs.jpg"
-			     alt="CSS Houdini specifications">
-			<figcaption>
-				<p>
-					<a href="https://github.com/w3c/css-houdini-drafts">Репозиторий проекта на Github</a>
-				</p>
-			</figcaption>
-		</figure>
+		<img src="./pictures/css-tag-houdini-specs.jpg"
+		     alt="CSS Houdini specifications"
+		     class="cover width">
+		<p class="image-caption">
+			<a href="https://github.com/w3c/css-houdini-drafts">Репозиторий проекта на Github</a>
+		</p>
 		<footer>
 			<p>Все спецификации вынесены в отдельный
 				<a href="https://github.com/w3c/css-houdini-drafts">репозиторий</a> на Github.</p>
 		</footer>
 
 		<style>
-			.nd-houdini-api-list figcaption {
+			.nd-houdini-api-list .image-caption {
 				text-align: center;
 				font-size: 20px;
 				font-style: italic;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				transform: translateX(-50%);
 			}
 
 		</style>
@@ -737,6 +738,7 @@ Polyfill({
 	--b: 147;
 	--deeppink-color: rgb(var(--r), var(--g), var(--b));
 }
+
 .pink-element {
 	--element-width: 200px;
 	--element-border-width: 20px;
@@ -786,7 +788,7 @@ document.documentElement.style.setProperty('--r', 190);</code></pre>
 
 	<section class="slide">
 		<img src="./pictures/caniuse-custom-properties.jpg"
-		     class="cover"
+		     class="cover height"
 		     alt="Custom Properties — caniuse.com">
 		<footer>
 			<p>Если вам не нужно поддерживать IE и Opera Mini, использовать
@@ -943,38 +945,38 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 	<section class="slide nd-css-style-value">
 		<h2>Иерархия возможных значений свойств</h2>
 		<ul>
-			<li class="next">
+			<li>
 				<b>CSSStyleValue</b>
 				<ul>
-					<li class="next">CSSUnparsedValue
+					<li>CSSUnparsedValue
 						<i class="note">--my-custom-property: some custom value list</i>
 					</li>
-					<li class="next">CSSKeywordValue
+					<li>CSSKeywordValue
 						<i class="note">border-image: initial</i>
 					</li>
-					<li class="next">CSSNumericValue
+					<li>CSSNumericValue
 						<ul>
-							<li class="next">CSSUnitValue
+							<li>CSSUnitValue
 								<i class="note">height: 2px</i>
 							</li>
-							<li class="next">CSSMathValue
+							<li>CSSMathValue
 								<i class="note">width: calc(1em + 5px)</i>
 							</li>
 						</ul>
 					</li>
-					<li class="next">CSSPositionValue
+					<li>CSSPositionValue
 						<i class="note">object-position: top 50%</i>
 					</li>
-					<li class="next">CSSTransformValue
+					<li>CSSTransformValue
 						<i class="note">transform: translate(5px, 10em)</i>
 					</li>
-					<li class="next">CSSResourceValue
+					<li>CSSResourceValue
 						<i class="note">background-image: url(picture.jpg)</i>
 						<ul>
-							<li class="next">CSSImageValue
+							<li>CSSImageValue
 								<i class="note">list-style-image: linear-gradient(red 0, blue 100%)</i>
 							</li>
-							<li class="next">CSSFontFaceValue
+							<li>CSSFontFaceValue
 								<i class="note">@font-face { ... }</i>
 							</li>
 						</ul>
@@ -1004,10 +1006,8 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout"
-		    style="font-size: 40px;">
-			полифил:
-			<a href="https://github.com/css-typed-om/typed-om">https://github.com/css-typed-om/typed-om</a>
+		<h2 class="shout shout-mini">
+			<a href="https://github.com/css-typed-om/typed-om">typed-om</a>
 		</h2>
 		<footer>
 			<p>
@@ -1025,7 +1025,7 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 			     height="30"> chrome://flags
 		</h2>
 		<img src="./pictures/experimental-flag.jpg"
-		     class="cover"
+		     class="cover width"
 		     alt="Experimental flag">
 		<footer>
 			<p>
@@ -1043,17 +1043,19 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		<pre><code class="language-js">CSS.registerProperty({
+		<pre><code class="language-js">// JavaScript
+CSS.registerProperty({
 	name: '--sidebar-width',
 	syntax: '&lt;length&gt;',
 	inherits: true,
 	initialValue: '80px'
-}); // JS</code></pre>
-		<pre class="next"><code class="language-css">@property --sidebar-width {
+});</code></pre>
+		<pre class="next"><code class="language-css">/* CSS */
+@property --sidebar-width {
 	syntax: "&lt;length&gt;",
 	inherits: true,
 	initialValue: "80px"
-} /* CSS */</code></pre>
+}</code></pre>
 		<footer>
 			<p>
 				Как анимировать CSS Custom Property (например, ширину sidebar)? CSS-переменные — это строки. Движок браузера не знает, как
@@ -1066,24 +1068,38 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		<h2>syntax</h2>
+		<h2>Синтаксис</h2>
 		<p class="double">
-			&lt;length&gt;
-			<br>&lt;number&gt;
-			<br>&lt;percentage&gt;
-			<br>&lt;length-percentage&gt;
-			<br>&lt;color&gt;
-			<br>&lt;image&gt;
-			<br>&lt;url&gt;
-			<br>&lt;integer&gt;
-			<br>&lt;angle&gt;
-			<br>&lt;time&gt;
-			<br>&lt;resolution&gt;
-			<br>&lt;transform-function&gt;
+			<code>&lt;length&gt;</code>
 			<br>
-			<br>&lt;length | number&gt;
-			<br>&lt;length+&gt;
-			<br>small | smaller
+			<code>&lt;number&gt;</code>
+			<br>
+			<code>&lt;percentage&gt;</code>
+			<br>
+			<code>&lt;length-percentage&gt;</code>
+			<br>
+			<code>&lt;color&gt;</code>
+			<br>
+			<code>&lt;image&gt;</code>
+			<br>
+			<code>&lt;url&gt;</code>
+			<br>
+			<code>&lt;integer&gt;</code>
+			<br>
+			<code>&lt;angle&gt;</code>
+			<br>
+			<code>&lt;time&gt;</code>
+			<br>
+			<code>&lt;resolution&gt;</code>
+			<br>
+			<code>&lt;transform-function&gt;</code>
+			<br>
+			<br>
+			<code>&lt;length | number&gt;</code>
+			<br>
+			<code>&lt;length+&gt;</code>
+			<br>
+			<code>small | smaller</code>
 		</p>
 		<footer>
 			<p>
@@ -1095,7 +1111,7 @@ exampleStyleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">демо
+		<h2 class="shout shout-mini">Демо
 			<a href="./demos/4_sidebar/index.html">sidebar</a>
 		</h2>
 	</section>
@@ -1147,7 +1163,7 @@ window.someWorklet
 // some-worklet.js — псевдокод
 registerSomeWorklet('some-worklet-name', class {
 	process(arg) {
-		// do magic
+		// делаем магию
 	}
 });</code></pre>
 		<footer>
@@ -1176,11 +1192,21 @@ registerSomeWorklet('some-worklet-name', class {
 		<h2>CSS Painting API</h2>
 		<p>Можно применять для отрисовки свойств:</p>
 		<ul>
-			<li>background-image</li>
-			<li>border-image</li>
-			<li>list-style-image</li>
-			<li>content</li>
-			<li style="text-decoration: line-through;">cursor</li>
+			<li>
+				<code>background-image</code>
+			</li>
+			<li>
+				<code>border-image</code>
+			</li>
+			<li>
+				<code>list-style-image</code>
+			</li>
+			<li>
+				<code>content</code>
+			</li>
+			<li style="text-decoration: line-through;">
+				<code>cursor</code>
+			</li>
 		</ul>
 		<footer>
 			<p>
@@ -1196,10 +1222,11 @@ registerSomeWorklet('some-worklet-name', class {
 
 	<section class="slide">
 		<pre><code class="language-js">// my-paint.js
-class MyPaint {
+registerPaint('my-paint', class MyPaint {
 	static get inputProperties() { return ['--foo']; }
 	static get inputArguments() { return ['&lt;color&gt;']; }
 	static get contextOptions() { return { alpha: true }; }
+
 	paint(ctx, geom, properties, args) {
 		// ctx - контекст для рисования, как в canvas
 		// geom - размеры доступной для рисования области
@@ -1207,8 +1234,7 @@ class MyPaint {
 		// args - переданные в paintWorklet аргументы
 		// Можно рисовать почти как на обычном canvas
 	}
-}
-registerPaint('my-paint', MyPaint);</code></pre>
+});</code></pre>
 		<footer>
 			<p>
 				По сути холст для рисования — облегченный canvas.
@@ -1246,28 +1272,28 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">демо
+		<h2 class="shout shout-mini">Демо
 			<a href="./demos/1_ripple/index.html">ripple</a>
 		</h2>
 	</section>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">демо
+		<h2 class="shout shout-mini">Демо
 			<a href="./demos/2_border-colors/index.html">border-colors</a>
 		</h2>
 	</section>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">демо
+		<h2 class="shout shout-mini">Демо
 			<a href="./demos/3_border-slicer/index.html">border-slicer</a>
 		</h2>
 	</section>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">демо
+		<h2 class="shout shout-mini">Демо
 			<a href="./demos/5_image-placeholder/index.html">image-placeholder</a>
 		</h2>
 	</section>
@@ -1297,13 +1323,15 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 	<section class="slide nd-box-api">
 		<h2>Box Tree API</h2>
-		<pre><code class="language-html">&lt;style&gt;
+		<pre><code class="language-html">
+
+&lt;style&gt;
 p::first-line { color: green; }
 p::first-letter { color: red; }
 &lt;/style&gt;
 
 &lt;p&gt;foo &lt;i&gt;bar baz&lt;/i&gt;&lt;/p&gt;</code></pre>
-		<div class="example">
+		<div class="example place right">
 			<p>foo
 				<i>bar baz</i>
 			</p>
@@ -1337,62 +1365,64 @@ p::first-letter { color: red; }
 
 		<style>
 			.nd-box-api .example {
-				font-size: 60px;
-				width: 200px;
+				margin-top: 80px;
+				margin-right: 100px;
+				font-size: 100px;
+				width: 300px;
 				line-height: 1;
-				position: relative;
+				position: absolute;
 			}
 
 			.nd-box-api .example .next {
 				position: absolute;
 				display: block;
-				border: 3px solid green;
+				border: 4px solid green;
 			}
 
 			.nd-box-api .example .firstline-box {
-				width: 188px;
-				height: 60px;
+				width: 313px;
+				height: 100px;
 				top: 0;
 				left: 0;
 			}
 
 			.nd-box-api .example .secondline-box {
-				width: 188px;
-				height: 60px;
-				top: 60px;
+				width: 313px;
+				height: 100px;
+				top: 100px;
 				left: 0;
 				border-color: blue;
 			}
 
 			.nd-box-api .example .firstletter-box {
-				width: 20px;
-				height: 54px;
-				top: 3px;
-				left: 3px;
+				width: 34px;
+				height: 92px;
+				top: 4px;
+				left: 4px;
 				border-color: magenta;
 			}
 
 			.nd-box-api .example .oo-box {
-				width: 72px;
-				height: 54px;
-				top: 3px;
-				left: 23px;
+				width: 126px;
+				height: 92px;
+				top: 4px;
+				left: 38px;
 				border-color: cyan;
 			}
 
 			.nd-box-api .example .bar-box {
-				width: 90px;
-				height: 54px;
-				top: 3px;
-				left: 95px;
+				width: 145px;
+				height: 92px;
+				top: 4px;
+				left: 164px;
 				border-color: orange;
 			}
 
 			.nd-box-api .example .baz-box {
-				width: 90px;
-				height: 54px;
-				top: 63px;
-				left: 3px;
+				width: 150px;
+				height: 92px;
+				top: 104px;
+				left: 4px;
 				border-color: red;
 			}
 
@@ -1433,7 +1463,7 @@ p::first-letter { color: red; }
 	static get childDisplay() { return 'normal'; } // normal | block
 
 	*intrinsicSizes(children, styleMap) {
-		// Вычислить внутрении размеры элемента
+		// Вычислить внутрение размеры элемента
 	}
 
 	*layout(space, children, styleMap, edges, breakToken) {
@@ -1474,7 +1504,7 @@ window.layoutWorklet.addModule('my-layout.js');</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">демо
+		<h2 class="shout shout-mini">Демо
 			<a href="./demos/6_hexagon-layout/index.html">layout(hexagon)</a>
 		</h2>
 	</section>
@@ -1545,8 +1575,8 @@ registerAnimator(
 		}
 
 		animate(currentTime, effect) {
-			effect.children.forEach((children) => {
-				children.localTime = currentTime;
+			effect.children.forEach((child) => {
+				child.localTime = currentTime;
 			});
 		}
 	});
@@ -1565,35 +1595,56 @@ registerAnimator(
 
 
 	<section class="slide">
-		<pre class="cover line-numbers"><code class="language-js" style="font-size: 18px; line-height: 24px;">// app.js
-animationWorklet.addModule('worklet.js').then(() => {
-	const animatorName = 'scroll-position-animator';
-	const scrollSource = document.querySelector('.page-wrapper');
-	const scrollToTopElemet = document.querySelector('.scroll-to-top');
+		<pre><code class="language-js">// app.js
 
-	const scrollToTopFrames = [
-		new KeyframeEffect(
-			scrollToTopElemet,
-			[
-				{ 'transform': 'translateY(80px)', 'opacity': '0' },
-				{ 'transform': 'translateY(0)', 'opacity': '1' }
-			],
-			{ duration: 1, iterations: 1, fill: 'both' }),
-	];
-	const scrollToTopTimeline = new ScrollTimeline({
-		scrollSource,
-		orientation: 'vertical',
-		startScrollOffset: '200px',
-		endScrollOffset: '280px',
-	});
-	const scrollToTopAnimation =
-		new WorkletAnimation(animatorName, scrollToTopFrames, scrollToTopTimeline);
-	scrollToTopAnimation.play();
+const frames = [
+	new KeyframeEffect(
+		document.querySelector('.scroll-to-top'),
+		[
+			{ 'transform': 'translateY(100px)', 'opacity': '0' },
+			{ 'transform': 'translateY(0)', 'opacity': '1' }
+		],
+		{ duration: 1, iterations: 1, fill: 'both' }
+	)
+];
+</code></pre>
+		<footer>
+			<p>
+				<mark>KeyframeEffect</mark> позволяет вам задать анимации как в CSS, только при помощи JavaScript.
+			</p>
+		</footer>
+	</section>
+
+
+	<section class="slide">
+		<pre><code class="language-js">// app.js
+
+const timeline = new ScrollTimeline({
+	scrollSource: document.querySelector('.page-wrapper'),
+	orientation: 'vertical',
+	startScrollOffset: '200px',
+	endScrollOffset: '300px',
 });</code></pre>
 		<footer>
 			<p>
-				Здесь самое длинное полотно кода в докладе :)
+				<mark>ScrollTimeline</mark> устанавливает параметра захвата scroll: направление, начальная и конечная точки анимации.
 			</p>
+		</footer>
+	</section>
+
+
+	<section class="slide">
+		<pre><code class="language-js">// app.js
+
+animationWorklet.addModule('worklet.js').then(() => {
+	const animation = new WorkletAnimation(
+		'scroll-position-animator',
+		frames,
+		timeline
+	);
+	animation.play();
+});</code></pre>
+		<footer>
 			<p>
 				Как вы можете заметить, здесь используется целая куча API:
 				<i>KeyframeEffect</i>,
@@ -1607,10 +1658,8 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<h2 class="shout"
-		    style="font-size: 32px;">
-			полифил:
-			<a href="https://github.com/GoogleChromeLabs/houdini-samples/blob/master/animation-worklet/anim-worklet.js">https://github.com/GoogleChromeLabs/houdini-samples/</a>
+		<h2 class="shout shout-mini">
+			<a href="https://github.com/GoogleChromeLabs/houdini-samples/blob/master/animation-worklet/anim-worklet.js">anim-worklet</a>
 		</h2>
 		<footer>
 			<p>
@@ -1623,7 +1672,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">демо
+		<h2 class="shout shout-mini">Демо
 			<a href="./demos/7_scroll-animation/index.html">scroll-animation</a>
 		</h2>
 	</section>
@@ -1631,7 +1680,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 	<section class="slide">
 		<h2 class="shout shout-mini">
-			демо
+			Демо
 			<a href="http://googlechromelabs.github.io/houdini-samples/">от Google</a>
 		</h2>
 	</section>
@@ -1662,8 +1711,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 	<section class="slide clear black">
 		<img src="./pictures/success.gif"
 		     alt="Friends"
-		     style="width:100%;"
-		     class="cover">
+		     class="cover height">
 		<footer>
 			<p>Получается, что CSS Houdini дает нам контроль над всеми этапами рендеринга страницы?</p>
 			<p>
@@ -1680,7 +1728,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 	<section class="slide">
 		<img src="./pictures/glyph_metrics.png"
 		     alt="Метрики шрифтов"
-		     class="cover">
+		     class="cover width">
 		<footer>
 			<p>
 				<mark>Font Metrics API</mark> позволит вычислять различные метрики шрифтов, к которым на данный момент доступа нет. Как посчитать
@@ -1694,8 +1742,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 	<section class="slide clear black">
 		<img src="./pictures/barnie.gif"
-		     style="width:100%;"
-		     class="cover"
+		     class="cover height"
 		     alt="Барни Стинсон">
 		<footer>
 			<p>
@@ -1731,7 +1778,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 	<section class="slide">
 		<img src="./pictures/is-houdini-ready.jpg"
 		     alt="http://ishoudinireadyyet.com"
-		     class="cover">
+		     class="cover height">
 		<footer>
 			<p>
 				Как обстоят дела с другими браузерами?
@@ -1746,11 +1793,12 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 	<section class="slide">
 		<h2 class="shout shout-mini">
-			<a href="http://ishoudinireadyyet.com">ishoudinireadyyet.com</a>
+			<a href="http://ishoudinireadyyet.com">Is Houdini ready yet‽</a>
 		</h2>
 		<footer>
 			<p>
-				Алекс Сурма из Google поддерживает в актуальном состоянии сведения о доступности Houdini API в различных браузерах по ссылке
+				Александр Сурма из Google поддерживает в актуальном состоянии сведения о доступности Houdini API в различных браузерах по
+				ссылке
 				<a href="http://ishoudinireadyyet.com">ishoudinireadyyet.com</a>.
 			</p>
 		</footer>
@@ -1762,12 +1810,10 @@ animationWorklet.addModule('worklet.js').then(() => {
 		<p class="list-header">Статьи</p>
 		<ol>
 			<li>
-				<a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of</a>
-				by Philip Walton
+				<a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of</a>, Филип Уолтон
 			</li>
 			<li>
-				<a href="https://developers.google.com/web/updates/2016/05/houdini">Houdini: Demystifying CSS</a>
-				by Alex Surma
+				<a href="https://developers.google.com/web/updates/2016/05/houdini">Houdini: Demystifying CSS</a>, Алекс Сурма
 			</li>
 		</ol>
 		<p class="list-header">Видео</p>
@@ -1802,13 +1848,10 @@ animationWorklet.addModule('worklet.js').then(() => {
 	<section class="slide">
 		<h2>Спасибо за внимание!</h2>
 		<p>
-			<b>слайды: </b>
-			<a href="https://mefody.github.io/talks/houdini-magic/">https://mefody.github.io/talks/houdini-magic/</a>
+			<a href="https://mefody.github.io/talks/houdini-magic/">mefody.github.io/talks/houdini-magic/</a>
 			<br>
-			<b>twitter:</b>
 			<a href="https://twitter.com/dark_mefody">@dark_mefody</a>
 			<br>
-			<b>e-mail:</b>
 			<a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
 		</p>
 		<img src="./pictures/qr-code.gif"
