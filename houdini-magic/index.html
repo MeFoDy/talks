@@ -299,28 +299,6 @@
 	</section>
 
 
-	<section class="slide">
-		<h2>
-			The Extensible Web Manifesto
-			<small class="header-note">10.06.2013</small>
-		</h2>
-		<blockquote>
-			<p>Focus on adding new low-level capabilities to the web platform that are secure and efficient.</p>
-		</blockquote>
-		<blockquote>
-			<p>Expose low-level capabilities that explain existing features, such as HTML and CSS, allowing authors to understand and
-				replicate them.</p>
-		</blockquote>
-		<blockquote>
-			<p>Simplify and streamline the longer-term process of standardizing new APIs, which will already have implementations and
-				significant real-world usage.</p>
-		</blockquote>
-		<footer>
-			<p>Некоторые пункты манифеста связаны с невозможностью явно контролировать конвейер рендеринга в браузерах.</p>
-		</footer>
-	</section>
-
-
 	<section class="slide nd-manifesto-rus">
 		<h2>The Extensible Web Manifesto
 			<small class="header-note">10.06.2013</small>
@@ -337,6 +315,7 @@
 				использование в реальных условиях.</p>
 		</blockquote>
 		<footer>
+			<p>Некоторые пункты манифеста связаны с невозможностью явно контролировать конвейер рендеринга в браузерах.</p>
 			<p>Авторы манифеста призывают разработчиков браузеров предоставить доступ к low-level API, чтобы, даже не обладая сложными
 				и специфическими знаниями, веб-разработчики могли внедрять новые возможности еще до того, как их начнет нативно поддерживать
 				браузер.
@@ -400,7 +379,7 @@
 
 
 	<section class="slide">
-		<h2>Polyfill</h2>
+		<h2>Полифил</h2>
 		<pre><code class="language-js">(function(self) {
 	'use strict';
 	if (self.es2020feature) {
@@ -422,7 +401,7 @@
 
 
 	<section class="slide">
-		<h2>Ponyfill 🦄</h2>
+		<h2>Понифил 🦄</h2>
 		<p>
 			<a href="ponyfill.com">ponyfill.com</a>
 		</p>
@@ -445,7 +424,7 @@ isNanPonyfill(5);</code></pre>
 
 
 	<section class="slide">
-		<h2>Transpiling</h2>
+		<h2>Транспайлер</h2>
 		<pre><code class="language-js">// ES6
 let point = { x: 0, y: 0 };
 const {x, y} = point;
@@ -522,6 +501,47 @@ var arrowFunction = function arrowFunction(a) {
 	</section>
 
 
+	<section class="slide">
+		<h2>
+			<a href="https://wiki.csswg.org/ideas/mistakes">Ошибки в проектировании CSS</a>
+		</h2>
+		<ul>
+			<li>
+				<mark>box-sizing</mark> должен быть
+				<mark>border-box</mark> по умолчанию.
+			</li>
+			<li>
+				<mark>z-index</mark> следовало назвать
+				<mark>z-order</mark> или
+				<mark>depth</mark> и он должен Просто Работать для всех элементов (как для flex-элементов).
+			</li>
+			<li>
+				<mark>margin-top</mark> и
+				<mark>margin-bottom</mark> никогда не должны схлопываться автоматически, так как это
+				<b>корень всего margin-collapse зла</b>. </li>
+			<li>
+				<mark>border-radius</mark> должен был называться
+				<mark>corner-radius</mark>.
+			</li>
+			<li>
+				<mark>size</mark> должен был быть сокращением для
+				<mark>width</mark> и
+				<mark>height</mark>, а не отдельным свойством
+				<mark>@page</mark> для обозначения размера листа.
+			</li>
+		</ul>
+
+		<footer>
+			<p>
+				Сами авторы спецификаций признают, что при проектировании CSS не все получилось хорошо. Например, некоторые свойства явно
+				стоило назвать по-другому. Но браузеры, к сожалению, слишком спешат реализовывать спецификации-черновики, а веб-разработчики
+				сразу же начинают их использовать, поэтому к моменту осознания неудачного решения изменять спецификации, как правило,
+				уже поздно.
+			</p>
+		</footer>
+	</section>
+
+
 	<section class="slide nd-preprocessors">
 		<div class="cover">
 			<img src="./pictures/less.png"
@@ -565,9 +585,9 @@ var arrowFunction = function arrowFunction(a) {
 
 
 	<section class="slide">
-		<h2>Polyfill.js 🎉</h2>
-		<pre><code class="language-js">// https://philipwalton.github.io/polyfill/
-Polyfill({
+		<h2>
+			<a href="https://philipwalton.github.io/polyfill/">Polyfill.js</a> 🎉</h2>
+		<pre><code class="language-js">Polyfill({
 		declarations:["position:sticky"]
 	})
 	.doMatched(function(rules) {
@@ -641,7 +661,7 @@ Polyfill({
 
 	<section class="slide">
 		<img class="cover"
-		     src="./pictures/houdini-task-force.jpg"
+		     src="./pictures/tag.jpg"
 		     alt="CSS-TAG Houdini Task Force">
 		<footer>
 			<p>С 6 по 8 февраля 2015 года в офисе Google в Сиднее (Австралия)
@@ -1742,7 +1762,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 	<section class="slide clear black">
 		<img src="./pictures/barnie.gif"
-		     class="cover height"
+		     class="cover width"
 		     alt="Барни Стинсон">
 		<footer>
 			<p>
@@ -1755,11 +1775,11 @@ animationWorklet.addModule('worklet.js').then(() => {
 	<section class="slide">
 		<h2>Почему Houdini хорош?</h2>
 		<ol>
-			<li class="next">производительность;</li>
-			<li class="next">удобство использования;</li>
-			<li class="next">возможность написания полифилов для CSS;</li>
-			<li class="next">меньше различий между браузерами;</li>
-			<li class="next">полный контроль.</li>
+			<li class="next">Производительность;</li>
+			<li class="next">Удобство использования;</li>
+			<li class="next">Возможность написания полифилов для CSS;</li>
+			<li class="next">Меньше различий между браузерами;</li>
+			<li class="next">Полный контроль.</li>
 		</ol>
 	</section>
 
@@ -1767,10 +1787,10 @@ animationWorklet.addModule('worklet.js').then(() => {
 	<section class="slide">
 		<h2>Недостатки Houdini</h2>
 		<ol>
-			<li class="next">еще несколько спецификаций, которых нужно долго ждать;</li>
-			<li class="next">не решает проблему поддержки старых браузеров;</li>
-			<li class="next">для эффективной разработки нужно еще больше знаний;</li>
-			<li class="next">асинхронная природа Worklets — моргание стилей.</li>
+			<li class="next">Еще несколько спецификаций, которых нужно долго ждать;</li>
+			<li class="next">Не решает проблему поддержки старых браузеров;</li>
+			<li class="next">Для эффективной разработки нужно еще больше знаний;</li>
+			<li class="next">Асинхронная природа Worklets — моргание стилей.</li>
 		</ol>
 	</section>
 
