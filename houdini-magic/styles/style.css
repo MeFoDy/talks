@@ -1,7 +1,7 @@
 :root {
-    --color-inactive: #ccc;
+    --color-inactive: #ddd;
     --color-active: orange;
-    --color-checked: lightblue;
+    --color-checked: lightsteelblue;
 
     --nd-render-parse-color: #fff;
     --nd-render-dom-color: #fff;
