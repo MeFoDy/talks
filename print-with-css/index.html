@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Распечатай мне курсач. На CSS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="../src/prism/prism.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Распечатай мне курсач. На CSS</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>
+        </p>
+    </header>
+
+
+    <section class="slide clear" id="cover">
+        <h2>Распечатай мне курсач.
+            <br>На CSS</h2>
+        <hr>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>
+        </p>
+        <figure>
+            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
+            <figcaption class="white">
+                <a href="https://stock.tookapic.com/photos/2749">Michał Kulesza</a>
+            </figcaption>
+        </figure>
+
+        <style>
+            #cover h2 {
+                margin: 0 0 20px;
+                font-size: 70px;
+                color: white;
+                text-shadow: 0 0 2px rgb(39, 17, 11), 5px 3px 10px rgba(39, 17, 11, 0.7);
+            }
+
+            #cover hr {
+                border-color: white;
+                margin-left: 0;
+                width: 250px;
+                opacity: 0.7;
+            }
+
+            #cover p {
+                margin: 0;
+                font-size: 24px;
+            }
+
+        </style>
+    </section>
+
+    <section class="slide">
+        Кто я?
+    </section>
+
+    <section class="slide">
+        Когда вы последний раз оптимизировали свой проект под печать? https://twitter.com/AaronGustafson/status/788073583528538112
+    </section>
+
+    <section class="slide">
+        https://news.tut.by/society/569278.html
+    </section>
+
+    <section class="slide">
+        Почему такая тема (ГОСТ-ы)
+    </section>
+
+    <section class="slide">
+        — У вас не стоит точка в сноске — Да, но мое исследование совершит револ.. — У вас не стоит точка в сноске.
+    </section>
+
+    <section class="slide">
+        Боль студентов —> решение
+    </section>
+
+    <section class="slide">
+        CSS — мощный инструмент для печати
+    </section>
+
+    <section class="slide">
+        WSD https://github.com/web-standards-ru/stickers
+    </section>
+
+    <section class="slide">
+        PiterCSS https://twitter.com/pitercss_conf/status/866586952740556800
+    </section>
+
+    <section class="slide">
+        TimePad https://minskcss.timepad.ru/event/ticket/16065899/5f19b62ce906a4124887bf90eb61ce5e/
+    </section>
+
+    <section class="slide">
+        O'Reily https://medium.com/@sandersk/streamlining-css-print-design-with-sass-debaa2a204c3
+    </section>
+
+    <section class="slide">
+        Как подключить
+
+        <code>
+@import "print.css" print;
+@media print {} // IE9+
+<link rel="stylesheet" media="print" href="print.css" type="text/css" /> // IE 8-
+        </code>
+    </section>
+
+    <section class="slide">
+        <code>
+<a href="#" onclick="window.print();return false;">Print this page</a>
+</code>
+    </section>
+
+    <section class="slide">
+        Отдельные спецификации https://drafts.csswg.org/css-page-3/ https://www.w3.org/TR/css3-page/ https://www.w3.org/TR/css-gcpm-3/
+        https://books.idea.whatwg.org
+    </section>
+
+    <section class="slide">
+        Приступим к реализации
+    </section>
+
+    <section class="slide">
+        <code>
+                http://caniuse.com/#feat=css-paged-media
+                @page {   // :left, :right, :first, :blank
+                    margin: 1cm;
+                    size: A4 landscape; // portrait
+                 }
+        </code>
+    </section>
+
+
+    <section class="slide">
+        <code>
+                @page :blank {
+                    @top-center { content: "This page is intentionally left blank." }
+                }
+        </code> https://www.smashingmagazine.com/wp-content/uploads/2014/12/1-image-margin-boxes-large-opt.jpg
+    </section>
+
+
+    <section class="slide">
+        <code>
+                body {
+                    counter-reset: chapternum figurenum;
+                  }
+
+                  h1 {
+                    counter-reset: figurenum;
+                  }
+
+                  h1.title:before {
+                    counter-increment: chapternum;
+                    content: counter(chapternum) ". ";
+                  }
+
+                  figcaption:before {
+                    counter-increment: figurenum;
+                    content: counter(chapternum) "-" counter(figurenum) ". ";
+                  }
+        </code>
+    </section>
+
+
+    <section class="slide">
+        <code>
+                display: none;
+        </code>
+    </section>
+
+    <section class="slide">
+        cm, mm, in=96px + q, pt, pc — not px https://developer.mozilla.org/en-US/docs/Web/CSS/length
+    </section>
+
+    <section class="slide">
+        a::after {content:" (" attr(href) ")"; a[href^="http"]:not([href*="mywebsite.com"])::after { content: " (" attr(href) ")";
+        }
+    </section>
+
+    <section class="slide">
+        abbr[title]:after { content: " (" attr(title) ")";}
+    </section>
+
+    <section class="slide">
+        h3 { page-break-before: always; } page-break-after: always; // auto | always | avoid | left | right page-break-inside: avoid;
+        http://caniuse.com/#feat=beforeafterprint
+    </section>
+
+    <section class="slide">
+        widows: 4; orphans: 3;
+    </section>
+
+    <section class="slide">
+        * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    </section>
+
+    <section class="slide">
+        *, *:before, *:after { background: transparent !important; color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953
+        */ box-shadow: none !important; text-shadow: none !important; }
+    </section>
+
+    <section class="slide">
+        a { word-wrap: break-word; }
+    </section>
+
+    <section class="slide">
+        hyphens: auto; https://caniuse.com/#search=css-hyphens
+    </section>
+
+    <section class="slide">
+        h1 { string-set: doctitle content(); } @page :right { @top-right { content: string(doctitle); } }
+
+    </section>
+
+    <section class="slide">
+        .fn { float: footnote; counter-increment: footnote; } .fn::footnote-call { content: counter(footnote); font-size: 9pt; vertical-align:
+        super; line-height: none; } .fn::footnote-marker { font-weight: bold; } @page { @footnote { border-top: 1pt solid
+        black; } } https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
+    </section>
+
+    <section class="slide">
+        <a class="xref" href="#ch1" title="Chapter 1">Chapter 1</a>
+        a.xref::after { content: " (page " target-counter(attr(href, url), page) ")"; }
+    </section>
+
+    <section class="slide">
+        ul.toc a::after { content: leader('.') target-counter(attr(href), page); }
+    </section>
+
+    <section class="slide">
+        Сайт — не курсач
+    </section>
+
+    <section class="slide">
+        Советы
+    </section>
+
+    <section class="slide">
+        1. Семантика
+    </section>
+
+    <section class="slide">
+        2. Отдельная версия css для печати
+    </section>
+
+    <section class="slide">
+        3. Размеры (картинок и текста)
+    </section>
+
+    <section class="slide">
+        4. Тестируйте цвета, принтер не RGB https://drafts.csswg.org/css-color/#cmyk-colors
+    </section>
+
+    <section class="slide">
+        Как тестировать?
+    </section>
+
+    <section class="slide">
+        1. Принтер (внезапно)
+    </section>
+
+    <section class="slide">
+        2. Предпросмотр печати
+    </section>
+
+    <section class="slide">
+        3. Сохранить как PDF
+    </section>
+
+    <section class="slide">
+        4. Developer Tools (Chrome, Firefox)
+    </section>
+
+    <section class="slide">
+        5. Prince http://www.princexml.com
+        <code>
+                const prince = require('prince');
+                prince()
+                    .inputs('index.html')
+                    .output('index.pdf')
+                    .execute()
+                    .then(function () {
+                        console.log('Done');
+                    }, function (error) {
+                        console.log('Error: ', util.inspect(error));
+                    });
+        </code>
+    </section>
+
+    <section class="slide">
+        6. Puppeteer https://github.com/GoogleChrome/puppeteer
+        <code>
+                const puppeteer = require('puppeteer');
+                (async () => {
+                  const browser = await puppeteer.launch();
+                  const page = await browser.newPage();
+                  await page.goto('https://news.ycombinator.com', {waitUntil: 'networkidle2'});
+                  await page.pdf({path: 'hn.pdf', format: 'A4'});
+
+                  await browser.close();
+                })();
+        </code>
+    </section>
+
+    <section class="slide">
+        Готовые решения https://github.com/BafS/Gutenberg https://github.com/vladocar/Hartija---CSS-Print-Framework
+    </section>
+
+    <section class="slide">
+        Интересности
+    </section>
+
+    <section class="slide">
+        1. плавающие блоки
+    </section>
+
+    <section class="slide">
+        2. фоны
+    </section>
+
+    <section class="slide">
+        3. opacity
+    </section>
+
+    <section class="slide">
+        Что нас ждет?
+    </section>
+
+    <section class="slide">
+        Материалы https://alistapart.com/article/improvingprint https://uxdesign.cc/i-totally-forgot-about-print-style-sheets-f1e6604cfd6
+        (http://prgssr.ru/development/ya-sovsem-zabyl-o-stilyah-dlya-pechati.html) https://www.smashingmagazine.com/2015/01/designing-for-print-with-css/
+    </section>
+
+    <section class="slide">
+        Спасибо
+    </section>
+
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Powered by Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/prism/prism.min.js"></script>
+
+</body>
+
+</html>
