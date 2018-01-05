@@ -69,20 +69,171 @@
         </style>
     </section>
 
-    <section class="slide">​Какая есть проблема?</section>
+    <section class="slide" id="about">
+        <img class="cover" src="pictures/me.jpg" alt="Никита Дубко">
+        <div class="info">
+            <h2>Никита Дубко</h2>
+            <ul>
+                <li>Lead Software Engineer в iTechArt;</li>
+                <li>адепт философии Pure CSS Images;</li>
+                <li>люблю разбирать код из будущего.</li>
+            </ul>
+        </div>
 
-    <section class="slide">​underscore</section>
-
-    <section class="slide">​lodash</section>
-
-    <section class="slide">​ООП — наследование, интерфейсы, абстрактные классы</section>
-
-    <section class="slide">​Паттерн "Декоратор"</section>
-
-    <section class="slide">​ википедия
+        <style>
+            #about .info {
+                margin-left: 50%;
+            }
+        </style>
     </section>
 
-    <section class="slide">​ подклассы
+    <section class="slide">
+        <h2>Хотелки</h2>​
+        <ul>
+            <li class="next">Расширение кода сторонних библиотек</li>
+            <li class="next">Множественное наследование</li>
+            <li class="next">Компонентный подход</li>
+            <li class="next">Метапрограммирование</li>
+        </ul>
+
+        <footer>
+            <p>У каждого разработчика есть список каких-то возможностей, которые он очень хочет использовать, но ограничения
+                языка или среды выполнения не позволяют это сделать. Для меня в JavaScript это возможность вмешиваться в
+                уже написанный код без особых заморочек и обилия сложностей.
+            </p>
+        </footer>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/underscore.png" alt="Underscore.js" style="height: 50px;">
+        <pre><code class="language-js">var fibonacci = _.memoize(function(n) {
+    return n < 2 ? n: fibonacci(n - 1) + fibonacci(n - 2);
+});
+
+var throttled = _.throttle(updatePosition, 100);
+window.addEventListener('scroll', throttled);</code></pre>
+        <img src="./pictures/cane.jpg" alt="Cane" class="place cover bottom right">
+
+        <footer>
+            <p>Раньше, чтобы расширить существующий код, активно применялись "обертки" над функцими или объектами, которые добавляли
+                им дополнительную функциональность.</p>
+            <p>Некоторые "обертки" были настолько популярными и общеупотребимыми, что начали появляться целые библиотеки с самыми
+                распространенными подходами. Например,
+                <a href="http://underscorejs.org/">underscore.js</a>.</p>
+        </footer>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lodash.png" alt="Lodash" style="height: 50px;">
+        <pre><code class="language-js">var abc = function(a, b, c) {
+    return [a, b, c];
+};
+var curried = _.curry(abc);
+curried(1)(2)(3); // => [1, 2, 3]
+
+_.delay(function(text) {
+    console.log(text);
+}, 1000, 'later');</code></pre>
+        <img src="./pictures/cool-cane.jpg" style="height: 70%;" alt="Cool Cane" class="place cover bottom right">
+
+        <footer>
+            <p>Постепенно подходов становилось все больше, появился
+                <a href="https://lodash.com/">lodash</a>, который значительно ускоряет разработку, имеет хорошую документацию и до сих пор развивается.</p>
+        </footer>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/es6.png" alt="ES6" style="height: 50px;">
+        <pre><code class="language-js">var handler = {
+    get: function(target, name) {
+        return (name in target) ? target[name] : 42;
+    }
+};
+var p = new Proxy({}, handler);
+p.a = 1;
+console.log(p.a, p.b); // 1, 42</code></pre>
+        <img src="./pictures/exoskeleton.png" style="height: 70%; transform: scaleX(-1);" alt="Cool Cane" class="place cover bottom right">
+
+        <footer>
+            <p>К сожалению, функции-обертки не только тянут за собой лишние зависимости, но и замедляют работу кода. А настоящего
+                метапрограммирования они все равно не позволяют, так как используют ограниченные возможности языка.</p>
+            <p>В стандарте ES6 разработчикам дали новые API,
+                <b>Reflect</b> и
+                <b>Proxy</b>, которые позволяют добавлять существующему коду дополнительные возможности во время исполнения.
+                Однако подобные манипуляции делают код менее читаемым, сложным для понимания и громоздким, хоть и дает больше
+                возможностей.
+            </p>
+        </footer>
+    </section>
+
+    <section class="slide">
+        <div style="display: flex; align-items: flex-start; margin-top: 50px;">
+            <img src="./pictures/wikipedia.svg" alt="Wikipedia" style="margin-right: 20px;">
+            <p>
+                <b>​Декоратор (англ. Decorator)</b> — структурный шаблон проектирования, предназначенный для динамического подключения
+                дополнительного поведения к объекту. Шаблон Декоратор предоставляет гибкую альтернативу практике создания
+                подклассов с целью расширения функциональности.
+            </p>
+        </div>
+
+        <footer>
+            <p>Чтобы решить проблему расширения функциональности существующего кода, умные люди целый паттерн придумали, назвали
+                <b>"Декоратор"</b>. Суть его можно выразить так:
+                <i>"обертываем подарок, кладем его в коробку, обертываем коробку"</i>.
+            </p>
+        </footer>
+    </section>
+
+    <section class="slide slide-pattern clear">
+        <h2>Паттерн «Декоратор»</h2>
+        <pre><code class="language-js">
+            
+            
+class TonyStark {
+    constructor() {
+        this.isBillionaire = true;
+        this.isPlayboy = true;
+        this.isPhilanthropist = true;
+    }
+}</code></pre>
+        <div class="visual">
+            <img src="./pictures/ironman-animation.jpg" alt="Tony Stark">
+        </div>
+
+        <style>
+            .slide-pattern .visual {
+                background: #B1B3B2;
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: 30%;
+            }
+
+            .slide-pattern .visual img {
+                clip-path: polygon(20% 0%, 80% 0%, 80% 90%, 20% 90%);
+                max-width: 100%;
+                transform: translateY(25%) scale(1.5);
+            }
+        </style>
+    </section>
+
+    <section class="slide slide-pattern clear">
+        <h2>Паттерн «Декоратор»</h2>
+        <pre><code class="language-js">@Avenger
+@Armor('Mark III')
+@Assistant('J.A.R.V.I.S')
+class TonyStark {
+    constructor() {
+        this.isBillionaire = true;
+        this.isPlayboy = true;
+        this.isPhilanthropist = true;
+    }
+}</code></pre>
+        <div class="visual">
+            <img src="./pictures/ironman-animation.gif" alt="Iron Man animation">
+        </div>
+
     </section>
 
     <section class="slide">​ функция высшего порядка</section>
@@ -124,6 +275,10 @@
     <section class="slide">​ Как начать использовать прямо сейчас</section>
 
     <section class="slide">​ typescript
+    </section>
+
+    <section class="slide">
+        https://github.com/babel/babel/milestone/14
     </section>
 
     <section class="slide">​ babel-плагины:
