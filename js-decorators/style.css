@@ -47,3 +47,7 @@ img[src=''] {
     background: yellow;
     padding: 10px;
 }
+
+.slide.number-off::after {
+    visibility: hidden;
+}

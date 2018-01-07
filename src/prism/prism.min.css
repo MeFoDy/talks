@@ -1,4 +1,5 @@
-/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript&plugins=line-highlight+line-numbers */
+/* PrismJS 1.9.0
+http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+csharp+java+json+less+markdown+python+jsx+sass+scss&plugins=line-highlight+line-numbers */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -181,6 +182,11 @@ pre[data-line] {
 		top: auto;
 		bottom: .4em;
 	}
+
+.line-numbers .line-highlight:before,
+.line-numbers .line-highlight:after {
+	content: none;
+}
 
 pre.line-numbers {
 	position: relative;

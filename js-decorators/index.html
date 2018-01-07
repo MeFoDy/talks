@@ -74,7 +74,7 @@
         <div class="info">
             <h2>Никита Дубко</h2>
             <ul>
-                <li>Lead Software Engineer в iTechArt;</li>
+                <li>Software Engineer в iTechArt;</li>
                 <li>адепт философии Pure CSS Images;</li>
                 <li>люблю разбирать код из будущего.</li>
             </ul>
@@ -85,6 +85,31 @@
                 margin-left: 50%;
             }
         </style>
+    </section>
+
+    <section class="slide">
+        <h2>Как пройти в библиотеку?</h2>
+        <table>
+            <tr>
+                <th>Императивный подход</th>
+                <th>Декларативный подход</th>
+            </tr>
+            <tr style="line-height: 1.3em;">
+                <td style="padding-right: 1em;">
+                    <ol>
+                        <li>Выйти из здания, повернуть направо.</li>
+                        <li>Дойти до станции метро "Первомайская".</li>
+                        <li>Сесть на поезд до станции "Купаловской" и доехать до нее.</li>
+                        <li>Перейти на Московскую ветку.</li>
+                        <li>Сесть на поезд до станции "Восток" и доехать до нее.</li>
+                        <li>Выйти из метро направо по ходу движения.</li>
+                        <li>Идти к огромному ромбокубооктаэдру.</li>
+                    </ol>
+                </td>
+                <td>Адрес: город Минск, проспект Независимости 116</td>
+            </tr>
+        </table>
+        <img src="./pictures/iron-man-thumb-up.png" class="next" alt="Thumb Up" style="position: absolute; bottom: 20px; right: 40px; width: 300px;">
     </section>
 
     <section class="slide">
@@ -106,7 +131,7 @@
 
     <section class="slide">
         <img src="./pictures/underscore.png" alt="Underscore.js" style="height: 50px;">
-        <pre><code class="language-js">var fibonacci = _.memoize(function(n) {
+        <pre><code class="language-javascript">var fibonacci = _.memoize(function(n) {
     return n < 2 ? n: fibonacci(n - 1) + fibonacci(n - 2);
 });
 
@@ -125,7 +150,7 @@ window.addEventListener('scroll', throttled);</code></pre>
 
     <section class="slide">
         <img src="./pictures/lodash.png" alt="Lodash" style="height: 50px;">
-        <pre><code class="language-js">var abc = function(a, b, c) {
+        <pre><code class="language-javascript">var abc = function(a, b, c) {
     return [a, b, c];
 };
 var curried = _.curry(abc);
@@ -144,7 +169,7 @@ _.delay(function(text) {
 
     <section class="slide">
         <img src="./pictures/es6.png" alt="ES6" style="height: 50px;">
-        <pre><code class="language-js">var handler = {
+        <pre><code class="language-javascript">var handler = {
     get: function(target, name) {
         return (name in target) ? target[name] : 42;
     }
@@ -184,11 +209,11 @@ console.log(p.a, p.b); // 1, 42</code></pre>
         </footer>
     </section>
 
-    <section class="slide slide-pattern clear">
+    <section class="slide slide-pattern number-off">
         <h2>Паттерн «Декоратор»</h2>
-        <pre><code class="language-js">
-            
-            
+        <pre><code class="language-javascript">
+
+
 class TonyStark {
     constructor() {
         this.isBillionaire = true;
@@ -218,9 +243,9 @@ class TonyStark {
         </style>
     </section>
 
-    <section class="slide slide-pattern clear">
+    <section class="slide slide-pattern number-off">
         <h2>Паттерн «Декоратор»</h2>
-        <pre><code class="language-js">@Avenger
+        <pre><code class="language-javascript">@Avenger
 @Armor('Mark III')
 @Assistant('J.A.R.V.I.S')
 class TonyStark {
@@ -233,24 +258,170 @@ class TonyStark {
         <div class="visual">
             <img src="./pictures/ironman-animation.gif" alt="Iron Man animation">
         </div>
-
     </section>
 
-    <section class="slide">​ функция высшего порядка</section>
+    <section class="slide slide-captain-america number-off">
+        <h2>Паттерн «Декоратор»</h2>
+        <pre><code class="language-javascript">@Avenger
+@Armor('Captain Iron')
+class StevenRogers {
+    constructor() {
+        this.isLeader = true;
+        this.equipment = [
+            new VibraniumShield(),
+            new VibraniumHelmet()
+        ];
+    }
+}</code></pre>
+        <div class="visual"></div>
 
-    <section class="slide">​ декларативный и императивный подход</section>
+        <style>
+            .slide-captain-america .visual {
+                background: url(./pictures/captain-america-iron.jpg);
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 45%;
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </section>
 
-    <section class="slide">​ Атрибуты в c#</section>
+    <section class="slide slide-hulk number-off">
+        <h2>Паттерн «Декоратор»</h2>
+        <pre><code class="language-javascript">@Avenger
+@Armor('Iron Hulk')
+class BruceBanner {
+    constructor() {
+        this.isAngry = false;
+    }
+    toggle() {
+        this.isAngry = !this.isAngry;
+    }
+    get isSmart() {
+        return !this.isAngry;
+    }
+}</code></pre>
+        <div class="visual"></div>
 
-    <section class="slide">​ Аннотации в Java</section>
+        <style>
+            .slide-hulk .visual {
+                background: url(./pictures/hulk-iron.jpg);
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 45%;
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </section>
 
-    <section class="slide">​ Декораторы в Python</section>
+    <section class="slide">
+        <h2>C# — атрибуты</h2>
+        <pre><code class="language-csharp">public class Person
+{
+    [Display(Name = "Имя")]
+    [Required()]
+    public string FirstName { get; set; }
 
-    <section class="slide">​ Предложение tc39 Иегуда Кац</section>
+    [Display(Name = "Отчество")]
+    public string Patronym { get; set; }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Java — аннотации</h2>
+        <pre><code class="language-java">@Service("testBean")
+@Scope("singleton")
+public class TestBean {
+    private String data = "I am a singleton!!";
+
+    public String getData() {
+        return data;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Python — декораторы</h2>
+        <pre><code class="language-python">def makebold(fn):
+    def wrapped():
+        return &#x22;&#x3C;b&#x3E;&#x22; + fn() + &#x22;&#x3C;/b&#x3E;&#x22;
+    return wrapped
+
+@makebold
+def hello():
+    return "hello world"</code></pre>
+    </section>
+
+    <section class="slide">​ Предложение tc39 Иегуда Кац https://github.com/tc39/proposal-decorators/blob/master/TAXONOMY.md
+    </section>
+
+    <section class="slide">
+        Types of Decorators - Method Decorator - Property Decorators - Class Decorator - Parameter Decorator
+    </section>
 
     <section class="slide">​ синтаксис</section>
 
+    <section class="slide">
+        https://github.com/wycats/javascript-decorators
+    </section>
+
     <section class="slide">​ к чему применяется</section>
+
+    <section class="slide">
+        Декоратор применяется тогда, когда объявляется код
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 70px;">Object.getOwnPropertyDescriptor()</h2>
+    </section>
+
+    <section class="slide">
+        <div style="display: flex;">
+            <pre style="flex: 1 1 auto;"><code class="language-javascript">const meetup = {
+    name: 'MinskJS',
+    number: 3
+};
+</code></pre>
+            <pre class="next"><code class="language-javascript">const meetup = Object.defineProperties({}, {
+    name: {
+        value: 'MinskJS',
+        writable: true,
+        enumerable: true,
+        configurable: true
+    },
+    number: {
+        value: 3,
+        writable: true,
+        enumerable: true,
+        configurable: true
+    }
+});</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <pre><code class="language-javascript">const obj = {
+    get getter() { return 42; },
+    property: true,
+    method: function() {
+        return "I am the method";
+    }
+};
+
+['getter', 'property', 'method'].forEach(p => {
+    console.log(
+        Object.getOwnPropertyDescriptor(obj, p)
+    );
+});</code></pre>
+    </section>
 
     <section class="slide">​ Во что разворачивается</section>
 
@@ -266,15 +437,55 @@ class TonyStark {
 
     <section class="slide">​ typescript</section>
 
-    <section class="slide">​ React components: super(props)</section>
-
-    <section class="slide">​ Debugger вызова функции</section>
-
     <section class="slide">​ свои примеры</section>
 
     <section class="slide">​ Как начать использовать прямо сейчас</section>
 
-    <section class="slide">​ typescript
+    <section class="slide">​ tsconfig.json
+        <pre>
+                {
+                    "compilerOptions": {
+                    "experimentalDecorators": true,
+                    "emitDecoratorMetadata": true
+                    }
+                    }
+        </pre>
+    </section>
+
+    <section class="slide">
+        https://github.com/jayphelps/core-decorators For Properties and Methods @readonly @nonconfigurable @decorate @extendDescriptor
+        For Properties @nonenumerable @lazyInitialize For Methods @autobind @deprecate @suppressWarnings @enumerable @override
+        @time @profile For Classes @autobind
+    </section>
+
+    <section class="slide">
+        import { autobind } from 'core-decorators'; class Person { @autobind getPerson() { return this; } } let person = new Person();
+        let { getPerson } = person; getPerson() === person; // true
+    </section>
+
+    <section class="slide">
+        https://www.npmjs.com/package/lodash-decorators
+
+    </section>
+
+    <section class="slide">
+        import { Debounce, Memoize } from 'lodash-decorators'; class Person { constructor(firstName, lastName) { this.firstName =
+        firstName; this.lastName = lastName; } @Debounce(100) save(date) { return this.httpService.post(data); } @Memoize(item
+        => item.id) doSomeHeavyProcessing(arg1, arg2) {} }
+    </section>
+
+    <section class="slide">
+        import { Mixin } from 'lodash-decorators'; const MyOtherApi = { someCoolMethod() { // Do something cool } }; @Mixin(MyOtherApi)
+        class Person {} Person.prototype.someCoolMethod === MyOtherApi.someCoolMethod; // => true
+    </section>
+
+    <section class="slide">
+        function checkPermissionDecorator(f) { return function() { if (isAdmin()) { return f.apply(this, arguments); } else { callThePolice();
+        } } }
+    </section>
+
+    <section class="slide">
+        https://www.youtube.com/user/andrew8088/videos Andrew Burgess
     </section>
 
     <section class="slide">
@@ -286,7 +497,31 @@ class TonyStark {
         <br> https://www.npmjs.com/package/babel-plugin-transform-decorators
     </section>
 
-    <section class="slide">​ браузерная поддержка и планы</section>
+    <section class="slide">​ браузерная поддержка http://kangax.github.io/compat-table/esnext/
+    </section>
+
+    <section class="slide">
+        https://github.com/tc39/proposals/blob/master/README.md
+
+
+    </section>
+
+    <section class="slide">
+        1. Избегать мутаций 2. Пишите простые и мелкие декораторы 3. Следите за стандартом
+    </section>
+
+    <section class="slide">
+        <h2 style="margin-bottom:0.2em;">Материалы</h2>
+        <ul>
+            <li><a href="https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841">Exploring EcmaScript Decorators</a> — Addy Osmani</li>
+            <li><a href="https://www.sitepoint.com/javascript-decorators-what-they-are/">JavaScript Decorators: What They Are and When to Use Them</a> — Graham Cox</li>
+            <li><a href="https://cabbageapps.com/fell-love-js-decorators/">How I Fell in Love with JS Decorators</a> — Ragularuban Nanthagopal</li>
+        </ul>
+        <h2 style="margin-bottom:0.2em;">Видео</h2>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=VIG6e7uYDG4">Распечатай Яндекс.Карты</a> — Вадим Макишвили</p></li>
+        </ul>
+    </section>
 
     <section class="slide">
         <h2>Спасибо за внимание!</h2>
