@@ -24,9 +24,7 @@ function Component(config) {
     `
 })
 class MinskJsComponent {
-    constructor(number) {
-        this.number = number;
-    }
+    number = 3
 }
 
 bootstrap();

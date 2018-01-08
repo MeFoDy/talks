@@ -89,7 +89,7 @@
 
     <section class="slide">
         <h2>Как пройти в библиотеку?</h2>
-        <table>
+        <table class="next">
             <tr>
                 <th>Императивный подход</th>
                 <th>Декларативный подход</th>
@@ -113,7 +113,7 @@
     </section>
 
     <section class="slide">
-        <h2>Хотелки</h2>​
+        <h2>Хотелки</h2>
         <ul>
             <li class="next">Расширение кода сторонних библиотек</li>
             <li class="next">Множественное наследование</li>
@@ -195,7 +195,7 @@ console.log(p.a, p.b); // 1, 42</code></pre>
         <div style="display: flex; align-items: flex-start; margin-top: 50px;">
             <img src="./pictures/wikipedia.svg" alt="Wikipedia" style="margin-right: 20px;">
             <p>
-                <b>​Декоратор (англ. Decorator)</b> — структурный шаблон проектирования, предназначенный для динамического подключения
+                <b>Декоратор (англ. Decorator)</b> — структурный шаблон проектирования, предназначенный для динамического подключения
                 дополнительного поведения к объекту. Шаблон Декоратор предоставляет гибкую альтернативу практике создания
                 подклассов с целью расширения функциональности.
             </p>
@@ -323,7 +323,7 @@ class BruceBanner {
     </section>
 
     <section class="slide">
-        <h2>C# — атрибуты</h2>
+        <h2>C#: атрибуты</h2>
         <pre><code class="language-csharp">public class Person
 {
     [Display(Name = "Имя")]
@@ -336,7 +336,7 @@ class BruceBanner {
     </section>
 
     <section class="slide">
-        <h2>Java — аннотации</h2>
+        <h2>Java: аннотации</h2>
         <pre><code class="language-java">@Service("testBean")
 @Scope("singleton")
 public class TestBean {
@@ -349,7 +349,7 @@ public class TestBean {
     </section>
 
     <section class="slide">
-        <h2>Python — декораторы</h2>
+        <h2>Python: декораторы</h2>
         <pre><code class="language-python">def makebold(fn):
     def wrapped():
         return &#x22;&#x3C;b&#x3E;&#x22; + fn() + &#x22;&#x3C;/b&#x3E;&#x22;
@@ -360,27 +360,97 @@ def hello():
     return "hello world"</code></pre>
     </section>
 
-    <section class="slide">​ Предложение tc39 Иегуда Кац https://github.com/tc39/proposal-decorators/blob/master/TAXONOMY.md
+    <section class="slide">
+        <h2>Спецификации</h2>
+        <ul>
+            <li class="next"><a href="https://github.com/wycats/javascript-decorators" class="link-github">wycats / javascript-decorators</a> — Stage 0</li>
+            <li class="next"><a href="https://github.com/tc39/proposal-decorators/" class="link-github">tc39 / proposal-decorators</a> — Stage 2</li>
+        </ul>
     </section>
 
     <section class="slide">
-        Types of Decorators - Method Decorator - Property Decorators - Class Decorator - Parameter Decorator
-    </section>
-
-    <section class="slide">​ синтаксис</section>
-
-    <section class="slide">
-        https://github.com/wycats/javascript-decorators
-    </section>
-
-    <section class="slide">​ к чему применяется</section>
-
-    <section class="slide">
-        Декоратор применяется тогда, когда объявляется код
+        <h2>Stage 0</h2>
+        <p>
+            <a href="https://github.com/wycats/javascript-decorators" class="link-github">wycats / javascript-decorators</a>
+        </p>
+        <pre class="with-bg"><code class="language-javascript">function decorator(...args) {
+    return function(target, name, descriptor) {
+        // do something
+        return descriptor;
+    }
+}</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 70px;">Object.getOwnPropertyDescriptor()</h2>
+        <h2 class="shout" style="font-size: 70px;">Object.defineProperty()</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code class="language-javascript">Object.defineProperty(target, name, {
+    enumerable: true,
+    configurable: true,
+    writable: true,
+    value: 42,
+    // get: function() {},
+    // set: function(value) {}
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Stage 2</h2>
+        <p>
+            <a href="https://github.com/tc39/proposal-decorators/" class="link-github">tc39 / proposal-decorators</a>
+        </p>
+        <pre class="with-bg"><code class="language-json">{
+    kind: "method" or "field",
+    key: String, Symbol or Private Name,
+    placement: "static", "prototype" or "own",
+    descriptor: Property Descriptor
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Виды декораторов</h2>
+        <div style="display: flex;">
+            <ul style="flex: 1 1 50%;">
+                <li class="next">класса</li>
+                <li class="next">свойства</li>
+                <li class="next">метода</li>
+                <li class="next">* аргумента (TypeScript)</li>
+            </ul>
+            <pre style="flex: 1 1 50%;" class="with-bg"><code class="language-javascript">@classDecorator
+class MyClass {
+    @propertyDecorator
+    property = 42
+
+    @methodDecorator
+    someMethod() {}
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <pre><code class="language-javascript" style="font-size: 18px;">/* https://jsfiddle.net/dark_mefody/gL1j34sw/9/ */
+function decorator(id) {
+    console.log(id + ' declaration');
+    return function(target, name, descriptor) {
+        console.log(id + ' calling');
+    };
+}
+
+@decorator('1st')
+@decorator('2nd')
+class MyClass {
+    constructor() { 
+        console.log('new object created'); 
+    }
+}
+
+const c = new MyClass();</code></pre>
+        <img src="./pictures/decorators-calling-order.png" style="position: absolute;
+        right: 4em;
+        bottom: 2.5em;
+        border: 2px solid yellow;" class="next" alt="Decorators calling order">
     </section>
 
     <section class="slide">
@@ -408,6 +478,10 @@ def hello():
     </section>
 
     <section class="slide">
+        <h2 class="shout" style="font-size: 70px;">Object.getOwnPropertyDescriptor()</h2>
+    </section>
+
+    <section class="slide">
         <pre><code class="language-javascript">const obj = {
     get getter() { return 42; },
     property: true,
@@ -423,87 +497,367 @@ def hello():
 });</code></pre>
     </section>
 
-    <section class="slide">​ Во что разворачивается</section>
-
-    <section class="slide">​ Порядок применения</section>
-
-    <section class="slide">​ Что возвращает</section>
-
-    <section class="slide">​ Аккуратно с возвращаемыми значениями, можно затереть другие результаты</section>
-
-    <section class="slide">​ Примеры использования</section>
-
-    <section class="slide">​ angular</section>
-
-    <section class="slide">​ typescript</section>
-
-    <section class="slide">​ свои примеры</section>
-
-    <section class="slide">​ Как начать использовать прямо сейчас</section>
-
-    <section class="slide">​ tsconfig.json
-        <pre>
-                {
-                    "compilerOptions": {
-                    "experimentalDecorators": true,
-                    "emitDecoratorMetadata": true
-                    }
-                    }
-        </pre>
+    <section class="slide">
+        <h2>Декораторы</h2>
+        <ul>
+            <li class="next">указывают на функции</li>
+            <li class="next">возвращают дескрипторы</li>
+            <li class="next">вызываются сверху вниз ↓</li>
+            <li class="next">применяются снизу вверх ↑</li>
+        </ul>
     </section>
 
     <section class="slide">
-        https://github.com/jayphelps/core-decorators For Properties and Methods @readonly @nonconfigurable @decorate @extendDescriptor
-        For Properties @nonenumerable @lazyInitialize For Methods @autobind @deprecate @suppressWarnings @enumerable @override
-        @time @profile For Classes @autobind
+        <div style="display:flex">
+            <div>
+                <h2>ESnext</h2>
+                <pre class="with-bg" style="font-size: 16px;"><code class="language-javascript" style="font-size: 16px;">class MyClass {
+    @First("test")
+    @Second
+    method() { }
+}</code></pre>
+            </div>
+            <div style="align-self: center;">
+                <h2>→</h2>
+            </div>
+            <div>
+                <h2>ES5</h2>
+                <pre class="with-bg" style="font-size: 16px;"><code class="language-javascript" style="font-size: 16px;">var MyClass = (function () {
+    function MyClass() {}
+    MyClass.prototype.method = function () { }
+    var _temp;
+    _temp = First("test")(MyClass.prototype, "method",
+        _temp = Second(MyClass.prototype, "method",
+            _temp = Object.getOwnPropertyDescriptor(
+                MyClass.prototype, 
+                "method"
+            )) || _temp) 
+    || _temp;
+    if (_temp) Object.defineProperty(MyClass.prototype, "method", _temp);
+    return Foo;
+})();</code></pre>
+            </div>
+        </div>
     </section>
 
     <section class="slide">
-        import { autobind } from 'core-decorators'; class Person { @autobind getPerson() { return this; } } let person = new Person();
-        let { getPerson } = person; getPerson() === person; // true
+        <h2 class="shout shout-mini">Где использовать?</h2>
     </section>
 
     <section class="slide">
-        https://www.npmjs.com/package/lodash-decorators
-
+        <img src="./pictures/react.svg" alt="React" class="place" style="width: 60%;">
     </section>
 
     <section class="slide">
-        import { Debounce, Memoize } from 'lodash-decorators'; class Person { constructor(firstName, lastName) { this.firstName =
-        firstName; this.lastName = lastName; } @Debounce(100) save(date) { return this.httpService.post(data); } @Memoize(item
-        => item.id) doSomeHeavyProcessing(arg1, arg2) {} }
+        <pre class="with-bg" style="margin-bottom: 0;"><code class="language-jsx">&lt;form className='new-item' onSubmit={this.addItem.bind(this)}&gt;</code></pre>
+        <div style="text-align: center;" class="next">↓</div>
+        <pre class="with-bg next" style="margin-top: 0;"><code class="language-jsx">@autobind
+class AddNewItemComponent extends React.Component {
+    addItem(event) { ... }
+    render() {
+        return ( ...
+            &lt;form className='new-item' onSubmit={this.addItem}&gt;
+        ... );
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide number-off" style="background: url(./pictures/iron-man-success.jpg) no-repeat; background-size: cover;"></section>
+
+    <section class="slide slide-how-to-use">
+        <h2 class="shout shout-mini">Как начать использовать?</h2>
+        <style>
+            .slide-how-to-use {
+                background-image: url(./pictures/iron-man-with-war-machine.jpg);
+                background-size: cover;
+            }
+
+            .slide-how-to-use h2 {
+                color: white;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        import { Mixin } from 'lodash-decorators'; const MyOtherApi = { someCoolMethod() { // Do something cool } }; @Mixin(MyOtherApi)
-        class Person {} Person.prototype.someCoolMethod === MyOtherApi.someCoolMethod; // => true
+        <h2>tsconfig.json</h2>
+        <pre class="with-bg"><code class="language-json">{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    }
+}</code></pre>
     </section>
 
     <section class="slide">
-        function checkPermissionDecorator(f) { return function() { if (isAdmin()) { return f.apply(this, arguments); } else { callThePolice();
-        } } }
+        <h2 class="shout" style="font-size: 50px;">
+            <a href="https://www.npmjs.com/package/babel-plugin-transform-decorators-legacy" class="link-npm">babel-plugin-transform-decorators-legacy</a>
+        </h2>
     </section>
 
     <section class="slide">
-        https://www.youtube.com/user/andrew8088/videos Andrew Burgess
+        <h2>.babelrc</h2>
+        <pre class="with-bg"><code class="language-bash">npm install --save-dev babel-plugin-transform-decorators-legacy</code></pre>
+        <pre class="with-bg"><code class="language-json">{
+    "presets": ["env"],
+    "plugins": ["transform-decorators-legacy"]
+}</code></pre>
     </section>
 
     <section class="slide">
-        https://github.com/babel/babel/milestone/14
-    </section>
-
-    <section class="slide">​ babel-плагины:
-        <br>​ https://www.npmjs.com/package/babel-plugin-transform-decorators-legacy
-        <br> https://www.npmjs.com/package/babel-plugin-transform-decorators
-    </section>
-
-    <section class="slide">​ браузерная поддержка http://kangax.github.io/compat-table/esnext/
+        <h2>
+            <a href="https://github.com/jayphelps/core-decorators" class="link-github">core-decorators</a>
+        </h2>
+        <ul class="double next" style="font-size: 18px;">
+            <li><b>Для свойств и методов:</b>
+                <ul>
+                    <li>@readonly</li>
+            <li>@nonconfigurable</li>
+            <li>@decorate</li>
+            <li>@extendDescriptor</li>
+        </ul>
+        </li>
+        <li><b>Для свойств:</b>
+                <ul>
+                    <li>@nonenumerable</li>
+        <li>@lazyInitialize</li>
+        </ul>
+        </li>
+        <li><b>Для классов:</b>
+                <ul>
+                    <li>@autobind</li>
+        </ul>
+        </li>
+        <li><b>Для методов:</b>
+                <ul>
+                    <li>@autobind</li>
+        <li>@deprecate</li>
+        <li>@suppressWarnings</li>
+        <li>@enumerable</li>
+        <li>@override</li>
+        <li>@time</li>
+        <li>@profile</li>
+        </ul>
+        </li>
+        </ul>
     </section>
 
     <section class="slide">
-        https://github.com/tc39/proposals/blob/master/README.md
+        <pre><code class="language-javascript">import { autobind } from 'core-decorators';
 
+class Person { 
+    @autobind 
+    getPerson() { 
+        return this; 
+    } 
+} 
 
+const person = new Person();
+const { getPerson } = person;
+getPerson() === person; // true</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>
+            <a href="https://github.com/steelsojka/lodash-decorators" class="link-github">lodash-decorators</a>
+        </h2>
+        <pre class="next"><code class="language-javascript" style="font-size:18px;">import { Debounce, Memoize } from 'lodash-decorators';
+class Person { 
+    constructor(firstName, lastName) { 
+        this.firstName = firstName; 
+        this.lastName = lastName;
+    } 
+    @Debounce(100) 
+    save(date) { 
+        return this.httpService.post(data);
+    } 
+    @Memoize(item => item.id)
+    doSomeHeavyProcessing(arg1, arg2) {} 
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code class="language-javascript">import { Mixin } from 'lodash-decorators'; 
+const MyOtherApi = { 
+    method() { 
+        // Do something cool 
+    } 
+}; 
+
+@Mixin(MyOtherApi)
+class Person {} 
+
+Person.prototype.method === MyOtherApi.method; // => true</code></pre>
+        <img src="./pictures/lego-iron-man.jpg" class="next" alt="Lego Iron Man" style="transform: scaleX(-1);
+        position: absolute;
+        right: 0;
+        top: 5em;
+        z-index: -1;
+        width: 35%;">
+    </section>
+
+    <section class="slide">
+        <h2>Проверка доступа</h2>
+        <pre><code class="language-javascript">function checkPermission(target, name, descriptor) {
+    const oldValue = descriptor.value;
+    const newDescriptor = {
+        enumerable: false,
+        configurable: false,
+        get: function() {
+            return isAdmin() ? oldValue : (() => {});
+        },
+        set: function() {}
+    };
+    return newDescriptor;
+}</code></pre>
+    </section>
+
+    <section class="slide number-off" style="background: url(./pictures/iron-man-stop.jpg) center no-repeat, #000; background-size: contain;"></section>
+
+    <section class="slide slide-example-count">
+        <h2 class="example-count">Angular-подобный компонент</h2>
+        <pre><code class="language-javascript">import _ from 'lodash';
+
+const COMPONENTS = [];
+
+function Component(config) {
+    config.template = _.template(config.template);
+    return function(target) {
+        config.class = target;
+        COMPONENTS.push(config);
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide slide-example-count">
+        <h2 class="example-count">Angular-подобный компонент</h2>
+        <pre><code class="language-javascript">const bootstrap = function() {
+    COMPONENTS.forEach(component => {
+        document
+            .querySelectorAll(component.selector)
+            .forEach(node => {
+                const instance = new component.class();
+                node.innerHTML = component.template(instance);
+            });
+    });
+};</code></pre>
+    </section>
+
+    <section class="slide slide-example-count">
+        <h2 class="example-count">Angular-подобный компонент</h2>
+        <pre><code class="language-javascript">@Component({
+    selector: 'minsk-js',
+    template: `<h1>Hello, MinskJS #<%= number %>!</h1>`
+})
+class MinskJsComponent {
+    number = 3
+}
+
+bootstrap();</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 54px;"><a href="https://jsfiddle.net/dark_mefody/n1Lpmvsh/" class="link-jsfiddle">Angular-like component demo</a></h2>
+    </section>
+
+    <section class="slide slide-babel-next">
+        <h2>
+            <a href="https://github.com/babel/babel/milestone/14" class="link-github">babel/babel</a>
+        </h2>
+        <div class="image">
+            <img src="./pictures/babel-next.png" alt="Babel7.next">
+        </div>
+
+        <style>
+            .slide-babel-next .image {
+                position: relative;
+            }
+
+            .slide-babel-next .image img {
+                max-width: 100%;
+            }
+
+            .slide-babel-next .image::after {
+                border: 2px solid deeppink;
+                content: '';
+                display: block;
+                position: absolute;
+                left: 0;
+                width: 100%;
+                top: 51%;
+                height: 17%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide-esnext-support">
+        <h2>Браузерная поддержка</h2>
+        <div class="image image-stage0 next">
+            <img src="./pictures/compat-esnext-stage0.jpg" alt="ESnext Stage 0">
+        </div>
+        <div class="image image-stage2 next">
+            <img src="./pictures/compat-esnext-stage2.jpg" alt="ESnext Stage 2">
+        </div>
+        <p class="next">
+            <a href="http://kangax.github.io/compat-table/esnext/">kangax.github.io/compat-table/</a>
+        </p>
+
+        <style>
+            .slide-esnext-support .image {
+                position: relative;
+            }
+
+            .slide-esnext-support .image img {
+                max-width: 100%;
+            }
+
+            .slide-esnext-support .image::after {
+                border: 2px solid black;
+                content: '';
+                display: block;
+                position: absolute;
+                left: 0;
+                width: 100%;
+            }
+
+            .slide-esnext-support .image-stage0::after {
+                top: 44%;
+                height: 25%;
+            }
+
+            .slide-esnext-support .image-stage2::after {
+                top: 28%;
+                height: 16%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide-t39-proposals">
+        <h2>
+            <a href="https://github.com/tc39/proposals/blob/master/README.md" class="link-github">tc39/proposals</a>
+        </h2>
+        <div class="image">
+            <img src="./pictures/tc39-proposals.jpg" alt="T39 Proposals">
+        </div>
+        <style>
+            .slide-t39-proposals .image {
+                position: relative;
+            }
+
+            .slide-t39-proposals .image img {
+                max-width: 100%;
+            }
+
+            .slide-t39-proposals .image::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 14%;
+                border: 2px solid red;
+            }
+        </style>
     </section>
 
     <section class="slide">
@@ -513,13 +867,18 @@ def hello():
     <section class="slide">
         <h2 style="margin-bottom:0.2em;">Материалы</h2>
         <ul>
-            <li><a href="https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841">Exploring EcmaScript Decorators</a> — Addy Osmani</li>
-            <li><a href="https://www.sitepoint.com/javascript-decorators-what-they-are/">JavaScript Decorators: What They Are and When to Use Them</a> — Graham Cox</li>
-            <li><a href="https://cabbageapps.com/fell-love-js-decorators/">How I Fell in Love with JS Decorators</a> — Ragularuban Nanthagopal</li>
+            <li>
+                <a href="https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841">Exploring EcmaScript Decorators</a> — Addy Osmani</li>
+            <li>
+                <a href="https://www.sitepoint.com/javascript-decorators-what-they-are/">JavaScript Decorators: What They Are and When to Use Them</a> — Graham Cox</li>
+            <li>
+                <a href="https://cabbageapps.com/fell-love-js-decorators/">How I Fell in Love with JS Decorators</a> — Ragularuban Nanthagopal</li>
         </ul>
         <h2 style="margin-bottom:0.2em;">Видео</h2>
         <ul>
-            <li><a href="https://www.youtube.com/watch?v=VIG6e7uYDG4">Распечатай Яндекс.Карты</a> — Вадим Макишвили</p></li>
+            <li>
+                <a href="https://www.youtube.com/user/andrew8088/videos">JavaScript Decorators</a> — Andrew Burgess
+            </li>
         </ul>
     </section>
 
@@ -533,6 +892,7 @@ def hello():
             <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
         </p>
         <img src="./pictures/qr-code.gif" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
+        <img src="./pictures/use-it-right.gif" alt="Iron Man">
     </section>
 
 

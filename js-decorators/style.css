@@ -1,4 +1,4 @@
-.slide pre {
+.slide pre:not(.with-bg) {
     background-color: transparent;
     padding: 0;
 }
@@ -50,4 +50,63 @@ img[src=''] {
 
 .slide.number-off::after {
     visibility: hidden;
+}
+
+.link-jsfiddle::before {
+    content: '';
+    display: inline-block;
+    height: 1.6em;
+    width: 1.8em;
+    background-image: url(./pictures/jsfiddle.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-right: 0.3em;
+    text-decoration: none;
+    background-color: white;
+    top: 0.45em;
+    position: relative;
+}
+
+.link-github::before {
+    content: '';
+    display: inline-block;
+    height: 1.3em;
+    width: 1.6em;
+    background-image: url(./pictures/github.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-right: 0.3em;
+    text-decoration: none;
+    background-color: white;
+    top: 0.3em;
+    position: relative;
+}
+
+.link-npm::before {
+    content: '';
+    display: inline-block;
+    height: 1em;
+    width: 3em;
+    background-image: url(./pictures/npm.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-right: 0.3em;
+    text-decoration: none;
+    background-color: white;
+    top: 0.3em;
+    position: relative;
+}
+
+body {
+    counter-reset: exampleCounter;
+}
+
+.slide-example-count {
+    counter-increment: exampleCounter;
+}
+
+.example-count::after {
+    content: ' #' counter(exampleCounter);
+    color: #aaa;
+    font-size: 0.7em;
 }
