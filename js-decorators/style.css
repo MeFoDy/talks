@@ -110,3 +110,20 @@ body {
     color: #aaa;
     font-size: 0.7em;
 }
+
+h2.light {
+    color: white;
+    text-shadow: 0 0 1em black, 0 0 1px rgba(0,0,0,0.5);
+}
+
+h2.light::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10%;
+    bottom: -20%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
