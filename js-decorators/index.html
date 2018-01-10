@@ -192,6 +192,10 @@ console.log(p.a, p.b); // 1, 42</code></pre>
     </section>
 
     <section class="slide">
+        <img src="./pictures/iron-man.png" alt="Iron Man" class="cover height">
+    </section>
+
+    <section class="slide">
         <div style="display: flex; align-items: flex-start; margin-top: 50px;">
             <img src="./pictures/wikipedia.svg" alt="Wikipedia" style="margin-right: 20px;">
             <p>
@@ -207,10 +211,6 @@ console.log(p.a, p.b); // 1, 42</code></pre>
                 <i>"обертываем подарок, кладем его в коробку, обертываем коробку"</i>.
             </p>
         </footer>
-    </section>
-
-    <section class="slide">
-        <img src="./pictures/iron-man.png" alt="Iron Man" class="cover height">
     </section>
 
     <section class="slide">
@@ -312,7 +312,7 @@ class TonyStark {
     <section class="slide slide-captain-america number-off">
         <h2>Паттерн «Декоратор»</h2>
         <pre><code class="language-javascript">@Avenger
-@Armor('Captain Iron')
+@Armor('Iron Captain')
 class StevenRogers {
     constructor() {
         this.isLeader = true;
@@ -484,8 +484,8 @@ function decorator(id) {
 @decorator('1st')
 @decorator('2nd')
 class MyClass {
-    constructor() { 
-        console.log('new object created'); 
+    constructor() {
+        console.log('new object created');
     }
 }
 
@@ -531,9 +531,9 @@ const c = new MyClass();</code></pre>
     _temp = First("test")(MyClass.prototype, "method",
         _temp = Second(MyClass.prototype, "method",
             _temp = Object.getOwnPropertyDescriptor(
-                MyClass.prototype, 
+                MyClass.prototype,
                 "method"
-            )) || _temp) 
+            )) || _temp)
     || _temp;
     if (_temp) Object.defineProperty(MyClass.prototype, "method", _temp);
     return Foo;
@@ -566,6 +566,7 @@ class AddNewItemComponent extends React.Component {
     </section>
 
     <section class="slide number-off" style="background: url(./pictures/iron-man-success.jpg) no-repeat; background-size: cover;"></section>
+
     <section class="slide">
         <h2>Проверка доступа</h2>
         <pre><code class="language-javascript">function checkPermission(target, name, descriptor) {
@@ -583,6 +584,30 @@ class AddNewItemComponent extends React.Component {
     </section>
 
     <section class="slide number-off" style="background: url(./pictures/iron-man-stop.jpg) center no-repeat, #000; background-size: contain;"></section>
+
+    <section class="slide">
+        <h2>Fluent interface</h2>
+        <pre><code class="language-javascript" style="font-size: 16px;">function fluent(target, name, descriptor) {
+    const fn = descriptor.value;
+    descriptor.value = function(...args) {
+        fn.apply(target, args);
+        return target;
+    }
+}
+
+class Person {
+    @fluent
+    setName(name) { this.name = name; }
+    sayName() { console.log(this.name); }
+}
+
+const p = new Person();
+p.setName('Bruce').sayName();</code></pre>
+    </section>
+
+    <section class="slide number-off">
+        <img src="./pictures/iron-man-evolution.jpeg" alt="" class="cover height">
+    </section>
 
     <section class="slide slide-example-count">
         <h2 class="example-count">Angular-подобный компонент</h2>
@@ -703,12 +728,12 @@ function Component(config) {
     <section class="slide">
         <pre><code class="language-javascript">import { autobind } from 'core-decorators';
 
-class Person { 
-    @autobind 
-    getPerson() { 
-        return this; 
-    } 
-} 
+class Person {
+    @autobind
+    getPerson() {
+        return this;
+    }
+}
 
 const person = new Person();
 const { getPerson } = person;
@@ -720,30 +745,30 @@ getPerson() === person; // true</code></pre>
             <a href="https://github.com/steelsojka/lodash-decorators" class="link-github">lodash-decorators</a>
         </h2>
         <pre class="next"><code class="language-javascript" style="font-size:18px;">import { Debounce, Memoize } from 'lodash-decorators';
-class Person { 
-    constructor(firstName, lastName) { 
-        this.firstName = firstName; 
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
         this.lastName = lastName;
-    } 
-    @Debounce(100) 
-    save(date) { 
+    }
+    @Debounce(100)
+    save(date) {
         return this.httpService.post(data);
-    } 
+    }
     @Memoize(item => item.id)
-    doSomeHeavyProcessing(arg1, arg2) {} 
+    doSomeHeavyProcessing(arg1, arg2) {}
 }</code></pre>
     </section>
 
     <section class="slide">
-        <pre><code class="language-javascript">import { Mixin } from 'lodash-decorators'; 
-const MyOtherApi = { 
-    method() { 
-        // Do something cool 
-    } 
-}; 
+        <pre><code class="language-javascript">import { Mixin } from 'lodash-decorators';
+const MyOtherApi = {
+    method() {
+        // Do something cool
+    }
+};
 
 @Mixin(MyOtherApi)
-class Person {} 
+class Person {}
 
 Person.prototype.method === MyOtherApi.method; // => true</code></pre>
         <img src="./pictures/lego-iron-man.jpg" class="next" alt="Lego Iron Man" style="transform: scaleX(-1);
