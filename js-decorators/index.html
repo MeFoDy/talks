@@ -554,8 +554,8 @@ const c = new MyClass();</code></pre>
     <section class="slide">
         <pre class="with-bg" style="margin-bottom: 0;"><code class="language-jsx">&lt;form className='new-item' onSubmit={this.addItem.bind(this)}&gt;</code></pre>
         <div style="text-align: center;" class="next">↓</div>
-        <pre class="with-bg next" style="margin-top: 0;"><code class="language-jsx">@autobind
-class AddNewItemComponent extends React.Component {
+        <pre class="with-bg next" style="margin-top: 0;"><code class="language-jsx">class AddNewItemComponent extends React.Component {
+    @autobind
     addItem(event) { ... }
     render() {
         return ( ...
@@ -878,6 +878,11 @@ Person.prototype.method === MyOtherApi.method; // => true</code></pre>
                 height: 17%;
             }
         </style>
+    </section>
+
+    <section class="slide">
+        <h2><a class="link-github" href="https://sdras.github.io/object-explorer/">JS Object Explorer</a> — Sarah Drasner</h2>
+        <img src="./pictures/object-explorer.jpg" alt="Object Explorer" style="max-width: 100%">
     </section>
 
     <section class="slide">
