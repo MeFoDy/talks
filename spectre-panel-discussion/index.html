@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Полный Spectre уязвимостей</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="../src/prism/prism.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.1">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Полный Spectre уязвимостей</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
+        </p>
+    </header>
+
+    <section class="slide clear" id="cover">
+        <h2>Полный Spectre уязвимостей</h2>
+        <p>панельная дискуссия</p>
+        <hr>
+        <img class="cover width" src="pictures/cover.jpeg">
+        <div class="speakers">
+            <figure class="speaker">
+                <img src="./pictures/speaker-1.png" alt="111">
+                <figcaption>Элмо</figcaption>
+            </figure>
+            <figure class="speaker">
+                <img src="./pictures/speaker-2.png" alt="222">
+                <figcaption>Лягушонок Кермит</figcaption>
+            </figure>
+            <figure class="speaker">
+                <img src="./pictures/speaker-3.png" alt="333">
+                <figcaption>Мисс Пигги</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            #cover {
+                background-color: #A9F7F7;
+            }
+
+            #cover h2 {
+                margin: 0 0 20px;
+                font-size: 70px;
+                color: white;
+                text-shadow: 0 0 2px rgb(39, 17, 11), 5px 3px 10px rgba(39, 17, 11, 0.7);
+            }
+
+            #cover hr {
+                margin: 0;
+                border: none;
+                border-top: 1px solid white;
+                padding: 0;
+                width: 350px;
+            }
+
+            #cover p {
+                margin: 0 0 20px;
+                background: rgba(255, 255, 255, 0.5);
+                display: inline-block;
+                padding: 0 1em;
+                color: black;
+            }
+
+            #cover .speakers {
+                display: flex;
+                margin-top: 40px;
+            }
+
+            #cover .speakers .speaker:not(:last-child) {
+                margin-right: 30px;
+            }
+
+            #cover .speakers .speaker {
+                display: block;
+                flex: 1 1;
+            }
+
+            #cover .speakers .speaker img {
+                max-width: 100%;
+                background-color: white;
+                border-radius: 50%;
+            }
+
+            #cover .speakers .speaker figcaption {
+                text-align: center;
+                color: black;
+                background: rgba(255, 255, 255, 0.5);
+            }
+        </style>
+    </section>
+
+    <section class="slide clear">
+        <h2>Элмо</h2>
+        <p>Улица Сезам</p>
+        <img src="./pictures/speaker-1.png" alt="Elmo" class="place right bottom" style="height: 80%">
+    </section>
+
+    <section class="slide clear">
+        <h2>Лягушонок Кермит</h2>
+        <p>Улица Сезам</p>
+        <img src="./pictures/speaker-2.png" alt="Kermit" class="place right bottom" style="height: 80%">
+    </section>
+
+    <section class="slide clear">
+        <h2>Свинка Пигги</h2>
+        <p>Улица Сезам</p>
+        <img src="./pictures/speaker-3.png" alt="Piggi" class="place right bottom" style="height: 80%">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/spectre-meltdown.png" alt="Spectre and Meltdown" class="place">
+    </section>
+
+    <section class="slide">
+        ученый изнасиловал журналиста
+    </section>
+
+    <section class="slide">
+        шаги к уязвимости
+    </section>
+
+    <section class="slide">
+        1. кэш быстрее оперативки
+    </section>
+
+    <section class="slide">
+        2. спекулятивное выполнение кода
+    </section>
+
+    <section class="slide">
+        3. предугадывание условий по статистике (Branch Prediction Unit)
+    </section>
+
+    <section class="slide">
+        вы используете не физические, а виртуальные адреса (MMU).
+    </section>
+
+    <section class="slide">Memory Management Unit бьет по рукам, если лезете не в свою память, но медленно</section>
+
+    <section class="slide">
+        <h2>Порядок</h2>
+        <ol>
+            <li>тренируем процессор выполнять код спекулятивно</li>
+            <li>пытаемся читать значение по закрытому адресу памяти косвенной адресацией</li>
+            <li>MMU ругается, результаты чтения сбрасываются из регистров процессора</li>
+            <li>но в кэше лежит значение из закрытого адреса памяти</li>
+            <li>замеряем скорость обращения к участку памяти прямой адресацией</li>
+            <li>PROFIT</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        Можно ли защититься? Да, перенести область памяти ядра.
+    </section>
+
+    <section class="slide">
+        замедление
+    </section>
+
+    <section class="slide">
+        spectre
+    </section>
+
+    <section class="slide">
+<pre><code>if (x < array1_size)
+{
+    y = array2[array1[x]];
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Порядок</h2>
+        <ol>
+            <li>тренируем процессор выполнять код спекулятивно атакующим процессом</li>
+            <li>засоряем кэш процессора</li>
+            <li>честно помещаем в кэш воруемые данные (S) из атакуемого процесса</li>
+            <li>честно вызываем код в атакуемом процессе</li>
+            <li>процессор выбрасывает результаты вычислений отовсюду, кроме кэша</li>
+            <li>замеряем время доступа к ячейкам до адреса S</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        Это ж надо знать код!<br>
+        1. дизассемблер
+        2. используемые библиотеки
+        3. open source
+    </section>
+
+    <section class="slide">
+        <ul>
+            <li>Intel processors since 1995 except for the Itanium and pre-2013 ATOM (m, s)</li>
+            <li>All modern AMD processors (s)</li>
+            <li>AMD PRO and AMD FX with kernel BPF JIT enabled (m)</li>
+            <li>ARM processors with Cortex R7, R8, A8, A9, A15, A17, A57, A72, A73, and A75 cores (s)</li>
+            <li>Processors with Cortex A75 (m)</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <pre><code class="language-javascript">var TABLE1_STRIDE = 1;
+var TABLE1_BYTES = 3;
+var probeTable = ['alpha', 'beta', 'corky'];
+var simpleByteArray = [0x00, 0x01, 0x02];
+var localJunk;
+var index = 0;
+if (index < simpleByteArray.length) {
+    index = simpleByteArray[index | 0];
+    index = (((index * TABLE1_STRIDE) | 0)&(TABLE1_BYTES - 1)) | 0;
+    localJunk &= probeTable[index | 0] | 0;
+}
+console.log(localJunk);</code></pre>
+    </section>
+
+    <section class="slide">
+        1. получение дампа системной памяти из браузера 2. воровство данных с других виртуальных машин на одном хостинге
+    </section>
+
+    <section class="slide">
+        телефона на iOS и Android
+    </section>
+
+    <section class="slide">
+        чем дороже смартфон, тем больше шанс уязвимости
+    </section>
+
+    <section class="slide">
+        skyfall
+    </section>
+
+    <section class="slide">
+        заговор производителей
+    </section>
+
+    <section class="slide">
+        мир до и после
+    </section>
+
+    <section class="slide">
+        1. performance.now to 1ms 2. SharedArrayBuffer
+    </section>
+
+    <section class="slide">
+        <h2>Powershell</h2>
+        <pre><code class="language">Install-Module SpeculationControl
+Import-Module SpeculationControl
+Get-SpeculationControlSettings</code></pre>
+    </section>
+
+    <sections class="slide">
+        https://github.com/speed47/spectre-meltdown-checker
+    </sections>
+
+    <section class="slide">
+        Установить последние обновления системы и браузера. Если вы не уверены в том что дыра точно закрыта и ваша система совершенно
+        точно в безопасности, лучше отключите JavaScript даже при посещении безопасных сайтов — они могут быть скомпроментированы.
+        Некоторые эксперты считают, что программным образом полностью обезопаситься нельзя и единственный способ решить проблему
+        — сменить процессор на вариант заведомо безопасный. Новые приложение — осторожно.
+    </section>
+
+
+    <section class="slide">
+        <h2 style="margin-bottom:0.2em;">Материалы</h2>
+        <ul>
+            <li><a href="https://googleprojectzero.blogspot.com.by/2018/01/reading-privileged-memory-with-side.html">Reading privileged memory with a side-channel</a> — Project Zero</li>
+            <li><a href="https://spectreattack.com/">spectreattack.com</a></li>
+            <li><a href="https://skyfallattack.com/">skyfallattack.com</a></li>
+            <li><a href="https://geektimes.ru/post/297029/">Новогодние подарки</a> — Geektimes:olartamonov</li>
+            <li><a href="https://github.com/hannob/meltdownspectre-patches">meltdownspectre-patches</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Спасибо за внимание!</h2>
+        <p>
+            <a href="https://mefody.github.io/talks/spectre-panel-discussion/">mefody.github.io/talks/spectre-panel-discussion/</a>
+            <br>
+            <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+            <br>
+            <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        </p>
+        <img src="./pictures/qr-code.gif" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
+    </section>
+
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Powered by Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/prism/prism.min.js"></script>
+
+</body>
+
+</html>
