@@ -118,90 +118,83 @@
         <img src="./pictures/spectre-meltdown.png" alt="Spectre and Meltdown" class="place">
     </section>
 
-    <section class="slide">
-        ученый изнасиловал журналиста
+    <section class="slide black clear">
+        <img src="./pictures/scientist.jpg" alt="Как делаются сенсации" class="cover height">
     </section>
 
     <section class="slide">
-        шаги к уязвимости
+        <img src="./pictures/london-before.jpg" alt="Мир ДО" class="cover height">
     </section>
 
     <section class="slide">
-        1. кэш быстрее оперативки
+        <img src="./pictures/london-after.jpg" alt="Мир ПОСЛЕ" class="cover height">
     </section>
 
     <section class="slide">
-        2. спекулятивное выполнение кода
+        <img src="./pictures/druzhko.jpg" alt="Хайпанем немножко?" class="cover height">
     </section>
 
     <section class="slide">
-        3. предугадывание условий по статистике (Branch Prediction Unit)
+        <h2>Meltdown</h2>
+        <a href="https://meltdownattack.com">meltdownattack.com</a>
+        <img src="./pictures/meltdown.svg" alt="Meltdown Logo" class="place right bottom cover height" style="height: 90%; margin-right: 10%;">
     </section>
 
     <section class="slide">
-        вы используете не физические, а виртуальные адреса (MMU).
-    </section>
-
-    <section class="slide">Memory Management Unit бьет по рукам, если лезете не в свою память, но медленно</section>
-
-    <section class="slide">
-        <h2>Порядок</h2>
-        <ol>
-            <li>тренируем процессор выполнять код спекулятивно</li>
-            <li>пытаемся читать значение по закрытому адресу памяти косвенной адресацией</li>
-            <li>MMU ругается, результаты чтения сбрасываются из регистров процессора</li>
-            <li>но в кэше лежит значение из закрытого адреса памяти</li>
-            <li>замеряем скорость обращения к участку памяти прямой адресацией</li>
-            <li>PROFIT</li>
-        </ol>
+        <h2 class="shout shout-mini light">Собери 5 особенностей процессора
+            <br>и получи Meltdown в подарок</h2>
+        <img src="./pictures/puzzle.jpeg" class="cover width">
     </section>
 
     <section class="slide">
-        Можно ли защититься? Да, перенести область памяти ядра.
+        <h2>1. CPU Cache</h2>
+        <img src="./pictures/cpu-cache.gif" alt="CPU cache diagram">
+        <h2 style="float: right" class="next">t
+            <sub>cache</sub>
+            < t<sub>RAM</sub>
+        </h2>
     </section>
 
     <section class="slide">
-        замедление
+        <h2 class="shout shout-mini" style="font-size: 62px;">2. Спекулятивное выполнение кода</h2>
     </section>
 
     <section class="slide">
-        spectre
+        <img src="./pictures/cpu-pipeline.png" alt="CPU pipeline" class="cover height">
     </section>
 
     <section class="slide">
-<pre><code>if (x < array1_size)
-{
-    y = array2[array1[x]];
+        <h2>3. Branch Prediction Unit</h2>
+        <pre><code class="language-javascript">var secret = 0;
+for (var i = 0; i < 1000; i++) {
+    if (i < 999) {
+        secret = i;
+    }
 }</code></pre>
     </section>
 
     <section class="slide">
+        <h2>4. Memory Management Unit</h2>
+        <img src="./pictures/mmu.gif" alt="MMU structure">
+    </section>
+
+    <section class="slide">
+        <h2>5. Косвенная адресация</h2>
+        <pre><code class="language-asm">add ax, [bx]
+mov dl, [si]</code></pre>
+        <img src="./pictures/indirect-addressing-mode.png" alt="Схема косвенной адресация">
+    </section>
+
+    <section class="slide">
         <h2>Порядок</h2>
         <ol>
-            <li>тренируем процессор выполнять код спекулятивно атакующим процессом</li>
-            <li>засоряем кэш процессора</li>
-            <li>честно помещаем в кэш воруемые данные (S) из атакуемого процесса</li>
-            <li>честно вызываем код в атакуемом процессе</li>
-            <li>процессор выбрасывает результаты вычислений отовсюду, кроме кэша</li>
-            <li>замеряем время доступа к ячейкам до адреса S</li>
+            <li class="next">тренируем процессор выполнять код спекулятивно 🥅</li>
+            <li class="next">пытаемся читать значение по закрытому адресу памяти косвенной адресацией 🕵️‍</li>
+            <li class="next">MMU ругается, результаты сбрасываются из регистров процессора 🚫</li>
+            <li class="next">но в кэше лежит значение из закрытого адреса памяти 😏</li>
+            <li class="next">замеряем скорость обращения к участку памяти прямой адресацией ⏱</li>
+            <li class="next">PROFIT 🤗</li>
         </ol>
-    </section>
-
-    <section class="slide">
-        Это ж надо знать код!<br>
-        1. дизассемблер
-        2. используемые библиотеки
-        3. open source
-    </section>
-
-    <section class="slide">
-        <ul>
-            <li>Intel processors since 1995 except for the Itanium and pre-2013 ATOM (m, s)</li>
-            <li>All modern AMD processors (s)</li>
-            <li>AMD PRO and AMD FX with kernel BPF JIT enabled (m)</li>
-            <li>ARM processors with Cortex R7, R8, A8, A9, A15, A17, A57, A72, A73, and A75 cores (s)</li>
-            <li>Processors with Cortex A75 (m)</li>
-        </ul>
     </section>
 
     <section class="slide">
@@ -220,31 +213,115 @@ console.log(localJunk);</code></pre>
     </section>
 
     <section class="slide">
-        1. получение дампа системной памяти из браузера 2. воровство данных с других виртуальных машин на одном хостинге
+        <h2>Spectre</h2>
+        <a href="https://spectreattack.com/">spectreattack.com</a>
+        <img src="./pictures/spectre.svg" alt="Spectre Logo" class="place right bottom cover height" style="height: 60%; margin-right: 10%; margin-bottom: 5%;">
     </section>
 
     <section class="slide">
-        телефона на iOS и Android
+        <h2>Атакующий код</h2>
+        <pre><code class="language-javascript">if (x < array1_size)
+{
+    y = array2[array1[x]];
+}</code></pre>
     </section>
 
     <section class="slide">
-        чем дороже смартфон, тем больше шанс уязвимости
+        <h2>Порядок</h2>
+        <ol>
+            <li class="next">тренируем процессор выполнять код спекулятивно атакующим процессом</li>
+            <li class="next">засоряем кэш процессора</li>
+            <li class="next">честно помещаем в кэш воруемые данные (S) из атакуемого процесса</li>
+            <li class="next">честно вызываем уязвимый код в атакуемом процессе</li>
+            <li class="next">процессор выбрасывает результаты вычислений отовсюду, кроме кэша</li>
+            <li class="next">замеряем время доступа к ячейкам до адреса S</li>
+        </ol>
     </section>
 
     <section class="slide">
-        skyfall
+        <h2>Это ж надо знать код!</h2>
+        <ul>
+            <li class="next">часто используемые библиотеки</li>
+            <li class="next">open source</li>
+            <li class="next">дизассемблер</li>
+        </ul>
     </section>
 
     <section class="slide">
-        заговор производителей
+        <h2>Уязвимы для Meltdown</h2>
+        <ul>
+            <li>процессоры Intel с 1995 года, кроме Itanium и pre-2013</li>
+            <li>Процессоры с архитектурой ядра Cortex A75</li>
+            <li>AMD PRO и AMD FX с включенным BPF JIT</li>
+        </ul>
     </section>
 
     <section class="slide">
-        мир до и после
+        <h2>Уязвимы для Spectre</h2>
+        <ul>
+            <li>процессоры Intel с 1995 года, кроме Itanium и pre-2013</li>
+            <li>все современные процессоры AMD</li>
+            <li>ARM с ядрами Cortex R7, R8, A8, A9, A15, A17, A57, A72, A73 и A75</li>
+        </ul>
+    </section>
+
+    <section class="slide clear black">
+        <img src="./pictures/soccer.gif" alt="" class="cover height">
     </section>
 
     <section class="slide">
-        1. performance.now to 1ms 2. SharedArrayBuffer
+        <img src="./pictures/apple-logo.png" alt="Apple" class="place">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/android-fragmentation.png" alt="Android" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/linear.gif" alt="График зависимости шанса узявимости от новизны смартфона" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Как применить?</h2>
+        <ul>
+            <li class="next">Получение дампа системной памяти из браузера 👨‍💻</li>
+            <li class="next">Воровство данных с других виртуальных машин на одном хостинге 🕵</li>
+            <li class="next">Сбор статистики посещения сайтов 😳</li>
+            <li class="next">Новый скандал с голливудскими звездами и их фото 📷</li>
+            <li class="next">Дать фантазии простор для творчества 😏</li>
+        </ul>
+    </section>
+
+    <section class="slide clear black">
+        <video class="cover" controls="true">
+            <source src="./videos/Reconstructing a photo with Meltdown.mp4" type="video/mp4"> Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section class="slide clear black">
+        <video class="cover" controls="true">
+            <source src="./videos/Meltdown demo - Spying on passwords.mp4" type="video/mp4"> Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/skyfall.jpg" alt="Skyfall">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/triangle.jpg" alt="Мировой заговор" class="cover height">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/storage.jpg" alt="Склад Amazon" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>Срочные фиксы в браузерах</h2>
+        <ul>
+            <li>уменьшение точности performance.now</li>
+            <li>удаление SharedArrayBuffer</li>
+        </ul>
     </section>
 
     <section class="slide">
@@ -255,16 +332,25 @@ Get-SpeculationControlSettings</code></pre>
     </section>
 
     <sections class="slide">
-        https://github.com/speed47/spectre-meltdown-checker
+        <h2 class="shout shout-mini" style="font-size: 52px;">
+            <a class="link-github" href="https://github.com/speed47/spectre-meltdown-checker">speed47/spectre-meltdown-checker</a>
+        </h2>
     </sections>
 
     <section class="slide">
-        Установить последние обновления системы и браузера. Если вы не уверены в том что дыра точно закрыта и ваша система совершенно
-        точно в безопасности, лучше отключите JavaScript даже при посещении безопасных сайтов — они могут быть скомпроментированы.
-        Некоторые эксперты считают, что программным образом полностью обезопаситься нельзя и единственный способ решить проблему
-        — сменить процессор на вариант заведомо безопасный. Новые приложение — осторожно.
+        <h2>Как защититься? 🛡️</h2>
+        <ul>
+            <li class="next">Установить последние обновления системы и браузера</li>
+            <li class="next">Отключить JavaScript даже при посещении безопасных сайтов</li>
+            <li class="next">Осторожно запускать новые приложения</li>
+            <li class="next">Сменить процессор на заведомо безопасный</li>
+            <li class="next">Не хранить секретные данные на электронных носителях</li>
+        </ul>
     </section>
 
+    <section class="slide">
+        <img src="./pictures/house.jpg" alt="Заброшенный домик в лесу" class="cover height">
+    </section>
 
     <section class="slide">
         <h2 style="margin-bottom:0.2em;">Материалы</h2>
@@ -275,6 +361,22 @@ Get-SpeculationControlSettings</code></pre>
             <li><a href="https://geektimes.ru/post/297029/">Новогодние подарки</a> — Geektimes:olartamonov</li>
             <li><a href="https://github.com/hannob/meltdownspectre-patches">meltdownspectre-patches</a></li>
         </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">1. Вопрос №1</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">2. Вопрос №2</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">3. Вопрос №3</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">Вопросы из зала</h2>
     </section>
 
     <section class="slide">
