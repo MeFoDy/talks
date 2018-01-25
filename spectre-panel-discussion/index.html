@@ -22,23 +22,8 @@
 
     <section class="slide clear" id="cover">
         <h2>Полный Spectre уязвимостей</h2>
-        <p>панельная дискуссия</p>
         <hr>
         <img class="cover width" src="pictures/cover.jpeg">
-        <div class="speakers">
-            <figure class="speaker">
-                <img src="./pictures/speaker-1.png" alt="111">
-                <figcaption>Элмо</figcaption>
-            </figure>
-            <figure class="speaker">
-                <img src="./pictures/speaker-2.png" alt="222">
-                <figcaption>Лягушонок Кермит</figcaption>
-            </figure>
-            <figure class="speaker">
-                <img src="./pictures/speaker-3.png" alt="333">
-                <figcaption>Мисс Пигги</figcaption>
-            </figure>
-        </div>
 
         <style>
             #cover {
@@ -67,55 +52,14 @@
                 padding: 0 1em;
                 color: black;
             }
-
-            #cover .speakers {
-                display: flex;
-                margin-top: 40px;
-            }
-
-            #cover .speakers .speaker:not(:last-child) {
-                margin-right: 30px;
-            }
-
-            #cover .speakers .speaker {
-                display: block;
-                flex: 1 1;
-            }
-
-            #cover .speakers .speaker img {
-                max-width: 100%;
-                background-color: white;
-                border-radius: 50%;
-            }
-
-            #cover .speakers .speaker figcaption {
-                text-align: center;
-                color: black;
-                background: rgba(255, 255, 255, 0.5);
-            }
         </style>
     </section>
 
-    <section class="slide clear">
-        <h2>Элмо</h2>
-        <p>Улица Сезам</p>
-        <img src="./pictures/speaker-1.png" alt="Elmo" class="place right bottom" style="height: 80%">
-    </section>
-
-    <section class="slide clear">
-        <h2>Лягушонок Кермит</h2>
-        <p>Улица Сезам</p>
-        <img src="./pictures/speaker-2.png" alt="Kermit" class="place right bottom" style="height: 80%">
-    </section>
-
-    <section class="slide clear">
-        <h2>Свинка Пигги</h2>
-        <p>Улица Сезам</p>
-        <img src="./pictures/speaker-3.png" alt="Piggi" class="place right bottom" style="height: 80%">
-    </section>
-
     <section class="slide">
-        <img src="./pictures/spectre-meltdown.png" alt="Spectre and Meltdown" class="place">
+        <div class="images" style="display: flex; width: 100%; height: 100%;" class="place">
+            <img src="./pictures/meltdown.svg" style="height: 100%;" alt="Meltdown">
+            <img src="./pictures/spectre.svg" style="height: 100%;" alt="Spectre">
+        </div>
     </section>
 
     <section class="slide black clear">
@@ -149,10 +93,7 @@
     <section class="slide">
         <h2>1. CPU Cache</h2>
         <img src="./pictures/cpu-cache.gif" alt="CPU cache diagram">
-        <h2 style="float: right" class="next">t
-            <sub>cache</sub>
-            < t<sub>RAM</sub>
-        </h2>
+        <h2 style="float: right" class="next">t<sub>cache</sub> < t<sub>RAM</sub></h2>
     </section>
 
     <section class="slide">
@@ -363,23 +304,7 @@ Get-SpeculationControlSettings</code></pre>
         </ul>
     </section>
 
-    <section class="slide">
-        <h2 class="shout shout-mini">1. Вопрос №1</h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shout-mini">2. Вопрос №2</h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shout-mini">3. Вопрос №3</h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shout-mini">Вопросы из зала</h2>
-    </section>
-
-    <section class="slide">
+    <!-- <section class="slide">
         <h2>Спасибо за внимание!</h2>
         <p>
             <a href="https://mefody.github.io/talks/spectre-panel-discussion/">mefody.github.io/talks/spectre-panel-discussion/</a>
@@ -389,8 +314,7 @@ Get-SpeculationControlSettings</code></pre>
             <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
         </p>
         <img src="./pictures/qr-code.gif" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
-    </section>
-
+    </section> -->
 
     <footer class="badge">
         <a href="https://github.com/shower/shower">Powered by Shower</a>
