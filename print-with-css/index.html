@@ -281,8 +281,8 @@
     <section class="slide clear">
         <img src="./pictures/cry.jpg" style="transform: translate(-50%,-50%) scaleX(-1);" class="place" alt="Cry Meme">
         <footer>
-            <p>Среднестатистический преподаватель, когда пытается проверить курсовую или дипломную работу на соответствие ГОСТ-ам, выглядит
-                как-то так.</p>
+            <p>Среднестатистический преподаватель, когда пытается проверить курсовую или дипломную работу на соответствие ГОСТ-ам,
+                выглядит как-то так.</p>
         </footer>
     </section>
 
@@ -331,7 +331,7 @@
             </li>
         </ul>
         <footer>
-            <p>CSS для печати уже используют организаторы конференций PiterCSS и WSD — бэджики готовятся на HTML и CSS.</p>
+            <p>CSS для печати уже используют организаторы конференций pitercss_conf и WSD — бэджики готовятся на HTML и CSS.</p>
             <p>Если вы ходите на митапы MinskCSS легально, то есть предварительно зарегистрировавшись, то вы точно видели страницу
                 печати билета на TimePad. И печать реализована именно на CSS.</p>
             <p>Если этих примеров недостаточно, то вот вам очень весомый аргумент: издательство O'Reilly (то самое, которое
@@ -358,22 +358,6 @@
                 max-height: 100%;
             }
         </style>
-    </section>
-
-    <section class="slide">
-        <h2>Спецификации</h2>
-        <ul>
-            <li><a href="https://drafts.csswg.org/css-page-3/">CSS Paged Media Module Level 3</a></li>
-            <li><a href="https://www.w3.org/TR/css-gcpm-3/">CSS Generated Content for Paged Media Module</a></li>
-            <li><a href="https://books.idea.whatwg.org">CSS Books</a></li>
-        </ul>
-        <footer>
-            <p>На данный момент есть три спецификации, которые подробно описывают то, как браузер должен отдавать страницу на
-                печать.
-            </p>
-            <p>CSS Books — скорее набор идей, чем спецификация. Но некоторые идеи там настолько хорошие, что очень хотелось
-                бы увидеть их на практике.</p>
-        </footer>
     </section>
 
     <section class="slide">
@@ -431,6 +415,22 @@ function callPrint() {
                 метод
                 <code>window.print()</code>. Браузер либо вызовет встроенное в него окно настройки печати страницы, либо отобразит системное диалоговое
                 окно печати документов.</p>
+        </footer>
+    </section>
+
+    <section class="slide">
+        <h2>Спецификации</h2>
+        <ul>
+            <li><a href="https://drafts.csswg.org/css-page-3/">CSS Paged Media Module Level 3</a></li>
+            <li><a href="https://www.w3.org/TR/css-gcpm-3/">CSS Generated Content for Paged Media Module</a></li>
+            <li><a href="https://books.idea.whatwg.org">CSS Books</a></li>
+        </ul>
+        <footer>
+            <p>На данный момент есть три спецификации, которые подробно описывают то, как браузер должен отдавать страницу на
+                печать.
+            </p>
+            <p>CSS Books — скорее набор идей, чем спецификация. Но некоторые идеи там настолько хорошие, что очень хотелось
+                бы увидеть их на практике.</p>
         </footer>
     </section>
 
@@ -783,8 +783,51 @@ a.xref::after {
         <h2>Как сделать сайт печатаемым?</h2>
         <ol>
             <li class="next">Используйте семантическую верстку</li>
-            <li class="next">Проставьте размеры для всех изображений и svg</li>
-            <li class="next">Уберите
+        </ol>
+    </section>
+
+    <section class="slide clear demos">
+        <div class="cover container">
+            <iframe src="./demos/good.html" frameborder="0" class="iframe"></iframe>
+            <iframe src="./demos/bad.html" frameborder="0" class="next iframe"></iframe>
+        </div>
+        <style>
+            .demos .container {
+                display: flex;
+                width: 100%;
+                height: 90%;
+            }
+
+            .demos .container .iframe {
+                flex: 1 0 auto;
+                border: 1px solid #ccc;
+                margin: 0 10px;
+            }
+
+            .demos .container .iframe:first-child {
+                margin-right: 0;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Как сделать сайт печатаемым?</h2>
+        <ol>
+            <li>Используйте семантическую верстку</li>
+            <li>Проставьте размеры для всех изображений и svg</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <img class="place" src="./pictures/indiegogo.jpg" alt="Твит Aaron Gustafson">
+    </section>
+
+    <section class="slide">
+        <h2>Как сделать сайт печатаемым?</h2>
+        <ol>
+            <li>Используйте семантическую верстку</li>
+            <li>Проставьте размеры для всех изображений и svg</li>
+            <li>Уберите
                 <code>@media screen</code>
             </li>
             <li class="next">Напишите отдельный CSS с печатными стилями</li>
