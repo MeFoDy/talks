@@ -1,0 +1,2924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Infinite Steps</title>
+</head>
+
+<body>
+
+
+    <div id="window">
+        <div class="panel">
+            <div class="panel_frame"></div>
+            <div class="panel_back"></div>
+        </div>
+        <div class="pillar">
+            <div class="ref"></div>
+        </div>
+        <div class="wall"></div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step_inner">
+                <div class="step_top"></div>
+                <div class="step_side"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        body {
+            background: #000;
+            height: 100vh;
+            overflow: hidden;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            font-family: 'Anton', sans-serif;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-perspective: 400px;
+            perspective: 400px;
+        }
+
+        div {
+            position: absolute;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        #window {
+            width: 300px;
+            height: 400px;
+        }
+
+        #window .panel_frame {
+            top: -150px;
+            left: -150px;
+            width: 75px;
+            height: 98px;
+            border: 150px solid black;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            -webkit-transform: translate3d(112.5px, 151px, 300px);
+            transform: translate3d(112.5px, 151px, 300px);
+            border-radius: 152px;
+            -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3) inset;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3) inset;
+        }
+
+        #window .panel_back {
+            width: 1000px;
+            height: 1200px;
+            background: linear-gradient(220deg, white 0%, #969696 100%);
+            -webkit-transform: translate3d(-50%, -50%, -250px);
+            transform: translate3d(-50%, -50%, -250px);
+        }
+
+        #window .pillar {
+            width: 100px;
+            height: 400px;
+            background: linear-gradient(220deg, #f0f0f0 0%, #969696 100%);
+            overflow: hidden;
+        }
+
+        #window .pillar .ref {
+            left: 45%;
+            width: 45%;
+            height: 100%;
+            background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.2)));
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+            -webkit-transform: translateZ(1px);
+            transform: translateZ(1px);
+            -webkit-filter: blur(12px);
+            filter: blur(12px);
+            mix-blend-mode: screen;
+        }
+
+        #window .pillar::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.15)), color-stop(10%, rgba(0, 0, 0, 0.1)), color-stop(50%, rgba(255, 255, 255, 0)));
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.1) 10%, rgba(255, 255, 255, 0) 50%);
+        }
+
+        #window .pillar::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(300deg, black 0%, rgba(0, 0, 0, 0) 31%);
+        }
+
+        #window .wall {
+            width: 159px;
+            height: 400px;
+            background: linear-gradient(220deg, #f0f0f0 0%, #646464 100%);
+            -webkit-transform: translate(100px, 256px);
+            transform: translate(100px, 256px);
+        }
+
+        #window .wall::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: -webkit-gradient(linear, right top, left top, from(rgba(100, 100, 100, 0.1)), color-stop(5%, rgba(255, 255, 255, 0)));
+            background: linear-gradient(270deg, rgba(100, 100, 100, 0.1) 0%, rgba(255, 255, 255, 0) 5%);
+        }
+
+        #window .step {
+            -webkit-transform: rotateY(-50deg);
+            transform: rotateY(-50deg);
+        }
+
+        #window .step_inner {
+            -webkit-transform: translateX(99.4px);
+            transform: translateX(99.4px);
+        }
+
+        #window .step_top {
+            width: 150px;
+            height: 37px;
+            background: linear-gradient(220deg, #f0f0f0 0%, #969696 100%);
+            -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            -webkit-transform: translateY(-37px) rotateX(90deg);
+            transform: translateY(-37px) rotateX(90deg);
+        }
+
+        #window .step_top::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-20deg, rgba(200, 200, 200, 0.4) 0%, rgba(100, 100, 100, 0.6) 100%);
+            -webkit-clip-path: polygon(0 0, 100% 0, 92% 60%, 30% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 92% 60%, 30% 100%, 0 100%);
+        }
+
+        #window .step_top::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0;
+            background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.2)));
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+            -webkit-transform: translate3d(-100%, 0, -1px);
+            transform: translate3d(-100%, 0, -1px);
+        }
+
+        #window .step_side {
+            width: 150px;
+            height: 20px;
+            background: linear-gradient(195deg, #c8c8c8 0%, #646464 100%);
+        }
+
+        #window .step_side::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            opacity: 1;
+            -webkit-transform: translateZ(1px);
+            transform: translateZ(1px);
+        }
+
+        #window .step_side::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0;
+            background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0.2)));
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 100%);
+            -webkit-transform: translate3d(-100%, 0, -1px);
+            transform: translate3d(-100%, 0, -1px);
+        }
+
+        #window .step:nth-child(1) {
+            -webkit-animation: stepAnimation 10000ms -500ms linear infinite;
+            animation: stepAnimation 10000ms -500ms linear infinite;
+        }
+
+        #window .step:nth-child(1) .step_side::before {
+            -webkit-animation: stepColor 10000ms -500ms linear infinite;
+            animation: stepColor 10000ms -500ms linear infinite;
+        }
+
+        #window .step:nth-child(1) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -500ms linear infinite;
+            animation: stepRefrection 10000ms -500ms linear infinite;
+        }
+
+        #window .step:nth-child(1) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -500ms linear infinite;
+            animation: stepShadow 10000ms -500ms linear infinite;
+        }
+
+        #window .step:nth-child(1) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -500ms linear infinite;
+            animation: stepRefrection 10000ms -500ms linear infinite;
+        }
+
+        #window .step:nth-child(2) {
+            -webkit-animation: stepAnimation 10000ms -1000ms linear infinite;
+            animation: stepAnimation 10000ms -1000ms linear infinite;
+        }
+
+        #window .step:nth-child(2) .step_side::before {
+            -webkit-animation: stepColor 10000ms -1000ms linear infinite;
+            animation: stepColor 10000ms -1000ms linear infinite;
+        }
+
+        #window .step:nth-child(2) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -1000ms linear infinite;
+            animation: stepRefrection 10000ms -1000ms linear infinite;
+        }
+
+        #window .step:nth-child(2) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -1000ms linear infinite;
+            animation: stepShadow 10000ms -1000ms linear infinite;
+        }
+
+        #window .step:nth-child(2) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -1000ms linear infinite;
+            animation: stepRefrection 10000ms -1000ms linear infinite;
+        }
+
+        #window .step:nth-child(3) {
+            -webkit-animation: stepAnimation 10000ms -1500ms linear infinite;
+            animation: stepAnimation 10000ms -1500ms linear infinite;
+        }
+
+        #window .step:nth-child(3) .step_side::before {
+            -webkit-animation: stepColor 10000ms -1500ms linear infinite;
+            animation: stepColor 10000ms -1500ms linear infinite;
+        }
+
+        #window .step:nth-child(3) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -1500ms linear infinite;
+            animation: stepRefrection 10000ms -1500ms linear infinite;
+        }
+
+        #window .step:nth-child(3) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -1500ms linear infinite;
+            animation: stepShadow 10000ms -1500ms linear infinite;
+        }
+
+        #window .step:nth-child(3) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -1500ms linear infinite;
+            animation: stepRefrection 10000ms -1500ms linear infinite;
+        }
+
+        #window .step:nth-child(4) {
+            -webkit-animation: stepAnimation 10000ms -2000ms linear infinite;
+            animation: stepAnimation 10000ms -2000ms linear infinite;
+        }
+
+        #window .step:nth-child(4) .step_side::before {
+            -webkit-animation: stepColor 10000ms -2000ms linear infinite;
+            animation: stepColor 10000ms -2000ms linear infinite;
+        }
+
+        #window .step:nth-child(4) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -2000ms linear infinite;
+            animation: stepRefrection 10000ms -2000ms linear infinite;
+        }
+
+        #window .step:nth-child(4) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -2000ms linear infinite;
+            animation: stepShadow 10000ms -2000ms linear infinite;
+        }
+
+        #window .step:nth-child(4) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -2000ms linear infinite;
+            animation: stepRefrection 10000ms -2000ms linear infinite;
+        }
+
+        #window .step:nth-child(5) {
+            -webkit-animation: stepAnimation 10000ms -2500ms linear infinite;
+            animation: stepAnimation 10000ms -2500ms linear infinite;
+        }
+
+        #window .step:nth-child(5) .step_side::before {
+            -webkit-animation: stepColor 10000ms -2500ms linear infinite;
+            animation: stepColor 10000ms -2500ms linear infinite;
+        }
+
+        #window .step:nth-child(5) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -2500ms linear infinite;
+            animation: stepRefrection 10000ms -2500ms linear infinite;
+        }
+
+        #window .step:nth-child(5) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -2500ms linear infinite;
+            animation: stepShadow 10000ms -2500ms linear infinite;
+        }
+
+        #window .step:nth-child(5) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -2500ms linear infinite;
+            animation: stepRefrection 10000ms -2500ms linear infinite;
+        }
+
+        #window .step:nth-child(6) {
+            -webkit-animation: stepAnimation 10000ms -3000ms linear infinite;
+            animation: stepAnimation 10000ms -3000ms linear infinite;
+        }
+
+        #window .step:nth-child(6) .step_side::before {
+            -webkit-animation: stepColor 10000ms -3000ms linear infinite;
+            animation: stepColor 10000ms -3000ms linear infinite;
+        }
+
+        #window .step:nth-child(6) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -3000ms linear infinite;
+            animation: stepRefrection 10000ms -3000ms linear infinite;
+        }
+
+        #window .step:nth-child(6) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -3000ms linear infinite;
+            animation: stepShadow 10000ms -3000ms linear infinite;
+        }
+
+        #window .step:nth-child(6) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -3000ms linear infinite;
+            animation: stepRefrection 10000ms -3000ms linear infinite;
+        }
+
+        #window .step:nth-child(7) {
+            -webkit-animation: stepAnimation 10000ms -3500ms linear infinite;
+            animation: stepAnimation 10000ms -3500ms linear infinite;
+        }
+
+        #window .step:nth-child(7) .step_side::before {
+            -webkit-animation: stepColor 10000ms -3500ms linear infinite;
+            animation: stepColor 10000ms -3500ms linear infinite;
+        }
+
+        #window .step:nth-child(7) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -3500ms linear infinite;
+            animation: stepRefrection 10000ms -3500ms linear infinite;
+        }
+
+        #window .step:nth-child(7) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -3500ms linear infinite;
+            animation: stepShadow 10000ms -3500ms linear infinite;
+        }
+
+        #window .step:nth-child(7) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -3500ms linear infinite;
+            animation: stepRefrection 10000ms -3500ms linear infinite;
+        }
+
+        #window .step:nth-child(8) {
+            -webkit-animation: stepAnimation 10000ms -4000ms linear infinite;
+            animation: stepAnimation 10000ms -4000ms linear infinite;
+        }
+
+        #window .step:nth-child(8) .step_side::before {
+            -webkit-animation: stepColor 10000ms -4000ms linear infinite;
+            animation: stepColor 10000ms -4000ms linear infinite;
+        }
+
+        #window .step:nth-child(8) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -4000ms linear infinite;
+            animation: stepRefrection 10000ms -4000ms linear infinite;
+        }
+
+        #window .step:nth-child(8) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -4000ms linear infinite;
+            animation: stepShadow 10000ms -4000ms linear infinite;
+        }
+
+        #window .step:nth-child(8) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -4000ms linear infinite;
+            animation: stepRefrection 10000ms -4000ms linear infinite;
+        }
+
+        #window .step:nth-child(9) {
+            -webkit-animation: stepAnimation 10000ms -4500ms linear infinite;
+            animation: stepAnimation 10000ms -4500ms linear infinite;
+        }
+
+        #window .step:nth-child(9) .step_side::before {
+            -webkit-animation: stepColor 10000ms -4500ms linear infinite;
+            animation: stepColor 10000ms -4500ms linear infinite;
+        }
+
+        #window .step:nth-child(9) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -4500ms linear infinite;
+            animation: stepRefrection 10000ms -4500ms linear infinite;
+        }
+
+        #window .step:nth-child(9) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -4500ms linear infinite;
+            animation: stepShadow 10000ms -4500ms linear infinite;
+        }
+
+        #window .step:nth-child(9) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -4500ms linear infinite;
+            animation: stepRefrection 10000ms -4500ms linear infinite;
+        }
+
+        #window .step:nth-child(10) {
+            -webkit-animation: stepAnimation 10000ms -5000ms linear infinite;
+            animation: stepAnimation 10000ms -5000ms linear infinite;
+        }
+
+        #window .step:nth-child(10) .step_side::before {
+            -webkit-animation: stepColor 10000ms -5000ms linear infinite;
+            animation: stepColor 10000ms -5000ms linear infinite;
+        }
+
+        #window .step:nth-child(10) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -5000ms linear infinite;
+            animation: stepRefrection 10000ms -5000ms linear infinite;
+        }
+
+        #window .step:nth-child(10) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -5000ms linear infinite;
+            animation: stepShadow 10000ms -5000ms linear infinite;
+        }
+
+        #window .step:nth-child(10) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -5000ms linear infinite;
+            animation: stepRefrection 10000ms -5000ms linear infinite;
+        }
+
+        #window .step:nth-child(11) {
+            -webkit-animation: stepAnimation 10000ms -5500ms linear infinite;
+            animation: stepAnimation 10000ms -5500ms linear infinite;
+        }
+
+        #window .step:nth-child(11) .step_side::before {
+            -webkit-animation: stepColor 10000ms -5500ms linear infinite;
+            animation: stepColor 10000ms -5500ms linear infinite;
+        }
+
+        #window .step:nth-child(11) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -5500ms linear infinite;
+            animation: stepRefrection 10000ms -5500ms linear infinite;
+        }
+
+        #window .step:nth-child(11) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -5500ms linear infinite;
+            animation: stepShadow 10000ms -5500ms linear infinite;
+        }
+
+        #window .step:nth-child(11) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -5500ms linear infinite;
+            animation: stepRefrection 10000ms -5500ms linear infinite;
+        }
+
+        #window .step:nth-child(12) {
+            -webkit-animation: stepAnimation 10000ms -6000ms linear infinite;
+            animation: stepAnimation 10000ms -6000ms linear infinite;
+        }
+
+        #window .step:nth-child(12) .step_side::before {
+            -webkit-animation: stepColor 10000ms -6000ms linear infinite;
+            animation: stepColor 10000ms -6000ms linear infinite;
+        }
+
+        #window .step:nth-child(12) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -6000ms linear infinite;
+            animation: stepRefrection 10000ms -6000ms linear infinite;
+        }
+
+        #window .step:nth-child(12) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -6000ms linear infinite;
+            animation: stepShadow 10000ms -6000ms linear infinite;
+        }
+
+        #window .step:nth-child(12) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -6000ms linear infinite;
+            animation: stepRefrection 10000ms -6000ms linear infinite;
+        }
+
+        #window .step:nth-child(13) {
+            -webkit-animation: stepAnimation 10000ms -6500ms linear infinite;
+            animation: stepAnimation 10000ms -6500ms linear infinite;
+        }
+
+        #window .step:nth-child(13) .step_side::before {
+            -webkit-animation: stepColor 10000ms -6500ms linear infinite;
+            animation: stepColor 10000ms -6500ms linear infinite;
+        }
+
+        #window .step:nth-child(13) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -6500ms linear infinite;
+            animation: stepRefrection 10000ms -6500ms linear infinite;
+        }
+
+        #window .step:nth-child(13) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -6500ms linear infinite;
+            animation: stepShadow 10000ms -6500ms linear infinite;
+        }
+
+        #window .step:nth-child(13) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -6500ms linear infinite;
+            animation: stepRefrection 10000ms -6500ms linear infinite;
+        }
+
+        #window .step:nth-child(14) {
+            -webkit-animation: stepAnimation 10000ms -7000ms linear infinite;
+            animation: stepAnimation 10000ms -7000ms linear infinite;
+        }
+
+        #window .step:nth-child(14) .step_side::before {
+            -webkit-animation: stepColor 10000ms -7000ms linear infinite;
+            animation: stepColor 10000ms -7000ms linear infinite;
+        }
+
+        #window .step:nth-child(14) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -7000ms linear infinite;
+            animation: stepRefrection 10000ms -7000ms linear infinite;
+        }
+
+        #window .step:nth-child(14) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -7000ms linear infinite;
+            animation: stepShadow 10000ms -7000ms linear infinite;
+        }
+
+        #window .step:nth-child(14) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -7000ms linear infinite;
+            animation: stepRefrection 10000ms -7000ms linear infinite;
+        }
+
+        #window .step:nth-child(15) {
+            -webkit-animation: stepAnimation 10000ms -7500ms linear infinite;
+            animation: stepAnimation 10000ms -7500ms linear infinite;
+        }
+
+        #window .step:nth-child(15) .step_side::before {
+            -webkit-animation: stepColor 10000ms -7500ms linear infinite;
+            animation: stepColor 10000ms -7500ms linear infinite;
+        }
+
+        #window .step:nth-child(15) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -7500ms linear infinite;
+            animation: stepRefrection 10000ms -7500ms linear infinite;
+        }
+
+        #window .step:nth-child(15) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -7500ms linear infinite;
+            animation: stepShadow 10000ms -7500ms linear infinite;
+        }
+
+        #window .step:nth-child(15) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -7500ms linear infinite;
+            animation: stepRefrection 10000ms -7500ms linear infinite;
+        }
+
+        #window .step:nth-child(16) {
+            -webkit-animation: stepAnimation 10000ms -8000ms linear infinite;
+            animation: stepAnimation 10000ms -8000ms linear infinite;
+        }
+
+        #window .step:nth-child(16) .step_side::before {
+            -webkit-animation: stepColor 10000ms -8000ms linear infinite;
+            animation: stepColor 10000ms -8000ms linear infinite;
+        }
+
+        #window .step:nth-child(16) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -8000ms linear infinite;
+            animation: stepRefrection 10000ms -8000ms linear infinite;
+        }
+
+        #window .step:nth-child(16) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -8000ms linear infinite;
+            animation: stepShadow 10000ms -8000ms linear infinite;
+        }
+
+        #window .step:nth-child(16) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -8000ms linear infinite;
+            animation: stepRefrection 10000ms -8000ms linear infinite;
+        }
+
+        #window .step:nth-child(17) {
+            -webkit-animation: stepAnimation 10000ms -8500ms linear infinite;
+            animation: stepAnimation 10000ms -8500ms linear infinite;
+        }
+
+        #window .step:nth-child(17) .step_side::before {
+            -webkit-animation: stepColor 10000ms -8500ms linear infinite;
+            animation: stepColor 10000ms -8500ms linear infinite;
+        }
+
+        #window .step:nth-child(17) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -8500ms linear infinite;
+            animation: stepRefrection 10000ms -8500ms linear infinite;
+        }
+
+        #window .step:nth-child(17) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -8500ms linear infinite;
+            animation: stepShadow 10000ms -8500ms linear infinite;
+        }
+
+        #window .step:nth-child(17) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -8500ms linear infinite;
+            animation: stepRefrection 10000ms -8500ms linear infinite;
+        }
+
+        #window .step:nth-child(18) {
+            -webkit-animation: stepAnimation 10000ms -9000ms linear infinite;
+            animation: stepAnimation 10000ms -9000ms linear infinite;
+        }
+
+        #window .step:nth-child(18) .step_side::before {
+            -webkit-animation: stepColor 10000ms -9000ms linear infinite;
+            animation: stepColor 10000ms -9000ms linear infinite;
+        }
+
+        #window .step:nth-child(18) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -9000ms linear infinite;
+            animation: stepRefrection 10000ms -9000ms linear infinite;
+        }
+
+        #window .step:nth-child(18) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -9000ms linear infinite;
+            animation: stepShadow 10000ms -9000ms linear infinite;
+        }
+
+        #window .step:nth-child(18) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -9000ms linear infinite;
+            animation: stepRefrection 10000ms -9000ms linear infinite;
+        }
+
+        #window .step:nth-child(19) {
+            -webkit-animation: stepAnimation 10000ms -9500ms linear infinite;
+            animation: stepAnimation 10000ms -9500ms linear infinite;
+        }
+
+        #window .step:nth-child(19) .step_side::before {
+            -webkit-animation: stepColor 10000ms -9500ms linear infinite;
+            animation: stepColor 10000ms -9500ms linear infinite;
+        }
+
+        #window .step:nth-child(19) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -9500ms linear infinite;
+            animation: stepRefrection 10000ms -9500ms linear infinite;
+        }
+
+        #window .step:nth-child(19) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -9500ms linear infinite;
+            animation: stepShadow 10000ms -9500ms linear infinite;
+        }
+
+        #window .step:nth-child(19) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -9500ms linear infinite;
+            animation: stepRefrection 10000ms -9500ms linear infinite;
+        }
+
+        #window .step:nth-child(20) {
+            -webkit-animation: stepAnimation 10000ms -10000ms linear infinite;
+            animation: stepAnimation 10000ms -10000ms linear infinite;
+        }
+
+        #window .step:nth-child(20) .step_side::before {
+            -webkit-animation: stepColor 10000ms -10000ms linear infinite;
+            animation: stepColor 10000ms -10000ms linear infinite;
+        }
+
+        #window .step:nth-child(20) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -10000ms linear infinite;
+            animation: stepRefrection 10000ms -10000ms linear infinite;
+        }
+
+        #window .step:nth-child(20) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -10000ms linear infinite;
+            animation: stepShadow 10000ms -10000ms linear infinite;
+        }
+
+        #window .step:nth-child(20) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -10000ms linear infinite;
+            animation: stepRefrection 10000ms -10000ms linear infinite;
+        }
+
+        #window .step:nth-child(21) {
+            -webkit-animation: stepAnimation 10000ms -10500ms linear infinite;
+            animation: stepAnimation 10000ms -10500ms linear infinite;
+        }
+
+        #window .step:nth-child(21) .step_side::before {
+            -webkit-animation: stepColor 10000ms -10500ms linear infinite;
+            animation: stepColor 10000ms -10500ms linear infinite;
+        }
+
+        #window .step:nth-child(21) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -10500ms linear infinite;
+            animation: stepRefrection 10000ms -10500ms linear infinite;
+        }
+
+        #window .step:nth-child(21) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -10500ms linear infinite;
+            animation: stepShadow 10000ms -10500ms linear infinite;
+        }
+
+        #window .step:nth-child(21) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -10500ms linear infinite;
+            animation: stepRefrection 10000ms -10500ms linear infinite;
+        }
+
+        #window .step:nth-child(22) {
+            -webkit-animation: stepAnimation 10000ms -11000ms linear infinite;
+            animation: stepAnimation 10000ms -11000ms linear infinite;
+        }
+
+        #window .step:nth-child(22) .step_side::before {
+            -webkit-animation: stepColor 10000ms -11000ms linear infinite;
+            animation: stepColor 10000ms -11000ms linear infinite;
+        }
+
+        #window .step:nth-child(22) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -11000ms linear infinite;
+            animation: stepRefrection 10000ms -11000ms linear infinite;
+        }
+
+        #window .step:nth-child(22) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -11000ms linear infinite;
+            animation: stepShadow 10000ms -11000ms linear infinite;
+        }
+
+        #window .step:nth-child(22) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -11000ms linear infinite;
+            animation: stepRefrection 10000ms -11000ms linear infinite;
+        }
+
+        #window .step:nth-child(23) {
+            -webkit-animation: stepAnimation 10000ms -11500ms linear infinite;
+            animation: stepAnimation 10000ms -11500ms linear infinite;
+        }
+
+        #window .step:nth-child(23) .step_side::before {
+            -webkit-animation: stepColor 10000ms -11500ms linear infinite;
+            animation: stepColor 10000ms -11500ms linear infinite;
+        }
+
+        #window .step:nth-child(23) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -11500ms linear infinite;
+            animation: stepRefrection 10000ms -11500ms linear infinite;
+        }
+
+        #window .step:nth-child(23) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -11500ms linear infinite;
+            animation: stepShadow 10000ms -11500ms linear infinite;
+        }
+
+        #window .step:nth-child(23) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -11500ms linear infinite;
+            animation: stepRefrection 10000ms -11500ms linear infinite;
+        }
+
+        #window .step:nth-child(24) {
+            -webkit-animation: stepAnimation 10000ms -12000ms linear infinite;
+            animation: stepAnimation 10000ms -12000ms linear infinite;
+        }
+
+        #window .step:nth-child(24) .step_side::before {
+            -webkit-animation: stepColor 10000ms -12000ms linear infinite;
+            animation: stepColor 10000ms -12000ms linear infinite;
+        }
+
+        #window .step:nth-child(24) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -12000ms linear infinite;
+            animation: stepRefrection 10000ms -12000ms linear infinite;
+        }
+
+        #window .step:nth-child(24) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -12000ms linear infinite;
+            animation: stepShadow 10000ms -12000ms linear infinite;
+        }
+
+        #window .step:nth-child(24) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -12000ms linear infinite;
+            animation: stepRefrection 10000ms -12000ms linear infinite;
+        }
+
+        #window .step:nth-child(25) {
+            -webkit-animation: stepAnimation 10000ms -12500ms linear infinite;
+            animation: stepAnimation 10000ms -12500ms linear infinite;
+        }
+
+        #window .step:nth-child(25) .step_side::before {
+            -webkit-animation: stepColor 10000ms -12500ms linear infinite;
+            animation: stepColor 10000ms -12500ms linear infinite;
+        }
+
+        #window .step:nth-child(25) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -12500ms linear infinite;
+            animation: stepRefrection 10000ms -12500ms linear infinite;
+        }
+
+        #window .step:nth-child(25) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -12500ms linear infinite;
+            animation: stepShadow 10000ms -12500ms linear infinite;
+        }
+
+        #window .step:nth-child(25) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -12500ms linear infinite;
+            animation: stepRefrection 10000ms -12500ms linear infinite;
+        }
+
+        #window .step:nth-child(26) {
+            -webkit-animation: stepAnimation 10000ms -13000ms linear infinite;
+            animation: stepAnimation 10000ms -13000ms linear infinite;
+        }
+
+        #window .step:nth-child(26) .step_side::before {
+            -webkit-animation: stepColor 10000ms -13000ms linear infinite;
+            animation: stepColor 10000ms -13000ms linear infinite;
+        }
+
+        #window .step:nth-child(26) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -13000ms linear infinite;
+            animation: stepRefrection 10000ms -13000ms linear infinite;
+        }
+
+        #window .step:nth-child(26) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -13000ms linear infinite;
+            animation: stepShadow 10000ms -13000ms linear infinite;
+        }
+
+        #window .step:nth-child(26) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -13000ms linear infinite;
+            animation: stepRefrection 10000ms -13000ms linear infinite;
+        }
+
+        #window .step:nth-child(27) {
+            -webkit-animation: stepAnimation 10000ms -13500ms linear infinite;
+            animation: stepAnimation 10000ms -13500ms linear infinite;
+        }
+
+        #window .step:nth-child(27) .step_side::before {
+            -webkit-animation: stepColor 10000ms -13500ms linear infinite;
+            animation: stepColor 10000ms -13500ms linear infinite;
+        }
+
+        #window .step:nth-child(27) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -13500ms linear infinite;
+            animation: stepRefrection 10000ms -13500ms linear infinite;
+        }
+
+        #window .step:nth-child(27) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -13500ms linear infinite;
+            animation: stepShadow 10000ms -13500ms linear infinite;
+        }
+
+        #window .step:nth-child(27) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -13500ms linear infinite;
+            animation: stepRefrection 10000ms -13500ms linear infinite;
+        }
+
+        #window .step:nth-child(28) {
+            -webkit-animation: stepAnimation 10000ms -14000ms linear infinite;
+            animation: stepAnimation 10000ms -14000ms linear infinite;
+        }
+
+        #window .step:nth-child(28) .step_side::before {
+            -webkit-animation: stepColor 10000ms -14000ms linear infinite;
+            animation: stepColor 10000ms -14000ms linear infinite;
+        }
+
+        #window .step:nth-child(28) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -14000ms linear infinite;
+            animation: stepRefrection 10000ms -14000ms linear infinite;
+        }
+
+        #window .step:nth-child(28) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -14000ms linear infinite;
+            animation: stepShadow 10000ms -14000ms linear infinite;
+        }
+
+        #window .step:nth-child(28) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -14000ms linear infinite;
+            animation: stepRefrection 10000ms -14000ms linear infinite;
+        }
+
+        #window .step:nth-child(29) {
+            -webkit-animation: stepAnimation 10000ms -14500ms linear infinite;
+            animation: stepAnimation 10000ms -14500ms linear infinite;
+        }
+
+        #window .step:nth-child(29) .step_side::before {
+            -webkit-animation: stepColor 10000ms -14500ms linear infinite;
+            animation: stepColor 10000ms -14500ms linear infinite;
+        }
+
+        #window .step:nth-child(29) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -14500ms linear infinite;
+            animation: stepRefrection 10000ms -14500ms linear infinite;
+        }
+
+        #window .step:nth-child(29) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -14500ms linear infinite;
+            animation: stepShadow 10000ms -14500ms linear infinite;
+        }
+
+        #window .step:nth-child(29) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -14500ms linear infinite;
+            animation: stepRefrection 10000ms -14500ms linear infinite;
+        }
+
+        #window .step:nth-child(30) {
+            -webkit-animation: stepAnimation 10000ms -15000ms linear infinite;
+            animation: stepAnimation 10000ms -15000ms linear infinite;
+        }
+
+        #window .step:nth-child(30) .step_side::before {
+            -webkit-animation: stepColor 10000ms -15000ms linear infinite;
+            animation: stepColor 10000ms -15000ms linear infinite;
+        }
+
+        #window .step:nth-child(30) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -15000ms linear infinite;
+            animation: stepRefrection 10000ms -15000ms linear infinite;
+        }
+
+        #window .step:nth-child(30) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -15000ms linear infinite;
+            animation: stepShadow 10000ms -15000ms linear infinite;
+        }
+
+        #window .step:nth-child(30) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -15000ms linear infinite;
+            animation: stepRefrection 10000ms -15000ms linear infinite;
+        }
+
+        #window .step:nth-child(31) {
+            -webkit-animation: stepAnimation 10000ms -15500ms linear infinite;
+            animation: stepAnimation 10000ms -15500ms linear infinite;
+        }
+
+        #window .step:nth-child(31) .step_side::before {
+            -webkit-animation: stepColor 10000ms -15500ms linear infinite;
+            animation: stepColor 10000ms -15500ms linear infinite;
+        }
+
+        #window .step:nth-child(31) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -15500ms linear infinite;
+            animation: stepRefrection 10000ms -15500ms linear infinite;
+        }
+
+        #window .step:nth-child(31) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -15500ms linear infinite;
+            animation: stepShadow 10000ms -15500ms linear infinite;
+        }
+
+        #window .step:nth-child(31) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -15500ms linear infinite;
+            animation: stepRefrection 10000ms -15500ms linear infinite;
+        }
+
+        #window .step:nth-child(32) {
+            -webkit-animation: stepAnimation 10000ms -16000ms linear infinite;
+            animation: stepAnimation 10000ms -16000ms linear infinite;
+        }
+
+        #window .step:nth-child(32) .step_side::before {
+            -webkit-animation: stepColor 10000ms -16000ms linear infinite;
+            animation: stepColor 10000ms -16000ms linear infinite;
+        }
+
+        #window .step:nth-child(32) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -16000ms linear infinite;
+            animation: stepRefrection 10000ms -16000ms linear infinite;
+        }
+
+        #window .step:nth-child(32) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -16000ms linear infinite;
+            animation: stepShadow 10000ms -16000ms linear infinite;
+        }
+
+        #window .step:nth-child(32) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -16000ms linear infinite;
+            animation: stepRefrection 10000ms -16000ms linear infinite;
+        }
+
+        #window .step:nth-child(33) {
+            -webkit-animation: stepAnimation 10000ms -16500ms linear infinite;
+            animation: stepAnimation 10000ms -16500ms linear infinite;
+        }
+
+        #window .step:nth-child(33) .step_side::before {
+            -webkit-animation: stepColor 10000ms -16500ms linear infinite;
+            animation: stepColor 10000ms -16500ms linear infinite;
+        }
+
+        #window .step:nth-child(33) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -16500ms linear infinite;
+            animation: stepRefrection 10000ms -16500ms linear infinite;
+        }
+
+        #window .step:nth-child(33) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -16500ms linear infinite;
+            animation: stepShadow 10000ms -16500ms linear infinite;
+        }
+
+        #window .step:nth-child(33) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -16500ms linear infinite;
+            animation: stepRefrection 10000ms -16500ms linear infinite;
+        }
+
+        #window .step:nth-child(34) {
+            -webkit-animation: stepAnimation 10000ms -17000ms linear infinite;
+            animation: stepAnimation 10000ms -17000ms linear infinite;
+        }
+
+        #window .step:nth-child(34) .step_side::before {
+            -webkit-animation: stepColor 10000ms -17000ms linear infinite;
+            animation: stepColor 10000ms -17000ms linear infinite;
+        }
+
+        #window .step:nth-child(34) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -17000ms linear infinite;
+            animation: stepRefrection 10000ms -17000ms linear infinite;
+        }
+
+        #window .step:nth-child(34) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -17000ms linear infinite;
+            animation: stepShadow 10000ms -17000ms linear infinite;
+        }
+
+        #window .step:nth-child(34) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -17000ms linear infinite;
+            animation: stepRefrection 10000ms -17000ms linear infinite;
+        }
+
+        #window .step:nth-child(35) {
+            -webkit-animation: stepAnimation 10000ms -17500ms linear infinite;
+            animation: stepAnimation 10000ms -17500ms linear infinite;
+        }
+
+        #window .step:nth-child(35) .step_side::before {
+            -webkit-animation: stepColor 10000ms -17500ms linear infinite;
+            animation: stepColor 10000ms -17500ms linear infinite;
+        }
+
+        #window .step:nth-child(35) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -17500ms linear infinite;
+            animation: stepRefrection 10000ms -17500ms linear infinite;
+        }
+
+        #window .step:nth-child(35) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -17500ms linear infinite;
+            animation: stepShadow 10000ms -17500ms linear infinite;
+        }
+
+        #window .step:nth-child(35) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -17500ms linear infinite;
+            animation: stepRefrection 10000ms -17500ms linear infinite;
+        }
+
+        #window .step:nth-child(36) {
+            -webkit-animation: stepAnimation 10000ms -18000ms linear infinite;
+            animation: stepAnimation 10000ms -18000ms linear infinite;
+        }
+
+        #window .step:nth-child(36) .step_side::before {
+            -webkit-animation: stepColor 10000ms -18000ms linear infinite;
+            animation: stepColor 10000ms -18000ms linear infinite;
+        }
+
+        #window .step:nth-child(36) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -18000ms linear infinite;
+            animation: stepRefrection 10000ms -18000ms linear infinite;
+        }
+
+        #window .step:nth-child(36) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -18000ms linear infinite;
+            animation: stepShadow 10000ms -18000ms linear infinite;
+        }
+
+        #window .step:nth-child(36) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -18000ms linear infinite;
+            animation: stepRefrection 10000ms -18000ms linear infinite;
+        }
+
+        #window .step:nth-child(37) {
+            -webkit-animation: stepAnimation 10000ms -18500ms linear infinite;
+            animation: stepAnimation 10000ms -18500ms linear infinite;
+        }
+
+        #window .step:nth-child(37) .step_side::before {
+            -webkit-animation: stepColor 10000ms -18500ms linear infinite;
+            animation: stepColor 10000ms -18500ms linear infinite;
+        }
+
+        #window .step:nth-child(37) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -18500ms linear infinite;
+            animation: stepRefrection 10000ms -18500ms linear infinite;
+        }
+
+        #window .step:nth-child(37) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -18500ms linear infinite;
+            animation: stepShadow 10000ms -18500ms linear infinite;
+        }
+
+        #window .step:nth-child(37) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -18500ms linear infinite;
+            animation: stepRefrection 10000ms -18500ms linear infinite;
+        }
+
+        #window .step:nth-child(38) {
+            -webkit-animation: stepAnimation 10000ms -19000ms linear infinite;
+            animation: stepAnimation 10000ms -19000ms linear infinite;
+        }
+
+        #window .step:nth-child(38) .step_side::before {
+            -webkit-animation: stepColor 10000ms -19000ms linear infinite;
+            animation: stepColor 10000ms -19000ms linear infinite;
+        }
+
+        #window .step:nth-child(38) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -19000ms linear infinite;
+            animation: stepRefrection 10000ms -19000ms linear infinite;
+        }
+
+        #window .step:nth-child(38) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -19000ms linear infinite;
+            animation: stepShadow 10000ms -19000ms linear infinite;
+        }
+
+        #window .step:nth-child(38) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -19000ms linear infinite;
+            animation: stepRefrection 10000ms -19000ms linear infinite;
+        }
+
+        #window .step:nth-child(39) {
+            -webkit-animation: stepAnimation 10000ms -19500ms linear infinite;
+            animation: stepAnimation 10000ms -19500ms linear infinite;
+        }
+
+        #window .step:nth-child(39) .step_side::before {
+            -webkit-animation: stepColor 10000ms -19500ms linear infinite;
+            animation: stepColor 10000ms -19500ms linear infinite;
+        }
+
+        #window .step:nth-child(39) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -19500ms linear infinite;
+            animation: stepRefrection 10000ms -19500ms linear infinite;
+        }
+
+        #window .step:nth-child(39) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -19500ms linear infinite;
+            animation: stepShadow 10000ms -19500ms linear infinite;
+        }
+
+        #window .step:nth-child(39) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -19500ms linear infinite;
+            animation: stepRefrection 10000ms -19500ms linear infinite;
+        }
+
+        #window .step:nth-child(40) {
+            -webkit-animation: stepAnimation 10000ms -20000ms linear infinite;
+            animation: stepAnimation 10000ms -20000ms linear infinite;
+        }
+
+        #window .step:nth-child(40) .step_side::before {
+            -webkit-animation: stepColor 10000ms -20000ms linear infinite;
+            animation: stepColor 10000ms -20000ms linear infinite;
+        }
+
+        #window .step:nth-child(40) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -20000ms linear infinite;
+            animation: stepRefrection 10000ms -20000ms linear infinite;
+        }
+
+        #window .step:nth-child(40) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -20000ms linear infinite;
+            animation: stepShadow 10000ms -20000ms linear infinite;
+        }
+
+        #window .step:nth-child(40) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -20000ms linear infinite;
+            animation: stepRefrection 10000ms -20000ms linear infinite;
+        }
+
+        #window .step:nth-child(41) {
+            -webkit-animation: stepAnimation 10000ms -20500ms linear infinite;
+            animation: stepAnimation 10000ms -20500ms linear infinite;
+        }
+
+        #window .step:nth-child(41) .step_side::before {
+            -webkit-animation: stepColor 10000ms -20500ms linear infinite;
+            animation: stepColor 10000ms -20500ms linear infinite;
+        }
+
+        #window .step:nth-child(41) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -20500ms linear infinite;
+            animation: stepRefrection 10000ms -20500ms linear infinite;
+        }
+
+        #window .step:nth-child(41) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -20500ms linear infinite;
+            animation: stepShadow 10000ms -20500ms linear infinite;
+        }
+
+        #window .step:nth-child(41) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -20500ms linear infinite;
+            animation: stepRefrection 10000ms -20500ms linear infinite;
+        }
+
+        #window .step:nth-child(42) {
+            -webkit-animation: stepAnimation 10000ms -21000ms linear infinite;
+            animation: stepAnimation 10000ms -21000ms linear infinite;
+        }
+
+        #window .step:nth-child(42) .step_side::before {
+            -webkit-animation: stepColor 10000ms -21000ms linear infinite;
+            animation: stepColor 10000ms -21000ms linear infinite;
+        }
+
+        #window .step:nth-child(42) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -21000ms linear infinite;
+            animation: stepRefrection 10000ms -21000ms linear infinite;
+        }
+
+        #window .step:nth-child(42) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -21000ms linear infinite;
+            animation: stepShadow 10000ms -21000ms linear infinite;
+        }
+
+        #window .step:nth-child(42) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -21000ms linear infinite;
+            animation: stepRefrection 10000ms -21000ms linear infinite;
+        }
+
+        #window .step:nth-child(43) {
+            -webkit-animation: stepAnimation 10000ms -21500ms linear infinite;
+            animation: stepAnimation 10000ms -21500ms linear infinite;
+        }
+
+        #window .step:nth-child(43) .step_side::before {
+            -webkit-animation: stepColor 10000ms -21500ms linear infinite;
+            animation: stepColor 10000ms -21500ms linear infinite;
+        }
+
+        #window .step:nth-child(43) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -21500ms linear infinite;
+            animation: stepRefrection 10000ms -21500ms linear infinite;
+        }
+
+        #window .step:nth-child(43) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -21500ms linear infinite;
+            animation: stepShadow 10000ms -21500ms linear infinite;
+        }
+
+        #window .step:nth-child(43) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -21500ms linear infinite;
+            animation: stepRefrection 10000ms -21500ms linear infinite;
+        }
+
+        #window .step:nth-child(44) {
+            -webkit-animation: stepAnimation 10000ms -22000ms linear infinite;
+            animation: stepAnimation 10000ms -22000ms linear infinite;
+        }
+
+        #window .step:nth-child(44) .step_side::before {
+            -webkit-animation: stepColor 10000ms -22000ms linear infinite;
+            animation: stepColor 10000ms -22000ms linear infinite;
+        }
+
+        #window .step:nth-child(44) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -22000ms linear infinite;
+            animation: stepRefrection 10000ms -22000ms linear infinite;
+        }
+
+        #window .step:nth-child(44) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -22000ms linear infinite;
+            animation: stepShadow 10000ms -22000ms linear infinite;
+        }
+
+        #window .step:nth-child(44) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -22000ms linear infinite;
+            animation: stepRefrection 10000ms -22000ms linear infinite;
+        }
+
+        #window .step:nth-child(45) {
+            -webkit-animation: stepAnimation 10000ms -22500ms linear infinite;
+            animation: stepAnimation 10000ms -22500ms linear infinite;
+        }
+
+        #window .step:nth-child(45) .step_side::before {
+            -webkit-animation: stepColor 10000ms -22500ms linear infinite;
+            animation: stepColor 10000ms -22500ms linear infinite;
+        }
+
+        #window .step:nth-child(45) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -22500ms linear infinite;
+            animation: stepRefrection 10000ms -22500ms linear infinite;
+        }
+
+        #window .step:nth-child(45) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -22500ms linear infinite;
+            animation: stepShadow 10000ms -22500ms linear infinite;
+        }
+
+        #window .step:nth-child(45) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -22500ms linear infinite;
+            animation: stepRefrection 10000ms -22500ms linear infinite;
+        }
+
+        #window .step:nth-child(46) {
+            -webkit-animation: stepAnimation 10000ms -23000ms linear infinite;
+            animation: stepAnimation 10000ms -23000ms linear infinite;
+        }
+
+        #window .step:nth-child(46) .step_side::before {
+            -webkit-animation: stepColor 10000ms -23000ms linear infinite;
+            animation: stepColor 10000ms -23000ms linear infinite;
+        }
+
+        #window .step:nth-child(46) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -23000ms linear infinite;
+            animation: stepRefrection 10000ms -23000ms linear infinite;
+        }
+
+        #window .step:nth-child(46) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -23000ms linear infinite;
+            animation: stepShadow 10000ms -23000ms linear infinite;
+        }
+
+        #window .step:nth-child(46) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -23000ms linear infinite;
+            animation: stepRefrection 10000ms -23000ms linear infinite;
+        }
+
+        #window .step:nth-child(47) {
+            -webkit-animation: stepAnimation 10000ms -23500ms linear infinite;
+            animation: stepAnimation 10000ms -23500ms linear infinite;
+        }
+
+        #window .step:nth-child(47) .step_side::before {
+            -webkit-animation: stepColor 10000ms -23500ms linear infinite;
+            animation: stepColor 10000ms -23500ms linear infinite;
+        }
+
+        #window .step:nth-child(47) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -23500ms linear infinite;
+            animation: stepRefrection 10000ms -23500ms linear infinite;
+        }
+
+        #window .step:nth-child(47) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -23500ms linear infinite;
+            animation: stepShadow 10000ms -23500ms linear infinite;
+        }
+
+        #window .step:nth-child(47) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -23500ms linear infinite;
+            animation: stepRefrection 10000ms -23500ms linear infinite;
+        }
+
+        #window .step:nth-child(48) {
+            -webkit-animation: stepAnimation 10000ms -24000ms linear infinite;
+            animation: stepAnimation 10000ms -24000ms linear infinite;
+        }
+
+        #window .step:nth-child(48) .step_side::before {
+            -webkit-animation: stepColor 10000ms -24000ms linear infinite;
+            animation: stepColor 10000ms -24000ms linear infinite;
+        }
+
+        #window .step:nth-child(48) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -24000ms linear infinite;
+            animation: stepRefrection 10000ms -24000ms linear infinite;
+        }
+
+        #window .step:nth-child(48) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -24000ms linear infinite;
+            animation: stepShadow 10000ms -24000ms linear infinite;
+        }
+
+        #window .step:nth-child(48) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -24000ms linear infinite;
+            animation: stepRefrection 10000ms -24000ms linear infinite;
+        }
+
+        #window .step:nth-child(49) {
+            -webkit-animation: stepAnimation 10000ms -24500ms linear infinite;
+            animation: stepAnimation 10000ms -24500ms linear infinite;
+        }
+
+        #window .step:nth-child(49) .step_side::before {
+            -webkit-animation: stepColor 10000ms -24500ms linear infinite;
+            animation: stepColor 10000ms -24500ms linear infinite;
+        }
+
+        #window .step:nth-child(49) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -24500ms linear infinite;
+            animation: stepRefrection 10000ms -24500ms linear infinite;
+        }
+
+        #window .step:nth-child(49) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -24500ms linear infinite;
+            animation: stepShadow 10000ms -24500ms linear infinite;
+        }
+
+        #window .step:nth-child(49) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -24500ms linear infinite;
+            animation: stepRefrection 10000ms -24500ms linear infinite;
+        }
+
+        #window .step:nth-child(50) {
+            -webkit-animation: stepAnimation 10000ms -25000ms linear infinite;
+            animation: stepAnimation 10000ms -25000ms linear infinite;
+        }
+
+        #window .step:nth-child(50) .step_side::before {
+            -webkit-animation: stepColor 10000ms -25000ms linear infinite;
+            animation: stepColor 10000ms -25000ms linear infinite;
+        }
+
+        #window .step:nth-child(50) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -25000ms linear infinite;
+            animation: stepRefrection 10000ms -25000ms linear infinite;
+        }
+
+        #window .step:nth-child(50) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -25000ms linear infinite;
+            animation: stepShadow 10000ms -25000ms linear infinite;
+        }
+
+        #window .step:nth-child(50) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -25000ms linear infinite;
+            animation: stepRefrection 10000ms -25000ms linear infinite;
+        }
+
+        #window .step:nth-child(51) {
+            -webkit-animation: stepAnimation 10000ms -25500ms linear infinite;
+            animation: stepAnimation 10000ms -25500ms linear infinite;
+        }
+
+        #window .step:nth-child(51) .step_side::before {
+            -webkit-animation: stepColor 10000ms -25500ms linear infinite;
+            animation: stepColor 10000ms -25500ms linear infinite;
+        }
+
+        #window .step:nth-child(51) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -25500ms linear infinite;
+            animation: stepRefrection 10000ms -25500ms linear infinite;
+        }
+
+        #window .step:nth-child(51) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -25500ms linear infinite;
+            animation: stepShadow 10000ms -25500ms linear infinite;
+        }
+
+        #window .step:nth-child(51) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -25500ms linear infinite;
+            animation: stepRefrection 10000ms -25500ms linear infinite;
+        }
+
+        #window .step:nth-child(52) {
+            -webkit-animation: stepAnimation 10000ms -26000ms linear infinite;
+            animation: stepAnimation 10000ms -26000ms linear infinite;
+        }
+
+        #window .step:nth-child(52) .step_side::before {
+            -webkit-animation: stepColor 10000ms -26000ms linear infinite;
+            animation: stepColor 10000ms -26000ms linear infinite;
+        }
+
+        #window .step:nth-child(52) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -26000ms linear infinite;
+            animation: stepRefrection 10000ms -26000ms linear infinite;
+        }
+
+        #window .step:nth-child(52) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -26000ms linear infinite;
+            animation: stepShadow 10000ms -26000ms linear infinite;
+        }
+
+        #window .step:nth-child(52) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -26000ms linear infinite;
+            animation: stepRefrection 10000ms -26000ms linear infinite;
+        }
+
+        #window .step:nth-child(53) {
+            -webkit-animation: stepAnimation 10000ms -26500ms linear infinite;
+            animation: stepAnimation 10000ms -26500ms linear infinite;
+        }
+
+        #window .step:nth-child(53) .step_side::before {
+            -webkit-animation: stepColor 10000ms -26500ms linear infinite;
+            animation: stepColor 10000ms -26500ms linear infinite;
+        }
+
+        #window .step:nth-child(53) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -26500ms linear infinite;
+            animation: stepRefrection 10000ms -26500ms linear infinite;
+        }
+
+        #window .step:nth-child(53) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -26500ms linear infinite;
+            animation: stepShadow 10000ms -26500ms linear infinite;
+        }
+
+        #window .step:nth-child(53) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -26500ms linear infinite;
+            animation: stepRefrection 10000ms -26500ms linear infinite;
+        }
+
+        #window .step:nth-child(54) {
+            -webkit-animation: stepAnimation 10000ms -27000ms linear infinite;
+            animation: stepAnimation 10000ms -27000ms linear infinite;
+        }
+
+        #window .step:nth-child(54) .step_side::before {
+            -webkit-animation: stepColor 10000ms -27000ms linear infinite;
+            animation: stepColor 10000ms -27000ms linear infinite;
+        }
+
+        #window .step:nth-child(54) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -27000ms linear infinite;
+            animation: stepRefrection 10000ms -27000ms linear infinite;
+        }
+
+        #window .step:nth-child(54) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -27000ms linear infinite;
+            animation: stepShadow 10000ms -27000ms linear infinite;
+        }
+
+        #window .step:nth-child(54) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -27000ms linear infinite;
+            animation: stepRefrection 10000ms -27000ms linear infinite;
+        }
+
+        #window .step:nth-child(55) {
+            -webkit-animation: stepAnimation 10000ms -27500ms linear infinite;
+            animation: stepAnimation 10000ms -27500ms linear infinite;
+        }
+
+        #window .step:nth-child(55) .step_side::before {
+            -webkit-animation: stepColor 10000ms -27500ms linear infinite;
+            animation: stepColor 10000ms -27500ms linear infinite;
+        }
+
+        #window .step:nth-child(55) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -27500ms linear infinite;
+            animation: stepRefrection 10000ms -27500ms linear infinite;
+        }
+
+        #window .step:nth-child(55) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -27500ms linear infinite;
+            animation: stepShadow 10000ms -27500ms linear infinite;
+        }
+
+        #window .step:nth-child(55) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -27500ms linear infinite;
+            animation: stepRefrection 10000ms -27500ms linear infinite;
+        }
+
+        #window .step:nth-child(56) {
+            -webkit-animation: stepAnimation 10000ms -28000ms linear infinite;
+            animation: stepAnimation 10000ms -28000ms linear infinite;
+        }
+
+        #window .step:nth-child(56) .step_side::before {
+            -webkit-animation: stepColor 10000ms -28000ms linear infinite;
+            animation: stepColor 10000ms -28000ms linear infinite;
+        }
+
+        #window .step:nth-child(56) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -28000ms linear infinite;
+            animation: stepRefrection 10000ms -28000ms linear infinite;
+        }
+
+        #window .step:nth-child(56) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -28000ms linear infinite;
+            animation: stepShadow 10000ms -28000ms linear infinite;
+        }
+
+        #window .step:nth-child(56) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -28000ms linear infinite;
+            animation: stepRefrection 10000ms -28000ms linear infinite;
+        }
+
+        #window .step:nth-child(57) {
+            -webkit-animation: stepAnimation 10000ms -28500ms linear infinite;
+            animation: stepAnimation 10000ms -28500ms linear infinite;
+        }
+
+        #window .step:nth-child(57) .step_side::before {
+            -webkit-animation: stepColor 10000ms -28500ms linear infinite;
+            animation: stepColor 10000ms -28500ms linear infinite;
+        }
+
+        #window .step:nth-child(57) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -28500ms linear infinite;
+            animation: stepRefrection 10000ms -28500ms linear infinite;
+        }
+
+        #window .step:nth-child(57) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -28500ms linear infinite;
+            animation: stepShadow 10000ms -28500ms linear infinite;
+        }
+
+        #window .step:nth-child(57) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -28500ms linear infinite;
+            animation: stepRefrection 10000ms -28500ms linear infinite;
+        }
+
+        #window .step:nth-child(58) {
+            -webkit-animation: stepAnimation 10000ms -29000ms linear infinite;
+            animation: stepAnimation 10000ms -29000ms linear infinite;
+        }
+
+        #window .step:nth-child(58) .step_side::before {
+            -webkit-animation: stepColor 10000ms -29000ms linear infinite;
+            animation: stepColor 10000ms -29000ms linear infinite;
+        }
+
+        #window .step:nth-child(58) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -29000ms linear infinite;
+            animation: stepRefrection 10000ms -29000ms linear infinite;
+        }
+
+        #window .step:nth-child(58) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -29000ms linear infinite;
+            animation: stepShadow 10000ms -29000ms linear infinite;
+        }
+
+        #window .step:nth-child(58) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -29000ms linear infinite;
+            animation: stepRefrection 10000ms -29000ms linear infinite;
+        }
+
+        #window .step:nth-child(59) {
+            -webkit-animation: stepAnimation 10000ms -29500ms linear infinite;
+            animation: stepAnimation 10000ms -29500ms linear infinite;
+        }
+
+        #window .step:nth-child(59) .step_side::before {
+            -webkit-animation: stepColor 10000ms -29500ms linear infinite;
+            animation: stepColor 10000ms -29500ms linear infinite;
+        }
+
+        #window .step:nth-child(59) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -29500ms linear infinite;
+            animation: stepRefrection 10000ms -29500ms linear infinite;
+        }
+
+        #window .step:nth-child(59) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -29500ms linear infinite;
+            animation: stepShadow 10000ms -29500ms linear infinite;
+        }
+
+        #window .step:nth-child(59) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -29500ms linear infinite;
+            animation: stepRefrection 10000ms -29500ms linear infinite;
+        }
+
+        #window .step:nth-child(60) {
+            -webkit-animation: stepAnimation 10000ms -30000ms linear infinite;
+            animation: stepAnimation 10000ms -30000ms linear infinite;
+        }
+
+        #window .step:nth-child(60) .step_side::before {
+            -webkit-animation: stepColor 10000ms -30000ms linear infinite;
+            animation: stepColor 10000ms -30000ms linear infinite;
+        }
+
+        #window .step:nth-child(60) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -30000ms linear infinite;
+            animation: stepRefrection 10000ms -30000ms linear infinite;
+        }
+
+        #window .step:nth-child(60) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -30000ms linear infinite;
+            animation: stepShadow 10000ms -30000ms linear infinite;
+        }
+
+        #window .step:nth-child(60) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -30000ms linear infinite;
+            animation: stepRefrection 10000ms -30000ms linear infinite;
+        }
+
+        #window .step:nth-child(61) {
+            -webkit-animation: stepAnimation 10000ms -30500ms linear infinite;
+            animation: stepAnimation 10000ms -30500ms linear infinite;
+        }
+
+        #window .step:nth-child(61) .step_side::before {
+            -webkit-animation: stepColor 10000ms -30500ms linear infinite;
+            animation: stepColor 10000ms -30500ms linear infinite;
+        }
+
+        #window .step:nth-child(61) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -30500ms linear infinite;
+            animation: stepRefrection 10000ms -30500ms linear infinite;
+        }
+
+        #window .step:nth-child(61) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -30500ms linear infinite;
+            animation: stepShadow 10000ms -30500ms linear infinite;
+        }
+
+        #window .step:nth-child(61) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -30500ms linear infinite;
+            animation: stepRefrection 10000ms -30500ms linear infinite;
+        }
+
+        #window .step:nth-child(62) {
+            -webkit-animation: stepAnimation 10000ms -31000ms linear infinite;
+            animation: stepAnimation 10000ms -31000ms linear infinite;
+        }
+
+        #window .step:nth-child(62) .step_side::before {
+            -webkit-animation: stepColor 10000ms -31000ms linear infinite;
+            animation: stepColor 10000ms -31000ms linear infinite;
+        }
+
+        #window .step:nth-child(62) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -31000ms linear infinite;
+            animation: stepRefrection 10000ms -31000ms linear infinite;
+        }
+
+        #window .step:nth-child(62) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -31000ms linear infinite;
+            animation: stepShadow 10000ms -31000ms linear infinite;
+        }
+
+        #window .step:nth-child(62) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -31000ms linear infinite;
+            animation: stepRefrection 10000ms -31000ms linear infinite;
+        }
+
+        #window .step:nth-child(63) {
+            -webkit-animation: stepAnimation 10000ms -31500ms linear infinite;
+            animation: stepAnimation 10000ms -31500ms linear infinite;
+        }
+
+        #window .step:nth-child(63) .step_side::before {
+            -webkit-animation: stepColor 10000ms -31500ms linear infinite;
+            animation: stepColor 10000ms -31500ms linear infinite;
+        }
+
+        #window .step:nth-child(63) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -31500ms linear infinite;
+            animation: stepRefrection 10000ms -31500ms linear infinite;
+        }
+
+        #window .step:nth-child(63) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -31500ms linear infinite;
+            animation: stepShadow 10000ms -31500ms linear infinite;
+        }
+
+        #window .step:nth-child(63) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -31500ms linear infinite;
+            animation: stepRefrection 10000ms -31500ms linear infinite;
+        }
+
+        #window .step:nth-child(64) {
+            -webkit-animation: stepAnimation 10000ms -32000ms linear infinite;
+            animation: stepAnimation 10000ms -32000ms linear infinite;
+        }
+
+        #window .step:nth-child(64) .step_side::before {
+            -webkit-animation: stepColor 10000ms -32000ms linear infinite;
+            animation: stepColor 10000ms -32000ms linear infinite;
+        }
+
+        #window .step:nth-child(64) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -32000ms linear infinite;
+            animation: stepRefrection 10000ms -32000ms linear infinite;
+        }
+
+        #window .step:nth-child(64) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -32000ms linear infinite;
+            animation: stepShadow 10000ms -32000ms linear infinite;
+        }
+
+        #window .step:nth-child(64) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -32000ms linear infinite;
+            animation: stepRefrection 10000ms -32000ms linear infinite;
+        }
+
+        #window .step:nth-child(65) {
+            -webkit-animation: stepAnimation 10000ms -32500ms linear infinite;
+            animation: stepAnimation 10000ms -32500ms linear infinite;
+        }
+
+        #window .step:nth-child(65) .step_side::before {
+            -webkit-animation: stepColor 10000ms -32500ms linear infinite;
+            animation: stepColor 10000ms -32500ms linear infinite;
+        }
+
+        #window .step:nth-child(65) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -32500ms linear infinite;
+            animation: stepRefrection 10000ms -32500ms linear infinite;
+        }
+
+        #window .step:nth-child(65) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -32500ms linear infinite;
+            animation: stepShadow 10000ms -32500ms linear infinite;
+        }
+
+        #window .step:nth-child(65) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -32500ms linear infinite;
+            animation: stepRefrection 10000ms -32500ms linear infinite;
+        }
+
+        #window .step:nth-child(66) {
+            -webkit-animation: stepAnimation 10000ms -33000ms linear infinite;
+            animation: stepAnimation 10000ms -33000ms linear infinite;
+        }
+
+        #window .step:nth-child(66) .step_side::before {
+            -webkit-animation: stepColor 10000ms -33000ms linear infinite;
+            animation: stepColor 10000ms -33000ms linear infinite;
+        }
+
+        #window .step:nth-child(66) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -33000ms linear infinite;
+            animation: stepRefrection 10000ms -33000ms linear infinite;
+        }
+
+        #window .step:nth-child(66) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -33000ms linear infinite;
+            animation: stepShadow 10000ms -33000ms linear infinite;
+        }
+
+        #window .step:nth-child(66) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -33000ms linear infinite;
+            animation: stepRefrection 10000ms -33000ms linear infinite;
+        }
+
+        #window .step:nth-child(67) {
+            -webkit-animation: stepAnimation 10000ms -33500ms linear infinite;
+            animation: stepAnimation 10000ms -33500ms linear infinite;
+        }
+
+        #window .step:nth-child(67) .step_side::before {
+            -webkit-animation: stepColor 10000ms -33500ms linear infinite;
+            animation: stepColor 10000ms -33500ms linear infinite;
+        }
+
+        #window .step:nth-child(67) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -33500ms linear infinite;
+            animation: stepRefrection 10000ms -33500ms linear infinite;
+        }
+
+        #window .step:nth-child(67) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -33500ms linear infinite;
+            animation: stepShadow 10000ms -33500ms linear infinite;
+        }
+
+        #window .step:nth-child(67) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -33500ms linear infinite;
+            animation: stepRefrection 10000ms -33500ms linear infinite;
+        }
+
+        #window .step:nth-child(68) {
+            -webkit-animation: stepAnimation 10000ms -34000ms linear infinite;
+            animation: stepAnimation 10000ms -34000ms linear infinite;
+        }
+
+        #window .step:nth-child(68) .step_side::before {
+            -webkit-animation: stepColor 10000ms -34000ms linear infinite;
+            animation: stepColor 10000ms -34000ms linear infinite;
+        }
+
+        #window .step:nth-child(68) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -34000ms linear infinite;
+            animation: stepRefrection 10000ms -34000ms linear infinite;
+        }
+
+        #window .step:nth-child(68) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -34000ms linear infinite;
+            animation: stepShadow 10000ms -34000ms linear infinite;
+        }
+
+        #window .step:nth-child(68) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -34000ms linear infinite;
+            animation: stepRefrection 10000ms -34000ms linear infinite;
+        }
+
+        #window .step:nth-child(69) {
+            -webkit-animation: stepAnimation 10000ms -34500ms linear infinite;
+            animation: stepAnimation 10000ms -34500ms linear infinite;
+        }
+
+        #window .step:nth-child(69) .step_side::before {
+            -webkit-animation: stepColor 10000ms -34500ms linear infinite;
+            animation: stepColor 10000ms -34500ms linear infinite;
+        }
+
+        #window .step:nth-child(69) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -34500ms linear infinite;
+            animation: stepRefrection 10000ms -34500ms linear infinite;
+        }
+
+        #window .step:nth-child(69) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -34500ms linear infinite;
+            animation: stepShadow 10000ms -34500ms linear infinite;
+        }
+
+        #window .step:nth-child(69) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -34500ms linear infinite;
+            animation: stepRefrection 10000ms -34500ms linear infinite;
+        }
+
+        #window .step:nth-child(70) {
+            -webkit-animation: stepAnimation 10000ms -35000ms linear infinite;
+            animation: stepAnimation 10000ms -35000ms linear infinite;
+        }
+
+        #window .step:nth-child(70) .step_side::before {
+            -webkit-animation: stepColor 10000ms -35000ms linear infinite;
+            animation: stepColor 10000ms -35000ms linear infinite;
+        }
+
+        #window .step:nth-child(70) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -35000ms linear infinite;
+            animation: stepRefrection 10000ms -35000ms linear infinite;
+        }
+
+        #window .step:nth-child(70) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -35000ms linear infinite;
+            animation: stepShadow 10000ms -35000ms linear infinite;
+        }
+
+        #window .step:nth-child(70) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -35000ms linear infinite;
+            animation: stepRefrection 10000ms -35000ms linear infinite;
+        }
+
+        #window .step:nth-child(71) {
+            -webkit-animation: stepAnimation 10000ms -35500ms linear infinite;
+            animation: stepAnimation 10000ms -35500ms linear infinite;
+        }
+
+        #window .step:nth-child(71) .step_side::before {
+            -webkit-animation: stepColor 10000ms -35500ms linear infinite;
+            animation: stepColor 10000ms -35500ms linear infinite;
+        }
+
+        #window .step:nth-child(71) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -35500ms linear infinite;
+            animation: stepRefrection 10000ms -35500ms linear infinite;
+        }
+
+        #window .step:nth-child(71) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -35500ms linear infinite;
+            animation: stepShadow 10000ms -35500ms linear infinite;
+        }
+
+        #window .step:nth-child(71) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -35500ms linear infinite;
+            animation: stepRefrection 10000ms -35500ms linear infinite;
+        }
+
+        #window .step:nth-child(72) {
+            -webkit-animation: stepAnimation 10000ms -36000ms linear infinite;
+            animation: stepAnimation 10000ms -36000ms linear infinite;
+        }
+
+        #window .step:nth-child(72) .step_side::before {
+            -webkit-animation: stepColor 10000ms -36000ms linear infinite;
+            animation: stepColor 10000ms -36000ms linear infinite;
+        }
+
+        #window .step:nth-child(72) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -36000ms linear infinite;
+            animation: stepRefrection 10000ms -36000ms linear infinite;
+        }
+
+        #window .step:nth-child(72) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -36000ms linear infinite;
+            animation: stepShadow 10000ms -36000ms linear infinite;
+        }
+
+        #window .step:nth-child(72) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -36000ms linear infinite;
+            animation: stepRefrection 10000ms -36000ms linear infinite;
+        }
+
+        #window .step:nth-child(73) {
+            -webkit-animation: stepAnimation 10000ms -36500ms linear infinite;
+            animation: stepAnimation 10000ms -36500ms linear infinite;
+        }
+
+        #window .step:nth-child(73) .step_side::before {
+            -webkit-animation: stepColor 10000ms -36500ms linear infinite;
+            animation: stepColor 10000ms -36500ms linear infinite;
+        }
+
+        #window .step:nth-child(73) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -36500ms linear infinite;
+            animation: stepRefrection 10000ms -36500ms linear infinite;
+        }
+
+        #window .step:nth-child(73) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -36500ms linear infinite;
+            animation: stepShadow 10000ms -36500ms linear infinite;
+        }
+
+        #window .step:nth-child(73) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -36500ms linear infinite;
+            animation: stepRefrection 10000ms -36500ms linear infinite;
+        }
+
+        #window .step:nth-child(74) {
+            -webkit-animation: stepAnimation 10000ms -37000ms linear infinite;
+            animation: stepAnimation 10000ms -37000ms linear infinite;
+        }
+
+        #window .step:nth-child(74) .step_side::before {
+            -webkit-animation: stepColor 10000ms -37000ms linear infinite;
+            animation: stepColor 10000ms -37000ms linear infinite;
+        }
+
+        #window .step:nth-child(74) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -37000ms linear infinite;
+            animation: stepRefrection 10000ms -37000ms linear infinite;
+        }
+
+        #window .step:nth-child(74) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -37000ms linear infinite;
+            animation: stepShadow 10000ms -37000ms linear infinite;
+        }
+
+        #window .step:nth-child(74) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -37000ms linear infinite;
+            animation: stepRefrection 10000ms -37000ms linear infinite;
+        }
+
+        #window .step:nth-child(75) {
+            -webkit-animation: stepAnimation 10000ms -37500ms linear infinite;
+            animation: stepAnimation 10000ms -37500ms linear infinite;
+        }
+
+        #window .step:nth-child(75) .step_side::before {
+            -webkit-animation: stepColor 10000ms -37500ms linear infinite;
+            animation: stepColor 10000ms -37500ms linear infinite;
+        }
+
+        #window .step:nth-child(75) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -37500ms linear infinite;
+            animation: stepRefrection 10000ms -37500ms linear infinite;
+        }
+
+        #window .step:nth-child(75) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -37500ms linear infinite;
+            animation: stepShadow 10000ms -37500ms linear infinite;
+        }
+
+        #window .step:nth-child(75) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -37500ms linear infinite;
+            animation: stepRefrection 10000ms -37500ms linear infinite;
+        }
+
+        #window .step:nth-child(76) {
+            -webkit-animation: stepAnimation 10000ms -38000ms linear infinite;
+            animation: stepAnimation 10000ms -38000ms linear infinite;
+        }
+
+        #window .step:nth-child(76) .step_side::before {
+            -webkit-animation: stepColor 10000ms -38000ms linear infinite;
+            animation: stepColor 10000ms -38000ms linear infinite;
+        }
+
+        #window .step:nth-child(76) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -38000ms linear infinite;
+            animation: stepRefrection 10000ms -38000ms linear infinite;
+        }
+
+        #window .step:nth-child(76) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -38000ms linear infinite;
+            animation: stepShadow 10000ms -38000ms linear infinite;
+        }
+
+        #window .step:nth-child(76) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -38000ms linear infinite;
+            animation: stepRefrection 10000ms -38000ms linear infinite;
+        }
+
+        #window .step:nth-child(77) {
+            -webkit-animation: stepAnimation 10000ms -38500ms linear infinite;
+            animation: stepAnimation 10000ms -38500ms linear infinite;
+        }
+
+        #window .step:nth-child(77) .step_side::before {
+            -webkit-animation: stepColor 10000ms -38500ms linear infinite;
+            animation: stepColor 10000ms -38500ms linear infinite;
+        }
+
+        #window .step:nth-child(77) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -38500ms linear infinite;
+            animation: stepRefrection 10000ms -38500ms linear infinite;
+        }
+
+        #window .step:nth-child(77) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -38500ms linear infinite;
+            animation: stepShadow 10000ms -38500ms linear infinite;
+        }
+
+        #window .step:nth-child(77) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -38500ms linear infinite;
+            animation: stepRefrection 10000ms -38500ms linear infinite;
+        }
+
+        #window .step:nth-child(78) {
+            -webkit-animation: stepAnimation 10000ms -39000ms linear infinite;
+            animation: stepAnimation 10000ms -39000ms linear infinite;
+        }
+
+        #window .step:nth-child(78) .step_side::before {
+            -webkit-animation: stepColor 10000ms -39000ms linear infinite;
+            animation: stepColor 10000ms -39000ms linear infinite;
+        }
+
+        #window .step:nth-child(78) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -39000ms linear infinite;
+            animation: stepRefrection 10000ms -39000ms linear infinite;
+        }
+
+        #window .step:nth-child(78) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -39000ms linear infinite;
+            animation: stepShadow 10000ms -39000ms linear infinite;
+        }
+
+        #window .step:nth-child(78) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -39000ms linear infinite;
+            animation: stepRefrection 10000ms -39000ms linear infinite;
+        }
+
+        #window .step:nth-child(79) {
+            -webkit-animation: stepAnimation 10000ms -39500ms linear infinite;
+            animation: stepAnimation 10000ms -39500ms linear infinite;
+        }
+
+        #window .step:nth-child(79) .step_side::before {
+            -webkit-animation: stepColor 10000ms -39500ms linear infinite;
+            animation: stepColor 10000ms -39500ms linear infinite;
+        }
+
+        #window .step:nth-child(79) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -39500ms linear infinite;
+            animation: stepRefrection 10000ms -39500ms linear infinite;
+        }
+
+        #window .step:nth-child(79) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -39500ms linear infinite;
+            animation: stepShadow 10000ms -39500ms linear infinite;
+        }
+
+        #window .step:nth-child(79) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -39500ms linear infinite;
+            animation: stepRefrection 10000ms -39500ms linear infinite;
+        }
+
+        #window .step:nth-child(80) {
+            -webkit-animation: stepAnimation 10000ms -40000ms linear infinite;
+            animation: stepAnimation 10000ms -40000ms linear infinite;
+        }
+
+        #window .step:nth-child(80) .step_side::before {
+            -webkit-animation: stepColor 10000ms -40000ms linear infinite;
+            animation: stepColor 10000ms -40000ms linear infinite;
+        }
+
+        #window .step:nth-child(80) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -40000ms linear infinite;
+            animation: stepRefrection 10000ms -40000ms linear infinite;
+        }
+
+        #window .step:nth-child(80) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -40000ms linear infinite;
+            animation: stepShadow 10000ms -40000ms linear infinite;
+        }
+
+        #window .step:nth-child(80) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -40000ms linear infinite;
+            animation: stepRefrection 10000ms -40000ms linear infinite;
+        }
+
+        #window .step:nth-child(81) {
+            -webkit-animation: stepAnimation 10000ms -40500ms linear infinite;
+            animation: stepAnimation 10000ms -40500ms linear infinite;
+        }
+
+        #window .step:nth-child(81) .step_side::before {
+            -webkit-animation: stepColor 10000ms -40500ms linear infinite;
+            animation: stepColor 10000ms -40500ms linear infinite;
+        }
+
+        #window .step:nth-child(81) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -40500ms linear infinite;
+            animation: stepRefrection 10000ms -40500ms linear infinite;
+        }
+
+        #window .step:nth-child(81) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -40500ms linear infinite;
+            animation: stepShadow 10000ms -40500ms linear infinite;
+        }
+
+        #window .step:nth-child(81) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -40500ms linear infinite;
+            animation: stepRefrection 10000ms -40500ms linear infinite;
+        }
+
+        #window .step:nth-child(82) {
+            -webkit-animation: stepAnimation 10000ms -41000ms linear infinite;
+            animation: stepAnimation 10000ms -41000ms linear infinite;
+        }
+
+        #window .step:nth-child(82) .step_side::before {
+            -webkit-animation: stepColor 10000ms -41000ms linear infinite;
+            animation: stepColor 10000ms -41000ms linear infinite;
+        }
+
+        #window .step:nth-child(82) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -41000ms linear infinite;
+            animation: stepRefrection 10000ms -41000ms linear infinite;
+        }
+
+        #window .step:nth-child(82) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -41000ms linear infinite;
+            animation: stepShadow 10000ms -41000ms linear infinite;
+        }
+
+        #window .step:nth-child(82) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -41000ms linear infinite;
+            animation: stepRefrection 10000ms -41000ms linear infinite;
+        }
+
+        #window .step:nth-child(83) {
+            -webkit-animation: stepAnimation 10000ms -41500ms linear infinite;
+            animation: stepAnimation 10000ms -41500ms linear infinite;
+        }
+
+        #window .step:nth-child(83) .step_side::before {
+            -webkit-animation: stepColor 10000ms -41500ms linear infinite;
+            animation: stepColor 10000ms -41500ms linear infinite;
+        }
+
+        #window .step:nth-child(83) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -41500ms linear infinite;
+            animation: stepRefrection 10000ms -41500ms linear infinite;
+        }
+
+        #window .step:nth-child(83) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -41500ms linear infinite;
+            animation: stepShadow 10000ms -41500ms linear infinite;
+        }
+
+        #window .step:nth-child(83) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -41500ms linear infinite;
+            animation: stepRefrection 10000ms -41500ms linear infinite;
+        }
+
+        #window .step:nth-child(84) {
+            -webkit-animation: stepAnimation 10000ms -42000ms linear infinite;
+            animation: stepAnimation 10000ms -42000ms linear infinite;
+        }
+
+        #window .step:nth-child(84) .step_side::before {
+            -webkit-animation: stepColor 10000ms -42000ms linear infinite;
+            animation: stepColor 10000ms -42000ms linear infinite;
+        }
+
+        #window .step:nth-child(84) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -42000ms linear infinite;
+            animation: stepRefrection 10000ms -42000ms linear infinite;
+        }
+
+        #window .step:nth-child(84) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -42000ms linear infinite;
+            animation: stepShadow 10000ms -42000ms linear infinite;
+        }
+
+        #window .step:nth-child(84) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -42000ms linear infinite;
+            animation: stepRefrection 10000ms -42000ms linear infinite;
+        }
+
+        #window .step:nth-child(85) {
+            -webkit-animation: stepAnimation 10000ms -42500ms linear infinite;
+            animation: stepAnimation 10000ms -42500ms linear infinite;
+        }
+
+        #window .step:nth-child(85) .step_side::before {
+            -webkit-animation: stepColor 10000ms -42500ms linear infinite;
+            animation: stepColor 10000ms -42500ms linear infinite;
+        }
+
+        #window .step:nth-child(85) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -42500ms linear infinite;
+            animation: stepRefrection 10000ms -42500ms linear infinite;
+        }
+
+        #window .step:nth-child(85) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -42500ms linear infinite;
+            animation: stepShadow 10000ms -42500ms linear infinite;
+        }
+
+        #window .step:nth-child(85) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -42500ms linear infinite;
+            animation: stepRefrection 10000ms -42500ms linear infinite;
+        }
+
+        #window .step:nth-child(86) {
+            -webkit-animation: stepAnimation 10000ms -43000ms linear infinite;
+            animation: stepAnimation 10000ms -43000ms linear infinite;
+        }
+
+        #window .step:nth-child(86) .step_side::before {
+            -webkit-animation: stepColor 10000ms -43000ms linear infinite;
+            animation: stepColor 10000ms -43000ms linear infinite;
+        }
+
+        #window .step:nth-child(86) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -43000ms linear infinite;
+            animation: stepRefrection 10000ms -43000ms linear infinite;
+        }
+
+        #window .step:nth-child(86) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -43000ms linear infinite;
+            animation: stepShadow 10000ms -43000ms linear infinite;
+        }
+
+        #window .step:nth-child(86) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -43000ms linear infinite;
+            animation: stepRefrection 10000ms -43000ms linear infinite;
+        }
+
+        #window .step:nth-child(87) {
+            -webkit-animation: stepAnimation 10000ms -43500ms linear infinite;
+            animation: stepAnimation 10000ms -43500ms linear infinite;
+        }
+
+        #window .step:nth-child(87) .step_side::before {
+            -webkit-animation: stepColor 10000ms -43500ms linear infinite;
+            animation: stepColor 10000ms -43500ms linear infinite;
+        }
+
+        #window .step:nth-child(87) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -43500ms linear infinite;
+            animation: stepRefrection 10000ms -43500ms linear infinite;
+        }
+
+        #window .step:nth-child(87) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -43500ms linear infinite;
+            animation: stepShadow 10000ms -43500ms linear infinite;
+        }
+
+        #window .step:nth-child(87) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -43500ms linear infinite;
+            animation: stepRefrection 10000ms -43500ms linear infinite;
+        }
+
+        #window .step:nth-child(88) {
+            -webkit-animation: stepAnimation 10000ms -44000ms linear infinite;
+            animation: stepAnimation 10000ms -44000ms linear infinite;
+        }
+
+        #window .step:nth-child(88) .step_side::before {
+            -webkit-animation: stepColor 10000ms -44000ms linear infinite;
+            animation: stepColor 10000ms -44000ms linear infinite;
+        }
+
+        #window .step:nth-child(88) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -44000ms linear infinite;
+            animation: stepRefrection 10000ms -44000ms linear infinite;
+        }
+
+        #window .step:nth-child(88) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -44000ms linear infinite;
+            animation: stepShadow 10000ms -44000ms linear infinite;
+        }
+
+        #window .step:nth-child(88) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -44000ms linear infinite;
+            animation: stepRefrection 10000ms -44000ms linear infinite;
+        }
+
+        #window .step:nth-child(89) {
+            -webkit-animation: stepAnimation 10000ms -44500ms linear infinite;
+            animation: stepAnimation 10000ms -44500ms linear infinite;
+        }
+
+        #window .step:nth-child(89) .step_side::before {
+            -webkit-animation: stepColor 10000ms -44500ms linear infinite;
+            animation: stepColor 10000ms -44500ms linear infinite;
+        }
+
+        #window .step:nth-child(89) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -44500ms linear infinite;
+            animation: stepRefrection 10000ms -44500ms linear infinite;
+        }
+
+        #window .step:nth-child(89) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -44500ms linear infinite;
+            animation: stepShadow 10000ms -44500ms linear infinite;
+        }
+
+        #window .step:nth-child(89) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -44500ms linear infinite;
+            animation: stepRefrection 10000ms -44500ms linear infinite;
+        }
+
+        #window .step:nth-child(90) {
+            -webkit-animation: stepAnimation 10000ms -45000ms linear infinite;
+            animation: stepAnimation 10000ms -45000ms linear infinite;
+        }
+
+        #window .step:nth-child(90) .step_side::before {
+            -webkit-animation: stepColor 10000ms -45000ms linear infinite;
+            animation: stepColor 10000ms -45000ms linear infinite;
+        }
+
+        #window .step:nth-child(90) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -45000ms linear infinite;
+            animation: stepRefrection 10000ms -45000ms linear infinite;
+        }
+
+        #window .step:nth-child(90) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -45000ms linear infinite;
+            animation: stepShadow 10000ms -45000ms linear infinite;
+        }
+
+        #window .step:nth-child(90) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -45000ms linear infinite;
+            animation: stepRefrection 10000ms -45000ms linear infinite;
+        }
+
+        #window .step:nth-child(91) {
+            -webkit-animation: stepAnimation 10000ms -45500ms linear infinite;
+            animation: stepAnimation 10000ms -45500ms linear infinite;
+        }
+
+        #window .step:nth-child(91) .step_side::before {
+            -webkit-animation: stepColor 10000ms -45500ms linear infinite;
+            animation: stepColor 10000ms -45500ms linear infinite;
+        }
+
+        #window .step:nth-child(91) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -45500ms linear infinite;
+            animation: stepRefrection 10000ms -45500ms linear infinite;
+        }
+
+        #window .step:nth-child(91) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -45500ms linear infinite;
+            animation: stepShadow 10000ms -45500ms linear infinite;
+        }
+
+        #window .step:nth-child(91) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -45500ms linear infinite;
+            animation: stepRefrection 10000ms -45500ms linear infinite;
+        }
+
+        #window .step:nth-child(92) {
+            -webkit-animation: stepAnimation 10000ms -46000ms linear infinite;
+            animation: stepAnimation 10000ms -46000ms linear infinite;
+        }
+
+        #window .step:nth-child(92) .step_side::before {
+            -webkit-animation: stepColor 10000ms -46000ms linear infinite;
+            animation: stepColor 10000ms -46000ms linear infinite;
+        }
+
+        #window .step:nth-child(92) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -46000ms linear infinite;
+            animation: stepRefrection 10000ms -46000ms linear infinite;
+        }
+
+        #window .step:nth-child(92) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -46000ms linear infinite;
+            animation: stepShadow 10000ms -46000ms linear infinite;
+        }
+
+        #window .step:nth-child(92) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -46000ms linear infinite;
+            animation: stepRefrection 10000ms -46000ms linear infinite;
+        }
+
+        #window .step:nth-child(93) {
+            -webkit-animation: stepAnimation 10000ms -46500ms linear infinite;
+            animation: stepAnimation 10000ms -46500ms linear infinite;
+        }
+
+        #window .step:nth-child(93) .step_side::before {
+            -webkit-animation: stepColor 10000ms -46500ms linear infinite;
+            animation: stepColor 10000ms -46500ms linear infinite;
+        }
+
+        #window .step:nth-child(93) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -46500ms linear infinite;
+            animation: stepRefrection 10000ms -46500ms linear infinite;
+        }
+
+        #window .step:nth-child(93) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -46500ms linear infinite;
+            animation: stepShadow 10000ms -46500ms linear infinite;
+        }
+
+        #window .step:nth-child(93) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -46500ms linear infinite;
+            animation: stepRefrection 10000ms -46500ms linear infinite;
+        }
+
+        #window .step:nth-child(94) {
+            -webkit-animation: stepAnimation 10000ms -47000ms linear infinite;
+            animation: stepAnimation 10000ms -47000ms linear infinite;
+        }
+
+        #window .step:nth-child(94) .step_side::before {
+            -webkit-animation: stepColor 10000ms -47000ms linear infinite;
+            animation: stepColor 10000ms -47000ms linear infinite;
+        }
+
+        #window .step:nth-child(94) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -47000ms linear infinite;
+            animation: stepRefrection 10000ms -47000ms linear infinite;
+        }
+
+        #window .step:nth-child(94) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -47000ms linear infinite;
+            animation: stepShadow 10000ms -47000ms linear infinite;
+        }
+
+        #window .step:nth-child(94) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -47000ms linear infinite;
+            animation: stepRefrection 10000ms -47000ms linear infinite;
+        }
+
+        #window .step:nth-child(95) {
+            -webkit-animation: stepAnimation 10000ms -47500ms linear infinite;
+            animation: stepAnimation 10000ms -47500ms linear infinite;
+        }
+
+        #window .step:nth-child(95) .step_side::before {
+            -webkit-animation: stepColor 10000ms -47500ms linear infinite;
+            animation: stepColor 10000ms -47500ms linear infinite;
+        }
+
+        #window .step:nth-child(95) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -47500ms linear infinite;
+            animation: stepRefrection 10000ms -47500ms linear infinite;
+        }
+
+        #window .step:nth-child(95) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -47500ms linear infinite;
+            animation: stepShadow 10000ms -47500ms linear infinite;
+        }
+
+        #window .step:nth-child(95) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -47500ms linear infinite;
+            animation: stepRefrection 10000ms -47500ms linear infinite;
+        }
+
+        #window .step:nth-child(96) {
+            -webkit-animation: stepAnimation 10000ms -48000ms linear infinite;
+            animation: stepAnimation 10000ms -48000ms linear infinite;
+        }
+
+        #window .step:nth-child(96) .step_side::before {
+            -webkit-animation: stepColor 10000ms -48000ms linear infinite;
+            animation: stepColor 10000ms -48000ms linear infinite;
+        }
+
+        #window .step:nth-child(96) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -48000ms linear infinite;
+            animation: stepRefrection 10000ms -48000ms linear infinite;
+        }
+
+        #window .step:nth-child(96) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -48000ms linear infinite;
+            animation: stepShadow 10000ms -48000ms linear infinite;
+        }
+
+        #window .step:nth-child(96) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -48000ms linear infinite;
+            animation: stepRefrection 10000ms -48000ms linear infinite;
+        }
+
+        #window .step:nth-child(97) {
+            -webkit-animation: stepAnimation 10000ms -48500ms linear infinite;
+            animation: stepAnimation 10000ms -48500ms linear infinite;
+        }
+
+        #window .step:nth-child(97) .step_side::before {
+            -webkit-animation: stepColor 10000ms -48500ms linear infinite;
+            animation: stepColor 10000ms -48500ms linear infinite;
+        }
+
+        #window .step:nth-child(97) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -48500ms linear infinite;
+            animation: stepRefrection 10000ms -48500ms linear infinite;
+        }
+
+        #window .step:nth-child(97) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -48500ms linear infinite;
+            animation: stepShadow 10000ms -48500ms linear infinite;
+        }
+
+        #window .step:nth-child(97) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -48500ms linear infinite;
+            animation: stepRefrection 10000ms -48500ms linear infinite;
+        }
+
+        #window .step:nth-child(98) {
+            -webkit-animation: stepAnimation 10000ms -49000ms linear infinite;
+            animation: stepAnimation 10000ms -49000ms linear infinite;
+        }
+
+        #window .step:nth-child(98) .step_side::before {
+            -webkit-animation: stepColor 10000ms -49000ms linear infinite;
+            animation: stepColor 10000ms -49000ms linear infinite;
+        }
+
+        #window .step:nth-child(98) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -49000ms linear infinite;
+            animation: stepRefrection 10000ms -49000ms linear infinite;
+        }
+
+        #window .step:nth-child(98) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -49000ms linear infinite;
+            animation: stepShadow 10000ms -49000ms linear infinite;
+        }
+
+        #window .step:nth-child(98) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -49000ms linear infinite;
+            animation: stepRefrection 10000ms -49000ms linear infinite;
+        }
+
+        #window .step:nth-child(99) {
+            -webkit-animation: stepAnimation 10000ms -49500ms linear infinite;
+            animation: stepAnimation 10000ms -49500ms linear infinite;
+        }
+
+        #window .step:nth-child(99) .step_side::before {
+            -webkit-animation: stepColor 10000ms -49500ms linear infinite;
+            animation: stepColor 10000ms -49500ms linear infinite;
+        }
+
+        #window .step:nth-child(99) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -49500ms linear infinite;
+            animation: stepRefrection 10000ms -49500ms linear infinite;
+        }
+
+        #window .step:nth-child(99) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -49500ms linear infinite;
+            animation: stepShadow 10000ms -49500ms linear infinite;
+        }
+
+        #window .step:nth-child(99) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -49500ms linear infinite;
+            animation: stepRefrection 10000ms -49500ms linear infinite;
+        }
+
+        #window .step:nth-child(100) {
+            -webkit-animation: stepAnimation 10000ms -50000ms linear infinite;
+            animation: stepAnimation 10000ms -50000ms linear infinite;
+        }
+
+        #window .step:nth-child(100) .step_side::before {
+            -webkit-animation: stepColor 10000ms -50000ms linear infinite;
+            animation: stepColor 10000ms -50000ms linear infinite;
+        }
+
+        #window .step:nth-child(100) .step_side::after {
+            -webkit-animation: stepRefrection 10000ms -50000ms linear infinite;
+            animation: stepRefrection 10000ms -50000ms linear infinite;
+        }
+
+        #window .step:nth-child(100) .step_top::before {
+            -webkit-animation: stepShadow 10000ms -50000ms linear infinite;
+            animation: stepShadow 10000ms -50000ms linear infinite;
+        }
+
+        #window .step:nth-child(100) .step_top::after {
+            -webkit-animation: stepRefrection 10000ms -50000ms linear infinite;
+            animation: stepRefrection 10000ms -50000ms linear infinite;
+        }
+
+        @-webkit-keyframes stepAnimation {
+            0% {
+                -webkit-transform: translateY(0) rotateY(90deg);
+                transform: translateY(0) rotateY(90deg);
+            }
+            100% {
+                -webkit-transform: translateY(400px) rotateY(-90deg);
+                transform: translateY(400px) rotateY(-90deg);
+            }
+        }
+
+        @keyframes stepAnimation {
+            0% {
+                -webkit-transform: translateY(0) rotateY(90deg);
+                transform: translateY(0) rotateY(90deg);
+            }
+            100% {
+                -webkit-transform: translateY(400px) rotateY(-90deg);
+                transform: translateY(400px) rotateY(-90deg);
+            }
+        }
+
+        @-webkit-keyframes stepColor {
+            0% {
+                opacity: 1;
+            }
+            60% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes stepColor {
+            0% {
+                opacity: 1;
+            }
+            60% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes stepRefrection {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes stepRefrection {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes stepShadow {
+            0% {
+                -webkit-clip-path: polygon(0 0, 100% 0, 0% 40%, 30% 100%, 0 100%);
+                clip-path: polygon(0 0, 100% 0, 0% 40%, 30% 100%, 0 100%);
+            }
+            100% {
+                -webkit-clip-path: polygon(0 0, 100% 0, 125% 80%, 60% 100%, 0 100%);
+                clip-path: polygon(0 0, 100% 0, 125% 80%, 60% 100%, 0 100%);
+            }
+        }
+
+        @keyframes stepShadow {
+            0% {
+                -webkit-clip-path: polygon(0 0, 100% 0, 0% 40%, 30% 100%, 0 100%);
+                clip-path: polygon(0 0, 100% 0, 0% 40%, 30% 100%, 0 100%);
+            }
+            100% {
+                -webkit-clip-path: polygon(0 0, 100% 0, 125% 80%, 60% 100%, 0 100%);
+                clip-path: polygon(0 0, 100% 0, 125% 80%, 60% 100%, 0 100%);
+            }
+        }
+    </style>
+</body>
+
+</html>

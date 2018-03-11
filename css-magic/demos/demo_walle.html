@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WALL-E</title>
+</head>
+
+<body>
+    <div class="wall-e"></div>
+    <style>
+        .wall-e {
+            animation: tracks 0.25s infinite linear;
+            transform: scale(2);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 100px;
+            height: 115px;
+            box-shadow: 0px 20px 30px -20px rgba(0, 0, 0, 0.5), inset 0px -20px 20px -20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to bottom, #5d5d5d 0px, #5d5d5d 2px, #1d1d1d 2px, #1d1d1d 6px, #5d5d5d 6px, #5d5d5d 8px), linear-gradient(to right, #434343 0px, #505050 12px, #5d5d5d 12px, #6a6a6a 20px), linear-gradient(to right, #434343 0px, #505050 12px, #5d5d5d 12px, #6a6a6a 20px), linear-gradient(to bottom, #5d5d5d 0px, #5d5d5d 2px, #1d1d1d 2px, #1d1d1d 6px, #5d5d5d 6px, #5d5d5d 8px), linear-gradient(to left, #434343 0px, #505050 12px, #5d5d5d 12px, #6a6a6a 20px), linear-gradient(to left, #434343 0px, #505050 12px, #5d5d5d 12px, #6a6a6a 20px), linear-gradient(to right, #8F8F8F 0px, #8F8F8F 16px, #e99e07 16px, #e99e07 50px, #8F8F8F 50px, #8F8F8F 66px), repeating-linear-gradient(to right, transparent 0px, transparent 1px, #404040 1px, #404040 2px, transparent 2px, transparent 14px), repeating-linear-gradient(to bottom, transparent 0px, transparent 1px, #404040 1px, #404040 2px, transparent 2px, transparent 10px), repeating-linear-gradient(to bottom, transparent 0px, transparent 1px, #333333 1px, #333333 2px), repeating-linear-gradient(to bottom, transparent 0px, transparent 1px, #333333 1px, #333333 2px), repeating-linear-gradient(to bottom, transparent 0px, transparent 1px, #333333 1px, #333333 2px), radial-gradient(circle at center, #cc0000 1.25px, rgba(0, 0, 0, 0) 1.25px), linear-gradient(to bottom, #333333 0px, #333333 3px), repeating-linear-gradient(to right, #404040 0px, #404040 1px, transparent 1px, transparent 4px), repeating-linear-gradient(to bottom, #404040 0px, #404040 1px, transparent 1px, transparent 4px), linear-gradient(to right, #EDDF60 0px, #EDDF60 13px), radial-gradient(circle at center, #eddf60 2px, rgba(0, 0, 0, 0) 2px), linear-gradient(to bottom, #5d550b 0px, #5d550b 1px, transparent 1px, transparent 2px, #5d550b 2px, #5d550b 3px, transparent 3px, transparent 4px, #EDDF60 4px, #EDDF60 5px, transparent 5px, transparent 6px, #EDDF60 6px, #EDDF60 7px, transparent 7px, transparent 8px, #EDDF60 8px, #EDDF60 11px), linear-gradient(to bottom, #3b3b3b 0px, #3b3b3b 2px, #151515 2px, #151515 17px, #3b3b3b 17px, #3b3b3b 19px), linear-gradient(to bottom, #4A4A4A 0px, #4A4A4A 19px), linear-gradient(to bottom, #404040 0px, #404040 4px, #272727 4px, #272727 6px, #404040 6px, #404040 13px, #272727 13px, #272727 15px, #404040 15px, #404040 19px), linear-gradient(to bottom, transparent 0px, rgba(0, 0, 0, 0.5) 37px), repeating-linear-gradient(to right, #000 0px, #000 1px, transparent 1px, transparent 2px), linear-gradient(to right, #000 0px, #000 5px), repeating-linear-gradient(to right, #000 0px, #000 1px, transparent 1px, transparent 3px, #000 3px, #000 4px), repeating-linear-gradient(to bottom, #000 0px, #000 1px, transparent 1px, transparent 2px, #000 2px, #000 3px), repeating-linear-gradient(to right, #000 0px, #000 1px, transparent 1px, transparent 6px), repeating-linear-gradient(to right, #000 0px, #000 4px, transparent 4px, transparent 6px), radial-gradient(circle at center, #000000 1px, rgba(0, 0, 0, 0) 1.1px), linear-gradient(to bottom, #FFF 0px, #FFF 5px), repeating-linear-gradient(to bottom, #FFF 0px, #FFF 1px, transparent 1px, transparent 2px), radial-gradient(circle at center, #dd0000 4px, rgba(0, 0, 0, 0) 4px), repeating-linear-gradient(to right, rgba(0, 0, 0, 0.3) 0px, rgba(0, 0, 0, 0.3) 1px, transparent 1px, transparent 3px, rgba(255, 255, 255, 0.2) 3px, rgba(255, 255, 255, 0.2) 4px, transparent 4px, transparent 18px), repeating-linear-gradient(to right, transparent 0px, transparent 1px, rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0.3) 3px, transparent 3px, transparent 18px), repeating-linear-gradient(to right, transparent 0px, transparent 1px, rgba(255, 255, 255, 0.2) 1px, rgba(255, 255, 255, 0.2) 3px, transparent 3px, transparent 18px), repeating-linear-gradient(to right, transparent 0px, transparent 1px, transparent 1px, #df6912 3px, transparent 3px, transparent 18px), linear-gradient(to bottom, #803d0a 0px, #ED761D 11px, #ED761D 11px, #98480c 58px), linear-gradient(to bottom, transparent 0px, transparent 1px), linear-gradient(to right, #1A1A1A 0px, #1A1A1A 18px, transparent 18px, transparent 47px, #1A1A1A 47px, #1A1A1A 66px), linear-gradient(to bottom, transparent 0px, #4A4A4A 0px, #4A4A4A 20px, black 20px, #b0530e 31px, #b0530e 31px, #512606 57px, #432005 57px, #2b1403 62px, transparent 62px), linear-gradient(to bottom, #e99e07 0px, #9f6c04 12px, #553902 16px), linear-gradient(to bottom, #333333 1px, #888888 3px, #AAAAAA 3px, #333333 8px), linear-gradient(to bottom, #fde8bf 0px, #865b04 14px), linear-gradient(to left, rgba(0, 0, 0, 0.5) 0px, transparent 10px), linear-gradient(176deg, rgba(255, 255, 255, 0.2) 0px, transparent 25px, transparent 25px, rgba(0, 0, 0, 0.5) 32px), linear-gradient(to bottom, #281e30 0px, #281e30 8px), repeating-linear-gradient(-4deg, #202020 0px, #202020 4px, #3A3A3A 4px, #3A3A3A 8px), linear-gradient(to right, rgba(0, 0, 0, 0.5) 0px, transparent 10px), linear-gradient(-176deg, rgba(255, 255, 255, 0.2) 0px, transparent 25px, transparent 25px, rgba(0, 0, 0, 0.5) 32px), linear-gradient(to bottom, #281e30 0px, #281e30 8px), repeating-linear-gradient(4deg, #202020 0px, #202020 4px, #3A3A3A 4px, #3A3A3A 8px), linear-gradient(to right, #101010 0px, #101010 10px, transparent 10px, transparent 56px, #101010 56px, #101010 66px), radial-gradient(#101010 10px, rgba(0, 0, 0, 0) 10px), radial-gradient(#101010 10px, rgba(0, 0, 0, 0) 10px);
+            background-size: 8px 8px, 20px 9px, 20px 9px, 8px 8px, 20px 9px, 20px 9px, 66px 1px, 16px 11px, 13px 12px, 3px 9px, 3px 9px, 3px 9px, 3px 2px, 3px 2px, 7px 5px, 5px 5px, 13px 1px, 4px 4px, 7px 11px, 15px 19px, 34px 19px, 66px 19px, 56px 37px, 5px 5px, 5px 1px, 4px 4px, 2px 3px, 10px 5px, 10px 1px, 3px 3px, 1px 5px, 4px 5px, 8px 9px, 40px 18px, 40px 1px, 40px 1px, 40px 16px, 56px 37px, 58px 1px, 66px 18px, 66px 62px, 8px 16px, 20px 8px, 2px 14px, 17px 48px, 17px 48px, 17px 8px, 17px 56px, 17px 48px, 17px 48px, 17px 8px, 17px 56px, 66px 10px, 20px 20px, 20px 20px;
+            background-repeat: no-repeat;
+        }
+
+        .wall-e:before,
+        .wall-e:after {
+            content: '';
+            position: absolute;
+            top: -105px;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 27px;
+            height: 20px;
+            box-sizing: border-box;
+            border: solid 1px #333;
+            border-radius: 4px 52px 39px 90px;
+            transform-origin: 6px 4px;
+            box-shadow: inset 0 0 2px #000;
+            background: radial-gradient(rgba(216, 167, 167, 0.2) 0px, rgba(0, 0, 0, 0) 1px), radial-gradient(#6ca4eb 0px, rgba(0, 0, 0, 0) 2px), radial-gradient(#151515 3px, rgba(0, 0, 0, 0) 3px), radial-gradient(rgba(255, 255, 255, 0.6) 0px, rgba(0, 0, 0, 0) 1px), radial-gradient(#333333 3px, rgba(0, 0, 0, 0) 4px), radial-gradient(#0e3464 4px, #1757a7 6px, rgba(0, 0, 0, 0) 6px), radial-gradient(#666666 7px, rgba(0, 0, 0, 0) 7px), #AAAAAA;
+            background-size: 2px 2px, 4px 4px, 6px 6px, 2px 2px, 8px 8px, 12px 12px, 14px 14px, 27px 20px;
+            background-position: 12px 8px, 8px 5px, 8px 5px, 6px 4px, 7px 4px, 5px 2px, 4px 1px, 0px 0px;
+            background-repeat: no-repeat;
+        }
+
+        .wall-e:before {
+            left: 28px;
+            transform: rotateZ(20deg);
+            animation: 12s twitch-right infinite ease-in-out;
+        }
+
+        .wall-e:after {
+            left: 0px;
+            transform: rotateZ(-20deg) rotateY(180deg);
+            animation: 12s twitch-left infinite ease-in-out;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+            margin: 0;
+            background: linear-gradient(-160deg, #120041 0%, #b27176 70%);
+        }
+
+        body:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: -970px;
+            left: calc(50% - 2000px);
+            margin: auto;
+            width: 4000px;
+            height: 1000px;
+            border-radius: 50% 50% 0 0;
+            box-shadow: inset 250px 0 20px rgba(255, 255, 255, 0.15);
+            background: #281e30;
+        }
+
+        @keyframes tracks {
+            0% {
+                background-position: 10px 43px, 10px 37px, 10px 48px, 82px 43px, 70px 37px, 70px 48px, 17px 30px, 33px 32px, 35px 31px, 36px 33px, 40px 33px, 44px 33px, 37px 46px, 37px 46px, 36px 44px, 36px 44px, 52px 34px, 52px 36px, 58px 36px, 51px 31px, 33px 31px, 17px 31px, 22px 50px, 38px 78px, 38px 82px, 45px 79px, 46px 78px, 51px 78px, 51px 82px, 62px 79px, 68px 78px, 68px 78px, 66px 76px, 30px 52px, 30px 52px, 30px 69px, 30px 53px, 22px 50px, 21px 87px, 17px 74px, 17px 30px, 46px 14px, 40px 0px, 49px 0px, 0px 72px, 0px 72px, 0px 64px, 0px 64px, 83px 72px, 83px 72px, 83px 64px, 83px 64px, 17px 92px, 17px 82px, 62px 82px;
+            }
+            100% {
+                background-position: 10px 43px, 10px 37px, 10px 48px, 82px 43px, 70px 37px, 70px 48px, 17px 30px, 33px 32px, 35px 31px, 36px 33px, 40px 33px, 44px 33px, 37px 46px, 37px 46px, 36px 44px, 36px 44px, 52px 34px, 52px 36px, 58px 36px, 51px 31px, 33px 31px, 17px 31px, 22px 50px, 38px 78px, 38px 82px, 45px 79px, 46px 78px, 51px 78px, 51px 82px, 62px 79px, 68px 78px, 68px 78px, 66px 76px, 30px 52px, 30px 52px, 30px 69px, 30px 53px, 22px 50px, 21px 87px, 17px 74px, 17px 30px, 46px 14px, 40px 0px, 49px 0px, 0px 72px, 0px 72px, 0px 64px, 0px 72px, 83px 72px, 83px 72px, 83px 64px, 83px 72px, 17px 92px, 17px 82px, 62px 82px;
+            }
+        }
+
+        @keyframes twitch-right {
+            10% {
+                transform: rotateZ(20deg);
+            }
+            12% {
+                transform: rotateZ(5deg);
+            }
+            14% {
+                transform: rotateZ(5deg);
+            }
+            16% {
+                transform: rotateZ(20deg);
+            }
+            20% {
+                transform: rotateZ(20deg);
+            }
+            22% {
+                transform: rotateZ(30deg);
+            }
+            25% {
+                transform: rotateZ(5deg);
+            }
+            27% {
+                transform: rotateZ(20deg);
+            }
+        }
+
+        @keyframes twitch-left {
+            10% {
+                transform: rotateZ(-20deg) rotateY(180deg);
+            }
+            12% {
+                transform: rotateZ(-20deg) rotateY(180deg);
+            }
+            14% {
+                transform: rotateZ(-5deg) rotateY(180deg);
+            }
+            16% {
+                transform: rotateZ(-5deg) rotateY(180deg);
+            }
+            18% {
+                transform: rotateZ(-20deg) rotateY(180deg);
+            }
+            20% {
+                transform: rotateZ(-20deg) rotateY(180deg);
+            }
+            22% {
+                transform: rotateZ(-30deg) rotateY(180deg);
+            }
+            25% {
+                transform: rotateZ(-5deg) rotateY(180deg);
+            }
+            27% {
+                transform: rotateZ(-20deg) rotateY(180deg);
+            }
+        }
+    </style>
+</body>
+
+</html>
