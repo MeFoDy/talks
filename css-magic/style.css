@@ -14,6 +14,16 @@
     padding-left: 0;
 }
 
+.slide .line-highlight:before,
+.slide .line-highlight:after {
+    content: '';
+    background: transparent;
+}
+
+.slide .line-highlight {
+    background: linear-gradient(to right, hsla(34, 30%, 60%, .2) 70%, hsla(34, 30%, 60%, .2));
+}
+
 .slide footer {
     line-height: 1.5;
 }

@@ -205,107 +205,529 @@
     </section>
 
     <section class="slide">
-        видимое не есть настоящее
+        <h2 class="shout">Наш мозг
+            <br>любит обманываться</h2>
+    </section>
+
+    <section class="slide clear black">
+        <video src="./videos/illusion.mp4" autoplay loop controls class="place"></video>
     </section>
 
     <section class="slide">
-        слои, много слоев
+        <img src="./pictures/star-wars.jpg" alt="Shadow illusion" class="cover width">
     </section>
 
     <section class="slide">
-        one div — сколько элементов?
+        <h2>Слои, много слоев</h2>
+        <img src="./pictures/layers.png" alt="Слои" class="cover height">
+    </section>
+
+    <section class="slide one-div">
+        <h2>Сколько стилизуемых элементов?</h2>
+        <pre><code class="language-html">&lt;div&gt;&lt;/div&gt;</code></pre>
+        <pre class="next"><code class="language-css">div {
+    position: relative;
+    border: 5px solid red;
+}
+div::before {
+    border: 5px solid green;
+}
+div::after {
+    border: 5px solid blue;
+}
+</code></pre>
+        <div class="example next"></div>
+        <style>
+            .one-div .example {
+                position: absolute;
+                right: 100px;
+                top: 300px;
+                border: 5px solid red;
+                width: 200px;
+                height: 200px;
+            }
+
+            .one-div .example::before {
+                content: '';
+                position: absolute;
+                left: -50%;
+                top: -50%;
+                width: 100%;
+                height: 100%;
+                border: 5px solid green;
+            }
+
+            .one-div .example::after {
+                content: '';
+                position: absolute;
+                left: -50%;
+                top: 50%;
+                width: 100%;
+                height: 100%;
+                border: 5px solid blue;
+                border-radius: 50%;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        а если без div?
+        <h2>А если так?</h2>
+        <pre class="next"><code class="language-html">&lt;html&gt;
+    ::before
+    &lt;body&gt;
+        ::before
+        ::after
+    &lt;/body&gt;
+    ::after
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section class="slide square-1">
+        <h2>Прямоугольник 1</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    background: #f60;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .square-1 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: #f60;
+                border: 1px solid black;
+            }
+        </style>
+    </section>
+
+    <section class="slide square-2">
+        <h2>Прямоугольник 2</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    background: linear-gradient(
+        transparent 25%,
+        #f60 25%, #f60 50%,
+        #60f 50%, #60f 75%,
+        #6f0 75%
+    );
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .square-2 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: linear-gradient(transparent 25%, #f60 25%, #f60 50%, #60f 50%, #60f 75%, #6f0 75%);
+                border: 1px solid black;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        singlediv: https://a.singlediv.com
+        <h2>background:</h2>
+        <pre><code>    background-image ||
+    background-position [ / background-size ]? ||
+    background-repeat ||
+    background-attachment ||
+    background-origin ||
+    background-clip</code></pre>
+    </section>
+
+    <section class="slide square-3">
+        <h2>Прямоугольник 3</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    background:
+        linear-gradient(#f60, #f60) 0 0,
+        linear-gradient(#6f0, #6f0) 50px 100px,
+        linear-gradient(#60f, #60f) 100px 200px;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .square-3 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                border: 1px solid black;
+                background: linear-gradient(#f60, #f60) 0 0,
+                linear-gradient(#6f0, #6f0) 50px 90px,
+                linear-gradient(#60f, #60f) 100px 190px;
+                background-repeat: no-repeat;
+                background-size: 100px 120px;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        плоские фигуры
+        <h2>Прямоугольник 3.1</h2>
+        <pre><code class="language-css" style="font-size: smaller;">div {
+    background:
+        linear-gradient(#f60, #f60) 0 0 / 100px 100px
+            no-repeat scroll padding-box border-box,
+        linear-gradient(#6f0, #6f0) 50px 100px / 100px 100px
+            no-repeat scroll padding-box border-box,
+        linear-gradient(#60f, #60f) 100px 200px / 100px 100px
+            no-repeat scroll padding-box border-box;
+}</code></pre>
+    </section>
+
+    <section class="slide circle-1">
+        <h2>Эллипс 1</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background: #f60;
+    border-radius: 50%;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .circle-1 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: #f60;
+                border-radius: 50%;
+            }
+        </style>
+    </section>
+
+    <section class="slide circle-2">
+        <h2>Эллипс 2</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background:
+        radial-gradient(
+            #f60 0, #f60 70%,
+            transparent 70.1%
+        );
+        /* a^2 + b^2 = c^2 */
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .circle-2 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: radial-gradient(#f60 0, #f60 70%, transparent 70.1%);
+            }
+        </style>
+    </section>
+
+    <section class="slide circle-3">
+        <h2>Эллипс 3</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background: #f60;
+    clip-path: ellipse();
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .circle-3 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: #f60;
+                clip-path: ellipse();
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-1">
+        <h2>Треугольник 1</h2>
+        <pre><code class="language-css">div {
+    width: 0;
+    height: 0;
+    border: 100px solid transparent;
+    border-left-width: 200px;
+    border-bottom-color: #f60;
+    border-top-color: #6f0;
+    border-left-color: #60f;
+    border-right-color: #06f;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-1 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 0;
+                height: 0;
+                border: 100px solid transparent;
+                border-left-width: 200px;
+                border-bottom-color: #f60;
+                border-top-color: #6f0;
+                border-left-color: #60f;
+                border-right-color: #06f;
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-2">
+        <h2>Треугольник 1.1</h2>
+        <pre><code class="language-css">div {
+    width: 0;
+    height: 0;
+    border: 100px solid transparent;
+    border-left-width: 200px;
+    border-top-width: 0;
+    border-bottom: 300px solid #f60;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-2 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 0;
+                height: 0;
+                border: 100px solid transparent;
+                border-left-width: 200px;
+                border-top-width: 0;
+                border-bottom: 300px solid #f60;
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-3">
+        <h2>Треугольник 2</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background:
+        linear-gradient(
+            to right top,
+            #f60 50%, transparent 50.1%
+        );
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-3 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: linear-gradient(to right top, #f60 50%, transparent 50.1%);
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-4">
+        <h2>Треугольник 2.1</h2>
+        <pre><code class="language-css" style="font-size: 18px;">div {
+    width: 300px;
+    height: 300px;
+    background:
+        linear-gradient(
+            to left top, #06f 50%, transparent 50.1%
+        ) 0 0 / 200px 100%,
+        linear-gradient(
+            to right top, #f60 50%, transparent 50.1%
+        ) 200px 0 / 100px 100%;
+    background-repeat: no-repeat;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-4 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 300px;
+                height: 300px;
+                background: linear-gradient(to left top, #06f 50%, transparent 50.1%) 0 0 / 200px 100%,
+                linear-gradient(to right top, #f60 50%, transparent 50.1%) 200px 0 / 100px 100%;
+                background-repeat: no-repeat;
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-5">
+        <h2>Треугольник 3</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background: #f60;
+    clip-path: polygon(
+        66.666% 0%,
+        0% 100%,
+        100% 100%
+    );
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-5 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 300px;
+                height: 300px;
+                background: #f60;
+                clip-path: polygon(66.666% 0%,
+                0% 100%,
+                100% 100%);
+            }
+        </style>
+    </section>
+
+    <section class="slide egg">
+        <h2>border-radius</h2>
+        <pre><code class="language-css">div {
+    border-radius: 50%;
+}</code></pre>
+        <pre class="next"><code class="language-css">.egg {
+    border-radius:
+        100px 100px 100px 100px /
+        200px 200px 100px 100px;
+}</code></pre>
+        <div class="example next"></div>
+        <style>
+            .egg .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: #f60;
+                border-radius: 100px 100px 100px 100px / 200px 200px 100px 100px;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        квадрат, прямоугольник
+        <img src="./pictures/sova.jpg" alt="Рисуем сову" class="place">
     </section>
 
     <section class="slide">
-        круг, эллипс
+        <iframe src="./demos/demo_panda.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide box-shadow">
+        <h2>box-shadow</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    border: 5px solid #06f;
+    background: transparent;
+    box-shadow:
+        50px 50px 0 0 #f60,
+        -50px 100px 0 50px #0f6,
+        inset 10px 10px 0 30px #f06;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .box-shadow .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 200px;
+                border-radius: 50px;
+                border: 5px solid #06f;
+                background: transparent;
+                box-shadow: 50px 50px 0 0 #f60,
+                -50px 100px 0 50px #0f6,
+                inset 10px 10px 0 30px #f06;
+            }
+        </style>
+    </section>
+
+    <section class="slide clip-path">
+        <h2>clip-path (читерство)</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 200px;
+    background: #f60;
+    clip-path:
+        polygon(
+            50% 0%, 61% 35%, 98% 35%,
+            68% 57%, 79% 91%, 50% 70%,
+            21% 91%, 32% 57%, 2% 35%, 39% 35%
+        );
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .clip-path .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 200px;
+                background: #f60;
+                clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            }
+        </style>
     </section>
 
     <section class="slide">
-        треугольник, трапеция
+        <h2 class="shout">
+            <a href="https://bennettfeely.com/clippy/">Clippy</a>
+        </h2>
     </section>
 
     <section class="slide">
-        параллелограмм
+        <img src="./pictures/clippy.jpg" alt="Clippy" class="cover height">
     </section>
 
     <section class="slide">
-        border-radius
+        <img src="./pictures/caniuse-clip-path.jpg" alt="Clip-path" class="cover width">
     </section>
 
     <section class="slide">
-        clip-path
+        <h2>Инструменты CSS-волшебника 🧙‍♂️</h2>
+        <ol>
+            <li class="next">::before, ::after</li>
+            <li class="next"><b>background</b></li>
+            <li class="next">border-radius</li>
+            <li class="next">box-shadow</li>
+            <li class="next">clip-path (для темных магов)</li>
+        </ol>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/griffindor-wins.jpg" alt="HP1" class="cover width">
     </section>
 
     <section class="slide">
-        box-shadow
+        <h2 class="shout">
+            Lynn Fisher
+            <br>
+            <a href="https://a.singlediv.com">a.singlediv.com</a>
+        </h2>
     </section>
 
     <section class="slide">
-        background: полное свойство
+        <img src="./pictures/single-div.jpg" alt="Single Div" class="cover height">
     </section>
 
     <section class="slide">
-        порядок применения background
-    </section>
-
-    <section class="slide">
-        gradient
-    </section>
-
-    <section class="slide">
-        linear-gradient
-    </section>
-
-    <section class="slide">
-        repeated-linear-gradient
-    </section>
-
-    <section class="slide">
-        radial-gradient
-    </section>
-
-    <section class="slide">
-        conic-gradient
-    </section>
-
-    <section class="slide">
-        conic caniuse
-    </section>
-
-    <section class="slide">
-        conic polyfill
-    </section>
-
-    <section class="slide">
-        transparent
-    </section>
-
-    <section class="slide">
-        пример карадаш
+        <h2 class="shout">Что дальше?</h2>
     </section>
 
     <section class="slide">
         анимации
-    </section>
-
-    <section class="slide">
-        <a class="demo-link" href="https://codepen.io/dark_mefody/pen/GWMjKG">Tiger (by dark_mefody)</a>
     </section>
 
     <section class="slide">
