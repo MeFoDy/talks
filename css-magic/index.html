@@ -201,7 +201,8 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">CSS Magic Guideline</h2>
+        <img src="./pictures/book.jpg" alt="Book" class="cover height">
+        <h2 class="shout shout-light">CSS Magic Guideline</h2>
     </section>
 
     <section class="slide">
@@ -723,127 +724,212 @@ div::after {
     </section>
 
     <section class="slide">
-        <h2 class="shout">Что дальше?</h2>
+        <h2 class="shout shout-light">Что дальше?</h2>
+        <img src="./pictures/expect.jpg" alt="Expectation" class="cover height">
     </section>
 
     <section class="slide">
-        анимации
+        <h2 class="shout shout-light">animation</h2>
+        <video src="./videos/mcgonagl.mp4" autoplay loop class="cover width"></video>
     </section>
 
     <section class="slide">
-        3D
+        <h2>animation</h2>
+        <ul>
+            <li>animation-name: none</li>
+            <li>animation-duration: 0s</li>
+            <li>animation-timing-function: ease</li>
+            <li>animation-delay: 0s</li>
+            <li>animation-iteration-count: 1</li>
+            <li>animation-direction: normal</li>
+            <li>animation-fill-mode: none</li>
+            <li>animation-play-state: running</li>
+        </ul>
     </section>
 
     <section class="slide">
-        куб
+        <img src="./pictures/timeline.png" alt="Timeline" class="place">
     </section>
 
     <section class="slide">
-        статья Аны Тюдор
+        <h2 class="shout shout-light">3D</h2>
+        <img src="./pictures/3d.jpeg" alt="3D" class="cover width">
     </section>
 
     <section class="slide">
-        тор
+        <h2 class="shout shout-mini">Ana Tudor
+            <br>
+            <a href="https://css-tricks.com/simplifying-css-cubes-custom-properties/">Simplifying CSS Cubes with Custom Properties</a>
+        </h2>
     </section>
 
     <section class="slide">
-        <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="demo-link">Stargate (by dark_mefody)</a>
+        <h2>Куб (HTML)</h2>
+        <pre><code class="language-html">&lt;div class="cube"&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
     </section>
 
     <section class="slide">
-        Как ускориться?
+        <h2>Куб (CSS)</h2>
+        <pre><code class="language-css">.cube__face {
+    transform: 
+        rotate3d(var(--i), var(--j), 0, calc(var(--m) * 90deg)) 
+        translateZ(calc(.5 * var(--cube-edge)));
+}
+.cube__face:nth-child(1) { --i: 0; --j: 1; --m:  0; }
+.cube__face:nth-child(2) { --i: 0; --j: 1; --m:  1; }
+.cube__face:nth-child(3) { --i: 0; --j: 1; --m:  2; }
+.cube__face:nth-child(4) { --i: 0; --j: 1; --m:  3; }
+.cube__face:nth-child(5) { --i: 1; --j: 0; --m:  1; }
+.cube__face:nth-child(6) { --i: 1; --j: 0; --m: -1; }</code></pre>
     </section>
 
     <section class="slide">
-        Emmet
+        <iframe src="./demos/demo_cube.html" frameborder="0" class="cover width height"></iframe>
     </section>
 
     <section class="slide">
-        live-server
+        <h2 class="shout shout-mini">
+            <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="link-codepen">Stargate (by dark_mefody)</a>
+            <br>
+            <a href="./demos/demo_stargate.html">&#x3C; offline &#x3E;</a>
+        </h2>
     </section>
 
     <section class="slide">
-        preprocessors
+        <h2 class="shout shout-light">Как ускориться?</h2>
+        <img src="./pictures/car.jpg" alt="Car" class="cover height">
     </section>
 
     <section class="slide">
-        pug
+        <h2 class="shout shout-light">Правильные инструменты</h2>
+        <img src="./pictures/tools.png" alt="Deathly Hallows" class="cover height">
     </section>
 
     <section class="slide">
-        scss
+        <h2>
+            <img src="./pictures/emmet-logo.png" style="height: 60px; vertical-align: bottom;"> Emmet</h2>
+        <pre><code class="language-emmet">ol.list>li.list__item*4>a&lt;TAB&gt;</code></pre>
+        <pre class="next"><code class="language-html">&lt;ol class="list"&gt;
+    &lt;li class="list__item"&gt;&lt;a href="http://"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="list__item"&gt;&lt;a href="http://"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="list__item"&gt;&lt;a href="http://"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="list__item"&gt;&lt;a href="http://"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
     </section>
 
     <section class="slide">
-        codepen
+        <h2 class="shout">
+            <a href="https://github.com/tapio/live-server" class="link-github">live-server</a>
+        </h2>
+    </section>
+
+    <section class="slide nd-preprocessors">
+        <h2>Препроцессоры</h2>
+        <div class="cover">
+            <img src="./pictures/less.png" alt="LESS" class="less">
+            <img src="./pictures/sass.svg" alt="SASS">
+            <img src="./pictures/stylus.svg" alt="Stylus">
+            <img src="./pictures/pug.svg" alt="Pug">
+            <img src="./pictures/postcss.svg" alt="PostCSS">
+        </div>
+
+        <style>
+            .nd-preprocessors .cover {
+                text-align: center;
+            }
+
+            .nd-preprocessors img {
+                height: 100px;
+                margin: 10px;
+            }
+
+            .nd-preprocessors img.less {
+                height: 80px;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        ЗАЧЕМ?
+        <img src="./pictures/codepen-logo.png" alt="Codepen" class="place" style="max-width: 80%;">
     </section>
 
     <section class="slide">
-        эксперименты
+        <h2 class="shout shout-light">Зачем?</h2>
+        <img src="./pictures/why.jpg" alt="Why" class="cover width">
     </section>
 
     <section class="slide">
-        опыт работы от 5 лет
+        <h2 class="shout shout-light">1. Эксперименты</h2>
+        <img src="./pictures/explosion.jpg" alt="Explosion" class="cover width">
     </section>
 
     <section class="slide">
-        понимание CSS
+        <h2 class="shout shout-light">2. Опыт</h2>
+        <img src="./pictures/dumbledore.jpg" alt="Dumbledore" class="cover width">
     </section>
 
     <section class="slide">
-        Как начать?
+        <img src="./pictures/swift-tweet.jpg" alt="Swift" class="place">
     </section>
 
     <section class="slide">
-        #dailycssimages https://gist.github.com/MeFoDy/067daabf9c3ea0e554f045fc067e23b0
+        <h2 class="shout shout-light">3. Понимание нюансов</h2>
+        <img src="./pictures/potion.jpg" alt="Potion making" class="cover width">
     </section>
 
     <section class="slide">
-        gist
+        <h2 class="shout">padding-top: 50%;</h2>
     </section>
 
     <section class="slide">
-        #codepenchallenge
+        <h2 class="shout shout-light">С чего начать?</h2>
+        <img src="./pictures/start.jpg" alt="Start" class="cover height">
     </section>
 
     <section class="slide">
-        gif (twitter, dribble)
+        <h2>Этапы построения магии на CSS</h2>
+        <ol>
+            <li class="next">Идея 💡</li>
+        </ol>
     </section>
 
     <section class="slide">
-        codepen
+        <h2 class="shout">
+            #dailycssimages
+            <br>#codepenchallenge
+            <br>#100daysofcode
+        </h2>
     </section>
 
     <section class="slide">
-        сценарий
+        <h2 class="shout shout-mini">
+            <a href="https://gist.github.com/MeFoDy/067daabf9c3ea0e554f045fc067e23b0" class="link-github">#dailycssimages gist</a>
+        </h2>
     </section>
 
     <section class="slide">
-        сетка
+        <h2>Этапы построения магии на CSS</h2>
+        <ol>
+            <li>Идея 💡</li>
+            <li class="next">Сценарий 🎬</li>
+            <li class="next">Сетка ⬜</li>
+            <li class="next">Слои 🔳</li>
+            <li class="next">Анимации 📽️</li>
+            <li class="next">Детали 🔍</li>
+            <li class="next">Поделитесь с миром 🌍</li>
+        </ol>
     </section>
 
     <section class="slide">
-        слои-фигуры
-    </section>
-
-    <section class="slide">
-        позиционирование
-    </section>
-
-    <section class="slide">
-        анимация
-    </section>
-
-    <section class="slide">
-        детали
-    </section>
-
-    <section class="slide">
-        поделиться
+        <h2 class="shout shout-light">8. Ждите</h2>
+        <img src="./pictures/hagrid.jpg" alt="Hagrid" class="cover height">
     </section>
 
     <section class="slide">
