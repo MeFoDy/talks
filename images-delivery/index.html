@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Показываем картинки пользователю: подробное руководство</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../src/shower/themes/minsk-css/styles/screen-16x9.css">
+	<link rel="stylesheet" href="../src/highlight/styles/github.css">
+	<link rel="stylesheet" href="../src/highcharts/highcharts.css">
+    <link rel="stylesheet" href="style.css?v=0.0.1">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Показываем картинки пользователю: <br>подробное руководство</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
+        </p>
+    </header>
+
+    <section class="slide clear" id="cover">
+        <h2 class="no-bg">Показываем картинки пользователю: подробное руководство</h2>
+        <hr>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
+        </p>
+        <figure>
+            <img class="cover" src="pictures/fc-template.jpg">
+        </figure>
+
+        <style>
+            #cover h2 {
+                margin: 0 0 20px;
+            }
+
+            #cover hr {
+                margin: 0;
+                border: none;
+                border-top: 2px solid #ffda09;
+                padding: 0;
+                width: 250px;
+            }
+
+            #cover p {
+                margin: 20px 0 0 0;
+                color: #000000;
+            }
+
+            #cover p a {
+                color: #fc7e02;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="about">
+        <h2 class="no-bg">Никита Дубко</h2>
+        <ul>
+            <li>Software Engineer в iTechArt Group;</li>
+            <li>адепт философии Pure CSS Images;</li>
+            <li>соорганизатор митапов MinskCSS и MinskJS.</li>
+        </ul>
+        <img class="place right height cover" src="pictures/me.jpg" alt="Никита Дубко">
+    </section>
+
+    <section class="slide">
+        <div id="chart-content-type" style="height: 450px"></div>
+    </section>
+
+    <section class="slide">
+        <div id="chart-image-requests" style="height: 450px"></div>
+    </section>
+
+    <section class="slide">
+        <div id="chart-images-per-page" style="height: 450px"></div>
+    </section>
+
+    <section class="slide">
+            https://httparchive.org — статистика использования изображений и их размер
+        https://legacy.httparchive.org/interesting.php
+    </section>
+
+    <section class="slide">
+        <img src="pictures/google-research.jpg" class="place" alt="Google/SOASTA Research, 2017">
+    </section>
+
+    <section class="slide">
+        Выгода для бизнеса, конверсия — исследования Google: https://think.storage.googleapis.com/docs/mobile-page-speed-new-industry-benchmarks.pdf
+    </section>
+
+    <section class="slide">
+        https://www.slideshare.net/dougsillars/fast-and-beautiful-images-and-video
+    </section>
+
+    <section class="slide">
+        Chrome Audits — Lighthouse
+    </section>
+
+    <section class="slide">
+        Вектор или растр
+    </section>
+
+    <section class="slide">
+        Растр (с сжатием и без)
+    </section>
+
+    <section class="slide">
+        JPEG2000 (Safari)
+JPEG XR (Edge, IE)
+WebP (Chrome, Opera + Safari, Firefox)
+HEIF (Safari)
+    </section>
+
+    <section class="slide">
+        JPEG алгоритмы компрессии — показать разницу
+    </section>
+
+    <section class="slide">
+        JPEG baseline, progressive (меньше, рассказать почему; медленнее декодируется)
+    </section>
+
+    <section class="slide">
+        http://jpegclub.org/jpegtran/
+    </section>
+
+    <section class="slide">
+        https://github.com/tjko/jpegoptim
+    </section>
+
+    <section class="slide">
+        https://github.com/mozilla/mozjpeg (быстро)
+    </section>
+
+    <section class="slide">
+        https://github.com/google/guetzli (качественно)
+    </section>
+
+    <section class="slide">
+        SSIM (Structural SIMilarity), Butteraugli
+    </section>
+
+    <section class="slide">
+        Подход compressive images (плюсы и минусы)
+https://timkadlec.com/remembers/2018-03-22-compressive-images-revisited/
+    </section>
+
+    <section class="slide">
+        Кто использует PJPEG? (Twitter, Pinterest, Facebook)
+    </section>
+
+    <section class="slide">
+        const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+
+gulp.task('images', function () {
+    return gulp.src('images/*.jpg')
+        .pipe(imagemin({
+            progressive: true
+        }))
+        .pipe(gulp.dest('dist'));
+});
+    </section>
+
+    <section class="slide">
+        JPEG Chroma (or Color) Subsampling
+https://compress-or-die.com/Understanding-JPG/
+    </section>
+
+    <section class="slide">
+        JPEG2000 (Safari)
+JPEG XR (Edge, IE)
+WebP (Chrome, Opera + Safari, Firefox)
+HEIF (Safari)
+    </section>
+
+    <section class="slide">
+        server-side content-type negotiation
+    </section>
+
+    <section class="slide">
+        const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+
+gulp.task('mozjpeg', () =>
+    gulp.src('src/*.jpg')
+    .pipe(imagemin([imageminMozjpeg({
+        quality: 85
+    })]))
+    .pipe(gulp.dest('dist'))
+);
+    </section>
+
+    <section class="slide">
+        https://github.com/danielgtaylor/jpeg-archive
+    </section>
+
+    <section class="slide">
+        const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+const imageminGuetzli = require('imagemin-guetzli');
+
+gulp.task('guetzli', () =>
+    gulp.src('src/*.jpg')
+    .pipe(imagemin([
+        imageminGuetzli({
+            quality: 85
+        })
+    ]))
+    .pipe(gulp.dest('dist'))
+
+);
+    </section>
+
+    <section class="slide">
+        Комбинировать сжатие
+    </section>
+
+    <section class="slide">
+        Юна Кравец, комбинация фильтров для уменьшения размера изображения
+https://css-tricks.com/contrast-swap-technique-improved-image-performance-css-filters/
+    </section>
+
+    <section class="slide">
+        PNG
+- прозрачность
+- можно уменьшать палитру цветов (24, 8 бит)
+tinypng.com
+    </section>
+
+    <section class="slide">
+        PNGA
+    </section>
+
+    <section class="slide">
+        https://pngquant.org
+http://optipng.sourceforge.net
+    </section>
+
+    <section class="slide">
+        GIF:
+- по исследованию Rigor в среднем на 21% меньше, если PNG https://rigor.com/wp-content/uploads/2017/03/TheBookofGIFPDF.pdf
+- конвертация в видео ffmpeg (mp4 везде поддерживается) https://caniuse.com/#feat=mpeg4
+- http://www.lcdf.org/gifsicle/ — утилита для оптимизации
+- иногда WebM https://caniuse.com/#search=webm
+    </section>
+
+    <section class="slide">
+        gifsicle -O3 --lossy=80 -o output.gif input.gif
+    </section>
+
+    <section class="slide">
+        ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf “scale=trunc(iw/2)*2:trunc(ih/2)*2” video.mp4
+    </section>
+
+    <section class="slide">
+        <img src="video.gif" width="400" height="300">
+=>
+<video width=400 height=300 autoplay loop>
+   <source src="video.mp4" type="video/mp4">
+   <img src="video.gif" width="400" height="300">
+</video>
+    </section>
+
+    <section class="slide">
+        <video autoplay loop muted playsinline></video>
+    </section>
+
+    <section class="slide">
+        GIF vs video
+            https://www.ffmpeg.org
+    </section>
+
+    <section class="slide">
+        https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/replace-animated-gifs-with-video/
+    </section>
+
+    <section class="slide">
+        WebP:
+- меньше JPG и PNG
+- выигрывает по скорости
+- выигрывает на меньшем качестве из-за блюра
+- прозрачность
+- EXIF
+- медленнее производительность
+- https://developers.google.com/speed/webp/
+    </section>
+
+    <section class="slide">
+        Используют WebP: Google, Netflix, Amazon, Ebay, Yahoo
+caniuse
+    </section>
+
+    <section class="slide">
+        21 апреля 2018 вышла версия 1.0.0 (https://groups.google.com/a/webmproject.org/forum/#!topic/webp-discuss/dBQxRrKYlIM)
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="imagemin-webp">
+            <p>npm install --save imagemin imagemin-webp</p>
+        </div>
+    </section>
+
+    <section class="slide">
+        https://jeremywagner.me/blog/faster-bulk-image-optimization-in-bash/
+
+https://github.com/Nyx0uf/qlImageSize
+
+https://github.com/igrigorik/webp-detect
+    </section>
+
+    <section class="slide">
+        Хак: можно удалить ненужные изображения вообще (тени, кнопки-таблицы, градиентные фоны смело можно заменить на CSS3)
+    </section>
+
+    <section class="slide">
+        кнопка с градиентом и круглыми углами
+    </section>
+
+    <section class="slide">
+        Тексты-картинки — боль, лучше веб-шрифты
+    </section>
+
+    <section class="slide">
+        Тег picture и srcset
+            Как работает
+            Во что превращается в DOM
+            Порядок source
+            Fallback
+            https://beta.observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood — примеры оптимизаций браузерами
+    </section>
+
+    <section class="slide">
+        sizes="100vw"
+        width="640"
+    </section>
+
+    <section class="slide">
+        Атрибуты width, height
+    </section>
+
+    <section class="slide">
+        CSS: background: image-set
+media queries (dpi, max-width, etc.)
+min-resolution: 2dppx
+-webkit-min-device-pixel-ratio: 2
+    </section>
+
+    <section class="slide">
+        Вектор
+    </section>
+
+    <section class="slide">
+        SVG
+Описание формата
+SVGOMG — https://jakearchibald.github.io/svgomg/
+SVGO + gzip (brotli)
+SVG-sprite
+GZIP
+    </section>
+
+    <section class="slide">
+        Встраивание — плохо или хорошо?
+Лучший вариант — встраивание кешируемого спрайта (https://github.com/jonathantneal/svg4everybody — для IE)
+    </section>
+
+    <section class="slide">
+        Дикие приемы: использование маски над jpeg — вместо png.
+https://www.slideshare.net/chaptykov/ss-82271360
+    </section>
+
+    <section class="slide">
+        Оптимизация может увеличить размер
+    </section>
+
+    <section class="slide">
+        Хранить картинки  tiff, png
+    </section>
+
+    <section class="slide">
+        Reduce unnecessary image decode and resize costs
+    </section>
+
+    <section class="slide">
+        Chrome dev tools (rasterization)
+    </section>
+
+    <section class="slide">
+        https://github.com/filamentgroup/imaging-heap — исследование эффективности использования responsive-изображений
+    </section>
+
+    <section class="slide">
+        DPR (Device Pixel Ratio)
+1x, 2x, 3x (http://dpi.lv), 4x (Samsung Galaxy S8)
+    </section>
+
+    <section class="slide">
+        Art Direction — где центр картинки
+    </section>
+
+    <section class="slide">
+        Спрайты — плюсы и минусы (HTTP2)
+    </section>
+
+    <section class="slide">
+        Lazy Loading (Medium, Pinterest)
+    </section>
+
+    <section class="slide">
+        https://github.com/aFarkas/lazysizes
+1. Intersection Observer (https://simpl.info/lazy/), polyfill, свое решение https://scotch.io/tutorials/lazy-loading-images-for-performance-using-intersection-observer
+2. data-src
+3. noscript, .no-js class (https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
+    </section>
+
+    <section class="slide">
+        Placeholders:
+1. static image
+2. small image + blur
+3. LQIP
+4. SQIP
+5. Houdini API (https://drafts.css-houdini.org/css-paint-api/#example-2)
+6. http://www.geometrize.co.uk
+    </section>
+
+    <section class="slide">
+        CDN: Cloudinary and imgix
+Способ грузить локально, если Роскомнадзор
+    </section>
+
+    <section class="slide">
+        Image formats:
+JPEG, JPEG 2000, JPEG XR, PNG, GIF, Animated GIF, WebP, Animated WebP,BMPs, TIFF, ICOs, PDF, EPS, PSD, SVG, AI, DjVu, FLIF, TARGA
+    </section>
+
+    <section class="slide">
+        Cache
+1. HTTP cache headers (Cache-Control:public; max-age=31536000)
+2. Схема выбора заголовков (https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching#cache-control)
+3. Service Workers (https://developers.google.com/web/tools/workbox/guides/generate-service-worker/workbox-build)
+4. localStorage — для мелких, но важных вещей (лого, иконки)
+    </section>
+
+    <section class="slide">
+        link preload (критические изображения)
+<link rel="preload" as="image" href="logo.jpg"/>
+    </section>
+
+    <section class="slide">
+        https://scottjehl.github.io/picturefill/
+    </section>
+
+    <section class="slide">
+        img.decode() — можно вынести в отдельный поток
+
+var newImage = new Image();
+newImage.src = "my-awesome-image.jpg";
+if ("decode" in newImage) {
+  // Fancy decoding logic
+  newImage.decode().then(function() {
+    imageContainer.appendChild(newImage);
+  });
+} else {
+  // Regular image load
+  imageContainer.appendChild(newImage);
+}
+    </section>
+
+    <section class="slide">
+        WASM — эксперименты Das Surma (WebP), BPG decoder, etc.
+https://developers.google.com/web/updates/2018/03/emscripting-a-c-library
+    </section>
+
+    <section class="slide">
+        a11y — правильные подписи к картинкам (информативные, декоративные)
+https://weblind.ru/inner.html#image-content
+    </section>
+
+    <section class="slide">
+        СЕО — поисковики тоже любят оптимизированные страницы
+Картинки можно прятать (robots.txt, атрибуты тегов)
+    </section>
+
+    <section class="slide">
+        Houdini
+- генеративная графика
+    </section>
+
+    <section class="slide">
+        доступные мемы
+    </section>
+
+
+
+
+    <section class="slide">
+        <h2 style="margin-bottom:0.2em;">Материалы</h2>
+        <ul>
+            <li><a href="https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841">Exploring EcmaScript Decorators</a> — Addy Osmani</li>
+            <li><a href="gist.github.com">Ссылка на ссылки</a></li>
+        </ul>
+        <h2 style="margin-bottom:0.2em;">Видео</h2>
+        <ul>
+            <li>
+                <a href="https://www.youtube.com/user/andrew8088/videos">JavaScript Decorators</a> — Andrew Burgess
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Спасибо за внимание!</h2>
+        <p>
+            <a href="https://mefody.github.io/talks/images-delivery/">mefody.github.io/talks/images-delivery/</a>
+            <br>
+            <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+            <br>
+            <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        </p>
+        <img src="./pictures/qr-code.gif" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
+    </section>
+
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Powered by Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script src="../src/highcharts/highcharts.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+    <script src="script.js"></script>
+</body>
+
+</html>

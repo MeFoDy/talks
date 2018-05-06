@@ -5,3 +5,4 @@
 * MinskJS Meetup #3 — [«JS Decorators — приоденьте свой код»](js-decorators/)
 * MinskJS Meetup #3 — [«Полный Spectre уязвимостей»](spectre-panel-discussion/)
 * MinskCSS Meetup #4 — [«Магия CSS вне Хогвартса»](css-magic/)
+* FrontendConf 2018 [«Показываем картинки пользователю: подробное руководство»](images-delivery/)
