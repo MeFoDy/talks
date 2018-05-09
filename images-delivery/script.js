@@ -94,25 +94,10 @@ var imageRequestsChart = Highcharts.chart('chart-image-requests', {
     }]
 });
 
-/*
-chxl=0:|20%|40%|60%|80%|100%|1:|
-chm=N**%,676767,0,,12,,::4
-chxp=0,20,40,60,80,100
-chxs=0,15A50E,11.5,0,lt,15A50E|1,676767,11.5,0,lt,67676700
-chxtc=0,4|1,4
-chxt=y,x
-chbh=45,30,15
-chs=600x225
-cht=bvg
-chco=15A50E
-chd=t:26,25,18,11,7,4,2,2,1
-chtt=Img+Requests+per+Page
-*/
-
 var imagePerPageChart = Highcharts.chart('chart-images-per-page', {
     chart: chartStyle.column,
     title: {
-        text: 'Img Requests per Page, May 1 2018',
+        text: 'Image Requests per Page, May 1 2018',
         style: chartStyle.title,
     },
     xAxis: {
