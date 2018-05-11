@@ -119,7 +119,55 @@
     </section>
 
     <section class="slide">
-        Chrome Audits — Lighthouse
+        <h2>Lighthouse</h2>
+        <img src="pictures/pwa-lighthouse.png" alt="PWA Lighthouse" class="place bottom" width="800">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/chrome-audits.png" alt="Chrome Audits" class="place" width="600">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/feconf-audit-tooltip.jpg" alt="Useful tooltip" class="place">
+    </section>
+
+    <section class="slide nd-audits">
+        <img src="pictures/trollface.png" alt="trollface" class="next" style="width: 40px; position: absolute; top: 10px; right: 270px; transform: scaleX(-1);">
+        <div class="next"></div>
+        <img src="pictures/feconf-audit.png" alt="Frontend Conf Audit Results" class="cover audits-image">
+        <div class="selection"></div>
+
+        <style>
+            .nd-audits {
+                position: relative;
+            }
+
+            .nd-audits .selection {
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 180px;
+                border: 5px solid lime;
+                bottom: 120px;
+                left: 0;
+                z-index: 2;
+                box-shadow: 0 0 100px 100px rgba(0,0,0,0.3);
+            }
+
+            .nd-audits .audits-image {
+                transition: transform ease 0.5s;
+            }
+
+            .nd-audits .active~.active~.audits-image {
+                transform: translate(-50%, -50%) scale(2.2);
+                transform-origin: 50% 70%;
+                z-index: 1;
+            }
+
+            .nd-audits .active~.active~.audits-image~.selection {
+                display: block;
+            }
+        </style>
     </section>
 
     <section class="slide">
@@ -391,10 +439,6 @@
     </section>
 
     <section class="slide">
-        SSIM (Structural SIMilarity), Butteraugli
-    </section>
-
-    <section class="slide">
         <h2>Инструменты</h2>
         <ul>
             <li><a href="http://jpegclub.org/jpegtran/">jpegtran</a></li>
@@ -406,21 +450,62 @@
     </section>
 
     <section class="slide">
-        const gulp = require('gulp'); const imagemin = require('gulp-imagemin'); const imageminGuetzli = require('imagemin-guetzli');
-        gulp.task('guetzli', () => gulp.src('src/*.jpg') .pipe(imagemin([ imageminGuetzli({ quality: 85 }) ])) .pipe(gulp.dest('dist'))
-        );
+        <h2>Измерение искажений</h2>
+        <ul>
+            <li class="next">SSIM (индекс структурного сходства)<br>
+                <a href="https://github.com/IonicaBizau/img-ssim" class="link link-github">IonicaBizau/img-ssim</a></li>
+            <li class="next">Butteraugli (психовизуальное подобие)<br>
+                <a href="https://github.com/google/butteraugli" class="link link-github">google/butteraugli</a></li>
+        </ul>
     </section>
 
     <section class="slide">
-        const gulp = require('gulp'); const imagemin = require('gulp-imagemin'); gulp.task('images', function () { return gulp.src('images/*.jpg')
-        .pipe(imagemin({ progressive: true })) .pipe(gulp.dest('dist')); });
+        <h2>Guetzli</h2>
+        <img src="pictures/ssim-indexes.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/gulp-logo.svg" alt="Gulp" class="place">
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="imagemin">
+            <p>npm install --save-dev gulp-imagemin</p>
+        </div>
+        <pre class="next"><code class="hljs js">const gulp = require('gulp');</code>
+<code class="hljs js">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs js">
+</code>
+<code class="hljs js">gulp.task('images', () => </code>
+<code class="hljs js">    gulp.src('images/*.jpg')</code>
+<code class="hljs js mark">        .pipe(imagemin([</code>
+<code class="hljs js mark">            imagemin.jpegtran({ progressive: true }),</code>
+<code class="hljs js mark">        ]))</code>
+<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs js">);</code></pre>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="imagemin-guetzli">
+            <p>npm install --save-dev imagemin-guetzli</p>
+        </div>
+        <pre class="next"><code class="hljs js">const gulp = require('gulp');</code>
+<code class="hljs js">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs js">const imageminGuetzli = require('imagemin-guetzli');</code>
+<code class="hljs js">
+</code>
+<code class="hljs js">gulp.task('guetzli', () => </code>
+<code class="hljs js">    gulp.src('src/*.jpg')</code>
+<code class="hljs js mark">        .pipe(imagemin([ imageminGuetzli({ quality: 85 }) ]))</code>
+<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs js">);</code></pre>
     </section>
 
     <section class="slide">
         <div class="terminal" data-content="imagemin-mozjpeg">
-            <p>npm install --save-dev gulp-imagemin imagemin-mozjpeg</p>
+            <p>npm install --save-dev imagemin-mozjpeg</p>
         </div>
-        <pre><code class="hljs js">const gulp = require('gulp');
+        <pre class="next"><code class="hljs js">const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
     </section>
@@ -440,7 +525,44 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
     </section>
 
     <section class="slide">
-        Комбинировать сжатие
+        Когда что лучше использовать? Guetzli: - от исходников - долго (для статических сайтов) mozJpeg: - быстрый - больше настроек
+    </section>
+
+    <section class="slide nd-jpeg-blur">
+        <h2>Лайфхак 1: Размытие</h2>
+        <p>Размер: 1200x925</p>
+        <div class="col-3">
+            <div class="item">
+                <img src="pictures/me-100.jpg" alt="100">
+                <p>q=100, 759 КБ</p>
+            </div>
+            <div class="item">
+                <img src="pictures/me-80.jpg" alt="80">
+                <p>q=80, 383 КБ</p>
+            </div>
+            <div class="item">
+                <img src="pictures/me-80-blur.jpg" alt="80 and blur">
+                <p>q=80 (blur), 206 КБ</p>
+            </div>
+        </div>
+
+        <style>
+            .nd-jpeg-blur .col-3 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-jpeg-blur .col-3 img {
+                max-width: 100%;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Лайфхак 2: Комбинация сжатий</h2>
     </section>
 
     <section class="slide">
@@ -630,6 +752,14 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
     </section>
 
     <section class="slide">
+        Battery API
+    </section>
+
+    <section class="slide">
+        Network Type
+    </section>
+
+    <section class="slide">
         <h2 class="shout">Декодирование и отображение в браузере</h2>
     </section>
 
@@ -668,6 +798,10 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
 
     <section class="slide">
         DPR (Device Pixel Ratio) 1x, 2x, 3x (http://dpi.lv), 4x (Samsung Galaxy S8)
+    </section>
+
+    <section class="slide">
+        4K, 8K
     </section>
 
     <section class="slide">
@@ -730,6 +864,10 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
     </section>
 
     <section class="slide">
+        HTTP2
+    </section>
+
+    <section class="slide">
         img.decode() — можно вынести в отдельный поток var newImage = new Image(); newImage.src = "my-awesome-image.jpg"; if ("decode"
         in newImage) {   // Fancy decoding logic   newImage.decode().then(function() {     imageContainer.appendChild(newImage);
           }); } else {   // Regular image load   imageContainer.appendChild(newImage); }
@@ -741,6 +879,10 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
 
     <section class="slide">
         Houdini - генеративная графика
+    </section>
+
+    <section class="slide">
+        2G Tuesday
     </section>
 
     <section class="slide">
