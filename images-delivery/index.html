@@ -151,7 +151,7 @@
                 bottom: 120px;
                 left: 0;
                 z-index: 2;
-                box-shadow: 0 0 100px 100px rgba(0,0,0,0.3);
+                box-shadow: 0 0 100px 100px rgba(0, 0, 0, 0.3);
             }
 
             .nd-audits .audits-image {
@@ -446,6 +446,7 @@
             <li><a href="https://github.com/mozilla/mozjpeg" class="link link-github"><strong>mozilla/mozjpeg</strong></a></li>
             <li><a href="https://github.com/google/guetzli" class="link link-github"><strong>google/guetzli</strong></a></li>
             <li><a href="https://github.com/danielgtaylor/jpeg-archive" class="link link-github">danielgtaylor/jpeg-archive</a></li>
+            <li><a href="https://github.com/ImageOptim/ImageOptim" class="link link-github">imageoptim/imageoptim</a></li>
         </ul>
     </section>
 
@@ -524,8 +525,30 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
 <code class="hljs js">);</code></pre>
     </section>
 
-    <section class="slide">
-        Когда что лучше использовать? Guetzli: - от исходников - долго (для статических сайтов) mozJpeg: - быстрый - больше настроек
+    <section class="slide nd-guetzli-mozjpeg">
+        <h2>Как выбрать?</h2>
+        <table class="choose">
+            <tr>
+                <th>Guetzli</th>
+                <th>MozJPEG</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>для статических сайтов;</li>
+                        <li>важно качество;</li>
+                        <li>не жалко оперативной памяти.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>для динамических сайтов;</li>
+                        <li>важна скорость;</li>
+                        <li>контроль над настройками.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
     </section>
 
     <section class="slide nd-jpeg-blur">
@@ -563,132 +586,440 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
 
     <section class="slide">
         <h2>Лайфхак 2: Комбинация сжатий</h2>
+        <pre><code class="hljs js">gulp.task('jpegcombo', () =></code>
+<code class="hljs js">    gulp.src('src/*.jpg')</code>
+<code class="hljs js mark">        .pipe(imagemin([ imageminGuetzli({ quality: <mark>95</mark> }) ]))</code>
+<code class="hljs js">        .pipe(imagemin([</code>
+<code class="hljs js mark">            imageminMozjpeg({</code>
+<code class="hljs js mark">                progressive: true,</code>
+<code class="hljs js mark">                quality: 85,</code>
+<code class="hljs js mark">            })</code>
+<code class="hljs js">        ]))</code>
+<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs js">);</code></pre>
+    </section>
+
+    <section class="slide nd-jpeg-combo">
+        <div class="col-2-2">
+            <figure>
+                <img src="pictures/menzi.jpg" alt="source">
+                <figcaption>Source (1350x900), 1126 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/menzi-guetzli-95.jpg" alt="guetzli 95">
+                <figcaption>Guetzli q=95, 434 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/menzi-mozjpeg-85.jpg" alt="mozjpeg 85">
+                <figcaption>+ MozJPEG q=85, 209 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/menzi-mozjpeg-85-2x2.jpg" alt="mozjpeg 85 2x2">
+                <figcaption>+ MozJPEG q=85 2x2, 188 КБ</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-jpeg-combo .col-2-2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                grid-gap: 25px 10px;
+            }
+
+            .nd-jpeg-combo .col-2-2 img {
+                max-width: 100%;
+                height: 180px;
+            }
+
+            .nd-jpeg-combo figure {
+                text-align: center;
+            }
+
+            .nd-jpeg-combo figcaption {
+                font-size: 0.8em;
+                line-height: 0.8em;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        Оптимизация может увеличить размер
+        <h2>Лайфхак 3: EXIF</h2>
+        <pre><code class="hljs js">const shell = require('gulp-shell');
+
+gulp.task('exif', () =>
+    gulp.src('dist/*.jpg', { read: false })
+        .pipe(shell([
+            '<mark>exiftool -P -overwrite_original -all= </mark><%=file.path%>'
+        ]))
+);</code></pre>
+    </section>
+
+    <section class="slide nd-jpegxr">
+        <div class="container">
+            <img src="pictures/jpeg2000-logo.svg" alt="JPEG2000" width="300">
+            <img src="pictures/jpegxr-logo.svg" alt="JPEG-XR" width="300">
+        </div>
+
+        <style>
+            .nd-jpegxr .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        JPEG2000 (Safari) JPEG XR (Edge, IE)
+        <img src="pictures/caniuse-jpeg2000.jpg" alt="" class="cover width">
     </section>
 
     <section class="slide">
-        <h2>PNG</h2>
+        <img src="pictures/caniuse-jpegxr.jpg" alt="" class="cover width">
     </section>
 
     <section class="slide">
-        суть формата
-    </section>
-
-    <section class="slide">
-        PNG - прозрачность - можно уменьшать палитру цветов (24, 8 бит) tinypng.com
-    </section>
-
-    <section class="slide">
-        https://pngquant.org http://optipng.sourceforge.net
-    </section>
-
-    <section class="slide">
-        PNGA
+        <div class="terminal" data-content="ImageMagick">
+            <p>brew install ImageMagick
+                <br>...</p>
+            <p>convert image.jpg -quality 0 image.jp2</p>
+            <p>convert image.jpg image.jxr</p>
+        </div>
+        <p>
+            <code>*.jp2</code> — JPEG2000
+            <br>
+            <code>*.jxr</code> — JPEG-XR</p>
     </section>
 
     <section class="slide">
         <h2>GIF</h2>
+        <p>Graphics Interchange Format</p>
+        <img src="pictures/cat.gif" alt="Cat" width="280">
     </section>
 
     <section class="slide">
-        суть формата
+        <h2>Особенности GIF</h2>
+        <ul>
+            <li>256-цветовая палитра;</li>
+            <li>1 цвет палитры можно объявить прозрачным;</li>
+            <li>сжатие без потерь (LZW);</li>
+            <li>поддержка анимации.</li>
+        </ul>
+    </section>
+
+    <section class="slide nd-gif-video">
+        <div class="container">
+            <video src="pictures/cat.mp4" autoplay loop muted playsinline width="280"></video>
+            <img src="pictures/cat.gif" alt="GIF" width="280">
+        </div>
+        <div class="container next">
+            <span>MP4, 415 КБ</span>
+            <span>GIF, 1.3 MБ</span>
+        </div>
+
+        <style>
+            .nd-gif-video .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        GIF: - по исследованию Rigor в среднем на 21% меньше, если PNG https://rigor.com/wp-content/uploads/2017/03/TheBookofGIFPDF.pdf
-        - конвертация в видео ffmpeg (mp4 везде поддерживается) https://caniuse.com/#feat=mpeg4 - http://www.lcdf.org/gifsicle/
-        — утилита для оптимизации - иногда WebM https://caniuse.com/#search=webm
+        <img src="pictures/caniuse-mp4.jpg" alt="" class="cover width">
     </section>
 
     <section class="slide">
-        gifsicle -O3 --lossy=80 -o output.gif input.gif
+        <img src="pictures/caniuse-webm.jpg" alt="" class="cover width">
     </section>
 
     <section class="slide">
-        ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf “scale=trunc(iw/2)*2:trunc(ih/2)*2” video.mp4
+        <h2>GIF -&gt; MP4</h2>
+        <div class="terminal" data-content="ffmpeg">
+            <p>ffmpeg \
+                <br>-i animated.gif \
+                <br>-movflags faststart \
+                <br>-pix_fmt yuv420p \
+                <br>-vf “scale=trunc(iw/2)*2:trunc(ih/2)*2” \
+                <br>video.mp4</p>
+        </div>
+        <a href="https://www.ffmpeg.org">ffmpeg.org</a>
     </section>
 
     <section class="slide">
-        <img src="video.gif" width="400" height="300"> =>
-        <video width=400 height=300 autoplay loop>
-
-            <source src="video.mp4" type="video/mp4">
-            <img src="video.gif" width="400" height="300">
-        </video>
-    </section>
-
-    <section class="slide">
-        <video autoplay loop muted playsinline></video>
-    </section>
-
-    <section class="slide">
-        GIF vs video https://www.ffmpeg.org
-    </section>
-
-    <section class="slide">
-        https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/replace-animated-gifs-with-video/
-    </section>
-
-    <section class="slide">
-        <h2>WebP</h2>
-    </section>
-
-    <section class="slide">
-        суть формата
-    </section>
-
-    <section class="slide">
-        WebP: - меньше JPG и PNG - выигрывает по скорости - выигрывает на меньшем качестве из-за блюра - прозрачность - EXIF - медленнее
-        производительность - https://developers.google.com/speed/webp/
-    </section>
-
-    <section class="slide">
-        Используют WebP: Google, Netflix, Amazon, Ebay, Yahoo caniuse
-    </section>
-
-    <section class="slide">
-        WebP (Chrome, Opera + Safari, Firefox)
-    </section>
-
-    <section class="slide">
-        21 апреля 2018 вышла версия 1.0.0 (https://groups.google.com/a/webmproject.org/forum/#!topic/webp-discuss/dBQxRrKYlIM)
-    </section>
-
-    <section class="slide">
-        <div class="terminal" data-content="imagemin-webp">
-            <p>npm install --save imagemin imagemin-webp</p>
+        <h2>GIF -> WebM</h2>
+        <div class="terminal" data-content="ffmpeg">
+            <p>ffmpeg -i input.gif -c vp9 -b:v 0 -crf 41 output.webm</p>
         </div>
     </section>
 
     <section class="slide">
-        Animated WebP
+        <pre><code class="hljs html">&lt;img src="kitty.gif" width="400" height="300"&gt;</code></pre>
+        <p style="text-align: center;">⬇️</p>
+        <pre class="next"><code class="hljs html">&lt;video width="400" height="300"
+       autoplay loop muted playsinline&gt;
+    &lt;source src="kitty.webm" type="video/webm"&gt;
+    &lt;source src="kitty.mp4" type="video/mp4"&gt;
+    &lt;img src="kitty.gif" width="400" height="300"&gt;
+&lt;/video&gt;</code></pre>
     </section>
 
     <section class="slide">
-        gulp
+        <h2>Gifsicle</h2>
+        <div>
+            <div class="terminal" data-content="gifsicle">
+                <p>gifsicle -O3 --lossy=80 -o output.gif input.gif</p>
+            </div>
+            <p>
+                <a href="https://github.com/kohler/gifsicle" class="link link-github">kohler/gifsicle</a> — lossless
+                <br>
+                <a href="https://github.com/kornelski/giflossy" class="link link-github">kornelski/giflossy</a> — lossy
+            </p>
+        </div>
     </section>
 
     <section class="slide">
-        https://jeremywagner.me/blog/faster-bulk-image-optimization-in-bash/ https://github.com/Nyx0uf/qlImageSize https://github.com/igrigorik/webp-detect
+        <div class="terminal" data-content="imagemin-gifsicle">
+            <p>npm install --save-dev imagemin-gifsicle</p>
+        </div>
+        <pre class="next"><code class="hljs js">const gulp = require('gulp');</code>
+        <code class="hljs js">const imagemin = require('gulp-imagemin');</code>
+        <code class="hljs js">const imageminGifsicle = require('imagemin-gifsicle');</code>
+        <code class="hljs js">
+</code>
+        <code class="hljs js">gulp.task('gifsicle', () => </code>
+        <code class="hljs js">    gulp.src('src/*.gif')</code>
+        <code class="hljs js mark">        .pipe(imagemin([ imageminGifsicle() ]))</code>
+        <code class="hljs js">        .pipe(gulp.dest('dist'))</code>
+        <code class="hljs js">);</code></pre>
     </section>
 
     <section class="slide">
-        Вектор
+        <h2>PNG</h2>
+        <p>Portable Network Graphics
+            <br>«PNG is Not GIF»</p>
+        <a href="http://www.libpng.org/pub/png/">libpng.org</a>
+        <img src="pictures/png-transparency-demo.png" alt="PNG Transparency Demonstration" class="place right" style="width: 500px;">
+    </section>
+
+    <section class="slide">
+        <h2>Особенности PNG</h2>
+        <ul>
+            <li>спроектирован для замены GIF и TIFF;</li>
+            <li>максимальное количество цветов — 2<sup>48</sup>;</li>
+            <li>поддержка альфа-канала;</li>
+            <li>возможность гамма-коррекции и цветовой коррекции (ICC);</li>
+            <li>сжатие без потерь (Deflate);</li>
+            <li>возможность расширения формата (APNG).</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/png-transparency-demo.png" alt="PNG" width="400">
+        <img src="pictures/png-transparency-demo.gif" alt="GIF" width="400">
+    </section>
+
+    <section class="slide" style="background-color: #069;">
+        <img src="pictures/png-transparency-demo.png" alt="PNG" width="400">
+        <img src="pictures/png-transparency-demo.gif" alt="GIF" width="400">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/tinypng-logo.jpg" alt="TinyPNG" width="200">
+        <h2 class="shout no-bg">tinypng.com</h2>
+        <img src="pictures/panda-waving.png" alt="PNGA example" class="place bottom right" width="350">
+    </section>
+
+    <section class="slide">
+        <h2>Инструменты</h2>
+        <ul>
+            <li><strong><a href="https://pngquant.org">pngquant</a></strong></li>
+            <li><a href="http://optipng.sourceforge.net">OptiPNG</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="imagemin-pngquant">
+            <p>npm install --save-dev imagemin-pngquant</p>
+        </div>
+        <pre class="next"><code class="hljs js">const gulp = require('gulp');</code>
+<code class="hljs js">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs js">const imageminPngquant = require('imagemin-pngquant');</code>
+<code class="hljs js">
+</code>
+<code class="hljs js">gulp.task('pngquant', () => </code>
+<code class="hljs js">    gulp.src('src/*.png')</code>
+<code class="hljs js mark">        .pipe(imagemin([ imageminPngquant({ quality: 85 }) ]))</code>
+<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs js">);</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>WebP</h2>
+        <div style="text-align: center;">
+            <p>
+                <img src="pictures/webp-logo.png" alt="WebP" width="500">
+            </p>
+            <p>
+                <a href="https://developers.google.com/speed/webp/">developers.google.com/speed/webp/</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Особенности WebP</h2>
+        <ul>
+            <li>разрабатывается Google;</li>
+            <li>основан на алгоритмах видеокодеков VP8 и VP9;</li>
+            <li>поддерживает альфа-канал (прозрачность);</li>
+            <li>требует больше ресурсов для декодирования;</li>
+            <li>21 апреля 2018 вышла <a href="https://groups.google.com/a/webmproject.org/forum/#!topic/webp-discuss/dBQxRrKYlIM">версия 1.0.0</a>.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-webp.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>Используют WebP</h2>
+        <ul>
+            <li>Google</li>
+            <li>Netflix</li>
+            <li>Amazon</li>
+            <li>Ebay</li>
+            <li>Yahoo</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="imagemin-webp">
+            <p>npm install --save-dev imagemin-webp</p>
+        </div>
+        <pre class="next"><code class="hljs js">const imageminWebp = require('imagemin-webp');</code>
+<code class="hljs js">
+</code>
+<code class="hljs js">gulp.task('webp', () => </code>
+<code class="hljs js">    gulp.src('src/*.{jpg,png}')</code>
+<code class="hljs js">        .pipe(imagemin([</code>
+<code class="hljs js mark">             imageminWebp({</code>
+<code class="hljs js mark">                 quality: 85,</code>
+<code class="hljs js mark">                 preset: 'photo'</code>
+<code class="hljs js mark">             })]))</code>
+<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs js">);</code></pre>
+    </section>
+
+    <section class="slide nd-webp-jpg">
+        <div class="container">
+            <img src="pictures/vinck-100.jpg" alt="JPG" width="280">
+            <img src="pictures/vinck-100.webp" alt="Работает только в Chrome, извините" width="280">
+        </div>
+        <div class="container">
+            <span>JPG, q=100, 71 КБ</span>
+            <span>WebP, q=100, 36 КБ</span>
+        </div>
+    </section>
+
+    <section class="slide nd-webp-jpg">
+        <div class="container">
+            <img src="pictures/vinck-70.jpg" alt="JPG" width="280">
+            <img src="pictures/vinck-70.webp" alt="Работает только в Chrome, извините" width="280">
+        </div>
+        <div class="container">
+            <span>JPG, q=70, 24 КБ</span>
+            <span>WebP, q=70, 7 КБ</span>
+        </div>
+
+        <style>
+            .nd-webp-jpg .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
+    </section>
+
+    <section class="slide nd-webp-gif">
+        <div class="terminal" data-content="gif2webp">
+            <p>gif2webp -mixed kitty.gif -o kitty.webp</p>
+        </div>
+        <br>
+        <div class="container">
+            <img src="pictures/cat.gif" alt="GIF" width="280">
+            <img src="pictures/cat.webp" alt="Работает только в Chrome, извините" width="280">
+        </div>
+        <div class="container">
+            <span>GIF, 1.3 MБ</span>
+            <span>WebP, 582 КБ</span>
+        </div>
+
+        <style>
+            .nd-webp-gif .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Векторная графика</h2>
+        <div style="position: relative;">
+            <img src="pictures/minskjs-logo.svg" alt="" width="100">
+            <img src="pictures/minskjs-logo.svg" alt="" width="300">
+            <img src="pictures/minskjs-logo.svg" alt="" width="600" style="position: absolute; bottom: 12px;">
+        </div>
     </section>
 
     <section class="slide">
         <h2>SVG</h2>
+        <p>Scalable Vector Graphics
+            <br>
+            <a href="https://www.w3.org/Graphics/SVG/">w3.org/Graphics/SVG</a>
+        </p>
+
+        <img src="pictures/svg-logo.svg" alt="SVG" class="place right" style="margin-right: 100px; width: 350px;">
     </section>
 
     <section class="slide">
-        SVG Описание формата
+        <h2>Особенности SVG</h2>
+        <ul>
+            <li>векторная графика;</li>
+            <li>подмножество XML;</li>
+            <li>совместим с CSS;</li>
+            <li>открытый стандарт;</li>
+            <li>позволяет встраивание растровой графики.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.9em;"><code class="hljs svg">&lt;svg id="circle" height="200" xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;circle id="greencircle" cx="50" cy="50" r="50" fill="green" /&gt;
+&lt;/svg&gt;</code></pre>
+        <svg height="200" class="next" xmlns="http://www.w3.org/2000/svg">
+            <circle id="greencircle" cx="50" cy="50" r="50" fill="green" />
+        </svg>
+    </section>
+
+    <section class="slide nd-svg-png">
+        <div class="container">
+            <img src="pictures/svg-example.png" alt="PNG" width="280">
+            <img src="pictures/svg-example.svg" alt="SVG" width="280">
+        </div>
+        <div class="container">
+            <span>PNG, 37 КБ</span>
+            <span>SVG, 5 КБ</span>
+        </div>
+
+        <style>
+            .nd-svg-png .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
     </section>
 
     <section class="slide">
@@ -722,10 +1053,6 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
     </section>
 
     <section class="slide">
-        Хранить картинки tiff, png
-    </section>
-
-    <section class="slide">
         <h2 class="shout">Отправка клиенту по запросу</h2>
     </section>
 
@@ -743,6 +1070,10 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
 
     <section class="slide">
         server-side content-type negotiation
+    </section>
+
+    <section class="slide">
+        https://github.com/igrigorik/webp-detect
     </section>
 
     <section class="slide">
