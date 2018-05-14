@@ -181,7 +181,10 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Сохранение на сервере</h2>
+        <h2 class="shout no-bg">
+            <span class="label">Сохранение
+                <br>на сервере</span>
+        </h2>
         <img src="pictures/hdd-hard-drive.jpg" alt="HDD" class="cover width">
     </section>
 
@@ -473,56 +476,56 @@
         <div class="terminal" data-content="imagemin">
             <p>npm install --save-dev gulp-imagemin</p>
         </div>
-        <pre class="next"><code class="hljs js">const gulp = require('gulp');</code>
-<code class="hljs js">const imagemin = require('gulp-imagemin');</code>
-<code class="hljs js">
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');</code>
+<code class="hljs javascript">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs javascript">
 </code>
-<code class="hljs js">gulp.task('images', () => </code>
-<code class="hljs js">    gulp.src('images/*.jpg')</code>
-<code class="hljs js mark">        .pipe(imagemin([</code>
-<code class="hljs js mark">            imagemin.jpegtran({ progressive: true }),</code>
-<code class="hljs js mark">        ]))</code>
-<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
-<code class="hljs js">);</code></pre>
+<code class="hljs javascript">gulp.task('images', () => </code>
+<code class="hljs javascript">    gulp.src('images/*.jpg')</code>
+<code class="hljs javascript mark">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">            imagemin.jpegtran({ progressive: true }),</code>
+<code class="hljs javascript mark">        ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
     </section>
 
     <section class="slide">
         <div class="terminal" data-content="imagemin-guetzli">
             <p>npm install --save-dev imagemin-guetzli</p>
         </div>
-        <pre class="next"><code class="hljs js">const gulp = require('gulp');</code>
-<code class="hljs js">const imagemin = require('gulp-imagemin');</code>
-<code class="hljs js">const imageminGuetzli = require('imagemin-guetzli');</code>
-<code class="hljs js">
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');</code>
+<code class="hljs javascript">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs javascript">const imageminGuetzli = require('imagemin-guetzli');</code>
+<code class="hljs javascript">
 </code>
-<code class="hljs js">gulp.task('guetzli', () => </code>
-<code class="hljs js">    gulp.src('src/*.jpg')</code>
-<code class="hljs js mark">        .pipe(imagemin([ imageminGuetzli({ quality: 85 }) ]))</code>
-<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
-<code class="hljs js">);</code></pre>
+<code class="hljs javascript">gulp.task('guetzli', () => </code>
+<code class="hljs javascript">    gulp.src('src/*.jpg')</code>
+<code class="hljs javascript mark">        .pipe(imagemin([ imageminGuetzli({ quality: 85 }) ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
     </section>
 
     <section class="slide">
         <div class="terminal" data-content="imagemin-mozjpeg">
             <p>npm install --save-dev imagemin-mozjpeg</p>
         </div>
-        <pre class="next"><code class="hljs js">const gulp = require('gulp');
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
     </section>
 
     <section class="slide">
-        <pre><code class="hljs js">gulp.task('mozjpeg', () =></code>
-<code class="hljs js">    gulp.src('src/*.jpg')</code>
-<code class="hljs js">        .pipe(imagemin([</code>
-<code class="hljs js mark">            imageminMozjpeg({</code>
-<code class="hljs js mark">                progressive: true,</code>
-<code class="hljs js mark">                quality: 85,</code>
-<code class="hljs js mark">                sample: ['2x1']</code>
-<code class="hljs js mark">            })</code>
-<code class="hljs js">        ]))</code>
-<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
-<code class="hljs js">);</code></pre>
+        <pre><code class="hljs javascript">gulp.task('mozjpeg', () =></code>
+<code class="hljs javascript">    gulp.src('src/*.jpg')</code>
+<code class="hljs javascript">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">            imageminMozjpeg({</code>
+<code class="hljs javascript mark">                progressive: true,</code>
+<code class="hljs javascript mark">                quality: 85,</code>
+<code class="hljs javascript mark">                sample: ['2x1']</code>
+<code class="hljs javascript mark">            })</code>
+<code class="hljs javascript">        ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
     </section>
 
     <section class="slide nd-guetzli-mozjpeg">
@@ -586,17 +589,17 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
 
     <section class="slide">
         <h2>Лайфхак 2: Комбинация сжатий</h2>
-        <pre><code class="hljs js">gulp.task('jpegcombo', () =></code>
-<code class="hljs js">    gulp.src('src/*.jpg')</code>
-<code class="hljs js mark">        .pipe(imagemin([ imageminGuetzli({ quality: <mark>95</mark> }) ]))</code>
-<code class="hljs js">        .pipe(imagemin([</code>
-<code class="hljs js mark">            imageminMozjpeg({</code>
-<code class="hljs js mark">                progressive: true,</code>
-<code class="hljs js mark">                quality: 85,</code>
-<code class="hljs js mark">            })</code>
-<code class="hljs js">        ]))</code>
-<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
-<code class="hljs js">);</code></pre>
+        <pre><code class="hljs javascript">gulp.task('jpegcombo', () =></code>
+<code class="hljs javascript">    gulp.src('src/*.jpg')</code>
+<code class="hljs javascript mark">        .pipe(imagemin([ imageminGuetzli({ quality: <mark>95</mark> }) ]))</code>
+<code class="hljs javascript">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">            imageminMozjpeg({</code>
+<code class="hljs javascript mark">                progressive: true,</code>
+<code class="hljs javascript mark">                quality: 85,</code>
+<code class="hljs javascript mark">            })</code>
+<code class="hljs javascript">        ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
     </section>
 
     <section class="slide nd-jpeg-combo">
@@ -645,7 +648,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
 
     <section class="slide">
         <h2>Лайфхак 3: EXIF</h2>
-        <pre><code class="hljs js">const shell = require('gulp-shell');
+        <pre><code class="hljs javascript">const shell = require('gulp-shell');
 
 gulp.task('exif', () =>
     gulp.src('dist/*.jpg', { read: false })
@@ -783,16 +786,16 @@ gulp.task('exif', () =>
         <div class="terminal" data-content="imagemin-gifsicle">
             <p>npm install --save-dev imagemin-gifsicle</p>
         </div>
-        <pre class="next"><code class="hljs js">const gulp = require('gulp');</code>
-        <code class="hljs js">const imagemin = require('gulp-imagemin');</code>
-        <code class="hljs js">const imageminGifsicle = require('imagemin-gifsicle');</code>
-        <code class="hljs js">
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');</code>
+        <code class="hljs javascript">const imagemin = require('gulp-imagemin');</code>
+        <code class="hljs javascript">const imageminGifsicle = require('imagemin-gifsicle');</code>
+        <code class="hljs javascript">
 </code>
-        <code class="hljs js">gulp.task('gifsicle', () => </code>
-        <code class="hljs js">    gulp.src('src/*.gif')</code>
-        <code class="hljs js mark">        .pipe(imagemin([ imageminGifsicle() ]))</code>
-        <code class="hljs js">        .pipe(gulp.dest('dist'))</code>
-        <code class="hljs js">);</code></pre>
+        <code class="hljs javascript">gulp.task('gifsicle', () => </code>
+        <code class="hljs javascript">    gulp.src('src/*.gif')</code>
+        <code class="hljs javascript mark">        .pipe(imagemin([ imageminGifsicle() ]))</code>
+        <code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+        <code class="hljs javascript">);</code></pre>
     </section>
 
     <section class="slide">
@@ -843,16 +846,16 @@ gulp.task('exif', () =>
         <div class="terminal" data-content="imagemin-pngquant">
             <p>npm install --save-dev imagemin-pngquant</p>
         </div>
-        <pre class="next"><code class="hljs js">const gulp = require('gulp');</code>
-<code class="hljs js">const imagemin = require('gulp-imagemin');</code>
-<code class="hljs js">const imageminPngquant = require('imagemin-pngquant');</code>
-<code class="hljs js">
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');</code>
+<code class="hljs javascript">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs javascript">const imageminPngquant = require('imagemin-pngquant');</code>
+<code class="hljs javascript">
 </code>
-<code class="hljs js">gulp.task('pngquant', () => </code>
-<code class="hljs js">    gulp.src('src/*.png')</code>
-<code class="hljs js mark">        .pipe(imagemin([ imageminPngquant({ quality: 85 }) ]))</code>
-<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
-<code class="hljs js">);</code></pre>
+<code class="hljs javascript">gulp.task('pngquant', () => </code>
+<code class="hljs javascript">    gulp.src('src/*.png')</code>
+<code class="hljs javascript mark">        .pipe(imagemin([ imageminPngquant({ quality: 85 }) ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
     </section>
 
     <section class="slide">
@@ -897,18 +900,18 @@ gulp.task('exif', () =>
         <div class="terminal" data-content="imagemin-webp">
             <p>npm install --save-dev imagemin-webp</p>
         </div>
-        <pre class="next"><code class="hljs js">const imageminWebp = require('imagemin-webp');</code>
-<code class="hljs js">
+        <pre class="next"><code class="hljs javascript">const imageminWebp = require('imagemin-webp');</code>
+<code class="hljs javascript">
 </code>
-<code class="hljs js">gulp.task('webp', () => </code>
-<code class="hljs js">    gulp.src('src/*.{jpg,png}')</code>
-<code class="hljs js">        .pipe(imagemin([</code>
-<code class="hljs js mark">             imageminWebp({</code>
-<code class="hljs js mark">                 quality: 85,</code>
-<code class="hljs js mark">                 preset: 'photo'</code>
-<code class="hljs js mark">             })]))</code>
-<code class="hljs js">        .pipe(gulp.dest('dist'))</code>
-<code class="hljs js">);</code></pre>
+<code class="hljs javascript">gulp.task('webp', () => </code>
+<code class="hljs javascript">    gulp.src('src/*.{jpg,png}')</code>
+<code class="hljs javascript">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">             imageminWebp({</code>
+<code class="hljs javascript mark">                 quality: 85,</code>
+<code class="hljs javascript mark">                 preset: 'photo'</code>
+<code class="hljs javascript mark">             })]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
     </section>
 
     <section class="slide nd-webp-jpg">
@@ -1023,79 +1026,286 @@ gulp.task('exif', () =>
     </section>
 
     <section class="slide">
-        SVGOMG — https://jakearchibald.github.io/svgomg/
+        <h2>Инструменты</h2>
+        <ul>
+            <li><strong><a href="https://github.com/svg/svgo" class="link link-github">svg/svgo</a></strong></li>
+            <li><a href="https://jakearchibald.github.io/svgomg/">jakearchibald.github.io/svgomg</a></li>
+            <li><a href="https://www.gnu.org/software/gzip/">gzip</a></li>
+            <li><a href="https://github.com/google/brotli" class="link link-github">google/brotli</a></li>
+            <li><a href="https://github.com/google/zopfli" class="link link-github">google/zopfli</a></li>
+        </ul>
     </section>
 
     <section class="slide">
-        SVGO + gzip (brotli)
+        <img src="pictures/svgomg.jpg" alt="SVGOMG" class="cover">
     </section>
 
     <section class="slide">
-        SVG-sprite
+        <div class="terminal" data-content="imagemin-svgo">
+            <p>npm install --save-dev imagemin-svgo</p>
+        </div>
+        <pre class="next"><code class="hljs javascript">const imageminSvgo = require('imagemin-svgo');</code>
+<code class="hljs javascript">
+</code>
+<code class="hljs javascript">gulp.task('svgo', () => </code>
+<code class="hljs javascript">    gulp.src('src/*.svg')</code>
+<code class="hljs javascript">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">             imageminSvgo({</code>
+<code class="hljs javascript mark">                 convertColors: true,</code>
+<code class="hljs javascript mark">             })]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide nd-svgomg">
+        <div class="container">
+            <img src="pictures/svgo-source.svg" alt="Source" width="400">
+            <img src="pictures/svgo-result.svg" alt="Result" width="400">
+        </div>
+        <div class="container">
+            <span>Source, 27 КБ</span>
+            <span>Minified, 12 КБ</span>
+        </div>
+
+        <style>
+            .nd-svgomg .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
     </section>
 
     <section class="slide">
-        встраивание в HTML
+        <h2>sprite.svg</h2>
+        <pre><code class="hljs svg">&lt;svg xmlns="http://www.w3.org/2000/svg"</code>
+<code class="hljs svg">     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;</code>
+<code class="hljs svg mark">    &lt;symbol viewBox="0 0 100 100" <mark>id="greencircle"</mark>&gt;</code>
+<code class="hljs svg">        &lt;circle cx="50" cy="50" r="50" fill="green" /&gt;</code>
+<code class="hljs svg">    &lt;/symbol&gt;</code>
+<code class="hljs svg mark">    &lt;symbol viewBox="0 0 100 100" <mark>id="redsquare"</mark>&gt;</code>
+<code class="hljs svg">        &lt;rect x="0" y="0" width="100" height="100" fill="red" /&gt;</code>
+<code class="hljs svg">    &lt;/symbol&gt;</code>
+<code class="hljs svg">&lt;/svg&gt;</code></pre>
     </section>
 
     <section class="slide">
-        Встраивание — плохо или хорошо? Лучший вариант — встраивание кешируемого спрайта (https://github.com/jonathantneal/svg4everybody
-        — для IE)
+        <h2>index.html</h2>
+        <pre><code class="hljs html">&lt;html&gt;</code>
+<code class="hljs html">&lt;body&gt;</code>
+<code class="hljs html">    &lt;svg class="icon icon--circle" width="100"&gt;</code>
+<code class="hljs html mark">        &lt;use xlink:href="sprite.svg<mark>#greencircle</mark>" /&gt;</code>
+<code class="hljs html">    &lt;/svg&gt;</code>
+<code class="hljs html">    &lt;svg class="icon icon--square" width="100"&gt;</code>
+<code class="hljs html mark">        &lt;use xlink:href="sprite.svg<mark>#redsquare</mark>" /&gt;</code>
+<code class="hljs html">    &lt;/svg&gt;</code>
+<code class="hljs html">&lt;/body&gt;</code>
+<code class="hljs html">&lt;/html&gt;</code></pre>
     </section>
 
     <section class="slide">
-        gulp
+        <div class="place" style="text-align: center;">
+            <img src="pictures/svgforeverybody.jpg" alt="">
+            <br>
+            <a href="https://github.com/jonathantneal/svg4everybody" class="link link-github">jonathantneal/svg4everybody</a>
+        </div>
     </section>
 
     <section class="slide">
-        Итоги: 1. хранить исходники 2. автоматизировать сохранение в разных форматах 3. выбирать правильный формат в зависимости
-        от изображения
+        <div class="terminal" data-content="gulp-svg-sprite">
+            <p>npm install --save-dev gulp-svg-sprite</p>
+        </div>
+        <pre><code class="hljs javascript">const svgSprite = require('gulp-svg-sprite');
+gulp.task('svgSprite', () => 
+    gulp.src('src/icons/*.svg')
+        .pipe(svgSprite({
+            mode: {
+                symbol: { sprite: "../sprite.svg" }
+            }
+        }))
+        .pipe(gulp.dest('dist'))
+);
+        </code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Отправка клиенту по запросу</h2>
+        <h2>Советы</h2>
+        <ul>
+            <li class="next">храните исходные изображения в PNG или TIFF;</li>
+            <li class="next">выбирайти правильный формат в зависимости от изображения;</li>
+            <li class="next">автоматизируйте сохранение в разных форматах;</li>
+            <li class="next">подберите подходящие параметры сжатия.</li>
+        </ul>
     </section>
 
     <section class="slide">
-        Хак: можно удалить ненужные изображения вообще (тени, кнопки-таблицы, градиентные фоны смело можно заменить на CSS3)
+        <h2 class="shout no-bg">
+            <span class="label">Отправка клиенту
+                <br>по запросу</span>
+        </h2>
+        <img src="pictures/internet.jpg" alt="" class="cover height">
+    </section>
+
+    <section class="slide nd-gradient-button-example">
+        <button class="gradient-button place">Awesome Button</button>
+        <div class="place grid next"></div>
+        <p style="text-align: center;" class="next">
+            <code>&lt;table&gt;</code> +
+            <code>background-image</code>x3</p>
+        <style>
+            .nd-gradient-button-example .gradient-button {
+                border: 0.1em solid #069;
+                font-size: 2em;
+                padding: 0.2em 1.2em;
+                line-height: 2em;
+                border-radius: 1.5em;
+                background: linear-gradient(#4ae, #069);
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .nd-gradient-button-example .grid {
+                width: 21em;
+                height: 6em;
+                background: linear-gradient(to right, transparent 13%, white 13%, white 14%, transparent 14%, transparent 86%, white 86%, white 87%, transparent 87%);
+            }
+        </style>
+    </section>
+
+    <section class="slide ">
+        <img src="pictures/franscine.jpg" alt="" class="place left cover height">
+        <div style="padding-left: 340px;">
+            <p>
+                <a href="https://github.com/cyanharlow/purecss-francine" class="link link-github">cyanharlow/purecss-francine</a>
+            </p>
+            <ul>
+                <li><code>background</code></li>
+                <li><code>border-radius</code></li>
+                <li><code>box-shadow</code></li>
+                <li><code>transform</code></li>
+                <li><code>opacity</code></li>
+                <li><code>filter</code></li>
+            </ul>
+        </div>
     </section>
 
     <section class="slide">
-        кнопка с градиентом и круглыми углами
+        <img src="pictures/text-image.jpg" alt="Текст на картинке">
+        <p class="next">JPG, 25 КБ</p>
+        <img src="pictures/jackie-chan-wtf.png" alt="WTF" class="place right bottom next" style="width: 400px">
     </section>
 
     <section class="slide">
-        Тексты-картинки — боль, лучше веб-шрифты
+        <h2>Server-side content-type negotiation</h2>
+        <div>
+            <pre><code class="hljs">GET /some.jpg HTTP/1.1</code>
+<code class="hljs">Host: ...</code>
+<code class="hljs">Connection: keep-alive</code>
+<code class="hljs">User-Agent: ...</code>
+<code class="hljs mark">Accept: image/webp,image/apng,image/*,*/*;q=0.8</code>
+<code class="hljs">Accept-Encoding: gzip, deflate, br</code>
+<code class="hljs">Accept-Language: en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7</code></pre>
+        </div>
+        <a href="https://github.com/igrigorik/webp-detect" class="link link-github next">igrigorik/webp-detect</a>
     </section>
 
     <section class="slide">
-        server-side content-type negotiation
+        <pre><code class="hljs apache">&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+  RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
+&lt;/IfModule&gt;
+
+&lt;IfModule mod_headers.c&gt;
+  Header append Vary Accept env=REDIRECT_accept
+&lt;/IfModule&gt;
+
+AddType image/webp .webp</code></pre>
     </section>
 
     <section class="slide">
-        https://github.com/igrigorik/webp-detect
+        <h2>HTTP Cache</h2>
+        <ol>
+            <li class="next"><code>ETag: W/"3b952-1635db68e52"</code></li>
+            <li class="next"><code>Cache-Control: public, max-age=31536000</code></li>
+        </ol>
     </section>
 
     <section class="slide">
-        Cache 1. HTTP cache headers (Cache-Control:public; max-age=31536000) 2. Схема выбора заголовков (https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching#cache-control)
-        3. Service Workers (https://developers.google.com/web/tools/workbox/guides/generate-service-worker/workbox-build)
-        4. localStorage — для мелких, но важных вещей (лого, иконки)
+        <img src="pictures/http-cache-decision-tree.png" alt="" class="place" style="height: 90%;">
     </section>
 
     <section class="slide">
-        Battery API
+        <h2>localStorage</h2>
+        <ul>
+            <li>можно хранить только строки;</li>
+            <li>общий размер — <strong>до</strong> 5 МБ.</li>
+        </ul>
+        <div class="next">
+            <h2>IndexedDB</h2>
+            <ul>
+                <li>можно хранить файлы в виде Blob;</li>
+                <li>размер ограничен доступной памятью у пользователя.</li>
+            </ul>
+        </div>
     </section>
 
     <section class="slide">
-        Network Type
+        <h2>Service Workers</h2>
+        <pre><code class="hljs javascript">if ('serviceWorker' in navigator) {
+    const sw = navigator.serviceWorker;
+    sw.register('sw.js')
+        .then(() => sw.ready.then((worker) => {
+            worker.sync.register({ 
+                minRequiredNetwork: 'network-online' 
+            });
+        }));
+}</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Декодирование и отображение в браузере</h2>
+        <img src="pictures/workbox-logo.svg" alt="" class="place">
     </section>
 
     <section class="slide">
-        Chrome dev tools (rasterization)
+        <pre><code class="hljs javascript">importScripts('https://storage.googleapis.com/.../workbox-sw.js');
+workbox.routing.registerRoute(
+    /\.(?:png|gif|jpg|jpeg|svg)$/,
+    workbox.strategies.cacheFirst({
+        cacheName: 'images',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 60,
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            }),
+        ],
+    }),
+);</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Network Type</h2>
+        <pre><code class="hljs javascript">let isSlow = true;
+const connection = navigator.connection;
+if (connection) {
+    // 'slow-2g', '2g', '3g' или '4g'
+    if (connection.effectiveType !== 'slow-2g') {
+        isSlow = false;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-network-type.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout no-bg"><span class="label">Декодирование и отображение в браузере</span></h2>
+        <img src="pictures/browser-unsplash.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/devtools-raster.png" alt="Dev Tools" class="cover height">
     </section>
 
     <section class="slide">
