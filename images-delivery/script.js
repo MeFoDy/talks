@@ -139,3 +139,50 @@ var imagePerPageChart = Highcharts.chart('chart-images-per-page', {
         data: [26, 25, 18, 11, 7, 4, 2, 2, 1],
     }]
 });
+
+var imagesRasterChart = Highcharts.chart('chart-images-raster', {
+    chart: {type: 'bar'},
+    title: {
+        text: 'Среднее время декодирования изображения',
+        style: chartStyle.title,
+    },
+    xAxis: {
+        categories: [
+            'BMP',
+            'PNG',
+            'JPEG',
+            'WebP',
+        ],
+        crosshair: true,
+        labels: {
+            style: {
+                fontSize: '24px',
+            },
+        },
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Время, ms'
+        }
+    },
+    tooltip: {
+        pointFormat: '<b>{point.y} ms</b>'
+    },
+    plotOptions: {
+        bar: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '{point.y} ms',
+                style: chartStyle.labelStyle
+            }
+        }
+    },
+    series: [{
+        name: 'Image decode',
+        colorByPoint: true,
+        data: [33.482, 39.532, 41.118, 89.134],
+    }]
+});

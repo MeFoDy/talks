@@ -1300,7 +1300,9 @@ if (connection) {
     </section>
 
     <section class="slide">
-        <h2 class="shout no-bg"><span class="label">Декодирование и отображение в браузере</span></h2>
+        <h2 class="shout no-bg">
+            <span class="label">Декодирование и отображение в браузере</span>
+        </h2>
         <img src="pictures/browser-unsplash.jpg" alt="" class="cover width">
     </section>
 
@@ -1308,49 +1310,191 @@ if (connection) {
         <img src="pictures/devtools-raster.png" alt="Dev Tools" class="cover height">
     </section>
 
-    <section class="slide">
-        Reduce unnecessary image decode and resize costs
+    <section class="slide black">
+        <span class="label">1800x1200</span>
+        <img src="demo/raster/img/lion.jpg" alt="" class="cover height">
     </section>
 
     <section class="slide">
-        Тег picture и srcset Как работает Во что превращается в DOM Порядок source Fallback https://beta.observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood
-        — примеры оптимизаций браузерами
+        <div id="chart-images-raster" style="height: 450px"></div>
     </section>
 
     <section class="slide">
-        https://scottjehl.github.io/picturefill/
+        <h2>Отображение</h2>
+        <ol>
+            <li>декодирование;</li>
+            <li>изменение размеров;</li>
+            <li>отрисовка.</li>
+        </ol>
+        <p style="text-align: center; font-weight: bold;" class="next">Не заставляйте браузер обрабатывать лишние пиксели!</p>
     </section>
 
     <section class="slide">
-        sizes="100vw" width="640"
+        <h2>2008</h2>
+        <pre><code class="hljs html">&lt;img src="rit.jpg" alt="Привет, РИТ!" width="20" height="18" /&gt;</code></pre>
+        <img src="pictures/unicorn.png" alt="" class="next">
     </section>
 
     <section class="slide">
-        Атрибуты width, height
+        <h2>2018</h2>
+        <pre style="font-size: 0.9em;"><code class="hljs html">&lt;picture&gt;
+    &lt;source type="image/webp" media="(min-width: 1150px)" 
+            srcset="rit-desktop@1x.webp 1x, rit-desktop@2x.webp 2x"&gt;
+    &lt;source type="image/webp" 
+            srcset="rit-mobile@1x.webp 1x, rit-mobile@2x.webp 2x"&gt;
+    &lt;source media="(min-width: 1150px)" 
+            srcset="rit-desktop@1x.jpg 1x, rit-desktop@2x.jpg 2x"&gt;
+    &lt;img src="rit-mobile@1x.jpg" srcset="rit-mobile@2x.jpg 2x" 
+            alt="Привет, РИТ!" width="20" height="18"&gt;
+&lt;/picture&gt;</code></pre>
+        <img src="pictures/run-meme.png" alt="" class="place left bottom next" style="margin-left: 50px; width: 500px;">
     </section>
 
     <section class="slide">
-        CSS: background: image-set media queries (dpi, max-width, etc.) min-resolution: 2dppx -webkit-min-device-pixel-ratio: 2
+        <pre style="font-size: 0.9em;"><code class="hljs html">&lt;picture&gt;</code>
+<code class="hljs html next">    &lt;source <span class="next">type="image/webp"</span> <span class="next">media="(min-width: 1150px)"</span> 
+            <span class="next">srcset="rit-desktop@1x.webp <mark>1x</mark>, rit-desktop@2x.webp <mark>2x</mark>"</span>&gt;</code>
+<code class="hljs html next">    &lt;source type="image/webp"
+            srcset="rit-mobile@1x.webp 1x, rit-mobile@2x.webp 2x"&gt;</code>
+<code class="hljs html next">    &lt;source media="(min-width: 1150px)"
+            srcset="rit-desktop@1x.jpg 1x, rit-desktop@2x.jpg 2x"&gt;</code>
+<code class="hljs html">    &lt;img src="rit-mobile@1x.jpg" srcset="rit-mobile@2x.jpg 2x"
+            alt="Привет, РИТ!" width="20" height="18"&gt;</code>
+<code class="hljs html">&lt;/picture&gt;</code></pre>
     </section>
 
     <section class="slide">
-        https://github.com/filamentgroup/imaging-heap — исследование эффективности использования responsive-изображений
+        <pre><code class="hljs html">&lt;img srcset="rit-320w.jpg <mark>320w</mark>,
+             rit-480w.jpg 480w,
+             rit-800w.jpg 800w"
+     sizes="(max-width: 320px) 280px,
+            (max-width: 480px) 440px,
+            800px"
+     src="rit-800w.jpg" alt="Привет, РИТ!"&gt;</code></pre>
+        <ol>
+            <li class="next"><code>srcset</code> — задаем каждому размеру свое изображение;</li>
+            <li class="next"><code>sizes</code> — вычисляем размер, который нужно применить;</li>
+            <li class="next">выбираем из <code>srcset</code> самое подходящее по размеру изображение.</li>
+        </ol>
     </section>
 
     <section class="slide">
-        DPR (Device Pixel Ratio) 1x, 2x, 3x (http://dpi.lv), 4x (Samsung Galaxy S8)
+        <img src="pictures/caniuse-picture.png" alt="" class="cover width">
     </section>
 
     <section class="slide">
-        4K, 8K
+        <h2 class="no-bg shout">
+            <a href="https://github.com/scottjehl/picturefill" class="link link-github">scottjehl/picturefill</a>
+        </h2>
     </section>
 
     <section class="slide">
-        Art Direction — где центр картинки
+        <h2>2008</h2>
+        <pre><code class="hljs css">.rit {
+    background-image: url('img/rit.jpg');
+}</code></pre>
     </section>
 
     <section class="slide">
-        Спрайты — плюсы и минусы (HTTP2)
+        <h2>2018</h2>
+        <pre><code class="hljs css">.rit {
+    background-image: url('img/rit-mobile.jpg');
+}
+
+@media (min-width: 1050px) {
+    .rit {
+        background-image: url('img/rit-desktop.jpg');
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide nd-retina">
+        <div class="col-3">
+            <figure>
+                <img src="pictures/iphone-4.png" alt="iPhone 4" height="300">
+                <figcaption>2dppx</figcaption>
+            </figure>
+            <figure class="next">
+                <img src="pictures/iphone-x.png" alt="iPhone X" height="380">
+                <figcaption>3dppx</figcaption>
+            </figure>
+            <figure class="next">
+                <img src="pictures/samsung-galaxy-s8.png" alt="Samsung Galaxy S8" height="400">
+                <figcaption>4dppx</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-retina .col-3 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-retina .col-3 figure {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <pre><code class="hljs css">.rit {
+    background-image: url('img/rit@1x.jpg');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), 
+       (min-resolution: 192dpi), 
+       (min-resolution: 2dppx) {
+    .rit {
+        background-image: url('img/rit@2x.jpg');
+    }
+}
+</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code class="hljs css">.rit {
+    background-image: <mark>image-set</mark>(url('rit@1x.jpg') 1x, 
+                                url('rit@2x.jpg') 2x);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-image-set.png" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="no-bg shout" style="font-size: 60px">
+            <a href="https://github.com/filamentgroup/imaging-heap" class="link link-github">filamentgroup/imaging-heap</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="imaging-heap" style="font-size: 0.7em;">
+            <p>npm install --global imaging-heap</p>
+            <p>imagingheap https://ritfest.ru/moscow/2018</p>
+            <br>
+            <pre style="white-space: pre;">&lt;img style="top:0" src="/i/icons/s_backendconf.png" alt="Backend Conf"&gt;
+╔══════════╤══════════╤═══════╤════════════╤═══════╤════════════╗
+║          │ Image    │ @1x   │ @1x        │ @2x   │ @2x        ║
+║          │ Width in │ Image │ Percentage │ Image │ Percentage ║
+║ Viewport │ Layout   │ Width │ Match      │ Width │ Match      ║
+╟──────────┼──────────┼───────┼────────────┼───────┼────────────╢
+║ 320px    │ 16px     │ 16px  │ 100.0%     │ 16px  │ <span style="color: #d00;">50.0%</span>      ║
+║ 480px    │ 16px     │ 16px  │ 100.0%     │ 16px  │ <span style="color: #d00;">50.0%</span>      ║
+║ 640px    │ 16px     │ 16px  │ 100.0%     │ 16px  │ <span style="color: #d00;">50.0%</span>      ║
+║ 800px    │ 16px     │ 16px  │ 100.0%     │ 16px  │ <span style="color: #d00;">50.0%</span>      ║
+║ 960px    │ 16px     │ 16px  │ 100.0%     │ 16px  │ <span style="color: #d00;">50.0%</span>      ║
+║ 1120px   │ 16px     │ 16px  │ 100.0%     │ 16px  │ <span style="color: #d00;">50.0%</span>      ║
+║ 1280px   │ 16px     │ 16px  │ 100.0%     │ 16px  │ <span style="color: #d00;">50.0%</span>      ║
+╚══════════╧══════════╧═══════╧════════════╧═══════╧════════════╝
+Legend:  @1x <span style="color: #d00;">&lt;100%</span> <span style="color: #dd0;">&gt;150%</span>    Above @1x <span style="color: #d00;">&lt;75%</span> <span style="color: #dd0;">75%–92%</span></pre>
+        </div>
     </section>
 
     <section class="slide">
@@ -1390,6 +1534,10 @@ if (connection) {
 
     <section class="slide">
         Дикие приемы: использование маски над jpeg — вместо png. https://www.slideshare.net/chaptykov/ss-82271360
+    </section>
+
+    <section class="slide">
+        Спрайты — плюсы и минусы (HTTP2)
     </section>
 
     <section class="slide">
