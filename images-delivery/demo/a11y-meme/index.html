@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>a11y meme</title>
+</head>
+
+<body>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700");
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "Roboto Condensed", sans-serif;
+            font-size: 6.4vw;
+            line-height: 1.4;
+            background-color: #000;
+            color: #fff;
+        }
+
+        div {
+            width: 100vw;
+            height: 56vw;
+            margin: 0;
+            color: #fff;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            position: relative;
+            background-size: contain;
+            background-image: url(willy-wonka-meme.jpg);
+        }
+
+        span {
+            position: absolute;
+            top: auto;
+            overflow: hidden;
+            clip: rect(1px 1px 1px 1px);
+            /* IE 6/7 */
+            clip: rect(1px, 1px, 1px, 1px);
+            width: 1px;
+            height: 1px;
+            white-space: nowrap;
+        }
+
+        p {
+            position: absolute;
+            font-weight: bold;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: uppercase;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: -0.01em -0.01em 0 #fff, 0.01em -0.01em 0 #fff,
+            -0.01em 0.01em 0 #fff, 0.01em 0.01em 0 #fff, -0.05em -0.05em 0.05em #000,
+            0.05em -0.05em 0.05em #000, -0.05em 0.05em 0.05em #000,
+            0.05em 0.05em 0.05em #000;
+        }
+
+        p:nth-child(2) {
+            top: 0.5vw;
+            left: 0;
+            right: 0;
+            margin: 0 1vw;
+            text-align: center;
+        }
+
+        p:nth-child(3) {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 8vw;
+            text-align: center;
+        }
+    </style>
+    <main>
+        <div>
+            <span>Willy Wonka resting his head on his hand, looking at Charlie with an amused expression.</span>
+            <p>
+                Tell me more about how hard it is to make memes accessible…
+            </p>
+            <p>
+                Instead of just forking this Pen.
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>

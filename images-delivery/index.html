@@ -417,11 +417,11 @@
                 <figcaption>q=70, 1x1, 13 КБ</figcaption>
             </figure>
             <figure>
-                <img src="pictures/vinck-70-2x1.jpg" alt="2x1">
+                <img src="pictures/vinck-70-2x1.jpg">
                 <figcaption>q=70, 2x1, 11 КБ</figcaption>
             </figure>
             <figure>
-                <img src="pictures/vinck-70-2x2.jpg" alt="2x2">
+                <img src="pictures/vinck-70-2x2.jpg">
                 <figcaption>q=70, 2x2, 9 КБ</figcaption>
             </figure>
         </div>
@@ -1498,38 +1498,275 @@ Legend:  @1x <span style="color: #d00;">&lt;100%</span> <span style="color: #dd0
     </section>
 
     <section class="slide">
-        Lazy Loading (Medium, Pinterest)
+        <h2>Lazy Loading</h2>
+        <ul>
+            <li><a href="https://github.com/samdutton/simpl" class="link link-github">samdutton/simpl</a></li>
+            <li><a href="https://github.com/aFarkas/lazysizes" class="link link-github">aFarkas/lazysizes</a></li>
+            <li><a href="https://github.com/w3c/IntersectionObserver" class="link link-github">w3c/IntersectionObserver</a></li>
+        </ul>
     </section>
 
     <section class="slide">
-        https://github.com/aFarkas/lazysizes 1. Intersection Observer (https://simpl.info/lazy/), polyfill, свое решение https://scotch.io/tutorials/lazy-loading-images-for-performance-using-intersection-observer
-        2. data-src 3. noscript, .no-js class (https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
+        <img src="pictures/tizh.jpg" alt="Тыжпрограммист!" class="cover width">
     </section>
 
     <section class="slide">
-        Placeholders: 1. static image 2. small image + blur 3. LQIP 4. SQIP 5. Houdini API (https://drafts.css-houdini.org/css-paint-api/#example-2)
-        6. http://www.geometrize.co.uk
+        <pre class="place"><code class="hljs html">&lt;img src="placeholder.jpg" 
+     data-src="image.jpg" /&gt;</code></pre>
     </section>
 
     <section class="slide">
-        link preload (критические изображения)
-        <link rel="preload" as="image" href="logo.jpg" />
+        <pre><code class="hljs js">const observer = new IntersectionObserver(<mark>handler</mark>, {
+    rootMargin: '0px',
+    threshold: 0.1,
+});
+
+</code></pre>
+
+        <pre class="next"><code class="hljs js">const images = document.querySelectorAll('img[data-src]');
+images.forEach(img => {
+    observer.observe(img);
+});</code></pre>
     </section>
 
     <section class="slide">
-        WASM — эксперименты Das Surma (WebP), BPG decoder, etc. https://developers.google.com/web/updates/2018/03/emscripting-a-c-library
+        <pre><code class="hljs js">function handler(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            loadImage(entry.target);
+            observer.unobserve(entry.target);
+        }
+    });
+}</code></pre>
     </section>
 
     <section class="slide">
-        a11y — правильные подписи к картинкам (информативные, декоративные) https://weblind.ru/inner.html#image-content
+        <pre><code class="hljs js">function loadImage(image) {
+    const src = image.dataset.src;
+    <mark>fetchImage</mark>(src).then(() => { image.src = src; });
+}</code></pre>
+        <pre class="next"><code class="hljs js">function fetchImage(url) {
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.src = url;
+        image.onload = resolve;
+        image.onerror = reject;
+    });
+}</code></pre>
     </section>
 
     <section class="slide">
-        доступные мемы https://codepen.io/aardrian/pen/wjWyvg https://codepen.io/aardrian/pen/rdPgaa
+        <h2>Placeholder — техники</h2>
+        <ul>
+            <li class="next">Общий placeholder</li>
+            <li class="next">Фоновый цвет</li>
+            <li class="next">LQIP</li>
+            <li class="next">LQIP + размытие</li>
+            <li class="next">SQIP</li>
+            <li class="next"><a href="http://www.geometrize.co.uk/">Geometrize</a> (<a href="https://github.com/fogleman/primitive" class="link link-github">fogleman/primitive</a>)</li>
+        </ul>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Дано</h2>
+
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-100.jpg">
+                <figcaption>69 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-100.jpg">
+                <figcaption>31 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/me-small.jpg">
+                <figcaption>50 КБ</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-col-3-example .col-3 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-col-3-example figure {
+                width: 225px;
+                overflow: hidden;
+            }
+        </style>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Общий placeholder</h2>
+
+        <div class="col-3">
+            <figure>
+                <img src="pictures/placeholder.jpg">
+            </figure>
+            <figure>
+                <img src="pictures/placeholder.jpg">
+            </figure>
+            <figure>
+                <img src="pictures/placeholder.jpg">
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Фоновый цвет</h2>
+
+        <div class="col-3">
+            <div style="background: rgb(159,93,78); width: 225px; height: 300px;"></div>
+            <div style="background: rgb(69,105,60); width: 225px; height: 300px;"></div>
+            <div style="background: rgb(112,107,103); width: 225px; height: 300px;"></div>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Low Quality Image Placeholders (LQIP)</h2>
+
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-lqip.jpg" width="225">
+                <figcapture>2.9 КБ</figcapture>
+            </figure>
+            <figure>
+                <img src="pictures/burden-lqip.jpg" width="225">
+                <figcapture>2.8 КБ</figcapture>
+            </figure>
+            <figure>
+                <img src="pictures/me-lqip.jpg" width="225">
+                <figcapture>2.9 КБ</figcapture>
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>LQIP + размытие</h2>
+
+        <div class="col-3">
+            <figure style="height: 300px;">
+                <img src="pictures/vinck-lqip.jpg" width="225" style="filter: blur(8px); transform: scale(1.1)">
+            </figure>
+            <figure style="height: 300px;">
+                <img src="pictures/burden-lqip.jpg" width="225" style="filter: blur(8px); transform: scale(1.1)">
+            </figure>
+            <figure style="height: 300px;">
+                <img src="pictures/me-lqip.jpg" width="225" style="filter: blur(8px); transform: scale(1.1)">
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>SVG-Based Image Placeholder (SQIP)</h2>
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck.svg" width="225">
+                <figcaption>730 Б</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden.svg" width="225">
+                <figcaption>972 Б</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/me.svg" width="225">
+                <figcaption>959 Б</figcaption>
+            </figure>
+        </div>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Приемы</h2>
+        <div class="terminal" data-content="sqip">
+            <p>npm install -g sqip</p>
+            <p>sqip -o sqip.svg -n 8 image.jpg</p>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Primitive (ellipses)</h2>
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-ellipses.svg" width="225">
+                <figcaption>38 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-ellipses.svg" width="225">
+                <figcaption>38 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/me-ellipses.svg" width="225">
+                <figcaption>38 КБ</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Primitive (triangles)</h2>
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-triangles.svg" width="225">
+                <figcaption>23 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-triangles.svg" width="225">
+                <figcaption>23 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/me-triangles.svg" width="225">
+                <figcaption>23 КБ</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide">
+        <a href="https://github.com/Tw1ddle/geometrize-twitter-bot" class="link link-github">Tw1ddle/geometrize-twitter-bot</a>
+
+        <div class="label important">Добавить пример</div>
+    </section>
+
+    <section class="slide">
+        <h2>Предзагрузка</h2>
+        <pre><code class="hljs html">&lt;link rel="preload" as="image" href="important.png"&gt;</code></pre>
+        <img src="pictures/caniuse-preload.png" alt="" class="cover width next" style="top: 60%;">
+    </section>
+
+    <section class="slide">
+        <h2>Доступность</h2>
+        <ul>
+            <li class="next">для информативных изображений — краткая информация в <code>alt</code>;</li>
+            <li class="next">для декоративных изображений:
+                <ul>
+                    <li><code>alt=""</code>;</li>
+            <li><code>role="presentation"</code>;</li>
+            <li><code>aria-hidden="true"</code>.</li>
+        </ul>
+        </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="no-bg shout">
+            <a href="https://weblind.ru/inner.html#image-content">weblind.ru</a>
+        </h2>
+    </section>
+
+    <section class="slide clear">
+        <iframe src="demo/a11y-meme/index.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout no-bg">
+            <a href="https://codepen.io/aardrian/pen/wjWyvg" class="link link-codepen">aardrian/pen/wjWyvg</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Бонусы</h2>
     </section>
 
     <section class="slide">
@@ -1542,6 +1779,7 @@ Legend:  @1x <span style="color: #d00;">&lt;100%</span> <span style="color: #dd0
 
     <section class="slide">
         Юна Кравец, комбинация фильтров для уменьшения размера изображения https://css-tricks.com/contrast-swap-technique-improved-image-performance-css-filters/
+        <img src="pictures/una-contrast.jpg" alt="">
     </section>
 
     <section class="slide">
@@ -1557,21 +1795,31 @@ Legend:  @1x <span style="color: #d00;">&lt;100%</span> <span style="color: #dd0
     </section>
 
     <section class="slide">
-        img.decode() — можно вынести в отдельный поток var newImage = new Image(); newImage.src = "my-awesome-image.jpg"; if ("decode"
-        in newImage) {   // Fancy decoding logic   newImage.decode().then(function() {     imageContainer.appendChild(newImage);
-          }); } else {   // Regular image load   imageContainer.appendChild(newImage); }
+        <pre><code class="hljs js">var newImage = new Image(); 
+newImage.src = "my-awesome-image.jpg";
+if ("decode" in newImage) {   
+    // Fancy decoding logic   
+    newImage.decode().then(function() {     
+        imageContainer.appendChild(newImage);
+      }); 
+} else {
+    // Regular image load   
+    imageContainer.appendChild(newImage); 
+}</code></pre>
+https://www.chromestatus.com/feature/5637156160667648
     </section>
 
     <section class="slide">
-        СЕО — поисковики тоже любят оптимизированные страницы Картинки можно прятать (robots.txt, атрибуты тегов)
+        СЕО — поисковики тоже любят оптимизированные страницы
+        <br>Картинки можно прятать (robots.txt, атрибуты тегов)
     </section>
 
     <section class="slide">
-        Houdini - генеративная графика
+        Houdini - генеративная графика, Houdini API (https://drafts.css-houdini.org/css-paint-api/#example-2)
     </section>
 
     <section class="slide">
-        2G Tuesday
+        2G Tuesday https://www.theverge.com/2015/10/28/9625062/facebook-2g-tuesdays-slow-internet-developing-world
     </section>
 
     <section class="slide">
@@ -1584,13 +1832,13 @@ Legend:  @1x <span style="color: #d00;">&lt;100%</span> <span style="color: #dd0
     <section class="slide">
         <h2 style="margin-bottom:0.2em;">Материалы</h2>
         <ul>
-            <li><a href="https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841">Exploring EcmaScript Decorators</a> — Addy Osmani</li>
+            <li><a href="https://images.guide/">Essential Image Optimization</a> — Addy Osmani</li>
             <li><a href="gist.github.com">Ссылка на ссылки</a></li>
         </ul>
         <h2 style="margin-bottom:0.2em;">Видео</h2>
         <ul>
             <li>
-                <a href="https://www.youtube.com/user/andrew8088/videos">JavaScript Decorators</a> — Andrew Burgess
+                <a href="https://www.youtube.com/watch?v=rgHLV2fe-2I">New Adventures in Responsive Web Design</a> — Виталий Фридман
             </li>
         </ul>
     </section>
