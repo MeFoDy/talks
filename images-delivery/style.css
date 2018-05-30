@@ -7,3 +7,7 @@
     line-height: 1.6em;
     font-size: 0.9em;
 }
+
+.z-top {
+    z-index: 1 !important;
+}

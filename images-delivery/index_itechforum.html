@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Показываем картинки пользователю: подробное руководство</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../src/shower/themes/itechart/styles/screen-16x9.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github.css">
+    <link rel="stylesheet" href="../src/highcharts/highcharts.css">
+    <link rel="stylesheet" href="style.css?v=0.0.1">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Показываем картинки пользователю:
+            <br>подробное руководство</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
+        </p>
+    </header>
+
+    <section class="slide title" id="cover">
+        <h2 style="font-size: 2.3em;">Показываем картинки пользователю: подробное руководство</h2>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, D7
+        </p>
+    </section>
+
+    <section class="slide" id="about">
+        <h2 class="no-bg">Никита Дубко</h2>
+        <ul>
+            <li>Software Engineer в iTechArt, D7;</li>
+            <li>адепт философии Pure CSS Images;</li>
+            <li>соорганизатор митапов MinskCSS и MinskJS.</li>
+        </ul>
+        <img class="place right cover z-top" src="pictures/me-itechart.jpg" alt="Никита Дубко">
+        <div class="next">
+            <img src="pictures/minskcss-logo.svg" alt="MinskCSS" width="120" style="margin-right: 30px;">
+            <img src="pictures/minskjs-logo.svg" alt="MinskJS" width="120" style="margin-right: 30px;">
+            <img src="pictures/css-minsk-js-logo.svg" alt="CSS-Minsk-JS" width="120" height="120" style="padding: 10px; background-color: #2b2727;">
+        </div>
+    </section>
+
+    <section class="slide nd-times no-heading">
+        <div class="time-block">
+            <img src="pictures/timer-green.svg" alt="3 секунды — оптимально" width="200" height="185">
+            <p>
+                <strong>53%</strong> вероятность, что пользователь покинет страницу, если мобильный сайт загружается дольше, чем
+                <br>
+                <b style="color: #1F9C1F">3 секунды</b>
+            </p>
+        </div>
+        <div class="next time-block">
+            <img src="pictures/timer-red.svg" alt="3 секунды — оптимально" width="200" height="185">
+            <p>
+                Среднее время загрузки мобильной страницы на соединении
+                <strong>3G</strong>:
+                <br>
+                <b style="color: #D12C2C">19 секунд</b>
+            </p>
+        </div>
+
+        <style>
+            .nd-times .time-block {
+                display: flex;
+                margin-bottom: 1em;
+            }
+
+            .nd-times .time-block p {
+                line-height: 2em;
+                flex: 0 1 auto;
+            }
+
+            .nd-times .time-block b {
+                font-size: 2em;
+            }
+
+            .nd-times .time-block img {
+                flex: 1 0 200px;
+            }
+        </style>
+    </section>
+
+    <section class="slide no-heading">
+        <img src="pictures/http-archive-logo.png" width="350" class="place" alt="Http Archive">
+    </section>
+
+    <section class="slide no-heading">
+        <div id="chart-content-type" style="height: 450px"></div>
+    </section>
+
+    <section class="slide no-heading">
+        <div id="chart-images-per-page" style="height: 450px"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Lighthouse</h2>
+        <img src="pictures/pwa-lighthouse.png" alt="PWA Lighthouse" class="place" width="600">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/chrome-audits-itechart.png" alt="Chrome Audits" class="place" width="600">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/itechart-audit-tooltip.png" alt="Useful tooltip" class="place">
+    </section>
+
+    <section class="slide nd-audits">
+        <img src="pictures/trollface.png" alt="trollface" class="next" style="width: 40px; position: absolute; top: 10px; right: 270px; transform: scaleX(-1);">
+        <div class="next"></div>
+        <img src="pictures/itechart-audit.png" alt="iTechArt Audit Results" class="cover audits-image">
+        <div class="selection"></div>
+
+        <style>
+            .nd-audits {
+                position: relative;
+            }
+
+            .nd-audits .selection {
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 180px;
+                border: 5px solid lime;
+                bottom: 88px;
+                left: 0;
+                z-index: 2;
+                box-shadow: 0 0 100px 100px rgba(0, 0, 0, 0.3);
+            }
+
+            .nd-audits .audits-image {
+                transition: transform ease 0.5s;
+            }
+
+            .nd-audits .active~.active~.audits-image {
+                transform: translate(-50%, -50%) scale(2.2);
+                transform-origin: 50% 70%;
+                z-index: 1;
+            }
+
+            .nd-audits .active~.active~.audits-image~.selection {
+                display: block;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Путь изображения</h2>
+        <ol>
+            <li class="next">Сохранение на сервере</li>
+            <li class="next">Отправка на клиент по запросу</li>
+            <li class="next">Декодирование и отображение в браузере</li>
+            <li class="next">«Сохранить как...»</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout no-bg">
+            <span class="label">Сохранение
+                <br>на сервере</span>
+        </h2>
+        <img src="pictures/hdd-hard-drive.jpg" alt="HDD" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>Форматы изображений</h2>
+        <ul>
+            <li>BMP, TIFF, TGA, ICO</li>
+            <li>JPEG, JPEG 2000, JPEG XR</li>
+            <li>PNG, APNG</li>
+            <li>GIF</li>
+            <li>WebP</li>
+            <li>SVG</li>
+            <li>FLIF, BPG, HEIF</li>
+        </ul>
+    </section>
+
+    <section class="slide no-heading">
+        <div id="chart-image-requests" style="height: 450px"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Растровая графика</h2>
+        <img src="pictures/raster.png" alt="Растр" class="place bottom">
+    </section>
+
+    <section class="slide">
+        <h2>JPEG</h2>
+        <p>
+            Joint Photographic Experts Group
+            <br>
+            <a href="https://jpeg.org/index.html">jpeg.org</a>
+        </p>
+        <img src="pictures/jpeg-logo.svg" alt="JPEG logo" class="place right" style="width: 200px; margin-right: 100px;">
+    </section>
+
+    <section class="slide nd-yuv no-heading">
+        <div class="yuv-grid">
+            <div class="rgb">
+                <div style="display: flex;">
+                    <span style="color: red">R</span>
+                    <span style="color: green">G</span>
+                    <span style="color: blue">B</span>
+                </div>
+                <img src="pictures/yuv-source.png" alt="RGB">
+            </div>
+            <img src="pictures/yuv-components.png" alt="YUV" class="yuv">
+            <div class="yuv-text">Y
+                <br>
+                <small>яркость</small>
+            </div>
+            <div class="yuv-text">V (Cb)
+                <small>хроматический синий</small>
+            </div>
+            <div class="yuv-text">U (Cr)
+                <small>хроматический красный</small>
+            </div>
+        </div>
+
+        <style>
+            .nd-yuv .yuv-grid {
+                height: 400px;
+                display: grid;
+                grid-template-columns: repeat(3, auto);
+                grid-template-rows: repeat(3, 1fr);
+                font-size: 2em;
+            }
+
+            .nd-yuv .yuv-grid small {
+                font-size: 0.4em;
+            }
+
+            .nd-yuv .yuv-grid .rgb {
+                grid-row: span 3;
+                margin-right: 50px;
+            }
+
+            .nd-yuv .yuv-grid .rgb img {
+                height: 300px;
+            }
+
+            .nd-yuv .yuv-grid .yuv {
+                grid-row: span 3;
+                height: 100%;
+                margin-right: 20px;
+            }
+
+            .nd-yuv .yuv-grid .yuv-text {
+                line-height: 0.7em;
+                align-self: center;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Конвейер JPEG</h2>
+        <ol>
+            <li>Преобразование RGB в YUV</li>
+            <li class="next">Разбиение матриц YUV на матрицы 8x8</li>
+            <li class="next">Дискретное косинусоидальное преобразование 🤓</li>
+            <li class="next"><b>Квантование (сжатие)</b> <img src="pictures/jpeg-gradient.png" class="place right" style="width: 200px; margin-right: 100px;"></li>
+            <li class="next">Зигзаг-сканирование</li>
+            <li class="next">RLE-свертывание (AAABBBCCC -> 3A3B3C)</li>
+            <li class="next">Сжатие по Хаффману</li>
+        </ol>
+    </section>
+
+    <section class="slide nd-jpeg-quality no-heading">
+        <p>Размер: 225x300</p>
+        <div class="col-4">
+            <figure>
+                <img src="pictures/burden-100.jpg" alt="100">
+                <figcaption>q=100; 33 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-70.jpg" alt="70">
+                <figcaption>q=70; 11 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-30.jpg" alt="30">
+                <figcaption>q=30; 4 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-0.jpg" alt="0">
+                <figcaption>q=0; 3 КБ</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-jpeg-quality .col-4 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-jpeg-quality .col-4 img {
+                max-width: 100%;
+            }
+        </style>
+    </section>
+
+    <section class="slide nd-jpeg-quality no-heading">
+        <p>Размер: 225x300</p>
+        <div class="col-4">
+            <figure>
+                <img src="pictures/vinck-100.jpg" alt="100">
+                <figcaption>q=100; 71 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/vinck-70.jpg" alt="70">
+                <figcaption>q=70; 24 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/vinck-30.jpg" alt="30">
+                <figcaption>q=30; 9 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/vinck-0.jpg" alt="0">
+                <figcaption>q=0; 5 КБ</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Baseline JPEG</h2>
+        <img src="pictures/baseline.jpg" alt="Baseline JPEG" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>Progressive JPEG</h2>
+        <img src="pictures/progressive.jpg" alt="Progressive JPEG" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>Особенности progressive JPEG</h2>
+        <ul>
+            <li value="+">Изображение сразу видно целиком</li>
+            <li value="+">Меньше по размеру (в среднем)</li>
+        </ul>
+        <ul>
+            <li value="-">Не всегда понятно, когда загрузилось до конца</li>
+            <li value="-">Сильнее нагружает CPU из-за нескольких этапов декодирования</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="no-bg">Используют прогрессивный JPEG</h2>
+        <ul>
+            <li>Twitter</li>
+            <li>Facebook</li>
+            <li>Pinterest</li>
+            <li>Yelp</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Субдискретизация (chroma subsampling)</h2>
+        <div>
+            <div>4:4:4 (1x1) Без субдискретизации</div>
+            <img src="pictures/subsampling-1x1.jpg" alt="">
+        </div>
+        <div class="next">
+            <div>4:2:2 (2x1) Горизонтальная</div>
+            <img src="pictures/subsampling-2x1.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Субдискретизация (chroma subsampling)</h2>
+        <div>
+            <div>4:4:4 (1x1) Без субдискретизации</div>
+            <img src="pictures/subsampling-1x1.jpg" alt="">
+        </div>
+        <div>
+            <div>4:2:0 (2x2) Горизонтальная и вертикальная</div>
+            <img src="pictures/subsampling-2x2.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/subsampling.jpg" alt="Subsampling" class="place">
+    </section>
+
+    <section class="slide nd-jpeg-subsampling no-heading">
+        <p>Размер: 225x300</p>
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-70-1x1.jpg" alt="1x1">
+                <figcaption>q=70; 1x1; 13 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/vinck-70-2x1.jpg">
+                <figcaption>q=70; 2x1; 11 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/vinck-70-2x2.jpg">
+                <figcaption>q=70; 2x2; 9 КБ</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-jpeg-subsampling .col-3 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-jpeg-subsampling .col-3 img {
+                max-width: 100%;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Инструменты</h2>
+        <ul>
+            <li><a href="http://jpegclub.org/jpegtran/">jpegtran</a></li>
+            <li><a href="https://github.com/tjko/jpegoptim" class="link link-github">tjko/jpegoptim</a></li>
+            <li><a href="https://github.com/mozilla/mozjpeg" class="link link-github"><strong>mozilla/mozjpeg</strong></a></li>
+            <li><a href="https://github.com/google/guetzli" class="link link-github"><strong>google/guetzli</strong></a></li>
+            <li><a href="https://github.com/danielgtaylor/jpeg-archive" class="link link-github">danielgtaylor/jpeg-archive</a></li>
+            <li><a href="https://github.com/ImageOptim/ImageOptim" class="link link-github">imageoptim/imageoptim</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Измерение искажений</h2>
+        <ul>
+            <li class="next">SSIM (индекс структурного сходства)<br>
+                <a href="https://github.com/IonicaBizau/img-ssim" class="link link-github">IonicaBizau/img-ssim</a></li>
+            <li class="next">Butteraugli (психовизуальное подобие)<br>
+                <a href="https://github.com/google/butteraugli" class="link link-github">google/butteraugli</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Guetzli</h2>
+        <img src="pictures/ssim-indexes.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/gulp-logo.svg" alt="Gulp" class="place">
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="imagemin">
+            <p>npm install --save-dev gulp-imagemin</p>
+        </div>
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');</code>
+<code class="hljs javascript">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs javascript">
+</code>
+<code class="hljs javascript">gulp.task('images', () => </code>
+<code class="hljs javascript">    gulp.src('images/*.jpg')</code>
+<code class="hljs javascript mark">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">            imagemin.jpegtran({ progressive: true }),</code>
+<code class="hljs javascript mark">        ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="imagemin-guetzli">
+            <p>npm install --save-dev imagemin-guetzli</p>
+        </div>
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');</code>
+<code class="hljs javascript">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs javascript">const imageminGuetzli = require('imagemin-guetzli');</code>
+<code class="hljs javascript">
+</code>
+<code class="hljs javascript">gulp.task('guetzli', () => </code>
+<code class="hljs javascript">    gulp.src('src/*.jpg')</code>
+<code class="hljs javascript mark">        .pipe(imagemin([ imageminGuetzli({ quality: 85 }) ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="imagemin-mozjpeg">
+            <p>npm install --save-dev imagemin-mozjpeg</p>
+        </div>
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+const imageminMozjpeg = require('imagemin-mozjpeg');</code></pre>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs javascript">gulp.task('mozjpeg', () =></code>
+<code class="hljs javascript">    gulp.src('src/*.jpg')</code>
+<code class="hljs javascript">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">            imageminMozjpeg({</code>
+<code class="hljs javascript mark">                progressive: true,</code>
+<code class="hljs javascript mark">                quality: 85,</code>
+<code class="hljs javascript mark">                sample: ['2x1']</code>
+<code class="hljs javascript mark">            })</code>
+<code class="hljs javascript">        ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide nd-guetzli-mozjpeg">
+        <h2>Как выбрать?</h2>
+        <table class="choose">
+            <tr>
+                <th>Guetzli</th>
+                <th>MozJPEG</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>для статических сайтов;</li>
+                        <li>важно качество;</li>
+                        <li>не жалко оперативной памяти.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>для динамических сайтов;</li>
+                        <li>важна скорость;</li>
+                        <li>контроль над настройками.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide nd-jpeg-blur">
+        <h2>Лайфхак 1: Размытие</h2>
+        <p>Размер: 1200x925</p>
+        <div class="col-3">
+            <div class="item">
+                <img src="pictures/me-100.jpg" alt="100">
+                <p>q=100; 759 КБ</p>
+            </div>
+            <div class="item">
+                <img src="pictures/me-80.jpg" alt="80">
+                <p>q=80; 383 КБ</p>
+            </div>
+            <div class="item">
+                <img src="pictures/me-80-blur.jpg" alt="80 and blur">
+                <p>q=80 (blur); 206 КБ</p>
+            </div>
+        </div>
+
+        <style>
+            .nd-jpeg-blur .col-3 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-jpeg-blur .col-3 img {
+                max-width: 100%;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Лайфхак 2: Комбинация сжатий</h2>
+        <pre><code class="hljs javascript">gulp.task('jpegcombo', () =></code>
+<code class="hljs javascript">    gulp.src('src/*.jpg')</code>
+<code class="hljs javascript mark">        .pipe(imagemin([ imageminGuetzli({ quality: <mark>95</mark> }) ]))</code>
+<code class="hljs javascript">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">            imageminMozjpeg({</code>
+<code class="hljs javascript mark">                progressive: true,</code>
+<code class="hljs javascript mark">                quality: 85,</code>
+<code class="hljs javascript mark">            })</code>
+<code class="hljs javascript">        ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide nd-jpeg-combo no-heading">
+        <div class="col-2-2">
+            <figure>
+                <img src="pictures/menzi.jpg" alt="source">
+                <figcaption>Source (1350x900); 1126 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/menzi-guetzli-95.jpg" alt="guetzli 95">
+                <figcaption>Guetzli q=95; 434 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/menzi-mozjpeg-85.jpg" alt="mozjpeg 85">
+                <figcaption>+ MozJPEG q=85; 209 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/menzi-mozjpeg-85-2x2.jpg" alt="mozjpeg 85 2x2">
+                <figcaption>+ MozJPEG q=85 2x2; 188 КБ</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-jpeg-combo .col-2-2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                grid-gap: 25px 10px;
+            }
+
+            .nd-jpeg-combo .col-2-2 img {
+                max-width: 100%;
+                height: 180px;
+            }
+
+            .nd-jpeg-combo figure {
+                text-align: center;
+            }
+
+            .nd-jpeg-combo figcaption {
+                font-size: 0.8em;
+                line-height: 0.8em;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Лайфхак 3: EXIF</h2>
+        <pre><code class="hljs javascript">const shell = require('gulp-shell');
+
+gulp.task('exif', () =>
+    gulp.src('dist/*.jpg', { read: false })
+        .pipe(shell([
+            '<mark>exiftool -P -overwrite_original -all= </mark><%=file.path%>'
+        ]))
+);</code></pre>
+    </section>
+
+    <section class="slide nd-jpegxr no-heading">
+        <div class="container">
+            <img src="pictures/jpeg2000-logo.svg" alt="JPEG2000" width="300">
+            <img src="pictures/jpegxr-logo.svg" alt="JPEG-XR" width="300">
+        </div>
+
+        <style>
+            .nd-jpegxr .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-jpeg2000.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-jpegxr.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="ImageMagick">
+            <p>brew install ImageMagick
+                <br>...</p>
+            <p>convert image.jpg -quality 0 image.jp2</p>
+            <p>convert image.jpg image.jxr</p>
+        </div>
+        <p>
+            <code>*.jp2</code> — JPEG2000
+            <br>
+            <code>*.jxr</code> — JPEG-XR</p>
+    </section>
+
+    <section class="slide">
+        <h2>GIF</h2>
+        <p>Graphics Interchange Format</p>
+        <img src="pictures/cat.gif" alt="Cat" width="280">
+    </section>
+
+    <section class="slide">
+        <h2>Особенности GIF</h2>
+        <ul>
+            <li>256-цветовая палитра;</li>
+            <li>1 цвет палитры можно объявить прозрачным;</li>
+            <li>сжатие без потерь (LZW);</li>
+            <li>поддержка анимации.</li>
+        </ul>
+    </section>
+
+    <section class="slide nd-gif-video no-heading">
+        <div class="container">
+            <video src="pictures/cat.mp4" autoplay loop muted playsinline width="280"></video>
+            <img src="pictures/cat.gif" alt="GIF" width="280">
+        </div>
+        <div class="container next">
+            <span>MP4; 415 КБ</span>
+            <span>GIF; 1.3 MБ</span>
+        </div>
+
+        <style>
+            .nd-gif-video .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-mp4.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-webm.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>GIF -&gt; MP4</h2>
+        <p></p>
+        <div class="terminal" data-content="ffmpeg">
+            <p>ffmpeg \
+                <br>-i animated.gif \
+                <br>-movflags faststart \
+                <br>-pix_fmt yuv420p \
+                <br>-vf “scale=trunc(iw/2)*2:trunc(ih/2)*2” \
+                <br>video.mp4</p>
+        </div>
+        <a href="https://www.ffmpeg.org">ffmpeg.org</a>
+    </section>
+
+    <section class="slide">
+        <h2>GIF -> WebM</h2>
+        <p></p>
+        <div class="terminal" data-content="ffmpeg">
+            <p>ffmpeg -i input.gif -c vp9 -b:v 0 -crf 41 output.webm</p>
+        </div>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs html">&lt;img src="kitty.gif" width="400" height="300"&gt;</code></pre>
+        <p style="text-align: center;">⬇️</p>
+        <pre class="next"><code class="hljs html">&lt;video width="400" height="300"
+       autoplay loop muted playsinline&gt;
+    &lt;source src="kitty.webm" type="video/webm"&gt;
+    &lt;source src="kitty.mp4" type="video/mp4"&gt;
+    &lt;img src="kitty.gif" width="400" height="300"&gt;
+&lt;/video&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Gifsicle</h2>
+        <p></p>
+        <div>
+            <div class="terminal" data-content="gifsicle">
+                <p>gifsicle -O3 --lossy=80 -o output.gif input.gif</p>
+            </div>
+            <p>
+                <a href="https://github.com/kohler/gifsicle" class="link link-github">kohler/gifsicle</a> — lossless
+                <br>
+                <a href="https://github.com/kornelski/giflossy" class="link link-github">kornelski/giflossy</a> — lossy
+            </p>
+        </div>
+        <img src="pictures/elk.png" alt="" class="place bottom right next" width="300">
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="imagemin-gifsicle">
+            <p>npm install --save-dev imagemin-gifsicle</p>
+        </div>
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');</code>
+        <code class="hljs javascript">const imagemin = require('gulp-imagemin');</code>
+        <code class="hljs javascript">const imageminGifsicle = require('imagemin-gifsicle');</code>
+        <code class="hljs javascript">
+</code>
+        <code class="hljs javascript">gulp.task('gifsicle', () => </code>
+        <code class="hljs javascript">    gulp.src('src/*.gif')</code>
+        <code class="hljs javascript mark">        .pipe(imagemin([ imageminGifsicle() ]))</code>
+        <code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+        <code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>PNG</h2>
+        <p>Portable Network Graphics
+            <br>«PNG is Not GIF»</p>
+        <a href="http://www.libpng.org/pub/png/">libpng.org</a>
+        <img src="pictures/png-transparency-demo.png" alt="PNG Transparency Demonstration" class="place right" style="width: 500px;">
+    </section>
+
+    <section class="slide">
+        <h2>Особенности PNG</h2>
+        <ul>
+            <li>спроектирован для замены GIF и TIFF;</li>
+            <li>максимальное количество цветов — 2<sup>48</sup>;</li>
+            <li>поддержка альфа-канала;</li>
+            <li>возможность гамма-коррекции и цветовой коррекции (ICC);</li>
+            <li>сжатие без потерь (Deflate);</li>
+            <li>возможность расширения формата (APNG).</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/png-transparency-demo.png" alt="PNG" width="400">
+        <img src="pictures/png-transparency-demo.gif" alt="GIF" width="400">
+    </section>
+
+    <section class="slide" style="background-color: #069;">
+        <img src="pictures/png-transparency-demo.png" alt="PNG" width="400">
+        <img src="pictures/png-transparency-demo.gif" alt="GIF" width="400">
+    </section>
+
+    <section class="slide no-heading">
+        <img src="pictures/tinypng-logo.jpg" alt="TinyPNG" width="200">
+        <h2 class="shout no-bg">tinypng.com</h2>
+        <img src="pictures/panda-waving.png" alt="PNGA example" class="place bottom right" width="350">
+    </section>
+
+    <section class="slide">
+        <h2>Инструменты</h2>
+        <ul>
+            <li><strong><a href="https://pngquant.org">pngquant</a></strong></li>
+            <li><a href="http://optipng.sourceforge.net">OptiPNG</a></li>
+        </ul>
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="imagemin-pngquant">
+            <p>npm install --save-dev imagemin-pngquant</p>
+        </div>
+        <pre class="next"><code class="hljs javascript">const gulp = require('gulp');</code>
+<code class="hljs javascript">const imagemin = require('gulp-imagemin');</code>
+<code class="hljs javascript">const imageminPngquant = require('imagemin-pngquant');</code>
+<code class="hljs javascript">
+</code>
+<code class="hljs javascript">gulp.task('pngquant', () => </code>
+<code class="hljs javascript">    gulp.src('src/*.png')</code>
+<code class="hljs javascript mark">        .pipe(imagemin([ imageminPngquant({ quality: 85 }) ]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>WebP</h2>
+        <div style="text-align: center;">
+            <p>
+                <img src="pictures/webp-logo.png" alt="WebP" width="500">
+            </p>
+            <p>
+                <a href="https://developers.google.com/speed/webp/">developers.google.com/speed/webp/</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Особенности WebP</h2>
+        <ul>
+            <li>разрабатывается Google;</li>
+            <li>основан на алгоритмах видеокодеков VP8 и VP9;</li>
+            <li>поддерживает альфа-канал (прозрачность);</li>
+            <li>требует больше ресурсов для декодирования;</li>
+            <li>21 апреля 2018 вышла <a href="https://groups.google.com/a/webmproject.org/forum/#!topic/webp-discuss/dBQxRrKYlIM">версия 1.0.0</a>.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-webp.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide no-heading">
+        <div style="text-align: center;">
+            <p>
+                <img src="pictures/edge-webp.jpg" alt="Edge WebP support" width="500">
+            </p>
+            <p class="next">
+                <a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/status/webpimageformat/">Edge WebP status</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Используют WebP</h2>
+        <ul>
+            <li>Google</li>
+            <li>Netflix</li>
+            <li>Amazon</li>
+            <li>Ebay</li>
+            <li>Yahoo</li>
+        </ul>
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="imagemin-webp">
+            <p>npm install --save-dev imagemin-webp</p>
+        </div>
+        <pre class="next"><code class="hljs javascript">const imageminWebp = require('imagemin-webp');</code>
+<code class="hljs javascript">
+</code>
+<code class="hljs javascript">gulp.task('webp', () => </code>
+<code class="hljs javascript">    gulp.src('src/*.{jpg,png}')</code>
+<code class="hljs javascript">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">             imageminWebp({</code>
+<code class="hljs javascript mark">                 quality: 85,</code>
+<code class="hljs javascript mark">                 preset: 'photo'</code>
+<code class="hljs javascript mark">             })]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide nd-webp-jpg no-heading">
+        <div class="container">
+            <img src="pictures/vinck-100.jpg" alt="JPG" width="280">
+            <img src="pictures/vinck-100.webp" alt="Работает только в Chrome, извините" width="280">
+        </div>
+        <div class="container">
+            <span>JPG; q=100; 71 КБ</span>
+            <span>WebP; q=100; 36 КБ</span>
+        </div>
+    </section>
+
+    <section class="slide nd-webp-jpg no-heading">
+        <div class="container">
+            <img src="pictures/vinck-70.jpg" alt="JPG" width="280">
+            <img src="pictures/vinck-70.webp" alt="Работает только в Chrome, извините" width="280">
+        </div>
+        <div class="container">
+            <span>JPG; q=70; 24 КБ</span>
+            <span>WebP; q=70; 7 КБ</span>
+        </div>
+
+        <style>
+            .nd-webp-jpg .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
+    </section>
+
+    <section class="slide nd-webp-gif no-heading">
+        <div class="terminal" data-content="gif2webp">
+            <p>gif2webp -mixed kitty.gif -o kitty.webp</p>
+        </div>
+        <br>
+        <div class="container">
+            <img src="pictures/cat.gif" alt="GIF" width="280">
+            <img src="pictures/cat.webp" alt="Работает только в Chrome, извините" width="280">
+        </div>
+        <div class="container">
+            <span>GIF; 1.3 MБ</span>
+            <span>WebP; 582 КБ</span>
+        </div>
+
+        <style>
+            .nd-webp-gif .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Векторная графика</h2>
+        <div style="position: relative; top: 100px;">
+            <img src="pictures/minskjs-logo.svg" alt="" width="100">
+            <img src="pictures/minskjs-logo.svg" alt="" width="300">
+            <img src="pictures/minskjs-logo.svg" alt="" width="600" style="position: absolute; bottom: 12px;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>SVG</h2>
+        <p>Scalable Vector Graphics
+            <br>
+            <a href="https://www.w3.org/Graphics/SVG/">w3.org/Graphics/SVG</a>
+        </p>
+
+        <img src="pictures/svg-logo.svg" alt="SVG" class="place right" style="margin-right: 100px; width: 350px;">
+    </section>
+
+    <section class="slide">
+        <h2>Особенности SVG</h2>
+        <ul>
+            <li>векторная графика;</li>
+            <li>подмножество XML;</li>
+            <li>совместим с CSS;</li>
+            <li>открытый стандарт;</li>
+            <li>позволяет встраивание растровой графики.</li>
+        </ul>
+    </section>
+
+    <section class="slide no-heading">
+        <pre style="font-size: 0.9em;"><code class="hljs svg">&lt;svg id="circle" height="200" xmlns="http://www.w3.org/2000/svg"&gt;
+    &lt;circle id="greencircle" cx="50" cy="50" r="50" fill="green" /&gt;
+&lt;/svg&gt;</code></pre>
+        <svg height="200" class="next" xmlns="http://www.w3.org/2000/svg">
+            <circle id="greencircle" cx="50" cy="50" r="50" fill="green" />
+        </svg>
+    </section>
+
+    <section class="slide nd-svg-png no-heading">
+        <div class="container">
+            <img src="pictures/svg-example.png" alt="PNG" width="280">
+            <img src="pictures/svg-example.svg" alt="SVG" width="280">
+        </div>
+        <div class="container">
+            <span>PNG; 37 КБ</span>
+            <span>SVG; 5 КБ</span>
+        </div>
+
+        <style>
+            .nd-svg-png .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Инструменты</h2>
+        <ul>
+            <li><strong><a href="https://github.com/svg/svgo" class="link link-github">svg/svgo</a></strong></li>
+            <li><a href="https://jakearchibald.github.io/svgomg/">jakearchibald.github.io/svgomg</a></li>
+            <li><a href="https://www.gnu.org/software/gzip/">gzip</a></li>
+            <li><a href="https://github.com/google/brotli" class="link link-github">google/brotli</a></li>
+            <li><a href="https://github.com/google/zopfli" class="link link-github">google/zopfli</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/svgomg.jpg" alt="SVGOMG" class="cover">
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="imagemin-svgo">
+            <p>npm install --save-dev imagemin-svgo</p>
+        </div>
+        <pre class="next"><code class="hljs javascript">const imageminSvgo = require('imagemin-svgo');</code>
+<code class="hljs javascript">
+</code>
+<code class="hljs javascript">gulp.task('svgo', () => </code>
+<code class="hljs javascript">    gulp.src('src/*.svg')</code>
+<code class="hljs javascript">        .pipe(imagemin([</code>
+<code class="hljs javascript mark">             imageminSvgo({</code>
+<code class="hljs javascript mark">                 convertColors: true,</code>
+<code class="hljs javascript mark">             })]))</code>
+<code class="hljs javascript">        .pipe(gulp.dest('dist'))</code>
+<code class="hljs javascript">);</code></pre>
+    </section>
+
+    <section class="slide nd-svgomg no-heading">
+        <div class="container">
+            <img src="pictures/svgo-source.svg" alt="Source" width="400">
+            <img src="pictures/svgo-result.svg" alt="Result" width="400">
+        </div>
+        <div class="container">
+            <span>Source; 27 КБ</span>
+            <span>Minified; 12 КБ</span>
+        </div>
+
+        <style>
+            .nd-svgomg .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>sprite.svg</h2>
+        <pre><code class="hljs svg">&lt;svg xmlns="http://www.w3.org/2000/svg"</code>
+<code class="hljs svg">     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;</code>
+<code class="hljs svg mark">    &lt;symbol viewBox="0 0 100 100" <mark>id="greencircle"</mark>&gt;</code>
+<code class="hljs svg">        &lt;circle cx="50" cy="50" r="50" fill="green" /&gt;</code>
+<code class="hljs svg">    &lt;/symbol&gt;</code>
+<code class="hljs svg mark">    &lt;symbol viewBox="0 0 100 100" <mark>id="redsquare"</mark>&gt;</code>
+<code class="hljs svg">        &lt;rect x="0" y="0" width="100" height="100" fill="red" /&gt;</code>
+<code class="hljs svg">    &lt;/symbol&gt;</code>
+<code class="hljs svg">&lt;/svg&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>index.html</h2>
+        <pre><code class="hljs html">&lt;html&gt;</code>
+<code class="hljs html">&lt;body&gt;</code>
+<code class="hljs html">    &lt;svg class="icon icon--circle" width="100"&gt;</code>
+<code class="hljs html mark">        &lt;use xlink:href="sprite.svg<mark>#greencircle</mark>" /&gt;</code>
+<code class="hljs html">    &lt;/svg&gt;</code>
+<code class="hljs html">    &lt;svg class="icon icon--square" width="100"&gt;</code>
+<code class="hljs html mark">        &lt;use xlink:href="sprite.svg<mark>#redsquare</mark>" /&gt;</code>
+<code class="hljs html">    &lt;/svg&gt;</code>
+<code class="hljs html">&lt;/body&gt;</code>
+<code class="hljs html">&lt;/html&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <div class="place" style="text-align: center;">
+            <img src="pictures/svgforeverybody.jpg" alt="">
+            <br>
+            <a href="https://github.com/jonathantneal/svg4everybody" class="link link-github">jonathantneal/svg4everybody</a>
+        </div>
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="gulp-svg-sprite">
+            <p>npm install --save-dev gulp-svg-sprite</p>
+        </div>
+        <pre><code class="hljs javascript">const svgSprite = require('gulp-svg-sprite');
+gulp.task('svgSprite', () =>
+    gulp.src('src/icons/*.svg')
+        .pipe(svgSprite({
+            mode: {
+                symbol: { sprite: "../sprite.svg" }
+            }
+        }))
+        .pipe(gulp.dest('dist'))
+);
+        </code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Советы</h2>
+        <ul>
+            <li class="next">храните исходные изображения в PNG или TIFF;</li>
+            <li class="next">выбирайте правильный формат в зависимости от изображения;</li>
+            <li class="next">автоматизируйте сохранение в разных форматах;</li>
+            <li class="next">подберите подходящие параметры сжатия.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout no-bg">
+            <span class="label">Отправка клиенту
+                <br>по запросу</span>
+        </h2>
+        <img src="pictures/internet.jpg" alt="" class="cover height">
+    </section>
+
+    <section class="slide nd-gradient-button-example">
+        <button class="gradient-button place">Awesome Button</button>
+        <div class="place grid next"></div>
+        <p style="text-align: center;" class="next">
+            <code>&lt;table&gt;</code> +
+            <code>background-image</code>x3</p>
+        <style>
+            .nd-gradient-button-example .gradient-button {
+                border: 0.1em solid #069;
+                font-size: 2em;
+                padding: 0.2em 1.2em;
+                line-height: 2em;
+                border-radius: 1.5em;
+                background: linear-gradient(#4ae, #069);
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .nd-gradient-button-example .grid {
+                width: 21em;
+                height: 6em;
+                background: linear-gradient(to right, transparent 13%, white 13%, white 14%, transparent 14%, transparent 86%, white 86%, white 87%, transparent 87%);
+            }
+        </style>
+    </section>
+
+    <section class="slide no-heading">
+        <img src="pictures/franscine.jpg" alt="" class="place left cover height">
+        <div style="padding-left: 340px;">
+            <p>
+                <a href="https://github.com/cyanharlow/purecss-francine" class="link link-github">cyanharlow/purecss-francine</a>
+            </p>
+            <ul>
+                <li><code>background</code></li>
+                <li><code>border-radius</code></li>
+                <li><code>box-shadow</code></li>
+                <li><code>transform</code></li>
+                <li><code>opacity</code></li>
+                <li><code>filter</code></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide no-heading">
+        <img src="pictures/text-image.jpg" alt="Текст на картинке">
+        <p class="next">JPG; 25 КБ</p>
+        <img src="pictures/jackie-chan-wtf.png" alt="WTF" class="place right bottom next" style="width: 400px">
+    </section>
+
+    <section class="slide">
+        <h2>Server-side content-type negotiation</h2>
+        <div>
+            <pre><code class="hljs">GET /some.jpg HTTP/1.1</code>
+<code class="hljs">Host: ...</code>
+<code class="hljs">Connection: keep-alive</code>
+<code class="hljs">User-Agent: ...</code>
+<code class="hljs mark">Accept: image/webp,image/apng,image/*,*/*;q=0.8</code>
+<code class="hljs">Accept-Encoding: gzip, deflate, br</code>
+<code class="hljs">Accept-Language: en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7</code></pre>
+        </div>
+        <a href="https://github.com/igrigorik/webp-detect" class="link link-github next">igrigorik/webp-detect</a>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs apache">&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+  RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
+&lt;/IfModule&gt;
+
+&lt;IfModule mod_headers.c&gt;
+  Header append Vary Accept env=REDIRECT_accept
+&lt;/IfModule&gt;
+
+AddType image/webp .webp</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>HTTP Cache</h2>
+        <ol>
+            <li class="next"><code>ETag: W/"3b952-1635db68e52"</code></li>
+            <li class="next"><code>Cache-Control: public, max-age=31536000</code></li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/http-cache-decision-tree.png" alt="" class="place" style="height: 90%;">
+    </section>
+
+    <section class="slide">
+        <h2>localStorage</h2>
+        <ul>
+            <li>можно хранить только строки;</li>
+            <li>общий размер — <strong>до</strong> 5 МБ.</li>
+        </ul>
+        <div class="next" style="position: relative; padding: 120px 70px 0; margin: 0 -70px;">
+            <h2>IndexedDB</h2>
+            <ul>
+                <li>можно хранить файлы в виде Blob;</li>
+                <li>размер ограничен доступной памятью у пользователя.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Service Workers</h2>
+        <pre><code class="hljs javascript">if ('serviceWorker' in navigator) {
+    const sw = navigator.serviceWorker;
+    sw.register('sw.js')
+        .then(() => sw.ready.then((worker) => {
+            worker.sync.register({
+                minRequiredNetwork: 'network-online'
+            });
+        }));
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/workbox-logo.svg" alt="" class="place">
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs javascript">importScripts('https://storage.googleapis.com/.../workbox-sw.js');
+workbox.routing.registerRoute(
+    /\.(?:png|gif|jpg|jpeg|svg)$/,
+    workbox.strategies.cacheFirst({
+        cacheName: 'images',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 60,
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            }),
+        ],
+    }),
+);</code></pre>
+    </section>
+
+    <section class="slide">
+        <div class="place" style="text-align: center;">
+            <img src="pictures/pwabuilder.png" alt="">
+            <a href="https://www.pwabuilder.com">pwabuilder.com</a>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Network Type</h2>
+        <pre><code class="hljs javascript">let isSlow = true;
+const connection = navigator.connection;
+if (connection) {
+    // 'slow-2g', '2g', '3g' или '4g'
+    if (connection.effectiveType !== 'slow-2g') {
+        isSlow = false;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-network-type.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout no-bg">
+            <span class="label">Декодирование и отображение в браузере</span>
+        </h2>
+        <img src="pictures/browser-unsplash.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="pictures/devtools-raster.png" alt="Dev Tools" class="cover height">
+    </section>
+
+    <section class="slide black no-heading">
+        <span class="label">1800x1200</span>
+        <img src="demo/raster/img/lion.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide no-heading">
+        <div id="chart-images-raster" style="height: 450px"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Отображение</h2>
+        <ol>
+            <li>декодирование;</li>
+            <li>изменение размеров;</li>
+            <li>отрисовка.</li>
+        </ol>
+        <p style="text-align: center; font-weight: bold;" class="next">Не заставляйте браузер обрабатывать лишние пиксели!</p>
+    </section>
+
+    <section class="slide">
+        <h2>2008</h2>
+        <pre><code class="hljs html">&lt;img src="img.jpg" alt="Hello, iTechArt!" width="20" height="18" /&gt;</code></pre>
+        <img src="pictures/unicorn.png" alt="" class="next">
+    </section>
+
+    <section class="slide">
+        <h2>2018</h2>
+        <pre style="font-size: 0.9em;"><code class="hljs html">&lt;picture&gt;
+    &lt;source type="image/webp" media="(min-width: 1150px)"
+            srcset="img-desktop@1x.webp 1x, img-desktop@2x.webp 2x"&gt;
+    &lt;source type="image/webp"
+            srcset="img-mobile@1x.webp 1x, img-mobile@2x.webp 2x"&gt;
+    &lt;source media="(min-width: 1150px)"
+            srcset="img-desktop@1x.jpg 1x, img-desktop@2x.jpg 2x"&gt;
+    &lt;img src="img-mobile@1x.jpg" srcset="img-mobile@2x.jpg 2x"
+            alt="Hello, iTechArt!" width="20" height="18"&gt;
+&lt;/picture&gt;</code></pre>
+        <img src="pictures/run-meme.png" alt="" class="place left bottom next" style="margin-left: 50px; width: 500px;">
+    </section>
+
+    <section class="slide no-heading">
+        <pre style="font-size: 0.9em;"><code class="hljs html">&lt;picture&gt;</code>
+<code class="hljs html next">    &lt;source <span class="next">type="image/webp"</span> <span class="next">media="(min-width: 1150px)"</span>
+            <span class="next">srcset="img-desktop@1x.webp <mark>1x</mark>, img-desktop@2x.webp <mark>2x</mark>"</span>&gt;</code>
+<code class="hljs html next">    &lt;source type="image/webp"
+            srcset="img-mobile@1x.webp 1x, img-mobile@2x.webp 2x"&gt;</code>
+<code class="hljs html next">    &lt;source media="(min-width: 1150px)"
+            srcset="img-desktop@1x.jpg 1x, img-desktop@2x.jpg 2x"&gt;</code>
+<code class="hljs html">    &lt;img src="img-mobile@1x.jpg" srcset="img-mobile@2x.jpg 2x"
+            alt="Hello, iTechArt!" width="20" height="18"&gt;</code>
+<code class="hljs html">&lt;/picture&gt;</code></pre>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs html">&lt;img srcset="img-320w.jpg <mark>320w</mark>,
+             img-480w.jpg 480w,
+             img-800w.jpg 800w"
+     sizes="(max-width: 320px) 280px,
+            (max-width: 480px) 440px,
+            800px"
+     src="img-800w.jpg" alt="Hello, iTechArt!"&gt;</code></pre>
+        <ol>
+            <li class="next"><code>srcset</code> — задаем каждому размеру свое изображение;</li>
+            <li class="next"><code>sizes</code> — вычисляем размер, который нужно применить;</li>
+            <li class="next">выбираем из <code>srcset</code> самое подходящее по размеру изображение.</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-picture.png" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="no-bg shout">
+            <a href="https://github.com/scottjehl/picturefill" class="link link-github">scottjehl/picturefill</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>2008</h2>
+        <pre><code class="hljs css">.itechart {
+    background-image: url('img/itechart.jpg');
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>2018</h2>
+        <pre><code class="hljs css">.itechart {
+    background-image: url('img/itechart-mobile.jpg');
+}
+
+@media (min-width: 1050px) {
+    .itechart {
+        background-image: url('img/itechart-desktop.jpg');
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide nd-retina no-heading">
+        <div class="col-3">
+            <figure>
+                <img src="pictures/iphone-4.png" alt="iPhone 4" height="300">
+                <figcaption>2dppx</figcaption>
+            </figure>
+            <figure class="next">
+                <img src="pictures/iphone-x.png" alt="iPhone X" height="380">
+                <figcaption>3dppx</figcaption>
+            </figure>
+            <figure class="next">
+                <img src="pictures/samsung-galaxy-s8.png" alt="Samsung Galaxy S8" height="400">
+                <figcaption>4dppx</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-retina .col-3 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-retina .col-3 figure {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        </style>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs css">.itechart {
+    background-image: url('img/itechart@1x.jpg');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi),
+       (min-resolution: 2dppx) {
+    .itechart {
+        background-image: url('img/itechart@2x.jpg');
+    }
+}
+</code></pre>
+    </section>
+
+    <section class="slide no-heading">
+        <pre class="place"><code class="hljs css">.itechart {
+    background-image: <mark>image-set</mark>(url('itechart@1x.jpg') 1x,
+                                url('itechart@2x.jpg') 2x);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/caniuse-image-set.png" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="no-bg shout" style="font-size: 60px">
+            <a href="https://github.com/filamentgroup/imaging-heap" class="link link-github">filamentgroup/imaging-heap</a>
+        </h2>
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="imaging-heap" style="font-size: 0.7em;">
+            <p>npm install --global imaging-heap</p>
+            <p>imagingheap https://www.itechart.by/</p>
+            <br>
+            <pre style="white-space: pre;">&lt;img src="/media/images/itechart-7.original.jpg"&gt;
+╔══════════╤══════════╤════════╤════════════╤════════╤════════════╗
+║          │ Image    │ @1x    │ @1x        │ @2x    │ @2x        ║
+║          │ Width in │ Image  │ Percentage │ Image  │ Percentage ║
+║ Viewport │ Layout   │ Width  │ Match      │ Width  │ Match      ║
+╟──────────┼──────────┼────────┼────────────┼────────┼────────────╢
+║ 320px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
+║ 480px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
+║ 640px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
+║ 800px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
+║ 960px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
+║ 1120px   │ 1120px   │ 1920px │ <span style="color: #dd0">171.4%</span>     │ 1920px │ <span style="color: #dd0">85.7%</span>      ║
+║ 1280px   │ 1280px   │ 1920px │ 150.0%     │ 1920px │ <span style="color: #dd0">75.0%</span>      ║
+╚══════════╧══════════╧════════╧════════════╧════════╧════════════╝
+Legend:  @1x <span style="color: #d00;">&lt;100%</span> <span style="color: #dd0;">&gt;150%</span>    Above @1x <span style="color: #d00;">&lt;75%</span> <span style="color: #dd0;">75%–92%</span></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Lazy Loading</h2>
+        <ul>
+            <li><a href="https://github.com/samdutton/simpl" class="link link-github">samdutton/simpl</a></li>
+            <li><a href="https://github.com/aFarkas/lazysizes" class="link link-github">aFarkas/lazysizes</a></li>
+            <li><a href="https://github.com/w3c/IntersectionObserver" class="link link-github">w3c/IntersectionObserver</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/tizh.jpg" alt="Тыжпрограммист!" class="cover width">
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code class="hljs html">&lt;img src="placeholder.jpg"
+     data-src="image.jpg" /&gt;</code></pre>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs js">const observer = new IntersectionObserver(<mark>handler</mark>, {
+    rootMargin: '0px',
+    threshold: 0.1,
+});
+
+</code></pre>
+
+        <pre class="next"><code class="hljs js">const images = document.querySelectorAll('img[data-src]');
+images.forEach(img => {
+    observer.observe(img);
+});</code></pre>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs js">function handler(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            loadImage(entry.target);
+            observer.unobserve(entry.target);
+        }
+    });
+}</code></pre>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs js">function loadImage(image) {
+    const src = image.dataset.src;
+    <mark>fetchImage</mark>(src).then(() => { image.src = src; });
+}</code></pre>
+        <pre class="next"><code class="hljs js">function fetchImage(url) {
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.src = url;
+        image.onload = resolve;
+        image.onerror = reject;
+    });
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Placeholder — техники</h2>
+        <ul>
+            <li class="next">Общий placeholder</li>
+            <li class="next">Фоновый цвет</li>
+            <li class="next">LQIP</li>
+            <li class="next">LQIP + размытие</li>
+            <li class="next">SQIP</li>
+            <li class="next"><a href="http://www.geometrize.co.uk/">Geometrize</a> ( <a href="https://github.com/fogleman/primitive" class="link link-github">fogleman/primitive</a> )</li>
+        </ul>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Дано</h2>
+
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-100.jpg">
+                <figcaption>69 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-100.jpg">
+                <figcaption>31 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/me-small.jpg">
+                <figcaption>50 КБ</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-col-3-example .col-3 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-col-3-example figure {
+                width: 225px;
+                overflow: hidden;
+            }
+        </style>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Общий placeholder</h2>
+
+        <div class="col-3">
+            <figure>
+                <img src="pictures/placeholder.jpg">
+            </figure>
+            <figure>
+                <img src="pictures/placeholder.jpg">
+            </figure>
+            <figure>
+                <img src="pictures/placeholder.jpg">
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Фоновый цвет</h2>
+
+        <div class="col-3">
+            <div style="background: rgb(159,93,78); width: 225px; height: 300px;"></div>
+            <div style="background: rgb(69,105,60); width: 225px; height: 300px;"></div>
+            <div style="background: rgb(112,107,103); width: 225px; height: 300px;"></div>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Low Quality Image Placeholders (LQIP)</h2>
+
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-lqip.jpg" width="225">
+                <figcapture>2.9 КБ</figcapture>
+            </figure>
+            <figure>
+                <img src="pictures/burden-lqip.jpg" width="225">
+                <figcapture>2.8 КБ</figcapture>
+            </figure>
+            <figure>
+                <img src="pictures/me-lqip.jpg" width="225">
+                <figcapture>2.9 КБ</figcapture>
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>LQIP + размытие</h2>
+
+        <div class="col-3">
+            <figure style="height: 300px;">
+                <img src="pictures/vinck-lqip.jpg" width="225" style="filter: blur(8px); transform: scale(1.1)">
+            </figure>
+            <figure style="height: 300px;">
+                <img src="pictures/burden-lqip.jpg" width="225" style="filter: blur(8px); transform: scale(1.1)">
+            </figure>
+            <figure style="height: 300px;">
+                <img src="pictures/me-lqip.jpg" width="225" style="filter: blur(8px); transform: scale(1.1)">
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>SVG-Based Image Placeholder (SQIP)</h2>
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck.svg" width="225">
+                <figcaption>730 Б</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden.svg" width="225">
+                <figcaption>972 Б</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/me.svg" width="225">
+                <figcaption>959 Б</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide no-heading">
+        <div class="terminal" data-content="sqip">
+            <p>npm install -g sqip</p>
+            <p>sqip -o sqip.svg -n 8 image.jpg</p>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Primitive (ellipses)</h2>
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-ellipses.svg" width="225">
+                <figcaption>38 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-ellipses.svg" width="225">
+                <figcaption>38 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/me-ellipses.svg" width="225">
+                <figcaption>38 КБ</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide nd-col-3-example">
+        <h2>Primitive (triangles)</h2>
+        <div class="col-3">
+            <figure>
+                <img src="pictures/vinck-triangles.svg" width="225">
+                <figcaption>23 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/burden-triangles.svg" width="225">
+                <figcaption>23 КБ</figcaption>
+            </figure>
+            <figure>
+                <img src="pictures/me-triangles.svg" width="225">
+                <figcaption>23 КБ</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 style="font-size: 70px;" class="shout no-bg">
+            <a href="https://twitter.com/geometrizer">@geometrizer</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Предзагрузка</h2>
+        <pre><code class="hljs html">&lt;link rel="preload" as="image" href="important.png"&gt;</code></pre>
+        <img src="pictures/caniuse-preload.png" alt="" class="cover width next" style="top: 60%;">
+    </section>
+
+    <section class="slide">
+        <h2>Доступность</h2>
+        <ul>
+            <li class="next">для информативных изображений — краткая информация в <code>alt</code>;</li>
+            <li class="next">для декоративных изображений:
+                <ul>
+                    <li><code>alt=""</code>;</li>
+            <li><code>role="presentation"</code>;</li>
+            <li><code>aria-hidden="true"</code>.</li>
+        </ul>
+        </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="no-bg shout">
+            <a href="https://weblind.ru/inner.html#image-content">weblind.ru</a>
+        </h2>
+    </section>
+
+    <section class="slide clear">
+        <iframe src="demo/a11y-meme/index.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout no-bg">
+            <a href="https://codepen.io/aardrian/pen/wjWyvg" class="link link-codepen">aardrian/pen/wjWyvg</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Защита от роботов #1</h2>
+        <p>
+            <strong>robots.txt</strong>
+        </p>
+        <pre><code class="hljs">User-agent: Googlebot-Image
+Disallow: /images/secret.jpg </code></pre>
+        <img src="pictures/wall-e.png" alt="" width="300" class="place right bottom">
+    </section>
+
+    <section class="slide">
+        <h2>Защита от роботов #2</h2>
+        <p>
+            <strong>HTTP Headers</strong>
+        </p>
+        <pre><code class="hljs apache">&lt;IfModule mod_headers.c&gt;
+  &lt;FilesMatch "images/*\.jpg$"&gt;
+    Header append <mark>X-Robots-Tag "noindex"</mark>
+  &lt;/FilesMatch&gt;
+&lt;/IfModule&gt;</code></pre>
+        <img src="pictures/terminator.png" alt="" width="400" class="place right bottom">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="label">Приемчики 🚀</span>
+        </h2>
+        <img src="pictures/arthur-yao.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>PNG -> JPEG + SVG-маска</h2>
+        <div style="display: flex; justify-content: center; text-align: center;">
+            <div style="margin-right: 50px;">
+                <img src="pictures/dojocat.png" width="300" alt="">
+                <p>PNG; 203 КБ</p>
+            </div>
+            <div>
+                <svg width="300" height="300" viewBox="0.002 123.316 595.275 595.275">
+                    <defs>
+                        <clipPath id="p">
+                            <path fill="#000000" d="M284.017 681.588c-49.098-1.461-94.475-10.763-124.238-25.445-19.2-9.5-29.897-21.459-30.761-34.348-.266-4.651-.199-5.183 2.192-9.899 5.515-11.229 17.872-20.729 36.674-28.236 13.818-5.514 25.844-9.234 39.862-12.225 12.822-2.79 14.882-3.388 15.28-4.584.465-1.396.398-32.289-.066-32.82-.133-.133-4.385.398-9.434 1.263-9.435 1.462-12.357 1.462-26.243 0-13.62-1.462-32.223-13.021-40.128-25.047-2.06-3.123-4.385-5.913-5.183-6.179-2.392-.931-4.318-3.521-6.046-8.039-2.989-7.973-2.989-8.039-4.717-6.909-.996.664-2.724.93-4.783.797l-3.189-.199-3.122-6.312c-1.728-3.455-3.854-8.77-4.651-11.76-1.461-5.115-1.66-5.514-3.321-5.514-3.123 0-5.05-1.196-7.84-4.784-2.724-3.388-2.79-3.588-2.392-7.042.266-2.126 1.262-5.116 2.524-7.375l2.126-3.854-1.462-4.518c-.863-2.458-1.66-5.78-1.927-7.374-.266-2.259-.664-2.924-1.594-2.924-1.927 0-2.259-1.262-2.259-8.637-.066-5.581-.466-8.305-1.927-13.619-.997-3.654-1.927-6.711-1.993-6.777s-1.329.266-2.857.798c-1.461.531-8.969 1.395-16.543 1.927-7.64.598-14.948 1.328-16.21 1.66-1.263.399-6.977 1.329-12.624 2.126-5.646.731-12.955 2.126-16.276 2.99-18.204 4.916-26.509 6.909-28.303 6.909-1.927 0-1.993-.133-1.794-2.458l.199-2.524 3.787-.465c4.186-.532 6.843-1.196 19.067-4.784 5.249-1.527 11.428-2.79 17.274-3.454 4.982-.532 11.759-1.595 15.015-2.326 9.633-2.126 21.99-3.919 30.562-4.384l8.038-.399-1.195-3.388c-.598-1.86-1.13-4.385-1.196-5.647v-2.259l-15.479.465c-8.438.199-18.669.93-22.722 1.461-3.986.598-10.563 1.329-14.616 1.595-3.986.266-10.298 1.129-13.952 1.927-8.57 1.86-18.802 3.388-22.589 3.388-2.856 0-2.989-.066-2.989-1.927 0-1.528.465-2.126 2.192-2.923 3.388-1.528 4.318-1.727 13.088-2.392 4.584-.332 11.295-1.262 14.948-1.993 10.696-2.192 24.715-3.388 43.384-3.854 15.68-.332 17.407-.531 17.008-1.461-.266-.598-.73-2.99-1.062-5.381-.332-2.392-1.329-8.039-2.259-12.624-.864-4.584-2.325-13.088-3.322-18.935-.93-5.846-2.458-13.819-3.321-17.672-.864-3.853-2.459-13.288-3.588-20.928-1.13-7.64-2.392-15.214-2.79-16.875-.333-1.661-1.063-7.042-1.528-11.959s-1.329-12.091-1.86-15.945c-1.794-12.424-3.123-23.718-3.123-26.774 0-1.661-.398-5.049-.93-7.574-1.86-8.77-3.123-22.589-3.521-38.401l-.398-15.945 5.448-4.65c3.188-2.791 5.979-4.651 6.909-4.651h1.462l1.728 26.907c.996 14.816 1.927 27.373 2.192 27.904.199.532.664 6.312 1.062 12.756.398 7.042 1.196 14.284 2.06 17.938 1.927 8.77 3.588 20.13 5.913 40.726 2.79 24.449 4.318 33.95 7.375 46.174 1.395 5.713 3.188 14.417 3.853 19.333.731 4.85 1.927 11.76 2.725 15.214.73 3.455 1.328 7.242 1.328 8.438 0 3.587 1.263 4.186 8.704 4.186h6.577l-1.528-3.123c-3.056-6.112-5.78-23.253-5.78-36.541v-8.903l-2.259-2.126c-3.056-2.923-3.455-6.577-2.126-20.13 1.462-14.749 3.854-24.316 9.035-36.142 4.784-10.962 15.613-27.239 22.124-33.352 3.588-3.389 3.521-2.791 1.462-10.497-2.192-8.105-.266-31.625 3.654-45.842.797-2.724 1.727-6.445 2.06-8.238 1.195-6.245 1.461-6.378 10.763-6.378 14.019 0 27.704 4.252 45.51 14.218 12.756 7.109 17.141 9.633 19.399 11.029l2.325 1.461 7.973-1.395c23.718-4.186 33.551-4.85 66.77-4.85 31.558.066 38.002.465 58.266 3.854l14.151 2.392 2.79-2.259c1.528-1.196 9.7-5.647 18.204-9.899 21.393-10.763 30.628-13.687 45.908-14.351l8.039-.399.996 1.927c1.794 3.521 5.05 13.819 6.445 20.529 2.06 9.633 2.591 30.561.996 37.537-.598 2.724-1.263 5.78-1.462 6.71-.266 1.461.532 2.657 4.718 7.175 8.371 8.903 17.672 24.184 21.658 35.544 4.385 12.756 7.309 25.445 7.309 32.222 0 3.72-1.794 8.039-3.322 8.039-.398 0-.664 4.252-.664 11.693 0 10.63-.266 13.021-2.658 27.04-1.527 8.504-3.122 16.875-3.653 18.669-.532 1.794-.997 3.455-.997 3.654 0 .2 11.561.465 25.778.532 26.242.199 38.865.797 48.3 2.524 2.923.465 8.637 1.129 12.623 1.396 4.053.199 10.763 1.129 14.948 1.993 4.186.863 9.833 1.793 12.49 2.06l4.783.398v2.524c0 2.06-.266 2.591-1.129 2.591-.664 0-7.042-1.063-14.151-2.325-14.55-2.658-28.967-4.186-47.171-4.983-6.776-.332-14.55-.864-17.273-1.329-3.389-.465-10.896-.598-23.319-.266l-18.337.465-.73 3.72c-.466 2.126-.798 4.119-.798 4.452 0 .465 3.721.73 9.833.863 16.941.2 32.488 1.927 49.961 5.382 5.315 1.062 14.948 2.524 21.393 3.321 8.837 1.063 14.816 2.26 23.918 4.718 6.71 1.794 13.42 3.454 15.015 3.721 2.724.398 2.79.465 2.79 2.923 0 1.595-.332 2.591-.797 2.591-.398 0-9.5-2.06-20.064-4.584-10.63-2.524-21.592-4.783-24.315-5.049-2.725-.2-9.435-1.263-14.948-2.326-17.075-3.321-31.891-4.916-52.951-5.713l-11.561-.466-1.527 4.053c-5.647 15.613-24.25 30.96-51.556 42.653-15.215 6.511-28.037 10.364-40.859 12.291-18.337 2.79-19.931 3.255-16.41 5.049 2.657 1.396 5.78 4.784 5.78 6.378 0 .864-.465 2.259-.996 3.123-.931 1.396-.864 1.728 1.062 4.65 1.462 2.126 2.724 5.647 4.053 10.896 4.119 16.609 4.186 17.606 4.119 44.314-.066 13.553-.332 27.638-.531 31.425l-.466 6.776h3.057c4.916 0 12.291 1.794 28.9 7.043 31.89 10.098 42.853 15.28 52.419 24.914 6.644 6.71 9.567 12.889 9.567 20.662.066 4.584-.199 5.58-2.458 10.23-3.256 6.578-9.103 12.491-18.337 18.669-9.899 6.512-13.288 8.371-22.124 11.826-26.774 10.497-64.179 17.141-106.433 18.935-14.421.601-19.603.668-33.887.202zM258.77 558.679c.067-6.179.798-21.525 1.396-27.173.332-3.521.199-4.451-1.328-7.308l-1.728-3.256.332 11.627c.531 15.745.531 17.273 0 24.781-.398 5.314-.332 6.444.398 6.444s.93-1.195.93-5.115zm80.655-8.969c-.066-7.773-.266-17.008-.531-20.463l-.398-6.312-.864 3.056c-.598 1.993-.797 4.784-.531 7.973.199 2.725.531 10.497.797 17.407.199 6.843.665 12.424.997 12.424s.596-6.245.53-14.085zm-40.261.996c.398-11.692.066-19.466-.863-19.466-.532 0-1.329 14.019-1.329 24.117 0 5.514.199 7.108.863 7.108.732.001.997-2.59 1.329-11.759zm-82.25-56.007l6.711-2.126 2.259-6.976c1.195-3.787 3.056-8.305 4.186-10.032 1.727-2.79 1.86-3.256 1.195-5.515-.398-1.328-.73-2.724-.73-3.188 0-.398 1.794-2.06 3.92-3.654l3.92-2.856-5.647-.798c-5.581-.797-8.57-1.527-33.086-7.905-18.802-4.917-25.711-7.906-39.198-16.942-20.529-13.752-30.429-23.784-33.418-33.883l-1.13-3.787-4.982.332c-2.724.199-6.179.532-7.707.731l-2.724.332 1.196 3.388c.598 1.927 1.527 5.78 1.993 8.638.797 4.783.996 5.182 2.392 5.182 1.062 0 1.794.531 2.192 1.728.863 2.259.863 5.115-.066 6.046-.665.664.332 6.046 2.458 13.553.266.864.93.997 3.588.731 1.86-.133 5.182.066 7.507.531 7.176 1.396 8.837 4.65 5.05 9.833-1.13 1.595-1.993 2.923-1.86 3.056.133.066 1.661.931 3.388 1.927 4.186 2.392 10.165 7.973 11.162 10.431.664 1.661 1.195 1.993 2.989 1.993 2.857 0 4.851 2.325 9.567 10.829 4.451 8.039 7.042 11.096 11.893 13.952 6.843 4.186 12.822 5.913 21.725 6.444 10.893.663 13.551.463 21.257-1.995zm-92.679-102.313c0-.398-.532-2.524-1.13-4.651l-1.195-3.986h-7.11c-3.986 0-7.175.199-7.175.465 0 .199.332 2.325.73 4.651l.73 4.186h7.574c4.785-.001 7.576-.267 7.576-.665z"
+                            />
+                        </clipPath>
+                    </defs>
+                    <image y="123.316" clip-path="url(#p)" width="595.275" height="595.275" xlink:href="pictures/dojocat.jpg" />
+                </svg>
+                <p>JPEG + SVG; 75 КБ</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide no-heading">
+        <pre><code class="hljs html">&lt;svg width="300" height="300" viewBox="0 0 300 300"&gt;
+    &lt;defs&gt;
+        &lt;clipPath id="<mark>octocat</mark>"&gt;
+            &lt;path fill="#000000" d="..."/&gt;
+        &lt;/clipPath&gt;
+    &lt;/defs&gt;
+    &lt;image clip-path="url(<mark>#octocat</mark>)"
+           width="300" height="300"
+           xlink:href="dojocat.jpg" /&gt;
+&lt;/svg&gt;
+        </code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/una-contrast.jpg" class="place" width="780">
+    </section>
+
+    <section class="slide no-heading">
+        <div style="display: flex; justify-content: center; text-align: center;">
+            <div style="margin-right: 30px;">
+                <img src="pictures/vincent-van-zalinge.jpg" alt="Контрастная фотография" width="350">
+                <p>399 КБ</p>
+            </div>
+            <div>
+                <img src="pictures/vincent-van-zalinge-uncontrasted.jpg" alt="Фото без контраста" width="350" style="filter: contrast(1.15);">
+                <p>349 КБ</p>
+            </div>
+        </div>
+        <pre><code class="hljs css">.uncontrasted {
+    filter: contrast(1.15);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Compressive Images</h2>
+        <div style="display: flex; justify-content: center; text-align: center;">
+            <div style="margin-right: 30px;">
+                <img src="pictures/vincent-van-zalinge-350.jpg" width="350" alt="">
+                <p>q=80; w=350px; 19 КБ</p>
+            </div>
+            <div>
+                <img src="pictures/vincent-van-zalinge-700.jpg" width="350" alt="">
+                <p>q=0; w=700px; 8 КБ</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Советы</h2>
+        <ul>
+            <li class="next">Выбирайте правильный формат хранения ваших изображений.</li>
+            <li class="next">Автоматизируйте сжатие.</li>
+            <li class="next">Не отправляйте на клиент то, что можно не отправлять.</li>
+            <li class="next">Адаптируйте и ретинизируйте картинки.</li>
+            <li class="next">Тестируйте сайты на медленном соединении.</li>
+            <li class="next">Думайте про UX, а не только про DX.</li>
+        </ul>
+    </section>
+
+
+
+
+    <section class="slide">
+        <h2>Материалы</h2>
+        <ul>
+            <li><a href="https://images.guide/">Essential Image Optimization</a> — Addy Osmani</li>
+            <li><a href="https://gist.github.com/MeFoDy/144dd33f37e3960599ff063cb8e8ea28">Ссылка на ссылки</a></li>
+        </ul>
+        <div style="position: relative; padding: 120px 70px 0; margin: 0 -70px;">
+            <h2>Видео</h2>
+            <ul>
+                <li>
+                <a href="https://www.youtube.com/watch?v=z3SioHZEGUw">Оптимизация графики на практике</a> — Тимофей Чаптыков
+            </li>
+                <li>
+                <a href="https://www.youtube.com/watch?v=rgHLV2fe-2I">New Adventures in Responsive Web Design</a> — Виталий Фридман
+            </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Спасибо за внимание!</h2>
+        <p>
+            <a href="https://mefody.github.io/talks/images-delivery/index_itechforum.html">mefody.github.io/talks/images-delivery/</a>
+            <br>
+            <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+            <br>
+            <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        </p>
+        <img src="./pictures/qr-code-itechart.gif" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
+    </section>
+
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Powered by Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script src="../src/highcharts/highcharts.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="script.js"></script>
+</body>
+
+</html>
