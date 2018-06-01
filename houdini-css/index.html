@@ -7,7 +7,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../src/shower/themes/minsk-css/styles/screen-16x10.css">
-	<link rel="stylesheet" href="../src/prism/prism.min.css">
+	<link rel="stylesheet" href="../src/highlight/styles/github.css">
 	<link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -16,51 +16,57 @@
 	<header class="caption">
 		<h1>Houdini — CSS, который JavaScript</h1>
 		<p>
-			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt
+			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
 		</p>
 	</header>
 
 
 	<section class="slide clear" id="cover">
-		<div class="label place top left important">Обновить</div>
-		<h2 class="no-bg">Houdini — CSS, который JavaScript</h2>
-		<hr>
 		<p>
-			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt
+			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
 		</p>
-		<figure>
-			<img class="cover" src="" alt="cover">
-			<figcaption class="white">
-				<a href="https://pixabay.com/en/vienna-rabbit-hat-magic-witchcraft-358565/">pixabay.com</a>
-			</figcaption>
-		</figure>
+		<h2 class="no-bg">Houdini —
+			<br>CSS, который JavaScript</h2>
+		<img src="pictures/agraba.jpg" alt="" class="cover height">
 
 		<style>
 			#cover h2 {
-				margin: 30px 0 20px;
-				font-size: 70px;
+				margin: 270px 0 0;
+				font-size: 80px;
 				color: white;
 				text-shadow: 0 0 2px rgb(39, 17, 11), 5px 3px 10px rgba(39, 17, 11, 0.7);
-			}
-
-			#cover hr {
-				border-color: white;
-				margin-left: 0;
-				width: 300px;
-				opacity: 0.7;
 			}
 
 			#cover p {
 				margin: 0;
 				font-size: 24px;
-				color: black;
+				color: white;
+				text-shadow: 0 0 2px rgb(39, 17, 11), 5px 3px 10px rgba(39, 17, 11, 0.7);
+			}
+
+			#cover p a {
+				color: rgb(242, 247, 176);
 			}
 		</style>
 	</section>
 
 
 	<section class="slide">
-		слайд про докладчика
+		<h2 class="no-bg">Никита Дубко</h2>
+		<ul>
+			<li>Software Engineer в iTechArt Group;</li>
+			<li>адепт философии Pure CSS Images;</li>
+			<li>соорганизатор митапов MinskCSS и MinskJS.</li>
+		</ul>
+		<img src="pictures/minskcss-logo.svg" alt="MinskCSS" width="120" style="margin-right: 30px;">
+		<img src="pictures/minskjs-logo.svg" alt="MinskJS" width="120" style="margin-right: 30px;">
+		<img src="pictures/css-minsk-js-logo.svg" alt="CSS-Minsk-JS" width="120" height="120" style="padding: 10px; background-color: #2b2727;">
+		<img class="place right height cover" src="pictures/me.jpg" alt="Никита Дубко">
+	</section>
+
+
+	<section class="slide clear">
+		<img src="pictures/genie-zoom.jpg" alt="" class="cover height">
 	</section>
 
 
@@ -243,12 +249,12 @@
 			<use xlink:href="#nd-render-picture">
 		</svg>
 		<ol>
-			<li class="not-active-item">Магия</li>
-			<li>Можем влиять на процесс из JavaScript</li>
-			<li class="not-active-item">Магия</li>
-			<li class="not-active-item">Магия</li>
-			<li class="not-active-item">Магия</li>
-			<li class="not-active-item">Магия</li>
+			<li class="not-active-item">Магия 🔮</li>
+			<li>Можем влиять на процесс из JavaScript 💪</li>
+			<li class="not-active-item">Магия 🔮</li>
+			<li class="not-active-item">Магия 🔮</li>
+			<li class="not-active-item">Магия 🔮</li>
+			<li class="not-active-item">Магия 🔮</li>
 		</ol>
 		<footer>
 			<p>Из всех шести этапов веб-разработчики могут явно влиять всего на один: построение DOM/CSSOM. По сути, движок рендеринга —
@@ -269,7 +275,7 @@
 
 
 	<section class="slide clear black">
-		<img class="cover height" src="./pictures/sad.gif">
+		<img class="cover height" src="./pictures/genie-captured.gif">
 		<footer>
 			<p>Неужели все так плохо?</p>
 		</footer>
@@ -277,6 +283,7 @@
 
 
 	<section class="slide">
+		<img src="pictures/aladdin-top.jpg" alt="" class="cover width">
 		<h2 class="shout">JavaScript</h2>
 		<footer>
 			<p>Как обстоят дела у JavaScript-разработчиков? Окунемся в историю.</p>
@@ -308,6 +315,7 @@
 			<b>Полифил</b> — это код, реализующий какую-либо функциональность, которая не поддерживается в некоторых версиях веб-браузеров
 			по умолчанию.
 		</p>
+		<img src="pictures/genie-glasses.png" alt="" class="place right bottom" width="230">
 		<style>
 			.nd-polyfill-definition {
 				font-size: 30px;
@@ -322,7 +330,7 @@
 
 	<section class="slide">
 		<h2>Полифил</h2>
-		<pre><code class="language-js">(function(self) {
+		<pre><code class="hljs js">(function(self) {
 	'use strict';
 	if (self.es2020feature) {
 		return;
@@ -347,7 +355,7 @@
 		<p>
 			<a href="ponyfill.com">ponyfill.com</a>
 		</p>
-		<pre><code class="language-js">// is-nan-ponyfill.js
+		<pre><code class="hljs">// is-nan-ponyfill.js
 module.exports = function (value) {
 	return value !== value;
 };
@@ -367,13 +375,12 @@ isNanPonyfill(5);</code></pre>
 
 	<section class="slide">
 		<h2>Транспайлер</h2>
-		<pre><code class="language-js">// ES6
+		<pre style="font-size: 0.85em;"><code class="hljs">// ES6
 let point = { x: 0, y: 0 };
 const {x, y} = point;
-const arrowFunction = (a) => a ** 2;
-
-// ES5
-"use strict";
+const arrowFunction = (a) => a ** 2;</code></pre>
+<pre style="font-size: 0.85em;" class="next"><code class="hljs">// ES5
+'use strict';
 var point = { x: 0, y: 0 };
 var x = point.x,
     y = point.y;
@@ -392,6 +399,7 @@ var arrowFunction = function arrowFunction(a) {
 
 	<section class="slide">
 		<h2 class="shout">CSS</h2>
+		<img src="pictures/aladdin-left.jpg" alt="" class="cover height">
 		<footer>
 			<p>А как обстоят дела у верстальщиков? Бывают ли полифилы для CSS?</p>
 		</footer>
@@ -529,22 +537,20 @@ var arrowFunction = function arrowFunction(a) {
 
 
 	<section class="slide clear black">
-		<img class="cover height" src="./pictures/travolta.gif">
-		<footer>
-			<p>И что делать? Куда идти дальше?</p>
-		</footer>
+		<img src="pictures/genie-rub.gif" class="cover width" alt="">
 	</section>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">CSS-TAG Houdini Task Force 🎉</h2>
+		<h2 class="shout shout-mini">CSS-TAG Houdini Task Force 💎</h2>
+		<img src="pictures/aladdin-treasure.jpg" alt="" class="cover height">
 		<footer>
 			<p>Решением проблемы занимается рабочая группа проекта CSS Houdini.</p>
 		</footer>
 	</section>
 
 
-	<section class="slide">
+	<section class="slide clear">
 		<img class="cover" src="./pictures/tag.jpg" alt="CSS-TAG Houdini Task Force">
 		<footer>
 			<p>С 6 по 8 февраля 2015 года в офисе Google в Сиднее (Австралия)
@@ -591,7 +597,7 @@ var arrowFunction = function arrowFunction(a) {
 
 
 	<section class="slide nd-houdini-api-list">
-		<img src="./pictures/css-tag-houdini-specs.jpg" alt="CSS Houdini specifications" class="cover width">
+		<img src="./pictures/css-tag-houdini-specs.png" alt="CSS Houdini specifications" class="cover width">
 		<p class="image-caption">
 			<a href="https://github.com/w3c/css-houdini-drafts">Репозиторий проекта на Github</a>
 		</p>
@@ -1854,16 +1860,14 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
+		<img src="pictures/genie-end.jpg" alt="" class="cover height">
 		<h2>Спасибо за внимание!</h2>
-		<p>
-			<a href="https://mefody.github.io/talks/houdini-css/">mefody.github.io/talks/houdini-css/</a>
-			<br>
+		<p style="margin-top: 300px;">
 			<a href="https://twitter.com/dark_mefody">@dark_mefody</a>
 			<br>
 			<a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
 		</p>
-		<img src="" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
+		<img src="pictures/qr-code.gif" width="180" alt="QR code — ссылка на презентацию" class="place left" style="mix-blend-mode: multiply; top: 60%; left: 85px;">
 	</section>
 
 
@@ -1928,7 +1932,8 @@ animationWorklet.addModule('worklet.js').then(() => {
 	<div class="progress"></div>
 
 	<script src="../src/shower/shower.min.js"></script>
-	<script src="../src/prism/prism.min.js"></script>
+	<script src="../src/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 
