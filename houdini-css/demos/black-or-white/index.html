@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Black or white? (Ana Tudor challenge)</title>
+</head>
+
+<body>
+    <style>
+        body {
+            padding: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .grid {
+            display: grid;
+            width: 70vmin;
+            height: 70vmin;
+            grid-template: repeat(10, 1fr)/repeat(10, 1fr);
+            background-color: #000;
+            -webkit-animation: rotate 16s steps(4) infinite, invert 4s steps(1) infinite;
+            animation: rotate 16s steps(4) infinite, invert 4s steps(1) infinite;
+        }
+
+        .cell {
+            --k: 1;
+            --q: 1;
+            background: #fff;
+            -webkit-animation: rotate 3s linear infinite;
+            animation: rotate 3s linear infinite;
+            grid-column-start: calc(var(--r) * 2 - var(--e));
+            -webkit-animation: rotate 2s calc(0.05s * var(--c)) infinite;
+            animation: rotate 2s calc(0.05s * var(--c)) infinite;
+        }
+
+        @-webkit-keyframes rotate {
+            50% {
+                -webkit-transform: rotate(calc(0.25turn * var(--k, 4)));
+                transform: rotate(calc(0.25turn * var(--k, 4)));
+            }
+            100% {
+                -webkit-transform: rotate(calc(0.25turn * var(--q, 2) * var(--k, 4)));
+                transform: rotate(calc(0.25turn * var(--q, 2) * var(--k, 4)));
+            }
+        }
+
+        @keyframes rotate {
+            50% {
+                -webkit-transform: rotate(calc(0.25turn * var(--k, 4)));
+                transform: rotate(calc(0.25turn * var(--k, 4)));
+            }
+            100% {
+                -webkit-transform: rotate(calc(0.25turn * var(--q, 2) * var(--k, 4)));
+                transform: rotate(calc(0.25turn * var(--q, 2) * var(--k, 4)));
+            }
+        }
+
+        @-webkit-keyframes invert {
+            50% {
+                -webkit-filter: invert(100%);
+                filter: invert(100%);
+            }
+        }
+
+        @keyframes invert {
+            50% {
+                -webkit-filter: invert(100%);
+                filter: invert(100%);
+            }
+        }
+    </style>
+
+    <div class="grid">
+        <div class="cell" style="--r: 1; --c: 1; --e: 1;"></div>
+        <div class="cell" style="--r: 2; --c: 1; --e: 1;"></div>
+        <div class="cell" style="--r: 3; --c: 1; --e: 1;"></div>
+        <div class="cell" style="--r: 4; --c: 1; --e: 1;"></div>
+        <div class="cell" style="--r: 5; --c: 1; --e: 1;"></div>
+        <div class="cell" style="--r: 1; --c: 2; --e: 0;"></div>
+        <div class="cell" style="--r: 2; --c: 2; --e: 0;"></div>
+        <div class="cell" style="--r: 3; --c: 2; --e: 0;"></div>
+        <div class="cell" style="--r: 4; --c: 2; --e: 0;"></div>
+        <div class="cell" style="--r: 5; --c: 2; --e: 0;"></div>
+        <div class="cell" style="--r: 1; --c: 3; --e: 1;"></div>
+        <div class="cell" style="--r: 2; --c: 3; --e: 1;"></div>
+        <div class="cell" style="--r: 3; --c: 3; --e: 1;"></div>
+        <div class="cell" style="--r: 4; --c: 3; --e: 1;"></div>
+        <div class="cell" style="--r: 5; --c: 3; --e: 1;"></div>
+        <div class="cell" style="--r: 1; --c: 4; --e: 0;"></div>
+        <div class="cell" style="--r: 2; --c: 4; --e: 0;"></div>
+        <div class="cell" style="--r: 3; --c: 4; --e: 0;"></div>
+        <div class="cell" style="--r: 4; --c: 4; --e: 0;"></div>
+        <div class="cell" style="--r: 5; --c: 4; --e: 0;"></div>
+        <div class="cell" style="--r: 1; --c: 5; --e: 1;"></div>
+        <div class="cell" style="--r: 2; --c: 5; --e: 1;"></div>
+        <div class="cell" style="--r: 3; --c: 5; --e: 1;"></div>
+        <div class="cell" style="--r: 4; --c: 5; --e: 1;"></div>
+        <div class="cell" style="--r: 5; --c: 5; --e: 1;"></div>
+        <div class="cell" style="--r: 1; --c: 6; --e: 0;"></div>
+        <div class="cell" style="--r: 2; --c: 6; --e: 0;"></div>
+        <div class="cell" style="--r: 3; --c: 6; --e: 0;"></div>
+        <div class="cell" style="--r: 4; --c: 6; --e: 0;"></div>
+        <div class="cell" style="--r: 5; --c: 6; --e: 0;"></div>
+        <div class="cell" style="--r: 1; --c: 7; --e: 1;"></div>
+        <div class="cell" style="--r: 2; --c: 7; --e: 1;"></div>
+        <div class="cell" style="--r: 3; --c: 7; --e: 1;"></div>
+        <div class="cell" style="--r: 4; --c: 7; --e: 1;"></div>
+        <div class="cell" style="--r: 5; --c: 7; --e: 1;"></div>
+        <div class="cell" style="--r: 1; --c: 8; --e: 0;"></div>
+        <div class="cell" style="--r: 2; --c: 8; --e: 0;"></div>
+        <div class="cell" style="--r: 3; --c: 8; --e: 0;"></div>
+        <div class="cell" style="--r: 4; --c: 8; --e: 0;"></div>
+        <div class="cell" style="--r: 5; --c: 8; --e: 0;"></div>
+        <div class="cell" style="--r: 1; --c: 9; --e: 1;"></div>
+        <div class="cell" style="--r: 2; --c: 9; --e: 1;"></div>
+        <div class="cell" style="--r: 3; --c: 9; --e: 1;"></div>
+        <div class="cell" style="--r: 4; --c: 9; --e: 1;"></div>
+        <div class="cell" style="--r: 5; --c: 9; --e: 1;"></div>
+        <div class="cell" style="--r: 1; --c: 10; --e: 0;"></div>
+        <div class="cell" style="--r: 2; --c: 10; --e: 0;"></div>
+        <div class="cell" style="--r: 3; --c: 10; --e: 0;"></div>
+        <div class="cell" style="--r: 4; --c: 10; --e: 0;"></div>
+        <div class="cell" style="--r: 5; --c: 10; --e: 0;"></div>
+    </div>
+</body>
+
+</html>
