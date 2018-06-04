@@ -981,6 +981,20 @@ style.then(console.log);</code></pre>
 
 
 	<section class="slide">
+		<h2>Проблема #3</h2>
+		<pre><code class="hljs css">:root {
+	--sidebar-width: 400px;
+}
+.closed {
+	--sidebar-width: 80px;
+}
+body {
+	transition: --sidebar-width 1s;
+}</code></pre>
+	</section>
+
+
+	<section class="slide">
 		<pre><code class="hljs javascript">// JavaScript
 CSS.registerProperty({
 	name: '--sidebar-width',
@@ -988,7 +1002,7 @@ CSS.registerProperty({
 	inherits: true,
 	initialValue: '80px'
 });</code></pre>
-		<pre class="next"><code class="language-css">/* CSS */
+		<pre class="next"><code class="hljs css">/* CSS */
 @property --sidebar-width {
 	syntax: "&lt;length&gt;",
 	inherits: true,
@@ -1006,9 +1020,16 @@ CSS.registerProperty({
 
 
 	<section class="slide">
+		<h2 class="shout shout-mini no-bg">демо
+			<a href="./demos/4_sidebar/index.html">sidebar</a>
+		</h2>
+	</section>
+
+
+	<section class="slide">
 		<div class="label place top left important">Обновить</div>
 		<h2>Синтаксис</h2>
-		<p class="double">
+		<p class="double" style="font-size: 0.9em;">
 			<code>&lt;length&gt;</code>
 			<br>
 			<code>&lt;number&gt;</code>
@@ -1031,7 +1052,9 @@ CSS.registerProperty({
 			<br>
 			<code>&lt;resolution&gt;</code>
 			<br>
-			<code>&lt;transform-function&gt;</code>
+			<code>&lt;transform-list&gt;</code>
+			<br>
+			<code>&lt;custom-ident&gt;</code>
 			<br>
 			<br>
 			<code>&lt;length | number&gt;</code>
@@ -1046,13 +1069,6 @@ CSS.registerProperty({
 				<code>syntax</code> может иметь одно из представленных на слайде значений.
 			</p>
 		</footer>
-	</section>
-
-
-	<section class="slide">
-		<h2 class="shout shout-mini">Демо
-			<a href="./demos/4_sidebar/index.html">sidebar</a>
-		</h2>
 	</section>
 
 
