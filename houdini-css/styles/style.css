@@ -76,6 +76,10 @@
     color: var(--primary-color);
 }
 
+.slide.no-label::after {
+    visibility: hidden;
+} 
+
 .slide ol li::before, .slide ul li::before {
     color: #e63838;
 }

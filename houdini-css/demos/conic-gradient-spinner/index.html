@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conic Gradient Spinner</title>
+</head>
+
+<body>
+    <script src="conic-gradient.js"></script>
+
+    <div class="spinner"></div>
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(at 0 0, #575757, #191919);
+            filter: drop-shadow(0.12vmin 0.12vmin 0.12vmin #000) drop-shadow(0.12vmin 0.12vmin 0.25vmin #000);
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .spinner {
+            width: 50vmin;
+            height: 50vmin;
+            border-radius: 50%;
+            background: conic-gradient(from 180deg, transparent 5% 8.5%, transparent 8.5% 10%, hsl(18, calc(85% * (var(--i) - 2)), 60%) 10% 13.5%, transparent 13.5% 15%, hsl(36, calc(85% * (var(--i) - 3)), 60%) 15% 18.5%, transparent 18.5% 20%, hsl(54, calc(85% * (var(--i) - 4)), 60%) 20% 23.5%, transparent 23.5% 25%, hsl(72, calc(85% * (var(--i) - 5)), 60%) 25% 28.5%, transparent 28.5% 30%, hsl(90, calc(85% * (var(--i) - 6)), 60%) 30% 33.5%, transparent 33.5% 35%, hsl(108, calc(85% * (var(--i) - 7)), 60%) 35% 38.5%, transparent 38.5% 40%, hsl(126, calc(85% * (var(--i) - 8)), 60%) 40% 43.5%, transparent 43.5% 45%, hsl(144, calc(85% * (var(--i) - 9)), 60%) 45% 48.5%, transparent 48.5% 50%, hsl(162, calc(85% * (var(--i) - 10)), 60%) 50% 53.5%, transparent 53.5% 55%, hsl(180, calc(85% * (var(--i) - 11)), 60%) 55% 58.5%, transparent 58.5% 60%, hsl(198, calc(85% * (var(--i) - 12)), 60%) 60% 63.5%, transparent 63.5% 65%, hsl(216, calc(85% * (var(--i) - 13)), 60%) 65% 68.5%, transparent 68.5% 70%, hsl(234, calc(85% * (var(--i) - 14)), 60%) 70% 73.5%, transparent 73.5% 75%, hsl(252, calc(85% * (var(--i) - 15)), 60%) 75% 78.5%, transparent 78.5% 80%, hsl(270, calc(85% * (var(--i) - 16)), 60%) 80% 83.5%, transparent 83.5% 85%, hsl(288, calc(85% * (var(--i) - 17)), 60%) 85% 88.5%, transparent 88.5% 90%, transparent 90% 93.5%, transparent 93.5% 95%, transparent 95% 98.5%, transparent 98.5% 100%, transparent 100% 103.5%, transparent 103.5% 105%);
+            -webkit-mask: radial-gradient(transparent 0, transparent 15vmin, #000 calc(15vmin + 1px));
+            mask: radial-gradient(transparent 0, transparent 15vmin, #000 calc(15vmin + 1px));
+            animation: circle 2s infinite steps(20);
+            animation-direction: alternate-reverse;
+            transform: rotate(3.6deg);
+        }
+
+        @keyframes circle {
+            to {
+                --i: 20;
+            }
+        }
+    </style>
+
+    <script>
+        CSS.registerProperty({
+            name: '--i',
+            syntax: '<integer>',
+            initialValue: 0
+        });
+    </script>
+</body>
+
+</html>
