@@ -351,12 +351,12 @@
 
     <section class="slide">
         <h2 class="no-bg">Используют прогрессивный JPEG</h2>
-        <ul>
-            <li>Twitter</li>
-            <li>Facebook</li>
-            <li>Pinterest</li>
-            <li>Yelp</li>
-        </ul>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+            <img src="pictures/twitter-logo.png" alt="Twitter" height="250">
+            <img src="pictures/facebook-logo.png" alt="Facebook" height="180" style="margin: 0 70px 20px 20px;">
+            <img src="pictures/pinterest-logo.png" alt="Pinterest" height="200">
+            <img src="pictures/yelp-logo.png" alt="Yelp" height="150">
+        </div>
     </section>
 
     <section class="slide">
@@ -817,6 +817,10 @@ gulp.task('exif', () =>
     </section>
 
     <section class="slide">
+        <img src="pictures/caniuse-apng.png" alt="APNG support" class="cover width">
+    </section>
+
+    <section class="slide">
         <h2>Инструменты</h2>
         <ul>
             <li><strong><a href="https://pngquant.org">pngquant</a></strong></li>
@@ -1023,6 +1027,8 @@ gulp.task('exif', () =>
         <ul>
             <li><strong><a href="https://github.com/svg/svgo" class="link link-github">svg/svgo</a></strong></li>
             <li><a href="https://jakearchibald.github.io/svgomg/">jakearchibald.github.io/svgomg</a></li>
+        </ul>
+        <ul>
             <li><a href="https://www.gnu.org/software/gzip/">gzip</a></li>
             <li><a href="https://github.com/google/brotli" class="link link-github">google/brotli</a></li>
             <li><a href="https://github.com/google/zopfli" class="link link-github">google/zopfli</a></li>
@@ -1124,7 +1130,7 @@ gulp.task('svgSprite', () =>
     <section class="slide">
         <h2>Советы</h2>
         <ul>
-            <li class="next">храните исходные изображения в PNG или TIFF;</li>
+            <li class="next">храните исходные изображения в несжатом виде (PNG, TIFF);</li>
             <li class="next">выбирайте правильный формат в зависимости от изображения;</li>
             <li class="next">автоматизируйте сохранение в разных форматах;</li>
             <li class="next">подберите подходящие параметры сжатия.</li>
@@ -1741,7 +1747,7 @@ images.forEach(img => {
       href="pic400.jpg" 
       imgsizes="100vw"
       srcset="pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w"&gt;</code></pre>
-      <a href="https://www.chromestatus.com/feature/5164259990306816">Chrome Platform feature status</a>
+        <a href="https://www.chromestatus.com/feature/5164259990306816">Chrome Platform feature status</a>
     </section>
 
     <section class="slide">

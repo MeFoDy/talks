@@ -21,7 +21,7 @@ var chartStyle = {
 var contentTypeChart = Highcharts.chart('chart-content-type', {
     chart: chartStyle.pie,
     title: {
-        text: 'Average Bytes per Page by Content Type, May 1 2018',
+        text: 'Average Bytes per Page by Content Type, June 1 2018',
         style: chartStyle.title,
     },
     tooltip: {
@@ -43,16 +43,16 @@ var contentTypeChart = Highcharts.chart('chart-content-type', {
         data: [
             {
                 name: "Изображения",
-                y: 1828,
+                y: 1877,
                 sliced: true,
                 selected: true
             },
-            { name: "Другое", y: 2 },
-            { name: "HTML", y: 61 },
+            { name: "Другое", y: 23 },
+            { name: "HTML", y: 69 },
             { name: "CSS", y: 92 },
-            { name: "Шрифты", y: 116 },
-            { name: "JavaScript", y: 479 },
-            { name: "Видео", y: 891 },
+            { name: "Шрифты", y: 117 },
+            { name: "JavaScript", y: 482 },
+            { name: "Видео", y: 838 },
         ]
     }]
 });
@@ -60,7 +60,7 @@ var contentTypeChart = Highcharts.chart('chart-content-type', {
 var imageRequestsChart = Highcharts.chart('chart-image-requests', {
     chart: chartStyle.pie,
     title: {
-        text: 'Image Requests by Format, May 1 2018',
+        text: 'Image Requests by Format, June 1 2018',
         style: chartStyle.title,
     },
     tooltip: {
@@ -85,10 +85,10 @@ var imageRequestsChart = Highcharts.chart('chart-image-requests', {
                 sliced: true,
                 selected: true
             },
-            { name: "Другое", y: 1 },
+            { name: "Другое", y: 2 },
             { name: "WebP", y: 1 },
             { name: "SVG", y: 2 },
-            { name: "GIF", y: 23 },
+            { name: "GIF", y: 22 },
             { name: "PNG", y: 28 },
         ]
     }]
@@ -97,7 +97,7 @@ var imageRequestsChart = Highcharts.chart('chart-image-requests', {
 var imagePerPageChart = Highcharts.chart('chart-images-per-page', {
     chart: chartStyle.column,
     title: {
-        text: 'Image Requests per Page, May 1 2018',
+        text: 'Image Requests per Page, June 1 2018',
         style: chartStyle.title,
     },
     xAxis: {
@@ -110,7 +110,6 @@ var imagePerPageChart = Highcharts.chart('chart-images-per-page', {
             '101-120',
             '121-140',
             '141-160',
-            '161-180',
         ],
         crosshair: true
     },
@@ -136,7 +135,7 @@ var imagePerPageChart = Highcharts.chart('chart-images-per-page', {
     },
     series: [{
         name: 'Количество запросов',
-        data: [26, 25, 18, 11, 7, 4, 2, 2, 1],
+        data: [27, 25, 18, 11, 6, 4, 3, 1],
     }]
 });
 
