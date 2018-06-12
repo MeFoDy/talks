@@ -51,8 +51,8 @@
 	</section>
 
 
-	<section class="slide">
-		видео со спящими слушателями
+	<section class="slide black clear">
+		<video src="./pictures/houdini_lullaby.mp4" class="cover" autoplay muted loop></video>
 	</section>
 
 
@@ -825,7 +825,10 @@ styleMap.set('transform', transformValue);</code></pre>
 	<section class="slide">
 		<h2>Отлов ошибок</h2>
 		<pre><code class="hljs javascript">try {
-	CSSStyleValue.parse('transform', 'translate4d(bogus value)');
+	CSSStyleValue.parse(
+		'transform', 
+		'translate4d(bogus value)'
+	);
 } catch (err) {
 	console.err(err);
 }</code></pre>
@@ -1867,7 +1870,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		twitter Алекса Сурмы
+		<h2 class="shout shout-mini no-bg"><a href="https://twitter.com/DasSurma​" class="link link-twitter">DasSurma</a></h2>
 	</section>
 
 
