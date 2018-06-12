@@ -102,17 +102,16 @@
     </section>
 
     <section class="slide">
-        <img src="pictures/chrome-audits-itechart.png" alt="Chrome Audits" class="place" width="600">
+        <img src="pictures/lighthouse-bsuir.png" alt="Chrome Audits" class="place" width="600" style="box-shadow: 0 0 40px 0 rgba(0,0,0,0.4);">
     </section>
 
     <section class="slide">
-        <img src="pictures/itechart-audit-tooltip.png" alt="Useful tooltip" class="place">
+        <img src="pictures/bsuir-audit.jpg" alt="Useful tooltip" class="place">
     </section>
 
     <section class="slide nd-audits">
-        <img src="pictures/trollface.png" alt="trollface" class="next" style="width: 40px; position: absolute; top: 10px; right: 270px; transform: scaleX(-1);">
         <div class="next"></div>
-        <img src="pictures/itechart-audit.png" alt="iTechArt Audit Results" class="cover audits-image">
+        <img src="pictures/bsuir-audit-results.jpg" alt="iTechArt Audit Results" class="cover audits-image">
         <div class="selection"></div>
 
         <style>
@@ -124,9 +123,9 @@
                 display: none;
                 position: absolute;
                 width: 100%;
-                height: 180px;
+                height: 120px;
                 border: 5px solid lime;
-                bottom: 88px;
+                bottom: 165px;
                 left: 0;
                 z-index: 2;
                 box-shadow: 0 0 100px 100px rgba(0, 0, 0, 0.3);
@@ -136,13 +135,13 @@
                 transition: transform ease 0.5s;
             }
 
-            .nd-audits .active~.active~.audits-image {
+            .nd-audits .active~.audits-image {
                 transform: translate(-50%, -50%) scale(2.2);
                 transform-origin: 50% 70%;
                 z-index: 1;
             }
 
-            .nd-audits .active~.active~.audits-image~.selection {
+            .nd-audits .active~.audits-image~.selection {
                 display: block;
             }
         </style>
@@ -884,13 +883,13 @@ gulp.task('exif', () =>
 
     <section class="slide">
         <h2>Используют WebP</h2>
-        <ul>
-            <li>Google</li>
-            <li>Netflix</li>
-            <li>Amazon</li>
-            <li>Ebay</li>
-            <li>Yahoo</li>
-        </ul>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; height: 70%;">
+            <img src="pictures/google-logo.png" alt="Google" height="100">
+            <img src="pictures/netflix-logo.png" alt="Netflix" height="80">
+            <img src="pictures/amazon-logo.png" alt="Amazon" height="90">
+            <img src="pictures/ebay-logo.png" alt="Ebay" height="120">
+            <img src="pictures/yahoo-logo.png" alt="Yahoo" height="80">
+        </div>
     </section>
 
     <section class="slide no-heading">
@@ -1483,22 +1482,22 @@ if (connection) {
     <section class="slide no-heading">
         <div class="terminal" data-content="imaging-heap" style="font-size: 0.7em;">
             <p>npm install --global imaging-heap</p>
-            <p>imagingheap https://www.itechart.by/</p>
+            <p>imagingheap https://www.bsuir.by/</p>
             <br>
-            <pre style="white-space: pre;">&lt;img src="/media/images/itechart-7.original.jpg"&gt;
-╔══════════╤══════════╤════════╤════════════╤════════╤════════════╗
-║          │ Image    │ @1x    │ @1x        │ @2x    │ @2x        ║
-║          │ Width in │ Image  │ Percentage │ Image  │ Percentage ║
-║ Viewport │ Layout   │ Width  │ Match      │ Width  │ Match      ║
-╟──────────┼──────────┼────────┼────────────┼────────┼────────────╢
-║ 320px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
-║ 480px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
-║ 640px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
-║ 800px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
-║ 960px    │ 1116px   │ 1920px │ <span style="color: #dd0">172.0%</span>     │ 1920px │ <span style="color: #dd0">86.0%</span>      ║
-║ 1120px   │ 1120px   │ 1920px │ <span style="color: #dd0">171.4%</span>     │ 1920px │ <span style="color: #dd0">85.7%</span>      ║
-║ 1280px   │ 1280px   │ 1920px │ 150.0%     │ 1920px │ <span style="color: #dd0">75.0%</span>      ║
-╚══════════╧══════════╧════════╧════════════╧════════╧════════════╝
+            <pre style="white-space: pre;">&lt;img src="/online/layouts/493/img/bsuir_footer.png"&gt;
+╔══════════╤══════════╤═══════╤════════════╤═══════╤════════════╗
+║          │ Image    │ @1x   │ @1x        │ @2x   │ @2x        ║
+║          │ Width in │ Image │ Percentage │ Image │ Percentage ║
+║ Viewport │ Layout   │ Width │ Match      │ Width │ Match      ║
+╟──────────┼──────────┼───────┼────────────┼───────┼────────────╢
+║ 320px    │ 58px     │ 50px  │ <span style="color: #d00;">86.2%</span>      │ 50px  │ <span style="color: #d00;">43.1%</span>      ║
+║ 480px    │ 58px     │ 50px  │ <span style="color: #d00;">86.2%</span>      │ 50px  │ <span style="color: #d00;">43.1%</span>      ║
+║ 640px    │ 58px     │ 50px  │ <span style="color: #d00;">86.2%</span>      │ 50px  │ <span style="color: #d00;">43.1%</span>      ║
+║ 800px    │ 58px     │ 50px  │ <span style="color: #d00;">86.2%</span>      │ 50px  │ <span style="color: #d00;">43.1%</span>      ║
+║ 960px    │ 58px     │ 50px  │ <span style="color: #d00;">86.2%</span>      │ 50px  │ <span style="color: #d00;">43.1%</span>      ║
+║ 1120px   │ 58px     │ 50px  │ <span style="color: #d00;">86.2%</span>      │ 50px  │ <span style="color: #d00;">43.1%</span>      ║
+║ 1280px   │ 58px     │ 50px  │ <span style="color: #d00;">86.2%</span>      │ 50px  │ <span style="color: #d00;">43.1%</span>      ║
+╚══════════╧══════════╧═══════╧════════════╧═══════╧════════════╝
 Legend:  @1x <span style="color: #d00;">&lt;100%</span> <span style="color: #dd0;">&gt;150%</span>    Above @1x <span style="color: #d00;">&lt;75%</span> <span style="color: #dd0;">75%–92%</span></pre>
         </div>
     </section>
@@ -1742,9 +1741,9 @@ images.forEach(img => {
     </section>
 
     <section class="slide">
-        <pre><code class="hljs html">&lt;link rel="preload" 
+        <pre><code class="hljs html">&lt;link rel="preload"
       as="image"
-      href="pic400.jpg" 
+      href="pic400.jpg"
       imgsizes="100vw"
       srcset="pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w"&gt;</code></pre>
         <a href="https://www.chromestatus.com/feature/5164259990306816">Chrome Platform feature status</a>
