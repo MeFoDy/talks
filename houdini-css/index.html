@@ -902,15 +902,17 @@ styleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		<h2 class="no-bg shout shout-mini"><img src="pictures/chrome-logo.svg" height="55" alt=""> Chrome 66+</h2>
+		<h2 class="no-bg shout shout-mini">
+			<img src="pictures/chrome-logo.svg" height="55" alt=""> Chrome 66+</h2>
 	</section>
 
 
 	<section class="slide">
 		<h2>Где почитать?</h2>
 		<ul>
-			<li><a href="https://developers.google.com/web/updates/2018/03/cssom">Working with the new CSS Typed Object Model</a></li>
 			<li><a href="https://www.w3.org/TR/css-typed-om-1/">CSS Typed OM Level 1 (W3C Working Draft)</a></li>
+			<li><a href="https://developers.google.com/web/updates/2018/03/cssom">Working with the new CSS Typed Object Model</a> — Eric Bidelman</li>
+			<li><a href="https://medium.com/@lucyhackwrench/%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0-css-typed-om-%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%BB%D0%B0%D1%81%D1%8C-%D0%B2-chrome-%D0%BA%D0%B0%D0%BA-%D1%8D%D1%82%D0%BE-%D0%BE%D0%B1%D0%BB%D0%B5%D0%B3%D1%87%D0%B8%D1%82-%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D0%B0%D0%BC-31b086851465">Как CSS Typed OM облегчит жизнь разработчикам?</a> — Людмила Мжачих</li>
 		</ul>
 	</section>
 
@@ -1096,7 +1098,10 @@ CSS.registerProperty({
 
 
 	<section class="slide">
-		<h2 class="no-bg shout shout-mini"><img src="pictures/chrome-canary.svg" height="55" alt=""> Chrome Canary <sup>*</sup></h2>
+		<h2 class="no-bg shout shout-mini">
+			<img src="pictures/chrome-canary.svg" height="55" alt=""> Chrome Canary
+			<sup>*</sup>
+		</h2>
 	</section>
 
 
@@ -1160,12 +1165,35 @@ registerSomeWorklet('some-worklet-name', class {
 
 
 	<section class="slide">
-		код от Surma для синхронной загрузки
+		<h2>Загрузка через Blob. Шаг 1</h2>
+		<pre><code class="hljs html">&lt;script <mark>language="javascript+paint</mark>"&gt;
+	registerPaint('circle', class {
+		paint(ctx, geom, properties) {
+			// worklet implementation
+		}
+	});
+&lt;/script&gt;</code></pre>
 	</section>
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
+		<h2>Загрузка через Blob. Шаг 2</h2>
+		<pre><code class="hljs html">&lt;script&gt;
+	function <mark>blobWorklet</mark>() {
+		const src = document
+			.querySelector('script[language$="paint"]')
+			.innerHTML;
+		const blob = new Blob([src], {type: 'text/javascript'});
+		return URL.createObjectURL(blob);
+	}	
+	if ('paintWorklet' in CSS) {
+		CSS.paintWorklet.addModule(blobWorklet());
+	}
+&lt;/script&gt;</code></pre>
+	</section>
+
+
+	<section class="slide">
 		<h2 class="shout shout-mini">CSS Painting API 🎨</h2>
 		<footer>
 			<p>
@@ -1193,8 +1221,8 @@ registerSomeWorklet('some-worklet-name', class {
 			<li>
 				<code>content</code>
 			</li>
-			<li style="text-decoration: line-through;">
-				<code>cursor</code>
+			<li>
+				<code><span class="strike">cursor</span></code>
 			</li>
 		</ul>
 		<footer>
@@ -1253,7 +1281,7 @@ CSS.registerProperty({
 CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 		<footer>
 			<p>
-				За вызов ворклета при отрисовки элемента отвечает функция CSS
+				За вызов ворклета при отрисовке элемента отвечает функция CSS
 				<code>paint()</code>. Первым аргументом в нее необходимо передать имя ворклета, дальше через запятую можно передать аргументы, соответствующие
 				типам, описанным в ворклете.
 			</p>
@@ -1262,31 +1290,38 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 
 	<section class="slide">
-		ограничения canvas для PaintAPI, рассказать почему
+		<h2>Ограничения контекста для Paint Worklet</h2>
+		<ul>
+			<li class="next">Нельзя полагаться на global scope.</li>
+			<li class="next">Только 2D context.</li>
+			<li class="next">Нельзя работать с текстом.</li>
+			<li class="next">Время отрисовки должно укладываться в 1 frame.</li>
+		</ul>
 	</section>
 
 
 	<section class="slide">
-		работает в Chrome 65+
+		<h2 class="no-bg shout shout-mini">
+			<img src="pictures/chrome-logo.svg" height="55" alt=""> Chrome 65+</h2>
 	</section>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">Демо
+		<h2 class="shout shout-mini no-bg">Демо
 			<a href="./demos/1_ripple/index.html">ripple</a>
 		</h2>
 	</section>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">Демо
+		<h2 class="shout shout-mini no-bg">Демо
 			<a href="./demos/3_border-slicer/index.html">border-slicer</a>
 		</h2>
 	</section>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">Демо
+		<h2 class="shout shout-mini no-bg">Демо
 			<a href="./demos/5_image-placeholder/index.html">image-placeholder</a>
 		</h2>
 	</section>
@@ -1324,7 +1359,6 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 
 	<section class="slide nd-box-api">
-		<div class="label place top left important">Обновить</div>
 		<h2>Box Tree API</h2>
 		<pre><code class="language-html">
 
@@ -1441,7 +1475,6 @@ p::first-letter { color: red; }
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
 		<h2 class="shout shout-mini">CSS Layout API 🚀</h2>
 		<footer>
 			<p>
@@ -1840,9 +1873,8 @@ animationWorklet.addModule('worklet.js').then(() => {
 	</section>
 
 
-	<section class="slide">
-		<div class="label place top left important">Обновить</div>
-		<img src="./pictures/is-houdini-ready.jpg" alt="http://ishoudinireadyyet.com" class="cover height">
+	<section class="slide clear">
+		<img src="./pictures/ishoudinireadyyet.png" alt="http://ishoudinireadyyet.com" class="cover width">
 		<footer>
 			<p>
 				Как обстоят дела с другими браузерами?
@@ -1870,17 +1902,14 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini no-bg"><a href="https://twitter.com/DasSurma​" class="link link-twitter">DasSurma</a></h2>
+		<h2 class="shout shout-mini no-bg">
+			<a href="https://twitter.com/DasSurma​" class="link link-twitter">DasSurma</a>
+		</h2>
 	</section>
 
 
 	<section class="slide">
-		работа идет — первый день w3c css working group, март 2018
-	</section>
-
-
-	<section class="slide">
-		исторический момент — представители всех браузеров на фото
+		<img src="pictures/teamwork.png" alt="" class="cover height">
 	</section>
 
 
