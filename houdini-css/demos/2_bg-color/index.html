@@ -1,0 +1,37 @@
+<!doctype html>
+
+<style>
+    :root {
+        --bg-color: #405872;
+    }
+
+    html {
+        background: #222;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .image {
+        display: block;
+        font-size: 70px;
+        background-color: var(--bg-color);
+        color: var(--color);
+        background-image: paint(width-color, 5);
+
+        width: 400px;
+        height: 400px;
+        width: 50vw;
+        height: 50vh;
+        margin-bottom: 20px;
+    }
+
+</style>
+
+<textarea class="image"></textarea>
+
+<script>
+    CSS.paintWorklet.addModule('width-color.js');
+</script>

@@ -6,8 +6,8 @@ const colorInput = document.querySelector('#color');
 
 const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext('2d');
-canvas.width = document.documentElement.clientWidth * 0.8;
-canvas.height = document.documentElement.clientHeight * 0.8;
+canvas.width = document.documentElement.clientWidth * 0.5;
+canvas.height = document.documentElement.clientHeight * 0.5;
 
 bgColorInput.addEventListener('input', (e) => {
     document.documentElement.style.setProperty('--bg-color', e.currentTarget.value);

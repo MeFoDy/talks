@@ -1,0 +1,37 @@
+<!doctype html>
+<textarea id="qrcode"></textarea>
+<br />
+<br />
+<span>Text to be encoded:</span>
+<input type="text" id="input" value="OdessaJS 2018">
+<br />
+<span class="hint">Hint: try resizing the QR code by grabbing the bottom right corner!</span>
+
+<style>
+    body {
+        text-align: center;
+    }
+
+    #qrcode {
+        margin: 50px 300px;
+        --size: 400px;
+        width: var(--size);
+        height: var(--size);
+        background-color: blanchedalmond;
+        background-image: paint(qr-code);
+        border: 2px solid black;
+    }
+
+    .hint {
+        font-size: .8em;
+    }
+</style>
+
+<script>
+    (CSS.paintWorklet || paintWorklet).addModule('qr-code.js');
+    document.querySelector('#input').addEventListener('keyup', (e) => {
+        document.querySelector('#qrcode').style.setProperty('--text', e.srcElement.value);
+    });
+    const input = document.querySelector('#input');
+    document.querySelector('#qrcode').style.setProperty('--text', input.value);
+</script>

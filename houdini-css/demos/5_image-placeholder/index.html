@@ -40,6 +40,8 @@
 
         width: 400px;
         height: 400px;
+        width: 50vw;
+        height: 50vh;
         margin-bottom: 20px;
     }
 
@@ -79,9 +81,10 @@
     CSS.paintWorklet.addModule('image-placeholder.js');
 
     let tick = 0;
+    const img = document.querySelector('.image');
     requestAnimationFrame(function frame() {
         tick++;
-        document.documentElement.style.setProperty('--tick', tick);
+        img.style.setProperty('--tick', tick);
         requestAnimationFrame(frame);
     });
 

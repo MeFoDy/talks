@@ -1222,6 +1222,9 @@ registerSomeWorklet('some-worklet-name', class {
 				<code>content</code>
 			</li>
 			<li>
+				<code>-webkit-mask-image</code>
+			</li>
+			<li>
 				<code><span class="strike">cursor</span></code>
 			</li>
 		</ul>
@@ -1307,16 +1310,12 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini no-bg">Демо
-			<a href="./demos/1_ripple/index.html">ripple</a>
-		</h2>
+		<iframe src="demos/1_ripple/index.html" frameborder="0" class="cover width height"></iframe>
 	</section>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini no-bg">Демо
-			<a href="./demos/3_border-slicer/index.html">border-slicer</a>
-		</h2>
+		<iframe src="demos/3_border-slicer/index.html" frameborder="0" class="cover width height"></iframe>
 	</section>
 
 
@@ -1328,12 +1327,12 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 
 	<section class="slide">
-		замеры производительности
+		<iframe src="demos/2_bg-color/index.html" frameborder="0" class="cover width height"></iframe>
 	</section>
 
 
 	<section class="slide">
-		реакция на ширину контейнера (proof of concept)
+		<iframe src="demos/6_qr-layout/index.html" frameborder="0" class="cover width height"></iframe>
 	</section>
 
 
@@ -1360,7 +1359,7 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 	<section class="slide nd-box-api">
 		<h2>Box Tree API</h2>
-		<pre><code class="language-html">
+		<pre><code class="hljs html">
 
 &lt;style&gt;
 p::first-line { color: green; }
@@ -1491,51 +1490,55 @@ p::first-letter { color: red; }
 
 
 	<section class="slide nd-layout-example">
-		<div class="label place top left important">Обновить</div>
-		<pre><code class="hljs javascript">registerLayout('my-layout', class myLayout {
+		<pre><code class="hljs javascript">registerLayout('my-layout', class {
 	static get inputProperties() { return ['--foo']; }
-
 	static get childrenInputProperties() { return ['--bar']; }
+	static get layoutOptions() { 
+		return {childDisplay: 'normal', sizing: 'block-like'};
+	}		
 
-	static get childDisplay() { return 'normal'; } // normal | block
-
-	*intrinsicSizes(children, styleMap) {
+	*<mark>intrinsicSizes</mark>(children, edges, styleMap) {
 		// Вычислить внутрение размеры элемента
 	}
 
-	*layout(space, children, styleMap, edges, breakToken) {
-		// Разместить всех children внутри space, учитывая edges
+	*<mark>layout</mark>(children, edges, constraints, styleMap, breakToken) {
+		// Разместить всех children
 	}
 });</code></pre>
 
 		<footer>
 			<p>
 				На первый взгляд, реализация layout worklet выглядит просто, но в спецификации до сих пор много нерешенных моментов. Layout
-				API сильно зависит от Box Tree API, и обе спецификации пока носят статус набора идей. Однако на конференции Full Stack
-				Fest 2017 Сэм Ричардс поделился внутренней информацией о том, что к концу года в Chrome Canary за флагом может появиться
-				более-менее работоспособное API.
+				API сильно зависит от Box Tree API. Однако в Chrome Canary уже есть реализация layout с ограничениями.
 			</p>
 		</footer>
 	</section>
 
 
 	<section class="slide">
-		подробнее про intrinsicSizes
+		<h2>*intrinsicSizes</h2>
+		<pre><code class="hljs">dictionary IntrinsicSizesResultOptions {
+	double maxContentSize;
+	double minContentSize;
+};</code></pre>
 	</section>
 
 
 	<section class="slide">
-		подробнее про layout
+		<h2>*layout</h2>
+		<pre><code class="hljs">dictionary FragmentResultOptions {
+	double inlineSize = 0;
+	double blockSize = 0;
+	double autoBlockSize = 0;
+	sequence<LayoutFragment> childFragments = [];
+	any data = null;
+	BreakTokenOptions breakToken = null;
+};</code></pre>
 	</section>
 
 
 	<section class="slide">
-		страничка про то, как работает поток в CSS
-	</section>
-
-
-	<section class="slide">
-		<pre><code class="language-css">/* CSS */
+		<pre><code class="hljs css">/* CSS */
 .layout-example {
 	--foo: 5;
 	display: layout(my-layout);
@@ -1556,17 +1559,12 @@ window.layoutWorklet.addModule('my-layout.js');</code></pre>
 
 
 	<section class="slide">
-		работающая masonry (ссылка)
+		https://googlechromelabs.github.io/houdini-samples/layout-worklet/masonry/
 	</section>
 
 
 	<section class="slide">
 		работающая masonry (демо)
-	</section>
-
-
-	<section class="slide">
-		разметка-змейка
 	</section>
 
 
@@ -1904,6 +1902,13 @@ animationWorklet.addModule('worklet.js').then(() => {
 	<section class="slide">
 		<h2 class="shout shout-mini no-bg">
 			<a href="https://twitter.com/DasSurma​" class="link link-twitter">DasSurma</a>
+		</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini no-bg">
+			<a href="https://googlechromelabs.github.io/houdini-samples/" class="link link-github">GoogleChromeLabs</a>
 		</h2>
 	</section>
 
