@@ -1,0 +1,96 @@
+<!doctype html>
+
+<style>
+    body {
+        display: layout(masonry);
+        --padding: 20;
+        --columns: auto;
+        --min-width: 400px;
+    }
+
+    .card {
+        background-color: hsl(200, 80%, 20%);
+        color: hsl(0, 80%, 95%);
+        font: 14px sans-serif;
+        padding: 20px;
+    }
+
+    .card__img {
+        max-width: 100%;
+    }
+</style>
+
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+<div class="card">
+    <img src="placeholder.jpg" alt="Placeholder" class="card__img">
+    <h2 class="card__heading"></h2>
+    <p class="card__text"></p>
+</div>
+
+
+<script>
+    document.querySelectorAll('.card').forEach((elem, i) => {
+        const text = `Lorem ipsum dolor sit amet, consul disputando ne his, et vim accumsan ponderum. Rebum deseruisse ex vix. Vix stet honestatis
+    definitionem an, et natum ocurreret cum, semper interpretaris cu mea. Eam saperet fierent luptatum no. Ius ei dicunt
+    detracto elaboraret.`;
+        elem.querySelector('.card__text').textContent = text.slice(0, Math.floor(Math.random() * (text.length - 10) + 10));
+        elem.querySelector('.card__heading').textContent = `Card ${i + 1}`;
+        elem.querySelector('.card__img').src = `placeholder${Math.floor(Math.random() * 5 + 1)}.png`;
+    })
+    if ('layoutWorklet' in CSS) {
+        CSS.layoutWorklet.addModule('masonry.js');
+    } else {
+        document.body.innerHTML = 'You need support for <a href="https://drafts.css-houdini.org/css-layout-api/">CSS Layout API</a> to view this demo :(';
+    }
+
+    CSS.registerProperty({
+        name: '--min-width',
+        syntax: '<length>',
+        inherits: true,
+        initialValue: '400px'
+    });
+</script>

@@ -1,0 +1,15 @@
+<!doctype html>
+
+<style>
+    layout {
+        display: layout(aspect);
+        background: #f90;
+        border: 2px solid red;
+    }
+</style>
+
+<layout id="A" style="--aspect-ratio:1; width: 300px;"></layout>
+
+<script>
+    (CSS.layoutWorklet || layoutWorklet).addModule('aspect.js');
+</script>

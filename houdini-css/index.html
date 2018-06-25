@@ -826,7 +826,7 @@ styleMap.set('transform', transformValue);</code></pre>
 		<h2>Отлов ошибок</h2>
 		<pre><code class="hljs javascript">try {
 	CSSStyleValue.parse(
-		'transform', 
+		'transform',
 		'translate4d(bogus value)'
 	);
 } catch (err) {
@@ -842,7 +842,7 @@ styleMap.set('transform', transformValue);</code></pre>
 				<ul>
 					<li>CSSUnparsedValue <i class="note">--my-custom-property: some custom value list</i></li>
 			<li>CSSKeywordValue <i class="note">border-image: initial</i></li>
-			<li>CSSNumericValue 
+			<li>CSSNumericValue
 						<ul>
 							<li>CSSUnitValue <i class="note">height: 2px</i></li>
 			<li>CSSMathValue <i class="note">width: calc(1em + 5px)</i></li>
@@ -876,7 +876,7 @@ styleMap.set('transform', transformValue);</code></pre>
 	<section class="slide">
 		<h2>Проверить поддержку</h2>
 		<pre><code class="hljs javascript">if (window.CSS && CSS.number) {
-	// В вашем браузере CSS Typed OM работает 
+	// В вашем браузере CSS Typed OM работает
 }
 		</code></pre>
 	</section>
@@ -928,7 +928,7 @@ styleMap.set('transform', transformValue);</code></pre>
 background.attributeStyleMap.get("background").value; // "green"
 
 const styles = window.<mark>cssParse.ruleSet</mark>(
-	`.foo { 
+	`.foo {
 		background: green;
 		margin: 42px;
 	}`
@@ -1185,7 +1185,7 @@ registerSomeWorklet('some-worklet-name', class {
 			.innerHTML;
 		const blob = new Blob([src], {type: 'text/javascript'});
 		return URL.createObjectURL(blob);
-	}	
+	}
 	if ('paintWorklet' in CSS) {
 		CSS.paintWorklet.addModule(blobWorklet());
 	}
@@ -1306,6 +1306,13 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 	<section class="slide">
 		<h2 class="no-bg shout shout-mini">
 			<img src="pictures/chrome-logo.svg" height="55" alt=""> Chrome 65+</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini no-bg">
+			<a href="https://github.com/GoogleChromeLabs/css-paint-polyfill" class="link link-github">css-paint-polyfill</a>
+		</h2>
 	</section>
 
 
@@ -1493,9 +1500,9 @@ p::first-letter { color: red; }
 		<pre><code class="hljs javascript">registerLayout('my-layout', class {
 	static get inputProperties() { return ['--foo']; }
 	static get childrenInputProperties() { return ['--bar']; }
-	static get layoutOptions() { 
+	static get layoutOptions() {
 		return {childDisplay: 'normal', sizing: 'block-like'};
-	}		
+	}
 
 	*<mark>intrinsicSizes</mark>(children, edges, styleMap) {
 		// Вычислить внутрение размеры элемента
@@ -1559,37 +1566,27 @@ window.layoutWorklet.addModule('my-layout.js');</code></pre>
 
 
 	<section class="slide">
-		https://googlechromelabs.github.io/houdini-samples/layout-worklet/masonry/
+		<iframe src="demos/8_masonry-layout/" frameborder="0" class="cover width height"></iframe>
 	</section>
 
 
 	<section class="slide">
-		работающая masonry (демо)
-	</section>
-
-
-	<section class="slide">
-		<ul>
-			<li>masonry</li>
-			<li>subgrid</li>
-			<li>container query</li>
-			<li>layout animation transitions</li>
-			<li>line by line layout (rounded screens)</li>
-			<li></li>
-		</ul>
-	</section>
-
-
-	<section class="slide">
-		https://twitter.com/kizmarh/status/992346531423510528 — динамический justify-content
-	</section>
-
-
-	<section class="slide">
-		<div class="label place top left important">Обновить</div>
-		<h2 class="shout shout-mini">Демо
-			<a href="./demos/6_hexagon-layout/index.html">layout(hexagon)</a>
+		<h2 class="shout shout-mini no-bg">Демо
+			<a href="./demos/8_masonry-layout/index.html">masonry</a>
 		</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2>Идеи</h2>
+		<ul>
+			<li><a href="https://googlechromelabs.github.io/houdini-samples/layout-worklet/masonry/">masonry</a></li>
+			<li><a href="https://rawgit.com/FremyCompany/css-grid-polyfill/houdini-experiment/bin/demo%5Bsubgrid%5D.html">subgrid</a></li>
+			<li>container query</li>
+			<li>анимация переходов layout</li>
+			<li>line by line layout (круглые экраны)</li>
+			<li><a href="demos/9_aspect-ratio-layout/index.html">aspect ratio layout</a></li>
+		</ul>
 	</section>
 
 
@@ -1615,7 +1612,6 @@ window.layoutWorklet.addModule('my-layout.js');</code></pre>
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
 		<h2 class="shout shout-mini">
 			CSS Animation Worklet API
 		</h2>
@@ -1791,7 +1787,6 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
 		<h2 class="shout shout-mini">
 			Демо
 			<a href="http://googlechromelabs.github.io/houdini-samples/">от Google</a>
@@ -1800,7 +1795,6 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
 		<h2 class="shout shout-mini">
 			Демо
 			<a href="https://css-houdini.rocks/">от Vincent De Oliveira</a>
@@ -1927,6 +1921,9 @@ animationWorklet.addModule('worklet.js').then(() => {
 		<h2>Материалы по теме</h2>
 		<p class="list-header">Статьи</p>
 		<ol>
+			<li>
+				<a href="https://houdini.glitch.me/">Interactive Introduction to CSS Houdini</a>, Sam Richard
+			</li>
 			<li>
 				<a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of</a>, Philip Walton
 			</li>
