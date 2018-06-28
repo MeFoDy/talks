@@ -10,18 +10,19 @@ isWorkletReady
             new KeyframeEffect(
                 scrollToTopElemet,
                 [
-                    { 'transform': 'translateY(' + scrollAnimationLength + 'px)', 'opacity': '0' },
+                    { 'transform': 'translateY(' + (1000 + scrollAnimationLength) + 'px)', 'opacity': '0' },
                     { 'transform': 'translateY(0)', 'opacity': '1' }
                 ],
                 {
-                    duration: 1,
+                    duration: 3,
                     iterations: 1,
                     fill: 'both',
                 }),
         ];
         const scrollToTopTimeline = new ScrollTimeline({
+            orientation: 'block',
+            timeRange: 10,
             scrollSource,
-            orientation: 'vertical',
             startScrollOffset: '200px',
             endScrollOffset: (scrollAnimationLength + 200) + 'px',
         });

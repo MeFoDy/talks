@@ -3,12 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"
-          href="style.css">
-    <link rel="stylesheet"
-          href="scroll-position.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="scroll-position.css">
     <title>Houdini Scroll Animation</title>
 </head>
 
@@ -173,7 +170,7 @@
         </div>
 
         <footer class="site-footer">
-            <p class="footer-text">Copyright © 2017 - Website Name</p>
+            <p class="footer-text">Copyright © 2018 - Website Name</p>
         </footer>
 
 
@@ -188,9 +185,8 @@
 
     </div>
 
-    <script src="polyfill/anim-worklet.js"></script>
     <script>
-        const isWorkletReady = window.animationWorkletPolyfill.addModule('worklet.js');
+        const isWorkletReady = window.animationWorklet.addModule('worklet.js');
     </script>
 
     <script src="scroll-to-top-animator.js"></script>

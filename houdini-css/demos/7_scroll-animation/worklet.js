@@ -6,8 +6,6 @@ registerAnimator(
         }
 
         animate(currentTime, effect) {
-            effect.children.forEach((children) => {
-                children.localTime = currentTime;
-            });
+            effect.localTime = currentTime;
         }
     });

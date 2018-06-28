@@ -51,11 +51,6 @@
 	</section>
 
 
-	<section class="slide black clear">
-		<video src="./pictures/houdini_lullaby.mp4" class="cover" autoplay muted loop></video>
-	</section>
-
-
 	<section class="slide">
 		<h2 class="no-bg">Никита Дубко</h2>
 		<ul>
@@ -67,6 +62,11 @@
 		<img src="pictures/minskjs-logo.svg" alt="MinskJS" width="120" style="margin-right: 30px;">
 		<img src="pictures/css-minsk-js-logo.svg" alt="CSS-Minsk-JS" width="120" height="120" style="padding: 10px; background-color: #2b2727;">
 		<img class="place right height cover" src="pictures/me.jpg" alt="Никита Дубко">
+	</section>
+
+
+	<section class="slide black clear">
+		<video src="./pictures/houdini_lullaby.mp4" class="cover" autoplay muted loop></video>
 	</section>
 
 
@@ -541,6 +541,11 @@ var arrowFunction = function arrowFunction(a) {
 	</section>
 
 
+	<section class="slide black clear">
+		<img src="pictures/genie-sad.gif" alt="Sad" class="cover height">
+	</section>
+
+
 	<section class="slide clear black">
 		<img src="pictures/genie-rub.gif" class="cover width" alt="">
 	</section>
@@ -626,6 +631,7 @@ var arrowFunction = function arrowFunction(a) {
 
 
 	<section class="slide">
+		<img src="pictures/carpet.png" alt="" style="height: 600px" class="place left bottom">
 		<h2 class="shout shout-mini">CSS Custom Properties</h2>
 		<footer>
 			<p>
@@ -733,7 +739,8 @@ document.documentElement.style.setProperty('--r', 190);</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">CSS Typed OM</h2>
+		<h2 class="shout shout-mini place bottom">CSS Typed OM</h2>
+		<img src="pictures/aladdin-beaty.jpg" alt="" class="cover height">
 		<footer>
 			<p>
 				Перейдем к рассмотрению непосредственно спецификаций CSS Houdini.
@@ -918,7 +925,8 @@ styleMap.set('transform', transformValue);</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">CSS Parser API</h2>
+		<img src="pictures/genie-wat.png" alt="" class="cover height">
+		<h2 class="shout shout-mini place bottom">CSS Parser API</h2>
 	</section>
 
 
@@ -984,7 +992,8 @@ style.then(console.log);</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">CSS Properties and Values API</h2>
+		<img src="pictures/genie-dance.jpg" alt="" class="cover height">
+		<h2 class="shout shout-mini place bottom">CSS Properties and Values API</h2>
 	</section>
 
 
@@ -1127,7 +1136,8 @@ CSS.registerProperty({
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">Worklets</h2>
+		<img src="pictures/guards.jpg" alt="" class="cover width">
+		<h2 class="shout shout-mini place bottom">Worklets</h2>
 		<footer>
 			<p>
 				<mark>Worklet</mark> — урезанный Worker с ограниченными правами и работающий параллельно основному потоку. У него нет доступа
@@ -1164,6 +1174,11 @@ registerSomeWorklet('some-worklet-name', class {
 	</section>
 
 
+	<section class="slide clear">
+		<img src="pictures/genie-cheerleader.gif" alt="Много потоков" class="cover height">
+	</section>
+
+
 	<section class="slide">
 		<h2>Загрузка через Blob. Шаг 1</h2>
 		<pre><code class="hljs html">&lt;script <mark>language="javascript+paint</mark>"&gt;
@@ -1194,7 +1209,8 @@ registerSomeWorklet('some-worklet-name', class {
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">CSS Painting API 🎨</h2>
+		<img src="pictures/genie-costumes.jpg" alt="" class="cover height">
+		<h2 class="shout shout-mini place bottom">CSS Painting API 🎨</h2>
 		<footer>
 			<p>
 				Если внутри вас сидит художник, или дизайнер на проекте «так видит», а заказчик это видение одобряет, то
@@ -1205,7 +1221,6 @@ registerSomeWorklet('some-worklet-name', class {
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
 		<h2>CSS Painting API</h2>
 		<p>Можно применять для отрисовки свойств:</p>
 		<ul>
@@ -1241,7 +1256,6 @@ registerSomeWorklet('some-worklet-name', class {
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
 		<pre><code class="hljs javascript">// my-paint.js
 registerPaint('my-paint', class MyPaint {
 	static get inputProperties() { return ['--foo']; }
@@ -1481,7 +1495,8 @@ p::first-letter { color: red; }
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">CSS Layout API 🚀</h2>
+		<img src="pictures/genie-wow.jpg" alt="" class="cover height">
+		<h2 class="shout shout-mini place bottom">CSS Layout API 🚀</h2>
 		<footer>
 			<p>
 				<mark>CSS Layout API</mark> — самое сложное, и при этом самое мощное нововведение CSS Houdini. Оно позволит вмешиваться прямо
@@ -1612,20 +1627,20 @@ window.layoutWorklet.addModule('my-layout.js');</code></pre>
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">
+		<img src="pictures/genie-rabbit.jpg" alt="" class="cover height">
+		<h2 class="shout shout-mini place bottom">
 			CSS Animation Worklet API
 		</h2>
 	</section>
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
 		<h2>Web Animations</h2>
 		<pre><code class="hljs javascript">// JavaScript
 const element = document.querySelector('.my-element');
 element.animate([
 	{'--some-color': 'red',  'opacity': 0 },
-	{'--some-color': 'blue', 'opacity': 1},
+	{'--some-color': 'blue', 'opacity': 1 },
 ], {
 	direction: 'alternate',
 	duration: 5000,
@@ -1646,7 +1661,11 @@ element.animate([
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
+		<img src="pictures/caniuse-web-animations.jpg" alt="Web Animations" class="cover width">
+	</section>
+
+
+	<section class="slide">
 		<pre><code class="hljs javascript">// worklet.js
 registerAnimator(
 	'scroll-position-animator',
@@ -1656,9 +1675,7 @@ registerAnimator(
 		}
 
 		animate(currentTime, effect) {
-			effect.children.forEach((child) => {
-				child.localTime = currentTime;
-			});
+			effect.localTime = currentTime;
 		}
 	});
 </code></pre>
@@ -1685,7 +1702,7 @@ const frames = [
 			{ 'transform': 'translateY(100px)', 'opacity': '0' },
 			{ 'transform': 'translateY(0)', 'opacity': '1' }
 		],
-		{ duration: 1, iterations: 1, fill: 'both' }
+		{ duration: 10, iterations: 1, fill: 'both' }
 	)
 ];
 </code></pre>
@@ -1701,6 +1718,7 @@ const frames = [
 		<pre><code class="hljs javascript">// app.js
 
 const timeline = new ScrollTimeline({
+	timeRange: 10,
 	scrollSource: document.querySelector('.page-wrapper'),
 	orientation: 'vertical',
 	startScrollOffset: '200px',
@@ -1739,8 +1757,8 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">
-			полифил
+		<h2 class="shout shout-mini no-bg">
+			Полифил
 			<a href="https://github.com/GoogleChromeLabs/houdini-samples/blob/master/animation-worklet/anim-worklet.js">anim-worklet</a>
 		</h2>
 		<footer>
@@ -1754,9 +1772,27 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<h2 class="shout shout-mini">Демо
+		<h2 class="shout shout-mini no-bg">Демо
 			<a href="./demos/7_scroll-animation/index.html">scroll-animation</a>
 		</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shout-mini no-bg">Демо
+			<a href="./demos/10_parallax-animation/index.html">parallax-animation</a>
+		</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2>Где использовать?</h2>
+		<ul>
+			<li class="next">Анимации, привязанные к скроллу.</li>
+			<li class="next">Свои timing-функции для анимаций.</li>
+			<li class="next">Синхронизация анимаций.</li>
+			<li class="next">Отслеживание позиции скролла.</li>
+		</ul>
 	</section>
 
 
@@ -1781,30 +1817,8 @@ animationWorklet.addModule('worklet.js').then(() => {
 	</section>
 
 
-	<section class="slide">
-		где вдохновляться?
-	</section>
-
-
-	<section class="slide">
-		<h2 class="shout shout-mini">
-			Демо
-			<a href="http://googlechromelabs.github.io/houdini-samples/">от Google</a>
-		</h2>
-	</section>
-
-
-	<section class="slide">
-		<h2 class="shout shout-mini">
-			Демо
-			<a href="https://css-houdini.rocks/">от Vincent De Oliveira</a>
-		</h2>
-	</section>
-
-
 	<section class="slide clear black">
-		<div class="label place top left important">Обновить</div>
-		<img src="./pictures/success.gif" alt="Friends" class="cover height">
+		<img src="./pictures/aladdin-arnold-schwartzeneger.gif" alt="Strength" class="cover height">
 		<footer>
 			<p>Получается, что CSS Houdini дает нам контроль над всеми этапами рендеринга страницы?</p>
 			<p>
@@ -1814,7 +1828,6 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<div class="label place top left important">Обновить</div>
 		<h2 class="shout shout-mini">Font Metrics API</h2>
 	</section>
 
@@ -1833,7 +1846,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide clear black">
-		<img src="./pictures/barnie.gif" class="cover width" alt="Барни Стинсон">
+		<img src="./pictures/aladdin-genie-robin-williams.gif" class="cover height" alt="Happy">
 		<footer>
 			<p>
 				Пока мозг еще удерживает полученную информацию, коротко сформулируем, что же нового нам несет CSS Houdini.
@@ -1854,6 +1867,11 @@ animationWorklet.addModule('worklet.js').then(() => {
 	</section>
 
 
+	<section class="slide clear">
+		<img src="pictures/aladdin-genie-pinocchio.gif" alt="" class="cover height">
+	</section>
+
+
 	<section class="slide">
 		<h2>Недостатки Houdini</h2>
 		<ol>
@@ -1866,7 +1884,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide clear">
-		<img src="./pictures/ishoudinireadyyet.png" alt="http://ishoudinireadyyet.com" class="cover width">
+		<img src="./pictures/ishoudinireadyyet.png" alt="https://ishoudinireadyyet.com" class="cover width">
 		<footer>
 			<p>
 				Как обстоят дела с другими браузерами?
@@ -1908,12 +1926,23 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide">
-		<img src="pictures/teamwork.png" alt="" class="cover height">
+		<h2 class="shout shout-mini no-bg">
+			<a href="https://houdini.glitch.me/">houdini.glitch.me</a>
+		</h2>
 	</section>
 
 
 	<section class="slide">
-		как использовать прямо сейчас (fallback)
+		<h2 class="shout shout-mini no-bg">
+			<a href="https://css-houdini.rocks/">css-houdini.rocks</a>
+		</h2>
+	</section>
+
+
+
+
+	<section class="slide">
+		<img src="pictures/teamwork.png" alt="" class="cover height">
 	</section>
 
 
