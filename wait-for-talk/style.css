@@ -1,0 +1,13 @@
+.terminal {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.slide pre code {
+    line-height: 1.6em;
+    font-size: 0.9em;
+}
+
+.z-top {
+    z-index: 1 !important;
+}
