@@ -6,3 +6,17 @@ img[src=''] {
 .z-top {
     z-index: 1 !important;
 }
+
+.shadow {
+    box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.5);
+}
+
+pre.success {
+    border: 1px solid #74e074;
+    padding: 10px 20px;
+}
+
+pre.error {
+    border: 1px solid #e07474;
+    padding: 10px 20px;
+}

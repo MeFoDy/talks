@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="4550px" height="4050px"
+	 viewBox="0 0 4550 4050" style="enable-background:new 0 0 4550 4050;" xml:space="preserve">
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  bottomLeftOrigin="true" width="4141" height="3620" y="-1379" x="-1790"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<g id="Shape_2_1_" style="enable-background:new    ;">
+	<g id="Shape_2">
+		<g>
+			<polygon style="fill:#9A9A9A;" points="179,580 688,1532 992,1530 992,850 			"/>
+		</g>
+	</g>
+</g>
+<g id="Shape_2_copy_1_" style="enable-background:new    ;">
+	<g id="Shape_2_copy">
+		<g>
+			<polygon style="fill:#9A9A9A;" points="3496,850 3465,1530 3796,1530 4316,590 			"/>
+		</g>
+	</g>
+</g>
+<g id="Shape_1_1_" style="enable-background:new    ;">
+	<g id="Shape_1">
+		<g>
+			<path style="fill:#4D4D4D;" d="M3240,590l-660,1140l-700,10L1230,580H180l330,620h280l550,970l880,1630l860-1550l590-1050h310
+				l340-610H3240z M2225,2670c-207.106,0-375-167.893-375-375c0-207.106,167.894-375,375-375c207.107,0,375,167.894,375,375
+				C2600,2502.107,2432.107,2670,2225,2670z"/>
+		</g>
+	</g>
+</g>
+<g id="Ellipse_1_copy_1_" style="enable-background:new    ;">
+	<g id="Ellipse_1_copy">
+		<g>
+			<path style="fill:#3F89EC;" d="M2912.286,1532.193c104.327-140.917,166.03-315.283,166.03-504.064
+				C3078.316,559.721,2698.512,180,2230,180c-468.513,0-848.316,379.721-848.316,848.129c0,188.781,61.703,363.147,166.03,504.065
+				C1340.374,1718.854,1210,1989.313,1210,2290.226C1210,2853.432,1666.67,3310,2230,3310s1020-456.568,1020-1019.774
+				C3250,1989.313,3119.627,1718.854,2912.286,1532.193z M2235,820c113.219,0,205,91.781,205,205s-91.781,205-205,205
+				s-205-91.781-205-205S2121.781,820,2235,820z M2230,2580c-160.162,0-290-129.838-290-290s129.838-290,290-290
+				s290,129.838,290,290S2390.162,2580,2230,2580z"/>
+		</g>
+	</g>
+</g>
+</svg>
