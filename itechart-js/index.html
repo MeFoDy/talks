@@ -236,68 +236,142 @@ console.log(b); // "1 > 0"</code></pre>
 
 
         <section class="slide">
-            Правильное имя для переменной (camelCase, const)
+            <h2>Типы данных</h2>
+            <ul>
+                <li>number,</li>
+                <li>string,</li>
+                <li>boolean,</li>
+                <li>null,</li>
+                <li>undefined,</li>
+                <li>object*</li>
+            </ul>
         </section>
 
 
         <section class="slide">
-            типы данных: number, string, boolean, null, undefined, object*, function**
+            <h2>Number</h2>
+            <ul>
+                <li>255</li>
+                <li>0xFF</li>
+                <li>2.55e2 (2.55 * 10<sup>2</sup>)</li>
+                <li>0b11111111</li>
+                <li><code>Number.MIN_VALUE</code> — минимальное безопасное целое число</li>
+                <li><code>Number.MAX_VALUE</code> — наибольшее представимое положительное число</li>
+            </ul>
         </section>
 
 
         <section class="slide">
-            number: формы записи
+            <h2>NaN (Not-A-Number)</h2>
+            <pre><code class="hljs javascript">0 / 0; // NaN
+"string" - 2; // NaN
+
+NaN == NaN; // false
+NaN === NaN; // false
+
+var x = 0 / 0;
+x !== x; // true</code></pre>
         </section>
 
 
         <section class="slide">
-            NaN, Infinity, -Infinity
+            <h2>±Infinity</h2>
+            <pre><code class="hljs javascript">1 / 0; // Infinity
+-1 / 0; // -Infinity
+
+Infinity === Infinity + Infinity; // true
+
+1e100500; // Infinity</code></pre>
         </section>
 
 
         <section class="slide">
-            string
+            <h2>String</h2>
+            <ul>
+                <li>UTF-16</li>
+                <li>Неизменяемые</li>
+            </ul>
+            <pre><code class="hljs javascript">"Double Quoted \"String\""
+'Single\nQuoted\nString'
+`Backtick (ES6) String`</code></pre>
         </section>
 
 
         <section class="slide">
-            boolean
+            <h2>Boolean</h2>
+            <pre><code class="hljs javascript">true;
+false;</code></pre>
         </section>
 
 
         <section class="slide">
-            null
+            <h2>null</h2>
+            <pre><code class="hljs javascript">var x = null;
+x; // null</code></pre>
         </section>
 
 
         <section class="slide">
-            undefined
+            <h2>undefined</h2>
+            <pre><code class="hljs javascript">var u;
+u; // undefined</code></pre>
         </section>
 
 
         <section class="slide">
-            object
+            <h2>Object</h2>
+            <pre><code class="hljs javascript">var obj = {
+    property: 'value',
+    'some-really-strange name with spaces': false,
+    'можно даже так 🙈': 42,
+    method: function() { console.log('😃'); }
+};</code></pre>
         </section>
 
 
         <section class="slide">
-            typeof
+            <h2>Object</h2>
+            <pre><code class="hljs javascript">var obj = new Object();
+obj.property = 'value';
+obj['some-really-strange name with spaces'] = false;
+obj['можно даже так 🙈'] = 42;
+obj.method = function() { console.log('😃'); };</code></pre>
         </section>
 
 
         <section class="slide">
-            typeof null == "object"
+            <h2>Array</h2>
+            <pre><code class="hljs javascript">var a = [1, 2, 3];
+var b = [];
+b[0] = 1;
+b[13] = 14;
+
+var c = new Array(100);
+
+var d = [,,,,,,,,,,];</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>typeof</h2>
+            <pre><code class="hljs javascript">typeof 123; // number
+typeof 'Students Lab 2018'; // string
+typeof true; // boolean
+typeof null; // object O_o
+typeof undefined; // undefined
+typeof {}; // object
+typeof []; // object</code></pre>
         </section>
 
 
         <section class="slide">
             <h2>Математические операторы</h2>
             <ul>
-                <li>унарные + и -</li>
-                <li>бинарные + и -</li>
-                <li>++ и --</li>
-                <li>*, /</li>
-                <li>% (остаток от деления)</li>
+                <li>унарные <code>+</code> и <code>-</code></li>
+                <li>бинарные <code>+</code> и <code>-</code></li>
+                <li><code>++</code> и <code>--</code></li>
+                <li><code>*</code>, <code>/</code></li>
+                <li><code>%</code> (остаток от деления)</li>
             </ul>
         </section>
 
@@ -305,148 +379,341 @@ console.log(b); // "1 > 0"</code></pre>
         <section class="slide">
             <h2>Побитовые операторы</h2>
             <ul>
-                <li>& (AND), | (OR), ^ (XOR)</li>
-                <li>~ (NOT)</li>
-                <li><< (LEFT SHIFT), >> (RIGHT SHIFT)</li>
-                <li>>>> (ZERO-FILL RIGHT SHIFT)</li>
+                <li><code>&</code> (AND), <code>|</code> (OR), <code>^</code> (XOR)</li>
+                <li><code>~</code> (NOT)</li>
+                <li><code><<</code> (LEFT SHIFT), <code>>></code> (RIGHT SHIFT)</li>
+                <li><code>>>></code> (ZERO-FILL RIGHT SHIFT)</li>
             </ul>
         </section>
 
 
         <section class="slide">
-            Оператор запятая
+            <h2>Присвоение</h2>
+            <ul>
+                <li><code>a = 1</code></li>
+                <li><code>b += 2</code> эквивалентно <code>b = b + 2</code></li>
+                <li><code>c /= 3</code> эквивалентно <code>c = c / 3</code></li>
+                <li><code>d -= 4</code> эквивалентно <code>d = d - 4</code></li>
+                <li><code>e *= 5</code> эквивалентно <code>e = e * 5</code></li>
+                <li><code>f &= 0xFF</code> эквивалентно <code>f = f & 0xFF</code></li>
+                <li><code>g ^= 0b101</code> эквивалентно <code>g = g ^ 0b101</code></li>
+                <li>...</li>
+            </ul>
         </section>
 
 
         <section class="slide">
-            Присвоение (=, += /= -= *=, |= ^=)
+            <h2>Оператор «запятая­»</h2>
+            <pre><code class="hljs javascript">var a, b, c;
+a = 1, b = a, c = b + 1; // 2</code></pre>
+            <br>
+            <div class="next">
+                <p>
+                    <b>Не путать</b> с разделителем аргументов функции, полей объекта и элементов массива:</p>
+                <pre><code class="hljs javascript">var a = [1, 2, 3];
+var o = { x: 42, y: 24 };
+var f = function(a, b, c) {};</code></pre>
+            </div>
         </section>
 
 
         <section class="slide">
             <h2>Операторы сравнения</h2>
             <ul>
-                <li>>, <</li>
-                <li>>=, <=</li>
-                <li>==, ===</li>
-                <li>!=, !==</li>
+                <li><code>></code>, <code><</code></li>
+                <li><code>>=</code>, <code><=</code></li>
+                <li><code>==</code>, <code>===</code></li>
+                <li><code>!=</code>, <code>!==</code></li>
             </ul>
+            <pre><code class="hljs javascript">12 > 10; // true
+({}) != ({}); // true
+NaN === NaN; // false</code></pre>
         </section>
 
 
         <section class="slide">
-            Можно сравнивать все
+            <h2>== или ===</h2>
+            <ul>
+                <li><code>===</code> не преобразует типы</li>
+                <li><code>==</code> пытается привести обе стороны к одному типу для сравнения</li>
+            </ul>
+            <pre><code class="hljs javascript">1 == "1"; // true
+1 === "1"; // false
+
+({}) == true; // false
+({}).toString() == true; // false
+"[object Object]" == "true"; // false</code></pre>
+        </section>
+
+
+        <section class="slide no-heading">
+            <ul>
+                <li>Значения <code>null</code> и <code>undefined</code> равны <code>==</code> друг другу и не равны чему бы то ни было ещё.</li>
+                <li>При преобразовании в число <code>null</code> равен <code>0</code>, а <code>undefined</code> равен <code>NaN</code>.</li>
+            </ul>
+            <pre><code class="hljs javascript">null == undefined; // true
+null === undefined; // false
+
+null > 0; // false
+null == 0; // false
+null >= 0; // true O_o</code></pre>
         </section>
 
 
         <section class="slide">
-            == или ===
-        </section>
-
-
-        <section class="slide">
-            Сравнение с null и undefined
+            <h2 class="shout">Приводите к нужному типу явно!</h2>
         </section>
 
 
         <section class="slide">
             <h2>Логические операторы</h2>
             <ul>
-                <li>|| (OR)</li>
-                <li>&& (AND)</li>
-                <li>! (NOT)</li>
+                <li><code>||</code> (OR)</li>
+                <li><code>&&</code> (AND)</li>
+                <li><code>!</code> (NOT)</li>
             </ul>
         </section>
 
 
         <section class="slide">
-            Короткие записи a || b, a && b
-        </section>
-
-
-        <section class="slide">
-            if
-        </section>
-
-
-        <section class="slide">
-            тернарный оператор
-        </section>
-
-
-        <section class="slide">
-            Преобразование типов
-        </section>
-
-
-        <section class="slide">
-            <h2>В строку</h2>
+            <h2>falsy и truly</h2>
             <ul>
-                <li>a + ""</li>
-                <li>String(a)</li>
+                <li><mark>falsy</mark>
+                    <ul><li>false</li><li>0</li><li>''</li><li>null</li><li>undefined</li><li>NaN</li></ul>
+            </li>
+            <li><mark>truly</mark> — все остальное</li>
             </ul>
         </section>
 
 
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript" style="font-size: 0.9em;">var b = true && 0 && '';
+b === 0; // true
+// -------------------------------
+var result = true;
+if (result) {
+    result = 0;
+    if (result) {
+        result = '';
+    }
+}
+var b = result;</code></pre>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript" style="font-size: 0.9em;">var a = false || 0 || 'value';
+a === 'value'; // true
+// -------------------------------
+var result = false;
+if (!result) {
+    result = 0;
+    if (!result) {
+        result = 'value';
+    }
+}
+var a = result;</code></pre>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">function test(a, b, c) {
+    a = a || 'default';
+    b = b || 42;
+    c = c || false;
+}</code></pre>
+        </section>
+
+
         <section class="slide">
-            <h2>В число</h2>
+            <h2>Условия</h2>
+            <pre><code class="hljs javascript">if (a > b) {
+    console.log('a > b');
+} else {
+    console.log('a <= b');
+}
+
+if (a > b) console.log('a > b');
+else console.log('a < b');</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Тернарный оператор</h2>
+            <pre><code class="hljs javascript">var isMore = (a > b) ? true : false;
+// -------------------------------
+var isMore;
+if (a > b) {
+    isMore = true;
+} else {
+    isMore = false;
+}</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Циклы</h2>
             <ul>
-                <li>+"123"</li>
-                <li>Number(a)</li>
-                <li>parseInt, parseFloat</li>
+                <li>for</li>
+                <li>while</li>
+                <li>do ... while</li>
             </ul>
         </section>
 
 
         <section class="slide">
-            <h2>В boolean</h2>
+            <h2>Цикл for</h2>
+            <pre><code class="hljs javascript">for (var i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+for (var i = 10, b = 'init'; i > 0; ) {
+    console.log(i);
+    i--;
+}</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Цикл while</h2>
+            <pre><code class="hljs javascript">var isLucky = true;
+while (isLucky) {
+    isLucky = Math.random() > 0.5;
+}</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Цикл do ... while</h2>
+            <pre><code class="hljs javascript">var isLucky = false;
+do {
+    isLucky = Math.random() > 0.5;
+} while (isLucky);</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>break, continue</h2>
+            <pre><code class="hljs javascript">while (true) {
+    if (Math.random() > 0.5)
+        break;
+}
+while (true) {
+    if (Math.random() < 0.5)
+        continue;
+    break;
+}</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>switch</h2>
+            <pre><code class="hljs javascript" style="font-size: 0.85em;">switch (number) {
+    case 1:
+    case 2:
+        console.log('один или два');
+        break;
+    case 3:
+        console.log('три');
+        break;
+    default:
+        console.log('мы это не проходили :|');
+}</code></pre>
+        </section>
+
+
+        <section class="slide red clear">
+            <h2 class="red-title">Преобразование типов</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2>Приведение к строке</h2>
             <ul>
-                <li>!!a</li>
-                <li>Boolean(a)</li>
+                <li><code>a + ""</code></li>
+                <li><code>String(a)</code></li>
+                <li><code>a.toString()</code></li>
             </ul>
         </section>
 
 
         <section class="slide">
-            undefined, null -> false
-            <br> Числа -> Все true, кроме 0, NaN -- false.
-            <br> Строки -> Все true, кроме пустой строки "" -- false
-            <br> Объекты -> Всегда true
+            <h2>Приведение к числу</h2>
+            <ul>
+                <li><code>+'123'</code></li>
+                <li><code>Number(a)</code></li>
+                <li><code>parseInt(a)</code></li>
+                <li><code>parseFloat(a)</code></li>
+            </ul>
         </section>
 
 
         <section class="slide">
-            Циклы for, while, do while
+            <h2>Приведение к boolean</h2>
+            <ul>
+                <li><code>!!a</code></li>
+                <li><code>Boolean(a)</code></li>
+            </ul>
+        </section>
+
+
+        <section class="slide red clear">
+            <h2 class="red-title">Функции</h2>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">function someFunction(someArgument) {
+    var myVar = someArgument + ' test';
+    var result = callSomeAnotherFunction(myVar);
+    return result;
+}
+
+someFunction('2018');</code></pre>
         </section>
 
 
         <section class="slide">
-            break, continue
+            <h2>arguments</h2>
+            <pre><code class="hljs javascript">function printArguments() {
+    for (var i = 0; i < <mark>arguments</mark>.length; i++) {
+        console.log(arguments[i]);
+    }
+}
+printArguments(1, 'two', [1,2,3]);</code></pre>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">function returnUndefined() {
+    doSomething();
+    var a = 1 + 12;
+}
+
+var result = returnUndefined();
+result === undefined; // true</code></pre>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">function returnUndefined() {
+    doSomething();
+    return;
+    var a = 1 + 12; // не будет исполнено
+}
+
+var result = returnUndefined();
+result === undefined; // true</code></pre>
         </section>
 
 
         <section class="slide">
-            switch
-        </section>
-
-
-        <section class="slide">
-            Функции
-        </section>
-
-
-        <section class="slide">
-            аргументы
-        </section>
-
-
-        <section class="slide">
-            return
-        </section>
-
-
-        <section class="slide">
-            имя функции (глагол)
+            <h2>Имя функции</h2>
+            <ul>
+                <li>Если функция что-то делает, вычисляет — начинается с глагола:<br><code>getData</code>, <code>callPolice</code>, <code>joinItechart</code>.</li>
+                <li>Если возвращает какой-то признак — формы глаголов <i>to be</i> или <i>to have</i>:<br><code>isStudent</code>, <code>hasKnowledge</code>.</li>
+                <li>Если функция названа правильно, вам не нужно будет исследовать тело функции в месте её вызова.</li>
+            </ul>
         </section>
 
 
@@ -471,7 +738,12 @@ console.log(b); // "1 > 0"</code></pre>
 
 
         <section class="slide">
+            встроенные библиотеки
+        </section>
 
+
+        <section class="slide">
+            Math
         </section>
 
 
