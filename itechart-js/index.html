@@ -718,65 +718,509 @@ result === undefined; // true</code></pre>
 
 
         <section class="slide">
-            функциональное выражение (function expression)
+            <h2>Анонимные функции</h2>
+            <pre><code class="hljs javascript">var filtered = a.filter(<mark>function</mark>(element) {
+    return !!a;
+});</code></pre>
         </section>
 
 
         <section class="slide">
-            анонимные функции
+            <h2>Function expression</h2>
+            <pre><code class="hljs javascript">var isMore = function(a, b) {
+    return a > b;
+}</code></pre>
         </section>
 
 
         <section class="slide">
-            new Function()
+            <h2>new Function()</h2>
+            <pre><code class="hljs javascript">var sum = new Function('a, b', 'return a + b;');
+sum(1, 2); // 3</code></pre>
         </section>
 
 
         <section class="slide">
-            стек вызова функций
+            <h2>Стек вызовов</h2>
+            <pre><code class="hljs javascript">function multiply(x, y) {
+    return x * y;
+}
+function printSquare(x) {
+    var s = multiply(x, x);
+    console.log(s);
+}
+printSquare(5);</code></pre>
         </section>
 
 
         <section class="slide">
-            встроенные библиотеки
+            <img src="pictures/call-stack.png" alt="" class="cover">
         </section>
 
 
         <section class="slide">
-            Math
+            <pre><code class="hljs javascript">function foo() {
+    foo();
+}
+foo();</code></pre>
         </section>
 
 
         <section class="slide">
-            В браузере (движке)
-        </section>
-
-        <section class="slide">
-            Как подключить к странице
+            <img src="pictures/stack-overflow.png" class="cover" alt="">
         </section>
 
 
-        <section class="slide">
-            Порядок исполнения
+        <section class="slide red clear">
+            <h2 class="red-title">Объекты</h2>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">var myObject = {
+    a: 1,
+    b: 'two',
+    c: [3, 4, 5],
+    d: {
+        e: 'и так можно'
+    },
+    f: function() { console.log('я сделяль'); }
+}</code></pre>
         </section>
 
 
         <section class="slide">
-            defer, async
+            <h2>Свойства объекта</h2>
+            <pre><code class="hljs javascript">var obj = {
+    a: 1,
+    f: function() { console.log('test'); }
+};
+
+for (key <mark>in</mark> obj) {
+    console.log(key + ': ' + obj[key]);
+}</code></pre>
         </section>
 
 
         <section class="slide">
-            Проверить подключение alert
+            <h2>Методы объекта</h2>
+            <pre><code class="hljs javascript">var obj = {
+    isMore: function(a, b) { return a > b; }
+}
+
+obj.isLess = function(a, b) { return a < b };
+obj.isLess(1, 2); // true
+
+obj['странное имя 😱'] = function() { return '😱'; }</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Работа с ссылками</h2>
+            <pre><code class="hljs javascript">var user = { name: 'Tony Stark' };
+
+var admin = user;
+
+admin.name = 'Eddard Stark';
+user.name; // 'Eddard Stark'</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">.toString()</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">.valueOf()</h2>
+        </section>
+
+
+        <section class="slide red clear">
+            <h2 class="red-title">Массивы</h2>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">var a = [];
+
+var fruits = ["Яблоко", "Апельсин", "Слива"];
+fruits[0]; // Яблоко
+fruits.<mark>length</mark>; // 3</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Методы массивов</h2>
+            <ul>
+                <li>unshift, shift</li>
+                <li>push, pop</li>
+            </ul>
+        </section>
+
+
+        <section class="slide">
+            <img src="pictures/array-speed.png" class="cover" alt="">
+        </section>
+
+
+        <section class="slide no-heading">
+            <p>
+                <code>length</code> – не количество элементов массива, а
+                <code>последний индекс + 1</code>.</p>
+            <pre><code class="hljs javascript">var a = [1];
+a[1000] = 'lol';
+a.length; // 1001</code></pre>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">var a = [1, 2, 3];
+a[3] = 4;
+a[4] = 5;
+a.length; // 5
+
+var b = new Array(1000);
+b.length; // 1000</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Методы массивов</h2>
+            <ul>
+                <li>join, split</li>
+                <li>splice, slice</li>
+                <li>sort</li>
+                <li>reverse</li>
+                <li>concat</li>
+                <li>indexOf, lastIndexOf</li>
+            </ul>
+        </section>
+
+
+        <section class="slide">
+            <h2>Методы массивов</h2>
+            <ul>
+                <li>forEach</li>
+                <li>filter</li>
+                <li>map</li>
+                <li>every, some</li>
+                <li>reduce, reduceRight</li>
+            </ul>
+        </section>
+
+
+        <section class="slide red clear">
+            <h2 class="red-title">this</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2>Глобальный объект</h2>
+
+            <pre><code class="hljs javascript">var a = 5;
+window.a; // 5</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Замыкания</h2>
+
+            <pre><code class="hljs javascript">var phrase = 'Привет';
+function sayHi(name) {
+    console.log(phrase + ', ' + name);
+}
+sayHi('Anon');  // Привет, Anon
+
+phrase = 'Пока';
+sayHi('Anon'); // Пока, Anon</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Замыкания</h2>
+
+            <pre><code class="hljs javascript">function sayHiBye(firstName, lastName) {
+    console.log( "Привет, " + getFullName() );
+    console.log( "Пока, " + getFullName() );
+    function getFullName() {
+        return firstName + " " + lastName;
+    }
+}
+
+sayHiBye("Tony", "Stark");</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Замыкания</h2>
+
+            <pre><code class="hljs javascript">function makeCounter() {
+    var currentCount = 1;
+    return function() {
+        return currentCount++;
+    };
+}
+var counter = makeCounter();
+counter(); // 1
+counter(); // 2</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <p>
+                <strong>Замыкание</strong> — это функция вместе со всеми внешними переменными, которые ей доступны.
+            </p>
+        </section>
+
+
+        <section class="slide">
+            <h2>Модули</h2>
+            <pre><code class="hljs javascript">(function() {
+    var message = "Привет";
+
+    function showMessage() {
+        console.log( message );
+    }
+
+    showMessage();
+})();</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Модули</h2>
+            <pre><code class="hljs javascript">(function(<mark>w</mark>) {
+    var message = "Привет";
+
+    function showMessage() {
+        console.log( message );
+    }
+
+    w.showMessage = showMessage;
+})(<mark>window</mark>);</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Модули</h2>
+            <pre><code class="hljs javascript"><mark>var m = </mark>(function() {
+    var message = "Привет";
+
+    function showMessage() {
+        console.log( message );
+    }
+
+    <mark>return</mark> { showMessage: showMessage };
+})();</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>this</h2>
+            <pre><code class="hljs javascript">var user = {
+    name: 'Tony',
+
+    sayHi: function() {
+        console.log( 'Hi, ' + <mark>this</mark>.name );
+    }
+};
+
+user.sayHi(); // Hi, Tony</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>this</h2>
+            <pre><code class="hljs javascript">function Animal(name) {
+    this.name = name;
+    this.canWalk = true;
+}
+
+var animal = <mark>new</mark> Animal("ёжик");</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Конструктор</h2>
+            <pre><code class="hljs javascript">function Animal(name) {
+    // this = {};
+    this.name = name;
+    this.canWalk = true;
+    // return this;
+}
+
+var animal = <mark>new</mark> Animal("ёжик");</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Явное указание this</h2>
+            <pre><code class="hljs javascript">function showFullName() {
+    console.log( this.firstName + " " + this.lastName );
+}
+var user = {
+    firstName: "Tony",
+    lastName: "Stark"
+};
+
+showFullName.<mark>call</mark>(user) // "Tony Stark"</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Явное указание this</h2>
+            <pre><code class="hljs">f.call(контекст, аргумент1, аргумент2, ...);
+f.apply(контекст, [аргумент1, аргумент2, ...]);
+
+var n = f.bind(контекст);</code></pre>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">var animal = {
+    eats: true
+};
+var rabbit = {
+    jumps: true
+};
+rabbit.<mark>__proto__</mark> = animal;
+
+rabbit.jumps; // true
+rabbit.eats; // true</code></pre>
+        </section>
+
+
+        <section class="slide no-heading">
+            <pre><code class="hljs javascript">var animal = {
+    eats: true
+};
+function Rabbit(name) {
+    this.name = name;
+}
+Rabbit.<mark>prototype</mark> = animal;
+
+var rabbit = new Rabbit("Кроль");
+rabbit.eats; // true</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout" style="font-size: 2em">Object.defineProperty(obj, prop, descriptor)</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout" style="font-size: 2em">Object.getOwnPropertyDescriptor(obj, prop)</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">Утиная типизация</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">instanceof</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2>Встроенные библиотеки</h2>
+            <ul>
+                <li>Math</li>
+                <li>Date</li>
+            </ul>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">JSON</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">eval</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">eval is evil 😈</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">try..catch</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">setTimeout и setInterval</h2>
+        </section>
+
+
+        <section class="slide red clear">
+            <h2 class="red-title">В браузере (движке)</h2>
+        </section>
+
+        <section class="slide">
+            <h2>Как подключить к странице</h2>
+            <pre><code class="hljs html">&lt;script src="path/to/script.js"
+        type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2>Как подключить к странице</h2>
+            <pre><code class="hljs html">&lt;script type="text/javascript"&gt;
+    var head = document.getElementsByTagName('head')[0],
+    script = document.createElement('script');
+    script.src = 'script.js';
+    head.appendChild(script);
+&lt;/script&gt;</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">defer, async</h2>
+        </section>
+
+
+        <section class="slide">
+            <h2 class="shout">Event loop</h2>
+        </section>
+
+
+        <section class="slide">
+            <img src="pictures/event-loop-start.png" class="cover" alt="">
+        </section>
+
+
+        <section class="slide">
+            <pre><code class="hljs javascript">console.log('Hi');
+setTimeout(function cb1() {
+    console.log('cb1');
+}, 5000);
+console.log('Bye');</code></pre>
+        </section>
+
+
+        <section class="slide">
+            <img src="pictures/event-loop.gif" class="cover" alt="">
+        </section>
+
+
+        <section class="slide red clear">
+            <h2 class="red-title">Демо</h2>
         </section>
 
 
         <section class="slide">
             <h2 style="margin-bottom:0.2em;">Материалы</h2>
             <ul>
-                <li>https://developer.mozilla.org/en-US/</li>
-                <li>https://learn.javascript.ru/</li>
-                <li>http://www.ecma-international.org/publications/standards/Ecma-262.htm</li>
+                <li><a href="https://developer.mozilla.org/en-US/">developer.mozilla.org</a></li>
+                <li><a href="https://learn.javascript.ru/">learn.javascript.ru</a></li>
+                <li><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">Ecma-262 Standard</a></li>
             </ul>
         </section>
 
