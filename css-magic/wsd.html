@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Магия CSS вне Хогвартса</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../src/shower/themes/minsk-css/styles/screen-16x10.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github.css">
+    <link rel="stylesheet" href="style-wsd.css?v=0.0.1">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Магия CSS вне Хогвартса</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
+        </p>
+    </header>
+
+
+    <section class="slide clear" id="cover">
+        <h2 class="no-bg">Магия CSS
+            <br> вне Хогвартса</h2>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
+        </p>
+        <figure>
+            <img class="cover height" src="pictures/cover.jpg" alt="Day after end">
+            <figcaption class="white">
+                <a href="https://apofiss.deviantart.com/art/day-after-end-217654079">apofiss.deviantart.com</a>
+            </figcaption>
+        </figure>
+
+        <style>
+            #cover h2 {
+                margin: 0 0 20px;
+                font-size: 70px;
+                color: white;
+                text-shadow: 0 0 2px rgb(39, 17, 11), 5px 3px 10px rgba(39, 17, 11, 0.7);
+            }
+
+            #cover p {
+                margin: 0;
+                font-size: 24px;
+                position: absolute;
+                bottom: 50px;
+                color: white;
+                opacity: 0.6;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="about">
+        <img class="cover place right" src="pictures/me-deadpool.jpg" alt="Никита Дубко">
+        <div class="info">
+            <h2 class="no-bg">Никита Дубко</h2>
+            <ul>
+                <li>Software Engineer в iTechArt Group;</li>
+                <li>адепт философии Pure CSS Images;</li>
+                <li>соорганизатор митапов MinskCSS и MinskJS.</li>
+            </ul>
+            <img src="pictures/minskcss-logo.svg" alt="MinskCSS" width="120" style="margin-right: 30px;">
+            <img src="pictures/minskjs-logo.svg" alt="MinskJS" width="120" style="margin-right: 30px;">
+            <img src="pictures/css-minsk-js-logo.svg" alt="CSS-Minsk-JS" width="120" height="120" style="padding: 10px; background-color: #2b2727;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/hogwarts-bg.png" alt="Hogwarts" class="cover height">
+        <img src="./pictures/gryffindor.png" alt="Гриффиндор" height="50%" style="float: left">
+        <img src="./pictures/slytherin.png" alt="Слизерин" height="50%" style="float: right;">
+        <h2 class="shout shout-light no-bg">CSS vs JavaScript</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">
+            <a href="https://codepen.io/MaryG/pen/yqvYmQ" class="link-codepen">Disco (by MaryG)</a>
+            <br>
+            <a href="./demos/demo_disco.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">
+            <a href="https://codepen.io/WhitePallet/pen/QQmzjW" class="link-codepen">Illustration 'face' (by white pallet)</a>
+            <br>
+            <a href="./demos/demo_face.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">
+            <a href="https://codepen.io/dark_mefody/pen/NpXBWR" class="link-codepen">Clock (by dark_mefody)</a>
+            <br>
+            <a href="./demos/demo_clock.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">
+            <a href="https://codepen.io/dark_mefody/" class="link-codepen">Line Lisa (by dark_mefody)</a>
+            <br>
+            <a href="./demos/demo_lisa.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">
+            <a href="http://cssing.org.ua/examples/earthworld/">Earth World (by akella)</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/paper.jpg" alt="Бумага" class="cover height">
+        <h2 class="shout shout-light">Мой путь</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/boring.jpg" alt="Скука" class="cover width">
+        <img src="./pictures/bootstrap2.png" alt="Bootstrap" style="position: absolute; left: 48%; top: 37%; height: 160px">
+        <img src="./pictures/jquery.svg" alt="jQuery" style="position: absolute; left: 48%; top: 60%; width: 160px">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/css-secrets.jpg" alt="CSS Secrets Book" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/anya.jpg" alt="Анна Селезнева" class="cover width">
+        <h2 class="shout-light">MinskCSS Meetup #1</h>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/first-time.jpeg" alt="First time" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pure-css-images-guide.png" alt="Pure CSS Images Guide" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/koala.png" alt="Pure CSS Images Koala" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">#dailycssimages</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/dailycssimages-google.jpg" alt="Google" class="place center">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/dailycssimages-email.jpg" alt="Email" class="place center">
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/demo_tiger.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/flying-lesson.jpg" alt="Flying lesson" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/quidditch.jpg" alt="Quidditch" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/dave-seven.jpg" alt="Dave Seven" class="cover place">
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/demo_seven.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">#CodePenChallenge</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">
+            <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="link-codepen">Stargate (by dark_mefody)</a>
+            <br>
+            <a href="./demos/demo_stargate.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
+    <section class="slide black clear">
+        <img src="./pictures/picked.jpg" alt="Picked Pens" class="cover">
+    </section>
+
+    <section class="slide black">
+        <video src="./videos/clapping.mp4" autoplay loop class="cover width"></video>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/book.jpg" alt="Book" class="cover height">
+        <h2 class="shout shout-light">CSS Magic Guideline</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Наш мозг
+            <br>любит обманываться</h2>
+    </section>
+
+    <section class="slide clear black">
+        <video src="./videos/illusion.mp4" autoplay loop controls class="place"></video>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/star-wars.jpg" alt="Shadow illusion" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>Слои, много слоев</h2>
+        <img src="./pictures/layers.png" alt="Слои" class="cover height">
+    </section>
+
+    <section class="slide one-div">
+        <h2>Сколько стилизуемых элементов?</h2>
+        <pre><code class="language-html">&lt;div&gt;&lt;/div&gt;</code></pre>
+        <pre class="next"><code class="language-css">div {
+    position: relative;
+    border: 5px solid red;
+}
+div::before {
+    border: 5px solid green;
+}
+div::after {
+    border: 5px solid blue;
+}
+</code></pre>
+        <div class="example next"></div>
+        <style>
+            .one-div .example {
+                position: absolute;
+                right: 100px;
+                top: 300px;
+                border: 5px solid red;
+                width: 200px;
+                height: 200px;
+            }
+
+            .one-div .example::before {
+                content: '';
+                position: absolute;
+                left: -50%;
+                top: -50%;
+                width: 100%;
+                height: 100%;
+                border: 5px solid green;
+            }
+
+            .one-div .example::after {
+                content: '';
+                position: absolute;
+                left: -50%;
+                top: 50%;
+                width: 100%;
+                height: 100%;
+                border: 5px solid blue;
+                border-radius: 50%;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>А если так?</h2>
+        <pre class="next"><code class="language-html">&lt;html&gt;
+    ::before
+    &lt;head&gt;
+        ::before
+        ::after
+    &lt;/head&gt;
+    &lt;body&gt;
+        ::before
+        ::after
+    &lt;/body&gt;
+    ::after
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section class="slide square-1">
+        <h2>Прямоугольник 1</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    background: #f60;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .square-1 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: #f60;
+                border: 1px solid black;
+            }
+        </style>
+    </section>
+
+    <section class="slide square-2">
+        <h2>Прямоугольник 2</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    background: linear-gradient(
+        transparent 25%,
+        #f60 25%, #f60 50%,
+        #60f 50%, #60f 75%,
+        #6f0 75%
+    );
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .square-2 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: linear-gradient(transparent 25%, #f60 25%, #f60 50%, #60f 50%, #60f 75%, #6f0 75%);
+                border: 1px solid black;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>background:</h2>
+        <pre><code>    background-image ||
+    background-position [ / background-size ]? ||
+    background-repeat ||
+    background-attachment ||
+    background-origin ||
+    background-clip</code></pre>
+    </section>
+
+    <section class="slide square-3">
+        <h2>Прямоугольник 3</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    background:
+        linear-gradient(#f60, #f60) 0 0,
+        linear-gradient(#6f0, #6f0) 50px 100px,
+        linear-gradient(#60f, #60f) 100px 200px;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .square-3 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                border: 1px solid black;
+                background: linear-gradient(#f60, #f60) 0 0,
+                linear-gradient(#6f0, #6f0) 50px 90px,
+                linear-gradient(#60f, #60f) 100px 190px;
+                background-repeat: no-repeat;
+                background-size: 100px 120px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Прямоугольник 3.1</h2>
+        <pre><code class="hljs language-css" style="font-size: smaller;">div {
+    background:
+        linear-gradient(#f60, #f60) 0 0 / 100px 100px
+            no-repeat scroll padding-box border-box,
+        linear-gradient(#6f0, #6f0) 50px 100px / 100px 100px
+            no-repeat scroll padding-box border-box,
+        linear-gradient(#60f, #60f) 100px 200px / 100px 100px
+            no-repeat scroll padding-box border-box;
+}</code></pre>
+    </section>
+
+    <section class="slide circle-1">
+        <h2>Эллипс 1</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background: #f60;
+    border-radius: 50%;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .circle-1 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: #f60;
+                border-radius: 50%;
+            }
+        </style>
+    </section>
+
+    <section class="slide circle-2">
+        <h2>Эллипс 2</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background:
+        radial-gradient(
+            #f60 0, #f60 70%,
+            transparent 70.1%
+        );
+        /* a^2 + b^2 = c^2 */
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .circle-2 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: radial-gradient(#f60 0, #f60 70%, transparent 70.1%);
+            }
+        </style>
+    </section>
+
+    <section class="slide circle-3">
+        <h2>Эллипс 3</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background: #f60;
+    clip-path: ellipse();
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .circle-3 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: #f60;
+                clip-path: ellipse();
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-1">
+        <h2>Треугольник 1</h2>
+        <pre><code class="language-css">div {
+    width: 0;
+    height: 0;
+    border: 100px solid transparent;
+    border-left-width: 200px;
+    border-bottom-color: #f60;
+    border-top-color: #6f0;
+    border-left-color: #60f;
+    border-right-color: #06f;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-1 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 0;
+                height: 0;
+                border: 100px solid transparent;
+                border-left-width: 200px;
+                border-bottom-color: #f60;
+                border-top-color: #6f0;
+                border-left-color: #60f;
+                border-right-color: #06f;
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-2">
+        <h2>Треугольник 1.1</h2>
+        <pre><code class="language-css">div {
+    width: 0;
+    height: 0;
+    border: 100px solid transparent;
+    border-left-width: 200px;
+    border-top-width: 0;
+    border-bottom: 300px solid #f60;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-2 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 0;
+                height: 0;
+                border: 100px solid transparent;
+                border-left-width: 200px;
+                border-top-width: 0;
+                border-bottom: 300px solid #f60;
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-3">
+        <h2>Треугольник 2</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background:
+        linear-gradient(
+            to right top,
+            #f60 50%, transparent 50.1%
+        );
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-3 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: linear-gradient(to right top, #f60 50%, transparent 50.1%);
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-4">
+        <h2>Треугольник 2.1</h2>
+        <pre><code class="language-css" style="font-size: 18px;">div {
+    width: 300px;
+    height: 300px;
+    background:
+        linear-gradient(
+            to left top, #06f 50%, transparent 50.1%
+        ) 0 0 / 200px 100%,
+        linear-gradient(
+            to right top, #f60 50%, transparent 50.1%
+        ) 200px 0 / 100px 100%;
+    background-repeat: no-repeat;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-4 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 300px;
+                height: 300px;
+                background: linear-gradient(to left top, #06f 50%, transparent 50.1%) 0 0 / 200px 100%,
+                linear-gradient(to right top, #f60 50%, transparent 50.1%) 200px 0 / 100px 100%;
+                background-repeat: no-repeat;
+            }
+        </style>
+    </section>
+
+    <section class="slide triangle-5">
+        <h2>Треугольник 3</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 300px;
+    background: #f60;
+    clip-path: polygon(
+        66.666% 0%,
+        0% 100%,
+        100% 100%
+    );
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .triangle-5 .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 300px;
+                height: 300px;
+                background: #f60;
+                clip-path: polygon(66.666% 0%,
+                0% 100%,
+                100% 100%);
+            }
+        </style>
+    </section>
+
+    <section class="slide egg">
+        <h2>border-radius</h2>
+        <pre><code class="language-css">div {
+    border-radius: 50%;
+}</code></pre>
+        <pre class="next"><code class="language-css">.egg {
+    border-radius:
+        100px 100px 100px 100px /
+        200px 200px 100px 100px;
+}</code></pre>
+        <div class="example next"></div>
+        <style>
+            .egg .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 300px;
+                background: #f60;
+                border-radius: 100px 100px 100px 100px / 200px 200px 100px 100px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/sova.jpg" alt="Рисуем сову" class="place">
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/demo_panda.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide box-shadow">
+        <h2>box-shadow</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    border: 5px solid #06f;
+    background: transparent;
+    box-shadow:
+        50px 50px 0 0 #f60,
+        -50px 100px 0 50px #0f6,
+        inset 10px 10px 0 30px #f06;
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .box-shadow .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 200px;
+                border-radius: 50px;
+                border: 5px solid #06f;
+                background: transparent;
+                box-shadow: 50px 50px 0 0 #f60,
+                -50px 100px 0 50px #0f6,
+                inset 10px 10px 0 30px #f06;
+            }
+        </style>
+    </section>
+
+    <section class="slide clip-path">
+        <h2>clip-path (читерство)</h2>
+        <pre><code class="language-css">div {
+    width: 200px;
+    height: 200px;
+    background: #f60;
+    clip-path:
+        polygon(
+            50% 0%, 61% 35%, 98% 35%,
+            68% 57%, 79% 91%, 50% 70%,
+            21% 91%, 32% 57%, 2% 35%, 39% 35%
+        );
+}</code></pre>
+        <div class="example"></div>
+        <style>
+            .clip-path .example {
+                position: absolute;
+                right: 100px;
+                top: 200px;
+                width: 200px;
+                height: 200px;
+                background: #f60;
+                clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <a href="https://bennettfeely.com/clippy/">Clippy</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/clippy.jpg" alt="Clippy" class="cover height">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-clip-path.jpg" alt="Clip-path" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>Инструменты CSS-волшебника 🧙‍♂️</h2>
+        <ol>
+            <li class="next">::before, ::after</li>
+            <li class="next"><b>background</b></li>
+            <li class="next">border-radius</li>
+            <li class="next">box-shadow</li>
+            <li class="next">clip-path (для темных магов)</li>
+        </ol>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/griffindor-wins.jpg" alt="HP1" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            Lynn Fisher
+            <br>
+            <a href="https://a.singlediv.com">a.singlediv.com</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/single-div.jpg" alt="Single Div" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">Что дальше?</h2>
+        <img src="./pictures/expect.jpg" alt="Expectation" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">animation</h2>
+        <video src="./videos/mcgonagl.mp4" autoplay loop class="cover width"></video>
+    </section>
+
+    <section class="slide">
+        <h2>animation</h2>
+        <ul>
+            <li>animation-name: none</li>
+            <li>animation-duration: 0s</li>
+            <li>animation-timing-function: ease</li>
+            <li>animation-delay: 0s</li>
+            <li>animation-iteration-count: 1</li>
+            <li>animation-direction: normal</li>
+            <li>animation-fill-mode: none</li>
+            <li>animation-play-state: running</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/timeline.png" alt="Timeline" class="place">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">3D</h2>
+        <img src="./pictures/3d.jpeg" alt="3D" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">Ana Tudor
+            <br>
+            <a href="https://css-tricks.com/simplifying-css-cubes-custom-properties/">Simplifying CSS Cubes with Custom Properties</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Куб (HTML)</h2>
+        <pre><code class="language-html">&lt;div class="cube"&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+    &lt;div class="cube__face"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Куб (CSS)</h2>
+        <pre><code class="language-css">.cube__face {
+    transform:
+        rotate3d(var(--i), var(--j), 0, calc(var(--m) * 90deg))
+        translateZ(calc(.5 * var(--cube-edge)));
+}
+.cube__face:nth-child(1) { --i: 0; --j: 1; --m:  0; }
+.cube__face:nth-child(2) { --i: 0; --j: 1; --m:  1; }
+.cube__face:nth-child(3) { --i: 0; --j: 1; --m:  2; }
+.cube__face:nth-child(4) { --i: 0; --j: 1; --m:  3; }
+.cube__face:nth-child(5) { --i: 1; --j: 0; --m:  1; }
+.cube__face:nth-child(6) { --i: 1; --j: 0; --m: -1; }</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/demo_cube.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">
+            <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="link-codepen">Stargate (by dark_mefody)</a>
+            <br>
+            <a href="./demos/demo_stargate.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">Как ускориться?</h2>
+        <img src="./pictures/car.jpg" alt="Car" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">Правильные инструменты</h2>
+        <img src="./pictures/tools.png" alt="Deathly Hallows" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2>
+            <img src="./pictures/emmet-logo.png" style="height: 60px; vertical-align: bottom;"> Emmet</h2>
+        <pre><code class="language-emmet">ol.list>li.list__item*4>a&lt;TAB&gt;</code></pre>
+        <pre class="next"><code class="language-html">&lt;ol class="list"&gt;
+    &lt;li class="list__item"&gt;&lt;a href="http://"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="list__item"&gt;&lt;a href="http://"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="list__item"&gt;&lt;a href="http://"&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="list__item"&gt;&lt;a href="http://"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/zen-html.jpg" alt="Zen HTML" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2>
+            <img src="./pictures/emmet-logo.png" style="height: 60px; vertical-align: bottom;"> Emmet</h2>
+        <pre><code class="language-emmet">posa
+w100
+h50
+bg#0</code></pre>
+        <pre class="next"><code class="language-css">position: absolute;
+width: 100px;
+height: 50px;
+background: #000000;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <a href="https://github.com/tapio/live-server" class="link-github">live-server</a>
+        </h2>
+    </section>
+
+    <section class="slide nd-preprocessors">
+        <h2>Препроцессоры</h2>
+        <div class="cover">
+            <img src="./pictures/less.png" alt="LESS" class="less">
+            <img src="./pictures/sass.svg" alt="SASS">
+            <img src="./pictures/stylus.svg" alt="Stylus">
+            <img src="./pictures/pug.svg" alt="Pug">
+            <img src="./pictures/postcss.svg" alt="PostCSS">
+        </div>
+
+        <style>
+            .nd-preprocessors .cover {
+                text-align: center;
+            }
+
+            .nd-preprocessors img {
+                height: 100px;
+                margin: 10px;
+            }
+
+            .nd-preprocessors img.less {
+                height: 80px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/codepen-logo.png" alt="Codepen" class="place" style="max-width: 80%;">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">Зачем?</h2>
+        <img src="./pictures/why.jpg" alt="Why" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">1. Эксперименты</h2>
+        <img src="./pictures/explosion.jpg" alt="Explosion" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">2. Опыт</h2>
+        <img src="./pictures/dumbledore.jpg" alt="Dumbledore" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/swift-tweet.jpg" alt="Swift" class="place">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">3. Понимание нюансов</h2>
+        <img src="./pictures/potion.jpg" alt="Potion making" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">padding-top: 50%;</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">С чего начать?</h2>
+        <img src="./pictures/start.jpg" alt="Start" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2>Этапы построения магии на CSS</h2>
+        <ol>
+            <li class="next">Идея 💡</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            #dailycssimages
+            <br>#codepenchallenge
+            <br>#100daysofcode
+        </h2>
+    </section>
+
+    <section class="slide">
+        https://codepen.io/cobra_winfrey/
+        https://codepen.io/thebabydino
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini">
+            <a href="https://gist.github.com/MeFoDy/067daabf9c3ea0e554f045fc067e23b0" class="link-github">#dailycssimages gist</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Этапы построения магии на CSS</h2>
+        <ol>
+            <li>Идея 💡</li>
+            <li class="next">Сценарий 🎬</li>
+            <li class="next">Сетка ⬜</li>
+            <li class="next">Слои 🔳</li>
+            <li class="next">Анимации 📽️</li>
+            <li class="next">Детали 🔍</li>
+            <li class="next">Поделитесь с миром 🌍</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light">8. Ждите</h2>
+        <img src="./pictures/hagrid.jpg" alt="Hagrid" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2 style="margin-bottom:0.2em;">Материалы</h2>
+        <ul style="font-size: smaller;">
+            <li><a href="https://tproger.ru/translations/pure-css-images-3/">Знакомство с созданием изображений на чистом CSS</a> — Michael Mangialardi</li>
+            <li><a href="https://medium.com/coding-artist/daily-css-images-everything-you-need-to-know-e53ed6c1846c">Daily CSS Images (Everything You Need to Know)</a> — Michael Mangialardi</li>
+            <li><a href="https://hacks.mozilla.org/2014/09/single-div-drawings-with-css/">Single Div Drawings with CSS</a> — Lynn Fisher</li>
+            <li><a href="http://css-live.ru/cssjssvg-s-podvypodvertom">CSS/JS/SVG с подвыподвертом</a> — CSS-live.ru</li>
+        </ul>
+        <h2 style="margin-bottom:0.2em;">Видео</h2>
+        <ul style="font-size: smaller;">
+            <li><a href="https://www.youtube.com/watch?v=hwseJaIsoBw">All you need is CSS</a> — Анна Селезнёва</li>
+            <li><a href="https://www.youtube.com/watch?v=LAoJ4wXqoFs">Paint the Web with CSS</a> — Eva Lettner</li>
+        </ul>
+    </section>
+
+
+
+    <section class="slide">
+        <h2>Спасибо за внимание!</h2>
+        <p>
+            <a href="https://mefody.github.io/talks/css-magic/wsd.html">mefody.github.io/talks/css-magic/</a>
+            <br>
+            <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+            <br>
+            <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        </p>
+        <video src="./videos/bye.mp4" autoplay loop></video>
+        <img src="./pictures/qr-code.gif" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
+    </section>
+
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Powered by Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+
+</html>
