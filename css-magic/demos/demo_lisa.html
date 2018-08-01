@@ -42,6 +42,7 @@
         'sasha-square.jpg',
         'masha.jpg',
         'anya.jpg',
+        'anya-happy.jpg',
     ];
     let currentIndex = 0;
 
@@ -110,7 +111,6 @@
                 [data[index], data[index + 1], data[index + 2]] = color;
             }
         }
-        console.log(rightBorder);
         ctx.putImageData(imageData, 0, 0);
         requestAnimationFrame(draw);
     }
