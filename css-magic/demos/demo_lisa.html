@@ -38,10 +38,10 @@
     let sources = [
         'monalisa.jpg',
         'sasha-black.jpg',
-        'sasha-hair.jpg',
+        //'sasha-hair.jpg',
         'sasha-square.jpg',
         'masha.jpg',
-        'anya.jpg',
+        //'anya.jpg',
         'anya-happy.jpg',
     ];
     let currentIndex = 0;
@@ -68,6 +68,8 @@
         const h = window.innerHeight;
         canvas.width = w;
         canvas.height = h;
+        const imgRatio = w / h;
+        treshold = Math.ceil(imgRatio * 999);
     }
     window.addEventListener("resize", resize);
     resize();
@@ -80,7 +82,7 @@
         let x = (width - w) / 2;
         let y = 0;
         ctx.drawImage(img, x, y, w, h);
-        return Math.ceil(w + x) - 2;
+        return Math.floor(w + x);
     }
 
     function draw(time) {
@@ -91,10 +93,11 @@
         const rightBorder = scaleImage(img, w, h);
         const imageData = ctx.getImageData(0, 0, w, h);
         const data = imageData.data;
+        let index, avg;
+        const initialCounter = treshold * 2 - Math.ceil(time) % treshold;
         for (let i = 0; i < h; i++) {
-            let counter = treshold * 2 - Math.ceil(time) % treshold;
-            let index, avg;
-            for (let j = 0; j < rightBorder; j++) {
+            let counter = initialCounter;
+            for (let j = 0; j < rightBorder && j < w; j++) {
                 index = (i * w + j) * 4;
                 avg = (data[index] + data[index + 1] + data[index + 2]) / 3;
                 counter += avg;
@@ -120,6 +123,7 @@
                 [data[index], data[index + 1], data[index + 2]] = color;
             }
         }
+
         ctx.putImageData(imageData, 0, 0);
         requestAnimationFrame(draw);
     }
