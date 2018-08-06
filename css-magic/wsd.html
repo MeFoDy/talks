@@ -225,13 +225,12 @@
         <h2>Сколько стилизуемых элементов?</h2>
         <pre><code class="language-html">&lt;div&gt;&lt;/div&gt;</code></pre>
         <pre class="next"><code class="language-css">div {
-    position: relative;
     border: 5px solid red;
 }
-div::before {
+div::<mark>before</mark> {
     border: 5px solid green;
 }
-div::after {
+div::<mark>after</mark> {
     border: 5px solid blue;
 }
 </code></pre>
@@ -288,9 +287,6 @@ div::after {
     <section class="slide square-1">
         <h2>Прямоугольник 1</h2>
         <pre><code class="language-css">div {
-    width: 200px;
-    height: 300px;
-    border: 1px solid black;
     background: #f60;
 }</code></pre>
         <div class="example"></div>
@@ -310,9 +306,6 @@ div::after {
     <section class="slide square-2">
         <h2>Прямоугольник 2</h2>
         <pre><code class="language-css">div {
-    width: 200px;
-    height: 300px;
-    border: 1px solid black;
     background: linear-gradient(
         transparent 25%,
         #f60 25%, #f60 50%,
@@ -347,9 +340,6 @@ div::after {
     <section class="slide square-3">
         <h2>Прямоугольник 3</h2>
         <pre style="font-size: 0.9em;"><code class="language-css">div {
-    width: 200px;
-    height: 300px;
-    border: 1px solid black;
     background:
         linear-gradient(#f60, #f60) 0 0,
         linear-gradient(#6f0, #6f0) 50px 100px,
@@ -391,8 +381,6 @@ div::after {
     <section class="slide circle-1">
         <h2>Эллипс 1</h2>
         <pre><code class="language-css">div {
-    width: 200px;
-    height: 300px;
     background: #f60;
     border-radius: 50%;
 }</code></pre>
@@ -413,8 +401,6 @@ div::after {
     <section class="slide circle-2">
         <h2>Эллипс 2</h2>
         <pre><code class="language-css">div {
-    width: 200px;
-    height: 300px;
     background:
         radial-gradient(
             #f60 0, #f60 70.6%,
@@ -438,8 +424,6 @@ div::after {
     <section class="slide circle-3">
         <h2>Эллипс 3</h2>
         <pre><code class="language-css">div {
-    width: 200px;
-    height: 300px;
     background: #f60;
     clip-path: ellipse();
 }</code></pre>
@@ -516,8 +500,6 @@ div::after {
     <section class="slide triangle-3">
         <h2>Треугольник 2</h2>
         <pre><code class="language-css">div {
-    width: 200px;
-    height: 300px;
     background:
         linear-gradient(
             to right top,
@@ -569,8 +551,6 @@ div::after {
     <section class="slide triangle-5">
         <h2>Треугольник 3</h2>
         <pre><code class="language-css">div {
-    width: 200px;
-    height: 300px;
     background: #f60;
     clip-path: polygon(
         66.666% 0%,
