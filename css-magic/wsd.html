@@ -76,46 +76,46 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
-            <a href="https://codepen.io/MaryG/pen/yqvYmQ" class="link-codepen">Disco (by MaryG)</a>
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/MaryG/pen/yqvYmQ" class="link link-codepen">Disco (by MaryG)</a>
             <br>
             <a href="./demos/demo_disco.html">&#x3C; offline &#x3E;</a>
         </h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
-            <a href="https://codepen.io/WhitePallet/pen/QQmzjW" class="link-codepen">Illustration 'face' (by white pallet)</a>
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/WhitePallet/pen/QQmzjW" class="link link-codepen">Illustration 'face' (by white pallet)</a>
             <br>
             <a href="./demos/demo_face.html">&#x3C; offline &#x3E;</a>
         </h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
-            <a href="https://codepen.io/miocene/pen/mjLPVp" class="link-codepen">Moustached Nanny (by Julia Muzafarova)</a>
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/miocene/pen/mjLPVp" class="link link-codepen">Moustached Nanny (by Julia Muzafarova)</a>
             <br>
             <a href="./demos/demo_nanny.html">&#x3C; offline &#x3E;</a>
         </h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
-            <a href="https://codepen.io/dark_mefody/pen/NpXBWR" class="link-codepen">Clock (by dark_mefody)</a>
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/dark_mefody/pen/NpXBWR" class="link link-codepen">Clock (by dark_mefody)</a>
             <br>
             <a href="./demos/demo_clock.html">&#x3C; offline &#x3E;</a>
         </h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
+        <h2 class="shout shout-mini no-bg">
             <a href="http://cssing.org.ua/examples/earthworld/">Earth World (by akella)</a>
         </h2>
     </section>
 
     <section class="slide">
         <img src="./pictures/paper.jpg" alt="Бумага" class="cover height">
-        <h2 class="shout shout-light">Мой путь</h2>
+        <h2 class="shout shout-light no-bg">Мой путь</h2>
     </section>
 
     <section class="slide">
@@ -182,8 +182,8 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
-            <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="link-codepen">Stargate (by dark_mefody)</a>
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="link link-codepen">Stargate (by dark_mefody)</a>
             <br>
             <a href="./demos/demo_stargate.html">&#x3C; offline &#x3E;</a>
         </h2>
@@ -199,11 +199,12 @@
 
     <section class="slide">
         <img src="./pictures/book.jpg" alt="Book" class="cover height">
-        <h2 class="shout shout-light">CSS Magic Guideline</h2>
+        <h2 class="shout">CSS Magic Guideline</h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Наш мозг
+        <img src="./pictures/hugrid-illusion.JPG" alt="Hugrid" class="cover width">
+        <h2 class="shout shout-light no-bg">Наш мозг
             <br>любит обманываться</h2>
     </section>
 
@@ -345,7 +346,7 @@ div::after {
 
     <section class="slide square-3">
         <h2>Прямоугольник 3</h2>
-        <pre><code class="language-css">div {
+        <pre style="font-size: 0.9em;"><code class="language-css">div {
     width: 200px;
     height: 300px;
     border: 1px solid black;
@@ -416,10 +417,10 @@ div::after {
     height: 300px;
     background:
         radial-gradient(
-            #f60 0, #f60 70%,
-            transparent 70.1%
+            #f60 0, #f60 70.6%,
+            transparent 70.7%
         );
-        /* a^2 + b^2 = c^2 */
+        /* a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup> */
 }</code></pre>
         <div class="example"></div>
         <style>
@@ -429,7 +430,7 @@ div::after {
                 top: 200px;
                 width: 200px;
                 height: 300px;
-                background: radial-gradient(#f60 0, #f60 70%, transparent 70.1%);
+                background: radial-gradient(#f60 0, #f60 70.6%, transparent 70.7%);
             }
         </style>
     </section>
@@ -554,7 +555,7 @@ div::after {
         <style>
             .triangle-4 .example {
                 position: absolute;
-                right: 100px;
+                right: 70px;
                 top: 200px;
                 width: 300px;
                 height: 300px;
@@ -581,7 +582,7 @@ div::after {
         <style>
             .triangle-5 .example {
                 position: absolute;
-                right: 100px;
+                right: 70px;
                 top: 200px;
                 width: 300px;
                 height: 300px;
@@ -619,10 +620,10 @@ div::after {
 
     <section class="slide arc">
         <h2>border-radius</h2>
-        <pre class="next"><code class="language-css">.arc {
+        <pre><code class="language-css">.arc {
     border-top: 50px solid #f60;
     border-radius:
-        100% 100% 0 0 /
+        101% 101% 0 0 /
         200% 200% 0 0;
 }</code></pre>
         <div class="example next"></div>
@@ -634,7 +635,7 @@ div::after {
                 height: 200px;
                 width: 200px;
                 border-top: 50px solid #f60;
-                border-radius: 100% 100% 0 0 / 200% 200% 0 0;
+                border-radius: 101% 101% 0 0 / 200% 200% 0 0;
             }
         </style>
     </section>
@@ -706,7 +707,7 @@ div::after {
     </section>
 
     <section class="slide">
-        <h2 class="shout">
+        <h2 class="shout no-bg">
             <a href="https://bennettfeely.com/clippy/">Clippy</a>
         </h2>
     </section>
@@ -735,7 +736,7 @@ div::after {
     </section>
 
     <section class="slide">
-        <h2 class="shout">
+        <h2 class="shout no-bg">
             Lynn Fisher
             <br>
             <a href="https://a.singlediv.com">a.singlediv.com</a>
@@ -747,12 +748,12 @@ div::after {
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">Что дальше?</h2>
+        <h2 class="shout shout-light no-bg">Что дальше?</h2>
         <img src="./pictures/expect.jpg" alt="Expectation" class="cover height">
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">animation</h2>
+        <h2 class="shout shout-light no-bg">animation</h2>
         <video src="./videos/mcgonagl.mp4" autoplay loop class="cover width"></video>
     </section>
 
@@ -775,12 +776,12 @@ div::after {
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">3D</h2>
+        <h2 class="shout shout-light no-bg">3D</h2>
         <img src="./pictures/3d.jpeg" alt="3D" class="cover width">
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">Ana Tudor
+        <h2 class="shout shout-mini no-bg">Ana Tudor
             <br>
             <a href="https://css-tricks.com/simplifying-css-cubes-custom-properties/">Simplifying CSS Cubes with Custom Properties</a>
         </h2>
@@ -818,33 +819,59 @@ div::after {
     </section>
 
     <section class="slide">
-        demos/demo_cube_wave.html
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/dark_mefody/pen/ypMrWW" class="link link-codepen">Cube Wave (by dark_mefody)</a>
+            <br>
+            <a href="./demos/demo_cube_wave.html">&#x3C; offline &#x3E;</a>
+        </h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
-            <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="link-codepen">Stargate (by dark_mefody)</a>
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/dark_mefody/pen/OxgObM" class="link link-codepen">Zombie (by dark_mefody)</a>
+            <br>
+            <a href="./demos/demo_zombie.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/dark_mefody/pen/ypMrWW" class="link link-codepen">Cube Wave (by dark_mefody)</a>
+            <br>
+            <a href="./demos/demo_cube_wave.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="link link-codepen">Stargate (by dark_mefody)</a>
             <br>
             <a href="./demos/demo_stargate.html">&#x3C; offline &#x3E;</a>
         </h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">Как ускориться?</h2>
+        <h2 class="shout shout-light no-bg">Как ускориться?</h2>
         <img src="./pictures/car.jpg" alt="Car" class="cover height">
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">Правильные инструменты</h2>
+        <h2 class="shout shout-light no-bg">Правильные инструменты</h2>
         <img src="./pictures/tools.png" alt="Deathly Hallows" class="cover height">
     </section>
 
     <section class="slide">
-        <img src="pictures/zen-coding.png" alt="Zen Coding logo" class="place">
+        <div class="place">
+            <img src="pictures/zen-coding.png" alt="Zen Coding logo">
+            <p style="text-align: center; font-weight: bold;">Zen Coding</p>
+        </div>
     </section>
 
     <section class="slide">
-        <img src="pictures/emmet-logo.png" alt="Emmet logo" class="place">
+        <div class="place">
+            <img src="pictures/emmet-logo.png" alt="Emmet logo">
+            <p style="text-align: center; font-weight: bold;">Emmet</p>
+        </div>
     </section>
 
     <section class="slide">
@@ -877,8 +904,8 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">
-            <a href="https://github.com/tapio/live-server" class="link-github">live-server</a>
+        <h2 class="shout no-bg">
+            <a href="https://github.com/tapio/live-server" class="link link-github">live-server</a>
         </h2>
     </section>
 
@@ -896,7 +923,7 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        demos/demo_terminal.html
+        <iframe src="./demos/demo_terminal.html" frameborder="0" class="cover width height"></iframe>
     </section>
 
     <section class="slide nd-preprocessors">
@@ -930,17 +957,17 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">Зачем?</h2>
+        <h2 class="shout shout-light no-bg">Зачем?</h2>
         <img src="./pictures/why.jpg" alt="Why" class="cover width">
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">1. Эксперименты</h2>
+        <h2 class="shout shout-light no-bg">1. Эксперименты</h2>
         <img src="./pictures/explosion.jpg" alt="Explosion" class="cover width">
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">2. Опыт</h2>
+        <h2 class="shout shout-light no-bg">2. Опыт</h2>
         <img src="./pictures/dumbledore.jpg" alt="Dumbledore" class="cover width">
     </section>
 
@@ -949,7 +976,7 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">3. Понимание нюансов</h2>
+        <h2 class="shout shout-light no-bg">3. Понимание нюансов</h2>
         <img src="./pictures/potion.jpg" alt="Potion making" class="cover width">
     </section>
 
@@ -958,7 +985,7 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">С чего начать?</h2>
+        <h2 class="shout shout-light no-bg">С чего начать?</h2>
         <img src="./pictures/start.jpg" alt="Start" class="cover height">
     </section>
 
@@ -978,12 +1005,16 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        https://codepen.io/cobra_winfrey/ https://codepen.io/thebabydino/ https://codepen.io/miocene/
+        <ul style="font-size: 1.5em;" class="place">
+            <li><a href="https://codepen.io/cobra_winfrey/" class="link link-codepen">Adam Kuhn</a></li>
+            <li><a href="https://codepen.io/thebabydino/" class="link link-codepen">Ana Tudor</a></li>
+            <li><a href="https://codepen.io/miocene/" class="link link-codepen">Julia Muzafarova</a></li>
+        </ul>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
-            <a href="https://gist.github.com/MeFoDy/067daabf9c3ea0e554f045fc067e23b0" class="link-github">#dailycssimages gist</a>
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://gist.github.com/MeFoDy/067daabf9c3ea0e554f045fc067e23b0" class="link link-github">#dailycssimages gist</a>
         </h2>
     </section>
 
@@ -1001,12 +1032,21 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-light">8. Ждите</h2>
+        <h2 class="shout shout-light no-bg">8. Ждите</h2>
         <img src="./pictures/hagrid.jpg" alt="Hagrid" class="cover height">
     </section>
 
+    <section class="slide" style="background-color: #eee;">
+        <img src="./pictures/codepen-retweet.png" alt="Retweet" class="place">
+    </section>
+
     <section class="slide">
-        видео демки
+        <img src="pictures/hogwarts-by-amanda-penley.jpg" alt="Hogwarts" class="cover width">
+        <h2 class="shout" style="top: 82%;">Попробуем?</h2>
+    </section>
+
+    <section class="slide black">
+        <video src="pictures/dave-flower.mp4" autoplay loop controls="true" class="cover"></video>
     </section>
 
     <section class="slide">
@@ -1059,7 +1099,7 @@ background: #000000;</code></pre>
 
     <section class="slide">
         <h2 class="shout shout-mini">
-            <a href="https://codepen.io/dark_mefody/" class="link-codepen">Line Lisa (by dark_mefody)</a>
+            <a href="https://codepen.io/dark_mefody/" class="link link-codepen">Line Lisa (by dark_mefody)</a>
             <br>
             <a href="./demos/demo_lisa.html">&#x3C; offline &#x3E;</a>
         </h2>
