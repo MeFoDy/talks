@@ -39,8 +39,8 @@
         'monalisa.jpg',
         'sasha-black.jpg',
         //'sasha-hair.jpg',
-        'sasha-square.jpg',
         'masha.jpg',
+        'sasha-square.jpg',
         //'anya.jpg',
         'anya-happy.jpg',
     ];
@@ -90,7 +90,7 @@
         const h = canvas.height;
         ctx.fillStyle = '#111';
         ctx.fillRect(0, 0, w, h);
-        const rightBorder = scaleImage(img, w, h);
+        const rightBorder = scaleImage(img, w, h) - 2;
         const imageData = ctx.getImageData(0, 0, w, h);
         const data = imageData.data;
         let index, avg;

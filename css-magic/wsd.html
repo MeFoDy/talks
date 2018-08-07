@@ -816,14 +816,6 @@ div::<mark>after</mark> {
 
     <section class="slide">
         <h2 class="shout shout-mini no-bg">
-            <a href="https://codepen.io/dark_mefody/pen/ypMrWW" class="link link-codepen">Cube Wave (by dark_mefody)</a>
-            <br>
-            <a href="./demos/demo_cube_wave.html">&#x3C; offline &#x3E;</a>
-        </h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shout-mini no-bg">
             <a href="https://codepen.io/dark_mefody/pen/jzOQpM" class="link link-codepen">Stargate (by dark_mefody)</a>
             <br>
             <a href="./demos/demo_stargate.html">&#x3C; offline &#x3E;</a>
@@ -891,6 +883,7 @@ background: #000000;</code></pre>
 
     <section class="slide">
         <div class="terminal place" data-content="live-server">
+            <p>npm i -g live-server</p>
             <p>live-server
                 <br>
                 <span style="color: #0c9;">Serving "~/Sites/talks" at at http://127.0.0.1:8080</span>
@@ -961,7 +954,7 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">padding-top: 50%;</h2>
+        <h2 class="shout no-bg">padding-top: 50%;</h2>
     </section>
 
     <section class="slide">
@@ -977,7 +970,7 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">
+        <h2 class="shout no-bg">
             #dailycssimages
             <br>#codepenchallenge
             <br>#100daysofcode
@@ -1030,55 +1023,215 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        шаг 1 — квадраты в pug
+        <pre><code class="hljs pug">// Pug
+- for (let j = 14; j > 0; j--)
+    .square</code></pre>
     </section>
 
     <section class="slide">
-        шаг 2 — квадраты в scss
+        <pre><code class="hljs html">&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;</code></pre>
     </section>
 
     <section class="slide">
-        шаг 3 — другой порядок квадратов из-за контекста
+        <pre><code class="hljs scss">$size: 3vmin;
+$n: 14;
+$light: #ededed;
+$dark: #232323;
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: $light;
+}</code></pre>
     </section>
 
     <section class="slide">
-        шаг 4 — анимация вращения с ошибкой (сброшенный translate)
+        <pre><code class="hljs scss">.square {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $light;
+}
+
+.square:nth-child(2n+1) {
+    background-color: $dark;
+}</code></pre>
     </section>
 
     <section class="slide">
-        шаг 5 — анимация вращения без ошибки
+        <pre><code class="hljs scss">@for $i from 1 through $n {
+    .square:nth-child(#{$i}) {
+        width: $size * $i;
+        height: $size * $i;
+    }
+}</code></pre>
+        <iframe src="demos/flower/step-1.html" frameborder="0" class="place right cover height width" style="width: 40%;"></iframe>
     </section>
 
     <section class="slide">
-        шаг 6 — анимация вращения с учетом размера
+        <pre><code class="hljs scss">@for $i from 1 through $n {
+    <mark>$c: $n + 1 - $i;</mark>
+    .square:nth-child(#{$c}) {
+        width: $size * $i;
+        height: $size * $i;
+    }
+}</code></pre>
+        <iframe src="demos/flower/step-2.html" frameborder="0" class="place right cover height width" style="width: 40%;"></iframe>
     </section>
 
     <section class="slide">
-        шаг 7 — анимация вращения с учетом размера, но с паузой на месте
+        <pre><code class="hljs scss">@keyframes rot {
+    0%, 100% {
+        transform: rotate(30deg);
+    }
+    50% {
+        transform: rotate(-15deg);
+    }
+}</code></pre>
+
+        <pre class="next"><code class="hljs scss">
+.square {
+    animation: rot infinite ease 1.5s;
+}</code></pre>
+        <iframe src="demos/flower/step-3.html" frameborder="0" class="place right cover height width next" style="width: 40%;"></iframe>
     </section>
 
     <section class="slide">
-        шаг 8 — задержка для анимации
+        <pre><code class="hljs scss">@keyframes rot {
+    0%, 100% {
+        transform:
+            <mark>translate(-50%, -50%)</mark>
+            rotate(30deg);
+    }
+    50% {
+        transform:
+            <mark>translate(-50%, -50%)</mark>
+            rotate(-15deg);
+    }
+}</code></pre>
+        <iframe src="demos/flower/step-4.html" frameborder="0" class="place right cover height width" style="width: 40%;"></iframe>
     </section>
 
     <section class="slide">
-        главная codepen
+        <pre><code class="hljs scss">@for $i from 1 through $n {
+    $c: $n + 1 - $i;
+    <mark>$t: 1.5 * $n / $c;</mark>
+
+    .square:nth-child(#{$c}) {
+        animation-duration: #{<mark>$t</mark>}s;
+    }
+}</code></pre>
+        <iframe src="demos/flower/step-5.html" frameborder="0" class="place right cover height width" style="width: 40%;"></iframe>
+    </section>
+
+    <section class="slide black">
+        <video src="pictures/dave-flower.mp4" autoplay loop controls="true" class="cover"></video>
     </section>
 
     <section class="slide">
-        demos/demo_teaser.html
+        <pre><code class="hljs scss">@for $i from 1 through $n {
+    @keyframes <mark>rot#{$i}</mark> {
+        0%, 
+        <mark>#{50 - 150 / ($i+3)}%</mark>,
+        100% {
+            transform: translate(-50%, -50%) rotate(30deg);
+        }
+        50%, 
+        <mark>#{100 - 150 / ($i+3)}%</mark> {
+            transform: translate(-50%, -50%) rotate(-15deg);
+        }
+    }
+}</code></pre>
     </section>
 
     <section class="slide">
-        подытожим — картинка
+        <pre><code class="hljs scss">@for $i from 1 through $n {
+    $c: $n + 1 - $i;
+
+    .square:nth-child(#{$c}) {
+        animation-name: <mark>rot#{$i}</mark>;
+    }
+}</code></pre>
+        <iframe src="demos/flower/step-6.html" frameborder="0" class="place right cover height width" style="width: 40%;"></iframe>
     </section>
 
     <section class="slide">
-        не только CSS
+        <pre style="font-size: 0.4em;"><code class="hljs scss">$size: 3vmin;
+$n: 14;
+$light: #ededed;
+$dark: #232323;
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: $light;
+}
+.square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: $light;
+  transform: translate(-50%, -50%);
+}
+.square:nth-child(2n+1) {
+  background-color: $dark;
+}
+@for $i from 1 through $n {
+  $c: $n + 1 - $i;
+  .square:nth-child(#{$c}) {
+    width: $size * $i;
+    height: $size * $i;
+    animation: rot#{$i} infinite ease #{1.5 * $n / $c}s;
+  }  
+  @keyframes rot#{$i} {
+    0%, #{50 - 150 / ($i+3)}%, 100% {
+      transform: translate(-50%, -50%) rotate(30deg);
+    }
+    50%, #{100 - 150 / ($i+3)}% {
+      transform: translate(-50%, -50%) rotate(-15deg);
+    }
+  }  
+}</code></pre>
+        <iframe src="demos/flower/step-6.html" frameborder="0" class="place right cover height width" style="width: 40%;"></iframe>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-mini">
+        <h2 class="shout shout-mini">36 строк SCSS-кода</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini shrink">412 строк CSS (+префиксы)</h2>
+    </section>
+
+    <section class="slide black">
+        <img src="pictures/codepen-picked.png" alt="Codepen Picked Pens" class="cover">
+    </section>
+
+    <section class="slide clear">
+        <iframe src="demos/demo_teaser.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-light no-bg">Не только CSS</h2>
+        <img src="./pictures/fly.jpg" alt="Fly" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-mini no-bg">
             <a href="https://codepen.io/dark_mefody/" class="link link-codepen">Line Lisa (by dark_mefody)</a>
             <br>
             <a href="./demos/demo_lisa.html">&#x3C; offline &#x3E;</a>
@@ -1086,12 +1239,23 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        стримы Юры Артюха
+        <h2>youtube.com/user/flintyara/</h2>
+        <img src="pictures/akella.png" alt="Стримы Юры Артюха" class="cover height">
     </section>
 
     <section class="slide">
-        итоги: 1. скажи нет рутине 2. разберись в том, в чем давно хотел разобраться 3. брось себе вызов 4. получи удовольствие от
-        результата
+        <h2 class="shout shout-light no-bg">Подытожим</h2>
+        <img src="./pictures/behind-the-scenes.jpg" alt="Fly" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2>Чем полезны демо?</h2>
+        <ul>
+            <li class="next">Способ отвлечься от рутины 😫</li>
+            <li class="next">Повод разобраться в том, в чём давно хотелось 🧐</li>
+            <li class="next">Возможность бросить самому себе вызов 💪</li>
+            <li class="next">Удовольствие от результата 😎</li>
+        </ul>
     </section>
 
     <section class="slide">
