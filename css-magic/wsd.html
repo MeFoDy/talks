@@ -194,7 +194,7 @@
     </section>
 
     <section class="slide black">
-        <video src="./videos/clapping.mp4" autoplay loop class="cover width"></video>
+        <video src="./videos/clapping.mp4" autoplay muted loop class="cover width"></video>
     </section>
 
     <section class="slide">
@@ -209,7 +209,7 @@
     </section>
 
     <section class="slide clear black">
-        <video src="./videos/illusion.mp4" autoplay loop controls class="place"></video>
+        <video src="./videos/illusion.mp4" autoplay muted loop controls class="place"></video>
     </section>
 
     <section class="slide">
@@ -628,6 +628,14 @@ div::<mark>after</mark> {
         <iframe src="./demos/demo_panda.html" frameborder="0" class="cover width height"></iframe>
     </section>
 
+    <section class="slide">
+        <h2 class="shout shout-mini no-bg">
+            <a href="http://diana-adrianne.com/purecss-francine/">Francine (by Diana Smith)</a>
+            <br>
+            <a href="./demos/franscine/index.html">&#x3C; offline &#x3E;</a>
+        </h2>
+    </section>
+
     <section class="slide box-shadow">
         <h2>box-shadow</h2>
         <pre><code class="language-css">div {
@@ -734,7 +742,7 @@ div::<mark>after</mark> {
 
     <section class="slide">
         <h2 class="shout shout-light no-bg">animation</h2>
-        <video src="./videos/mcgonagl.mp4" autoplay loop class="cover width"></video>
+        <video src="./videos/mcgonagl.mp4" autoplay muted loop class="cover width"></video>
     </section>
 
     <section class="slide">
@@ -834,15 +842,15 @@ div::<mark>after</mark> {
 
     <section class="slide">
         <div class="place">
-            <img src="pictures/zen-coding.png" alt="Zen Coding logo">
-            <p style="text-align: center; font-weight: bold;">Zen Coding</p>
+            <img src="pictures/emmet-logo.png" alt="Emmet logo">
+            <p style="text-align: center; font-weight: bold;">Emmet</p>
         </div>
     </section>
 
     <section class="slide">
         <div class="place">
-            <img src="pictures/emmet-logo.png" alt="Emmet logo">
-            <p style="text-align: center; font-weight: bold;">Emmet</p>
+            <img src="pictures/zen-coding.png" alt="Zen Coding logo">
+            <p style="text-align: center; font-weight: bold;">Zen Coding</p>
         </div>
     </section>
 
@@ -1019,7 +1027,7 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide black">
-        <video src="pictures/dave-flower.mp4" autoplay loop controls="true" class="cover"></video>
+        <video src="pictures/dave-flower.mp4" autoplay muted loop controls="true" class="cover"></video>
     </section>
 
     <section class="slide">
@@ -1139,18 +1147,18 @@ body {
     </section>
 
     <section class="slide black">
-        <video src="pictures/dave-flower.mp4" autoplay loop controls="true" class="cover"></video>
+        <video src="pictures/dave-flower.mp4" autoplay muted loop controls="true" class="cover"></video>
     </section>
 
     <section class="slide">
         <pre><code class="hljs scss">@for $i from 1 through $n {
     @keyframes <mark>rot#{$i}</mark> {
-        0%, 
+        0%,
         <mark>#{50 - 150 / ($i+3)}%</mark>,
         100% {
             transform: translate(-50%, -50%) rotate(30deg);
         }
-        50%, 
+        50%,
         <mark>#{100 - 150 / ($i+3)}%</mark> {
             transform: translate(-50%, -50%) rotate(-15deg);
         }
@@ -1196,7 +1204,7 @@ body {
     width: $size * $i;
     height: $size * $i;
     animation: rot#{$i} infinite ease #{1.5 * $n / $c}s;
-  }  
+  }
   @keyframes rot#{$i} {
     0%, #{50 - 150 / ($i+3)}%, 100% {
       transform: translate(-50%, -50%) rotate(30deg);
@@ -1204,7 +1212,7 @@ body {
     50%, #{100 - 150 / ($i+3)}% {
       transform: translate(-50%, -50%) rotate(-15deg);
     }
-  }  
+  }
 }</code></pre>
         <iframe src="demos/flower/step-6.html" frameborder="0" class="place right cover height width" style="width: 40%;"></iframe>
     </section>
@@ -1284,7 +1292,7 @@ body {
             <br>
             <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
         </p>
-        <video src="./videos/bye.mp4" autoplay loop></video>
+        <video src="./videos/bye.mp4" autoplay muted loop></video>
         <img src="./pictures/qr-code-wsd.gif" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
     </section>
 
