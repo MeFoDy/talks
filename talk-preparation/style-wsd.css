@@ -19,3 +19,13 @@
 .shadowed {
     box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.3);
 }
+
+.highcharts-credits {
+    color: white !important;
+    fill: white !important;
+}
+
+.slide .shout-mini {
+    font-size: 60px;
+    line-height: 1.3;
+}
