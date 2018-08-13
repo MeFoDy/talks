@@ -57,6 +57,10 @@
     text-shadow: 0 -1px 0 #601f1f;
 }
 
+.shower.list .slide {
+    box-shadow: 0 20px 50px rgba(67, 7, 7, 0.3);
+}
+
 .shower.list .slide:hover {
     box-shadow: 0 0 0 20px rgba(136, 15, 15, 0.1), 0 20px 50px rgba(136, 15, 15, 0.3);
 }
