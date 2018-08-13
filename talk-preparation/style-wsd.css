@@ -80,3 +80,7 @@
 .slide a {
     color: #c24b4b;
 }
+
+.slide ol li::before, .slide ul li::before {
+    color: #dc3333;
+}
