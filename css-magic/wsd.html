@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../src/shower/themes/minsk-css/styles/screen-16x10.css">
+    <link rel="stylesheet" href="../src/shower/themes/minsk-css/styles/screen-16x9.css">
     <link rel="stylesheet" href="../src/highlight/styles/github.css">
     <link rel="stylesheet" href="style-wsd.css?v=0.0.1">
 </head>
@@ -69,7 +69,7 @@
     </section>
 
     <section class="slide">
-        <img src="pictures/hogwarts-bg.png" alt="Hogwarts" class="cover height">
+        <img src="pictures/hogwarts-bg.png" alt="Hogwarts" class="cover width">
         <img src="./pictures/gryffindor.png" alt="Гриффиндор" height="50%" style="float: left">
         <img src="./pictures/slytherin.png" alt="Слизерин" height="50%" style="float: right;">
         <h2 class="shout shout-light no-bg">CSS vs JavaScript</h2>
@@ -121,7 +121,7 @@
     <section class="slide">
         <img src="./pictures/boring.jpg" alt="Скука" class="cover width">
         <img src="./pictures/bootstrap2.png" alt="Bootstrap" style="position: absolute; left: 48%; top: 37%; height: 160px">
-        <img src="./pictures/jquery.svg" alt="jQuery" style="position: absolute; left: 48%; top: 60%; width: 160px">
+        <img src="./pictures/jquery.svg" alt="jQuery" style="position: absolute; left: 48%; top: 63%; width: 160px">
     </section>
 
     <section class="slide">
@@ -223,8 +223,8 @@
 
     <section class="slide one-div">
         <h2>Сколько стилизуемых элементов?</h2>
-        <pre><code class="language-html">&lt;div&gt;&lt;/div&gt;</code></pre>
-        <pre class="next"><code class="language-css">div {
+        <pre style="font-size: 0.9em;"><code class="language-html">&lt;div&gt;&lt;/div&gt;</code></pre>
+        <pre class="next" style="font-size: 0.9em;"><code class="language-css">div {
     border: 5px solid red;
 }
 div::<mark>before</mark> {
@@ -239,7 +239,7 @@ div::<mark>after</mark> {
             .one-div .example {
                 position: absolute;
                 right: 100px;
-                top: 300px;
+                top: 260px;
                 border: 5px solid red;
                 width: 200px;
                 height: 200px;
@@ -270,7 +270,7 @@ div::<mark>after</mark> {
 
     <section class="slide">
         <h2>А если так?</h2>
-        <pre class="next"><code class="language-html">&lt;html&gt;
+        <pre class="next" style="font-size: 0.85em;"><code class="language-html">&lt;html&gt;
     ::before
     &lt;head&gt;
         ::before
@@ -638,7 +638,7 @@ div::<mark>after</mark> {
 
     <section class="slide box-shadow">
         <h2>box-shadow</h2>
-        <pre><code class="language-css">div {
+        <pre style="font-size: 0.9em;"><code class="language-css">div {
     width: 200px;
     height: 200px;
     border-radius: 50px;
@@ -654,7 +654,7 @@ div::<mark>after</mark> {
             .box-shadow .example {
                 position: absolute;
                 right: 100px;
-                top: 200px;
+                top: 150px;
                 width: 200px;
                 height: 200px;
                 border-radius: 50px;
@@ -669,7 +669,7 @@ div::<mark>after</mark> {
 
     <section class="slide clip-path">
         <h2>clip-path (читерство)</h2>
-        <pre><code class="language-css">div {
+        <pre style="font-size: 0.9em;"><code class="language-css">div {
     width: 200px;
     height: 200px;
     background: #f60;
@@ -685,7 +685,7 @@ div::<mark>after</mark> {
             .clip-path .example {
                 position: absolute;
                 right: 100px;
-                top: 200px;
+                top: 170px;
                 width: 200px;
                 height: 200px;
                 background: #f60;
@@ -747,7 +747,7 @@ div::<mark>after</mark> {
 
     <section class="slide">
         <h2>animation</h2>
-        <ul>
+        <ul style="font-size: 0.9em;">
             <li>animation-name: none</li>
             <li>animation-duration: 0s</li>
             <li>animation-timing-function: ease</li>
@@ -789,7 +789,7 @@ div::<mark>after</mark> {
 
     <section class="slide">
         <h2>Куб (CSS)</h2>
-        <pre><code class="language-css">.cube__face {
+        <pre style="font-size: 0.9em;"><code class="language-css">.cube__face {
     transform:
         rotate3d(var(--i), var(--j), 0, calc(var(--m) * 90deg))
         translateZ(calc(.5 * var(--cube-edge)));
@@ -837,7 +837,7 @@ div::<mark>after</mark> {
 
     <section class="slide">
         <h2 class="shout shout-light no-bg">Правильные инструменты</h2>
-        <img src="./pictures/tools.png" alt="Deathly Hallows" class="cover height">
+        <img src="./pictures/tools.png" alt="Deathly Hallows" class="cover width">
     </section>
 
     <section class="slide">
@@ -1014,7 +1014,7 @@ background: #000000;</code></pre>
 
     <section class="slide">
         <h2 class="shout shout-light no-bg">8. Ждите</h2>
-        <img src="./pictures/hagrid.jpg" alt="Hagrid" class="cover height">
+        <img src="./pictures/hagrid.jpg" alt="Hagrid" class="cover width">
     </section>
 
     <section class="slide" style="background-color: #eee;">
@@ -1023,7 +1023,7 @@ background: #000000;</code></pre>
 
     <section class="slide">
         <img src="pictures/hogwarts-by-amanda-penley.jpg" alt="Hogwarts" class="cover width">
-        <h2 class="shout" style="top: 82%;">Попробуем?</h2>
+        <h2 class="shout" style="top: 86%;">Попробуем?</h2>
     </section>
 
     <section class="slide black">
@@ -1037,7 +1037,7 @@ background: #000000;</code></pre>
     </section>
 
     <section class="slide">
-        <pre><code class="hljs html">&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
+        <pre style="font-size: 0.9em;"><code class="hljs html">&#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
 &#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
 &#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
 &#x3C;div class=&#x22;square&#x22;&#x3E;&#x3C;/div&#x3E;
@@ -1178,7 +1178,7 @@ body {
     </section>
 
     <section class="slide">
-        <pre style="font-size: 0.4em;"><code class="hljs scss">$size: 3vmin;
+        <pre style="font-size: 0.38em;"><code class="hljs scss">$size: 3vmin;
 $n: 14;
 $light: #ededed;
 $dark: #232323;
@@ -1302,7 +1302,7 @@ body {
             <br>
             <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
         </p>
-        <video src="./videos/bye.mp4" autoplay muted loop></video>
+        <video src="./videos/bye.mp4" autoplay muted loop width="400"></video>
         <img src="./pictures/qr-code-wsd.gif" width="250" alt="QR code — ссылка на презентацию" class="place bottom right">
     </section>
 
