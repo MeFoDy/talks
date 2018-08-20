@@ -16,3 +16,7 @@
 # Lectures
 
 * Students Lab, iTechArt — [«JavaScript как платформа разработки»](itechart-js/)
+
+# Podcasts
+
+* Веб-стандарты — [Выпуск №134](https://www.youtube.com/watch?v=jtIi6ryOFBE)
