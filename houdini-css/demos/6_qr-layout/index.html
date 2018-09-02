@@ -3,7 +3,7 @@
 <br />
 <br />
 <span>Text to be encoded:</span>
-<input type="text" id="input" value="OdessaJS 2018">
+<input type="text" id="input" value="FrontTalks 2018">
 <br />
 <span class="hint">Hint: try resizing the QR code by grabbing the bottom right corner!</span>
 
@@ -28,7 +28,7 @@
 </style>
 
 <script>
-    (CSS.paintWorklet || paintWorklet).addModule('qr-code.js');
+    (CSS.paintWorklet || paintWorklet).addModule('qr-paint.js');
     document.querySelector('#input').addEventListener('keyup', (e) => {
         document.querySelector('#qrcode').style.setProperty('--text', e.srcElement.value);
     });

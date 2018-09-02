@@ -27,8 +27,8 @@ isWorkletReady
             orientation: 'block',
             timeRange: 1,
             scrollSource,
-            //startScrollOffset: headerHeight + 'px',
-            //endScrollOffset: (footerOffsetTop - scrollSource.clientHeight) + 'px',
+            startScrollOffset: headerHeight + 'px',
+            endScrollOffset: (footerOffsetTop - scrollSource.clientHeight) + 'px',
         });
         const positionAnimation = new WorkletAnimation(animatorName, positionFrames, positionTimeline);
         positionAnimation.play();

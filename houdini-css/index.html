@@ -16,14 +16,14 @@
 	<header class="caption">
 		<h1>Houdini — CSS, который JavaScript</h1>
 		<p>
-			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
+			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>
 		</p>
 	</header>
 
 
 	<section class="slide clear" id="cover">
 		<p>
-			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>, iTechArt Group
+			<a href="https://twitter.com/dark_mefody">Никита Дубко</a>
 		</p>
 		<h2 class="no-bg">Houdini —
 			<br>CSS, который JavaScript</h2>
@@ -54,7 +54,7 @@
 	<section class="slide">
 		<h2 class="no-bg">Никита Дубко</h2>
 		<ul>
-			<li>Software Engineer в iTechArt Group;</li>
+			<li>доброжелюбный бородач;</li>
 			<li>адепт философии Pure CSS Images;</li>
 			<li>соорганизатор митапов MinskCSS и MinskJS.</li>
 		</ul>
@@ -607,7 +607,7 @@ var arrowFunction = function arrowFunction(a) {
 
 
 	<section class="slide nd-houdini-api-list">
-		<img src="./pictures/css-tag-houdini-specs.png" alt="CSS Houdini specifications" class="cover width">
+		<img src="./pictures/css-tag-houdini-specs.jpg" alt="CSS Houdini specifications" class="cover width">
 		<p class="image-caption">
 			<a href="https://github.com/w3c/css-houdini-drafts">Репозиторий проекта на Github</a>
 		</p>
@@ -855,7 +855,6 @@ styleMap.set('transform', transformValue);</code></pre>
 			<li>CSSMathValue <i class="note">width: calc(1em + 5px)</i></li>
 		</ul>
 		</li>
-		<li>CSSPositionValue <i class="note">object-position: top 50%</i></li>
 		<li>CSSTransformValue <i class="note">transform: translate(5px, 10em)</i></li>
 		<li>CSSImageValue <i class="note">list-style-image: linear-gradient(red 0, blue 100%)</i></li>
 		</ul>
@@ -1066,14 +1065,16 @@ CSS.registerProperty({
 			<br>
 			<code>&lt;resolution&gt;</code>
 			<br>
-			<code>&lt;transform-list&gt;</code>
+			<code>&lt;transform-function&gt;</code>
 			<br>
 			<code>&lt;custom-ident&gt;</code>
 			<br>
 			<br>
 			<code>&lt;length | number&gt;</code>
 			<br>
-			<code>&lt;length+&gt;</code>
+			<code>&lt;length&gt;+</code>
+			<br>
+			<code>&lt;image&gt;#</code>
 			<br>
 			<code>small | smaller</code>
 		</p>
@@ -1111,6 +1112,11 @@ CSS.registerProperty({
 			<img src="pictures/chrome-canary.svg" height="55" alt=""> Chrome Canary
 			<sup>*</sup>
 		</h2>
+	</section>
+
+
+	<section class="slide">
+		<img src="./pictures/pv-observer.jpg" alt="Observer" class="cover">
 	</section>
 
 
@@ -1286,7 +1292,7 @@ registerPaint('my-paint', class MyPaint {
 		<pre><code class="language-css">/* style.css */
 .my-element {
 	--foo: deeppink;
-	background-image: paint(my-paint);
+	background-image: <mark>paint</mark>(my-paint);
 }</code></pre>
 		<pre><code class="hljs javascript">// app.js
 CSS.registerProperty({
@@ -1313,6 +1319,7 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 			<li class="next">Только 2D context.</li>
 			<li class="next">Нельзя работать с текстом.</li>
 			<li class="next">Время отрисовки должно укладываться в 1 frame.</li>
+			<li class="next">Нет доступа к хранилищам данных.</li>
 		</ul>
 	</section>
 
@@ -1495,6 +1502,36 @@ p::first-letter { color: red; }
 
 
 	<section class="slide">
+		<pre><code class="hljs">const element = document.querySelector('.my-element');
+element
+	.<mark>getFragmentInformation</mark>("direct-fragments-only")
+	.then(info => {
+		// ...
+	});</code></pre>
+	<br>
+	<pre class="next"><code class="hlsj">// Значения фильтра
+"direct-fragments-only" | "fragment-hierarchy"</code></pre>
+	</section>
+
+
+	<section class="slide">
+		<pre><code class="hljs">interface DeadFragmentInformation {
+	Node <mark>node</mark>;
+	double <mark>width</mark>;
+	double <mark>height</mark>;
+	double <mark>top</mark>;
+	double <mark>left</mark>;
+	boolean <mark>isOverflowed</mark>;
+	FrozenArray&lt;DeadFragmentInformation&gt;? <mark>children</mark>;
+	DeadFragmentInformation? <mark>nextSibling</mark>;
+	DeadFragmentInformation? <mark>previousSibling</mark>;
+	DeadFragmentInformation? <mark>nextInBox</mark>;
+	DeadFragmentInformation? <mark>previousInBox</mark>;
+};</code></pre>
+	</section>
+
+
+	<section class="slide">
 		<img src="pictures/genie-wow.jpg" alt="" class="cover height">
 		<h2 class="shout shout-mini place bottom">CSS Layout API 🚀</h2>
 		<footer>
@@ -1520,7 +1557,7 @@ p::first-letter { color: red; }
 	}
 
 	*<mark>intrinsicSizes</mark>(children, edges, styleMap) {
-		// Вычислить внутрение размеры элемента
+		// Вычислить размеры элемента
 	}
 
 	*<mark>layout</mark>(children, edges, constraints, styleMap, breakToken) {
@@ -1552,7 +1589,7 @@ p::first-letter { color: red; }
 	double inlineSize = 0;
 	double blockSize = 0;
 	double autoBlockSize = 0;
-	sequence<LayoutFragment> childFragments = [];
+	sequence&lt;LayoutFragment&gt; childFragments = [];
 	any data = null;
 	BreakTokenOptions breakToken = null;
 };</code></pre>
@@ -1563,7 +1600,7 @@ p::first-letter { color: red; }
 		<pre><code class="hljs css">/* CSS */
 .layout-example {
 	--foo: 5;
-	display: layout(my-layout);
+	display: <mark>layout</mark>(my-layout);
 }
 
 .layout-example .child {
@@ -1602,6 +1639,11 @@ window.layoutWorklet.addModule('my-layout.js');</code></pre>
 			<li>line by line layout (круглые экраны)</li>
 			<li><a href="demos/9_aspect-ratio-layout/index.html">aspect ratio layout</a></li>
 		</ul>
+	</section>
+
+
+	<section class="slide">
+		<img src="./pictures/layout-promise.jpg" alt="Promise" class="cover">
 	</section>
 
 
@@ -1735,7 +1777,7 @@ const timeline = new ScrollTimeline({
 	<section class="slide">
 		<pre><code class="hljs javascript">// app.js
 
-animationWorklet.addModule('worklet.js').then(() => {
+CSS.animationWorklet.addModule('worklet.js').then(() => {
 	const animation = new WorkletAnimation(
 		'scroll-position-animator',
 		frames,
@@ -1845,6 +1887,32 @@ animationWorklet.addModule('worklet.js').then(() => {
 	</section>
 
 
+	<section class="slide">
+			<pre><code class="hljs">const element = document.querySelector('.my-element');
+	document.<mark>measureElement</mark>(element);</code></pre>
+		</section>
+
+
+		<section class="slide">
+			<pre><code class="hljs" style="font-size: 0.8em;">interface FontMetrics {
+	double <mark>width</mark>;
+	sequence&lt;double&gt; <mark>advances</mark>;
+	double <mark>boundingBoxLeft</mark>;
+	double <mark>boundingBoxRight</mark>;
+	double <mark>height</mark>;
+	double <mark>emHeightAscent</mark>;
+	double <mark>emHeightDescent</mark>;
+	double <mark>boundingBoxAscent</mark>;
+	double <mark>boundingBoxDescent</mark>;
+	double <mark>fontBoundingBoxAscent</mark>;
+	double <mark>fontBoundingBoxDescent</mark>;
+	Baseline <mark>dominantBaseline</mark>;
+	sequence&lt;Baseline&gt; <mark>baselines</mark>;
+	sequence&lt;Font&gt; <mark>fonts</mark>;
+};</code></pre>
+		</section>
+
+
 	<section class="slide clear black">
 		<img src="./pictures/aladdin-genie-robin-williams.gif" class="cover height" alt="Happy">
 		<footer>
@@ -1884,7 +1952,7 @@ animationWorklet.addModule('worklet.js').then(() => {
 
 
 	<section class="slide clear">
-		<img src="./pictures/ishoudinireadyyet.png" alt="https://ishoudinireadyyet.com" class="cover width">
+		<img src="./pictures/ishoudinireadyyet.jpg" alt="https://ishoudinireadyyet.com" class="cover width">
 		<footer>
 			<p>
 				Как обстоят дела с другими браузерами?
@@ -1939,6 +2007,13 @@ animationWorklet.addModule('worklet.js').then(() => {
 	</section>
 
 
+	<section class="slide">
+		<h2 class="shout shout-mini no-bg">
+			<a href="https://vitaliy-bobrov.github.io/css-paint-demos/">Демо от Виталия Боброва</a>
+		</h2>
+	</section>
+
+
 
 
 	<section class="slide">
@@ -1957,18 +2032,14 @@ animationWorklet.addModule('worklet.js').then(() => {
 				<a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of</a>, Philip Walton
 			</li>
 			<li>
-				<a href="https://developers.google.com/web/updates/2016/05/houdini">Houdini: Demystifying CSS</a>, Surma
+				<a href="https://css-tricks.com/what-houdini-means-for-animating-transforms/">What Houdini Means for Animating Transforms</a>, Ana Tudor
 			</li>
 			<li>
-				<a href="https://css-tricks.com/what-houdini-means-for-animating-transforms/">What Houdini Means for Animating Transforms</a>, Ana Tudor
+				<a href="https://css-tricks.com/the-css-paint-api/">The CSS Paint API</a>, Ruth John
 			</li>
 		</ol>
 		<p class="list-header">Видео</p>
 		<ol>
-			<li>
-				<a href="https://www.youtube.com/watch?v=sE3ttkP15f8">Houdini: Demystifying the Future of CSS</a>
-				— Google I/O 2016
-			</li>
 			<li>
 				<a href="https://vimeo.com/232982766">Philip Walton | Polyfills & Houdini | Browser API Special</a>
 				— CSS Day 2017
@@ -1976,6 +2047,10 @@ animationWorklet.addModule('worklet.js').then(() => {
 			<li>
 				<a href="https://www.youtube.com/watch?v=66E0_QFnmlA">Serg Hospodarets: CSS Houdini - from CSS variables to JavaScript and back</a>
 				— Frontend United 2017
+			</li>
+			<li>
+				<a href="https://www.youtube.com/watch?v=WG14sHR3fH4">Patrick Kettner — Creating magic with Houdini</a>
+				— OdessaJS 2018
 			</li>
 		</ol>
 
