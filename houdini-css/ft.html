@@ -335,16 +335,16 @@
 
 	<section class="slide">
 		<h2>Полифил</h2>
-		<pre><code class="hljs js">(function(self) {
-	'use strict';
-	if (self.es2020feature) {
-		return;
-	}
-	self.es2020feature = function() {
-		// Do some magic
-	};
-	self.es2020feature.polyfill = true;
-})(this);</code></pre>
+		<pre><code class="hljs js">(function(self) {</code>
+<code class="hljs js">    'use strict';</code>
+<code class="hljs js mark next">    if (self.es2020feature) {</code>
+<code class="hljs js">        return;</code>
+<code class="hljs js">    }</code>
+<code class="hljs js mark next">    self.es2020feature = function() {</code>
+<code class="hljs js">	      // Do some magic</code>
+<code class="hljs js">    };</code>
+<code class="hljs js mark next">    self.es2020feature.polyfill = true;</code>
+<code class="hljs js">})(this);</code></pre>
 		<footer>
 			<p>
 				Чтобы написать свой polyfill, достаточно применить
