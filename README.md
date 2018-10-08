@@ -12,6 +12,7 @@
 * OdessaJS 2018 — [«Houdini — CSS, который JavaScript»](houdini-css/) ([видео](https://youtu.be/MPaD8N9BrFA))
 * Web Standards Days 2018 in Saint-Petersburg — [«Идеальный доклад. Голая правда»](talk-preparation/wsd.html)
 * Web Standards Days 2018 in Saint-Petersburg — [«Магия CSS вне Хогвартса»](css-magic/wsd.html)
+* FrontTalks 2018 — [«Houdini — CSS, который JavaScript»](houdini-css/ft.html)
 
 # Lectures
 
@@ -20,3 +21,4 @@
 # Podcasts
 
 * Веб-стандарты — [Выпуск №134](https://www.youtube.com/watch?v=jtIi6ryOFBE)
+* SPB Frontend. Drinkcast — [Выпуск #28 — «Спикерский»](https://spb-frontend.ru/podcast/28)
