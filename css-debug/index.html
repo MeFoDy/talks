@@ -1,0 +1,971 @@
+<!DOCTYPE HTML>
+
+<html lang="ru">
+    <head>
+        <title>Отладка CSS в боевых условиях</title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="../src/shower/themes/yandex2/styles/screen-16x9.css">
+        <link rel="stylesheet" href="../src/highlight/styles/mono-blue.css">
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+
+    <body class="shower list">
+        <header class="caption">
+            <h1>Отладка CSS в боевых условиях</h1>
+            <p>Никита Дубко,
+                <a href="http://yandex.ru/">Яндекс</a>
+            </p>
+
+        </header>
+
+        <section class="slide cover">
+            <div>
+                <h2><img src="../src/shower/themes/yandex2/images/logo-ru.svg" alt="" class="logo"/></h2>
+            </div>
+        </section>
+
+        <section class="slide title">
+            <div>
+                <h2>Отладка CSS в боевых условиях</h2>
+
+                <h3><img src="../src/shower/themes/yandex2/images/title-logo-ru.svg" alt=""/></h3>
+
+                <div class="authors">
+                    <p>Никита Дубко, разработчик интерфейсов</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Никита Дубко</h2>
+                <ul>
+                    <li>доброжелюбный бородач;</li>
+                    <li>адепт философии Pure CSS Images;</li>
+                    <li>состою в MinskCSS и MinskJS.</li>
+                </ul>
+                <br>
+                <img src="pictures/minskcss-logo.svg" alt="MinskCSS" width="200" style="margin-right: 50px;">
+                <img src="pictures/minskjs-logo.svg" alt="MinskJS" width="200" style="margin-right: 50px;">
+                <img src="pictures/css-minsk-js-logo.svg" alt="CSS-Minsk-JS" width="200" height="200" style="padding: 10px; background-color: #2b2727;">
+            </div>
+
+            <img class="place right height cover" src="pictures/me.jpg" alt="Никита Дубко">
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Приходит к вам тестировщик...</h2>
+                <p class="next">«У нас критический баг ...</p>
+                <p class="next">... в очень важной функции.</p>
+                <p class="next">Релиз сегодня».</p>
+                <span class="danger next">Закатить глаза</span>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Алгоритм решения проблемы</h2>
+                <ol>
+                    <li class="next">подобрать решение;</li>
+                    <li class="next">закоммитить;</li>
+                    <li class="next">отдать тестировщику.</li>
+                </ol>
+                <span class="danger next">Палец вниз</span>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Хороший алгоритм решения проблемы</h2>
+                <ol>
+                    <li>воспроизвести проблему;</li>
+                    <li>локализовать ошибку;</li>
+                    <li>исправить ошибку;</li>
+                    <li>протестировать;</li>
+                    <li>избежать повторения в будущем;</li>
+                    <li>отдать тестировщику.</li>
+                </ol>
+                <span class="danger next">Палец вверх</span>
+            </div>
+        </section>
+
+        <section class="slide">
+            <img src="./pictures/boromir.jpg" alt="Нельзя просто взять и отладить CSS" class="cover height">
+        </section>
+
+        <section class="slide section">
+            <div>
+                <h2>Фигура первая.<br>Рабочая</h2>
+                <h3>Десктоп, популярный браузер</h3>
+            </div>
+        </section>
+
+        <section class="slide blockquote">
+            <div>
+                <h2>У ссылок пропали визуальные выделения по фокусу.</h2>
+                <h3>Ваш тестировщик</h3>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Вы пишете хороший продукт, у вас...</h2>
+                <ul>
+                    <li>на все интерактивные элементы есть аутлайн</li>
+                    <li>дефолтный сброшен</li>
+                    <li>установлен красивый, дизайнерский</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Алгоритм решения проблемы</h2>
+                <ol>
+                    <li>
+                        <strong>воспроизвести проблему;</strong>
+                    </li>
+                    <li>локализовать ошибку;</li>
+                    <li>исправить ошибку;</li>
+                    <li>протестировать;</li>
+                    <li>избежать повторения в будущем;</li>
+                    <li>отдать тестировщику.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <p>Открываем урл</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Инструменты разработчика</h2>
+                <p>Chrome, Firefox, Internet Explorer, Safari</p>
+                <ul>
+                    <li>Ctrl+Shift+I</li>
+                    <li>F12</li>
+                    <li>⌘ + ⌥ + I — Mac OS X</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Выставить фокус</h2>
+                <p>Скриншот</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Алгоритм решения проблемы</h2>
+                <ol>
+                    <li>воспроизвести проблему;</li>
+                    <li>
+                        <strong>локализовать ошибку;</strong>
+                    </li>
+                    <li>исправить ошибку;</li>
+                    <li>протестировать;</li>
+                    <li>избежать повторения в будущем;</li>
+                    <li>отдать тестировщику.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 2. Локализовать</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Вычисленные стили</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Сброс есть, а дизайнерского решения нет</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Идём в исходный код</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Вспоминаем про специфичность</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Хаки увеличения специфичности</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>БЭМ</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Калькулятор специфичности</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Специфичность не влияет</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Ссылка на статью Ильи Стрельцына</h2>
+                <p>http://css-live.ru/css/nikto-ne-znaet-css-specifichnost-ne-kaskad.html</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Приоритетность стилей (по убыванию)</h2>
+                <ol>
+                    <li>Стили во время CSS-переходов (transition)</li>
+                    <li>Браузерные стили с !important</li>
+                    <li>Пользовательские стили с !important</li>
+                    <li>Авторские (т.е. наши, разработческие) стили с !important</li>
+                    <li>Стили во время анимаций</li>
+                    <li>Обычные (т.е. без !important) авторские стили</li>
+                    <li>Обычные пользовательские стили</li>
+                    <li>Обычные браузерные стили</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Browser Styles</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Пример важного браузерного стиля</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Идём в исходный код</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <pre><code>// style.scss
+
+%outline {
+    outline: none;
+    box-shadow: 0 0 3px $color_outline;
+}
+
+.link {
+    @extend %outline;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Про map-файлы</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Как включить при сборке</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>В браузере</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <pre><code>// reset.css
+
+:focus {
+    outline: 0;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Ссылка на статью про debug</h2>
+                <p>https://www.sitepoint.com/using-sass-error-warn-and-debug-directives/</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <pre><code>// style.scss
+
+%outline {
+    outline: none;
+    box-shadow: 0 0 3px $color_outline;
+}
+
+.link {
+    @extend %outline;
+
+    @debug $color_outline;
+}</code></pre>
+
+                <pre><code>style.scss:15: debug: rgba(#6f9, 0.3)</code></pre>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <pre><code>// style.scss
+
+%outline {
+    outline: none;
+    box-shadow: 0 0 3px $color_outline;
+
+    @debug $color_outline;
+}
+
+.link {
+    @extend %outline;
+}</code></pre>
+
+                <pre><code>style.scss:6: debug: rgba(#6f9, 0.3)</code></pre>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Смотрим собранный код</h2>
+                <p>Ужас от увиденного: полотно @extend</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Как работает @extend</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>.popup__button:not(.popup .popup__button_disabled)</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Как работает :not</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Как работает браузер со списком селекторов</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Алгоритм решения проблемы</h2>
+                <ol>
+                    <li>воспроизвести проблему;</li>
+                    <li>локализовать ошибку;</li>
+                    <li>
+                        <strong>исправить ошибку;</strong>
+                    </li>
+                    <li>протестировать;</li>
+                    <li>избежать повторения в будущем;</li>
+                    <li>отдать тестировщику.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Правильный селектор</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Алгоритм решения проблемы</h2>
+                <ol>
+                    <li>воспроизвести проблему;</li>
+                    <li>локализовать ошибку;</li>
+                    <li>исправить ошибку;</li>
+                    <li>протестировать;</li>
+                    <li>
+                        <strong>избежать повторения в будущем;</strong>
+                    </li>
+                    <li>отдать тестировщику.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 5. Избежать повторения в будущем</h2>
+                <ul>
+                    <li>отказаться от
+                        <code>@extend</code>
+                        в пользу
+                        <code>@mixin</code>;
+                    </li>
+                    <li>сделать класс
+                        <code>.outline</code>;
+                    </li>
+                    <li>отказаться от
+                        <code>reset.css</code>.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Советы</h2>
+                <ul>
+                    <li>Проверяйте сборку.</li>
+                    <li class="next">Знайте свои инструменты.</li>
+                    <li class="next">Настройте линтеры.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Ссылка на Сашин доклад</h2>
+            </div>
+        </section>
+
+        <section class="slide section">
+            <div>
+                <h2>Фигура вторая.<br>Печальная</h2>
+                <h3>Смартфон, популярная ОС</h3>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Приходит к вам тестировщик...</h2>
+                <ul>
+                    <li>На iOS в любом браузере при скролле блок становится невидимым</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Алгоритм решения проблемы</h2>
+                <ol>
+                    <li>воспроизвести проблему;</li>
+                    <li>локализовать ошибку;</li>
+                    <li>исправить ошибку;</li>
+                    <li>протестировать;</li>
+                    <li>избежать повторения в будущем;</li>
+                    <li>отдать тестировщику.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 1. Воспроизвести</h2>
+                <p>Видео бага</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Изыди сотона</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 2. Локализовать</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Как дебажить мобильное устройство</h2>
+                <ul>
+                    <li>Эмулятор</li>
+                    <li>Реальное устройство</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Эмуляторы</h2>
+                <ul>
+                    <li>Virtual Box</li>
+                    <li>Xcode</li>
+                    <li>Android Studio</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Подключаем Android для дебага</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Подключаем iOS для дебага</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Проверяем валидность вёрстки и стилей</h2>
+            </div>
+            <ul>
+                <li>w3c</li>
+                <li>csstree</li>
+            </ul>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>w3c</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>csstree</h2>
+                <p>https://csstree.github.io/docs/</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Видео с 3D Touch</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Подозрение, что элементы есть, но не видны</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Отсылка к докладу Вадима Макишвили</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Даже в стабильных браузерах есть баги</h2>
+                <p>ссылки</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>-webkit-overflow-scrolling: touch</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 3. Исправить</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Вынести на новый графический слой</h2>
+                <ul>
+                    <li>translateZ</li>
+                    <li>will-change</li>
+                    <li>filter</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Поплыла вёрстка... Но почему?</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>position: absolute</h2>
+                <p>ссылка на спецификацию</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>И что нам делать?</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Очень странное решение с animation</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 5. Избежать повторения в будущем</h2>
+                <ul>
+                    <li>Добавить тесты скриншотами</li>
+                    <li>Добавить в сборщик @warn на использование нестабильного свойства</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Тестирование скриншотами</h2>
+                <ul>
+                    <li>Hermione</li>
+                    <li>Рома Дворнов</li>
+                    <li>Tinkoff</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Советы</h2>
+                <ul>
+                    <li>По возможности не используйте нестабильные свойства.</li>
+                    <li>Тестируйте на реальных устройствах.</li>
+                    <li>Знайте спецификацию.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide section">
+            <div>
+                <h2>Фигура третья.<br>Разлучная</h2>
+                <h3>UC Browser, Nokia 6300</h3>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Приходит к вам тестировщик...</h2>
+                <ul>
+                    <li>В UC Browser на Nokia 6300 не работает шапка сайта</li>
+                    <li>Подтвердить не могу, баг прислал клиент</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Nokia 6300???</h2>
+                <p>Фото</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Целевой рынок</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Самые продаваемые смартфоны, Китай (2017)</h2>
+                <h3>http://mobile.zol.com.cn/657/6570496.html</h3>
+                <ol class="double">
+                    <li>Honor8 32GB</li>
+                    <li>iPhone7 Plus 32GB</li>
+                    <li>Vivo X9 64GB</li>
+                    <li>Huawei Mate9 32 GB</li>
+                    <li>Oppo RII 64GB</li>
+                    <li>Samsung Galaxy S8 64GB</li>
+                    <li>Honor V9 64GB</li>
+                    <li>Oppo R9S Plus 64 GB</li>
+                    <li>Gionee M2017 128 GB</li>
+                    <li>Moto Z 65 GB</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>caniuse на максималках</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Доля UC Browser в Китае</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 1. Воспроизвести</h2>
+                <ul>
+                    <li>Реальное устройство</li>
+                    <li>http://www.browserstack.com/newsletter/digest-mobile-live-v3</li>
+                    <li>http://www.uc.cn/business/developer/</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Но как жить без инструментов разработчика?</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Firebug logo</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>FireBug</h2>
+                <h3>https://en.wikipedia.org/wiki/Firebug_(software)</h3>
+                <ul>
+                    <li>Январь 2006</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>firebug lite</h2>
+                <h3>https://getfirebug.com/releases/lite/1.2/</h3>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 2. Локализовать</h2>
+                <ol>
+                    <li>собрать демо</li>
+                    <li>запустить демо на устройстве</li>
+                    <li>отключить потенциально проблемные стили</li>
+                    <li>goto 1</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Немного наркомании</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Отладка слоёв #1</h2>
+                <h3>https://medium.freecodecamp.org/heres-my-favorite-weird-trick-to-debug-css-88529aa5a6a3</h3>
+                <pre><code>*:not(path):not(g) {
+    color: hsla(210, 100%, 100%, 0.9) !important;
+    background: hsla(210, 100%,  50%, 0.5) !important;
+    outline: solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
+    box-shadow: none !important;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Вид страницы</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Отладка слоёв #2</h2>
+                <h3>https://habr.com/post/65009/</h3>
+                <pre><code>* { outline: 2px dotted red; }
+* * { outline: 2px dotted green; }
+* * * { outline: 2px dotted orange; }
+* * * * { outline: 2px dotted blue; }
+* * * * * { outline: 1px solid red; }
+* * * * * * { outline: 1px solid green; }
+* * * * * * * { outline: 1px solid orange; }
+* * * * * * * * { outline: 1px solid blue; }</code></pre>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Внешний вид</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Как понять, что класс есть на странице?</h2>
+                <ul>
+                    <li>JavaScript</li>
+                    <li class="next">CSS image
+                        <ul>
+                            <li>
+                                <code>background-image: url('/api/check?s=.my-class')</code>
+                            </li>
+                            <li>
+                                <code>list-style-image: url('/api/check?s=.my-class')</code>
+                            </li>
+                            <li>
+                                <code>content: url('/api/check?s=.my-class')</code>
+                            </li>
+                            <li>...</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Помните про псевдоэлементы</h2>
+                <pre><code>.link {
+    position: relative;
+}
+.link:before {
+    content: '.link';
+    color: red;
+}
+.link:after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    border: 1px solid red;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Используйте div и span</h2>
+                <ul>
+                    <li>У некоторых HTML5-элементов есть предопределённые стили.</li>
+                    <li>Некоторые браузеры не умеют HTML5.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Шаг 3. Исправить</h2>
+                <p>... может быть критически дорого.</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Пример наплевательства</h2>
+                <p>https://github.com/google/material-design-lite</p>
+                <p>https://github.com/google/material-design-lite/issues/4524</p>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Советы</h2>
+                <ul>
+                    <li>Если важно — делайте отдельную лёгкую версию сайта.</li>
+                    <li>Используйте прогрессивное улучшение.</li>
+                    <li>Всегда проверять совместимость внешних библиотек с вашим стеком браузеров.</li>
+                    <li>Мыслите нестандартно.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide section">
+            <div>
+                <h2>Послесловие</h2>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Для размышления</h2>
+                <ul>
+                    <li>Верстать не сложно. Сложно верстать правильно.</li>
+                    <li>Ваш сайт могут открыть даже на холодильнике.</li>
+                    <li>Упасть может что угодно.</li>
+                    <li>Пользователь не должен страдать из-за лени разработчика.</li>
+                    <li>Знайте свои инструменты.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="slide contacts">
+            <div>
+                <h2>Контакты</h2>
+                <figure>
+                    <h3>Никита Дубко</h3>
+                    <p>разработчик интерфейсов</p>
+                </figure>
+
+                <hr/>
+                <ul>
+                    <li class="mail">mefody@yandex-team.ru</li>
+                    <li class="github">MeFoDy</li>
+                </ul>
+                <ul>
+                    <li class="twitter">@dark_mefody</li>
+                    <li class="facebook">Dark.MeFoDy</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="progress"></div>
+        <footer class="badge">
+            <a href="https://github.com/shower/shower">Powered by Shower</a>
+        </footer>
+
+        <script src="../src/shower/shower.min.js"></script>
+        <script src="../src/highlight/highlight.pack.js"></script>
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
+
+        <!-- Copyright © 2018 Никита Дубко, Яндекс — http://yandex.ru/ -->
+    </body>
+</html>
