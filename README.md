@@ -12,7 +12,8 @@
 * OdessaJS 2018 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/) ([видео](https://youtu.be/MPaD8N9BrFA))
 * Web Standards Days 2018 in Saint-Petersburg — [«Идеальный доклад. Голая правда»](https://mefody.github.io/talks/talk-preparation/wsd.html)
 * Web Standards Days 2018 in Saint-Petersburg — [«Магия CSS вне Хогвартса»](https://mefody.github.io/talks/css-magic/wsd.html)
-* FrontTalks 2018 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/ft.html)
+* FrontTalks 2018 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/ft.html) ([видео](https://www.youtube.com/watch?v=yyVU-r9sRw8))
+* Web Standards Days 2018 in Kiev — [«Идеальный доклад. Голая правда»](https://mefody.github.io/talks/talk-preparation/kiev.html)
 
 # Lectures
 
@@ -22,3 +23,4 @@
 
 * Веб-стандарты — [Выпуск №134](https://www.youtube.com/watch?v=jtIi6ryOFBE)
 * SPB Frontend. Drinkcast — [Выпуск #28 — «Спикерский»](https://spb-frontend.ru/podcast/28)
+* Frontend Weekend — [Выпуск №75](https://soundcloud.com/frontend-weekend/fw-75)
