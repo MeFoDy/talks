@@ -106,19 +106,29 @@
 
         <section class="slide blockquote">
             <div>
-                <h2>У ссылок пропали визуальные выделения по фокусу.</h2>
+                <h2>У ссылок пропали выделения по фокусу.</h2>
                 <h3>Ваш тестировщик</h3>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <h2>Вы пишете хороший продукт, у вас...</h2>
+                <img src="./pictures/outlinenone.jpg" alt="outlinenone" class="cover">
+                <h3>
+                    <a href="http://www.outlinenone.com">www.outlinenone.com</a>
+                </h3>
+            </div>
+        </section>
+
+        <section class="slide">
+            <div>
+                <h2>Вы стараетесь делать хорошо, у вас...</h2>
                 <ul>
-                    <li>на все интерактивные элементы есть аутлайн</li>
-                    <li>дефолтный сброшен</li>
-                    <li>установлен красивый, дизайнерский</li>
+                    <li>на все взаимодействия есть визуальные зацепки;</li>
+                    <li>выделение по умолчанию сброшено;</li>
+                    <li>взамен установлено красивое, дизайнерское.</li>
                 </ul>
+                <span class="danger next">Ссылка с выделением</span>
             </div>
         </section>
 
@@ -126,9 +136,7 @@
             <div>
                 <h2>Алгоритм решения проблемы</h2>
                 <ol>
-                    <li>
-                        <strong>воспроизвести проблему;</strong>
-                    </li>
+                    <li>&#x2060;<strong>воспроизвести проблему;</strong>&#x2060;</li>
                     <li>локализовать ошибку;</li>
                     <li>исправить ошибку;</li>
                     <li>протестировать;</li>
@@ -140,26 +148,20 @@
 
         <section class="slide">
             <div>
-                <p>Открываем урл</p>
-            </div>
-        </section>
-
-        <section class="slide">
-            <div>
                 <h2>Инструменты разработчика</h2>
-                <p>Chrome, Firefox, Internet Explorer, Safari</p>
                 <ul>
-                    <li>Ctrl+Shift+I</li>
+                    <li>Ctrl + Shift + I</li>
+                    <li>⌘ + ⌥ + I</li>
                     <li>F12</li>
-                    <li>⌘ + ⌥ + I — Mac OS X</li>
                 </ul>
+                <p class="danger">Chrome, Firefox, Internet Explorer, Safari</p>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <h2>Выставить фокус</h2>
-                <p>Скриншот</p>
+                <h2>Включение состояний</h2>
+                <p class="danger">Скриншот</p>
             </div>
         </section>
 
@@ -168,9 +170,7 @@
                 <h2>Алгоритм решения проблемы</h2>
                 <ol>
                     <li>воспроизвести проблему;</li>
-                    <li>
-                        <strong>локализовать ошибку;</strong>
-                    </li>
+                    <li>&#x2060;<strong>локализовать ошибку;</strong>&#x2060;</li>
                     <li>исправить ошибку;</li>
                     <li>протестировать;</li>
                     <li>избежать повторения в будущем;</li>
@@ -181,55 +181,53 @@
 
         <section class="slide">
             <div>
-                <h2>Шаг 2. Локализовать</h2>
-            </div>
-        </section>
-
-        <section class="slide">
-            <div>
                 <h2>Вычисленные стили</h2>
+                <span class="danger">Сброс есть, а дизайнерского решения нет</span>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <h2>Сброс есть, а дизайнерского решения нет</h2>
+                <h2>style.scss</h2>
+                <pre><code>%outline {
+    outline: 0;
+    box-shadow: 0 0 3px $color_outline;
+}
+
+.link:focus {
+    @extend %outline;
+}</code></pre>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <h2>Идём в исходный код</h2>
-            </div>
-        </section>
-
-        <section class="slide">
-            <div>
-                <h2>Вспоминаем про специфичность</h2>
-            </div>
-        </section>
-
-        <section class="slide">
-            <div>
-                <h2>Хаки увеличения специфичности</h2>
-            </div>
-        </section>
-
-        <section class="slide">
-            <div>
-                <h2>БЭМ</h2>
+                <h2>Увеличиваем специфичность</h2>
+                <ul>
+                    <li>
+                        <code>.link.link</code>
+                    </li>
+                    <li>
+                        <code>.link[class]</code>
+                    </li>
+                    <li>
+                        <code>.link:not(.foo)</code>
+                    </li>
+                </ul>
             </div>
         </section>
 
         <section class="slide">
             <div>
                 <h2>Калькулятор специфичности</h2>
+                <span class="danger">ссылка и скриншот</span>
             </div>
         </section>
 
         <section class="slide">
             <div>
                 <h2>Специфичность не влияет</h2>
+                <span class="danger">ссылка и скриншот</span>
             </div>
         </section>
 
@@ -237,6 +235,8 @@
             <div>
                 <h2>Ссылка на статью Ильи Стрельцына</h2>
                 <p>http://css-live.ru/css/nikto-ne-znaet-css-specifichnost-ne-kaskad.html</p>
+                <p>https://twitter.com/mxstbr/status/1038073603311448064</p>
+                <span class="danger">скриншот</span>
             </div>
         </section>
 
@@ -247,7 +247,7 @@
                     <li>Стили во время CSS-переходов (transition)</li>
                     <li>Браузерные стили с !important</li>
                     <li>Пользовательские стили с !important</li>
-                    <li>Авторские (т.е. наши, разработческие) стили с !important</li>
+                    <li>Авторские стили с !important</li>
                     <li>Стили во время анимаций</li>
                     <li>Обычные (т.е. без !important) авторские стили</li>
                     <li>Обычные пользовательские стили</li>
@@ -258,32 +258,20 @@
 
         <section class="slide">
             <div>
-                <h2>Browser Styles</h2>
+                <h2>Браузерные стили</h2>
+                <span class="danger">скриншот</span>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <h2>Пример важного браузерного стиля</h2>
-            </div>
-        </section>
-
-        <section class="slide">
-            <div>
-                <h2>Идём в исходный код</h2>
-            </div>
-        </section>
-
-        <section class="slide">
-            <div>
-                <pre><code>// style.scss
-
-%outline {
-    outline: none;
-    box-shadow: 0 0 3px $color_outline;
+                <h2>style.scss</h2>
+                <pre><code>%outline {
+    outline: 0;
+    box-shadow: 0 0 3px $color_outline <mark>!important</mark>;
 }
 
-.link {
+.link:focus {
     @extend %outline;
 }</code></pre>
             </div>
@@ -291,26 +279,30 @@
 
         <section class="slide">
             <div>
-                <h2>Про map-файлы</h2>
+                <h2>map-файлы</h2>
+                <span class="danger">схема</span>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <h2>Как включить при сборке</h2>
+                <h2>Пример включения для gulp</h2>
+                <span class="danger">код</span>
             </div>
         </section>
 
         <section class="slide">
             <div>
                 <h2>В браузере</h2>
+                <span class="danger">скриншот</span>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <pre><code>// reset.css
-
+                <h2>reset.css</h2>
+                <h3>https://meyerweb.com/eric/tools/css/reset/reset200802.css</h3>
+                <pre><code>/* remember to define focus styles! */
 :focus {
     outline: 0;
 }</code></pre>
@@ -319,53 +311,54 @@
 
         <section class="slide">
             <div>
-                <h2>Ссылка на статью про debug</h2>
-                <p>https://www.sitepoint.com/using-sass-error-warn-and-debug-directives/</p>
+                <h2>Дебаг препроцессорного кода</h2>
+                <h3>https://www.sitepoint.com/using-sass-error-warn-and-debug-directives/</h3>
+                <span class="danger">скриншот</span>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <pre><code>// style.scss
-
-%outline {
-    outline: none;
+                <h2>style.scss</h2>
+                <pre><code>%outline {
+    outline: 0;
     box-shadow: 0 0 3px $color_outline;
 }
 
-.link {
+.link:focus {
     @extend %outline;
-
-    @debug $color_outline;
+    <mark>@debug $color_outline;</mark>
 }</code></pre>
 
-                <pre><code>style.scss:15: debug: rgba(#6f9, 0.3)</code></pre>
+                <p>
+                    <code>style.scss:8: DEBUG: rgba(102, 255, 153, 0.3)</code>
+                </p>
             </div>
         </section>
 
         <section class="slide">
             <div>
-                <pre><code>// style.scss
-
-%outline {
-    outline: none;
+                <h2>style.scss</h2>
+                <pre><code>%outline {
+    outline: 0;
     box-shadow: 0 0 3px $color_outline;
-
-    @debug $color_outline;
+    <mark>@debug $color_outline;</mark>
 }
 
-.link {
+.link:focus {
     @extend %outline;
 }</code></pre>
 
-                <pre><code>style.scss:6: debug: rgba(#6f9, 0.3)</code></pre>
+                <p>
+                    <code>style.scss:4: DEBUG: rgba(102, 255, 153, 0.3)</code>
+                </p>
             </div>
         </section>
 
         <section class="slide">
             <div>
                 <h2>Смотрим собранный код</h2>
-                <p>Ужас от увиденного: полотно @extend</p>
+                <p class="danger">Ужас от увиденного: полотно @extend</p>
             </div>
         </section>
 
@@ -399,9 +392,7 @@
                 <ol>
                     <li>воспроизвести проблему;</li>
                     <li>локализовать ошибку;</li>
-                    <li>
-                        <strong>исправить ошибку;</strong>
-                    </li>
+                    <li>&#x2060;<strong>исправить ошибку;</strong>&#x2060;</li>
                     <li>протестировать;</li>
                     <li>избежать повторения в будущем;</li>
                     <li>отдать тестировщику.</li>
@@ -423,9 +414,7 @@
                     <li>локализовать ошибку;</li>
                     <li>исправить ошибку;</li>
                     <li>протестировать;</li>
-                    <li>
-                        <strong>избежать повторения в будущем;</strong>
-                    </li>
+                    <li>&#x2060;<strong>избежать повторения в будущем;</strong>&#x2060;</li>
                     <li>отдать тестировщику.</li>
                 </ol>
             </div>
