@@ -63,8 +63,8 @@
             <p class="next">«У нас критический баг ...</p>
             <p class="next">... в очень важной функции.</p>
             <p class="next">Релиз сегодня».</p>
-            <span class="danger next">Закатить глаза</span>
         </div>
+        <img src="./pictures/harold.jpg" alt="Гарольд" class="next place right bottom">
     </section>
 
     <section class="slide">
@@ -75,7 +75,7 @@
                 <li class="next">закоммитить;</li>
                 <li class="next">отдать тестировщику.</li>
             </ol>
-            <span class="danger next">Палец вниз</span>
+            <img src="./pictures/like2.svg" alt="Дизлайк" class="next place right bottom" style="width: 500px; transform: scaleY(-1);">
         </div>
     </section>
 
@@ -84,13 +84,33 @@
             <h2>Хороший алгоритм решения проблемы</h2>
             <ol>
                 <li>воспроизвести проблему;</li>
-                <li>локализовать ошибку;</li>
-                <li>исправить ошибку;</li>
-                <li>протестировать;</li>
-                <li>избежать повторения в будущем;</li>
-                <li>отдать тестировщику.</li>
+                <li class="next">локализовать ошибку;</li>
+                <li class="next">исправить ошибку;</li>
+                <li class="next">протестировать;</li>
+                <li class="next">избежать повторения в будущем;</li>
+                <li class="next">отдать тестировщику.</li>
             </ol>
-            <span class="danger next">Палец вверх</span>
+            <img src="./pictures/like1.svg" alt="Лайк" class="next place right bottom" style="width: 500px;">
+        </div>
+    </section>
+
+    <section class="slide contacts">
+        <div>
+            <h2>Спасибо за внимание!</h2>
+            <figure>
+                <h3>Никита Дубко</h3>
+                <p>разработчик интерфейсов</p>
+            </figure>
+
+            <hr />
+            <ul>
+                <li class="mail">mefody@yandex-team.ru</li>
+                <li class="github">MeFoDy</li>
+            </ul>
+            <ul>
+                <li class="twitter">@dark_mefody</li>
+                <li class="facebook">Dark.MeFoDy</li>
+            </ul>
         </div>
     </section>
 
@@ -126,11 +146,11 @@
             <h2>Вы стараетесь делать хорошо, у вас...</h2>
             <ul>
                 <li>на все взаимодействия есть визуальные зацепки;</li>
-                <li>выделение по умолчанию сброшено;</li>
-                <li>взамен установлено красивое, дизайнерское.</li>
+                <li class="next">выделение по умолчанию сброшено;</li>
+                <li class="next">но взамен установлено красивое, дизайнерское.</li>
             </ul>
-            <span class="danger next">Ссылка с выделением</span>
         </div>
+        <iframe src="./demos/link.html" frameborder="0" class="place bottom next" style="width: 100%; height: 45%;"></iframe>
     </section>
 
     <section class="slide">
@@ -155,15 +175,16 @@
                 <li>⌘ + ⌥ + I</li>
                 <li>F12</li>
             </ul>
-            <p class="danger">Chrome, Firefox, Internet Explorer, Safari</p>
+            <img src="./pictures/devtools.jpg" alt="Dev Tools" class="place bottom cover width next" style="border: 1px solid #aaa;">
         </div>
     </section>
 
     <section class="slide">
         <div>
             <h2>Включение состояний</h2>
-            <p class="danger">Скриншот</p>
+            <img src="./pictures/hov-panel.jpg" alt="Dev Tools Hover Panel" style="border: 1px solid #aaa">
         </div>
+        <iframe src="./demos/link-with-error.html" frameborder="0" class="place bottom next" style="width: 100%; height: 35%;"></iframe>
     </section>
 
     <section class="slide">
@@ -182,17 +203,12 @@
 
     <section class="slide">
         <div>
-            <h2>Вычисленные стили</h2>
-            <span class="danger">Сброс есть, а дизайнерского решения нет</span>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
             <h2>style.scss</h2>
             <pre><code>%outline {
     outline: 0;
-    box-shadow: 0 0 3px $color_outline;
+    box-shadow: 0 0 1px 2px $color_outline;
+    background-color: $color_link;
+    color: $color_background;
 }
 
 .link:focus {
@@ -204,55 +220,68 @@
     <section class="slide">
         <div>
             <h2>Увеличиваем специфичность</h2>
+            <p>Было:</p>
             <ul>
-                <li>
-                    <code>.link.link</code>
-                </li>
-                <li>
-                    <code>.link[class]</code>
-                </li>
-                <li>
-                    <code>.link:not(.foo)</code>
-                </li>
+                <li><code>.link</code></li>
+            </ul>
+            <p class="next">Стало:</p>
+            <ul>
+                <li class="next"><code>.link.link</code></li>
+                <li class="next"><code>.link[class]</code></li>
+                <li class="next"><code>.link:not(.foo)</code></li>
+                <li class="next"><code>.link:not(#foo)</code></li>
             </ul>
         </div>
     </section>
 
+    <section class="slide" style="background-color: #fdf6e3;">
+        <div>
+            <h3>http://specificity.keegan.st</h3>
+        </div>
+        <img src="./pictures/specificity-calculator.jpg" alt="Калькулятор специфичности" class="cover height">
+    </section>
+
     <section class="slide">
         <div>
-            <h2>Калькулятор специфичности</h2>
-            <span class="danger">ссылка и скриншот</span>
+            <h2>Специфичность не помогла :(</h2>
+            <iframe src="./demos/link-with-error.html" frameborder="0" class="place bottom" style="width: 100%; height: 80%;"></iframe>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Специфичность не влияет</h2>
-            <span class="danger">ссылка и скриншот</span>
+            <p>Как хорошо вы знаете CSS? 👨🏼‍🏫</p>
+            <p>Даны следующие классы:</p>
+            <pre><code>.red { color: red; }
+.blue { color: blue; }</code></pre>
+            <p>Какого цвета должны быть эти дивы?</p>
+            <pre><code>&lt;div class=&quot;red blue&quot;&gt;
+&lt;div class=&quot;blue red&quot;&gt;</code></pre>
+            <h3>https://twitter.com/mxstbr/status/1038073603311448064</h3>
+            <img src="./pictures/twitter-war.jpg" alt="Twitter War" class="place right next" style="width: 40%;">
         </div>
+        <img src="./pictures/facepalm.png" alt="Facepalm" class="place right bottom next" style="right: 10%">
     </section>
 
     <section class="slide">
         <div>
-            <h2>Ссылка на статью Ильи Стрельцына</h2>
-            <p>http://css-live.ru/css/nikto-ne-znaet-css-specifichnost-ne-kaskad.html</p>
-            <p>https://twitter.com/mxstbr/status/1038073603311448064</p>
-            <span class="danger">скриншот</span>
+            <h3 style="top: 0; bottom: auto;" class="next">http://css-live.ru/css/nikto-ne-znaet-css-specifichnost-ne-kaskad.html</h3>
         </div>
+        <img src="./pictures/csslive-kaskad.jpg" alt="CSS-live.ru" class="place bottom" style="height: 80%">
     </section>
 
     <section class="slide">
         <div>
             <h2>Приоритетность стилей (по убыванию)</h2>
             <ol>
-                <li>Стили во время CSS-переходов (transition)</li>
-                <li>Браузерные стили с !important</li>
-                <li>Пользовательские стили с !important</li>
-                <li>Авторские стили с !important</li>
-                <li>Стили во время анимаций</li>
-                <li>Обычные (т.е. без !important) авторские стили</li>
-                <li>Обычные пользовательские стили</li>
-                <li>Обычные браузерные стили</li>
+                <li class="next">Стили во время CSS-переходов (transition)</li>
+                <li class="next">Браузерные стили с <code>!important</code></li>
+                <li class="next">Пользовательские стили с <code>!important</code></li>
+                <li class="next">Авторские стили с <code>!important</code></li>
+                <li class="next">Стили во время анимаций</li>
+                <li class="next">Обычные (т.е. без <code>!important</code>) авторские стили</li>
+                <li class="next">Обычные пользовательские стили</li>
+                <li class="next">Обычные браузерные стили</li>
             </ol>
         </div>
     </section>
@@ -260,7 +289,7 @@
     <section class="slide">
         <div>
             <h2>Браузерные стили</h2>
-            <span class="danger">скриншот</span>
+            <img src="./pictures/browser-styles.jpg" alt="Браузерные стили" style="border: 1px solid #aaa;">
         </div>
     </section>
 
@@ -269,7 +298,9 @@
             <h2>style.scss</h2>
             <pre><code>%outline {
     outline: 0;
-    box-shadow: 0 0 3px $color_outline <mark>!important</mark>;
+    box-shadow: 0 0 1px 2px $color_outline <mark>!important</mark>;
+    background-color: $color_link <mark>!important</mark>;
+    color: $color_background;
 }
 
 .link:focus {
@@ -280,28 +311,71 @@
 
     <section class="slide">
         <div>
-            <h2>map-файлы</h2>
-            <span class="danger">схема</span>
+            <h2>!important не помог :(</h2>
+            <iframe src="./demos/link-with-error.html" frameborder="0" class="place bottom" style="width: 100%; height: 80%;"></iframe>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div style="text-align: center;">
+            <img src="./pictures/computed-styles.jpg" alt="Вычисленные стили" style="border: 1px solid #aaa;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div style="text-align: center;">
+            <img src="./pictures/computed-styles-bs.jpg" alt="box-shadow" style="border: 1px solid #aaa;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div style="text-align: center;">
+            <img src="./pictures/computed-styles-outline.jpg" alt="outline" style="border: 1px solid #aaa;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Source maps</h2>
+            <h3>https://github.com/ryanseddon/source-map/wiki/Source-maps:-languages,-tools-and-other-info</h3>
+            <img src="./pictures/sass-scss-css.jpg" alt="SASS" class="place">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>style.css.map</h2>
+            <code>{"version":3,"file":"style.css","sources":["style.scss","imports/reset.css"],"sourcesContent":["@import './imports/reset';\n\n$color_outline: hsl(210, 89%, 40%);\n$color_link: hsl(210, 89%, 40%);\n$color_background: white;\n\n%outline {\n    outline: 0;\n    box-shadow: 0 0 1px 2px $color_outline;\n    background-color: $color_link;\n    color: $color_background;\n}\n\n.link:focus {\n    @extend %outline;\n}","/* http://meyerweb.com/eric/tools/css/reset/ */\n/* v1.0 | 20080212 */\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, font, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\toutline: 0;\n\tfont-size: 100%;\n\tvertical-align: baseline;\n\tbackground: transparent;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}...}</code>
         </div>
     </section>
 
     <section class="slide">
         <div>
             <h2>Пример включения для gulp</h2>
-            <span class="danger">код</span>
+            <pre><code>const
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps');
+
+gulp.task('build:scss', function () {
+    return gulp
+        .src('path/to/scss')
+        <mark>.pipe(sourcemaps.init())</mark>
+        .pipe(sass())
+        <mark>.pipe(sourcemaps.write('.'))</mark>
+        .pipe(gulp.dest('path/to/css'));
+});</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div style="text-align: center">
+            <img src="./pictures/map-to-reset.jpg" alt="Map" style="height: 110%;">
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>В браузере</h2>
-            <span class="danger">скриншот</span>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <h2>reset.css</h2>
+            <h2>reset.css:37</h2>
             <h3>https://meyerweb.com/eric/tools/css/reset/reset200802.css</h3>
             <pre><code>/* remember to define focus styles! */
 :focus {
@@ -314,7 +388,12 @@
         <div>
             <h2>Дебаг препроцессорного кода</h2>
             <h3>https://www.sitepoint.com/using-sass-error-warn-and-debug-directives/</h3>
-            <span class="danger">скриншот</span>
+            <p>В SASS есть отладочные директивы:</p>
+            <ul>
+                <li><code>@error</code></li>
+                <li><code>@warn</code></li>
+                <li><code>@debug</code></li>
+            </ul>
         </div>
     </section>
 
@@ -323,7 +402,9 @@
             <h2>style.scss</h2>
             <pre><code>%outline {
     outline: 0;
-    box-shadow: 0 0 3px $color_outline;
+    box-shadow: 0 0 1px 2px $color_outline;
+    background-color: $color_link;
+    color: $color_background;
 }
 
 .link:focus {
@@ -331,8 +412,8 @@
     <mark>@debug $color_outline;</mark>
 }</code></pre>
 
-            <p>
-                <code>style.scss:8: DEBUG: rgba(102, 255, 153, 0.3)</code>
+            <p class="next">
+                <code>style.scss:10: DEBUG: hsl(210, 89%, 40%)</code>
             </p>
         </div>
     </section>
@@ -342,7 +423,9 @@
             <h2>style.scss</h2>
             <pre><code>%outline {
     outline: 0;
-    box-shadow: 0 0 3px $color_outline;
+    box-shadow: 0 0 1px 2px $color_outline;
+    background-color: $color_link;
+    color: $color_background;
     <mark>@debug $color_outline;</mark>
 }
 
@@ -350,8 +433,8 @@
     @extend %outline;
 }</code></pre>
 
-            <p>
-                <code>style.scss:4: DEBUG: rgba(102, 255, 153, 0.3)</code>
+            <p class="next">
+                <code>style.scss:6: DEBUG: hsl(210, 89%, 40%)</code>
             </p>
         </div>
     </section>
@@ -367,7 +450,9 @@
 /* ... */
 .more__button:focus {
     outline: 0;
-    box-shadow: 0 0 3px rgba(102, 255, 153, 0.3);
+    box-shadow: 0 0 1px 2px #0b66c1;
+    background-color: #0b66c1;
+    color: #fff;
 }</code></pre>
         </div>
     </section>
@@ -383,7 +468,9 @@
 /* ... */
 .more__button:focus {
     outline: 0;
-    box-shadow: 0 0 3px rgba(102, 255, 153, 0.3);
+    box-shadow: 0 0 1px 2px #0b66c1;
+    background-color: #0b66c1;
+    color: #fff;
 }</code></pre>
         </div>
     </section>
@@ -413,6 +500,12 @@
                 <li>псевдокласс: <code>:visited</code>;</li>
                 <li>пустой селектор: <code></code>.</li>
             </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2 class="shout" style="font-size: 2em;">:not(.popup .popup__button_disabled)</h2>
         </div>
     </section>
 
@@ -461,7 +554,7 @@
     <section class="slide">
         <div>
             <h2>После исправления</h2>
-            <span class="danger">скриншот</span>
+            <iframe src="./demos/link.html" frameborder="0" class="place bottom" style="width: 100%; height: 80%;"></iframe>
         </div>
     </section>
 
@@ -488,10 +581,10 @@
                     в пользу
                     <code>@mixin</code>;
                 </li>
-                <li>сделать класс
-                    <code>.outline</code>;
+                <li class="next">сделать класс вроде
+                    <code>.custom-focus</code>;
                 </li>
-                <li>отказаться от
+                <li class="next">отказаться от устаревшего
                     <code>reset.css</code>.
                 </li>
             </ul>
@@ -633,6 +726,14 @@
             <h2>CSSTree</h2>
             <p>https://csstree.github.io/docs/</p>
             <span class="danger">скриншот</span>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>CSSTree</h2>
+            <p>https://csstree.github.io/docs/</p>
+            <span class="danger">пример с анимациями</span>
         </div>
     </section>
 
@@ -828,18 +929,22 @@
         <div>
             <h2>Самые продаваемые смартфоны, Китай (2017)</h2>
             <h3>http://mobile.zol.com.cn/657/6570496.html</h3>
-            <ol class="double">
-                <li>Honor8 32GB</li>
-                <li>iPhone7 Plus 32GB</li>
-                <li>Vivo X9 64GB</li>
-                <li>Huawei Mate9 32 GB</li>
-                <li>Oppo RII 64GB</li>
-                <li>Samsung Galaxy S8 64GB</li>
-                <li>Honor V9 64GB</li>
-                <li>Oppo R9S Plus 64 GB</li>
-                <li>Gionee M2017 128 GB</li>
-                <li>Moto Z 65 GB</li>
-            </ol>
+            <div class="columns-2">
+                <ol>
+                    <li>Honor8 32GB</li>
+                    <li>iPhone7 Plus 32GB</li>
+                    <li>Vivo X9 64GB</li>
+                    <li>Huawei Mate9 32 GB</li>
+                    <li><strong>Oppo RII 64GB</strong></li>
+                </ol>
+                <ol>
+                    <li style="counter-reset: list 5;">Samsung Galaxy S8 64GB</li>
+                    <li>Honor V9 64GB</li>
+                    <li><strong>Oppo R9S Plus 64 GB</strong></li>
+                    <li><strong>Gionee M2017 128 GB</strong></li>
+                    <li>Moto Z 65 GB</li>
+                </ol>
+            </div>
         </div>
     </section>
 
@@ -892,6 +997,7 @@
         <div>
             <h2>firebug lite</h2>
             <h3>https://getfirebug.com/releases/lite/1.2/</h3>
+            <span class="danger">скриншот</span>
         </div>
     </section>
 
@@ -909,7 +1015,7 @@
 
     <section class="slide">
         <div>
-            <h2>Немного наркомании</h2>
+            <h2>Немного веселья</h2>
         </div>
     </section>
 
@@ -950,6 +1056,12 @@
     <section class="slide">
         <div>
             <h2>Внешний вид</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h3>https://github.com/nternetinspired/debug-css</h3>
         </div>
     </section>
 
@@ -1026,7 +1138,7 @@
             <ul>
                 <li>Если важно — делайте отдельную лёгкую версию сайта.</li>
                 <li>Используйте прогрессивное улучшение.</li>
-                <li>Всегда проверять совместимость внешних библиотек с вашим стеком браузеров.</li>
+                <li>Всегда проверяйте совместимость внешних библиотек с вашим стеком браузеров.</li>
                 <li>Мыслите нестандартно.</li>
             </ul>
         </div>
