@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Overflow Bug</title>
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: PT Sans, sans-serif;
+        }
+
+        .filter-nav {
+            padding: 5px 10px;
+            background-color: hsl(210, 89%, 40%);
+            color: white;
+            display: inline-block;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .filter-nav:active,
+        .filter-nav:hover {
+            background-color: hsl(210, 79%, 30%);
+        }
+
+        /* styles that, if removed, fix the behavior, are marked below with empty comment */
+
+        /* background-color added to illustrate vanishing containers */
+
+        .cont-filter-options {
+            width: 100vw;
+            transition: max-height 1s ease-in-out, opacity .8s ease-out;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            /**/
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0;
+            border-width: 0;
+        }
+
+        .collapsed .cont-filter-options {
+            max-height: 0;
+            opacity: 0;
+            padding-bottom: 0;
+        }
+
+        .expanded .cont-filter-options {
+            max-height: calc(100vh - 79px);
+            opacity: 1;
+            overflow-y: auto;
+            /**/
+        }
+
+        .cont-filters {
+            overflow: hidden;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .filter-main-container {
+            overflow: hidden;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            /**/
+        }
+
+        .filters-container {
+            display: inline-block;
+        }
+
+        .filter {
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+
+        .filter-label {
+            display: inline-block;
+            background-color: hsl(210, 99%, 95%);
+            padding: 20px;
+            width: 200px;
+            height: 300px;
+            font-weight: bold;
+            position: relative;
+            font-size: 24px;
+            white-space: normal;
+            text-decoration: none;
+            color: black;
+        }
+
+        .filter-label::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 230px;
+            margin-bottom: 10px;
+            background-color: blue;
+        }
+
+        .filter:nth-child(1) .filter-label::before {
+            background-image: linear-gradient(45deg, #f96, #f69);
+        }
+
+        .filter:nth-child(2) .filter-label::before {
+            background-image: linear-gradient(30deg, #69f, #96f);
+        }
+
+        .filter:nth-child(3) .filter-label::before {
+            background-color: #556;
+            background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+        }
+
+        .filter,
+        .filter-label,
+        .filters-container {
+            animation-name: scroller-overflow-hack;
+            animation-fill-mode: forwards;
+            animation-duration: 1ms;
+        }
+
+        @keyframes scroller-overflow-hack {
+            0% {
+                opacity: .9999;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <main class="collapsed">
+        <div class="filter-nav">Показать товары</div>
+        <div class="cont-filter-options">
+            <section class="filter-section">
+                <div class="cont-filters">
+                    <fieldset>
+                        <div class="filter-main-container">
+                            <div class="filters-container">
+                                <div class="filter">
+                                    <a href="#" class="filter-label">
+                                        Градиент Радостный
+                                    </a>
+                                </div>
+                                <div class="filter">
+                                    <a href="#" class="filter-label">
+                                        Синий градиент
+                                    </a>
+                                </div>
+                                <div class="filter">
+                                    <a href="#" class="filter-label">
+                                        Градиент с заморочками
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // toggle collapsed with main on main tag
+        document.querySelector('.filter-nav').addEventListener('click', function() {
+            var main = document.getElementsByTagName('main')[0];
+            var filterSections = document.querySelectorAll('.filter-section');
+
+            if (main.classList.contains('collapsed')) {
+                // remove collapsed, and add expanded to main
+                main.classList.toggle('collapsed');
+                main.classList.toggle('expanded');
+            } else {
+                // add collapsed and remove expanded from main
+                main.classList.add('collapsed');
+                main.classList.remove('expanded');
+            }
+        }, true);
+
+    </script>
+
+</body>
+
+</html>
