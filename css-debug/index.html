@@ -641,6 +641,7 @@ gulp.task('build:scss', function () {
             <img src="./pictures/iphone6.png" alt="iPhone" class="place" style="height: 100%; z-index: 1;">
             <video src="./pictures/scroll.mp4" loop muted autoplay class="place" style="height: 97%;"></video>
         </div>
+        <img src="./pictures/fear.jpg" alt="Чегооо?" class="place bottom left next" style="left: 5%">
     </section>
 
     <section class="slide">
@@ -661,8 +662,8 @@ gulp.task('build:scss', function () {
         <div>
             <h2>Отладка мобильного устройства</h2>
             <ul>
-                <li>Эмулятор</li>
-                <li>Реальное устройство</li>
+                <li>в эмуляторе;</li>
+                <li>на реальном устройстве.</li>
             </ul>
         </div>
     </section>
@@ -678,18 +679,15 @@ gulp.task('build:scss', function () {
                 <li>Android Studio</li>
                 <li>...</li>
             </ul>
-            <span class="danger">ссылки на туториалы</span>
         </div>
     </section>
 
     <section class="slide">
         <div>
             <h2>Подключаем Android для дебага</h2>
-            <ul>
-                <li>https://developers.google.com/web/tools/chrome-devtools/remote-debugging/</li>
-            </ul>
-            <span class="danger">скриншот</span>
+            <h3>https://developers.google.com/web/tools/chrome-devtools/remote-debugging/</h3>
         </div>
+        <img src="./pictures/open-remote-devices.png" alt="Android debug" class="place" style="height: 80%; top: 55%">
     </section>
 
     <section class="slide">
@@ -697,9 +695,21 @@ gulp.task('build:scss', function () {
             <h2>Подключаем iOS для дебага</h2>
             <ul>
                 <li>Safari</li>
-                <li>https://github.com/google/ios-webkit-debug-proxy</li>
+                <li>ios-webkit-debug-proxy</li>
             </ul>
-            <span class="danger">скриншот</span>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <img src="./pictures/iphone6.png" alt="iPhone" class="place" style="height: 100%; z-index: 1;">
+            <img src="./pictures/ios-safari.jpg" alt="Safari" class="place" style="height: 83%; top: 52%;"></img>
+        </div>
+    </section>
+
+    <section class="slide fullscreen">
+        <div style="overflow: hidden;">
+            <img src="./pictures/osx-safari.jpg" alt="macOS Safari" class="cover width place top">
         </div>
     </section>
 
@@ -715,37 +725,53 @@ gulp.task('build:scss', function () {
 
     <section class="slide">
         <div>
-            <h2>W3C</h2>
-            <p>http://validator.w3.org/</p>
-            <span class="danger">скриншот</span>
+            <h2 class="shout">https://validator.w3.org/</h2>
+        </div>
+    </section>
+
+    <section class="slide fullscreen">
+        <div style="overflow: hidden;">
+            <img src="./pictures/w3c-validator.jpg" alt="w3c валидатор" class="cover width place top">
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>CSSTree</h2>
-            <p>https://csstree.github.io/docs/</p>
-            <span class="danger">скриншот</span>
+            <h2 class="shout">https://csstree.github.io/docs/</h2>
+        </div>
+    </section>
+
+    <section class="slide fullscreen">
+        <div style="overflow: hidden;">
+            <img src="./pictures/csstree-validator.jpg" alt="csstree валидатор" class="cover width place top">
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>CSSTree</h2>
-            <p>https://csstree.github.io/docs/</p>
-            <span class="danger">пример с анимациями</span>
+            <h2 class="shout">animation: ease ease-in-out 2s 2s;</h2>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <p class="danger">Видео с 3D Touch</p>
+            <h3>https://csstree.github.io/docs/syntax.html</h3>
+            <img src="./pictures/csstree-animation.jpg" alt="CSS Tree inspector" class="place">
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <p class="danger">Отсылка к докладу Вадима Макишвили</p>
+            <img src="./pictures/iphone6.png" alt="iPhone" class="place" style="height: 100%; z-index: 1;">
+            <video src="./pictures/scroll-touch.mp4" loop muted autoplay class="place" style="height: 97%;"></video>
+        </div>
+        <img src="./pictures/mr-been.jpeg" alt="Чегооо?" class="place bottom left next" style="height: 60%">
+    </section>
+
+    <section class="slide">
+        <div>
+            <img src="./pictures/print-maps.jpg" alt="Распечатай Яндекс.Карты" class="place cover height">
+            <h3>https://www.youtube.com/watch?v=7-qUm-N_fyA</h3>
         </div>
     </section>
 
@@ -771,15 +797,15 @@ gulp.task('build:scss', function () {
 
     <section class="slide">
         <div>
-            <h2>-webkit-overflow-scrolling: touch</h2>
-            <span class="danger">оформить в виде кода</span>
+            <h2 class="shout">-webkit-overflow-scrolling: touch</h2>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <span class="danger">скриншот найденных багов</span>
+            <h3>https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling</h3>
         </div>
+        <img src="./pictures/non-standard.jpg" alt="Attention" class="place" style="width: 70%;">
     </section>
 
     <section class="slide">
@@ -787,9 +813,9 @@ gulp.task('build:scss', function () {
             <h2>Шаг 3. Исправить</h2>
             <ul>
                 <li>Вынести на новый графический слой.</li>
-                <li>Отказаться от использования <code>-webkit-overflow-scrolling</code>.</li>
-                <li>Переверстать без бага.</li>
-                <li>Костыль на JavaScript.</li>
+                <li class="next">Отказаться от использования <code>-webkit-overflow-scrolling</code>.</li>
+                <li class="next">Переверстать без бага.</li>
+                <li class="next">Костыль на JavaScript.</li>
             </ul>
         </div>
     </section>
@@ -808,21 +834,18 @@ gulp.task('build:scss', function () {
 
     <section class="slide">
         <div>
-            <p class="danger">новый код с will-change: transform</p>
+            <img src="./pictures/iphone6.png" alt="iPhone" class="place" style="height: 100%; z-index: 1;">
+            <video src="./pictures/scroll-fixed.mp4" loop muted autoplay class="place" style="height: 97%;"></video>
         </div>
     </section>
 
     <section class="slide">
-        <div>
-            <h2>Поплыла вёрстка... Но почему?</h2>
-            <h3>https://codepen.io/dark_mefody/pen/QJbZYX</h3>
-            <span class="danger">скриншот</span>
-        </div>
+        <iframe src="./demos/will-change.html" frameborder="0" class="cover width height"></iframe>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Содержащий блок</h2>
+            <h2>Containing block</h2>
             <ul>
                 <li class="next">для <code>position: absolute</code> формируется по краям padding box
                     ближайшего родителя, у которого <code>position</code> не <code>static</code>;</li>
@@ -836,20 +859,19 @@ gulp.task('build:scss', function () {
                 </li>
             </ul>
             <h3>https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block</h3>
-            <span class="danger">лучше объяснить картинкой?</span>
         </div>
     </section>
 
     <section class="slide">
         <div>
             <h2>И что нам делать?</h2>
-            <span class="danger">картинка для привлечения внимания</span>
         </div>
+        <img src="./pictures/sad.jpg" alt="Грусть" class="cover">
     </section>
 
     <section class="slide">
         <div>
-            <h2>Очень странное решение с animation</h2>
+            <h2>Очень странное решение</h2>
             <pre><code>.gallery__item {
     animation-name: scroller-overflow-hack;
     animation-fill-mode: forwards;
@@ -865,10 +887,18 @@ gulp.task('build:scss', function () {
 
     <section class="slide">
         <div>
+            <img src="./pictures/iphone6.png" alt="iPhone" class="place" style="height: 100%; z-index: 1;">
+            <video src="./pictures/scroll-fixed.mp4" loop muted autoplay class="place" style="height: 97%;"></video>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
             <h2>Шаг 5. Избежать повторения в будущем</h2>
             <ul>
-                <li>Добавить тесты скриншотами</li>
-                <li>Добавить в сборщик @warn на использование нестабильного свойства</li>
+                <li>Добавить тесты скриншотами.</li>
+                <li>Добавить в сборщик <code>@warn</code> или <code>@error</code> на использование нестабильных
+                    свойств.</li>
             </ul>
         </div>
     </section>
@@ -877,9 +907,9 @@ gulp.task('build:scss', function () {
         <div>
             <h2>Тестирование скриншотами</h2>
             <ul>
-                <li>Hermione — ссылка на доклад tavria</li>
-                <li>Рома Дворнов — доклад про тестирование скриншотами</li>
-                <li>Тестирование снепшотами у Tinkoff</li>
+                <li><a href="https://habr.com/company/yandex/blog/346608/">Тестируем пользовательские сценарии вместе с «Гермионой»</a> — Николай Ильченко</li>
+                <li><a href="https://habr.com/company/avito/blog/350604/">Unit-тестирование скриншотами: преодолеваем звуковой барьер</a> — Роман Дворнов</li>
+                <li><a href="https://habr.com/company/tinkoff/blog/429054/">«Найди N отличий». Опыт тестирования верстки Tinkoff.ru</a></li>
             </ul>
         </div>
     </section>
@@ -889,8 +919,8 @@ gulp.task('build:scss', function () {
             <h2>Советы</h2>
             <ul>
                 <li>По возможности не используйте нестабильные свойства.</li>
-                <li>Тестируйте на реальных устройствах.</li>
-                <li>Знайте спецификацию.</li>
+                <li class="next">Тестируйте на реальных устройствах.</li>
+                <li class="next">Знайте спецификацию.</li>
             </ul>
         </div>
     </section>
@@ -902,27 +932,25 @@ gulp.task('build:scss', function () {
         </div>
     </section>
 
-    <section class="slide">
+    <section class="slide blockquote">
         <div>
-            <h2>Приходит к вам тестировщик...</h2>
-            <ul>
-                <li>В UC Browser на Nokia 6300 не работает шапка сайта</li>
-                <li>Подтвердить не могу, баг прислал клиент</li>
-            </ul>
+            <h2>В UC Browser на Nokia 6300 не работает шапка сайта.</h2>
+            <h3>Ваш тестировщик</h3>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Nokia 6300???</h2>
-            <p>Фото</p>
+            <h2>Nokia 6300 ???</h2>
         </div>
+        <img src="./pictures/nokia6300.jpg" alt="Nokia 6300" class="place bottom">
     </section>
 
     <section class="slide">
         <div>
             <h2>Целевой рынок</h2>
         </div>
+        <img src="./pictures/china.png" alt="Китай" class="place cover">
     </section>
 
     <section class="slide">
@@ -950,14 +978,20 @@ gulp.task('build:scss', function () {
 
     <section class="slide">
         <div>
-            <h2>caniuse на максималках</h2>
+            <h2 class="shout">caniuse.com</h2>
         </div>
     </section>
 
     <section class="slide">
-        <div>
-            <h2>Доля UC Browser в Китае</h2>
-        </div>
+        <img src="./pictures/caniuse-settings.jpg" alt="Настройки" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/uc-usage.jpg" alt="Доля UC Browser" class="place">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/font-display.jpg" alt="Распределение браузеров" class="cover width">
     </section>
 
     <section class="slide">
@@ -965,21 +999,25 @@ gulp.task('build:scss', function () {
             <h2>Шаг 1. Воспроизвести</h2>
             <ul>
                 <li>Реальное устройство</li>
-                <li>http://www.browserstack.com/newsletter/digest-mobile-live-v3</li>
-                <li>http://www.uc.cn/business/developer/</li>
+                <li class="next"><a href="http://www.browserstack.com/newsletter/digest-mobile-live-v3">BrowserStack</a></li>
+                <li class="next"><a href="http://www.uc.cn/business/developer/">UC Browser — версия для разработчиков</a></li>
             </ul>
         </div>
     </section>
 
     <section class="slide">
+        <img src="./pictures/uc-site.jpg" alt="Сайт UC-браузера" class="cover width place top">
+    </section>
+
+    <section class="slide">
         <div>
-            <h2>Но как жить без инструментов разработчика?</h2>
+            <h2 class="shout">Но как жить без инструментов разработчика?</h2>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Firebug logo</h2>
+            <img src="./pictures/firebug.png" alt="FireBug" class="place">
         </div>
     </section>
 
@@ -990,6 +1028,7 @@ gulp.task('build:scss', function () {
             <ul>
                 <li>Январь 2006</li>
             </ul>
+            <h2 class="shout next">всего 12 лет назад</h2>
         </div>
     </section>
 
