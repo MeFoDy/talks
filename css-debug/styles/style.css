@@ -25,3 +25,9 @@
 .slide .shout {
     font-size: 2em;
 }
+
+.slide h3 a {
+    text-decoration: none;
+    color: black;
+    background: none;
+}
