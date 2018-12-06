@@ -14,6 +14,7 @@
 * Web Standards Days 2018 in Saint-Petersburg — [«Магия CSS вне Хогвартса»](https://mefody.github.io/talks/css-magic/wsd.html)
 * FrontTalks 2018 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/ft.html) ([видео](https://www.youtube.com/watch?v=yyVU-r9sRw8))
 * Web Standards Days 2018 in Kiev — [«Идеальный доклад. Голая правда»](https://mefody.github.io/talks/talk-preparation/kiev.html)
+* Web Standards Days 2018 in Minsk — [«Отладка CSS в боевых условиях»](https://mefody.github.io/talks/css-debug/) ([видео](https://www.youtube.com/watch?v=bHv9pWEzKiU))
 
 # Lectures
 
