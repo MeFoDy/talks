@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holy Grail Layout — Float</title>
+</head>
+
+<body>
+    <style>
+        body {
+            min-width: 750px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+
+        #header {
+            background-color: #af9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #container {
+            padding-left: 300px;
+            padding-right: 250px;
+        }
+
+        #container .column {
+            position: relative;
+            float: left;
+        }
+
+        #center {
+            width: 100%;
+            background-color: #9af;
+        }
+
+        #left {
+            width: 300px;
+            right: 300px;
+            margin-left: -100%;
+            background-color: #fa9;
+        }
+
+        #right {
+            width: 250px;
+            margin-right: -250px;
+            background-color: #fa9;
+        }
+
+        #footer {
+            clear: both;
+            background-color: #af9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .content,
+        .padded {
+            padding: 20px;
+        }
+    </style>
+
+    <div id="header">header</div>
+    <div id="container">
+        <div id="center" class="column">
+            <div class="content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis mollitia in alias ea, ipsam amet quam
+                dolorem quisquam, rem aperiam veniam facilis iste consequuntur sequi sit totam maxime commodi
+                facere? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, debitis porro? Consequatur,
+                ipsam consequuntur itaque nesciunt praesentium, totam possimus ipsum doloribus repellat animi autem quae
+                nostrum quis corrupti eaque aperiam.
+            </div>
+        </div>
+        <div id="left" class="column">
+            <div class="padded">Left</div>
+        </div>
+        <div id="right" class="column">
+            <div class="padded">Right</div>
+        </div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+
+</html>
