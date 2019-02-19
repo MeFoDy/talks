@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holy Grail Layout — Grid</title>
+</head>
+
+<body>
+    <style>
+        body {
+            min-width: 750px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+
+        body {
+            display: grid;
+            grid-template-areas: 'h h h' 'l c r' 'f f f';
+            grid-template-rows: min-content auto min-content;
+            grid-template-columns: 300px auto 250px;
+            min-height: 100vh;
+        }
+
+        #header {
+            grid-area: h;
+            background-color: #af9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #center {
+            grid-area: c;
+            background-color: #9af;
+            padding: 20px;
+        }
+
+        #left {
+            grid-area: l;
+            background-color: #fa9;
+            padding: 20px;
+        }
+
+        #right {
+            grid-area: r;
+            background-color: #fa9;
+            padding: 20px;
+        }
+
+        #footer {
+            grid-area: f;
+            background-color: #af9;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+
+    <div id="header">header</div>
+    <div id="center">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis mollitia in alias ea, ipsam amet quam
+        dolorem quisquam, rem aperiam veniam facilis iste consequuntur sequi sit totam maxime commodi
+        facere? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, debitis porro? Consequatur,
+        ipsam consequuntur itaque nesciunt praesentium, totam possimus ipsum doloribus repellat animi autem quae
+        nostrum quis corrupti eaque aperiam.
+    </div>
+    <div id="left">
+        Left
+    </div>
+    <div id="right">
+        Right
+    </div>
+    <div id="footer">footer</div>
+</body>
+
+</html>

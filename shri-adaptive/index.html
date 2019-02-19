@@ -115,32 +115,290 @@
 
     <section class="slide">
         <div>
-            <h2>На таблицах</h2>
+            <h2>1. На таблицах (<a href="./demos/hg_layout_table.html">демо</a>)</h2>
+            <pre><code class="hljs html">&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td colspan=&quot;3&quot; id=&quot;header&quot;&gt;header&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td id=&quot;left&quot;&gt;Left&lt;/td&gt;
+        &lt;td id=&quot;center&quot;&gt;Lorem ipsum...&lt;/td&gt;
+        &lt;td id=&quot;right&quot;&gt;Right&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td colspan=&quot;3&quot; id=&quot;footer&quot;&gt;footer&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>При помощи float</h2>
-            <h3><a href="https://alistapart.com/article/holygrail">alistapart.com/article/holygrail</a></h3>
+            <h2>Адаптивность на таблицах?</h2>
+            <p class="next">Нет 😞</p>
         </div>
     </section>
 
     <section class="slide">
         <div>
             <h2>Отдельная версия для мобильных</h2>
+            <ul>
+                <li>сервер определяет тип устройства;</li>
+                <li>пользователя перенаправляет на версию сайта для его устройства.</li>
+            </ul>
         </div>
+        <img src="./pictures/nokia6300.jpg" alt="Nokia 6300" class="place bottom" width="40%">
     </section>
 
-    <section class="slide section">
+    <section class="slide">
         <div>
-            <h2>flexbox</h2>
+            <h2>Мета-тег viewport</h2>
+            <pre><code class="hljs html">&lt;meta name=&quot;viewport&quot;
+      content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>
+      <span class="danger">картинку для прува?</span>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>оси</h2>
+            <h2>2. При помощи float (<a href="./demos/hg_layout_float.html">демо</a>)</h2>
+            <h3><a href="https://alistapart.com/article/holygrail">alistapart.com/article/holygrail</a></h3>
+            <pre><code class="hljs html">&lt;div id=&quot;header&quot;&gt;header&lt;/div&gt;
+&lt;div id=&quot;container&quot;&gt;
+    &lt;div id=&quot;center&quot; class=&quot;column&quot;&gt;
+        Lorem ipsum...
+    &lt;/div&gt;
+    &lt;div id=&quot;left&quot; class=&quot;column&quot;&gt;Left&lt;/div&gt;
+    &lt;div id=&quot;right&quot; class=&quot;column&quot;&gt;Right&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;footer&quot;&gt;footer&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs css">#container {
+    padding-left: 300px;
+    padding-right: 250px;
+}
+
+#container .column {
+    position: relative;
+    float: left;
+}
+
+#footer {
+    clear: both;
+}</code></pre>
+            <span class="danger">id можно?</span>
+            <img src="./pictures/hg_example.jpg" alt="HG" class="place right" width="60%">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs css">#center {
+    width: 100%;
+}
+
+#left {
+    width: 300px;
+    right: 300px;
+    margin-left: -100%;
+}
+
+#right {
+    width: 250px;
+    margin-right: -250px;
+}</code></pre>
+            <img src="./pictures/hg_example.jpg" alt="HG" class="place right" width="60%">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h3><a href="https://adaptivewebdesign.info/1st-edition/read/">adaptivewebdesign.info/1st-edition/read/</a></h3>
+            <img src="./pictures/adaptivewebdesign.jpg" alt="Adaptive Web Design" class="cover height">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h3><a href="http://bootstrapdocs.com/v1.4.0/docs/#grid-system">bootstrapdocs.com/v1.4.0/docs/#grid-system</a></h3>
+            <img src="./pictures/bootstrap1_grid.jpg" alt="Bootstrap Grid" class="cover height">
+        </div>
+    </section>
+
+    <section class="slide section">
+        <div>
+            <h2>@media-выражения</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h3><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">developer.mozilla.org/en-US/docs/Web/CSS/@media</a></h3>
+            <pre><code>.section {
+    padding: 3rem 5rem;
+}
+
+@media screen and <mark>(min-width: 900px)</mark> {
+    .section {
+        padding: 1rem 3rem;
+    }
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Desktop-first</h2>
+            <pre><code class="hljs css">/* Большие экраны и общие стили */
+
+@media (max-width: 979px) {
+    /* Десктоп */
+}
+@media (max-width: 767px) {
+    /* Планшет */
+}
+@media (max-width: 480px) {
+    /* Смартфон */
+}</code></pre>
+        </div>
+        <div style="left: 50%;" class="next">
+            <h2>Mobile-first</h2>
+            <pre><code class="hljs css">/* <mark>Смартфон</mark> и общие стили */
+
+@media (min-width: 767px) {
+    /* Планшет */
+}
+@media (min-width: 767px) {
+    /* Десктоп */
+}
+@media (min-width: 979px) {
+    /* Большие экраны */
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h3><a href="http://gs.statcounter.com/platform-market-share/desktop-mobile-tablet">gs.statcounter.com/platform-market-share/desktop-mobile-tablet</a></h3>
+            <img src="./pictures/StatCounter-comparison-ww-monthly-201801-201901.png" alt="Статистика" class="cover">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h3><a href="https://radar.yandex.ru/device_categories">radar.yandex.ru/device_categories</a></h3>
+            <img src="./pictures/radar_devices.jpg" alt="Радар" class="cover width">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2 class="shout">Практика
+                <br>
+                <br><span class="danger">будет ли чат?</span>
+            </h2>
+            <h3><a href="./demos/hg_layout_float.html">демо</a></h3>
+        </div>
+    </section>
+
+    <section class="slide section">
+        <div>
+            <h2>Flexbox</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2 class="shout"><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <img src="./pictures/caniuse_flex.jpg" alt="Caniuse Flex" class="cover width">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs html">&lt;div id=&quot;header&quot;&gt;header&lt;/div&gt;
+&lt;div id=&quot;center&quot;&gt;
+    Lorem ipsum...
+&lt;/div&gt;
+&lt;div id=&quot;left&quot;&gt;
+    Left
+&lt;/div&gt;
+&lt;div id=&quot;right&quot;&gt;
+    Right
+&lt;/div&gt;
+&lt;div id=&quot;footer&quot;&gt;footer&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs html">&lt;header id=&quot;header&quot;&gt;header&lt;/header&gt;
+&lt;article id=&quot;center&quot;&gt;
+    Lorem ipsum...
+&lt;/article&gt;
+&lt;nav id=&quot;left&quot;&gt;
+    Left
+&lt;/nav&gt;
+&lt;aside id=&quot;right&quot;&gt;
+    Right
+&lt;/aside&gt;
+&lt;footer id=&quot;footer&quot;&gt;footer&lt;/footer&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2 class="shout">Практика
+            </h2>
+            <h3><a href="./demos/hg_layout_flex.html">демо</a></h3>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs css">body {
+    <mark>display: flex;</mark>
+    flex-wrap: wrap;
+}
+
+#header {
+    width: 100%;
+}
+
+#footer {
+    width: 100%;
+    order: 4;
+}</code></pre>
+            <img src="./pictures/hg_example.jpg" alt="HG" class="place right" width="60%">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs css">#center {
+    flex: <mark>999 999</mark> 500px;
+    order: 2;
+}
+
+#left {
+    flex: 1 1 300px;
+    order: 1;
+}
+
+#right {
+    flex: 1 1 250px;
+    order: 3;
+}</code></pre>
+            <img src="./pictures/hg_example.jpg" alt="HG" class="place right" width="60%">
         </div>
     </section>
 
@@ -152,121 +410,289 @@
 
     <section class="slide">
         <div>
-            <h2>треки</h2>
+            <h2 class="shout"><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">A Complete Guide to Grid</a></h2>
+        </div>
+    </section>
+
+    <section class="slide">
+            <div>
+                <pre><code class="hljs html">&lt;header id=&quot;header&quot;&gt;header&lt;/header&gt;
+&lt;article id=&quot;center&quot;&gt;
+    Lorem ipsum...
+&lt;/article&gt;
+&lt;nav id=&quot;left&quot;&gt;
+    Left
+&lt;/nav&gt;
+&lt;aside id=&quot;right&quot;&gt;
+    Right
+&lt;/aside&gt;
+&lt;footer id=&quot;footer&quot;&gt;footer&lt;/footer&gt;</code></pre>
+            </div>
+        </section>
+
+    <section class="slide">
+        <div>
+            <h2 class="shout">Практика</h2>
+            <h3><a href="./demos/hg_layout_grid.html">демо</a></h3>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>auto-flow</h2>
+            <pre><code class="hljs css">body {
+    display: grid;
+    grid-template-areas: 'h h h' 'l c r' 'f f f';
+    grid-template-rows: min-content auto min-content;
+    grid-template-columns: 300px auto 250px;
+    min-height: 100vh;
+}</code></pre>
+            <img src="./pictures/hg_example.jpg" alt="HG" class="place bottom right" width="50%">
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Developer Tools</h2>
+            <pre><code class="hljs css">#header { grid-area: h; }
+
+#center { grid-area: c; }
+
+#left { grid-area: l; }
+
+#right { grid-area: r; }
+
+#footer { grid-area: f; }</code></pre>
+            <img src="./pictures/hg_example.jpg" alt="HG" class="place bottom right" width="50%">
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>Анимация</h2>
+            <img src="./pictures/css_grid_wesbos.jpg" alt="Wesbos" class="cover">
+            <h3><a href="https://cssgrid.io">cssgrid.io</a></h3>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>display: subgrid</h2>
+            <h2>CSS Grid Animation</h2>
+            <video src="./pictures/css_grid_animation.mp4" autoplay muted loop class="place"></video>
+            <h3><a href="https://medium.com/@sergeytovarov/css-grid-animation-c8145a7a7cdf">Анимация CSS Grid Layout, что мы имеем?</a></h3>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>флексы — для микросеток, гриды — для сетки</h2>
+            <h2>Что использовать?</h2>
+            <ul>
+                <li>для сетки — гриды;</li>
+                <li>для микросетки — флексы.</li>
+            </ul>
         </div>
     </section>
 
     <section class="slide section">
         <div>
-            <h2>@media</h2>
+            <h2>Изображения</h2>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>прятание блоков</h2>
+            <h2>Элемент picture</h2>
+            <pre><code class="hljs html">&lt;picture&gt;
+    &lt;source type="image/webp" media="(min-width: 1150px)"
+            srcset="img-desktop@1x.webp 1x, img-desktop@2x.webp 2x"&gt;
+    &lt;source type="image/webp"
+            srcset="img-mobile@1x.webp 1x, img-mobile@2x.webp 2x"&gt;
+    &lt;source media="(min-width: 1150px)"
+            srcset="img-desktop@1x.jpg 1x, img-desktop@2x.jpg 2x"&gt;
+    &lt;img src="img-mobile@1x.jpg" srcset="img-mobile@2x.jpg 2x"
+            alt="Привет, ШРИ!" width="20" height="18"&gt;
+&lt;/picture&gt;</code></pre>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>picture</h2>
+            <h2>Элемент picture</h2>
+            <pre><code class="hljs html">&lt;picture&gt;</code>
+<code class="hljs html next">    &lt;source <span class="next">type="image/webp"</span> <span class="next">media="(min-width: 1150px)"</span>
+            <span class="next">srcset="img-desktop@1x.webp <mark>1x</mark>, img-desktop@2x.webp <mark>2x</mark>"</span>&gt;</code>
+<code class="hljs html next">    &lt;source type="image/webp"
+            srcset="img-mobile@1x.webp 1x, img-mobile@2x.webp 2x"&gt;</code>
+<code class="hljs html next">    &lt;source media="(min-width: 1150px)"
+            srcset="img-desktop@1x.jpg 1x, img-desktop@2x.jpg 2x"&gt;</code>
+<code class="hljs html">    &lt;img src="img-mobile@1x.jpg" srcset="img-mobile@2x.jpg 2x"
+            alt="Привет, ШРИ!" width="20" height="18"&gt;</code>
+<code class="hljs html">&lt;/picture&gt;</code></pre>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>retina</h2>
+            <h2>Элемент img</h2>
+            <pre><code class="hljs html">&lt;img srcset="img-320w.jpg <mark>320w</mark>,
+                img-480w.jpg 480w,
+                img-800w.jpg 800w"
+        sizes="(max-width: 320px) 280px,
+               (max-width: 480px) 440px,
+               800px"
+        src="img-800w.jpg" alt="Привет, ШРИ!"&gt;</code></pre>
+           <ol>
+               <li class="next"><code>srcset</code> — задаем каждому размеру свое изображение;</li>
+               <li class="next"><code>sizes</code> — вычисляем размер, который нужно применить;</li>
+               <li class="next">выбираем из <code>srcset</code> самое подходящее по размеру изображение.</li>
+           </ol>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>mobile first</h2>
+            <h2>2009</h2>
+            <pre><code class="hljs css">.yandex {
+    background-image: url('img/yandex.jpg');
+}</code></pre>
+        </div>
+    </section>
+    
+        <section class="slide">
+            <div>
+                <h2>2019</h2>
+            <pre><code class="hljs css">.yandex {
+    background-image: url('img/yandex-mobile.jpg');
+}
+
+@media (min-width: 1050px) {
+    .yandex {
+        background-image: url('img/yandex-desktop.jpg');
+    }
+}</code></pre>
+            </div>
+        </section>
+    
+        <section class="slide nd-retina">
+            <div>
+                <div class="col-3">
+                    <figure>
+                        <img src="pictures/iphone-4.png" alt="iPhone 4" height="450">
+                        <figcaption>2dppx</figcaption>
+                    </figure>
+                    <figure class="next">
+                        <img src="pictures/iphone-x.png" alt="iPhone X" height="570">
+                        <figcaption>3dppx</figcaption>
+                    </figure>
+                    <figure class="next">
+                        <img src="pictures/samsung-galaxy-s8.png" alt="Samsung Galaxy S8" height="600">
+                        <figcaption>4dppx</figcaption>
+                    </figure>
+                </div>
+            </div>
+    
+            <style>
+                .nd-retina .col-3 {
+                    display: grid;
+                    width: 100%;
+                    height: 100%;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: 10px;
+                    text-align: center;
+                }
+    
+                .nd-retina .col-3 figure {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    align-items: center;
+                }
+            </style>
+        </section>
+    
+        <section class="slide no-heading">
+            <div>
+            <pre><code class="hljs css">.yandex {
+    background-image: url('img/yandex@1x.jpg');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+    .yandex {
+        background-image: url('img/yandex@2x.jpg');
+    }
+}</code></pre>
         </div>
     </section>
 
-    <section class="slide">
+    <section class="slide section">
         <div>
-            <h2>width -> max-width</h2>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <h2>meta viewport</h2>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <h2>Developer Tools</h2>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <h2>Bootstrap?</h2>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <h2>статистика пользования мобильными</h2>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <h2>расстояние до экрана</h2>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <h2>расстояние до пальца</h2>
+            <h2>Размеры</h2>
         </div>
     </section>
 
     <section class="slide">
         <div>
             <h2>em, rem</h2>
+            <ul>
+                <li><b>em</b> — относительная единица длины, равная размеру текущего шрифта;</li>
+                <li><b>rem</b> — относительная единица длины, равная размеру текущего шрифта корневого элемента.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs html">&lt;html&gt;
+&lt;body&gt;
+    &lt;div class=&quot;content&quot;&gt;
+        &lt;p&gt;Привет, ШРИ!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <pre><code class="hljs css">html { font-size: 10px; }
+.content { font-size: 20px; }
+p { font-size: 1em; } /* сколько в пикселях? */</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs html">&lt;html&gt;
+&lt;body&gt;
+    &lt;div class=&quot;content&quot;&gt;
+        &lt;p&gt;Привет, ШРИ!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <pre><code class="hljs css">html { font-size: 10px; }
+.content { font-size: 20px; }
+p { font-size: 1rem; } /* сколько в пикселях? */</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <pre><code class="hljs html">&lt;html&gt;
+&lt;body&gt;
+    &lt;div class=&quot;content&quot;&gt;
+        &lt;p&gt;Привет, ШРИ!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <pre><code class="hljs css">html { font-size: 10px; }
+.content { font-size: 2rem; }
+p { font-size: 1em; } /* сколько в пикселях? */</code></pre>
         </div>
     </section>
 
     <section class="slide">
         <div>
             <h2>vw, vh, vmin, vmax</h2>
+            <ul>
+                <li><b>vh</b> — 1% высоты окна браузера</li>
+                <li><b>vw</b> — 1% ширины окна браузера</li>
+                <li><b>vmin</b> — 1% меньшего размера окна браузера</li>
+                <li><b>vmax</b> — 1% большего размера окна браузера</li>
+            </ul>
         </div>
     </section>
 
@@ -278,13 +704,33 @@
 
     <section class="slide">
         <div>
-            <h2>CSS-шлюзы</h2>
+            <span class="danger">пример центрирования блока с собеседований?</h2>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <h2>overflow: hidden</h2>
+            <h2>CSS-шлюзы</h2>
+            <p>https://css-live.ru/articles/matematika-css-shlyuzov.html</p>
+        </div>
+    </section>
+
+    <section class="slide section">
+        <div>
+            <h2>Итоги</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Советы?</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Bootstrap жив?</h2>
+            <p class="next">Жив, но нужен ли он вам? 🤷‍♂️</p>
         </div>
     </section>
 
@@ -292,9 +738,8 @@
         <div>
             <h2>Материалы</h2>
             <ol>
-                <li>wesbos</li>
-                <li>https://www.youtube.com/watch?v=5jTDpz7OXD4</li>
-                <li></li>
+                <li>https://www.youtube.com/watch?v=5jTDpz7OXD4 - лекция ШРИ</li>
+                <li>TODO</li>
             </ol>
         </div>
     </section>

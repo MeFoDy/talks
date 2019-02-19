@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Holy Grail Layout — Flex</title>
+</head>
+
+<body>
+    <style>
+        body {
+            min-width: 750px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #header {
+            background-color: #af9;
+            text-align: center;
+            padding: 30px;
+            width: 100%;
+        }
+
+        #center {
+            flex: 999 999 500px;
+            background-color: #9af;
+            order: 2;
+            padding: 20px;
+        }
+
+        #left {
+            flex: 1 1 300px;
+            background-color: #fa9;
+            order: 1;
+            padding: 20px;
+        }
+
+        #right {
+            background-color: #fa9;
+            order: 3;
+            flex: 1 1 250px;
+            padding: 20px;
+        }
+
+        #footer {
+            width: 100%;
+            background-color: #af9;
+            text-align: center;
+            padding: 30px;
+            order: 4;
+        }
+    </style>
+
+    <div id="header">header</div>
+    <div id="center">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis mollitia in alias ea, ipsam amet quam
+        dolorem quisquam, rem aperiam veniam facilis iste consequuntur sequi sit totam maxime commodi
+        facere? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, debitis porro? Consequatur,
+        ipsam consequuntur itaque nesciunt praesentium, totam possimus ipsum doloribus repellat animi autem quae
+        nostrum quis corrupti eaque aperiam.
+    </div>
+    <div id="left">
+        Left
+    </div>
+    <div id="right">
+        Right
+    </div>
+    <div id="footer">footer</div>
+</body>
+
+</html>
