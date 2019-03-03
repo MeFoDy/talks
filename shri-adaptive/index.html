@@ -82,11 +82,11 @@
     </section>
 
     <section class="slide">
-        <video src="./pictures/css_tricks_responsive.mp4" autoplay muted loop class="cover width"></video>
+        <img src="./pictures/chrome_dev_tools.jpg" alt="Chrome Dev Tools" class="cover">
     </section>
 
     <section class="slide">
-        <img src="./pictures/chrome_dev_tools.jpg" alt="Chrome Dev Tools" class="cover">
+        <video src="./pictures/css_tricks_responsive.mp4" autoplay muted loop class="cover width"></video>
     </section>
 
     <section class="slide">
@@ -121,9 +121,9 @@
         &lt;td colspan=&quot;3&quot; id=&quot;header&quot;&gt;header&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-        &lt;td id=&quot;left&quot;&gt;Left&lt;/td&gt;
+        &lt;td id=&quot;left&quot; width=&quot;300&quot;&gt;Left&lt;/td&gt;
         &lt;td id=&quot;center&quot;&gt;Lorem ipsum...&lt;/td&gt;
-        &lt;td id=&quot;right&quot;&gt;Right&lt;/td&gt;
+        &lt;td id=&quot;right&quot; width=&quot;250&quot;&gt;Right&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td colspan=&quot;3&quot; id=&quot;footer&quot;&gt;footer&lt;/td&gt;
@@ -136,6 +136,8 @@
         <div>
             <h2>Адаптивность на таблицах?</h2>
             <p class="next">Нет 😞</p>
+            <p class="next">Отрисовка во время загрузки 😣</p>
+            <p class="next">Много лишнего кода 😭</p>
         </div>
     </section>
 
@@ -155,7 +157,10 @@
             <h2>Мета-тег viewport</h2>
             <pre><code class="hljs html">&lt;meta name=&quot;viewport&quot;
       content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>
-      <span class="danger">картинку для прува?</span>
+        </div>
+        <div class="slide-container" style="top: 400px; overflow-y: scroll;">
+            <img src="./pictures/wsd_scale_not.jpg" alt="without scaling" style="position: absolute; left: 90px; top: 0;">
+            <img src="./pictures/wsd_scale.jpg" alt="without scaling" style="position: absolute; left: 900px; top: 0;">
         </div>
     </section>
 
@@ -163,51 +168,50 @@
         <div>
             <h2>2. При помощи float (<a href="./demos/hg_layout_float.html">демо</a>)</h2>
             <h3><a href="https://alistapart.com/article/holygrail">alistapart.com/article/holygrail</a></h3>
-            <pre><code class="hljs html">&lt;div id=&quot;header&quot;&gt;header&lt;/div&gt;
-&lt;div id=&quot;container&quot;&gt;
-    &lt;div id=&quot;center&quot; class=&quot;column&quot;&gt;
+            <pre><code class="hljs html">&lt;div class=&quot;header&quot;&gt;header&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;center&quot; class=&quot;column&quot;&gt;
         Lorem ipsum...
     &lt;/div&gt;
-    &lt;div id=&quot;left&quot; class=&quot;column&quot;&gt;Left&lt;/div&gt;
-    &lt;div id=&quot;right&quot; class=&quot;column&quot;&gt;Right&lt;/div&gt;
+    &lt;div class=&quot;left&quot; class=&quot;column&quot;&gt;Left&lt;/div&gt;
+    &lt;div class=&quot;right&quot; class=&quot;column&quot;&gt;Right&lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&quot;footer&quot;&gt;footer&lt;/div&gt;</code></pre>
+&lt;div class=&quot;footer&quot;&gt;footer&lt;/div&gt;</code></pre>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <pre><code class="hljs css">#container {
+            <pre><code class="hljs css">.container {
     padding-left: 300px;
     padding-right: 250px;
 }
 
-#container .column {
+.container .column {
     position: relative;
     float: left;
 }
 
-#footer {
+.footer {
     clear: both;
 }</code></pre>
-            <span class="danger">id можно?</span>
             <img src="./pictures/hg_example.jpg" alt="HG" class="place right" width="60%">
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <pre><code class="hljs css">#center {
+            <pre><code class="hljs css">.center {
     width: 100%;
 }
 
-#left {
+.left {
     width: 300px;
     right: 300px;
     margin-left: -100%;
 }
 
-#right {
+.right {
     width: 250px;
     margin-right: -250px;
 }</code></pre>
@@ -269,7 +273,7 @@
             <h2>Mobile-first</h2>
             <pre><code class="hljs css">/* <mark>Смартфон</mark> и общие стили */
 
-@media (min-width: 767px) {
+@media (min-width: 480px) {
     /* Планшет */
 }
 @media (min-width: 767px) {
@@ -297,10 +301,7 @@
 
     <section class="slide">
         <div>
-            <h2 class="shout">Практика
-                <br>
-                <br><span class="danger">будет ли чат?</span>
-            </h2>
+            <h2 class="shout">Практика</h2>
             <h3><a href="./demos/hg_layout_float.html">демо</a></h3>
         </div>
     </section>
@@ -319,39 +320,80 @@
 
     <section class="slide">
         <div>
+            <h3><a href="https://css-live.ru/articles/vizualnoe-rukovodstvo-po-svojstvam-flexbox-iz-css3.html">css-live.ru/articles/vizualnoe-rukovodstvo-po-svojstvam-flexbox-iz-css3.html</a></h3>
+        </div>
+        <img src="./pictures/flex.png" alt="Flex" class="place">
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Свойства родителя</h2>
+            <ul>
+                <li><code>display: flex;</code></li>
+                <li class="next"><code>flex-direction: row | row-reverse | column | column-reverse;</code></li>
+                <li class="next"><code>flex-wrap: nowrap | wrap | wrap-reverse;</code></li>
+                <li class="next"><code>flex-flow: &lt;&lsquo;flex-direction&rsquo;&gt; || &lt;&lsquo;flex-wrap&rsquo;&gt;</code></li>
+                <li class="next"><code>justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;</code></li>
+                <li class="next"><code>align-items: stretch | flex-start | flex-end | center | baseline;</code></li>
+                <li class="next"><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;</code></li>
+            </ul>
+            <h3>
+                <a href="https://html5.by/blogdemo/flexbox/flex-direction-align-justify.html">песочница 1</a>,
+                <a href="https://html5.by/blogdemo/flexbox/flex-direction-multiline.html">песочница 2</a>
+            </h3>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Свойства дочернего элемента</h2>
+            <ul>
+                <li><code>order: &lt;integer&gt;;</code></li>
+                <li class="next"><code>flex-grow: &lt;number&gt;;</code></li>
+                <li class="next"><code>flex-shrink: &lt;number&gt;;</code></li>
+                <li class="next"><code>flex-basis: &lt;length&gt; | auto;</code></li>
+                <li class="next"><code>flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]</code></li>
+                <li class="next"><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;</code></li>
+            </ul>
+            <h3><a href="https://html5.by/blogdemo/flexbox/flex-grow-shrink-basis.html">песочница 3</a></h3>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
             <img src="./pictures/caniuse_flex.jpg" alt="Caniuse Flex" class="cover width">
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <pre><code class="hljs html">&lt;div id=&quot;header&quot;&gt;header&lt;/div&gt;
-&lt;div id=&quot;center&quot;&gt;
+            <pre><code class="hljs html">&lt;div class=&quot;header&quot;&gt;header&lt;/div&gt;
+&lt;div class=&quot;center&quot;&gt;
     Lorem ipsum...
 &lt;/div&gt;
-&lt;div id=&quot;left&quot;&gt;
+&lt;div class=&quot;left&quot;&gt;
     Left
 &lt;/div&gt;
-&lt;div id=&quot;right&quot;&gt;
+&lt;div class=&quot;right&quot;&gt;
     Right
 &lt;/div&gt;
-&lt;div id=&quot;footer&quot;&gt;footer&lt;/div&gt;</code></pre>
+&lt;div class=&quot;footer&quot;&gt;footer&lt;/div&gt;</code></pre>
         </div>
     </section>
 
     <section class="slide">
         <div>
-            <pre><code class="hljs html">&lt;header id=&quot;header&quot;&gt;header&lt;/header&gt;
-&lt;article id=&quot;center&quot;&gt;
+            <pre><code class="hljs html">&lt;header class=&quot;header&quot;&gt;header&lt;/header&gt;
+&lt;article class=&quot;center&quot;&gt;
     Lorem ipsum...
 &lt;/article&gt;
-&lt;nav id=&quot;left&quot;&gt;
+&lt;nav class=&quot;left&quot;&gt;
     Left
 &lt;/nav&gt;
-&lt;aside id=&quot;right&quot;&gt;
+&lt;aside class=&quot;right&quot;&gt;
     Right
 &lt;/aside&gt;
-&lt;footer id=&quot;footer&quot;&gt;footer&lt;/footer&gt;</code></pre>
+&lt;footer class=&quot;footer&quot;&gt;footer&lt;/footer&gt;</code></pre>
         </div>
     </section>
 
@@ -370,11 +412,11 @@
     flex-wrap: wrap;
 }
 
-#header {
+.header {
     width: 100%;
 }
 
-#footer {
+.footer {
     width: 100%;
     order: 4;
 }</code></pre>
@@ -384,17 +426,17 @@
 
     <section class="slide">
         <div>
-            <pre><code class="hljs css">#center {
+            <pre><code class="hljs css">.center {
     flex: <mark>999 999</mark> 500px;
     order: 2;
 }
 
-#left {
+.left {
     flex: 1 1 300px;
     order: 1;
 }
 
-#right {
+.right {
     flex: 1 1 250px;
     order: 3;
 }</code></pre>
@@ -415,18 +457,173 @@
     </section>
 
     <section class="slide">
+        <div>
+            <img src="./pictures/terms-grid-cell.svg" alt="cell" class="place" style="width: 900px;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Grid Container</h2>
+            <ul style="columns: 2;">
+                <li>display</li>
+                <li>grid-template-columns</li>
+                <li>grid-template-rows</li>
+                <li>grid-template-areas</li>
+                <li>grid-template</li>
+                <li>grid-column-gap</li>
+                <li>grid-row-gap</li>
+                <li>grid-gap</li>
+                <li>justify-items</li>
+                <li>align-items</li>
+                <li>justify-content</li>
+                <li>align-content</li>
+                <li>grid-auto-columns</li>
+                <li>grid-auto-rows</li>
+                <li>grid-auto-flow</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Grid Container</h2>
+            <ul style="columns: 2;">
+                <li><mark>display: grid</mark></li>
+                <li>grid-template-columns</li>
+                <li>grid-template-rows</li>
+                <li>grid-template-areas</li>
+                <li>grid-template</li>
+                <li>grid-column-gap</li>
+                <li>grid-row-gap</li>
+                <li>grid-gap</li>
+                <li>justify-items</li>
+                <li>align-items</li>
+                <li>justify-content</li>
+                <li>align-content</li>
+                <li>grid-auto-columns</li>
+                <li>grid-auto-rows</li>
+                <li>grid-auto-flow</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Grid Container</h2>
+            <ul style="columns: 2;">
+                <li>display</li>
+                <li><mark>grid-template-columns</mark></li>
+                <li><mark>grid-template-rows</mark></li>
+                <li><mark>grid-template-areas</mark></li>
+                <li><mark>grid-template</mark></li>
+                <li>grid-column-gap</li>
+                <li>grid-row-gap</li>
+                <li>grid-gap</li>
+                <li>justify-items</li>
+                <li>align-items</li>
+                <li>justify-content</li>
+                <li>align-content</li>
+                <li>grid-auto-columns</li>
+                <li>grid-auto-rows</li>
+                <li>grid-auto-flow</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>grid-template-columns</h2>
+            <pre><code class="css">grid-template-columns: 40px 50px auto 50px 40px;</code></pre>
+            <pre><code class="css">grid-template-columns: [first] 40px [line2] 50px [end];</code></pre>
+            <pre><code class="css">grid-template-columns: repeat(5, 1fr);</code></pre>
+            <pre><code class="css">grid-template-columns: 3fr minmax(500px, max-content) 2fr;</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Grid Container</h2>
+            <ul style="columns: 2;">
+                <li>display</li>
+                <li>grid-template-columns</li>
+                <li>grid-template-rows</li>
+                <li>grid-template-areas</li>
+                <li>grid-template</li>
+                <li><mark>grid-column-gap</mark></li>
+                <li><mark>grid-row-gap</mark></li>
+                <li><mark>grid-gap</mark></li>
+                <li>justify-items</li>
+                <li>align-items</li>
+                <li>justify-content</li>
+                <li>align-content</li>
+                <li>grid-auto-columns</li>
+                <li>grid-auto-rows</li>
+                <li>grid-auto-flow</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Grid Container</h2>
+            <ul style="columns: 2;">
+                <li>display</li>
+                <li>grid-template-columns</li>
+                <li>grid-template-rows</li>
+                <li>grid-template-areas</li>
+                <li>grid-template</li>
+                <li>grid-column-gap</li>
+                <li>grid-row-gap</li>
+                <li>grid-gap</li>
+                <li><mark>justify-items</mark></li>
+                <li><mark>align-items</mark></li>
+                <li><mark>justify-content</mark></li>
+                <li><mark>align-content</mark></li>
+                <li>grid-auto-columns</li>
+                <li>grid-auto-rows</li>
+                <li>grid-auto-flow</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Grid Container</h2>
+            <ul style="columns: 2;">
+                <li>display</li>
+                <li>grid-template-columns</li>
+                <li>grid-template-rows</li>
+                <li>grid-template-areas</li>
+                <li>grid-template</li>
+                <li>grid-column-gap</li>
+                <li>grid-row-gap</li>
+                <li>grid-gap</li>
+                <li>justify-items</li>
+                <li>align-items</li>
+                <li>justify-content</li>
+                <li>align-content</li>
+                <li><mark>grid-auto-columns</mark></li>
+                <li><mark>grid-auto-rows</mark></li>
+                <li><mark>grid-auto-flow</mark></li>
+            </ul>
+            <h3><a href="https://developer.mozilla.org/ru/docs/Web/CSS/grid-auto-flow">developer.mozilla.org/ru/docs/Web/CSS/grid-auto-flow</a></h3>
+        </div>
+    </section>
+
+    <section class="slide">
             <div>
-                <pre><code class="hljs html">&lt;header id=&quot;header&quot;&gt;header&lt;/header&gt;
-&lt;article id=&quot;center&quot;&gt;
+                <pre><code class="hljs html">&lt;header class=&quot;header&quot;&gt;header&lt;/header&gt;
+&lt;article class=&quot;center&quot;&gt;
     Lorem ipsum...
 &lt;/article&gt;
-&lt;nav id=&quot;left&quot;&gt;
+&lt;nav class=&quot;left&quot;&gt;
     Left
 &lt;/nav&gt;
-&lt;aside id=&quot;right&quot;&gt;
+&lt;aside class=&quot;right&quot;&gt;
     Right
 &lt;/aside&gt;
-&lt;footer id=&quot;footer&quot;&gt;footer&lt;/footer&gt;</code></pre>
+&lt;footer class=&quot;footer&quot;&gt;footer&lt;/footer&gt;</code></pre>
             </div>
         </section>
 
@@ -441,10 +638,13 @@
         <div>
             <pre><code class="hljs css">body {
     display: grid;
-    grid-template-areas: 'h h h' 'l c r' 'f f f';
+    min-height: 100vh;
     grid-template-rows: min-content auto min-content;
     grid-template-columns: 300px auto 250px;
-    min-height: 100vh;
+    grid-template-areas:
+        'h h h'
+        'l c r'
+        'f f f';
 }</code></pre>
             <img src="./pictures/hg_example.jpg" alt="HG" class="place bottom right" width="50%">
         </div>
@@ -452,15 +652,31 @@
 
     <section class="slide">
         <div>
-            <pre><code class="hljs css">#header { grid-area: h; }
+            <pre><code class="hljs css">body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: min-content auto min-content;
+    grid-template-columns: 300px auto 250px;
+    grid-template-areas:
+        '🎩 🎩 🎩'
+        '👈 ✏️ 👉'
+        '🦶 🦶 🦶';
+}</code></pre>
+            <img src="./pictures/hg_example.jpg" alt="HG" class="place bottom right" width="50%">
+        </div>
+    </section>
 
-#center { grid-area: c; }
+    <section class="slide">
+        <div>
+            <pre><code class="hljs css">.header { grid-area: 🎩; }
 
-#left { grid-area: l; }
+.center { grid-area: ✏️; }
 
-#right { grid-area: r; }
+.left { grid-area: 👈; }
 
-#footer { grid-area: f; }</code></pre>
+.right { grid-area: 👉; }
+
+.footer { grid-area: 🦶; }</code></pre>
             <img src="./pictures/hg_example.jpg" alt="HG" class="place bottom right" width="50%">
         </div>
     </section>
@@ -470,6 +686,10 @@
             <img src="./pictures/css_grid_wesbos.jpg" alt="Wesbos" class="cover">
             <h3><a href="https://cssgrid.io">cssgrid.io</a></h3>
         </div>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse_grid.jpg" alt="caniuse grid" class="cover">
     </section>
 
     <section class="slide">
@@ -554,7 +774,7 @@
 }</code></pre>
         </div>
     </section>
-    
+
         <section class="slide">
             <div>
                 <h2>2019</h2>
@@ -569,7 +789,7 @@
 }</code></pre>
             </div>
         </section>
-    
+
         <section class="slide nd-retina">
             <div>
                 <div class="col-3">
@@ -587,7 +807,7 @@
                     </figure>
                 </div>
             </div>
-    
+
             <style>
                 .nd-retina .col-3 {
                     display: grid;
@@ -597,7 +817,7 @@
                     grid-gap: 10px;
                     text-align: center;
                 }
-    
+
                 .nd-retina .col-3 figure {
                     display: flex;
                     flex-direction: column;
@@ -606,7 +826,7 @@
                 }
             </style>
         </section>
-    
+
         <section class="slide no-heading">
             <div>
             <pre><code class="hljs css">.yandex {
@@ -648,9 +868,9 @@
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <pre><code class="hljs css">html { font-size: 10px; }
+            <pre><code class="hljs css">html     { font-size: 10px; }
 .content { font-size: 20px; }
-p { font-size: 1em; } /* сколько в пикселях? */</code></pre>
+p        { font-size: 1em; } /* сколько в пикселях? */</code></pre>
         </div>
     </section>
 
@@ -663,9 +883,9 @@ p { font-size: 1em; } /* сколько в пикселях? */</code></pre>
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <pre><code class="hljs css">html { font-size: 10px; }
+            <pre><code class="hljs css">html     { font-size: 10px; }
 .content { font-size: 20px; }
-p { font-size: 1rem; } /* сколько в пикселях? */</code></pre>
+p        { font-size: 1rem; } /* сколько в пикселях? */</code></pre>
         </div>
     </section>
 
@@ -678,9 +898,9 @@ p { font-size: 1rem; } /* сколько в пикселях? */</code></pre>
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            <pre><code class="hljs css">html { font-size: 10px; }
-.content { font-size: 2rem; }
-p { font-size: 1em; } /* сколько в пикселях? */</code></pre>
+            <pre><code class="hljs css">html     { font-size: 10px; }
+.content { font-size: 1rem; }
+p        { font-size: 2em; } /* сколько в пикселях? */</code></pre>
         </div>
     </section>
 
@@ -699,19 +919,32 @@ p { font-size: 1em; } /* сколько в пикселях? */</code></pre>
     <section class="slide">
         <div>
             <h2>calc</h2>
-        </div>
-    </section>
-
-    <section class="slide">
-        <div>
-            <span class="danger">пример центрирования блока с собеседований?</h2>
+            <pre><code>width: calc(100% / 3 - 2 * 1em - 2 * 1px);</code></pre>
         </div>
     </section>
 
     <section class="slide">
         <div>
             <h2>CSS-шлюзы</h2>
-            <p>https://css-live.ru/articles/matematika-css-shlyuzov.html</p>
+            <pre><code>h1 { font-size: 1.5rem; }
+p { font-size: .9375rem; }
+
+@media (min-width: 320px) {
+    h1 { font-size: calc( 1.5rem + 2.5vw - 8px ); }
+    p { font-size: calc( .9375rem + .46875vw - 1.5px ); }
+}
+@media (min-width: 960px) {
+    h1 { font-size: calc(1.5rem + 16px); }
+    p { font-size: calc( .9375rem + 3px ); }
+}
+            </code></pre>
+            <h3><a href="https://css-live.ru/articles/matematika-css-shlyuzov.html">css-live.ru/articles/matematika-css-shlyuzov.html</a></h3>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <img src="./pictures/px-fontsize-bigger-fixed.png" alt="fontsize" class="place">
         </div>
     </section>
 
@@ -723,7 +956,15 @@ p { font-size: 1em; } /* сколько в пикселях? */</code></pre>
 
     <section class="slide">
         <div>
-            <h2>Советы?</h2>
+            <h2>Советы</h2>
+            <ul>
+                <li class="next">Делайте отзывчивую mobile-first вёрстку 📱</li>
+                <li class="next">Думайте про пользователей всех устройств ⌚️</li>
+                <li class="next">Flexbox — можно и нужно ✅</li>
+                <li class="next">Grid — можно, но осторожно ⚠️</li>
+                <li class="next">Правильно работайте с изображениями 🌅</li>
+                <li class="next">Используйте CSS по максимуму 🤘</li>
+            </ul>
         </div>
     </section>
 
@@ -738,8 +979,9 @@ p { font-size: 1em; } /* сколько в пикселях? */</code></pre>
         <div>
             <h2>Материалы</h2>
             <ol>
-                <li>https://www.youtube.com/watch?v=5jTDpz7OXD4 - лекция ШРИ</li>
-                <li>TODO</li>
+                <li><a href="https://www.youtube.com/watch?v=5jTDpz7OXD4">Адаптивная вёрстка</a> — Дмитрий Душкин, ШРИ</li>
+                <li><a href="https://www.youtube.com/watch?v=1g9nunZb1Ws">Хватит врать про Grid Layout</a> — Серёжа Попов</li>
+                <li><a href="https://www.youtube.com/watch?v=EwBYOQwPEpY">Показываем картинки пользователю</a> — Никита Дубко</li>
             </ol>
         </div>
     </section>
