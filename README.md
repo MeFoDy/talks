@@ -19,6 +19,7 @@
 # Lectures
 
 * Students Lab, iTechArt — [«JavaScript как платформа разработки»](https://mefody.github.io/talks/itechart-js/)
+* ШРИ, Яндекс — [«Адаптивная вёрстка»](https://mefody.github.io/talks/shri-adaptive/)
 
 # Podcasts
 

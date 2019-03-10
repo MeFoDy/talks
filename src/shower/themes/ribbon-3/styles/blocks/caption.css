@@ -2,23 +2,14 @@
 
 .caption {
     margin-top: -0.2em;
-    padding: 0 1em 0.93em;
+    margin-bottom: -0.07em;
+    grid-column: 1 / -1;
     width: 100%;
-    color: #3c3d40;
-    text-shadow: 0 1px 0 #8d8e90;
-    font-size: 25px;
-}
-
-@media (min-width: 1174px) {
-    .caption {
-        font-size: 50px;
-    }
-}
-
-@media (min-width: 2348px) {
-    .caption {
-        font-size: 100px;
-    }
+    color: #bfbfbf;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: calc(
+        var(--slide-gap) * var(--slide-scale)
+    );
 }
 
 /* Elements */
@@ -37,8 +28,7 @@
 
 .caption a {
     text-decoration: none;
-    color: var(--color-blue);
-    text-shadow: 0 -1px 0 #1f3f60;
+    color: var(--color-blue-lighter);
 }
 
 /* List */

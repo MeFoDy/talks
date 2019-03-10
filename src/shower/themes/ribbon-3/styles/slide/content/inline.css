@@ -1,12 +1,11 @@
 /* Inline */
 
 .slide a {
-    background-image:
-        linear-gradient(
-            to top,
-            currentColor 0.09em,
-            transparent 0.09em
-        );
+    background-image: linear-gradient(
+        to top,
+        currentColor 0.09em,
+        transparent 0.09em
+    );
     background-repeat: repeat-x;
     color: var(--color-blue);
     text-decoration: none;
@@ -16,7 +15,6 @@
 .slide kbd,
 .slide mark,
 .slide samp {
-    margin: 0 -0.3em;
     padding: 0.1em 0.3em;
     border-radius: 0.2em;
 }
