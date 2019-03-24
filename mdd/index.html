@@ -11,7 +11,7 @@
         content="Я пишу код в уютной для меня MacOS уже 6 лет. Чёткие картинки, насыщенные цвета на Retina-экране, удобные инструменты, среди которых Sketch — разрабатывать так приятно! Парадокс в том, что люди, которые пользуются продуктами, для которых я пишу код, в большинстве своём пользуются Windows. Поэтому баги, специфичные для Windows, очень легко могут пройти мимо разработчика. Чёрт с ними, с багами — крестик у попапа ведь должен быть слева! Или всё же справа?">
     <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
     <link rel="stylesheet" href="../src/highlight/styles/github.css">
-    <link rel="stylesheet" href="style.css?v=0.0.0">
+    <link rel="stylesheet" href="styles.css?v=0.0.0">
 </head>
 
 <body class="shower list">
@@ -25,27 +25,557 @@
 
 
     <section class="slide clear" id="cover">
-        <h2>MacOS Driven Development</h2>
-        <p>
-            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Яндекс
-        </p>
-        <img src="./pictures/cover.jpg" alt="" class="cover">
+        <img src="./pictures/mojave.jpg" class="cover">
+        <div class="terminal" data-content="moscowcss 11">
+            <h2 class="visually-hidden">MacOS Driven Development</h2>
+            <pre><code class="nohighlight" style="line-height: 1; font-size: 0.75em;">
+   ___  ___           _____ _____  ______      _                 
+   |  \/  |          |  _  /  ___| |  _  \    (_)                
+   | .  . | __ _  ___| | | \ `--.  | | | |_ __ ___   _____ _ __  
+   | |\/| |/ _` |/ __| | | |`--. \ | | | | '__| \ \ / / _ \ '_ \ 
+   | |  | | (_| | (__\ \_/ /\__/ / | |/ /| |  | |\ V /  __/ | | |
+   \_|  |_/\__,_|\___|\___/\____/  |___/ |_|  |_| \_/ \___|_| |_|
+                                                                 
+   ______               _                                  _     
+   |  _  \             | |                                | |    
+   | | | |_____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_   
+   | | | / _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|  
+   | |/ /  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_   
+   |___/ \___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|  
+                               | |                               
+                               |_|</code></pre>
+            <p>
+                <a href="https://twitter.com/dark_mefody">Никита Дубко</a>
+            </p>
+            <p>разработчик интерфейсов, Яндекс</p>
+        </div>
+    </section>
+
+
+    <section class="slide clear">
+        <h2>2014 год</h2>
+        <img src="./pictures/mac-birthday.jpg" alt="" class="place">
+        <img src="./pictures/cute-meme.png" alt="" class="place bottom right next" width="300">
     </section>
 
 
     <section class="slide">
-        <h2>Интро</h2>
+        <img src="./pictures/macvspc.webp" alt="" class="place">
+        <a href="https://www.youtube.com/watch?v=8Es1SlMnCFs" class="note">Youtube: Mac vs PC</a>
     </section>
 
 
     <section class="slide">
-        <h2>Дисклеймер</h2>
+        <img src="./pictures/stackoveflow-survey.jpg" alt="" class="place" width="900">
+        <a href="https://insights.stackoverflow.com/survey/2018#technology-developers-primary-operating-systems" class="note">Developer Survey Results 2018</a>
     </section>
 
 
     <section class="slide">
-        <h2></h2>
+        <img src="./pictures/yaradar.jpg" alt="" class="place" width="800">
+        <a href="https://radar.yandex.ru/desktop" class="note">radar.yandex.ru/desktop</a>
     </section>
+
+
+    <section class="slide">
+        <img src="./pictures/yaradar-graph.jpg" alt="" class="cover" width="900">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">UX</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Горизонтальный скролл</h2>
+    </section>
+
+
+    <section class="slide clear black">
+        <img src="./pictures/pitercss1.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide clear black">
+        <img src="./pictures/pitercss2.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <pre><code>.header::after {
+    content: '';
+    width: 100vw;
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 1px solid #d6d8d9;
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>.header::after {
+    content: '';
+    <mark>width: 100vw;</mark>
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 1px solid #d6d8d9;
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">width: 100vw</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/pitercss-fix.jpg" alt="" class="place" width="900">
+    </section>
+
+
+    <section class="slide black clear">
+        <img src="./pictures/scream.jpg" alt="" class="cover width" style="top: 20%">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/viewportvsbody.jpg" alt="" class="place" width="600">
+        <a href="https://bitsofco.de/viewport-vs-percentage-units/" class="note">bitsofco.de/viewport-vs-percentage-units/</a>
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/psp-hero-lion.png" alt="" class="place">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/mac-scrollbars.png" alt="" class="cover">
+        <a href="https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations" class="note">Scroll to the future</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/macos-scroll-settings.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Ретина</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/retina.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide nd-retina">
+        <div class="col-3">
+            <figure>
+                <img src="pictures/iphone-4.png" alt="iPhone 4" height="300">
+                <figcaption>2dppx</figcaption>
+            </figure>
+            <figure class="next">
+                <img src="pictures/iphone-x.png" alt="iPhone X" height="380">
+                <figcaption>3dppx</figcaption>
+            </figure>
+            <figure class="next">
+                <img src="pictures/samsung-galaxy-s8.png" alt="Samsung Galaxy S8" height="400">
+                <figcaption>4dppx</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-retina .col-3 {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-retina .col-3 figure {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        </style>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/macbook-retina.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide clear black">
+        <img src="./pictures/chotki-pacan.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide nd-retina">
+        <div class="col-2">
+            <figure>
+                <img src="pictures/osx-wallpaper-small.jpg" alt="" height="150">
+                <figcaption>59 КБ</figcaption>
+            </figure>
+            <figure class="next">
+                <img src="pictures/osx-wallpaper-small.jpg" alt="" height="300">
+                <figcaption>203 КБ</figcaption>
+            </figure>
+        </div>
+
+        <style>
+            .nd-retina .col-2 {
+                margin-top: 50px;
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+                text-align: center;
+            }
+
+            .nd-retina .col-2 figure {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <pre><code class="hljs html">&lt;picture&gt;
+    &lt;source type="image/webp"
+            srcset="img-mobile@1x.webp 1x,
+                    img-mobile@2x.webp 2x"&gt;
+    &lt;img src="img-mobile@1x.jpg" 
+         srcset="img-mobile@2x.jpg 2x"
+         alt="Привет, мир!"&gt;
+&lt;/picture&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code class="hljs css">.bg {
+    background-image: url('img/bg@1x.jpg');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi),
+       (min-resolution: 2dppx) {
+    .bg {
+        background-image: url('img/bg@2x.jpg');
+    }
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Крестик</h2>
+    </section>
+
+
+    <section class="slide black clear">
+        <h2>1984, Macintosh System 1</h2>
+        <img src="./pictures/macintosh-system-1-1984.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide black clear">
+        <h2>1985, Windows 1.01</h2>
+        <img src="./pictures/windows-1.01-1985.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide black clear">
+        <h2>1993, NCSA Mosaic for Windows</h2>
+        <img src="./pictures/nsca-mosaic.gif" alt="" class="place">
+    </section>
+
+
+    <section class="slide black clear">
+        <h2>1995, Windows 95</h2>
+        <img src="./pictures/windows-95.gif" alt="" class="place">
+    </section>
+
+
+    <section class="slide black clear">
+        <h2>1995, Internet Explorer 95</h2>
+        <img src="./pictures/ie-95.png" alt="" class="place">
+    </section>
+
+
+    <section class="slide black clear">
+        <h2>2010, Mac OS X 10.0 Cheetah</h2>
+        <img src="./pictures/mac-os-cheetah.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/tripod-logo.jpg" alt="" class="place">
+        <a href="https://en.wikipedia.org/wiki/Pop-up_ad" class="note">en.wikipedia.org/wiki/Pop-up_ad</a>
+    </section>
+
+
+    <section class="slide black clear">
+        <img src="./pictures/popup-hell-ie.jpeg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide black clear">
+        <img src="./pictures/popup-ads.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Пользовательские привычки</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.7em;"><code class="javascript">var OSName = "Unknown";
+if (window.navigator.userAgent.indexOf("Windows NT 10.0")!= -1) OSName="Windows 10";
+if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSName="Windows 8";
+if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSName="Windows 7";
+if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSName="Windows Vista";
+if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSName="Windows XP";
+if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSName="Windows 2000";
+if (window.navigator.userAgent.indexOf("Mac")            != -1) OSName="Mac/iOS";
+if (window.navigator.userAgent.indexOf("X11")            != -1) OSName="UNIX";
+if (window.navigator.userAgent.indexOf("Linux")          != -1) OSName="Linux";</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/hand-with-phone.jpg" alt="" class="cover place bottom right">
+        <h2 class="next">В мире левшей около 15%</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Design Guides</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/material-close.png" alt="" class="cover height">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/apple-modal.jpg" alt="" class="place top" style="top: 15%" height="900">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Не используйте модальные окна на мобильных!</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Порядок кнопок</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Порядок кнопок в macOS</h2>
+        <ol>
+            <li>[Применить]</li>
+            <li>Отмена</li>
+            <li>Действие</li>
+        </ol>
+        <a href="https://developer.apple.com/design/human-interface-guidelines/macos/windows-and-views/dialogs/" class="note">Human Interface Guidelines
+        </a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/apple-remove-popup.jpg" class="place" width="800">
+    </section>
+
+
+    <section class="slide">
+        <h2>Порядок кнопок в Windows</h2>
+        <ol>
+            <li>Действие</li>
+            <li>Отмена</li>
+            <li>[Применить]</li>
+            <li>[Получить помощь]</li>
+        </ol>
+        <a href="https://docs.microsoft.com/en-us/windows/desktop/uxguide/ctrl-command-buttons" class="note">Windows Dev Center</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/windows-remove-dialog.jpeg" class="place">
+    </section>
+
+
+    <section class="slide">
+        <h2>Общие принципы</h2>
+        <ul>
+            <li class="next">Должна быть кнопка отмены действия</li>
+            <li class="next">Обработка клавиши Esc</li>
+            <li class="next">Кнопка действия закрывает окно</li>
+            <li class="next">Обработка клавиш Enter и/или Space</li>
+            <li class="next">Текст кнопки — чёткое описание действия</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/svchost-application-error.jpg" alt="" class="place">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/ab-testing.png" alt="" class="cover">
+        <a href="https://www.youtube.com/watch?v=dDm2JIMBac8" class="note">Пару слов об А:Б тестировании в Яндексе — Сергей Мыц, Данил Валгушев</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Баги</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/ie.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <h2>Баги флексбокса</h2>
+        <img src="./pictures/flex-bugs.jpg" alt="" class="place" width="600">
+        <a href="https://github.com/philipwalton/flexbugs" class="note">github.com/philipwalton/flexbugs</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>Доли браузеров (февраль 2019)</h2>
+        <ul>
+            <li>...</li>
+            <li>IE 11 — 2.72%</li>
+            <li>Safari 11 — 2.57%</li>
+            <li>Edge 17 — 1.69%</li>
+            <li>...</li>
+        </ul>
+        <a href="https://www.w3counter.com/globalstats.php?year=2019&month=2" class="note">w3counter.com/globalstats.php</a>
+    </section>
+
+
+    <section class="slide" style="background: #eae6dd;">
+        <img src="./pictures/rubl.jpg" alt="" class="place">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/tech-support-scam.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Шрифты</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>различия рендеринга</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>разные шрифты по умолчанию</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>пиксель пёрфекта не существует</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>windows driven development</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Ctrl + C</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Numpad, Ins, Del, PageDown</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>колёсико мыши</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>И что делать?</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Тестировщики</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>отдельное устройство для тестирования</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>две системы параллельно</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>разрабатывать сразу на винде</h2>
+    </section>
+
+
+    <section class="slide">
+        <ul>
+            <li>дешевле</li>
+            <li>второй моник</li>
+            <li>сразу видно баги</li>
+            <li>разглаживает морщины</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2>Наша работа — решать задачи бизнеса.</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Исследуйте свою аудиторию.</h2>
+    </section>
+
+
+	<section class="slide">
+		<h2>Спасибо за внимание!</h2>
+		<p>
+			<a href="https://mefody.github.io/talks/houdini-magic/">mefody.github.io/talks/mdd/</a>
+			<br>
+			<a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+			<br>
+			<a href="mailto:mefody@yandex-team.ru">mefody@yandex-team.ru</a>
+		</p>
+	</section>
 
 
     <footer class="badge">
