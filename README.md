@@ -8,13 +8,15 @@
 * FrontendConf 2018 — [«Показываем картинки пользователю: подробное руководство»](https://mefody.github.io/talks/images-delivery/) ([видео](https://www.youtube.com/watch?v=EwBYOQwPEpY))
 * iTechForum 2018 — [«Показываем картинки пользователю: подробное руководство»](https://mefody.github.io/talks/images-delivery/index_itechforum.html) ([видео](https://youtu.be/18MbaJGExzQ))
 * BeerJS Summit Minsk 2018 — [«Еще не готовил доклад? Чего ждешь?»](https://mefody.github.io/talks/wait-for-talk/)
-* OdessaJS 2018 — [«Подготовка к выступлению. Пошаговое руководство от организаторов»](https://mefody.github.io/talks/talk-preparation/)
+* OdessaJS 2018 — [«Подготовка к выступлению. Пошаговое руководство от организаторов»](https://mefody.github.io/talks/talk-preparation/) ([видео](https://www.youtube.com/watch?v=nsaF4VFnCz0))
 * OdessaJS 2018 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/) ([видео](https://youtu.be/MPaD8N9BrFA))
 * Web Standards Days 2018 in Saint-Petersburg — [«Идеальный доклад. Голая правда»](https://mefody.github.io/talks/talk-preparation/wsd.html) ([видео](https://youtu.be/mpHeJYYqA90))
 * Web Standards Days 2018 in Saint-Petersburg — [«Магия CSS вне Хогвартса»](https://mefody.github.io/talks/css-magic/wsd.html) ([видео](https://youtu.be/7FuUrWVJGNc))
 * FrontTalks 2018 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/ft.html) ([видео](https://www.youtube.com/watch?v=yyVU-r9sRw8))
 * Web Standards Days 2018 in Kiev — [«Идеальный доклад. Голая правда»](https://mefody.github.io/talks/talk-preparation/kiev.html) ([видео](https://youtu.be/_VSb2SqW9WE))
 * Web Standards Days 2018 in Minsk — [«Отладка CSS в боевых условиях»](https://mefody.github.io/talks/css-debug/) ([видео](https://www.youtube.com/watch?v=bHv9pWEzKiU))
+* moscowcss №11 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
+* pitercss_meetup 30 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
 
 # Lectures
 
