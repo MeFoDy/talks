@@ -1,7 +1,11 @@
 # Conferences and meetups: public talks
 
+## 2017
 * Web Standards Days 2017 in Minsk — [«Houdini: великий разоблачитель»](https://mefody.github.io/talks/houdini-magic/) ([видео](https://www.youtube.com/watch?v=4kr5K-nWG3Y))
-* MinskCSS Meetup #3, Web Standards Days 2018 in Moscow — [«Распечатай мне курсач. На CSS»](https://mefody.github.io/talks/print-with-css/) ([видео](https://www.youtube.com/watch?v=xVPCZFBpjsI))
+* MinskCSS Meetup #3 — [«Распечатай мне курсач. На CSS»](https://mefody.github.io/talks/print-with-css/) ([видео](https://www.youtube.com/watch?v=tygiat10a3A))
+
+## 2018
+* Web Standards Days 2018 in Moscow — [«Распечатай мне курсач. На CSS»](https://mefody.github.io/talks/print-with-css/) ([видео](https://www.youtube.com/watch?v=xVPCZFBpjsI))
 * MinskJS Meetup #3 — [«JS Decorators — приоденьте свой код»](https://mefody.github.io/talks/js-decorators/) ([видео](https://www.youtube.com/watch?v=VfF7GyNItps))
 * MinskJS Meetup #3 — [«Полный Spectre уязвимостей»](https://mefody.github.io/talks/spectre-panel-discussion/) ([видео](https://www.youtube.com/watch?v=hGzy17Nnc38))
 * MinskCSS Meetup #4 — [«Магия CSS вне Хогвартса»](https://mefody.github.io/talks/css-magic/) ([видео](https://www.youtube.com/watch?v=Dhd6FSYZoiQ))
@@ -15,9 +19,11 @@
 * FrontTalks 2018 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/ft.html) ([видео](https://www.youtube.com/watch?v=yyVU-r9sRw8))
 * Web Standards Days 2018 in Kiev — [«Идеальный доклад. Голая правда»](https://mefody.github.io/talks/talk-preparation/kiev.html) ([видео](https://youtu.be/_VSb2SqW9WE))
 * Web Standards Days 2018 in Minsk — [«Отладка CSS в боевых условиях»](https://mefody.github.io/talks/css-debug/) ([видео](https://www.youtube.com/watch?v=bHv9pWEzKiU))
+
+## 2019
 * moscowcss №11 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
 * pitercss_meetup 30 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
-* KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html))
+* KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html)
 
 # Lectures
 
