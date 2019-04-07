@@ -78,7 +78,7 @@
 
 .slide.no-label::after {
     visibility: hidden;
-} 
+}
 
 .slide ol li::before, .slide ul li::before {
     color: #e63838;
@@ -107,4 +107,12 @@
     background-size: auto;
     height: 1.01em;
     top: 0.3em;
+}
+
+a.note {
+    font-size: 0.6em;
+    bottom: 30px;
+    left: 100px;
+    line-height: 1.2;
+    position: absolute;
 }

@@ -17,6 +17,7 @@
 * Web Standards Days 2018 in Minsk — [«Отладка CSS в боевых условиях»](https://mefody.github.io/talks/css-debug/) ([видео](https://www.youtube.com/watch?v=bHv9pWEzKiU))
 * moscowcss №11 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
 * pitercss_meetup 30 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
+* KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html))
 
 # Lectures
 
