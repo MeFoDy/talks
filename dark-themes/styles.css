@@ -1,0 +1,7 @@
+a.note {
+    font-size: 0.6em;
+    bottom: calc(var(--progress-size) * 2);
+    left: 100px;
+    line-height: 1.2;
+    position: absolute;
+}
