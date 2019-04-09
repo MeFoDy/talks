@@ -5,3 +5,30 @@ a.note {
     line-height: 1.2;
     position: absolute;
 }
+
+.slide {
+    background: rgb(45, 45, 45);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.slide h2 {
+    color: rgb(255, 255, 255);
+}
+
+.slide.white {
+    background: white;
+}
+
+.slide .iphone-picture {
+    width: 338px;
+    top: 45px;
+}
+
+.slide .iphone-frame {
+    width: 500px;
+    top: 20px;
+}
+
+.slide .app-icon {
+    width: 120px;
+}
