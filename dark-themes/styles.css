@@ -1,0 +1,34 @@
+a.note {
+    font-size: 0.6em;
+    bottom: calc(var(--progress-size) * 2);
+    left: 100px;
+    line-height: 1.2;
+    position: absolute;
+}
+
+.slide {
+    background: rgb(45, 45, 45);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.slide h2 {
+    color: rgb(255, 255, 255);
+}
+
+.slide.white {
+    background: white;
+}
+
+.slide .iphone-picture {
+    width: 338px;
+    top: 45px;
+}
+
+.slide .iphone-frame {
+    width: 500px;
+    top: 20px;
+}
+
+.slide .app-icon {
+    width: 120px;
+}
