@@ -21,6 +21,11 @@ a.note {
 
 .slide.white {
     background: white;
+    color: #000000;
+}
+
+.slide.white h2 {
+    color: #585a5e;
 }
 
 .slide .iphone-picture {
@@ -40,4 +45,21 @@ a.note {
 .slide pre code {
     line-height: 1.6em;
     font-size: 0.9em;
+}
+
+.slide .strike {
+    text-decoration: none;
+    position: relative;
+}
+
+.slide .strike::after {
+    content: '';
+    display: block;
+    background-color: red;
+    width: calc(100% + 10px);
+    height: 7px;
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: rotate(-4deg);
 }
