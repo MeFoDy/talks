@@ -23,6 +23,7 @@
 ## 2019
 * moscowcss №11 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
 * pitercss_meetup 30 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
+* Web Standards Days 2019 in Moscow — [«Тёмная сторона веба»](https://mefody.github.io/talks/dark-themes/)
 * KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html)
 
 # Lectures
