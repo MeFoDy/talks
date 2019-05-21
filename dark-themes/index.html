@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title></title>
+    <title>Тёмная сторона веба</title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -411,7 +411,7 @@
     </section>
 
 
-    
+
     <section class="slide clear">
         <div class="cover" style="width: 100%; height: 100%; display: flex;">
             <div style="background: black; width: 50%; display: flex; justify-content: center; align-items: center;">
@@ -430,7 +430,7 @@
     </section>
 
 
-    
+
     <section class="slide">
         <div>
             <img src="./pictures/app-yamusic.jpg" alt="" class="place top iphone-picture">
@@ -459,7 +459,7 @@
         <h2 class="shout bg shout-mini">6. Помните про окружение</h2>
         <img src="./pictures/many-screens.jpg" alt="" class="cover width">
     </section>
-    
+
 
     <section class="slide">
         <div>
@@ -687,10 +687,10 @@ img:not([src*=".svg"]), video {
     <section class="slide">
         <pre><code class="hljs js">function setDarkThemeState({ sunset, sunrise }) {
     const now = new Date();
-    const toMinutes = (d) => 
+    const toMinutes = (d) =>
         d.getHours() * 60 + d.getMinutes();
 
-    if (toMinutes(now) <= toMinutes(sunrise) || 
+    if (toMinutes(now) <= toMinutes(sunrise) ||
         toMinutes(now) >= toMinutes(sunset)) {
         setDarkTheme();
     } else {
@@ -761,8 +761,8 @@ img:not([src*=".svg"]), video {
 
     <section class="slide">
         <h2>Safari TP 71</h2>
-        <pre><code class="hljs html">&lt;meta 
-    name=&quot;supported-color-schemes&quot; 
+        <pre><code class="hljs html">&lt;meta
+    name=&quot;supported-color-schemes&quot;
     content=&quot;dark&quot;&gt;</code></pre>
         <a href="https://medium.com/dev-channel/what-does-dark-modes-supported-color-schemes-actually-do-69c2eacdfa1d" class="copyright">What Does Dark Mode’s “supported-color-schemes” Actually Do?</a>
     </section>
@@ -832,11 +832,11 @@ html.dark img:hover {
         <h2>Battery Status API</h2>
         <pre><code class="hljs js">navigator.getBattery().then(function(battery) {
     battery.addEventListener('chargingchange', function(){
-        console.log("Заряжаемся? " 
+        console.log("Заряжаемся? "
             + (battery.charging ? "Да" : "Нет"));
     });
     battery.addEventListener('levelchange', function(){
-        console.log("Уровень батареи: " 
+        console.log("Уровень батареи: "
             + battery.level * 100 + "%");
     });
 });</code></pre>
@@ -846,11 +846,11 @@ html.dark img:hover {
     <section class="slide">
         <pre><code class="hljs js">navigator.getBattery().then(function(battery) {
     battery.addEventListener('chargingtimechange', function(){
-        console.log("Время до зарядки: " 
+        console.log("Время до зарядки: "
             + battery.chargingTime + " с");
     });
     battery.addEventListener('dischargingtimechange', function(){
-        console.log("Время до разрядки: " 
+        console.log("Время до разрядки: "
             + battery.dischargingTime + " с");
     });
 });</code></pre>
@@ -862,7 +862,7 @@ html.dark img:hover {
     <section class="slide">
         <h2><img src="./pictures/github-logo.svg" style="width: 1em; margin-right: 0.2em;"> darkreader/darkreader</h2>
         <img src="./pictures/dark-reader.jpeg" alt="" width="500">
-        
+
         <a href="https://github.com/darkreader/darkreader" class="copyright">github.com/darkreader/darkreader</a>
     </section>
 
