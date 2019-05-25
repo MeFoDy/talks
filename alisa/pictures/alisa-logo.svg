@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="370px" height="370px" viewBox="0 0 370 370" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="100%" x2="100%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#C926FF" offset="0%"></stop>
+            <stop stop-color="#4A26FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <rect id="Rectangle" fill="#FFFFFF" x="77" y="72" width="215" height="199"></rect>
+            <g id="alice_logo" fill-rule="nonzero" fill="url(#linearGradient-1)">
+                <path d="M185,370 C82.8273209,370 0,287.172678 0,185 C0,82.8273209 82.8273209,0 185,0 C287.172678,0 370,82.8273209 370,185 C370,287.172678 287.172678,370 185,370 Z M100.287952,244.708244 C113.568908,257.923875 148.945716,265.859577 185,265.998677 C221.053183,265.859577 256.431092,257.923875 269.712048,244.708244 C302.708608,211.873984 222.500044,86.08015 185.041276,85.8972383 C147.499956,86.08015 67.2913912,211.873984 100.287952,244.708244 Z" id="alisa-symbol"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -24,7 +24,8 @@
 * moscowcss №11 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
 * pitercss_meetup 30 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
 * Web Standards Days 2019 in Moscow — [«Тёмная сторона веба»](https://mefody.github.io/talks/dark-themes/)
-* KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html)
+* KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html) ([видео](https://youtu.be/xFXCfTHTmoA))
+* FrontendConf 2019 — [«Алиса, пойдём во фронтенд!»](https://mefody.github.io/talks/alisa/) 
 
 # Lectures
 
@@ -35,4 +36,5 @@
 
 * Веб-стандарты — [Выпуск №134](https://www.youtube.com/watch?v=jtIi6ryOFBE)
 * SPB Frontend. Drinkcast — [Выпуск #28 — «Спикерский»](https://spb-frontend.ru/podcast/28)
-* Frontend Weekend — [Выпуск №75](https://soundcloud.com/frontend-weekend/fw-75)
+* Frontend Weekend — [#75 – Никита Дубко о том, как за год стремительно прокачать свою карьеру frontend-разработчика](https://soundcloud.com/frontend-weekend/fw-75)
+* Frontend Weekend — [#90 – По следам Web Standards Days в Москве с Александрой Шинкевич и Никитой Дубко](https://soundcloud.com/frontend-weekend/fw-90)
