@@ -134,3 +134,12 @@
     line-height: 1.6em;
     font-size: 0.9em;
 }
+
+.slide.violet {
+    background: #38008f;
+    color: white;
+}
+
+.slide.violet h2 {
+    color: white;
+}
