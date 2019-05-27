@@ -120,3 +120,17 @@
     letter-spacing: -10px;
     color: #ccc;
 }
+
+.slide .shout.white {
+    color: white;
+    text-shadow: 0 0 0.5em black;
+}
+
+.danger {
+    background: red;
+}
+
+.slide pre code {
+    line-height: 1.6em;
+    font-size: 0.9em;
+}
