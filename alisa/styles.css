@@ -1,38 +1,38 @@
 @font-face {
     font-family: Yandex Sans Text Web;
     font-weight: 100;
-    src: url(../../src/shower/themes/yandex2/fonts/yandex-sans-text-web-thin.woff) format("woff")
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-thin.woff) format("woff")
 }
 
 @font-face {
     font-family: Yandex Sans Text Web;
     font-weight: 300;
-    src: url(../../src/shower/themes/yandex2/fonts/yandex-sans-text-web-light.woff) format("woff")
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-light.woff) format("woff")
 }
 
 @font-face {
     font-family: Yandex Sans Text Web;
     font-weight: 400;
-    src: url(../../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular.woff) format("woff")
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular.woff) format("woff")
 }
 
 @font-face {
     font-style: italic;
     font-family: Yandex Sans Text Web;
     font-weight: 400;
-    src: url(../../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular-italic.woff) format("woff")
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular-italic.woff) format("woff")
 }
 
 @font-face {
     font-family: Yandex Sans Text Web;
     font-weight: 500;
-    src: url(../../src/shower/themes/yandex2/fonts/yandex-sans-text-web-medium.woff) format("woff")
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-medium.woff) format("woff")
 }
 
 @font-face {
     font-family: Yandex Sans Text Web;
     font-weight: 700;
-    src: url(../../src/shower/themes/yandex2/fonts/yandex-sans-text-web-bold.woff) format("woff")
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-bold.woff) format("woff")
 }
 
 .shower {
