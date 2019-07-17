@@ -27,7 +27,7 @@
 * KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html) ([видео](https://youtu.be/xFXCfTHTmoA))
 * FrontendConf 2019 — [«Алиса, пойдём во фронтенд!»](https://mefody.github.io/talks/alisa/) ([видео](https://youtu.be/yjTH8-O3CMA))
 * На митап! #6 — [«Путь разработчика, зачем наставничать»](https://youtu.be/ds-8TstM8Js)
-* Soft Skills для интровертов — [Мастер-класс Саши Шинкевич и Никиты Дубко](https://mefody.github.io/talks/introvert-soft-skills/)
+* Soft Skills для интровертов — [Мастер-класс Саши Шинкевич и Никиты Дубко](https://mefody.github.io/talks/introvert-soft-skills/) ([видео](https://youtu.be/UE9aGHgqQc0))
 
 # Lectures
 
