@@ -1,10 +1,9 @@
 @font-face {
-    font-family: 'Spirits';
-    src: local('Spirits RU Обычный'), local('Spirits-RU'),
-        url('Spirits-RU.woff2') format('woff2'),
-        url('Spirits-RU.woff') format('woff'),
-        url('Spirits-RU.ttf') format('truetype');
-    font-weight: 500;
+    font-family: 'Mellwork RUS';
+    src: local('Mellwork RUS'), local('Mellwork-RUS'),
+        url('Mellwork-RUS.woff2') format('woff2'),
+        url('Mellwork-RUS.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
 }
 
