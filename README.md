@@ -21,13 +21,15 @@
 * Web Standards Days 2018 in Minsk — [«Отладка CSS в боевых условиях»](https://mefody.github.io/talks/css-debug/) ([видео](https://www.youtube.com/watch?v=bHv9pWEzKiU))
 
 ## 2019
-* moscowcss №11 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/) ([видео](https://youtu.be/ijZTu7aVJtg?t=7355))
+* moscowcss №11 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/) ([видео](https://youtu.be/w39AWcIMbZ4))
 * pitercss_meetup 30 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
 * Web Standards Days 2019 in Moscow — [«Тёмная сторона веба»](https://mefody.github.io/talks/dark-themes/) ([видео](https://youtu.be/inJbZ1WFfQA))
 * KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html) ([видео](https://youtu.be/xFXCfTHTmoA))
 * FrontendConf 2019 — [«Алиса, пойдём во фронтенд!»](https://mefody.github.io/talks/alisa/) ([видео](https://youtu.be/yjTH8-O3CMA))
+* spb_frontend drinkup — [«Я устал притворяться!»](https://mefody.github.io/talks/impostor-syndrome/spb.html)
 * На митап! #6 — [«Путь разработчика, зачем наставничать»](https://youtu.be/ds-8TstM8Js)
 * Soft Skills для интровертов — [Мастер-класс Саши Шинкевич и Никиты Дубко](https://mefody.github.io/talks/introvert-soft-skills/) ([видео](https://youtu.be/UE9aGHgqQc0))
+* BeerJS Summit Minsk 2019 — [«Я устал притворяться!»](https://mefody.github.io/talks/impostor-syndrome/)
 
 # Lectures
 

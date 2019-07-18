@@ -38,33 +38,5 @@
 
 .slide h2.white {
     color: white;
-}
-
-.slide .tired {
-    font-family: 'Spirits';
-}
-
-.slide.gray {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-.slide.gray h2.shout {
-    color: #f0f0f0;
-}
-
-.slide ul li::before {
-    content: "✔︎" !important;
-}
-
-.slide.gray ul li::before {
-    color: #aaa;
-}
-
-.slide .shadow {
     text-shadow: 0 0 0.2em black;
-}
-
-.slide.depressed {
-    filter: grayscale(1);
 }
