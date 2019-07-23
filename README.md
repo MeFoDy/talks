@@ -42,3 +42,4 @@
 * SPB Frontend. Drinkcast — [Выпуск #28 — «Спикерский»](https://spb-frontend.ru/podcast/28)
 * Frontend Weekend — [#75 – Никита Дубко о том, как за год стремительно прокачать свою карьеру frontend-разработчика](https://soundcloud.com/frontend-weekend/fw-75)
 * Frontend Weekend — [#90 – По следам Web Standards Days в Москве с Александрой Шинкевич и Никитой Дубко](https://soundcloud.com/frontend-weekend/fw-90)
+* Веб-стандарты — [Выпуск №185. На утро после BeerJS Summit, альтернативные форматы, дружба народов](https://medium.com/web-standards/episode-185-14e5fcfde7e6)
