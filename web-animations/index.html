@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Анимации в вебе</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Анимации в вебе</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Яндекс
+        </p>
+    </header>
+
+
+    <section class="slide clear" id="cover" style="background: #fcf8f5">
+        <h2 style="font-size: 3em; color: gray">Анимации в вебе</h2>
+        <p style="margin-top: 40%">
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>
+        </p>
+        <img src="./pictures/mickey.jpg" alt="" class="cover place bottom right">
+    </section>
+
+
+    <section class="slide">
+        <h2>Анима́ция</h2>
+        <blockquote>от фр. animation «оживление; одушевление»</blockquote>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Зачем нужны анимации?</h2>
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/awwwards.jpg" alt="" class="cover width">
+        <a href="https://www.awwwards.com/websites/animation/" class="copyright">awwwards.com/websites/animation/</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/animation-speed.gif" alt="" class="cover height">
+    </section>
+
+
+    <section class="slide">
+        <h2>&lt;marquee&gt;</h2>
+        <marquee>Всё потому что я разведчик, и меня почти не видно!</marquee>
+        <marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid; line-height: 1">
+            <marquee behavior="alternate" style="line-height: 1">
+                DVD
+            </marquee>
+        </marquee>
+    </section>
+
+
+    <section class="slide">
+        <h2>Библиотеки CSS-анимаций</h2>
+        <ul>
+            <li>Animista</li>
+            <li>Animate.css</li>
+            <li>tachyons-animate</li>
+            <li>Hover.css</li>
+            <li>Motion UI</li>
+            <li>и т. д.</li>
+        </ul>
+        <a href="https://css-tricks.com/css-animation-libraries/" class="copyright">css-tricks.com/css-animation-libraries/</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/animation-ux-guide.jpg" alt="" class="cover place top height">
+        <a href="https://medium.com/@grifer163/%D0%BF%D0%BE%D0%BB%D0%BD%D0%BE%D0%B5-%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC%D1%83-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E-%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8-%D0%B2-ux-cbe6ba0954cd" class="copyright">Полное руководство по правильному использованию анимации в UX</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Как делать анимации производительными?</h2>
+    </section>
+
+
+    <section class="slide nd-pipeline nd-pipeline-total">
+        <h2>Конвейер рендеринга в браузере</h2>
+        <svg class="render-block">
+            <use xlink:href="#nd-render-picture">
+        </svg>
+
+        <style>
+            .render-block {
+                width: 100%;
+            }
+        </style>
+
+        <style>
+            .nd-pipeline-total {
+                --nd-render-parse-color: var(--color-inactive);
+                --nd-render-dom-color: var(--color-inactive);
+                --nd-render-cascade-color: var(--color-inactive);
+                --nd-render-layout-color: var(--color-inactive);
+                --nd-render-paint-color: var(--color-inactive);
+                --nd-render-composite-color: var(--color-inactive);
+            }
+        </style>
+
+        <style>
+            .render-block {
+                width: 100%;
+            }
+        </style>
+    </section>
+
+
+    <section class="slide nd-pipeline nd-pipeline-active">
+        <h2>Конвейер рендеринга в браузере</h2>
+        <svg class="render-block">
+            <use xlink:href="#nd-render-picture">
+        </svg>
+
+        <style>
+            .nd-pipeline-active {
+                --nd-render-parse-color: var(--color-inactive);
+                --nd-render-dom-color: var(--color-inactive);
+                --nd-render-cascade-color: var(--color-inactive);
+                --nd-render-layout-color: lightgreen;
+                --nd-render-paint-color: lightgreen;
+                --nd-render-composite-color: lightgreen;
+            }
+        </style>
+    </section>
+
+
+
+    <section class="slide nd-pipeline nd-pipeline-active">
+        <h2>Опасные свойства ❌</h2>
+        <svg class="render-block">
+            <use xlink:href="#nd-render-picture">
+        </svg>
+        <ul>
+            <li>margin, padding</li>
+            <li>top, right, bottom, left</li>
+            <li>width, height</li>
+            <li>flex-grow, flex-direction</li>
+            <li>border-width</li>
+        </ul>
+
+        <style>
+            .nd-pipeline-active {
+                --nd-render-parse-color: var(--color-inactive);
+                --nd-render-dom-color: var(--color-inactive);
+                --nd-render-cascade-color: var(--color-inactive);
+                --nd-render-layout-color: lightgreen;
+                --nd-render-paint-color: lightgreen;
+                --nd-render-composite-color: lightgreen;
+            }
+        </style>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/css-triggers.jpg" alt="" class="cover place top width">
+        <a href="https://csstriggers.com/" class="copyright">csstriggers.com</a>
+    </section>
+
+
+    <section class="slide nd-pipeline nd-pipeline-repaint">
+        <h2>Нейтральные свойства ⚠️</h2>
+        <svg class="render-block">
+            <use xlink:href="#nd-render-picture">
+        </svg>
+        <ul>
+            <li>color, background-color, border-color</li>
+            <li>text-shadow, box-shadow</li>
+            <li>text-decoration</li>
+            <li>border-radius</li>
+        </ul>
+
+        <style>
+            .nd-pipeline-repaint {
+                --nd-render-parse-color: var(--color-inactive);
+                --nd-render-dom-color: var(--color-inactive);
+                --nd-render-cascade-color: var(--color-inactive);
+                --nd-render-layout-color: var(--color-inactive);
+                --nd-render-paint-color: lightgreen;
+                --nd-render-composite-color: lightgreen;
+            }
+        </style>
+    </section>
+
+
+    <section class="slide nd-pipeline nd-pipeline-composite">
+        <h2>Безопасные свойства ✅</h2>
+        <svg class="render-block">
+            <use xlink:href="#nd-render-picture">
+        </svg>
+        <ul>
+            <li>transform</li>
+            <li>opacity</li>
+            <li>filter</li>
+        </ul>
+
+        <style>
+            .nd-pipeline-composite {
+                --nd-render-parse-color: var(--color-inactive);
+                --nd-render-dom-color: var(--color-inactive);
+                --nd-render-cascade-color: var(--color-inactive);
+                --nd-render-layout-color: var(--color-inactive);
+                --nd-render-paint-color: var(--color-inactive);
+                --nd-render-composite-color: lightgreen;
+            }
+        </style>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">GPU ⚡️</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/gpu-doing-right.jpg" alt="" class="cover place top width">
+        <a href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/" class="copyright">smashingmagazine.com/2016/12/gpu-animation-doing-it-right</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Это не часть спецификации! 🙅‍♂️</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code style="font-size: 0.7em">/* Intrinsic reasons that can be known right away by the layer. */
+V(3DTransform)                                                              \
+V(Video)                                                                    \
+V(Canvas)                                                                   \
+V(Plugin)                                                                   \
+V(IFrame)                                                                   \
+V(BackfaceVisibilityHidden)                                                 \
+V(ActiveTransformAnimation)                                                 \
+V(ActiveOpacityAnimation)                                                   \
+V(ActiveFilterAnimation)                                                    \
+V(ActiveBackdropFilterAnimation)                                            \
+V(ScrollDependentPosition)                                                  \
+V(OverflowScrollingTouch)                                                   \
+V(OverflowScrollingParent)                                                  \
+V(OutOfFlowClipping)                                                        \
+V(VideoOverlay)                                                             \
+V(WillChangeTransform)                                                      \</code></pre>
+        <a href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/graphics/compositing_reasons.h?type=cs&q=CompositingReason&g=0&l=91" class="copyright">chromium//src/third_party/blink/renderer/platform/graphics/compositing_reasons.h</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>Плюсы выноса на GPU 🙂</h2>
+        <ul>
+            <li>быстрые анимации;</li>
+            <li>3D-трансформации на сдачу;</li>
+            <li>не блокируется JavaScript-ом.</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2>Минусы выноса на GPU 🙁</h2>
+        <ul>
+            <li>перед выносом — Repaint;</li>
+            <li>слои нужно передать на GPU;</li>
+            <li>съедает видеопамять;</li>
+            <li>визуальные артефакты.</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>V(3DTransform)                                                              \
+...
+<mark>V(OverflowScrollingTouch)</mark>                                                   \
+...
+<mark>V(WillChangeTransform)</mark>                                                      \</code></pre>
+        <a href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/graphics/compositing_reasons.h?type=cs&q=CompositingReason&g=0&l=91" class="copyright">chromium//src/third_party/blink/renderer/platform/graphics/compositing_reasons.h</a>
+    </section>
+
+
+
+    <section class="slide">
+        <div>
+            <h2>Containing block</h2>
+            <ul style="font-size: 0.9em">
+                <li>для <code>position: absolute</code> формируется по краям padding box
+                    ближайшего родителя, у которого <code>position</code> не <code>static</code>;</li>
+                <li>для <code>position: absolute</code> или <code>position: fixed</code>
+                    также может формироваться по краям padding box ближайшего родителя, у которого: <ul>
+                        <li><code>transform</code> не равен <code>none</code>;</li>
+                        <li><code>perspective</code> не равен <code>none</code>;</li>
+                        <li><code>will-change: transform</code> или <code>will-change: perspective</code>;</li>
+                        <li><code>filter</code> не равен <code>none</code>;</li>
+                        <li><code>contain</code> равен <code>paint</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+            <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">developer.mozilla.org/en-US/docs/Web/CSS/Containing_block</a>
+        </div>
+    </section>
+
+
+    <section class="slide">
+        <div>
+            <h2>Очень странное решение</h2>
+            <pre><code style="font-size: 0.8em">.gallery__item {
+    animation-name: scroller-overflow-hack;
+    animation-fill-mode: forwards;
+    animation-duration: 1ms;
+}
+
+@keyframes scroller-overflow-hack {
+    0% { opacity: .9999; }
+    100% { opacity: 1; }
+}</code></pre>
+        </div>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">👨🏻‍🔬 contain:<br>size  layout  style  paint</h2>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/contain" class="copyright">developer.mozilla.org/en-US/docs/Web/CSS/contain</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Как исследовать? 🔍</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Панель Rendering</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Панель Animations</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Панель Layers</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Панель Performance</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Панель Performance Monitor</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Подсветка обновляемых областей</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>CSS-анимации греют ноутбуки</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>prefer-reduced-motion</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Свойство animation</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Не в основном потоке</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Сложно синхронизировать</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>animation или transition?</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>easings.net</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Можно ускорить с помощью Typed OM</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>caniuse</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Web Animation API</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Работает в своём потоке</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Синтаксис</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>caniuse</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Анимации, привязанные к скроллу</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Scroll API</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>caniuse</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Полифил</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>ishoudinireadyyet.com</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>svg-анимации</h2>
+        https://css-tricks.com/guide-svg-animations-smil/
+    </section>
+
+
+    <section class="slide">
+        <h2>Canvas</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>rAF</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>https://medium.com/@paul_irish/requestanimationframe-scheduling-for-nerds-9c57f7438ef4</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Должен быть один</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Очередь тасков</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>16.6 мс</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>FPS 60</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Super Mario JS</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Houdini Paint API</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Полифил</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>WebGL</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Юрий Артюх — All Your HTML</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Самая контролируемая анимация — видео</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Что ещё может замедлять?</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Получение размера или позиции</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Ловушка</h2>
+        пример кода
+    </section>
+
+
+    <section class="slide">
+        <h2>Большие картинки в маленьких контейнерах</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Обилие will-change</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>https://dev.opera.com/articles/css-will-change-property/</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>{ passive: true }</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Дебажить лучше в Инкогнито-режиме (выключаем шум)</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Преждевременная анимация</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>CPU Throttle</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>csstriggers</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Проверяйте на реальных устройствах</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Материалы</h2>
+        <ul>
+            <li>Николай Шабалин</li>
+            <li>https://developers.google.com/web/fundamentals/performance/rail</li>
+            <li>https://www.youtube.com/watch?v=PVWQHZOuAnw</li>
+            <li>https://www.youtube.com/watch?v=K0-45ltxyM0</li>
+            <li>https://www.youtube.com/watch?v=zJxPuXNHx_M</li>
+            <li>https://medium.com/p/cbe6ba0954cd</li>
+        </ul>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Спасибо за внимание!</h2>
+        <a href="https://mefody.github.io/talks/web-animations/">mefody.github.io/talks/web-animations/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:mefody@yandex-team.ru">mefody@yandex-team.ru</a>
+        <img src="./pictures/qr-code.gif" alt="" class="place bottom right" width="300">
+    </section>
+
+
+	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+		<symbol id="nd-render-picture" viewbox="0 0 800 100">
+			<style>
+				.nd-render-block {
+					fill-opacity: null;
+					stroke-opacity: null;
+					stroke: #000;
+				}
+
+				.nd-render-text {
+					stroke-width: 0;
+				}
+
+				.nd-render-path {
+					fill: #fff;
+					stroke-width: 2;
+				}
+			</style>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-parse-color)" d="M47.8 13.9h107.2l35.8 35.8-35.8 35.8H47.8L83.6 49.8 47.8 13.9z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="100.1" y="55.6" font-size="17">Parser</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-dom-color)" d="M161.8 13.9h107.3l35.8 35.8-35.7 35.8H161.8l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="213" y="45.6" font-size="17">DOM &#x2F;</text>
+				<text class="nd-render-text" x="204.1" y="66.6" font-size="17">CSSOM</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-cascade-color)" d="M274.9 13.9h107.2l35.8 35.8-35.8 35.8H274.9l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="319.3" y="55.6" font-size="17">Cascade</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-layout-color)" d="M387.9 13.9h107.2l35.8 35.8-35.8 35.8H387.9l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="440.3" y="55.6" font-size="17">Layout</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-paint-color)" d="M501 13.9H608.2l35.8 35.8-35.8 35.8H501l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="556.4" y="55.6" font-size="17">Paint</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-composite-color)" d="M614 13.9h107.2l35.8 35.8-35.8 35.8H614l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="656.4" y="55.6" font-size="17">Composite</text>
+			</g>
+		</symbol>
+	</svg>
+
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

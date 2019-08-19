@@ -1,0 +1,58 @@
+:root {
+    --color-inactive: #ddd;
+    --color-active: orange;
+    --color-checked: lightsteelblue;
+
+    --nd-render-parse-color: #fff;
+    --nd-render-dom-color: #fff;
+    --nd-render-cascade-color: #fff;
+    --nd-render-layout-color: #fff;
+    --nd-render-paint-color: #fff;
+    --nd-render-composite-color: #fff;
+}
+
+.shower {
+    line-height: 1.6;
+}
+
+.slide .shout {
+    font-size: 4em;
+}
+
+
+.slide s {
+    text-decoration: none;
+    position: relative;
+}
+
+.slide s::after {
+    content: '';
+    display: block;
+    background-color: red;
+    width: 110%;
+    height: 0.1em;
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: rotate(-7deg);
+}
+
+.slide::after {
+    height: auto;
+    width: calc(var(--ribbon-size) * 1.3);
+    background-color: black;
+    background-image: none;
+    margin-top: 1em;
+    padding-top: 0;
+    border-radius: 1em;
+    left: auto;
+    right: 1.5em;
+}
+
+.slide h2.white {
+    color: white;
+}
+
+.slide pre code {
+    line-height: 1.5;
+}
