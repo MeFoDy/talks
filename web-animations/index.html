@@ -281,11 +281,11 @@ V(WillChangeTransform)                                                      \</c
 
 
     <section class="slide">
-        <pre><code>V(3DTransform)                                                              \
+        <pre><code>V(3DTransform)
 ...
-<mark>V(OverflowScrollingTouch)</mark>                                                   \
+<mark>V(OverflowScrollingTouch)</mark>
 ...
-<mark>V(WillChangeTransform)</mark>                                                      \</code></pre>
+<mark>V(WillChangeTransform)</mark></code></pre>
         <a href="https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/graphics/compositing_reasons.h?type=cs&q=CompositingReason&g=0&l=91" class="copyright">chromium//src/third_party/blink/renderer/platform/graphics/compositing_reasons.h</a>
     </section>
 
@@ -341,266 +341,592 @@ V(WillChangeTransform)                                                      \</c
 
 
     <section class="slide">
-        <h2>Панель Rendering</h2>
+        <h2 class="shout">Инкогнито-режим 🦉</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Панель Animations</h2>
+        <h2 class="shout">CPU Throttle 🐌</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Панель Layers</h2>
+        <h2>Rendering</h2>
+        <img src="./pictures/chrome-rendering.jpg" alt="" class="shadowed" style="width: 100%;">
     </section>
 
 
     <section class="slide">
-        <h2>Панель Performance</h2>
+        <h2 class="shout">Paint flashing 💡</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Панель Performance Monitor</h2>
+        <h2>Animations</h2>
+        <img src="./pictures/chrome-animations.jpg" alt="" class="shadowed" style="width: 100%;">
     </section>
 
 
     <section class="slide">
-        <h2>Подсветка обновляемых областей</h2>
+        <h2>Layers</h2>
+        <img src="./pictures/chrome-layers.jpg" alt="" class="shadowed" style="width: 100%;">
     </section>
 
 
     <section class="slide">
-        <h2>CSS-анимации греют ноутбуки</h2>
+        <h2>Performance</h2>
+        <img src="./pictures/chrome-performance.jpg" alt="" class="shadowed" style="width: 100%;">
     </section>
 
 
     <section class="slide">
-        <h2>prefer-reduced-motion</h2>
+        <h2>Performance Monitor</h2>
+        <img src="./pictures/chrome-performance-monitor.jpg" alt="" class="shadowed" style="width: 100%;">
     </section>
 
 
     <section class="slide">
-        <h2>Свойство animation</h2>
+        <h2>animation</h2>
+        <ul style="font-size: 0.9em;">
+            <li>animation-name: none</li>
+            <li>animation-duration: 0s</li>
+            <li>animation-timing-function: ease</li>
+            <li>animation-delay: 0s</li>
+            <li>animation-iteration-count: 1</li>
+            <li>animation-direction: normal</li>
+            <li>animation-fill-mode: none</li>
+            <li>animation-play-state: running</li>
+        </ul>
     </section>
 
 
     <section class="slide">
-        <h2>Не в основном потоке</h2>
+        <img src="./pictures/easings-net.jpg" alt="" class="cover height place top">
+        <a href="https://easings.net/ru" class="copyright">easings.net</a>
     </section>
 
 
     <section class="slide">
-        <h2>Сложно синхронизировать</h2>
+        <h2>Особенности CSS-анимаций</h2>
+        <ul>
+            <li>Не в основном потоке 👍</li>
+            <li>Сложно синхронизировать 👎</li>
+        </ul>
     </section>
 
 
     <section class="slide">
         <h2>animation или transition?</h2>
+        <h2 class="shout next">transition</h2>
     </section>
 
 
     <section class="slide">
-        <h2>easings.net</h2>
+        <h2 class="shout">🔥</h2>
+        <a class="place bottom" style="bottom: 60px;" href="./demos/demo_stargate.html">demo</a>
     </section>
 
 
     <section class="slide">
-        <h2>Можно ускорить с помощью Typed OM</h2>
+        <pre><code style="font-size: 0.9em;">@media screen and
+(prefers-reduced-motion: reduce), 
+(update: slow) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}</code></pre>
+        <a href="https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/" class="copyright">Designing Safer Web Animation For Motion Sensitivity</a>
     </section>
 
 
     <section class="slide">
-        <h2>caniuse</h2>
+        <h2>Web Animations API</h2>
+        <pre><code class="hljs javascript" style="font-size: 0.8em">const element = document.querySelector('.my-element');
+element.animate([
+    {'--some-color': 'red',  'opacity': 0 },
+    {'--some-color': 'blue', 'opacity': 1 },
+], {
+    direction: 'alternate',
+    duration: 5000,
+    iterations: Infinity,
+});</code></pre>
+        <p>
+            <a href="https://github.com/web-animations/web-animations-js">Polyfill</a>
+        </p>
+        <a href="https://developer.mozilla.org/ru/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API" class="copyright">Using the Web Animations API</a>
     </section>
 
 
     <section class="slide">
-        <h2>Web Animation API</h2>
+        <h2>Web Animations API</h2>
+        <pre><code>document.getAnimations().forEach(
+    function (animation) {
+        animation.playbackRate *= 0.5;
+    }
+);</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>Работает в своём потоке</h2>
+        <img src="./pictures/caniuse-web-animations.jpg" alt="" class="cover width">
     </section>
 
 
     <section class="slide">
-        <h2>Синтаксис</h2>
+        <h2 class="shout" style="font-size: 3em">CSS Animation Worklet API 🔮</h2>
+    </section>
+
+
+   
+	<section class="slide">
+        <pre><code class="hljs javascript" style="font-size: 0.8em">// animator.js
+registerAnimator(
+    'scroll-position-animator',
+    class {
+        constructor(options = {}) {
+            this.coef = options.coef || 1;
+        }
+
+        animate(currentTime, effect) {
+            effect.localTime = currentTime * this.coef;
+        }
+    });
+</code></pre>
+        <a href="https://developers.google.com/web/updates/2018/10/animation-worklet" class="note">Houdini's Animation Worklet, Surma</a>
     </section>
 
 
     <section class="slide">
-        <h2>caniuse</h2>
+        <pre><code class="hljs javascript">// app.js
+await CSS.animationWorklet.addModule("animator.js");
+
+new WorkletAnimation(
+    'scroll-position-animator',
+    keyframeEffect,
+    scrollTimeline,
+    { coef: 1.2 }
+).play();
+</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>Анимации, привязанные к скроллу</h2>
+        <pre><code class="hljs javascript">const keyframeEffect = new KeyframeEffect(
+    document.querySelector('#target'),
+    [
+        { transform: 'translateX(0)' },
+        { transform: 'translateX(500px)' }
+    ],
+    {
+        duration: 2000,
+        iterations: Number.POSITIVE_INFINITY
+    }
+);</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>Scroll API</h2>
+        <pre><code class="hljs javascript">const scrollTimeline = new ScrollTimeline({
+    timeRange: 2000,
+    scrollSource: document.querySelector('.source'),
+    orientation: 'vertical',
+    startScrollOffset: '200px',
+    endScrollOffset: '500px'
+});</code></pre>
+        <footer>
+            <p>
+                <mark>ScrollTimeline</mark> устанавливает параметра захвата scroll: направление, начальная и конечная точки анимации.
+            </p>
+        </footer>
     </section>
 
 
     <section class="slide">
-        <h2>caniuse</h2>
+        <h2 class="shout shout-mini no-bg">
+            Полифил
+            <a href="https://github.com/GoogleChromeLabs/houdini-samples/blob/master/animation-worklet/anim-worklet.js">anim-worklet</a>
+        </h2>
     </section>
 
 
     <section class="slide">
-        <h2>Полифил</h2>
+        <h2 class="shout shout-mini no-bg">Демо
+            <a href="https://animation-worklet-article.glitch.me/scroller.html">scroller</a>
+        </h2>
+    </section>
+    
+    
+    <section class="slide">
+        <h2 class="shout">
+            <a href="http://ishoudinireadyyet.com">Is Houdini ready yet‽</a>
+        </h2>
     </section>
 
 
     <section class="slide">
-        <h2>ishoudinireadyyet.com</h2>
+        <img src="./pictures/ishoudinireadyyet.jpg" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        <h2>svg-анимации</h2>
-        https://css-tricks.com/guide-svg-animations-smil/
+        <h2>SVG-анимации</h2>
+        <pre><code>&lt;animateMotion 
+    xlink:href=&quot;#circle&quot;
+    dur=&quot;1s&quot;
+    begin=&quot;click&quot;
+    fill=&quot;freeze&quot;
+    path=&quot;M0,0c3.2-3.4,18.4-0.6,23.4-0.6c5.7,0.1,10.8,0.9,16.3,2.3    c13.5,3.5,26.1,9.6,38.5,16.2c12.3,6.5,21.3,16.8,31.9,25.4c10.8,8.7,21,18.3,31.7,26.9c9.3,7.4,20.9,11.5,31.4,16.7
+    c13.7,6.8,26.8,9.7,41.8,9c21.4-1,40.8-3.7,61.3-10.4c10.9-3.5,18.9-11.3,28.5-17.8c5.4-3.7,10.4-6.7,14.8-11.5
+    c1.9-2.1,3.7-5.5,6.5-6.5&quot; /&gt;</code></pre>
+        <a href="https://css-tricks.com/guide-svg-animations-smil/" class="copyright">A Guide to SVG Animations (SMIL)</a>
+    </section>
+
+
+    <section class="slide">
+        <iframe src="./demos/demo_path.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+
+    <section class="slide">
+        <iframe src="./demos/demo_morphing.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/css-svg-died.jpg" alt="" class="place" width="700">
+    </section>
+
+
+    <section class="slide">
+        <iframe src="./demos/demo_lisa.html" frameborder="0" class="cover width height"></iframe>
     </section>
 
 
     <section class="slide">
         <h2>Canvas</h2>
+        <pre><code style="font-size: 0.8em">const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+function draw(time) {
+    const w = canvas.width;
+    const h = canvas.height;
+    ctx.fillStyle = '#111';
+    ctx.fillRect(0, 0, w, h);
+    
+    requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>rAF</h2>
+        <h2>requestAnimationFrame</h2>
+        <ul>
+            <li>в идеале должен быть один;</li>
+            <li>должен укладываться в 16 мс;</li>
+            <li>внутри можно поместить очередь микротасков;</li>
+            <li>должен вызывать сам себя, если нужна постоянная обработка;</li>
+            <li>может не вызываться, если уйти из вкладки. ⚠️</li>
+        </ul>
     </section>
 
 
     <section class="slide">
-        <h2>https://medium.com/@paul_irish/requestanimationframe-scheduling-for-nerds-9c57f7438ef4</h2>
+        <img src="./pictures/life-of-frames.png" alt="" class="cover">
+
+        <a href="https://medium.com/@paul_irish/requestanimationframe-scheduling-for-nerds-9c57f7438ef4" class="copyright">requestAnimationFrame Scheduling For Nerds</a>
     </section>
 
 
     <section class="slide">
-        <h2>Должен быть один</h2>
+        <img src="./pictures/super-mario.png" alt="" class="cover">
+        <a href="https://www.youtube.com/watch?v=g-FpDQ8Eqw8&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx" class="copyright">Super Mario Bros in JavaScript</a>
     </section>
 
 
     <section class="slide">
-        <h2>Очередь тасков</h2>
+        <h2 class="shout">CSS Painting API 🎨</h2>
     </section>
 
 
     <section class="slide">
-        <h2>16.6 мс</h2>
+        <h2 class="shout shout-mini no-bg">Демо
+            <a href="./demos/5_image-placeholder/index.html">image-placeholder</a>
+        </h2>
+    </section>
+
+
+	<section class="slide">
+        <h2>CSS Painting API</h2>
+        <p>Можно применять для отрисовки свойств:</p>
+        <ul>
+            <li>
+                <code>background-image</code>
+            </li>
+            <li>
+                <code>border-image</code>
+            </li>
+            <li>
+                <code>list-style-image</code>
+            </li>
+            <li>
+                <code>content</code>
+            </li>
+            <li>
+                <code>-webkit-mask-image</code>
+            </li>
+            <li>
+                <code><span class="strike">cursor</span></code>
+            </li>
+        </ul>
+    </section>
+
+
+	<section class="slide">
+        <pre><code class="hljs javascript">registerPaint('my-paint', class MyPaint {
+    static get inputProperties() { return ['--foo']; }
+    static get inputArguments() { return ['&lt;color&gt;']; }
+    static get contextOptions() { return { alpha: true }; }
+
+    paint(ctx, geom, properties, args) {
+        // Можно рисовать почти как на обычном canvas
+    }
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code class="language-css">/* style.css */
+.my-element {
+    --foo: deeppink;
+    background-image: <mark>paint</mark>(my-paint);
+}</code></pre>
+<br>
+        <pre><code class="hljs javascript">// app.js
+CSS.paintWorklet.addModule('my-paint.js');</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>FPS 60</h2>
+        <h2>Ограничения контекста для Paint Worklet</h2>
+        <ul>
+            <li class="next">Нельзя полагаться на global scope.</li>
+            <li class="next">Только 2D context.</li>
+            <li class="next">Нельзя работать с текстом.</li>
+            <li class="next">Время отрисовки должно укладываться в 1 frame.</li>
+            <li class="next">Нет доступа к хранилищам данных.</li>
+        </ul>
+    </section>
+
+
+	<section class="slide">
+        <h2 class="no-bg shout shout-mini">
+            <img src="pictures/chrome-logo.svg" height="55" alt=""> Chrome 65+</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Super Mario JS</h2>
+        <h2 class="shout shout-mini no-bg">
+            <a href="https://github.com/GoogleChromeLabs/css-paint-polyfill" class="link link-github">css-paint-polyfill</a>
+        </h2>
     </section>
 
 
     <section class="slide">
-        <h2>Houdini Paint API</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>Полифил</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>WebGL</h2>
+        <h2 class="shout">WebGL 👀</h2>
     </section>
 
 
     <section class="slide">
         <h2>Юрий Артюх — All Your HTML</h2>
+        <img src="./pictures/channels4_banner.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/channel/UCDo7RTzizoOdPjY8A-xDR7g">youtube.com/channel/UCDo7RTzizoOdPjY8A-xDR7g</a>
     </section>
 
 
     <section class="slide">
-        <h2>Самая контролируемая анимация — видео</h2>
+        <h2 class="shout shout-mini no-bg">
+            <a href="http://cssing.org.ua/examples/earthworld/">Earth World (by akella)</a>
+        </h2>
     </section>
 
 
     <section class="slide">
-        <h2>Что ещё может замедлять?</h2>
+        <img src="./pictures/sitnik-webgl.png" alt="" class="place" width="600">
+        <a href="https://habr.com/ru/post/446682/" class="copyright">Ускоряем WebGL/Three.js с помощью OffscreenCanvas и веб-воркеров</a>
     </section>
 
 
     <section class="slide">
-        <h2>Получение размера или позиции</h2>
+        <h2 class="shout">Видео 😁</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Ловушка</h2>
-        пример кода
+        <h2 class="shout">Как ускориться? 🚀</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Большие картинки в маленьких контейнерах</h2>
+        <h2 class="shout">CSS Typed OM</h2>
+        <a href="https://www.w3.org/TR/css-typed-om-1/" class="copyright">CSS Typed OM Level 1</a>
     </section>
 
 
     <section class="slide">
-        <h2>Обилие will-change</h2>
+        <pre><code class="hljs javascript">const element = document.querySelector('.elem');
+
+const styleMap = element.<mark>attributeStyleMap</mark>;
+console.log( styleMap.get('font-size') );
+// CSSUnitValue {value: 2.5, unit: "em"}
+</code></pre>
+        <pre class="next"><code class="hljs javascript">const computedStyleMap = element.<mark>computedStyleMap()</mark>;
+console.log( computedStyleMap.get('font-size') );
+// CSSUnitValue {value: 25, unit: "px"}
+</code></pre>
+    </section>
+
+
+	<section class="slide">
+        <pre><code class="hljs javascript">const styleMap = element.<mark>attributeStyleMap</mark>;
+const transformValue = new CSSTransformValue([
+    new CSSTranslate(
+        CSS.px(50),
+        new CSSMathSum(CSS.em(1), CSS.px(5))
+    )
+]);
+styleMap.set('transform', transformValue);</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>https://dev.opera.com/articles/css-will-change-property/</h2>
+        <h2>Проверить поддержку</h2>
+        <pre><code class="hljs javascript">if (window.CSS && CSS.number) {
+    // В вашем браузере CSS Typed OM работает
+}
+        </code></pre>
+    </section>
+
+
+	<section class="slide">
+        <h2 class="no-bg shout shout-mini">
+            <img src="pictures/chrome-logo.svg" height="55" alt=""> Chrome 66+</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Layout + Reflow 🐌</h2>
+        <ul>
+            <li><code>elem.offsetLeft</code>, <code>elem.offsetTop</code>, <code>elem.offsetWidth</code>, <code>elem.offsetHeight</code>, <code>elem.offsetParent</code></li>
+            <li><code>elem.getClientRects()</code>, <code>elem.getBoundingClientRect()</code></li>
+            <li><code>elem.scrollBy()</code>, <code>elem.scrollTo()</code></li>
+            <li><code>window.getComputedStyle()</code></li>
+            <li><code>inputElem.focus()</code></li>
+            <li>и т. д.</li>
+        </ul>
+        <a href="https://gist.github.com/paulirish/5d52fb081b3570c81e3a" class="copyright">What forces layout / reflow</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>Ловушка 😱</h2>
+        <pre><code>function frame() {
+    const element = document.querySelector('.block');
+    element.style.width = <mark>element.offsetWidth</mark> * 2;
+};
+requestAnimationFrame(frame);</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 3em">Большие картинки ⬛️<br>в маленьких контейнерах ▫️</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>will-change</h2>
+        <ul>
+            <li>принимает параметры через запятую:<br><code>will-change: top, left, bottom, right;</code></li>
+            <li>добавляйте с умом;</li>
+            <li>подключайте заранее;</li>
+            <li>убирайте после использования.</li>
+        </ul>
+        <a href="https://dev.opera.com/articles/css-will-change-property/" class="copyright">Everything You Need to Know About the CSS will-change Property</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>.element {
+    transition: opacity .3s linear;
+}
+
+.ancestor:hover .element {
+    will-change: opacity;
+}
+
+.element:hover {
+    opacity: .5;
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>var el = document.getElementById('element');
+
+el.addEventListener('mouseenter', hintBrowser);
+el.addEventListener('animationEnd', removeHint);
+
+function hintBrowser() {
+    this.style.willChange = 'transform, opacity';
+}
+
+function removeHint() {
+    this.style.willChange = 'auto';
+}</code></pre>
     </section>
 
 
     <section class="slide">
         <h2>{ passive: true }</h2>
+        <pre><code>document.querySelector('.block')
+    .addEventListener(
+        'scroll',
+        () => {...},
+        <mark>{ passive: true }</mark>
+    );</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Improving_scrolling_performance_with_passive_listeners" class="sopyright">Improving scrolling performance with passive listeners</a>
     </section>
 
 
     <section class="slide">
-        <h2>Дебажить лучше в Инкогнито-режиме (выключаем шум)</h2>
+        <h2 class="shout">Своевременная<br>анимация ⏱</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Преждевременная анимация</h2>
+        <h2>Задержка выполнения</h2>
+        <ul>
+            <li><code>transition-delay: 50ms;</code></li>
+            <li><code>animation-delay: 50ms;</code></li>
+        </ul>
     </section>
 
 
     <section class="slide">
-        <h2>CPU Throttle</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>csstriggers</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>Проверяйте на реальных устройствах</h2>
+        <h2 class="shout">Проверяйте на реальных устройствах ☎️</h2>
     </section>
 
 
     <section class="slide">
         <h2>Материалы</h2>
         <ul>
-            <li>Николай Шабалин</li>
-            <li>https://developers.google.com/web/fundamentals/performance/rail</li>
-            <li>https://www.youtube.com/watch?v=PVWQHZOuAnw</li>
-            <li>https://www.youtube.com/watch?v=K0-45ltxyM0</li>
-            <li>https://www.youtube.com/watch?v=zJxPuXNHx_M</li>
-            <li>https://medium.com/p/cbe6ba0954cd</li>
+            <li><a href="https://www.youtube.com/watch?v=hsKh-AuFBDI">Лечим непроизводительные анимации, Николай Шабалин</a></li>
+            <li><a href="https://developers.google.com/web/fundamentals/performance/rail">Measure Performance with the RAIL Model</a></li>
+            <li><a href="https://www.youtube.com/watch?v=K0-45ltxyM0">Андрей Ситник (Злые марсиане) — Анимация по-новому</a></li>
+            <li><a href="https://www.youtube.com/watch?v=zJxPuXNHx_M">Александр Завьялов, Яндекс | Веб-анимация на JS и CSS | FrontTalks 2015</a></li>
+            <li><a href="https://medium.com/p/cbe6ba0954cd">Полное руководство по правильному использованию анимации в UX</a></li>
+            <li><a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browsers Work: Behind the scenes of modern web browsers</a></li>
         </ul>
     </section>
 

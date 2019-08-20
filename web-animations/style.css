@@ -56,3 +56,7 @@
 .slide pre code {
     line-height: 1.5;
 }
+
+.shadowed {
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.4);
+}
