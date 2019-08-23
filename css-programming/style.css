@@ -3,7 +3,7 @@
 }
 
 .slide .shout {
-    font-size: 5em;
+    font-size: 4em;
 }
 
 
@@ -38,4 +38,15 @@
 
 .slide h2.white {
     color: white;
+}
+
+
+.slide .css-points li.selected {
+    color: darkred;
+    font-weight: bold;
+}
+
+.slide pre code {
+    line-height: 1.4;
+    font-size: 0.9em;
 }

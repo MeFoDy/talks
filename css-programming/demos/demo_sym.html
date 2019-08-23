@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animated ☯ with CSS variables (WebKit only)</title>
+</head>
+
+<body>
+    <div class='sym'></div>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            height: 100vh;
+            background-color: lightslategray;
+        }
+
+        .sym {
+            position: relative;
+            width: 65vmin;
+            height: 65vmin;
+            border-radius: 50%;
+            background: linear-gradient(white 50%, black 0);
+            animation: r 2s linear infinite;
+        }
+
+        .sym:before,
+        .sym:after {
+            --i: 0;
+            position: absolute;
+            top: 25%;
+            right: calc((1 - var(--i))*50%);
+            bottom: 25%;
+            left: calc(var(--i)*50%);
+            border: solid 10.8333333333vmin hsl(0, 0%, calc(var(--i)*100%));
+            transform-origin: calc(var(--i)*100%) 50%;
+            transform: scale(0.5);
+            background: hsl(0, 0%, calc((1 - var(--i))*100%));
+            border-radius: 50%;
+            animation: s 1s ease-in-out calc(var(--i)*-1s) infinite alternate;
+            content: "";
+        }
+
+        .sym:after {
+            --i: 1;
+        }
+
+        @keyframes s {
+            to {
+                transform: scale(1.5);
+            }
+        }
+
+        @keyframes r {
+            to {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</body>
+
+</html>
