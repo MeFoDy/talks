@@ -30,6 +30,8 @@
 * На митап! #6 — [«Путь разработчика, зачем наставничать»](https://youtu.be/ds-8TstM8Js)
 * Soft Skills для интровертов — [Мастер-класс Саши Шинкевич и Никиты Дубко](https://mefody.github.io/talks/introvert-soft-skills/) ([видео](https://youtu.be/UE9aGHgqQc0))
 * BeerJS Summit Minsk 2019 — [«Я устал притворяться!»](https://mefody.github.io/talks/impostor-syndrome/)
+* undefined@ in Yandex — [«Анимации в вебе»](https://mefody.github.io/talks/web-animations/)
+* Krasnodar Dev Conf 2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/)
 
 # Lectures
 
@@ -43,3 +45,4 @@
 * Frontend Weekend — [#75 – Никита Дубко о том, как за год стремительно прокачать свою карьеру frontend-разработчика](https://soundcloud.com/frontend-weekend/fw-75)
 * Frontend Weekend — [#90 – По следам Web Standards Days в Москве с Александрой Шинкевич и Никитой Дубко](https://soundcloud.com/frontend-weekend/fw-90)
 * Веб-стандарты — [Выпуск №185. На утро после BeerJS Summit, альтернативные форматы, дружба народов](https://medium.com/web-standards/episode-185-14e5fcfde7e6)
+* Веб-стандарты — [Выпуск №189. MathML, ленивые картинки, CSS-модули, БЭМ или CSS-in-JS, приватность, CSS-Minsk-JS](https://medium.com/web-standards/episode-189-8390bf90f2a7)
