@@ -1,3 +1,20 @@
+:root {
+    --color-inactive: #ddd;
+    --color-active: orange;
+    --color-checked: lightsteelblue;
+
+    --nd-render-parse-color: #fff;
+    --nd-render-dom-color: #fff;
+    --nd-render-cascade-color: #fff;
+    --nd-render-layout-color: #fff;
+    --nd-render-paint-color: #fff;
+    --nd-render-composite-color: #fff;
+}
+
+.render-block {
+    width: 100%;
+}
+
 .shower {
     line-height: 1.6;
 }

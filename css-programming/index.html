@@ -99,12 +99,13 @@
 
 
     <section class="slide">
-        <video src="./pictures/motivation.mp4" class="cover width" autoplay loop muted playsinline></video>
+        <h2 class="shout" style="font-size: 3em">«Я программист,<br>CSS пусть вертальщики пишут»<br>
+        <small>(c) Кто-то в Интернете</small></h2>
     </section>
 
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em">«Я программист,<br>CSS пусть вертальщики пишут»</h2>
+        <video src="./pictures/motivation.mp4" class="cover width" autoplay loop muted playsinline></video>
     </section>
 
 
@@ -298,6 +299,11 @@ element.setPosition(
 
 
     <section class="slide">
+        <img src="./pictures/love-is.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
         <img src="./pictures/accidentally-turing-complete.jpg" alt="" class="place">
         <a href="http://beza1e1.tuxen.de/articles/accidentally_turing_complete.html" class="copyright">Accidentally Turing-Complete</a>
     </section>
@@ -401,7 +407,7 @@ element.setPosition(
     </section>
 
 
-    <section class="slide">
+    <section class="slide" style="background: #f4f6fa">
         <img src="./pictures/css-algorithms.jpg" alt="" class="cover">
         <a href="https://notlaura.com/algorithms-of-css-sources/" class="copyright">CSS Algorithms</a>
     </section>
@@ -692,6 +698,41 @@ element.setPosition(
 
 
     <section class="slide">
+        <h2>Логическое ИЛИ с хаком</h2>
+        <pre><code class="hljs css">.human {
+    --can-frontend: 1;
+    --can-backend: 0;
+
+    --is-developer: <makr>clamp</makr>(
+        0,
+        calc(var(--can-frontend) + var(--can-backend)),
+        1);
+    );
+}</code></pre>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp" class="copyright">clamp()</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>clamp()</h2>
+        <img src="./pictures/clamp-caniuse.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <pre class="place" style="font-size: 1.7em"><code>width: clamp(10px, 4em, 80px);
+width: max(10px, min(4em, 80px));</code></pre>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max" class="copyright">max()</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>max()</h2>
+        <img src="./pictures/max-caniuse.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
         <img src="./pictures/mathworld-rule-110.gif" alt="" class="place">
         <a href="http://mathworld.wolfram.com/Rule110.html" class="copyright">Rule 110</a>
     </section>
@@ -709,13 +750,13 @@ element.setPosition(
 
     <section class="slide">
         <img src="./pictures/github.jpg" alt="" class="cover">
-        <a href="https://drafts.csswg.org/css-values/#math" class="copyright">drafts.csswg.org/css-values/#math</a>
+        <a href="https://github.com/w3c/csswg-drafts/issues/2331" class="copyright">[css-values] Trigonometric functions</a>
     </section>
 
 
     <section class="slide">
         <img src="./pictures/github2.jpg" alt="" class="cover">
-        <a href="https://drafts.csswg.org/css-values/#math" class="copyright">drafts.csswg.org/css-values/#math</a>
+        <a href="https://github.com/w3c/csswg-drafts/issues/2331" class="copyright">[css-values] Trigonometric functions</a>
     </section>
 
 
@@ -774,38 +815,188 @@ element.setPosition(
 
 
     <section class="slide">
-        <h2>https://twitter.com/marinintim/status/1159505600742641666?s=12</h2>
+        <img src="./pictures/tim-marinin.jpg" alt="" class="place" width="600">
+        <a href="https://twitter.com/marinintim/status/1159505600742641666" class="copyright">twitter.com/marinintim/status/1159505600742641666</a>
     </section>
 
 
     <section class="slide">
-        <h2>cssbattle.dev</h2>
+        <img src="./pictures/css-battle.jpg" alt="" class="cover width place top">
+        <a href="https://cssbattle.dev/" class="copyright white">cssbattle.dev</a>
     </section>
 
 
     <section class="slide">
-        <p>CSS на GPU работает в отдельном потоке. Поэтому анимации работают без тормозов.</p>
+        <img src="./pictures/triangle.png" alt="" class="place" width="400">
     </section>
 
 
     <section class="slide">
-        <h2>https://codepen.io/dark_mefody/pen/OJLbwvp</h2>
+        <pre><code class="html">&lt;b style=&quot;background: #0B2429;
+          color: #F3AC3C;
+          zoom: 200;
+          left: -5.59px;
+          top: -8.3px;
+          position: absolute&quot;&gt;k</code></pre>
+        <img src="./pictures/triangle.png" alt="" class="place bottom" width="400">
+    </section>
+
+
+    <section class="slide nd-pipeline nd-pipeline-active">
+        <h2>Опасные свойства для анимаций ❌</h2>
+        <svg class="render-block">
+            <use xlink:href="#nd-render-picture">
+        </svg>
+        <ul>
+            <li>margin, padding</li>
+            <li>top, right, bottom, left</li>
+            <li>width, height</li>
+            <li>flex-grow, flex-direction</li>
+            <li>border-width</li>
+        </ul>
+
+        <style>
+            .nd-pipeline-active {
+                --nd-render-parse-color: var(--color-inactive);
+                --nd-render-dom-color: var(--color-inactive);
+                --nd-render-cascade-color: var(--color-inactive);
+                --nd-render-layout-color: lightgreen;
+                --nd-render-paint-color: lightgreen;
+                --nd-render-composite-color: lightgreen;
+            }
+        </style>
     </section>
 
 
     <section class="slide">
-        <h2>https://stories.algolia.com/a-search-engine-in-css-b5ec4e902e97</h2>
-        https://community.algolia.com/algoliasearch-client-css/demo/
+        <img src="./pictures/css-triggers.jpg" alt="" class="cover place top width">
+        <a href="https://csstriggers.com/" class="copyright">csstriggers.com</a>
+    </section>
+
+
+    <section class="slide nd-pipeline nd-pipeline-repaint">
+        <h2>Нейтральные свойства ⚠️</h2>
+        <svg class="render-block">
+            <use xlink:href="#nd-render-picture">
+        </svg>
+        <ul>
+            <li>color, background-color, border-color</li>
+            <li>text-shadow, box-shadow</li>
+            <li>text-decoration</li>
+            <li>border-radius</li>
+        </ul>
+
+        <style>
+            .nd-pipeline-repaint {
+                --nd-render-parse-color: var(--color-inactive);
+                --nd-render-dom-color: var(--color-inactive);
+                --nd-render-cascade-color: var(--color-inactive);
+                --nd-render-layout-color: var(--color-inactive);
+                --nd-render-paint-color: lightgreen;
+                --nd-render-composite-color: lightgreen;
+            }
+        </style>
+    </section>
+
+
+    <section class="slide nd-pipeline nd-pipeline-composite">
+        <h2>Безопасные свойства ✅</h2>
+        <svg class="render-block">
+            <use xlink:href="#nd-render-picture">
+        </svg>
+        <ul>
+            <li>transform</li>
+            <li>opacity</li>
+            <li>filter</li>
+        </ul>
+
+        <style>
+            .nd-pipeline-composite {
+                --nd-render-parse-color: var(--color-inactive);
+                --nd-render-dom-color: var(--color-inactive);
+                --nd-render-cascade-color: var(--color-inactive);
+                --nd-render-layout-color: var(--color-inactive);
+                --nd-render-paint-color: var(--color-inactive);
+                --nd-render-composite-color: lightgreen;
+            }
+        </style>
     </section>
 
 
     <section class="slide">
-        <h2>https://twitter.com/jon_neal/status/1158804042870677506?s=12</h2>
+        <h2 class="shout">CSS на GPU ⚡️</h2>
     </section>
 
 
     <section class="slide">
-        <h2>http://browserhacks.com/ — способ определить браузер без JS</h2>
+        <iframe src="./demos/demo_loader.html" frameborder="0" class="cover width height"></iframe>
+        <a href="https://codepen.io/dark_mefody/pen/OJLbwvp" class="copyright white">CSS loader 🐛</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/search-in-css.jpg" alt="" class="cover width place top">
+        <a href="https://www.youtube.com/watch?v=NFeRlR9dOwY" class="copyright">dotCSS 2017 - Tim Carry - Building a search engine in CSS</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://community.algolia.com/algoliasearch-client-css/demo/">A search engine in CSS demo</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>#input[value='l'i] ~ #results #result55,
+<span class="next">#input[value='la'i] ~ #results #result55,</span>
+<span class="next">#input[value='lau'i] ~ #results #result55,</span>
+<span class="next">#input[value='laur'i] ~ #results #result55,</span>
+<span class="next">#input[value='laura'i] ~ #results #result55</span> {
+    display: block;
+}</code></pre>
+    <pre class="next"><code>#option[id]:checked ~ #results #result12,
+#option[id]:checked ~ #results #result55 {
+    display: block;
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/dont_do_it.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/neal-tweet.jpg" alt="" class="place" width="600">
+        <a href="https://twitter.com/jon_neal/status/1158804042870677506" class="copyright">twitter.com/jon_neal/status/1158804042870677506</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>body {
+    font-family: sans-serif;
+}
+h1, p {
+    font-family: "no-parens", sans-serif;
+}
+
+/* https://github.com/adobe-fonts/adobe-blank */
+@font-face {
+    font-family: no-parens;
+    src: url("...");
+    unicode-range: U+0028, U+0029; /* () */
+}</code></pre>
+        <a href="https://codepen.io/jonneal/pen/bXLEdB" class="copyright">Removing parentheses in pure CSS</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/copy-paste-attack.jpg" alt="" class="place" width="600">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/browserhacks.jpg" alt="" class="cover width place top">
+        <a href="http://browserhacks.com/" class="copyright">browserhacks.com</a>
     </section>
 
 
@@ -815,63 +1006,145 @@ element.setPosition(
 
 
     <section class="slide">
-        <h2>В CSS — Houdini</h2>
+        <h2 class="shout">Houdini 🔮</h2>
+        <a href="https://twitter.com/csshoudini" class="copyright">twitter.com/csshoudini</a>
     </section>
 
 
     <section class="slide">
-        <h2>https://github.com/w3c/css-houdini-drafts/issues/857</h2>
+        <img src="./pictures/css-houdini-functions-draft.jpg" alt="" class="cover width place top">
+        <a href="https://github.com/w3c/css-houdini-drafts/issues/857" class="copyright">Proposal: Custom functions for modifying CSS values</a>
     </section>
 
 
     <section class="slide">
-        <h2>https://www.xanthir.com/talks/2019-05-15/</h2>
-    </section>
-
-
-    <section class="slide">
-        <pre><code>CSS.registerComputedValueHook({
+    <pre><code>CSS.registerComputedValueHook({
     inputProperties: ["transform", "--slide-*"],
     outputProperties: ["transform"],
     computedValue: function(input, output) {
         const tx = input.get("--slide-x");
         const ty = input.get("--slide-y");
         const translate = new CSSTranslate(tx, ty);
-        output.set("transform", new CSSTransformValue(
-        translate,
-        ...input.get('transform')));
+        output.set("transform",
+            new CSSTransformValue(
+                translate,
+                ...input.get('transform')
+            )
+        );
     }
 });</code></pre>
+        <a href="https://www.xanthir.com/talks/2019-05-15/" class="copyright">CSS and Houdini</a>
     </section>
 
 
     <section class="slide">
         <pre><code>CSS.registerFunction({
     "name": "--darken",
-    "inputArguments": ["<color>", "<percentage>"],
+    "inputArguments": [&quot;&lt;color&gt;&quot;, &quot;&lt;percentage&gt;&quot;],
 }, (color, percent) => {
     const newColor = color.toHSL();
     newColor.lightness *= (1 - percent.value/100);
     return newColor;
 });</code></pre>
+        <br>
+        <pre class="next"><code>.element {
+    color: --darken(tomato, 12%);
+}</code></pre>
+        <a href="https://www.xanthir.com/talks/2019-05-15/" class="copyright">CSS and Houdini</a>
     </section>
 
 
     <section class="slide">
-        <pre><code>CSS.registerFunction({
-    "name": "--random",
-    "per": "element",
-}, () => CSS.number(Math.random()) );</code></pre>
+        <pre><code>CSS.registerFunction(
+    {
+        "name": "--random",
+        "per": "element",
+    },
+    () => CSS.number(Math.random())
+);</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>https://developer.mozilla.org/ru/docs/Web/CSS/Pseudo-elements — псевдоэлементы — это не только про after, before</h2>
+        <h2 class="shout">CSS Properties and Values API</h2>
     </section>
 
 
     <section class="slide">
-        <h2>https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes — псевдоклассов тоже много (read-write, например)</h2>
+        <pre><code class="hljs css">:root {
+    --sidebar-width: 400px;
+}
+
+.closed {
+    --sidebar-width: 80px;
+}
+
+body {
+    transition: --sidebar-width 1s;
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="hljs javascript">// JavaScript
+CSS.registerProperty({
+    name: '--sidebar-width',
+    syntax: '&lt;length&gt;',
+    inherits: true,
+    initialValue: '80px'
+});</code></pre>
+        <pre class="next"><code class="hljs css">/* CSS */
+@property --sidebar-width {
+    syntax: "&lt;length&gt;",
+    inherits: true,
+    initialValue: "80px"
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://codepen.io/thebabydino/pen/rZMQgW/">Möbius bars with Houdini magic</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/kharkivcss.png" alt="" class="cover">
+        <a href="https://www.youtube.com/watch?v=xFXCfTHTmoA" class="copyright white">KharkivCSS #4 2018 — Микита Дубко "Houdini — CSS, который JavaScript"</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>Псевдоэлементы</h2>
+        <ul>
+            <li class="next">::after (:after)</li>
+            <li class="next">::before (:before)</li>
+            <li class="next">::first-letter (:first-letter)</li>
+            <li class="next">::first-line (:first-line)</li>
+            <li class="next">::selection</li>
+            <li class="next">::cue (:cue)</li>
+            <li class="next">::slotted()</li>
+        </ul>
+        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/Pseudo-elements" class="copyright">Pseudo-elements</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>Псевдоэлементы 🧪</h2>
+        <ul>
+            <li>::placeholder</li>
+            <li>::marker</li>
+            <li>::backdrop</li>
+            <li>::part()</li>
+            <li>::grammar-error</li>
+            <li>::spelling-error</li>
+        </ul>
+        <a href="https://developer.mozilla.org/ru/docs/Web/CSS/Pseudo-elements" class="copyright">Pseudo-elements</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/pseudo-classes.jpg" alt="" class="cover">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" class="copyright">Pseudo-classes</a>
     </section>
 
 
@@ -881,17 +1154,32 @@ element.setPosition(
 
 
     <section class="slide">
-        <h2>https://css-live.ru/tricks/pure-css-no-dirty-html.html</h2>
+        <a href="https://codepen.io/" class="copyright">codepen.io</a>
+        <img src="./pictures/codepen.jpg" alt="" class="cover width place top">
     </section>
 
 
     <section class="slide">
-        <h2>http://designbeep.com/2016/01/14/cinema-seat-preview-experiment-with-css/</h2>
+        <iframe src="./demos/demo_panda.html" frameborder="0" class="cover width height"></iframe>
+        <a href="https://codepen.io/dark_mefody/pen/aJVBVK" class="copyright white">codepen.io/dark_mefody/pen/aJVBVK</a>
     </section>
 
 
     <section class="slide">
-        <h2>Демка с лошадью, скорость управляется чекбоксом https://codepen.io/ste-vg/pen/oKYjKV </h2>
+        <iframe src="./demos/demo_horse.html" frameborder="0" class="cover width height"></iframe>
+        <a href="https://codepen.io/ste-vg/pen/oKYjKV" class="copyright white">Clip Clop Clippity Clop [CSS Only]</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://tympanus.net/Development/SeatPreview/">Cinema Seat Preview demo</a></h2>
+        <a href="http://designbeep.com/2016/01/14/cinema-seat-preview-experiment-with-css/" class="copyright">Cinema Seat Preview Experiment With CSS</a>
+    </section>
+
+
+    <section class="slide">
+        <iframe src="./demos/demo_css_only_game.html" frameborder="0" class="cover width height"></iframe>
+        <a href="https://css-live.ru/tricks/pure-css-no-dirty-html.html" class="copyright">Игра на чистом CSS, без грязной HTML-разметки</a>
     </section>
 
 
@@ -901,17 +1189,12 @@ element.setPosition(
 
 
     <section class="slide">
-        <h2>CSS — инструмент, удобный для задач, для которых он спроектирован.</h2>
+        <h2 class="shout">CSS — удобный инструмент</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Вы сами можете решать судьбу CSS: приходите в обсуждение стандартов.</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>Продолжайте ругать CSS, пока кто-то зарабатывает на нём деньги.</h2>
+        <h2 class="shout">Лучше разобраться и заработать 💰, чем ругать</h2>
     </section>
 
 
@@ -921,7 +1204,7 @@ element.setPosition(
         <br>
         <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
         <br>
-        <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        <a href="mailto:mefody@yandex-team.ru">mefody@yandex-team.ru</a>
         <img src="./pictures/qr-code.gif" alt="" class="place bottom right" width="300">
     </section>
 
@@ -929,6 +1212,58 @@ element.setPosition(
     <footer class="badge">
         <a href="https://github.com/shower/shower">Сделано в Shower</a>
     </footer>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+		<symbol id="nd-render-picture" viewbox="0 0 800 100">
+			<style>
+				.nd-render-block {
+					fill-opacity: null;
+					stroke-opacity: null;
+					stroke: #000;
+				}
+
+				.nd-render-text {
+					stroke-width: 0;
+				}
+
+				.nd-render-path {
+					fill: #fff;
+					stroke-width: 2;
+				}
+			</style>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-parse-color)" d="M47.8 13.9h107.2l35.8 35.8-35.8 35.8H47.8L83.6 49.8 47.8 13.9z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="100.1" y="55.6" font-size="17">Parser</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-dom-color)" d="M161.8 13.9h107.3l35.8 35.8-35.7 35.8H161.8l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="213" y="45.6" font-size="17">DOM &#x2F;</text>
+				<text class="nd-render-text" x="204.1" y="66.6" font-size="17">CSSOM</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-cascade-color)" d="M274.9 13.9h107.2l35.8 35.8-35.8 35.8H274.9l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="319.3" y="55.6" font-size="17">Cascade</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-layout-color)" d="M387.9 13.9h107.2l35.8 35.8-35.8 35.8H387.9l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="440.3" y="55.6" font-size="17">Layout</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-paint-color)" d="M501 13.9H608.2l35.8 35.8-35.8 35.8H501l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="556.4" y="55.6" font-size="17">Paint</text>
+			</g>
+			<g class="nd-render-block">
+				<path style="fill: var(--nd-render-composite-color)" d="M614 13.9h107.2l35.8 35.8-35.8 35.8H614l35.8-35.8-35.7-35.8z" class="nd-render-path"
+				/>
+				<text class="nd-render-text" x="656.4" y="55.6" font-size="17">Composite</text>
+			</g>
+		</symbol>
+	</svg>
 
     <div class="progress"></div>
 
