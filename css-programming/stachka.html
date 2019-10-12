@@ -22,11 +22,6 @@
     </header>
 
 
-    <section class="slide black clear" id="cover">
-        <img src="./pictures/krdev-nikita.jpg" alt="" class="cover">
-    </section>
-
-
     <section class="slide clear">
         <img src="./pictures/title-logo-ru.svg" alt="">
         <h2 style="font-size: 3em; font-weight: 300; margin-top: 80px">CSS — язык программирования</h2>
@@ -42,7 +37,7 @@
             <ul>
                 <li>доброжелюбный бородач</li>
                 <li>разработчик интерфейсов в <span style="color: red;">Я</span>ндексе</li>
-                <li>организатор MinskCSS и MinskJS</li>
+                <li>организатор митапов MinskCSS, MinskJS и конференции CSS-Minsk-JS</li>
                 <li>редактор новостей в Веб-стандартах</li>
                 <li class="next"><i>CSS-инженер</i></li>
             </ul>
@@ -142,7 +137,7 @@
 
 
     <section class="slide">
-        <h2>Как попасть на Krasnodar Dev Conf?</h2>
+        <h2>Как попасть на Стачку?</h2>
         <table class="next">
             <tr>
                 <th>Императивный подход</th>
@@ -162,7 +157,7 @@
                         <li>Занять место в зале.</li>
                     </ol>
                 </td>
-                <td>Краснодар, ул. Конгрессная, 4<br>24-25 августа<br>с 10:00 до 20:00</td>
+                <td width="50%">Республика Татарстан, Иннополис, ул. Университетская,<br>дома №1 и №7,<br>12 и 13 октября</td>
             </tr>
         </table>
     </section>
@@ -735,6 +730,27 @@ width: max(10px, min(4em, 80px));</code></pre>
 
 
     <section class="slide">
+        <h2>Логическое ИЛИ через И и НЕ</h2>
+        <pre><code class="hljs css">.human {
+    --can-frontend: 1;
+    --can-backend: 0;
+
+    /* not (A or B) = (not A) and (not B) */
+    --is-developer: calc(1 -
+        (1 - var(--can-frontend)) * (1 - var(--can-backend))
+    );
+}</code></pre>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp" class="copyright">clamp()</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/logical-operations-tudor.jpg" alt="" class="cover width top">
+        <a href="https://css-tricks.com/logical-operations-with-css-variables/" class="copyright white">Logical Operations with CSS Variables</a>
+    </section>
+
+
+    <section class="slide">
         <img src="./pictures/mathworld-rule-110.gif" alt="" class="place">
         <a href="http://mathworld.wolfram.com/Rule110.html" class="copyright">Rule 110</a>
     </section>
@@ -746,7 +762,7 @@ width: max(10px, min(4em, 80px));</code></pre>
 
 
     <section class="slide">
-        <img src="./pictures/puss-in-boots.jpg" alt="" class="cover height">
+        <h2 class="shout">😎</h2>
     </section>
 
 
@@ -1207,12 +1223,12 @@ CSS.registerProperty({
 
     <section class="slide clear" id="final">
         <h2>Спасибо за внимание!</h2>
-        <a href="https://mefody.github.io/talks/css-programming/">mefody.github.io/talks/css-programming/</a>
+        <a href="mefody.github.io/talks/css-programming/stachka.html">mefody.github.io/talks/css-programming/stachka.html</a>
         <br>
         <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
         <br>
         <a href="mailto:mefody@yandex-team.ru">mefody@yandex-team.ru</a>
-        <img src="./pictures/qr-code.gif" alt="" class="place bottom right" width="300">
+        <img src="./pictures/qr-code-stachka.gif" alt="" class="place bottom right" width="300">
     </section>
 
 
