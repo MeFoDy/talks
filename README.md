@@ -25,13 +25,15 @@
 * pitercss_meetup 30 — [«MacOS Driven Development»](https://mefody.github.io/talks/mdd/)
 * Web Standards Days 2019 in Moscow — [«Тёмная сторона веба»](https://mefody.github.io/talks/dark-themes/) ([видео](https://youtu.be/inJbZ1WFfQA))
 * KharkivCSS 2019 — [«Houdini — CSS, который JavaScript»](https://mefody.github.io/talks/houdini-css/kharkivcss.html) ([видео](https://youtu.be/xFXCfTHTmoA))
-* FrontendConf 2019 — [«Алиса, пойдём во фронтенд!»](https://mefody.github.io/talks/alisa/) ([видео](https://youtu.be/yjTH8-O3CMA))
+* FrontendConf 2019 — [«Алиса, пойдём во фронтенд!»](https://mefody.github.io/talks/alisa/) ([видео](https://youtu.be/yjTH8-O3CMA))([расшифровка](https://habr.com/ru/company/oleg-bunin/blog/468545/))
 * spb_frontend drinkup — [«Я устал притворяться!»](https://mefody.github.io/talks/impostor-syndrome/spb.html)
 * На митап! #6 — [«Путь разработчика, зачем наставничать»](https://youtu.be/ds-8TstM8Js)
 * Soft Skills для интровертов — [Мастер-класс Саши Шинкевич и Никиты Дубко](https://mefody.github.io/talks/introvert-soft-skills/) ([видео](https://youtu.be/UE9aGHgqQc0))
 * BeerJS Summit Minsk 2019 — [«Я устал притворяться!»](https://mefody.github.io/talks/impostor-syndrome/)
 * undefined@ in Yandex — [«Анимации в вебе»](https://mefody.github.io/talks/web-animations/)
 * Krasnodar Dev Conf 2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/)
+* Стачка 2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/stachka.html)
+* FrontendConf 2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/fc.html)
 
 # Lectures
 
@@ -46,3 +48,5 @@
 * Frontend Weekend — [#90 – По следам Web Standards Days в Москве с Александрой Шинкевич и Никитой Дубко](https://soundcloud.com/frontend-weekend/fw-90)
 * Веб-стандарты — [Выпуск №185. На утро после BeerJS Summit, альтернативные форматы, дружба народов](https://medium.com/web-standards/episode-185-14e5fcfde7e6)
 * Веб-стандарты — [Выпуск №189. MathML, ленивые картинки, CSS-модули, БЭМ или CSS-in-JS, приватность, CSS-Minsk-JS](https://medium.com/web-standards/episode-189-8390bf90f2a7)
+* Frontend Weekend — [Remote #1 – Никита Дубко (конференции, синдром самозванца, подготовка докладов)](https://soundcloud.com/frontend-weekend/fwr-1)
+* Девшахта — [#95: Зачем проводить конференцию на английском языке](https://medium.com/devschacht/devschacht-95-fb973bfab049)
