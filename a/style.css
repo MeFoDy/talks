@@ -67,23 +67,6 @@
 }
 
 
-:root {
-    --color-inactive: #ddd;
-    --color-active: orange;
-    --color-checked: lightsteelblue;
-
-    --nd-render-parse-color: #fff;
-    --nd-render-dom-color: #fff;
-    --nd-render-cascade-color: #fff;
-    --nd-render-layout-color: #fff;
-    --nd-render-paint-color: #fff;
-    --nd-render-composite-color: #fff;
-}
-
-.render-block {
-    width: 100%;
-}
-
 .shower {
     line-height: 1.6;
 }
@@ -91,11 +74,6 @@
 .slide .shout {
     font-size: 3em;
 }
-
-.slide .shout a {
-    background-image: linear-gradient( to top, rgba(242, 21, 88, 0.4) 0.06em, transparent 0.06em );
-}
-
 
 .slide s {
     text-decoration: none;
@@ -126,16 +104,6 @@
     right: 1.5em;
 }
 
-.slide h2.white {
-    color: white;
-}
-
-
-.slide .css-points li.selected {
-    color: darkred;
-    font-weight: bold;
-}
-
 .slide pre code {
     line-height: 1.4;
     font-size: 0.9em;
@@ -154,20 +122,13 @@
     color: rgba(255,255,255, 0.7);
 }
 
-.slide h2.label {
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-    background-color: white;
-    padding: 0.3em 0.5em;
-    border-radius: 0.2em;
-    box-shadow: 3px 3px 20px rgba(0,0,0,0.4);
-    font-weight: 400;
-}
 
-.slide.wikipedia {
-    background-image: url(./pictures/wikipedia-logo-v2.svg);
-    background-position: right 5% bottom 5%;
-    background-repeat: no-repeat;
-    background-size: 130px;
+
+
+
+
+
+
+.slide .mark-trigger:not(.active) + * mark {
+    background: none;
 }
