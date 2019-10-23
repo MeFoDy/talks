@@ -28,6 +28,7 @@
         <p style="margin-top: 80px;">
             <a href="https://twitter.com/dark_mefody" >Никита Дубко</a>, разработчик интерфейсов
         </p>
+        Я.Субботник, дата, Москва
     </section>
 
 
@@ -302,6 +303,7 @@ waisdoc
 
     <section class="slide">
         <h2>target</h2>
+        <span class="danger">расшифровать</span>
         <ul>
             <li>_blank</li>
             <li>_self</li>
@@ -372,7 +374,7 @@ waisdoc
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 2em; line-height: 1.5em;"><span class="grey">https://</span>яндекс.рф<br>⬇️<br><span class="grey">https://</span>xn--d1acpjx3f.xn--p1ai/</h2>
+        <h2 class="shout" style="font-size: 2em; line-height: 1.5em;"><span class="grey">https://</span>яндекс.рф<br>⬇️<br><span class="grey">https://</span>xn--d1acpjx3f.xn--p1ai</h2>
         <a class="copyright" href="https://tools.ietf.org/rfc/rfc3987.txt">Internationalized Resource Identifiers (IRIs)</a>
     </section>
 
@@ -470,112 +472,201 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
 
     <section class="slide">
         <h2>deeplink</h2>
-        <pre><code>&lt;a href=&quot;slack://open?team=666&quot;&gt;Open in Slack&lt;/a&gt;</code></pre>
-    </section>
-
-
-    <section class="slide">
-        <h2>ограничение на длину ссылки</h2>
+        <pre><code>&lt;a href=&quot;slack://open?team=123&quot;&gt;Open in Slack&lt;/a&gt;</code></pre>
     </section>
 
 
     <section class="slide">
         <h2>Максимальная длина ссылки</h2>
+        <span class="place next" style="font-size: 3em;">🤷‍♂️</span>
         <a class="copyright" href="https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers">What is the maximum length of a URL in different browsers?</a>
     </section>
-
+    
 
     <section class="slide">
-        <h2>баг в IE https://support.microsoft.com/ru-ru/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer</h2>
+        <img src="./pictures/ie-link-limit.jpg" alt="" class="cover place top">
+        <a href="https://support.microsoft.com/ru-ru/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer" class="copyright">Поддержка Internet Explorer</a>
+    </section>
+    
+
+    <section class="slide">
+        <h2 class="danger">Шутка про https://death-to-ie11.netlify.com/</h2>
     </section>
 
 
     <section class="slide">
-        <h2>можно пробелы вокруг</h2>
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;javascript:void(0);&quot;&gt;🤦‍♂️&lt;/a&gt;</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>13. javascript:void(0) или # — не надо так</h2>
+        <pre class="place" style="font-size: 2em;"><code>&lt;a href=&quot;#&quot;&gt;🙈&lt;/a&gt;</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>    1. для этого есть button с переделанными стилями</h2>
+        <img src="./pictures/shame-on-you.jpg" alt="" class="place">
     </section>
 
 
     <section class="slide">
-        <h2>    2. у ссылок предназначение — навигация</h2>
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;button type=&quot;button&quot;&gt;👍&lt;/button&gt;</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>base https://www.w3.org/TR/REC-html40/struct/links#idx-link-6 </h2>
+        <h2 class="shout">&lt;base&gt;</h2>
+        <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-base-element" class="copyright">Living Standard — Last Updated 19 October 2019</a>
     </section>
 
 
     <section class="slide">
-        <h2>href — этот путь будет подставляться для всех относительных ссылок</h2>
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;base target=&quot;_top&quot; 
+      href=&quot;https://my.blog/articles/&quot;&gt;</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>https://www.ietf.org/rfc/rfc1808.txt — вот так будет резолвиться</h2>
+        <pre><code>&lt;head&gt;
+    &lt;base target=&quot;_top&quot; href=&quot;https://my.blog/articles/&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href=&quot;page-1&quot;&gt;Article&lt;/a&gt;
+    &lt;!-- https://my.blog/articles/page-1 --&gt;
+
+    &lt;a href=&quot;../index.html&quot;&gt;Main page&lt;/a&gt;
+    &lt;!-- https://my.blog/index.html --&gt;
+&lt;/body&gt;</code></pre>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Безопасность</h2>
     </section>
 
 
     <section class="slide">
-        <h2>поисследовать с gzip</h2>
+        <h2 class="danger">Скриншот отправки заголовка Referer</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Особенности target и безопасность</h2>
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://fakebook.com&quot; 
+   rel=&quot;noreferrer&quot;&gt;</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>type=noreferrer — смысл: не даёт по заголовку Referrer понять, откуда пришёл пользователь</h2>
+        <h2>window.opener</h2>
+        <pre class="place"><code>// На странице злоумышленника
+window.opener.location = 'https://fakebook.com/page.html';</code></pre>
+        <a href="https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/" class="copyright">Target="_blank" - the most underestimated vulnerability ever</a>
     </section>
 
 
     <section class="slide">
-        <h2>    2. type=nofollow — смысл: не даёт поисковикам связывать ссылки с текущей страницей (для рекламы или ссылок пользователей, чтобы трафик не утекал)</h2>
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://fakebook.com&quot; 
+   rel=&quot;noopener&quot;&gt;</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>    3. type=noopener — смысл: не даёт обращаться к window.opener</h2>
-        var win = window.open(url, '_blank');
-        if (win) {
-            win.opener = null;
-        }
+        <pre class="place" style="font-size: 1.5em;"><code>var win = window.open(url, '_blank');
+
+if (win) {
+    win.opener = null;
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>        1. раньше не работал в FF, но уже давно работает, будьте смелее https://bugzilla.mozilla.org/show_bug.cgi?id=1222516#c34 </h2>
+        <h2 class="shout">ТИЦ<br>PR</h2>
     </section>
 
 
     <section class="slide">
-        <h2>        2. window.opener.location = 'https://fakewebsite/facebook.com/page.html';</h2>
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://not-my.site&quot; 
+   rel=&quot;nofollow&quot;&gt;</code></pre>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">a11y</h2>
     </section>
 
 
     <section class="slide">
-        <h2>        3. https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/ </h2>
+        <h2>Список всех ссылок в VoiceOver</h2>
+        <ol>
+            <li><kbd>⌘ Cmd</kbd> + <kbd>F5</kbd></li>
+            <li><kbd>VO (Caps Lock)</kbd> + <kbd>U</kbd></li>
+            <li><kbd>⟶ Arrow Right</kbd> или <kbd>⟵ Arrow Left</kbd></li>
+        </ol>
     </section>
 
 
     <section class="slide">
-        <h2>    4. _blank</h2>
+        <video src="./pictures/voiceover.mp4" controls class="cover width"></video>
     </section>
 
 
     <section class="slide">
-        <h2>        1. проверить, как в VoiceOver звучит такой резкий переход</h2>
+        <h2 class="shout">Осмысленный текст для озвучки</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="danger">Проверить звучание в VoiceOver</h2>
+        <br>
+        <span>❌</span>
+        <pre><code>перейдите по
+&lt;a href=&quot;/link&quot;&gt;ссылке&lt;/a&gt;</code></pre>
+        <br>
+        <span>✅</span>
+        <pre><code>перейдите по
+&lt;a href=&quot;/link&quot; aria-label=&quot;Форма регистрации&quot;&gt;ссылке&lt;/a&gt;</code></pre>
+        <a href="https://www.w3.org/TR/wai-aria/#aria-label" class="copyright">Accessible Rich Internet Applications (WAI-ARIA) 1.1</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>Навигация по ссылкам</h2>
+        <ul>
+            <li class="next"><kbd>⇥ Tab</kbd> — следующая</li>
+            <li class="next"><kbd>Shift</kbd> + <kbd>⇥ Tab</kbd> — предыдущая</li>
+            <li class="next"><kbd>↵ Enter</kbd> — переход по ссылке</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="danger">видео того, что скроллится до нужного места</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="danger">пример с гридами, где всё прыгает</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="danger">видео с гридами, где всё прыгает</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>document.onkeypress = function(e) {
+    // The Enter/Return key
+    if(e.keyCode === 13) {
+        doSomething();
+        document.activeElement.click();
+    }
+};</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2>targer=_blank</h2>
     </section>
 
 
@@ -592,106 +683,6 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
     <section class="slide">
         <h2>        4. но для поисковика это вполне хорошо: пользователи чаще всего исследуют несколько ссылок</h2>
     </section>
-
-
-    <section class="slide">
-        <h2>    5. _self</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    6. _parent</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    7. _top — найти примеры применения — для фреймов</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>11. <area> — https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    1. как было раньше ссылками и картами ссылок</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    2. как стало теперь</h2>
-    </section>
-
-
-    <section class="slide title">
-        <h2 class="shout">a11y</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    1. Леони Уотсон — её первый любимый элемент</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    2. Как получить список всех ссылок</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>        1. видео, звук VoiceOver</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    3. Как звучит ссылка</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>        1. видео, звук VoiceOver</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>        2. Нужно делать осмысленный текст для озвучки</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    5. aria-label</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    6. Как навигироваться по ссылкам</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>        1. tab, shift+tab</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>            1. вебвью скроллится до выделенного места, учтите это</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>        2. enter</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>            1. document.onkeydown = function(e) { // onkeypress</h2>
-            <h2>            2.   if(e.keyCode === 13) { // The Enter/Return key</h2>
-                <h2>            3.     document.activeElement.click();</h2>
-                <h2>            4.   }</h2>
-                <h2>            5.   // e.preventDefault();</h2>
-                <h2>            6. };</h2>
-        </section>
 
 
     <section class="slide title">
@@ -855,6 +846,11 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
 
 
     <section class="slide">
+        <h2>но почему тогда Яндекс не так делает?</h2>
+    </section>
+
+
+    <section class="slide">
         <h2>    4. text-decoration-skip-ink + caniuse</h2>
     </section>
 
@@ -971,6 +967,11 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
 
 
     <section class="slide">
+        <h2>prefetch внутри a не имплементирован (см. выше)</h2>
+    </section>
+
+
+    <section class="slide">
         <h2>    2. prefetch внутри link</h2>
         https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
     </section>
@@ -1012,9 +1013,21 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
     </section>
 
 
+    <section class="slide">
+        <h2 class="danger">видео мучений</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="danger">видео счастья</h2>
+    </section>
+
+
     <section class="slide clear" id="final">
         <h2>Спасибо за внимание!</h2>
         <a href="https://mefody.github.io/talks/a/">mefody.github.io/talks/a/</a>
+        <br>
+        ссылка на ссылки
         <br>
         <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
         <br>
