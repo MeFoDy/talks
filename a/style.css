@@ -132,3 +132,13 @@
 .slide .mark-trigger:not(.active) + * mark {
     background: none;
 }
+
+.slide .grey {
+    color: #ccc;
+}
+
+.slide .danger {
+    background: red;
+    color: white;
+    display: inline-block;
+}

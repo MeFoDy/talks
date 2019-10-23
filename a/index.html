@@ -148,12 +148,41 @@
 
 
     <section class="slide">
-        https://www.w3.org/History/19921103-hypertext/hypertext/WWW/Addressing/BNF.html — так можно было задавать адрес
+        <pre style="font-size: 0.8em;"><code>anchoraddress
+    docaddress [ # anchor ]
+docaddress
+    httpaddress | fileaddress | newsaddress | telnetaddress | prosperoaddress | gopheraddress | waisaddress
+httpaddress
+    h t t p : / / hostport [ / path ] [ ? search ]
+prosperoaddress
+    p r o s p e r o : / / hostport / path
+fileaddress
+    f i l e : / / host / path
+newsaddress
+    n e w s : groupart
+waisaddress
+    waisindex | waisdoc
+waisindex
+    w a i s : / / hostport / database [ ? search ]
+waisdoc
+    w a i s : / / hostport / database / wtype / digits / path
+...</code></pre>
+        <a class="copyright" href="https://www.w3.org/History/19921103-hypertext/hypertext/WWW/Addressing/BNF.html">W3 address syntax: BNF</a>
     </section>
 
 
     <section class="slide">
-        <h2>Разрешённые протоколы в первой спеке: file, news, http, telnet, gopher, wais, x500</h2>
+        <h2>Поддерживаемые протоколы</h2>
+        <ul>
+            <li>http</li>
+            <li>file</li>
+            <li>news</li>
+            <li>telnet</li>
+            <li>prospero</li>
+            <li>gopher</li>
+            <li>wais</li>
+            <li>x500</li>
+        </ul>
     </section>
 
 
@@ -174,11 +203,6 @@
    ...
 &lt;/a&gt;</code></pre>
         <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" class="copyright">&lt;a&gt;: The Anchor element</a>
-    </section>
-
-
-    <section class="slide">
-        <h2>Прошло 28 лет, а ссылки всё ещё в строю. Теперь их можно записывать так: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a </h2>
     </section>
 
 
@@ -206,77 +230,247 @@
 
     <section class="slide">
         <h2>href</h2>
+        <pre><code>&lt;a href=&quot;another.html&quot;&gt;Text&lt;/a&gt;
+&lt;a href=&quot;https://absolute.url/page/&quot;&gt;Page&lt;/a&gt;
+&lt;a href=&quot;mailto:johndoe@mail.kk&quot;&gt;Send mail&lt;/a&gt;
+&lt;a href=&quot;tel:+123456789&quot;&gt;Call me&lt;/a&gt;</code></pre>
     </section>
 
 
     <section class="slide">
         <h2>download</h2>
+        <pre><code>&lt;a href=&quot;code-of-conduct.pdf&quot; download&gt;
+    Code of Conduct
+&lt;/a&gt;
+
+&lt;a href=&quot;1h24v9lj.jpg&quot; download=&quot;cat&quot;&gt;
+    Kitty photo
+&lt;/a&gt;</code></pre>
     </section>
 
 
     <section class="slide">
         <h2>hreflang</h2>
+        <pre><code>&lt;a href=&quot;korean.html&quot; hreflang=&quot;ko&quot;&gt;
+    Корейская версия
+&lt;/a&gt;
+
+&lt;a href=&quot;english.html&quot; hreflang=&quot;en-US&quot;&gt;
+    Английская версия
+&lt;/a&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang">lang</a>
     </section>
 
 
     <section class="slide">
         <h2>ping</h2>
+        <pre><code>&lt;a href=&quot;#header&quot;
+   ping=&quot;./tracker&quot;&gt;Ping #id&lt;/a&gt;
+&lt;a href=&quot;ping.html&quot;
+   ping=&quot;./tracker&quot;&gt;Ping Link&lt;/a&gt;</code></pre>
+        <a class="copyright" href="./demos/ping.html">Ping Demo</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/ping-demo.jpg" alt="" class="cover">
+        <a class="copyright" href="./demos/ping.html">Ping Demo</a>
     </section>
 
 
     <section class="slide">
         <h2>rel</h2>
+        <ul class="columns two">
+            <li>alternate</li>
+            <li>author</li>
+            <li>bookmark</li>
+            <li>external</li>
+            <li>help</li>
+            <li>license</li>
+            <li>next</li>
+            <li><mark>nofollow</mark></li>
+            <li><mark>noopener</mark></li>
+            <li><mark>noreferrer</mark></li>
+            <li>prefetch</li>
+            <li>prev</li>
+            <li>search</li>
+            <li>tag</li>
+        </ul>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types">Link types</a>
     </section>
 
 
     <section class="slide">
         <h2>target</h2>
+        <ul>
+            <li>_blank</li>
+            <li>_self</li>
+            <li>_parent</li>
+            <li>_top</li>
+        </ul>
+
+        <a class="copyright" href="./demos/target.html">Target Demo</a>
     </section>
 
 
     <section class="slide">
         <h2>type</h2>
+        <pre><code>&lt;a href=&quot;https://www.w3schools.com&quot; type=&quot;text/html&quot;&gt;
+    W3Schools
+&lt;/a&gt;
+
+&lt;a href=&quot;doc.pdf&quot; type=&quot;application/pdf&quot;&gt;
+    PDF
+&lt;/a&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Glossary/MIME_type">MIME type</a>
     </section>
 
 
     <section class="slide">
         <h2>referrerpolicy</h2>
-        подробнее про заголовки
+        <p>Управляет доступом к заголовку Referer</p>
+        <pre><code>&lt;a href=&quot;https://some-site.com&quot;
+   referrerpolicy=&quot;no-referrer&quot;&gt;
+   External Resource
+&lt;/a&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Что может быть внутри<br>href?</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Что может быть внутри href?</h2>
+        <h2 class="shout">Гиперссылки</h2>
+        <a class="copyright" href="https://www.w3.org/TR/html50/links.html">4.8 Links</a>
     </section>
 
 
     <section class="slide">
-        <h2>https://www.w3.org/TR/html50/links.html — здесь описано, что вообще должны уметь ссылки в браузере</h2>
+        <dl>
+            <dt style="font-weight: bold;">Гиперссылка —</dt>
+            <dd>ссылка на другой ресурс, который обычно предоставляется пользователю юзер-агентом (браузером) так, чтобы пользователь мог заставить юзер-агент перейти к этому ресурсу, например, открыть его в браузере или скачать его.</dd>
+        </dl>
     </section>
 
 
     <section class="slide">
-        <h2>https://www.ietf.org/rfc/rfc2396.txt — старый документ, который с тех пор не изменился</h2>
+        <img src="./pictures/ietf-uri.jpg" alt="" class="cover">
+        <a class="copyright" href="https://tools.ietf.org/rfc/rfc3986.txt">Uniform Resource Identifier (URI): Generic Syntax</a>
     </section>
 
 
     <section class="slide">
-        <h2>tel</h2>
-        1. из браузера можно звонить
-        2. добавочные номера
-        3. работают не по спеке
+        <h2 class="shout"><span class="grey">https://</span>yandex.ru</h2>
     </section>
 
 
     <section class="slide">
-        <h2>mailto</h2>
-        1. можно добавлять тему письма
+        <h2 class="shout"><span class="grey">https://</span>яндекс.рф</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em; line-height: 1.5em;"><span class="grey">https://</span>яндекс.рф<br>⬇️<br><span class="grey">https://</span>xn--d1acpjx3f.xn--p1ai/</h2>
+        <a class="copyright" href="https://tools.ietf.org/rfc/rfc3987.txt">Internationalized Resource Identifiers (IRIs)</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Из браузера<br>можно звонить</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">tel:+375291234567</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">tel:+375291234567<mark>p1</mark></h2>
+    </section>
+
+
+    <section class="slide black">
+        <p class="danger">TODO: аккуратный скриншот</p>
+        <img src="./pictures/ios_tel.jpg" alt="" class="place" width="400">
+    </section>
+
+
+    <section class="slide black">
+        <p class="danger">TODO: обрезать скриншот c Android</p>
+        <img src="./pictures/android-tel.jpeg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide" style="background-color: #f6f6f6;">
+        <img src="./pictures/iphone-keypad.jpg" alt="" class="place" height="400">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em; line-height: 1.5em;"><span class="grey">+37529</span>telecom<br>⬇️<br><span class="grey">+37529</span>8353266</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/ietf-tel.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.ietf.org/rfc/rfc3966.txt">The tel URI for Telephone Numbers</a>
+    </section>
+
+
+    <section class="slide">
+        <pre>Compared to RFC 2806, references to carrier selection, dial context,
+fax and modem URIs, post-dial strings, and <mark>pause characters have been
+removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
+        <a class="copyright" href="https://www.ietf.org/rfc/rfc3966.txt">The tel URI for Telephone Numbers</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">tel:+375291234567<mark>,1</mark></h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="danger">Картинка: Стандарты vs Реализация в браузерах</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Из браузера можно отправлять письма</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><mark>mailto:</mark>mefody@yandex-team.ru</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre class="place"><code>mailto:me@mail.zz
+      ?<mark>cc</mark>=a@mail.zz,b@mail.zz
+      &amp;<mark>bcc</mark>=h@mail.zz
+      &amp;<mark>subject</mark>=Big%20News
+      &amp;<mark>body</mark>=Body-goes-here</code></pre>
+        <a class="copyright" href="https://tools.ietf.org/html/rfc6068.html">The 'mailto' URI Scheme</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Из браузера можно открывать приложения</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="danger">Скриншот того, как слак предлагает открыть приложение</h2>
     </section>
 
 
     <section class="slide">
         <h2>deeplink</h2>
-        1. приложение регистрирует свою схему, к которой браузер может обратиться
+        <pre><code>&lt;a href=&quot;slack://open?team=666&quot;&gt;Open in Slack&lt;/a&gt;</code></pre>
     </section>
 
 
@@ -286,7 +480,8 @@
 
 
     <section class="slide">
-        <h2>https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers</h2>
+        <h2>Максимальная длина ссылки</h2>
+        <a class="copyright" href="https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers">What is the maximum length of a URL in different browsers?</a>
     </section>
 
 
