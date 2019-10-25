@@ -28,7 +28,7 @@
         <p style="margin-top: 80px;">
             <a href="https://twitter.com/dark_mefody" >Никита Дубко</a>, разработчик интерфейсов
         </p>
-        Я.Субботник, дата, Москва
+        <p>Я.Субботник, 26 октября 2019, Москва</p>
     </section>
 
 
@@ -48,7 +48,6 @@
 
     <section class="slide clear">
         <h2><span style="color: red;">П</span>оиск — это:</h2>
-        <span class="danger">Анимация квадратиков</span>
         <ul>
             <li class="next">1 инпут;<span style="border: 2px solid green;
                 position: absolute;
@@ -641,12 +640,12 @@ if (win) {
 
 
     <section class="slide">
-        <video src="./pictures/tab-jump.mp4" class="cover width place bottom" autoplay muted controls loop></video>
+        <video src="./pictures/tab-jump.mp4" class="cover width place bottom" autoplay muted loop playsinline></video>
     </section>
 
 
     <section class="slide">
-        <video src="./pictures/grid-broken-tab.mp4" class="cover height" autoplay muted controls loop></video>
+        <video src="./pictures/grid-broken-tab.mp4" class="cover height" autoplay muted loop playsinline></video>
         <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility">CSS Grid Layout and Accessibility</a>
     </section>
 
@@ -721,7 +720,7 @@ if (win) {
 
 
     <section class="slide">
-        <h2>44pt — минимальный размер интерактивного элемента</h2>
+        <h2>44px — минимальный размер интерактивного элемента</h2>
         <img src="./pictures/interactivity-hit-areas.png" alt="" class="place bottom" width="600">
         <a href="https://developer.apple.com/design/tips/" class="copyright">UI Design Do’s and Don’ts</a>
     </section>
@@ -752,7 +751,7 @@ if (win) {
 
 
     <section class="slide">
-        <img src="./pictures/double-tap.gif" alt="" class="cover">
+        <video src="./pictures/double-tap.mp4" muted loop autoplay playsinline class="cover height"></video>
     </section>
 
 
@@ -786,30 +785,55 @@ if (win) {
     <section class="slide">
         <h2>:link</h2>
         <pre><code>a:link {
-    background-color: tomato;
-    color: white;
+    color: orange;
 }</code></pre>
+
+        <div class="next">
+            <b>Пример:</b><br>
+            <a class="link-test">Link without href</a>
+            <br>
+            <a class="link-test" href="./some-another-page.html">Not visited link</a>
+            <br>
+            <a class="link-test" href="./">Visited link</a>
+        </div>
+        <style>
+            .link-test:link {
+                color: orange !important;
+            }
+        </style>
     </section>
 
 
     <section class="slide">
-        <h2>        1. пример несрабатывания при заполненном, но кривом href</h2>
+        <h2>:visited</h2>
+        <pre><code>a:visited {
+    color: darkviolet;
+}</code></pre>
+
+        <div class="next">
+            <b>Пример:</b><br>
+            <a class="visited-test">Link without href</a>
+            <br>
+            <a class="visited-test" href="./some-another-page.html">Not visited link</a>
+            <br>
+            <a class="visited-test" href="./">Visited link</a>
+        </div>
+        <style>
+            .visited-test:visited {
+                color: darkviolet !important;
+            }
+        </style>
     </section>
 
 
     <section class="slide">
-        <h2>    2. :visited</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>        1. другой цвет</h2>
+        <h2 class="shout">Посещённые ссылки — другим цветом</h2>
     </section>
 
 
     <section class="slide">
         <img src="./pictures/click-all-the-links.jpg" alt="" class="cover">
-        <a class="copyright" href="https://medium.com/@ABatickaya/%D1%83%D1%82%D0%B5%D1%80%D1%8F%D0%BD%D0%BD%D0%BE%D0%B5-%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE%D1%81%D0%B5%D1%89%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D1%81%D1%81%D1%8B%D0%BB%D0%BE%D0%BA-33c5fe44a862">TODO</a>
+        <a class="copyright" href="https://medium.com/@ABatickaya/%D1%83%D1%82%D0%B5%D1%80%D1%8F%D0%BD%D0%BD%D0%BE%D0%B5-%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE%D1%81%D0%B5%D1%89%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D1%81%D1%81%D1%8B%D0%BB%D0%BE%D0%BA-33c5fe44a862">Утерянное искусство оформления посещенных ссылок</a>
     </section>
 
 
@@ -819,81 +843,109 @@ if (win) {
 
 
     <section class="slide">
-        <h2>        2. про безопасность https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector </h2>
+        <pre><code>&lt;a class=&quot;hidden fb&quot; href=&quot;https://facebook.com&quot;&gt;&lt;/a&gt;
+&lt;a class=&quot;hidden vk&quot; href=&quot;https://vk.com&quot;&gt;&lt;/a&gt;
+&lt;a class=&quot;hidden shoes&quot; href=&quot;https://shoes.buy&quot;&gt;&lt;/a&gt;</code></pre>
+        <br>
+        <pre class="next"><code>.fb {
+    background-image: url('track-fb-users.gif?uid=123');
+}
+.shoes {
+    background-image: url('track-shop-users.gif?uid=123');
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>            1. https://developer.mozilla.org/en-US/docs/Web/CSS/:visited </h2>
+        <h2>Разрешённые свойства внутри :visited</h2>
+        <ul>
+            <li><code>color</code></li>
+            <li><code>background-color</code></li>
+            <li><code>border-color</code></li>
+            <li><code>column-rule-color</code></li>
+            <li><code>outline-color</code></li>
+            <li>цвета внутри <code>fill</code> и <code>stroke</code></li>
+        </ul>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector" class="copyright">Privacy and the :visited selector</a>
     </section>
 
 
     <section class="slide">
-        <h2>            2. window.getComputedStyle будет врать</h2>
+        <pre><code>&lt;a class=&quot;test&quot; href=&quot;.&quot;&gt;Visited test&lt;/a&gt;</code></pre>
+        <br>
+        <pre class="next"><code>.test { color: red; }
+.test:visited { color: blue; }</code></pre>
+        <br>
+        <pre class="next"><code>var link = document.querySelector('.test');
+window.getComputedStyle(link).color; // rgb(255, 0, 0)</code></pre>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:visited" class="copyright">:visited</a>
     </section>
 
 
     <section class="slide">
-        <h2>            3. с марта 2010 года сохраняется приватность пользователя и защита от fingerprinting</h2>
+        <h2>:hover</h2>
+        <pre><code>a:hover {
+    color: lightsteelblue;
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>    3. :hover</h2>
+        <h2>cursor: pointer</h2>
+        <img src="./pictures/cursor-pointer.jpg" alt="" class="cover" width="300">
+        <a class="copyright" href="https://ilyabirman.ru/meanwhile/all/arrow-and-finger/">Стрелка и пальчик</a>
     </section>
 
 
     <section class="slide">
-        <h2 class="danger">        1. pointer</h2>
-        <img src="./pictures/cursor-pointer.jpg" alt="" class="cover">
-        <a class="copyright" href="https://ilyabirman.ru/meanwhile/all/arrow-and-finger/"></a>
+        <img src="./pictures/yandex_color.jpg" alt="" class="cover place top">
     </section>
 
 
     <section class="slide">
-        <h2>        2. учитывать цветовую слепоту</h2>
+        <video src="./pictures/yandex_blindness.mp4" class="cover place top" autoplay muted playsinline loop></video>
+        <a href="https://chrome.google.com/webstore/detail/colorblinding/dgbgleaofjainknadoffbjkclicbbgaa" class="copyright">Colorblinding</a>
     </section>
 
 
     <section class="slide">
-        <h2>    4. :active</h2>
+        <h2>:active, :focus</h2>
+        <pre><code>.link_theme_normal:active,
+.link_theme_normal:visited:active {
+    color: #d00;
+}
+
+.utilityfocus .link:focus {
+    outline: 2px solid #fc0;
+}</code></pre>
+    </section>
+
+
+    <section class="slide" style="background-color: #efefef;">
+        <video src="./pictures/flying-focus.mp4" class="cover height" autoplay muted controls loop></video>
+        <a href="https://github.com/NV/flying-focus" class="copyright">github.com/NV/flying-focus</a>
     </section>
 
 
     <section class="slide">
-        <h2>    5. :focus</h2>
+        <h2 class="shout">text-decoration: underline</h2>
+    </section>
+
+
+    <section class="slide" style="background-color: #efefef;">
+        <img src="./pictures/underline.jpg" alt="" class="cover">
+        <a href="https://adrianroselli.com/2016/06/on-link-underlines.html" class="copyright">On Link Underlines</a>
     </section>
 
 
     <section class="slide">
-        <h2>        1. https://github.com/NV/flying-focus </h2>
-        <video src="./pictures/flying-focus.mp4" class="cover width place bottom" autoplay muted controls loop></video>
+        <iframe src="./demos/underline.html" frameborder="0" class="cover width height"></iframe>
+        <a href="./demos/underline.html" class="copyright">Underline Demo</a>
     </section>
 
 
     <section class="slide">
-        <h2>15. text-decoration: underline</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    1. https://adrianroselli.com/2016/06/on-link-underlines.html</h2>
-    </section>
-
-
-    <section class="slide">
-        demo: underline
-        <h2>    2. пользователь должен понимать функцию ссылки</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    3. пользователь привык</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>но почему тогда Яндекс не так делает?</h2>
+        <h2 class="shout">У пользователя есть привычки</h2>
     </section>
 
 
@@ -903,33 +955,32 @@ if (win) {
 
 
     <section class="slide">
-        <h2>    4. text-decoration-skip-ink + caniuse</h2>
-        todo: demo skip ink
+        <h2>text-decoration-skip-ink: auto</h2>
+        <iframe src="./demos/skip-ink.html" frameborder="0" class="cover width place" height="300"></iframe>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-skip-ink" class="copyright">text-decoration-skip-ink</a>
     </section>
 
 
     <section class="slide">
-        <h2>    5. text-decoration-color + caniuse</h2>
-        https://caniuse.com/#search=text-decoration-skip-ink
-        <img src="./pictures/caniuse-skip-ink.jpg" alt="" class="cover">
+        <img src="./pictures/caniuse-skip-ink.jpg" alt="" class="place" width="900">
+        <a href="https://caniuse.com/#search=text-decoration-skip-ink" class="copyright">caniuse.com/#search=text-decoration-skip-ink</a>
     </section>
 
 
     <section class="slide">
-        <h2>text-decoration-thickness + text-underline-offset</h2>
         <img src="./pictures/firefox-70.jpg" alt="" class="place">
         <a href="https://hacks.mozilla.org/2019/10/firefox-70-a-bountiful-release-for-all/" class="copyright">Firefox 70 — a bountiful release for all</a>
     </section>
 
 
     <section class="slide">
-        <img src="./pictures/multiline-text.jpg" alt="" class="cover">
-        <h2>16. Подсветка https://css-tricks.com/multi-line-padded-text/ </h2>
+        <h2 class="shout">display: inline</h2>
     </section>
 
 
     <section class="slide">
-        <h2>    1. display: inline</h2>
+        <img src="./pictures/multiline-text.jpg" alt="" class="cover width place top">
+        <a href="https://css-tricks.com/multi-line-padded-text/" class="copyright white">Multi-Line Padded Text</a>
     </section>
 
 
@@ -939,80 +990,141 @@ if (win) {
 
 
     <section class="slide">
-        <h2>17. a внутри a</h2>
-    </section>
-
-
-    <section class="slide">
-        <img src="./pictures/nested-illegal.jpg" alt="" class="cover">
-        <h2>    1. https://www.w3.org/TR/REC-html40/struct/links#idx-link-6 — нельзя по спеке</h2>
-    </section>
-
-
-    <section class="slide">
-        <q>The a element may be wrapped around entire paragraphs, lists, tables, and so forth, even entire sections, so long as there is <mark>no interactive content within (e.g. buttons or other links)</mark>.</q>
-        <h2>    2. https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element — и по новой тоже</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>    3. https://www.kizu.ru/nested-links/ — костыль в виде a > object > a</h2>
-    </section>
-
-
-    <section class="slide">
         <img src="./pictures/kanban-cards.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        <h2>18. a над карточкой https://codepen.io/thierry/full/gvYPbN/</h2>
+        <pre><code><mark>&lt;a href=&quot;https://...&quot;&gt;</mark>
+    &lt;div&gt;
+        &lt;h4&gt;Friends of Photography&lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;h5&gt;Fly with the Monarchs!&lt;/h5&gt;
+        &lt;time datetime=&quot;2018-01-29T13:00:00.000-05:00&quot;&gt;
+            &lt;span&gt;Today&lt;/span&gt;
+            &lt;span&gt;1:00 PM&lt;/span&gt;
+        &lt;/time&gt;
+    &lt;/div&gt;
+<mark>&lt;/a&gt;</mark></code></pre>
+        <a href="https://codepen.io/thierry/full/gvYPbN/" class="copyright">Be nice to screen-reader users</a>
     </section>
 
 
     <section class="slide">
-        <h2>    2. псевдоэлемент-обёртка</h2>
+            <pre><code>&lt;div class="link-wrapper"&gt;
+    &lt;div&gt;
+        &lt;h4&gt;
+            <mark>&lt;a href=&quot;https://...&quot;&gt;Friends of Photography&lt;/a&gt;</mark>
+        &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;h5&gt;Fly with the Monarchs!&lt;/h5&gt;
+        &lt;time datetime=&quot;2018-01-29T13:00:00.000-05:00&quot;&gt;
+            &lt;span&gt;Today&lt;/span&gt;
+            &lt;span&gt;1:00 PM&lt;/span&gt;
+        &lt;/time&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <a href="https://codepen.io/thierry/full/gvYPbN/" class="copyright">Be nice to screen-reader users</a>
     </section>
 
 
     <section class="slide">
-        <h2>    3. доступность лучше</h2>
+        <pre><code>.link-wrapper {
+    position: relative;
+}
+
+.link-wrapper <mark>a::before</mark> {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}</code></pre>
+        <a href="https://codepen.io/thierry/full/gvYPbN/" class="copyright">Be nice to screen-reader users</a>
     </section>
 
 
     <section class="slide">
-        <h2>    4. https://www.sarasoueidan.com/blog/nested-links/ </h2>
+        <h2 class="shout">Ссылка внутри ссылки</h2>
     </section>
 
 
     <section class="slide">
-        <h2>19. кнопка или ссылка?</h2>
+        <img src="./pictures/nested-illegal.jpg" alt="" class="cover">
+        <a href="https://www.w3.org/TR/REC-html40/struct/links#idx-link-6" class="copyright">Nested links are illegal</a>
     </section>
 
 
     <section class="slide">
-        <h2>    1. если навигация — ссылка</h2>
+        <q class="place" style="width: 900px;">The a element may be wrapped around entire paragraphs, lists, tables, and so forth, even entire sections, so long as there is <mark>no interactive content within (e.g. buttons or other links)</mark>.</q>
+        <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element" class="copyright">HTML Standard</a>
     </section>
 
 
     <section class="slide">
-        <h2>    2. всё остальное — кнопка</h2>
+        <pre><code>&lt;a href=&quot;#a&quot;&gt;
+    Foo
+    <mark>&lt;object type=&quot;owo/uwu&quot;&gt;</mark>
+        &lt;a href=&quot;#b&quot;&gt;
+            Bar
+        &lt;/a&gt;
+    <mark>&lt;/object&gt;</mark>
+    Baz
+&lt;/a&gt;</code></pre>
+        <a href="https://www.kizu.ru/nested-links/" class="copyright">Nested Links</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Кнопка или ссылка?</h2>
     </section>
 
 
     <section class="slide">
-        <h2>    3. если JS не загрузился, сделайте ссылку</h2>
+        <h2 class="shout">
+            <span>Если навигация, то ссылка.</span><br>
+            <span class="next">Иначе — кнопка.</span>
+        </h2>
     </section>
 
 
     <section class="slide">
-        <h2>    4. когда загрузился, замените на кнопку https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/ </h2>
+        <pre style="font-size: 0.7em;"><code>(function() {
+    const wannabeButtons = document.querySelectorAll('[data-button]');
+
+    Array.prototype.forEach.call(wannabeButtons, wannabeButton => {
+
+        wannabeButton.outerHTML = `
+            &lt;button data-link=&quot;${wannabeButton.href}&quot;&gt;
+            ${wannabeButton.textContent}
+            &lt;/button&gt;
+        `;
+
+        const btn = document.querySelector('[data-link="' + wannabeButton.href + '"]');
+
+        btn.onclick = () => {
+            console.log('clicked the button');
+        };
+
+    });
+})();</code></pre>
+        <a href="https://justmarkup.com/articles/2019-01-21-the-link-to-button-enhancement/" class="copyright">The link to button enhancement</a>
     </section>
 
 
     <section class="slide">
-        <h2>    5. ссылка внутри кнопки будет работать</h2>
-        demo
+        <pre><code>&lt;button&gt;
+    &lt;a href=&quot;link.html&quot;&gt;Link Text&lt;/a&gt;
+&lt;/button&gt;</code></pre>
+        <iframe src="./demos/button-link.html" frameborder="0" class="cover width height next" height="300"></iframe>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/try-not-to-cry.jpg" alt="" class="place">
     </section>
 
 
@@ -1022,61 +1134,64 @@ if (win) {
 
 
     <section class="slide">
-        <h2>prefetch внутри a</h2>
+        <pre class="place" style="font-size: 1.5em"><code>&lt;a rel=&quot;prefetch&quot; 
+   href=&quot;next.html&quot;&gt;
+   Next Article
+&lt;/a&gt;</code></pre>
     </section>
 
 
     <section class="slide">
         <img src="./pictures/prefetch-unimplemented.jpg" alt="" class="cover">
-        https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types" class="copyright">Link types</a>
     </section>
 
 
     <section class="slide">
         <img src="./pictures/quicklink.png" alt="" class="cover">
-        <h2>    1. https://github.com/GoogleChromeLabs/quicklink</h2>
+        <a href="https://github.com/GoogleChromeLabs/quicklink" class="copyright">github.com/GoogleChromeLabs/quicklink</a>
     </section>
 
 
     <section class="slide">
-        <h2>    2. prefetch внутри link</h2>
-        https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
-    </section>
-
-
-    <section class="slide">
-        <h2>    3. Яндекс не может такое использовать — положим своим трафиком почти любой сайт</h2>
         <img src="./pictures/boom.png" alt="" class="cover">
     </section>
 
 
     <section class="slide title">
-        <h2 class="shout">Как в Яндексе?</h2>
+        <h2 class="shout">Как всё запомнить?</h2>
     </section>
 
 
     <section class="slide">
-        <h2>    1. link-api — способ вставить ссылку у себя</h2>
+        <h2>link-api</h2>
+        <pre><code>blocks['link-api'](context, {
+    url: data.url,
+    text: data.title,
+    theme: 'ghost'
+});</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>    2. <Link> — компонент от Лего, который работает везде одинаково хорошо</h2>
-        </section>
+        <h2>&lt;Link&gt;</h2>
+        <pre><code>&lt;Link
+    url={this.props.linkUrl}
+    onClick={this.handleClick}&gt;
+    {
+        this.props.linkText
+    }
+&lt;/Link&gt;</code></pre>
+    </section>
 
 
     <section class="slide">
-        <h2>    3. мы используем ссылки, чтобы избежать JS: вся логика происходит на сервере, ссылка ведёт на прокси</h2>
+        <h2 class="shout">Прокси для ссылок</h2>
     </section>
 
 
     <section class="slide title">
         <h2 class="shout">Лайфхак</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2 class="shout">Как выделить текст в ссылке?</h2>
     </section>
 
 
@@ -1099,8 +1214,6 @@ if (win) {
     <section class="slide clear" id="final">
         <h2>Спасибо за внимание!</h2>
         <a href="https://mefody.github.io/talks/a/">mefody.github.io/talks/a/</a>
-        <br>
-        ссылка на ссылки
         <br>
         <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
         <br>
