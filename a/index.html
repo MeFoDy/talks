@@ -62,8 +62,18 @@
                 top: 8px;
                 width: 60px;
                 height: 25px;"></span></li>
-            <li class="next">10 ссылок;</li>
-            <li class="next">иногда колдунщики.</li>
+            <li class="next">10 ссылок;<span style="border: 2px solid blue;
+                position: absolute;
+                right: 97px;
+                top: 78px;
+                width: 430px;
+                height: 275px;"></span></li>
+            <li class="next">иногда колдунщики.<span style="border: 2px solid orange;
+                position: absolute;
+                right: 97px;
+                top: 358px;
+                width: 430px;
+                height: 215px;"></span></li>
         </ul>
         <img src="./pictures/serp_2019.jpg" alt="" class="cover place right" style="right: -43%">
     </section>
@@ -109,9 +119,8 @@
 
 
     <section class="slide">
-        <span class="danger">добавить паддинги</span>
         <img src="./pictures/iphone6.png" alt="iPhone" class="place" style="height: 90%; z-index: 1;">
-        <img src="./pictures/www_first_site_iphone_5.jpg" alt="" class="place" style="height: 70%">
+        <img src="./pictures/www_first_site_iphone_5.jpg" alt="" class="place" style="height: 69%">
     </section>
 
 
@@ -299,12 +308,11 @@ waisdoc
 
     <section class="slide">
         <h2>target</h2>
-        <span class="danger">расшифровать</span>
         <ul>
-            <li>_blank</li>
-            <li>_self</li>
-            <li>_parent</li>
-            <li>_top</li>
+            <li><code>_blank</code> — открыть в новой вкладке;</li>
+            <li><code>_self</code> — открыть в текущем контексте;</li>
+            <li><code>_parent</code> — открыть в родительском контексте;</li>
+            <li><code>_top</code> — открыть в верхнем контексте.</li>
         </ul>
 
         <a class="copyright" href="./demos/target.html">Target Demo</a>
@@ -575,7 +583,7 @@ if (win) {
 
 
     <section class="slide">
-        <h2 class="shout">ТИЦ<br>PR</h2>
+        <h2 class="shout" style="line-height: 1.2">ТИЦ<br>PR</h2>
     </section>
 
 
@@ -666,17 +674,17 @@ if (win) {
 
     <section class="slide clear">
         <img src="./pictures/habr_reading_click.jpg" alt="" class="cover width place top">
-        <span class="danger">emoji fear</span>
+        <span class="place top next" style="font-size: 3em; top: 10%">😱</span>
     </section>
 
 
     <section class="slide">
         <div class="place" style="text-align: center; font-size: 1.5em;">
             <p>
-                <a href=""><img src="./pictures/icon-new-tab.svg" alt="" style="height: 1em; margin-right: 0.25em;"> Статья про котиков</a>
+                <a href="#85"><img src="./pictures/icon-new-tab.svg" alt="" style="height: 1em; margin-right: 0.25em;"> Статья про котиков</a>
             </p>
             <p>
-                <a href="">Статья про котиков</a>
+                <a href="#85">Статья про котиков</a>
             </p>
         </div>
     </section>
@@ -713,8 +721,15 @@ if (win) {
 
 
     <section class="slide">
-        44x44
-        <h2>        1. минимум 44х44 область тапа. паддинги https://www.w3.org/WAI/WCAG21/Understanding/target-size.html </h2>
+        <h2>44pt — минимальный размер интерактивного элемента</h2>
+        <img src="./pictures/interactivity-hit-areas.png" alt="" class="place bottom" width="600">
+        <a href="https://developer.apple.com/design/tips/" class="copyright">UI Design Do’s and Don’ts</a>
+    </section>
+
+
+    <section class="slide">
+        <q class="place">Success Criterion 2.5.5 Target Size (Level AAA): The size of the target for pointer inputs is at least 44 by 44 CSS pixels</q>
+        <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html" class="copyright">Understanding Success Criterion 2.5.5: Target Size</a>
     </section>
 
 
@@ -724,37 +739,37 @@ if (win) {
 
 
     <section class="slide">
-        <pre><code>.button2.button2_size_m {
-                line-height: 44px;
-                height: 44px;
-            }</code></pre>
+        <pre class="place"><code>.button2.button2_size_m {
+    line-height: 44px;
+    height: 44px;
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>        2. время срабатывания </h2>
+        <h2 class="shout">⏱ 300ms</h2>
     </section>
 
 
     <section class="slide">
-        <h2>            1. 300ms — для обработки двойного тапа</h2>
+        <img src="./pictures/double-tap.gif" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        <h2>            2. touch-action: manipulation — убирает double tap, оставляет только panning и pinch-zoom</h2>
+        <pre class="place" style="font-size: 1.5em;"><code>touch-action: manipulation</code></pre>
     </section>
 
 
     <section class="slide">
         <img src="./pictures/caniuse-touch-action.jpg" alt="" class="place" width="900">
-        <a class="copyright" href="https://caniuse.com/#feat=css-touch-action">TODO</a>
+        <a class="copyright" href="https://caniuse.com/#feat=css-touch-action">CSS touch-action property</a>
     </section>
 
 
     <section class="slide">
         <img src="./pictures/fastclick.jpg" alt="" class="cover">
-        <a class="copyright" href="https://github.com/ftlabs/fastclick">TODO</a>
+        <a class="copyright" href="https://github.com/ftlabs/fastclick">github.com/ftlabs/fastclick</a>
     </section>
 
 
@@ -764,12 +779,16 @@ if (win) {
 
 
     <section class="slide">
-        <h2>14. псевдоклассы</h2>
+        <h2 class="shout">Псевдоклассы</h2>
     </section>
 
 
     <section class="slide">
-        <h2>    1. :link только для валидного href (а не заполненного)</h2>
+        <h2>:link</h2>
+        <pre><code>a:link {
+    background-color: tomato;
+    color: white;
+}</code></pre>
     </section>
 
 
