@@ -48,6 +48,7 @@
 
     <section class="slide clear">
         <h2><span style="color: red;">П</span>оиск — это:</h2>
+        <span class="danger">Анимация квадратиков</span>
         <ul>
             <li class="next">1 инпут;<span style="border: 2px solid green;
                 position: absolute;
@@ -65,12 +66,6 @@
             <li class="next">иногда колдунщики.</li>
         </ul>
         <img src="./pictures/serp_2019.jpg" alt="" class="cover place right" style="right: -43%">
-    </section>
-
-
-    <section class="slide clear">
-        <img src="./pictures/yandex_1997.png" alt="" class="place top cover width">
-        <a class="copyright" href="https://www.artlebedev.ru/yandex/site/">Первая версия «Яндекса»</a>
     </section>
 
 
@@ -114,6 +109,7 @@
 
 
     <section class="slide">
+        <span class="danger">добавить паддинги</span>
         <img src="./pictures/iphone6.png" alt="iPhone" class="place" style="height: 90%; z-index: 1;">
         <img src="./pictures/www_first_site_iphone_5.jpg" alt="" class="place" style="height: 70%">
     </section>
@@ -395,14 +391,12 @@ waisdoc
 
 
     <section class="slide black">
-        <p class="danger">TODO: аккуратный скриншот</p>
-        <img src="./pictures/ios_tel.jpg" alt="" class="place" width="400">
+        <img src="./pictures/ios_tel.jpg" alt="" class="cover">
     </section>
 
 
-    <section class="slide black">
-        <p class="danger">TODO: обрезать скриншот c Android</p>
-        <img src="./pictures/android-tel.jpeg" alt="" class="cover">
+    <section class="slide">
+        <img src="./pictures/android-tel.jpeg" alt="" class="cover" style="box-shadow: 0 0 30px rgba(0,0,0,0.3);">
     </section>
 
 
@@ -436,7 +430,7 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
 
 
     <section class="slide">
-        <h2 class="danger">Картинка: Стандарты vs Реализация в браузерах</h2>
+        <img src="./pictures/hercules.jpg" alt="" class="cover">
     </section>
 
 
@@ -466,13 +460,13 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
 
 
     <section class="slide">
-        <h2 class="danger">Скриншот того, как слак предлагает открыть приложение</h2>
+        <img src="./pictures/slack-open.jpg" alt="" class="cover width">
     </section>
 
 
     <section class="slide">
         <h2>deeplink</h2>
-        <pre><code>&lt;a href=&quot;slack://open?team=123&quot;&gt;Open in Slack&lt;/a&gt;</code></pre>
+        <pre><code>&lt;a href=&quot;slack://open?team=T12345&quot;&gt;Open in Slack&lt;/a&gt;</code></pre>
     </section>
 
 
@@ -481,16 +475,17 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
         <span class="place next" style="font-size: 3em;">🤷‍♂️</span>
         <a class="copyright" href="https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers">What is the maximum length of a URL in different browsers?</a>
     </section>
-    
+
 
     <section class="slide">
         <img src="./pictures/ie-link-limit.jpg" alt="" class="cover place top">
         <a href="https://support.microsoft.com/ru-ru/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer" class="copyright">Поддержка Internet Explorer</a>
     </section>
-    
 
-    <section class="slide">
-        <h2 class="danger">Шутка про https://death-to-ie11.netlify.com/</h2>
+
+    <section class="slide" style="background-color: #f4f4f6;">
+        <img src="./pictures/death-to-ie.jpg" alt="" class="cover place top">
+        <a class="copyright" href="https://death-to-ie11.netlify.com/">death-to-ie11.netlify.com</a>
     </section>
 
 
@@ -521,7 +516,7 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
 
 
     <section class="slide">
-        <pre class="place" style="font-size: 1.5em;"><code>&lt;base target=&quot;_top&quot; 
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;base target=&quot;_top&quot;
       href=&quot;https://my.blog/articles/&quot;&gt;</code></pre>
     </section>
 
@@ -546,12 +541,12 @@ removed</mark>.  The URI syntax now conforms to RFC 2396 [RFC2396].</pre>
 
 
     <section class="slide">
-        <h2 class="danger">Скриншот отправки заголовка Referer</h2>
+        <img src="./pictures/referer.jpg" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://fakebook.com&quot; 
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://fakebook.com&quot;
    rel=&quot;noreferrer&quot;&gt;</code></pre>
     </section>
 
@@ -565,7 +560,7 @@ window.opener.location = 'https://fakebook.com/page.html';</code></pre>
 
 
     <section class="slide">
-        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://fakebook.com&quot; 
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://fakebook.com&quot;
    rel=&quot;noopener&quot;&gt;</code></pre>
     </section>
 
@@ -585,7 +580,7 @@ if (win) {
 
 
     <section class="slide">
-        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://not-my.site&quot; 
+        <pre class="place" style="font-size: 1.5em;"><code>&lt;a href=&quot;https://not-my.site&quot;
    rel=&quot;nofollow&quot;&gt;</code></pre>
     </section>
 
@@ -616,8 +611,6 @@ if (win) {
 
 
     <section class="slide">
-        <h2 class="danger">Проверить звучание в VoiceOver</h2>
-        <br>
         <span>❌</span>
         <pre><code>перейдите по
 &lt;a href=&quot;/link&quot;&gt;ссылке&lt;/a&gt;</code></pre>
@@ -640,17 +633,13 @@ if (win) {
 
 
     <section class="slide">
-        <h2 class="danger">видео того, что скроллится до нужного места</h2>
+        <video src="./pictures/tab-jump.mp4" class="cover width place bottom" autoplay muted controls loop></video>
     </section>
 
 
     <section class="slide">
-        <h2 class="danger">пример с гридами, где всё прыгает</h2>
-    </section>
-
-
-    <section class="slide">
-        <h2 class="danger">видео с гридами, где всё прыгает</h2>
+        <video src="./pictures/grid-broken-tab.mp4" class="cover height" autoplay muted controls loop></video>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility">CSS Grid Layout and Accessibility</a>
     </section>
 
 
@@ -666,22 +655,49 @@ if (win) {
 
 
     <section class="slide">
-        <h2>targer=_blank</h2>
+        <h2 class="shout">target="_blank"</h2>
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/habr_reading.jpg" alt="" class="cover width place top">
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/habr_reading_click.jpg" alt="" class="cover width place top">
+        <span class="danger">emoji fear</span>
     </section>
 
 
     <section class="slide">
-        <h2>        2. пример с обилием открытых вкладок</h2>
+        <div class="place" style="text-align: center; font-size: 1.5em;">
+            <p>
+                <a href=""><img src="./pictures/icon-new-tab.svg" alt="" style="height: 1em; margin-right: 0.25em;"> Статья про котиков</a>
+            </p>
+            <p>
+                <a href="">Статья про котиков</a>
+            </p>
+        </div>
     </section>
 
 
     <section class="slide">
-        <h2>        3. предупредите через title</h2>
+        <pre class="place"><code>a[href^="http"]:not([href^="https://mysite.com"])::before {
+    content: url('path-to-icon.svg');
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>        4. но для поисковика это вполне хорошо: пользователи чаще всего исследуют несколько ссылок</h2>
+        <pre class="place"><code>a[href^="http"]:not([href^="https://mysite.com"])::after {
+    content: '(откроется в новом окне)';
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Изучайте, как люди пользуются вашим сайтом</h2>
     </section>
 
 
@@ -691,22 +707,27 @@ if (win) {
 
 
     <section class="slide">
-        <h2>Сколько мобильных по сравнению с десктопом</h2>
+        <img src="./pictures/desktop-vs-touch.jpg" alt="" class="cover">
+        <a class="copyright" href="https://radar.yandex.ru/device_categories?chart_type=line2">Типы устройств</a>
     </section>
 
 
     <section class="slide">
+        44x44
         <h2>        1. минимум 44х44 область тапа. паддинги https://www.w3.org/WAI/WCAG21/Understanding/target-size.html </h2>
     </section>
 
 
     <section class="slide">
-        <h2>            1. пример — иконки чатов и звонков</h2>
+        <img src="./pictures/yandex_tap_area.jpg" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        <h2>            2. кнопки в шапке</h2>
+        <pre><code>.button2.button2_size_m {
+                line-height: 44px;
+                height: 44px;
+            }</code></pre>
     </section>
 
 
@@ -726,12 +747,14 @@ if (win) {
 
 
     <section class="slide">
-        <h2>                1. https://caniuse.com/#feat=css-touch-action </h2>
+        <img src="./pictures/caniuse-touch-action.jpg" alt="" class="place" width="900">
+        <a class="copyright" href="https://caniuse.com/#feat=css-touch-action">TODO</a>
     </section>
 
 
     <section class="slide">
-        <h2>            3. https://github.com/ftlabs/fastclick </h2>
+        <img src="./pictures/fastclick.jpg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/ftlabs/fastclick">TODO</a>
     </section>
 
 
@@ -766,7 +789,13 @@ if (win) {
 
 
     <section class="slide">
-        <h2>            1. https://medium.com/@ABatickaya/%D1%83%D1%82%D0%B5%D1%80%D1%8F%D0%BD%D0%BD%D0%BE%D0%B5-%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE%D1%81%D0%B5%D1%89%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D1%81%D1%81%D1%8B%D0%BB%D0%BE%D0%BA-33c5fe44a862</h2>
+        <img src="./pictures/click-all-the-links.jpg" alt="" class="cover">
+        <a class="copyright" href="https://medium.com/@ABatickaya/%D1%83%D1%82%D0%B5%D1%80%D1%8F%D0%BD%D0%BD%D0%BE%D0%B5-%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%BE-%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE%D1%81%D0%B5%D1%89%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D1%81%D1%81%D1%8B%D0%BB%D0%BE%D0%BA-33c5fe44a862">TODO</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/js-evil.jpg" alt="" class="cover">
     </section>
 
 
@@ -796,7 +825,9 @@ if (win) {
 
 
     <section class="slide">
-        <h2>        1. pointer</h2>
+        <h2 class="danger">        1. pointer</h2>
+        <img src="./pictures/cursor-pointer.jpg" alt="" class="cover">
+        <a class="copyright" href="https://ilyabirman.ru/meanwhile/all/arrow-and-finger/"></a>
     </section>
 
 
@@ -817,11 +848,7 @@ if (win) {
 
     <section class="slide">
         <h2>        1. https://github.com/NV/flying-focus </h2>
-    </section>
-
-
-    <section class="slide">
-        <h2>        2. как и везде, порядок ссылок должен быть логичным, не прыгать (привет, гриды и флексы)</h2>
+        <video src="./pictures/flying-focus.mp4" class="cover width place bottom" autoplay muted controls loop></video>
     </section>
 
 
@@ -836,6 +863,7 @@ if (win) {
 
 
     <section class="slide">
+        demo: underline
         <h2>    2. пользователь должен понимать функцию ссылки</h2>
     </section>
 
@@ -851,22 +879,32 @@ if (win) {
 
 
     <section class="slide">
+        <img src="./pictures/oskar_underline.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
         <h2>    4. text-decoration-skip-ink + caniuse</h2>
+        todo: demo skip ink
     </section>
 
 
     <section class="slide">
         <h2>    5. text-decoration-color + caniuse</h2>
+        https://caniuse.com/#search=text-decoration-skip-ink
+        <img src="./pictures/caniuse-skip-ink.jpg" alt="" class="cover">
     </section>
 
 
     <section class="slide">
         <h2>text-decoration-thickness + text-underline-offset</h2>
+        <img src="./pictures/firefox-70.jpg" alt="" class="place">
         <a href="https://hacks.mozilla.org/2019/10/firefox-70-a-bountiful-release-for-all/" class="copyright">Firefox 70 — a bountiful release for all</a>
     </section>
 
 
     <section class="slide">
+        <img src="./pictures/multiline-text.jpg" alt="" class="cover">
         <h2>16. Подсветка https://css-tricks.com/multi-line-padded-text/ </h2>
     </section>
 
@@ -887,11 +925,13 @@ if (win) {
 
 
     <section class="slide">
+        <img src="./pictures/nested-illegal.jpg" alt="" class="cover">
         <h2>    1. https://www.w3.org/TR/REC-html40/struct/links#idx-link-6 — нельзя по спеке</h2>
     </section>
 
 
     <section class="slide">
+        <q>The a element may be wrapped around entire paragraphs, lists, tables, and so forth, even entire sections, so long as there is <mark>no interactive content within (e.g. buttons or other links)</mark>.</q>
         <h2>    2. https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element — и по новой тоже</h2>
     </section>
 
@@ -902,12 +942,12 @@ if (win) {
 
 
     <section class="slide">
-        <h2>18. a над карточкой https://codepen.io/thierry/full/gvYPbN/</h2>
+        <img src="./pictures/kanban-cards.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        <h2>    1. в html4 нельзя было ничего внутрь (уточнить про блочное). в html5 нельзя только интерактивные элементы</h2>
+        <h2>18. a над карточкой https://codepen.io/thierry/full/gvYPbN/</h2>
     </section>
 
 
@@ -953,6 +993,7 @@ if (win) {
 
     <section class="slide">
         <h2>    5. ссылка внутри кнопки будет работать</h2>
+        demo
     </section>
 
 
@@ -962,12 +1003,19 @@ if (win) {
 
 
     <section class="slide">
-        <h2>    1. https://github.com/GoogleChromeLabs/quicklink</h2>
+        <h2>prefetch внутри a</h2>
     </section>
 
 
     <section class="slide">
-        <h2>prefetch внутри a не имплементирован (см. выше)</h2>
+        <img src="./pictures/prefetch-unimplemented.jpg" alt="" class="cover">
+        https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/quicklink.png" alt="" class="cover">
+        <h2>    1. https://github.com/GoogleChromeLabs/quicklink</h2>
     </section>
 
 
@@ -979,6 +1027,7 @@ if (win) {
 
     <section class="slide">
         <h2>    3. Яндекс не может такое использовать — положим своим трафиком почти любой сайт</h2>
+        <img src="./pictures/boom.png" alt="" class="cover">
     </section>
 
 
@@ -1008,18 +1057,23 @@ if (win) {
 
 
     <section class="slide">
-        <h2>Как выделить текст в ссылке?</h2>
-        <kbd class="place next" style="font-size: 3em;">⎇ Alt</kbd>
+        <h2 class="shout">Как выделить текст в ссылке?</h2>
     </section>
 
 
     <section class="slide">
-        <h2 class="danger">видео мучений</h2>
+        <video src="./pictures/select-the-link.mp4" class="cover width" autoplay muted controls loop></video>
     </section>
 
 
     <section class="slide">
-        <h2 class="danger">видео счастья</h2>
+        <kbd class="place" style="font-size: 3em;">⎇ Alt</kbd>
+    </section>
+
+
+    <section class="slide">
+        <video src="./pictures/select-the-link-success.mp4" class="cover width" autoplay muted controls loop></video>
+        <kbd class="place" style="font-size: 3em;">⎇ Alt</kbd>
     </section>
 
 
