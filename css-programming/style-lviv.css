@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'Manrope';
+    src: local('Manrope Bold'), local('Manrope-Bold'),
+        url('Manrope-Bold.woff2') format('woff2'),
+        url('Manrope-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: local('Manrope Regular'), local('Manrope-Regular'),
+        url('Manrope-Regular.woff2') format('woff2'),
+        url('Manrope-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: local('Manrope Thin'), local('Manrope-Thin'),
+        url('Manrope-Thin.woff2') format('woff2'),
+        url('Manrope-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+
+.shower {
+    font-family: 'Manrope', 'PT Sans', sans-serif;
+    line-height: 1.6;
+    --color-blue: var(--color-violet-lviv);
+}
+
+.slide h2, .caption h1 {
+    font-family: 'Manrope', 'PT Sans Narrow', sans-serif;
+    font-weight: bold;
+}
+
+.caption {
+    color: white;
+}
+
+.caption a {
+    color: #b5c4ff;
+}
+
+.slide h2 {
+    color: #222;
+}
+
+.shower.list {
+    background: var(--color-violet-lviv);
+}
+
+.shower.list .slide.active {
+    box-shadow: 0 0 0 1px #00166e, 0 0 0 20px #4b60b4, 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+
+:root {
+    --color-violet-lviv: #4A148C;
+    --color-blue-lviv: #116D9E;
+
+    --color-inactive: #ddd;
+    --color-active: orange;
+    --color-checked: lightsteelblue;
+
+    --nd-render-parse-color: #fff;
+    --nd-render-dom-color: #fff;
+    --nd-render-cascade-color: #fff;
+    --nd-render-layout-color: #fff;
+    --nd-render-paint-color: #fff;
+    --nd-render-composite-color: #fff;
+}
+
+.render-block {
+    width: 100%;
+}
+
+.shower {
+    line-height: 1.6;
+}
+
+.slide .shout {
+    font-size: 2.5em;
+    line-height: 1.1;
+}
+
+.slide .shout a {
+    background-image: linear-gradient( to top, rgba(98, 21, 242, 0.4) 0.06em, transparent 0.06em );
+    line-height: 1.4;
+}
+
+
+.slide s {
+    text-decoration: none;
+    position: relative;
+}
+
+.slide s::after {
+    content: '';
+    display: block;
+    background-color: red;
+    width: 110%;
+    height: 0.1em;
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: rotate(-7deg);
+}
+
+.slide::after {
+    height: auto;
+    width: calc(var(--ribbon-size) * 1.5);
+    background-color: var(--color-violet-lviv);
+    color: white;
+    background-image: none;
+    margin-top: 1em;
+    padding-right: 0.5em;
+    padding-top: 0;
+    left: auto;
+    right: 0;
+}
+
+.slide h2.white {
+    color: white;
+}
+
+
+.slide .css-points li.selected {
+    color: darkred;
+    font-weight: bold;
+}
+
+.slide pre code {
+    line-height: 1.4;
+    font-size: 0.9em;
+}
+
+.slide.title {
+    background-color: var(--color-violet-lviv);
+}
+
+.slide.title h2 {
+    color: white;
+}
+
+.slide.title .subtitle {
+    font-size: 0.5em;
+    color: rgba(255,255,255, 0.7);
+}
+
+.slide h2.label {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    background-color: white;
+    padding: 0.3em 0.5em;
+    box-shadow: 3px 3px 20px rgba(0,0,0,0.4);
+    font-weight: bold;
+}
+
+.slide.wikipedia {
+    background-image: url(./pictures/wikipedia-logo-v2.svg);
+    background-position: right 5% bottom 5%;
+    background-repeat: no-repeat;
+    background-size: 130px;
+}
+
+.badge a {
+    background-color: white;
+    color: var(--color-violet-lviv);
+    font-size: 0.8em;
+}
+
+.slide img.shadow {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
