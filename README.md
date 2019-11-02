@@ -34,6 +34,8 @@
 * Krasnodar Dev Conf 2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/)
 * Стачка 2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/stachka.html)
 * FrontendConf 2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/fc.html)
+* Юбилейный Я.Субботник 2019 в Москве — [\<a\>](https://mefody.github.io/talks/a/)
+* LvivCSS'2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/lviv.html)
 
 # Lectures
 

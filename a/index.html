@@ -846,10 +846,10 @@ if (win) {
 &lt;a class=&quot;hidden vk&quot; href=&quot;https://vk.com&quot;&gt;&lt;/a&gt;
 &lt;a class=&quot;hidden shoes&quot; href=&quot;https://shoes.buy&quot;&gt;&lt;/a&gt;</code></pre>
         <br>
-        <pre class="next"><code>.fb {
+        <pre class="next"><code>.fb<mark>:visited</mark> {
     background-image: url('track-fb-users.gif?uid=123');
 }
-.shoes {
+.shoes<mark>:visited</mark> {
     background-image: url('track-shop-users.gif?uid=123');
 }</code></pre>
     </section>
@@ -1133,7 +1133,7 @@ window.getComputedStyle(link).color; // rgb(255, 0, 0)</code></pre>
 
 
     <section class="slide">
-        <pre class="place" style="font-size: 1.5em"><code>&lt;a rel=&quot;prefetch&quot; 
+        <pre class="place" style="font-size: 1.5em"><code>&lt;a rel=&quot;prefetch&quot;
    href=&quot;next.html&quot;&gt;
    Next Article
 &lt;/a&gt;</code></pre>
