@@ -36,7 +36,11 @@
 * FrontendConf 2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/fc.html) ([видео](https://youtu.be/2UIwHWQeJBs))
 * Юбилейный Я.Субботник 2019 в Москве — [\<a\>](https://mefody.github.io/talks/a/) ([видео](https://youtu.be/CKbOHn1lJWw?t=13808))
 * LvivCSS'2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/lviv.html)
-* Web Standards Days 2019 in Minsk — [\<a\>](https://mefody.github.io/talks/a/wsd.html)
+* Web Standards Days 2019 in Minsk — [\<a\>](https://mefody.github.io/talks/a/wsd.html) ([видео](https://youtu.be/_UmMLsIeK9k))
+* Web Standards Days 2019 in Minsk — [Как изменился веб за 10 лет — Юлия Бухвалова, Вадим Макеев, Анна Селезнёва, Никита Дубко] ([видео](https://youtu.be/8MxhLXJi410))
+
+## 2020
+* Storm The Front Meetup 7 in Homel — [«Анимации в вебе»](https://mefody.github.io/talks/web-animations/)
 
 # Lectures
 
@@ -53,4 +57,5 @@
 * Веб-стандарты — [Выпуск №189. MathML, ленивые картинки, CSS-модули, БЭМ или CSS-in-JS, приватность, CSS-Minsk-JS](https://medium.com/web-standards/episode-189-8390bf90f2a7)
 * Frontend Weekend — [Remote #1 – Никита Дубко (конференции, синдром самозванца, подготовка докладов)](https://soundcloud.com/frontend-weekend/fwr-1)
 * Девшахта — [#95: Зачем проводить конференцию на английском языке](https://medium.com/devschacht/devschacht-95-fb973bfab049)
-* Pro Conf — [#38 Holy.js: Piter 2019 | CI/CD | Opensource это круто | A11y accessibility много не бывает](https://youtu.be/CKbOHn1lJWw?t=13808)
+* Pro Conf — [#38 Holy.js: Piter 2019 / CI/CD / Opensource это круто / A11y accessibility много не бывает](https://youtu.be/CKbOHn1lJWw?t=13808)
+* Веб-стандарты — [Выпуск №207. 10 лет фронтенда, Firefox 71, WASM, YouTube, селект, экономия трафика в CSS, реклама, WSD всё](https://medium.com/web-standards/episode-207-c46d43f1bf08)

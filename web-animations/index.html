@@ -23,21 +23,36 @@
 
 
     <section class="slide clear" id="cover" style="background: #fcf8f5">
-        <h2 style="font-size: 3em; color: gray">Анимации в вебе</h2>
-        <p style="margin-top: 40%">
-            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>
+        <h2 style="font-size: 2.5em; color: var(--yandex-yellow);text-shadow: 1px 1px 4px black, 1px 1px 6px black; font-weight: 700;">Анимации в вебе</h2>
+        <p style="margin-top: 40%; color: white">
+            <a href="https://twitter.com/dark_mefody" style="color: var(--yandex-yellow)">Никита Дубко</a>, Яндекс
         </p>
         <img src="./pictures/mickey.jpg" alt="" class="cover place bottom right">
     </section>
 
 
     <section class="slide">
-        <h2>Анима́ция</h2>
-        <blockquote>от фр. animation «оживление; одушевление»</blockquote>
+        <div style="margin-left: 310px;">
+            <h2>Кто я?</h2>
+            <ul>
+                <li>доброжелюбный бородач</li>
+                <li>пятый голос подкаста «Веб-стандарты»</li>
+                <li>редактор ленты новостей по фронтенду</li>
+                <li>разработчик интерфейсов в <span style="color: red;">Я</span>ндекс.Поиске</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita-fc-2019.jpg" alt="" class="place left cover height">
     </section>
 
 
     <section class="slide">
+        <h2>Анима́ция</h2>
+        <blockquote>от фр. animation «оживление; одушевление»</blockquote>
+        <img src="./pictures/frankenstain.png" alt="" class="place bottom right next" width="250">
+    </section>
+
+
+    <section class="slide title">
         <h2 class="shout">Зачем нужны анимации?</h2>
     </section>
 
@@ -74,7 +89,7 @@
             <li>Motion UI</li>
             <li>и т. д.</li>
         </ul>
-        <a href="https://css-tricks.com/css-animation-libraries/" class="copyright">css-tricks.com/css-animation-libraries/</a>
+        <a href="https://css-tricks.com/css-animation-libraries/" class="copyright">CSS Animation Libraries</a>
     </section>
 
 
@@ -84,7 +99,7 @@
     </section>
 
 
-    <section class="slide">
+    <section class="slide title">
         <h2 class="shout">Как делать анимации производительными?</h2>
     </section>
 
@@ -228,12 +243,12 @@
 
     <section class="slide">
         <img src="./pictures/gpu-doing-right.jpg" alt="" class="cover place top width">
-        <a href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/" class="copyright">smashingmagazine.com/2016/12/gpu-animation-doing-it-right</a>
+        <a href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/" class="copyright">CSS GPU Animation: Doing It Right</a>
     </section>
 
 
     <section class="slide">
-        <h2 class="shout">Это не часть спецификации! 🙅‍♂️</h2>
+        <h2 class="shout">Это не часть<br>спецификации!<br>🙅‍♂️</h2>
     </section>
 
 
@@ -262,9 +277,9 @@ V(WillChangeTransform)                                                      \</c
     <section class="slide">
         <h2>Плюсы выноса на GPU 🙂</h2>
         <ul>
-            <li>быстрые анимации;</li>
-            <li>3D-трансформации на сдачу;</li>
-            <li>не блокируется JavaScript-ом.</li>
+            <li class="next">быстрые анимации;</li>
+            <li class="next">3D-трансформации на сдачу;</li>
+            <li class="next">не блокируется JavaScript-ом.</li>
         </ul>
     </section>
 
@@ -272,10 +287,10 @@ V(WillChangeTransform)                                                      \</c
     <section class="slide">
         <h2>Минусы выноса на GPU 🙁</h2>
         <ul>
-            <li>перед выносом — Repaint;</li>
-            <li>слои нужно передать на GPU;</li>
-            <li>съедает видеопамять;</li>
-            <li>визуальные артефакты.</li>
+            <li class="next">перед выносом — Repaint;</li>
+            <li class="next">слои нужно передать на GPU;</li>
+            <li class="next">съедает видеопамять;</li>
+            <li class="next">визуальные артефакты.</li>
         </ul>
     </section>
 
@@ -290,25 +305,30 @@ V(WillChangeTransform)                                                      \</c
     </section>
 
 
+    <section class="slide">
+        <img src="./pictures/iphone6.png" alt="iPhone" class="place" style="height: 100%; z-index: 1;">
+        <video src="./pictures/scroll-touch.mp4" loop muted autoplay class="place" style="height: 97%;"></video>
+        <img src="./pictures/mr-been.jpeg" alt="Чегооо?" class="place bottom left next" style="height: 60%">
+    </section>
+
+
 
     <section class="slide">
-        <div>
-            <h2>Containing block</h2>
-            <ul style="font-size: 0.9em">
-                <li>для <code>position: absolute</code> формируется по краям padding box
-                    ближайшего родителя, у которого <code>position</code> не <code>static</code>;</li>
-                <li>для <code>position: absolute</code> или <code>position: fixed</code>
-                    также может формироваться по краям padding box ближайшего родителя, у которого: <ul>
-                        <li><code>transform</code> не равен <code>none</code>;</li>
-                        <li><code>perspective</code> не равен <code>none</code>;</li>
-                        <li><code>will-change: transform</code> или <code>will-change: perspective</code>;</li>
-                        <li><code>filter</code> не равен <code>none</code>;</li>
-                        <li><code>contain</code> равен <code>paint</code>.</li>
-                    </ul>
-                </li>
-            </ul>
-            <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">developer.mozilla.org/en-US/docs/Web/CSS/Containing_block</a>
-        </div>
+        <h2>Containing block</h2>
+        <ul style="font-size: 0.9em">
+            <li>для <code>position: absolute</code> формируется по краям padding box
+                ближайшего родителя, у которого <code>position</code> не <code>static</code>;</li>
+            <li>для <code>position: absolute</code> или <code>position: fixed</code>
+                также может формироваться по краям padding box ближайшего родителя, у которого: <ul>
+                    <li><code>transform</code> не равен <code>none</code>;</li>
+                    <li><code>perspective</code> не равен <code>none</code>;</li>
+                    <li><code>will-change: transform</code> или <code>will-change: perspective</code>;</li>
+                    <li><code>filter</code> не равен <code>none</code>;</li>
+                    <li><code>contain</code> равен <code>paint</code>.</li>
+                </ul>
+            </li>
+        </ul>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">developer.mozilla.org/en-US/docs/Web/CSS/Containing_block</a>
     </section>
 
 
@@ -329,13 +349,30 @@ V(WillChangeTransform)                                                      \</c
     </section>
 
 
+    <section class="slide" style="background: #fafafa;">
+        <img src="./pictures/matrix-execution.jpg" alt="" class="cover">
+        <a href="https://developers.google.com/web/updates/2019/08/get-started-with-gpu-compute-on-the-web" class="copyright">Get started with GPU Compute on the Web</a>
+    </section>
+
+
     <section class="slide">
-        <h2 class="shout">👨🏻‍🔬 contain:<br>size  layout  style  paint</h2>
+        <h2 class="shout">👨🏻‍🔬 contain:<br>layout  size  paint</h2>
         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/contain" class="copyright">developer.mozilla.org/en-US/docs/Web/CSS/contain</a>
     </section>
 
 
     <section class="slide">
+        <img src="./pictures/helping-browsers-optimize.jpg" alt="" class="cover">
+        <a href="https://www.smashingmagazine.com/2019/12/browsers-containment-css-contain-property/" class="copyright">Helping Browsers Optimize With The CSS Contain Property</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/css-contain-caniuse.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide title">
         <h2 class="shout">Как исследовать? 🔍</h2>
     </section>
 
@@ -385,6 +422,11 @@ V(WillChangeTransform)                                                      \</c
     </section>
 
 
+    <section class="slide title">
+        <h2 class="shout">Чем анимировать?</h2>
+    </section>
+
+
     <section class="slide">
         <h2>animation</h2>
         <ul style="font-size: 0.9em;">
@@ -422,6 +464,18 @@ V(WillChangeTransform)                                                      \</c
 
 
     <section class="slide">
+        <h2 class="shout">transition: <mark>all</mark> ease 0.2s;</h2>
+        <div class="place top next" style="font-size: 120px; top: 15%">❌</div>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">transition: <mark>color</mark> ease 0.2s;</h2>
+        <div class="place top" style="font-size: 120px; top: 15%">✅</div>
+    </section>
+
+
+    <section class="slide">
         <h2 class="shout">🔥</h2>
         <a class="place bottom" style="bottom: 60px;" href="./demos/demo_stargate.html">demo</a>
     </section>
@@ -429,7 +483,7 @@ V(WillChangeTransform)                                                      \</c
 
     <section class="slide">
         <pre><code style="font-size: 0.9em;">@media screen and
-(prefers-reduced-motion: reduce), 
+(prefers-reduced-motion: reduce),
 (update: slow) {
     * {
         animation-duration: 0.001ms !important;
@@ -475,11 +529,11 @@ element.animate([
 
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em">CSS Animation Worklet API 🔮</h2>
+        <h2 class="shout" style="font-size: 3em">CSS Animation Worklet API<br>🔮</h2>
     </section>
 
 
-   
+
 	<section class="slide">
         <pre><code class="hljs javascript" style="font-size: 0.8em">// animator.js
 registerAnimator(
@@ -556,8 +610,8 @@ new WorkletAnimation(
             <a href="https://animation-worklet-article.glitch.me/scroller.html">scroller</a>
         </h2>
     </section>
-    
-    
+
+
     <section class="slide">
         <h2 class="shout">
             <a href="http://ishoudinireadyyet.com">Is Houdini ready yet‽</a>
@@ -566,13 +620,13 @@ new WorkletAnimation(
 
 
     <section class="slide">
-        <img src="./pictures/ishoudinireadyyet.jpg" alt="" class="cover">
+        <img src="./pictures/ishoudinireadyyet.jpg" alt="" class="cover" height="500">
     </section>
 
 
     <section class="slide">
         <h2>SVG-анимации</h2>
-        <pre><code>&lt;animateMotion 
+        <pre><code>&lt;animateMotion
     xlink:href=&quot;#circle&quot;
     dur=&quot;1s&quot;
     begin=&quot;click&quot;
@@ -600,6 +654,13 @@ new WorkletAnimation(
 
 
     <section class="slide">
+        <h2>stroke-dashoffset</h2>
+        <video src="./pictures/sign-animation.mp4" loop muted autoplay class="cover"></video>
+        <a href="http://odinokun.com/2020-01-14-kak-animirovat-svg-podpis.html" class="copyright">Как анимировать SVG подпись</a>
+    </section>
+
+
+    <section class="slide clear">
         <iframe src="./demos/demo_lisa.html" frameborder="0" class="cover width height"></iframe>
     </section>
 
@@ -614,7 +675,7 @@ function draw(time) {
     const h = canvas.height;
     ctx.fillStyle = '#111';
     ctx.fillRect(0, 0, w, h);
-    
+
     requestAnimationFrame(draw);
 }
 requestAnimationFrame(draw);</code></pre>
@@ -624,11 +685,11 @@ requestAnimationFrame(draw);</code></pre>
     <section class="slide">
         <h2>requestAnimationFrame</h2>
         <ul>
-            <li>в идеале должен быть один;</li>
-            <li>должен укладываться в 16 мс;</li>
-            <li>внутри можно поместить очередь микротасков;</li>
-            <li>должен вызывать сам себя, если нужна постоянная обработка;</li>
-            <li>может не вызываться, если уйти из вкладки. ⚠️</li>
+            <li class="next">в идеале должен быть один;</li>
+            <li class="next">должен укладываться в 16 мс;</li>
+            <li class="next">внутри можно поместить очередь микротасков;</li>
+            <li class="next">должен вызывать сам себя, если нужна постоянная обработка;</li>
+            <li class="next">может не вызываться, если уйти из вкладки. ⚠️</li>
         </ul>
     </section>
 
@@ -641,7 +702,7 @@ requestAnimationFrame(draw);</code></pre>
 
 
     <section class="slide">
-        <img src="./pictures/super-mario.png" alt="" class="cover">
+        <img src="./pictures/super-mario.jpg" alt="" class="cover">
         <a href="https://www.youtube.com/watch?v=g-FpDQ8Eqw8&list=PLS8HfBXv9ZWWe8zXrViYbIM2Hhylx8DZx" class="copyright">Super Mario Bros in JavaScript</a>
     </section>
 
@@ -709,7 +770,7 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 
     <section class="slide">
-        <h2>Ограничения контекста для Paint Worklet</h2>
+        <h2>Ограничения Paint Worklet</h2>
         <ul>
             <li class="next">Нельзя полагаться на global scope.</li>
             <li class="next">Только 2D context.</li>
@@ -723,6 +784,11 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 	<section class="slide">
         <h2 class="no-bg shout shout-mini">
             <img src="pictures/chrome-logo.svg" height="55" alt=""> Chrome 65+</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/caniuse-paint-api.jpg" alt="" class="cover">
     </section>
 
 
@@ -759,11 +825,53 @@ CSS.paintWorklet.addModule('my-paint.js');</code></pre>
 
 
     <section class="slide">
+        <img src="./pictures/gsap-logo.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/animate-with-greensock.jpg" alt="" class="cover width">
+        <a href="https://css-tricks.com/how-to-animate-on-the-web-with-greensock/" class="copyright white">How to Animate on the Web With GreenSock</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Альтернативные способы</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">GIF</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><s>GIF</s></h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/fly-from-elephant.jpg" alt="" class="cover">
+        <a href="https://www.youtube.com/watch?v=Gq1pXTFO3-M" class="copyright white">Делайте из слона муху / Вадим Макеев</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Быстрая смена JPG 🙈</h2>
+    </section>
+
+
+    <section class="slide">
         <h2 class="shout">Видео 😁</h2>
     </section>
 
 
     <section class="slide">
+        <h2 class="shout">WebM 🎭</h2>
+    </section>
+
+
+    <section class="slide title">
         <h2 class="shout">Как ускориться? 🚀</h2>
     </section>
 
@@ -847,27 +955,82 @@ requestAnimationFrame(frame);</code></pre>
     <section class="slide">
         <h2>will-change</h2>
         <ul>
-            <li>принимает параметры через запятую:<br><code>will-change: top, left, bottom, right;</code></li>
-            <li>добавляйте с умом;</li>
-            <li>подключайте заранее;</li>
-            <li>убирайте после использования.</li>
+            <li class="next">принимает параметры через запятую:<br><code>will-change: top, left, bottom, right;</code></li>
+            <li class="next">добавляйте с умом;</li>
+            <li class="next">подключайте заранее;</li>
+            <li class="next">убирайте после использования.</li>
         </ul>
         <a href="https://dev.opera.com/articles/css-will-change-property/" class="copyright">Everything You Need to Know About the CSS will-change Property</a>
     </section>
 
 
-    <section class="slide">
-        <pre><code>.element {
+    <section class="slide will-change-demo">
+        <pre><code>.child {
     transition: opacity .3s linear;
 }
 
-.ancestor:hover .element {
+.parent:hover .child {
     will-change: opacity;
 }
 
-.element:hover {
+.child:hover {
     opacity: .5;
 }</code></pre>
+        <div class="demo">
+            <div class="parent">
+                <div class="child"></div>
+            </div>
+        </div>
+
+        <style>
+            .will-change-demo .demo {
+                position: absolute;
+                right: 40px;
+                bottom: 50px;
+            }
+
+            .will-change-demo .demo .parent {
+                display: block;
+                width: 300px;
+                height: 300px;
+                background: lightblue;
+                padding: 1px 10px;
+                box-sizing: border-box;
+                border: 3px solid lightblue;
+                position: relative;
+            }
+
+            .will-change-demo .demo .parent:hover {
+                background: lightseagreen;
+                border-color: green;
+            }
+
+            .will-change-demo .demo .parent::before {
+                content: 'parent';
+            }
+
+            .will-change-demo .demo .child {
+                display: block;
+                width: 200px;
+                height: 200px;
+                background: lightcoral;
+                position: absolute;
+                left: 50px;
+                top: 50px;
+                padding: 3px 10px;
+                box-sizing: border-box;
+                border: 3px solid lightcoral;
+            }
+
+            .will-change-demo .demo .child:hover {
+                background: var(--yandex-red);
+                border-color: darkred;
+            }
+
+            .will-change-demo .demo .child::before {
+                content: 'child';
+            }
+        </style>
     </section>
 
 
