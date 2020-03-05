@@ -72,6 +72,10 @@
 
 .slide .shout {
     font-size: 3em;
+    line-height: 1.3;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .slide s, .slide .strike {
