@@ -1,7 +1,14 @@
 :root {
     --color-inactive: #ddd;
-    --color-active: orange;
-    --color-checked: lightsteelblue;
+    --color-active: var(--yandex-green);
+    --color-checked: var(--yandex-yellow);
+
+    --nd-render-parse-color: var(--color-inactive);
+    --nd-render-dom-color: var(--color-inactive);
+    --nd-render-cascade-color: var(--color-inactive);
+    --nd-render-layout-color: var(--color-inactive);
+    --nd-render-paint-color: var(--color-inactive);
+    --nd-render-composite-color: var(--color-inactive);
 }
 
 @font-face {
@@ -139,6 +146,7 @@
     --yandex-yellow: #FFCC00;
     --yandex-blue: #0077FF;
     --yandex-red: #FF3333;
+    --yandex-green: #33CC33;
 }
 
 .shower {
@@ -194,4 +202,8 @@
 
 .slide .title-with-number {
     top: 40%;
+}
+
+.render-block {
+    width: 80%;
 }
