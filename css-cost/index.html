@@ -225,11 +225,6 @@
 
 
     <section class="slide">
-        <h2>замеры на плохих условиях — точнее</h2>
-    </section>
-
-
-    <section class="slide">
         <h2 class="shout">RUM</h2>
         <a href="https://levelup.gitconnected.com/improve-your-websites-performance-with-real-user-monitoring-e84948f71313"
             class="copyright">Improve your Website’s Performance with Real User Monitoring</a>
@@ -366,9 +361,9 @@
 
     <section class="slide">
         <h2 class="shout">
-            images.yandex.ru<br>
+            static.mysite.zz<br>
             <span style="color: var(--yandex-yellow)">⬇</span><br>
-            yandex.ru/images
+            mysite.zz/static
         </h2>
         <a href="https://twitter.com/jsunderhood/status/1243447428918976512"
             class="copyright">https://twitter.com/jsunderhood/status/1243447428918976512</a>
@@ -445,10 +440,10 @@
     <section class="slide">
         <h2>Как ускориться?</h2>
         <ul>
-            <li class="next">Пересадить пользователя ближе к серверам 🤔</li>
-            <li class="next">Отказаться от HTTPS (на самом деле нет) ❌</li>
-            <li class="next">OCSP Stapling ✅</li>
-            <li class="next">Перенести сервера ближе к пользователю ✅</li>
+            <li>Пересадить пользователя ближе к серверам 🤔</li>
+            <li>Отказаться от HTTPS (на самом деле нет) ❌</li>
+            <li>OCSP Stapling ✅</li>
+            <li>Перенести сервера ближе к пользователю ✅</li>
         </ul>
     </section>
 
@@ -653,7 +648,7 @@
         <ul>
             <li>gzip</li>
             <li>brotli</li>
-            <li>zopfli</li>
+            <li>gzip + zopfli</li>
         </ul>
     </section>
 
@@ -725,7 +720,7 @@
     </section>
 
     <section class="slide">
-        <img src="./images/bem-logo.png" alt="" class="place">
+        <img src="./images/bem-logo.png" alt="" class="place" style="height: 50%">
         <a href="https://ru.bem.info/" class="copyright">БЭМ</a>
     </section>
 
@@ -860,7 +855,42 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">AtomicCSS 🤭</h2>
+        <h2 class="shout">Atomic CSS 🤭</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre>
+            <code>&lt;div class=&quot;Row Bgc(#0280ae) C(#fff)&quot;&gt;
+    &lt;div class=&quot;Fl(start) W(300px) Ta(c) P(10px)&quot;&gt;
+        Box-1
+    &lt;/div&gt;
+    &lt;div class=&quot;Fl(end) W(300px) Ta(c) P(10px)&quot;&gt;
+        Box-2
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+        </pre>
+        <a href="https://acss.io/" class="copyright">Atomic CSS</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Tailwind CSS</h2>
+        <a href="https://tailwindcss.com/" class="copyright">tailwindcss.com</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;div class=&quot;md:flex bg-white rounded-lg p-6&quot;&gt;
+    &lt;img class=&quot;h-16 w-16 rounded-full&quot; src=&quot;avatar.jpg&quot;&gt;
+    &lt;div class=&quot;text-center md:text-left&quot;&gt;
+    &lt;h2 class=&quot;text-lg&quot;&gt;Erin Lindford&lt;/h2&gt;
+    &lt;div class=&quot;text-purple-500&quot;&gt;Customer Support&lt;/div&gt;
+    &lt;div class=&quot;text-gray-600&quot;&gt;erinlindford@example.com&lt;/div&gt;
+    &lt;div class=&quot;text-gray-600&quot;&gt;(555) 765-4321&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <a href="https://tailwindcss.com/" class="copyright">tailwindcss.com</a>
     </section>
 
 
@@ -1279,8 +1309,8 @@ V(WillChangeBackdropFilter)                                                 \
     </section>
 
 
-    <section class="slide">
-        <iframe src="https://www.youtube.com/embed/xzFb_sy_ZUc" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen class="cover width height"></iframe>
+    <section class="slide black">
+        <video src="./images/yandex-android-prerender.mp4" loop autoplay muted playsinline class="cover height"></video>
         <a href="https://habr.com/ru/company/yandex/blog/455427/" class="copyright">Как мы научились предсказывать запрос пользователя и ускорили загрузку поисковой выдачи</a>
     </section>
 
