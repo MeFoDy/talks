@@ -43,6 +43,7 @@
 * Storm The Front Meetup 7 in Homel — [«Анимации в вебе»](https://mefody.github.io/talks/web-animations/)
 * Школа Лидер 2020 — [«Из уст в сердечко»](https://mefody.github.io/talks/from-talk-to-heart/)
 * MinskCSS Meetup #8 — [«Трогательная вёрстка»](https://mefody.github.io/talks/css-for-touch/)
+* Я.Субботник по разработке интерфейсов — [«Дорогая цена стилей»](https://mefody.github.io/talks/css-cost/) ([видео](https://youtu.be/sk5BIHvtCt8?t=8087))
 
 # Lectures
 
