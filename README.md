@@ -37,13 +37,13 @@
 * Юбилейный Я.Субботник 2019 в Москве — [\<a\>](https://mefody.github.io/talks/a/) ([видео](https://youtu.be/CKbOHn1lJWw?t=13808))
 * LvivCSS'2019 — [«CSS — язык программирования»](https://mefody.github.io/talks/css-programming/lviv.html)
 * Web Standards Days 2019 in Minsk — [\<a\>](https://mefody.github.io/talks/a/wsd.html) ([видео](https://youtu.be/_UmMLsIeK9k))
-* Web Standards Days 2019 in Minsk — [Как изменился веб за 10 лет — Юлия Бухвалова, Вадим Макеев, Анна Селезнёва, Никита Дубко] ([видео](https://youtu.be/8MxhLXJi410))
+* Web Standards Days 2019 in Minsk — Как изменился веб за 10 лет — Юлия Бухвалова, Вадим Макеев, Анна Селезнёва, Никита Дубко ([видео](https://youtu.be/8MxhLXJi410))
 
 ## 2020
-* Storm The Front Meetup 7 in Homel — [«Анимации в вебе»](https://mefody.github.io/talks/web-animations/)
+* Storm The Front Meetup 7 in Homel — [«Анимации в вебе»](https://mefody.github.io/talks/web-animations/) ([видео](https://www.youtube.com/watch?v=IjMmdAk7DZ8))
 * Школа Лидер 2020 — [«Из уст в сердечко»](https://mefody.github.io/talks/from-talk-to-heart/)
-* MinskCSS Meetup #8 — [«Трогательная вёрстка»](https://mefody.github.io/talks/css-for-touch/)
-* Я.Субботник по разработке интерфейсов — [«Дорогая цена стилей»](https://mefody.github.io/talks/css-cost/) ([видео](https://youtu.be/sk5BIHvtCt8?t=8087))
+* MinskCSS Meetup #8 — [«Трогательная вёрстка»](https://mefody.github.io/talks/css-for-touch/) ([видео](https://youtu.be/BRbR0wXhO38?t=8155))
+* Я.Субботник по разработке интерфейсов — [«Дорогая цена стилей»](https://mefody.github.io/talks/css-cost/) ([видео](https://youtu.be/kATRlMrtaaY))([расшифровка](https://habr.com/ru/company/yandex/blog/501998/))
 
 # Lectures
 
