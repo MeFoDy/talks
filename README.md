@@ -44,6 +44,7 @@
 * Школа Лидер 2020 — [«Из уст в сердечко»](https://mefody.github.io/talks/from-talk-to-heart/)
 * MinskCSS Meetup #8 — [«Трогательная вёрстка»](https://mefody.github.io/talks/css-for-touch/) ([видео](https://youtu.be/BRbR0wXhO38?t=8155))
 * Я.Субботник по разработке интерфейсов — [«Дорогая цена стилей»](https://mefody.github.io/talks/css-cost/) ([видео](https://youtu.be/kATRlMrtaaY))([расшифровка](https://habr.com/ru/company/yandex/blog/501998/))
+* РИТ++ 2020 — [«Трогательный фронтенд»](https://mefody.github.io/talks/frontend-for-touch/) ([видео](https://youtu.be/Yv_a8gFVbeM))
 
 # Lectures
 
