@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>&lt;img&gt;</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>&lt;img&gt;</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Яндекс.Поиск
+        </p>
+    </header>
+
+
+    <section class="slide clear">
+        <img src="./pictures/title-logo-ru.svg" alt="" height="50px">
+        <h2 style="font-size: 4em; font-weight: 300; margin-top: 100px">&lt;img&gt;</h2>
+        <p style="margin-top: 130px; margin-bottom: 0;">Никита Дубко, разработчик интерфейсов</p>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 310px;">
+            <h2>Кто я?</h2>
+            <ul>
+                <li>доброжелюбный бородач</li>
+                <li>редактор новостей в Веб-стандартах</li>
+                <li>пятый голос одноименного подкаста</li>
+                <li>разработчик интерфейсов в <span style="color: red;">Я</span>ндекс.Поиске</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita-fc-2019.jpg" alt="" class="place left cover height">
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/nikita-a.jpg" alt="" class="cover width">
+        <a class="copyright top" style="right: 30px; left: auto"
+            href="https://www.youtube.com/watch?v=_UmMLsIeK9k">&lt;a&gt;, Никита Дубко</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">1995</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/html-2-0.png" alt="" class="place cover">
+        <a class="copyright" href="https://www.ietf.org/rfc/rfc1866.txt">Hypertext Markup Language - 2.0</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>HTML 2.0</h2>
+        <pre><code>&lt;IMG SRC=&quot;triangle.xbm&quot; ALIGN="TOP" ALT=&quot;Warning&quot;&gt;</code></pre>
+        <pre class="next"><code>&lt;a href=&quot;http://machine/htbin/imagemap/sample&quot;&gt;
+    &lt;IMG SRC=&quot;sample.xbm&quot; ISMAP&gt;
+&lt;/a&gt;</code></pre>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">2020</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/html-5-image-spec.jpg" alt="" class="cover">
+        <a class="copyright" href="https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element">HTML
+            Living Standard</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">&lt;img&gt;</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img <mark>src="cats.png"</mark>&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>GET /img/cats.png HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) ...
+Accept: image/avif,image/webp,image/apng,image/*,*/*;q=0.8
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: http://127.0.0.1:8080/img/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>GET /img/cats.png HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) ...
+<mark>Accept: image/avif,image/webp,image/apng,image/*,*/*;q=0.8</mark>
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: image
+Referer: http://127.0.0.1:8080/img/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2>Форматы графики</h2>
+        <ul class="columns two">
+            <li>bmp</li>
+            <li>gif</li>
+            <li>jpeg</li>
+            <li>ico</li>
+            <li>png</li>
+            <li>apng</li>
+            <li>tiff</li>
+            <li>svg</li>
+            <li>webp</li>
+            <li>avif</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/nikita-pictures.jpg" alt="" class="cover">
+        <a class="copyright" href="https://youtu.be/EwBYOQwPEpY">Показываем картинки пользователю: подробное руководство
+            / Никита Дубко</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>const img = new Image();
+img.onload = function() { /* ... */ };
+img.onerror = function() { /* ... */ };
+img.src = 'path/to/image.png';​</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">XHR не нужен 😁</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>onerror</h2>
+        <ul>
+            <li><code>src=""</code>;</li>
+            <li class="next"><code>src="path/to/current-page"</code>;</li>
+            <li class="next">неподдерживаемый формат;</li>
+            <li class="next">нет размеров в метаданных или в атрибутах;</li>
+            <li class="next">поломанное изображение.</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2>✅</h2>
+        <img src="./pictures/cats.jpg" class="place" width="600">
+    </section>
+
+
+    <section class="slide">
+        <h2>❌</h2>
+        <img src="./pictures/cats-broken.jpg" class="place" width="600">
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     <mark>alt="Три котёнка."</mark>&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/cats-broken.jpg" alt="Три котёнка." class="place" width="600">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">IMG — заменяемый</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.7em;"><code>img {
+    font-family: 'Helvetica';
+    color: darkred;
+    text-align: center;
+    min-height: 3em;
+    display: block;
+    position: relative;
+}
+
+img::before {
+    content: "Картинка поломалась :(";
+    display: block;
+}
+
+img::after {
+    content: "(url: " attr(src) ")";
+    display: block;
+}</code></pre>
+        <img src="./pictures/cats-broken.jpg" alt="Три котёнка." class="place right br1" width="400"
+            style="margin-right: 30px;">
+        <style>
+            img.br1 {
+                font-family: 'Helvetica';
+                color: darkred;
+                text-align: center;
+
+                min-height: 3em;
+                display: block;
+            }
+
+            img.br1::before {
+                content: "Картинка поломалась :(";
+                display: block;
+            }
+
+            img.br1::after {
+                content: "(url: "attr(src) ")";
+                display: block;
+            }
+        </style>
+        <a class="copyright" href="https://bitsofco.de/styling-broken-images/">Styling Broken Images</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>img::after {
+    content: "📷" " " attr(alt);
+    z-index: 1;
+
+    line-height: 3em;
+    color: rgb(100, 100, 100);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+}</code></pre>
+        <img src="./pictures/cats-broken.jpg" alt="Три котёнка." class="place right br2" width="400"
+            style="margin-right: 30px;">
+        <style>
+            img.br2 {
+                font-family: 'Helvetica';
+                color: white;
+                text-align: center;
+
+                min-height: 3em;
+                display: block;
+            }
+
+            img.br2::after {
+                content: "📷"" "attr(alt);
+
+                line-height: 3em;
+                color: rgb(100, 100, 100);
+
+                display: block;
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #ccc;
+            }
+        </style>
+        <a class="copyright" href="https://bitsofco.de/styling-broken-images/">Styling Broken Images</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://a.singlediv.com/">a.singlediv.com</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Сервис-воркер 💡</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.9em;"><code class="js">self.addEventListener('fetch', (e) => {
+    e.respondWith(
+        fetch(e.request)
+            .then((response) => {
+                if (response.ok) return response;
+
+                // 🤔
+            })
+            .catch((err) => {
+                // ❌
+            })
+    )
+});</code></pre>
+        <a class="copyright" href="https://bitsofco.de/handling-broken-images-with-service-worker/">Handling broken
+            images with the service worker</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>function isImage(fetchRequest) {
+    return fetchRequest.method === "GET"
+        && fetchRequest.destination === "image";
+}</code></pre>
+
+        <pre class="next"><code>self.addEventListener('install', (e) => {
+    self.skipWaiting();
+    e.waitUntil(
+        caches.open("precache").then((cache) => {
+            cache.add("/broken.png");
+        })
+    );
+});</code></pre>
+        <a class="copyright" href="https://bitsofco.de/handling-broken-images-with-service-worker/">Handling broken
+            images with the service worker</a>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em"><code>self.addEventListener('fetch', (e) => {
+    e.respondWith(
+        fetch(e.request)
+            .then((response) => {
+                if (response.ok) return response;
+
+                <mark>if (isImage(e.request)) {
+                    return caches.match("/broken.png");
+                }</mark>
+
+            })
+            .catch((err) => {
+                <mark>if (isImage(e.request)) {
+                    return caches.match("/broken.png");
+                }</mark>
+            })
+    )
+});</code></pre>
+        <a class="copyright" href="https://bitsofco.de/handling-broken-images-with-service-worker/">Handling broken
+            images with the service worker</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     alt="<mark>Три котёнка.</mark>"&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em; line-height: 1.5em;"><code>alt=""</code><br><span
+                class="yellow">⬇︎</span><br>не показывать иконку
+        </h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em; line-height: 1.5em;"><code>alt=""</code><br><span
+                class="yellow">⬇︎</span><br>не озвучивать
+        </h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://weblind.ru/inner.html#image-content">weblind.ru</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">
+            Изображения<br>
+            <span class="yellow">⬋            ⬊</span><br>
+            <span style="font-size: 0.6em;">ℹ️ информативные         🖼 декоративные</span>
+        </h2>
+    </section>
+
+
+    <section class="slide">
+        <blockquote>Декоративная картинка без смысловой нагрузки — <code>alt</code> остаётся пустым.</blockquote>
+        <br>
+        <blockquote class="next">Картинка со смыслом, которая дополняет или иллюстрирует текст. В <code>alt</code>
+            пишется уникальное
+            и ёмкое
+            описание изображения. Избегайте повторения предложений, которые уже есть на странице.</blockquote>
+        <br>
+        <blockquote class="next">В конце описания в <code>alt</code> всегда ставится точка, чтобы помочь скринридеру
+            сделать
+            паузу перед следующим дальше контентом.</blockquote>
+        <a class="copyright"
+            href="https://github.com/web-standards-ru/web-standards.ru/blob/master/CONTRIBUTING.md#%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D1%81-%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC%D0%B8">CONTRIBUTING.md
+            сайта Веб-стандартов</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>Декоративные изображения</h2>
+        <ul>
+            <li class="next"><code>background-image</code></li>
+            <li class="next"><code>alt=""</code></li>
+            <li class="next"><code>role="presentation"</code></li>
+            <li class="next"><code>aria-hidden="true"</code></li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;figure&gt;
+    &lt;img src=&quot;picture.png&quot; alt=&quot;Ёмкое описание картинки.&quot;&gt;
+    &lt;figcaption&gt;
+        Информация об изображении
+        (например, фото: автор).
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2>Графики 📊</h2>
+        <pre><code>&lt;svg role=&quot;img&quot;
+     aria-label=&quot;Описание графика&quot;
+     aria-described-by=&quot;chart-desc&quot;&gt;
+    &lt;desc id=&quot;chart-desc&quot;&gt;
+        Подробное описание графика
+    &lt;/desc&gt;
+&lt;/svg&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/kriger-charts.jpg" class="cover" alt="">
+        <a class="copyright" href="https://youtu.be/TvjRAwp4qSs">Сергей Кригер — Разработка доступных графиков</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     <mark>title="Три котёнка."</mark>&gt;</code></pre>
+        <img src="./pictures/img-title.jpg" alt="" class="next" width="500">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">❌ Please, don't ❌</h2>
+        <a class="copyright"
+            href="https://developer.paciellogroup.com/blog/2013/01/using-the-html-title-attribute-updated/">Using the
+            HTML title attribute</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     alt="Три котёнка."
+     <mark>width="500"</mark>&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">height 🤔</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>PNG</h2>
+        <div class="terminal place" data-content="od" style="width: 800px; font-size: 0.7em;">
+            <p>od -t u1 picture.png | less</p>
+            <pre>
+
+0000000   137  80  78  71  13  10  26  10   0   0   0  13  73  72  68  82
+0000020     <mark>0   0   7 128</mark>   <mark>0   0   4  56</mark>   8   6   0   0   0 232 211 193
+0000040    67   0   0  32   0  73  68  65  84 120  94 236 157   7 152  93
+0000060    87 117 239 255 167 221  50 125  70 163 222 172  46 217 146 229
+0000100   110 185  96  27  66  47 110  88 174 184   0  14 193   1  66 224
+0000120    81 220   0  83  19  32  47   1  30  37 148 132  22  30 132  16
+0000140   120   4 135  98 192 198 113 145 109 220 173  94  71 178 186  52
+0000160   189 220 118 206 217 239  91 187 220 123 230 206 157 185 119 154</pre>
+        </div>
+        <a class="copyright" href="http://www.libpng.org/pub/png/spec/1.2/png-1.2.pdf">PNG (Portable Network Graphics)
+            Specification, Version 1.2</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>GIF</h2>
+        <div class="terminal place" data-content="od" style="width: 800px; font-size: 0.7em;">
+            <p>od -t u2 picture.gif | less</p>
+            <pre>
+
+0000000     18759   14406   24889     <mark>500</mark>     <mark>275</mark>     247   60672   44217
+0000020     16992   28728   27499   54514   18639   18754   38345   43654
+0000040     26485   29547    9371    5653   42714   36246   46224   25751
+0000060     51543   30857    6178   21282   21574   12611   60471   39341
+0000100     33962   55926   34454   35472   13456    8994   39309   42698
+0000120     54955   29592   39528   25193   34169   47286   27000   42394
+0000140     35030   21592   45223   42984   22889    2065   22032   26190
+0000160     31400   47730   34708   13928   47153   34188   17492   65351</pre>
+        </div>
+        <a class="copyright" href="https://www.w3.org/Graphics/GIF/spec-gif87.txt">Graphics Interchange Format (GIF)
+            Specification</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/polina-boxes.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://habr.com/ru/company/yandex/blog/493616/">Картинки как коробки — что внутри?
+            Полина Гуртовая</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     alt="Три котёнка."
+     <mark>width="500"</mark> <mark>height="275"</mark>&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout next" style="font-size: 2em;">❌ This proposal is no longer active ❌</h2>
+        <pre><code>&lt;img src="cats.png"
+     alt="Три котёнка."
+     <mark>intrinsicsize="400x300"</mark>&gt;</code></pre>
+        <a class="copyright" href="https://github.com/WICG/intrinsicsize-attribute">intrinsicsize Attribute on Media
+            Elements Explainer</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;style&gt;
+img {
+    width: 100%;
+    height: auto;
+    <mark>aspect-ratio: attr(width) / attr(height);</mark>
+}
+&lt;/style&gt;
+
+&lt;img src=&quot;image.jpg&quot; width=&quot;500&quot; height=&quot;500&quot;&gt;</code></pre>
+        <a class="copyright"
+            href="https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/">Setting Height
+            And Width On Images Is Important Again</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/caniuse-aspect-ratio.jpg" alt="" class="cover">
+        <a class="copyright" href="https://caniuse.com/?search=aspect-ratio">caniuse: aspect-ratio</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     alt="Три котёнка."
+     width="500" height="275"
+     <mark>referrerpolicy="origin"</mark>&gt;</code></pre>
+
+        <a class="copyright" href="https://web.dev/referrer-best-practices/">Referer and Referrer-Policy best
+            practices</a>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>res.cloudinary.com
+:method: GET
+:path: /.../picture.png
+:scheme: https
+accept: image/avif,image/webp,image/apng,image/*,*/*;q=0.8
+accept-encoding: gzip, deflate, br
+accept-language: en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7
+cache-control: no-cache
+pragma: no-cache
+<mark>referer: http://example.com/</mark>
+sec-fetch-dest: image
+sec-fetch-mode: no-cors
+sec-fetch-site: cross-site
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) ...</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     alt="Три котёнка."
+     width="500" height="275"
+     <mark>crossorigin</mark>&gt;</code></pre>
+
+        <a class="copyright"
+            href="https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-crossorigin">HTML Living
+            Standard</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const image = document.getElementById('source');
+
+<mark>ctx.drawImage(image, 0, 0);</mark>
+
+// DOMException: Failed to execute 'getImageData'
+// on 'CanvasRenderingContext2D':
+// The canvas has been tainted by cross-origin data.</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     alt="Три котёнка."
+     width="500" height="275"
+     <mark>load="lazy"</mark>&gt;</code></pre>
+        <a class="copyright" href="https://web.dev/browser-level-image-lazy-loading/">Browser-level image lazy-loading
+            for the web</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>load</h2>
+        <ul>
+            <li class="next"><code>auto</code> — решает браузер;</li>
+            <li class="next"><code>eager</code> — загружать сразу;</li>
+            <li class="next"><code>lazy</code> — не загружать, пока от вьюпорта до картинки не будет определённого
+                расстояния.</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <table class="striped">
+            <thead>
+                <th width="300">Connection</th>
+                <th>px</th>
+            </thead>
+            <tr>
+                <td>Unknown</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <td>Offline</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>Slow 2G</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>2G</td>
+                <td>6000</td>
+            </tr>
+            <tr>
+                <td>3G</td>
+                <td>2500</td>
+            </tr>
+            <tr>
+                <td>4G</td>
+                <td>1250</td>
+            </tr>
+        </table>
+
+        <a class="copyright"
+            href="https://github.com/chromium/chromium/blob/master/third_party/blink/renderer/core/frame/settings.json5">chromium/third_party/blink/renderer/core/frame/settings.json5</a>
+    </section>
+
+
+
+    <section class="slide">
+        <pre style="font-size: 0.7em;"><code>&lt;img src=&quot;hero.jpg&quot; alt=&quot;…&quot;&gt;
+&lt;img <mark>data-src=&quot;unicorn.jpg&quot;</mark> alt=&quot;…&quot; loading=&quot;lazy&quot; class=&quot;lazyload&quot;&gt;
+
+&lt;script&gt;
+    if (&#39;loading&#39; in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll(&#39;img[loading=&quot;lazy&quot;]&#39;);
+        images.forEach(img =&gt; {
+            img.src = img.dataset.src;
+        });
+    } else {
+        const script = document.createElement(&#39;script&#39;);
+        script.src =
+            &#39;https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js&#39;;
+        document.body.appendChild(script);
+    }
+&lt;/script&gt;</code></pre>
+        <a class="copyright" href="https://web.dev/browser-level-image-lazy-loading/">Browser-level image lazy-loading
+            for the web</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">JS выключен<br><span class="yellow">⬇︎</span><br><code>loading=auto</code></h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img src="cats.png"
+     alt="Три котёнка."
+     width="500" height="275"
+     <mark>decoding="async"</mark>&gt;</code></pre>
+        <a class="copyright" href="https://github.com/whatwg/html/issues/1920">&quot;decode&quot; attribute on
+            &lt;img&gt;</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>decoding</h2>
+        <ul>
+            <li class="next"><code>sync</code> — синхронно с контентом;</li>
+            <li class="next"><code>async</code> — асинхронно, после контента;</li>
+            <li class="next"><code>auto</code> — решает браузер.</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/image-decoding-on-mobile.jpeg" alt="" class="cover">
+        <a class="copyright"
+            href="https://twitter.com/addyosmani/status/938078402430382080">twitter.com/addyosmani/status/938078402430382080</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Долгий JS<br><span class="yellow">⬇︎</span><br>заблокированный рендеринг</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;img srcset="cats-320.jpg <mark>320w</mark>,
+             cats-480.jpg 480w,
+             cats-800.jpg 800w"
+     sizes="(max-width: 320px) 280px,
+            (max-width: 480px) 440px,
+            100vw"
+     src="cats-800.jpg"&gt;</code></pre>
+        <ol>
+            <li class="next"><code>srcset</code> — задаем физический размер изображений;</li>
+            <li class="next"><code>sizes</code> — вычисляем размер области под картинку;</li>
+            <li class="next">выбираем из <code>srcset</code> самое подходящее по размеру изображение.</li>
+        </ol>
+        <a class="copyright" href="https://habr.com/ru/company/ruvds/blog/500292/">Простой подход к работе с отзывчивыми
+            изображениями</a>
+    </section>
+
+
+    <section class="slide">
+        <pre class="place"><code>&lt;img src=&quot;picture.png&quot;
+     srcset=&quot;picture@2x.png 2x&quot;&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre class="place"><code>&lt;meta name=&quot;viewport&quot;
+      content=&quot;width=device-width&quot;&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <div class="terminal" data-content="imaging-heap" style="font-size: 0.5em; position: relative;">
+            <p>npx imagingheap https://gdg-russia.com/</p>
+            <br>
+            <pre
+                style="white-space: pre;">&lt;img src=&quot;https://static.tildacdn.com/.../logo-rus-bel.png&quot;&gt;
+╔══════════╤══════════╤════════╤════════════╤════════╤════════════╤════════╤════════════╗
+║          │ Image    │ @1x    │ @1x        │ @2x    │ @2x        │ @3x    │ @3x        ║
+║          │ Width in │ Image  │ Percentage │ Image  │ Percentage │ Image  │ Percentage ║
+║ Viewport │ Layout   │ Width  │ Match      │ Width  │ Match      │ Width  │ Match      ║
+╟──────────┼──────────┼────────┼────────────┼────────┼────────────┼────────┼────────────╢
+║ 320px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 400px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 480px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 560px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 640px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 720px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 800px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 880px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 960px    │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 1040px   │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 1120px   │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 1200px   │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+║ 1280px   │ 220px    │ 1706px │ <span style="color:#dd0;">775.5%</span>     │ 1706px │ <span style="color:#dd0;">387.7%</span>     │ 1706px │ <span style="color:#dd0;">258.5%</span>     ║
+╚══════════╧══════════╧════════╧════════════╧════════╧════════════╧════════╧════════════╝
+Legend:  @1x <span style="color: #d00;"><100%</span> <span style="color:#dd0;">>150%</span>    Above @1x <span style="color: #d00;"><75%</span> <span style="color:#dd0;">75%–92%</span></pre>
+        </div>
+        <a class="copyright" href="https://github.com/filamentgroup/imaging-heap">filamentgroup/imaging-heap</a>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.9em;" class="html"><code>&lt;picture&gt;
+    &lt;source <mark>type="image/avif"</mark>
+            srcset="cats.avif"&gt;
+    &lt;source type="image/webp"
+            srcset="cats.webp"&gt;
+    &lt;img src="cats.jpg"
+         width="20" height="20"&gt;
+&lt;/picture&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/avif-has-landed.jpg" alt="" class="cover" width="800">
+        <a class="copyright" href="https://jakearchibald.com/2020/avif-has-landed/">AVIF has landed</a>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.7em;"><code>async function supportsImgType(type) {
+    let img = document.createElement('img');
+    document.createElement('picture').append(
+        Object.assign(document.createElement('source'), {
+            srcset: 'data:,x', // валидный урл, который не дёргает сеть
+            type
+        }),
+        img
+    );
+    await 0; // даём примениться currentSrc
+    return !!img.currentSrc; // если браузер умеет, заполнит значение currentSrc
+}
+
+for (let type of ['image/png', 'image/jpeg', 'image/webp', 'image/avif']) {
+    supportsImgType(type).then(supported => console.log(`${type}: ${supported}`));
+}</code></pre>
+        <a class="copyright" href="https://gist.github.com/RReverser/03d14b21f3e88b7ea2782b257dae9a09">
+            RReverser/detect-img-type-support.js</a>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.9em;" class="html"><code>&lt;picture&gt;
+    &lt;source type="image/avif"
+            srcset="cats@1x.avif <mark>1x</mark>, cats@2x.avif <mark>2x</mark>"&gt;
+    &lt;source type="image/webp"
+            srcset="cats@1x.webp <mark>1x</mark>, cats@2x.webp <mark>2x</mark>"&gt;
+    &lt;img src="cats@1x.jpg"
+         srcset="cats@2x.jpg <mark>2x</mark>"
+         width="20" height="20"&gt;
+&lt;/picture&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;" class="html"><code>&lt;picture&gt;
+    &lt;source type="image/avif"
+            <mark>media="(min-width: 1150px)"</mark>
+            srcset="cats-desktop@1x.avif 1x, cats-desktop@2x.avif 2x"&gt;
+    &lt;source type="image/avif"
+            srcset="cats-mobile@1x.avif 1x, cats-mobile@2x.avif 2x"&gt;
+    &lt;source type="image/webp"
+            <mark>media="(min-width: 1150px)"</mark>
+            srcset="cats-desktop@1x.webp 1x, cats-desktop@2x.webp 2x"&gt;
+    &lt;source type="image/webp"
+            srcset="cats-mobile@1x.webp 1x, cats-mobile@2x.webp 2x"&gt;
+    &lt;source <mark>media="(min-width: 1150px)"</mark>
+            srcset="cats-desktop@1x.jpg 1x, cats-desktop@2x.jpg 2x"&gt;
+    &lt;img src="cats-mobile@1x.jpg"
+         srcset="cats-mobile@2x.jpg 2x"
+         width="20" height="20"&gt;
+&lt;/picture&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">😱</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/squoosh.jpg" alt="" class="cover">
+        <a class="copyright" href="https://squoosh.app/">squoosh.app</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/imageoptim-app.png" alt="" class="place" width="500"
+            style="box-shadow: 0 0 15px 0 rgba(0,0,0,0.3);">
+        <a class="copyright" href="https://imageoptim.com/">ImageOptim</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://github.com/MeFoDy/image-processor">mefody/image-processor</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Пакеты</h2>
+        <ul>
+            <li>gulp-imagemin</li>
+            <li>gulp-responsive</li>
+            <li>imagemin-guetzli</li>
+            <li>imagemin-pngquant</li>
+            <li>imagemin-svgo</li>
+            <li>imagemin-webp</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>gulp.task('convert', gulp.series(
+    'clean',
+    'convert:retina',
+    'convert:webp',
+    'convert:avif',
+    gulp.parallel(
+        <mark>'optimize:guetzli',</mark>
+        'optimize:png',
+        'optimize:svg'
+    ),
+));</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/guetzli_logo.svg" alt="" class="cover" width="400">
+        <a class="copyright" href="https://github.com/google/guetzli">google/guetzli</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>AVIF</h2>
+        <pre style="font-size: 0.7em;"><code>const gulp = require('gulp');
+const exec = require('gulp-exec');
+
+const config = require('./config');
+
+gulp.task('convert:avif', () => {
+    let src = `${config.base.dist}/**/*.{jpg,png}`;
+    return gulp.src(src)
+        .pipe(exec((file) =>
+            `<mark>avifenc</mark> -c aom --min 20 --max 50 \
+            ${file.path} \
+            ${file.path.replace(/(png|jpg)$/ig, 'avif')}`
+        ));
+});</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <div class="terminal place" data-content="brew" style="position: relative; top: 30%">
+            <p>brew install joedrago/repo/avifenc</p>
+        </div>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">CDN 🌐</h2>
+    </section>
+
+
+    <section class="slide">
+        <p class="place" style="word-break: break-all;">
+            https://imgproxy.evilmartians.com/PzslbQaEHzr9AEfdvP0UCF49tg0S1PoQiGsHrNyf11s/<mark>rs:fill:960:540</mark>/dpr:2/g:ce/wm:0.5:soea:0:0:0.2/wmu:aHR0cHM6Ly9pbWdwcm94eS5uZXQvd2F0ZXJtYXJrLnN2Zw/plain/https:%2F%2Fwww.nasa.gov%2Fsites%2Fdefault%2Ffiles%2Fthumbnails%2Fimage%2Fpia22228.jpg
+        </p>
+        <a class="copyright" href="https://imgproxy.net/">imgproxy</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>Тёмные темы 🌚</h2>
+        <pre><code>&lt;picture&gt;
+    &lt;source srcset=&quot;picture-dark.png&quot;
+            <mark>media=&quot;(prefers-color-scheme: dark)&quot;</mark>&gt;
+    &lt;img src=&quot;picture-light.png&quot;&gt;
+&lt;/picture&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2>Движение 🐌</h2>
+        <pre><code>&lt;picture&gt;
+    &lt;source srcset=&quot;no-motion.jpg&quot;
+            <mark>media=&quot;(prefers-reduced-motion: reduce)&quot;</mark>&gt;
+    &lt;img srcset=&quot;animated.gif&quot;&gt;
+&lt;/picture&gt;</code></pre>
+        <a class="copyright" href="https://bradfrost.com/blog/post/reducing-motion-with-the-picture-element/">Reducing
+            motion with the picture element</a>
+    </section>
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Пятиминутка ностальгии 🎩</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.7em;"><code>&lt;p&gt;
+    Please select a shape:
+    &lt;img src=&quot;shapes.png&quot; usemap=&quot;#shapes&quot;&gt;
+    &lt;map name=&quot;shapes&quot;&gt;
+        &lt;area shape=rect coords=&quot;50,50,100,100&quot;&gt; &lt;!-- the hole in the red box --&gt;
+        &lt;area shape=rect coords=&quot;25,25,125,125&quot; href=&quot;red.html&quot; alt=&quot;Red box.&quot;&gt;
+        &lt;area shape=circle coords=&quot;200,75,50&quot; href=&quot;green.html&quot; alt=&quot;Green circle.&quot;&gt;
+        &lt;area shape=poly coords=&quot;325,25,262,125,388,125&quot; href=&quot;blue.html&quot; alt=&quot;Blue triangle.&quot;&gt;
+        &lt;area shape=poly coords=&quot;450,25,435,60,400,75,435,90,450,125,465,90,500,75,465,60&quot;
+            href=&quot;yellow.html&quot; alt=&quot;Yellow star.&quot;&gt;
+    &lt;/map&gt;
+&lt;/p&gt;</code></pre>
+        <img src="./pictures/sample-usemap.png" alt="">
+        <a class="copyright" href="https://html.spec.whatwg.org/multipage/image-maps.html#image-map">Image maps</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;a href=&quot;/imagemapper&quot;&gt;
+    &lt;img src=&quot;image.png&quot; ismap /&gt;
+&lt;/a&gt;</code></pre>
+        <p class="next"><code>/imagemapper?3,9</code>,<br>где<br>3 — смещение по горизонтали,<br>9 — смещение по
+            вертикали
+        </p>
+    </section>
+
+
+    <section class="slide">
+        <h2>Deprecated</h2>
+        <ul>
+            <li>align</li>
+            <li>border</li>
+            <li>hspace</li>
+            <li>vspace</li>
+            <li>name</li>
+            <li>onerror</li>
+        </ul>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Рамки 🖼</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>По ширине</h2>
+        <pre><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2>С заданными пропорциями</h2>
+        <pre style="font-size: 0.8em"><code>.img-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}</code></pre>
+        <a class="copyright"
+            href="https://www.smashingmagazine.com/2020/03/setting-height-width-images-important-again/">Setting Height
+            And Width On Images Is Important Again</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>object-fit</h2>
+        <pre><code>.img-container img {
+    object-fit: cover;
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/pepelsbey-cover.jpg" alt="" class="cover">
+        <a class="copyright" href="https://youtu.be/aZJMOVpMhtc">Погружение в object-fit: cover с полифилом и без</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Кадрирование ✂️</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/kitten.jpg" alt="" class="place left cover shadowed">
+        <img src="./pictures/kitten-cover.jpg" alt="" class="place cover shadowed next" width="385" style="left: 60%">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">ML 💡</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/twitter-racist.jpg" alt="" class="cover" width="500">
+        <img src="./pictures/twitter-racist-photo.jpeg" alt="" class="cover place left next shadowed">
+        <img src="./pictures/twitter-racist-photo2.jpeg" alt="" class="cover place left next shadowed"
+            style="left: 115px">
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;div class=&quot;img-container&quot;&gt;
+    &lt;img src=&quot;<mark>picture.png</mark>&quot;
+         alt=&quot;&quot;
+         class=&quot;img-blur&quot;
+         aria-hidden=&quot;true&quot;&gt;
+    &lt;img src=&quot;<mark>picture.png</mark>&quot; alt=&quot;Picture&quot;&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>.img-container > * {
+    position: absolute;
+    top: var(--offset, 0);
+    left: var(--offset, 0);
+    width: calc(100% - 2 * var(--offset, 0px));
+    height: calc(100% - 2 * var(--offset, 0px));
+    object-fit: contain;
+}
+
+.img-blur {
+    --blur: 20px;
+    --offset: calc(-1 * var(--blur));
+    object-fit: cover;
+    filter: blur(var(--blur));
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/blurred.jpg" alt="" class="cover">
+        <a class="copyright" href="https://twitter.com/Martijn_Cuppens/status/1297895382639423488">Create blurred fills
+            for images with aspect ratio containers in CSS</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>.pixelated {
+    width: 512px;
+    height: 512px;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}</code></pre>
+        <img src="./pictures/pixelated.jpg" alt="" class="place bottom cover">
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Быстрее 🐎</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>&lt;link rel=&quot;preload&quot;
+      as=&quot;image&quot;
+      href=&quot;important-image.jpg&quot;&gt;</code></pre>
+        <a class="copyright" href="https://addyosmani.com/blog/preload-hero-images/">Preload late-discovered Hero images
+            faster</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/preload-graphs.png" alt="" class="cover" width="600">
+        <a class="copyright" href="https://addyosmani.com/blog/preload-hero-images/">Preload late-discovered Hero images
+            faster</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Итого 📝</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Выбирайте правильный формат 🥋</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Выбирайте правильный размер 📏</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Автоматизируйте 🤖</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Материалы ✨</h2>
+        <ul>
+            <li><a
+                    href="https://evilmartians.com/chronicles/images-done-right-web-graphics-good-to-the-last-byte-optimization-techniques">Images
+                    done right: Web graphics, good to the last byte</a></li>
+            <li><a href="https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/">A Guide to the
+                    Responsive Images Syntax in HTML</a></li>
+            <li><a href="https://images.guide/">Essential image optimization</a></li>
+        </ul>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Спасибо за внимание!</h2>
+        <a href="https://mefody.github.io/talks/img/">mefody.github.io/talks/img/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:mefody@yandex-team.ru">mefody@yandex-team.ru</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
