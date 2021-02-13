@@ -7,7 +7,7 @@
 }
 
 @font-face {
-    font-family: 'Blender Pro Book';
+    font-family: 'Blender Pro';
     src: url('./fonts/BlenderPro-Book.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
@@ -15,8 +15,8 @@
 }
 
 .shower {
-    font-family: 'Blender Pro Book', sans-serif;
-    font-size: 24px;
+    font-family: 'Blender Pro', sans-serif;
+    font-size: 32px;
     line-height: 1.25;
     font-weight: 300;
     --color-yellow: #fcee0a;
@@ -30,15 +30,15 @@
 
 .shower.list .slide {
     border-radius: 0;
-    box-shadow: 0 0 0 1px black;
+    box-shadow: 0 0 0 2px black;
 }
 
 .shower.list .slide:hover {
-    box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 1px black;
+    box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 2px black;
 }
 
 .shower.list .slide.active {
-    box-shadow: 15px 15px 0 0 black, 0 0 0 1px black;
+    box-shadow: 15px 15px 0 0 black, 0 0 0 2px black;
 }
 
 .badge a {
@@ -62,7 +62,7 @@
     font-size: 64px;
 }
 
-.slide h2::after,
+.slide h2:not(.shout)::after,
 .caption h1::after {
     content: "";
     background: url('./images/theme/head-separator.svg');
@@ -81,7 +81,6 @@
 
 .caption a,
 .slide a {
-    font-weight: bold;
     color: black;
     text-decoration: underline;
     text-decoration-line: underline;
@@ -95,6 +94,8 @@
     color: black;
     text-decoration: none;
     padding: 3px 10px;
+    font-size: 14px;
+    opacity: 1;
 }
 
 .slide h2 {
@@ -116,7 +117,7 @@
 }
 
 .slide .shout {
-
+    font-size: 72px;
 }
 
 .slide s, .slide .strike {
@@ -162,4 +163,42 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.sketch {
+    mix-blend-mode: darken;
+    opacity: 0.2;
+}
+
+.point::before {
+    content: '→ ';
+    color: var(--color-blue);
+}
+.point::after {
+    content: ' ←';
+    color: var(--color-blue);
+}
+
+.slide .c-red {
+    color: var(--color-red);
+}
+
+.slide .c-blue {
+    color: var(--color-blue);
+}
+
+.slide h2.image-caption {
+    background-image: linear-gradient(-45deg, transparent 0 0.3em, var(--color-yellow) 0.3em);
+    margin-left: calc(-1 * var(--slide-side));
+    padding-left: var(--slide-side);
+    padding-right: 0.8em;
+    padding-top: 0.25em;
+    position: absolute;
+    bottom: 30px;
+    margin-bottom: 0;
+    font-size: 32px;
+}
+
+.slide h2.image-caption::after {
+    display: none;
 }
