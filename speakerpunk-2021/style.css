@@ -1,81 +1,122 @@
-:root {
-    --color-inactive: #ddd;
-    --color-active: orange;
-    --color-checked: lightsteelblue;
-}
-
 @font-face {
-    font-family: Yandex Sans Text Web;
-    font-weight: 100;
-    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-thin.woff) format("woff")
-}
-
-@font-face {
-    font-family: Yandex Sans Text Web;
-    font-weight: 300;
-    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-light.woff) format("woff")
-}
-
-@font-face {
-    font-family: Yandex Sans Text Web;
-    font-weight: 400;
-    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular.woff) format("woff")
-}
-
-@font-face {
-    font-style: italic;
-    font-family: Yandex Sans Text Web;
-    font-weight: 400;
-    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular-italic.woff) format("woff")
-}
-
-@font-face {
-    font-family: Yandex Sans Text Web;
-    font-weight: 500;
-    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-medium.woff) format("woff")
-}
-
-@font-face {
-    font-family: Yandex Sans Text Web;
+    font-family: 'Blender Pro';
+    src: url('./fonts/BlenderPro-Bold.woff2') format('woff2');
     font-weight: 700;
-    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-bold.woff) format("woff")
+    font-style: normal;
+    font-display: swap;
 }
 
-.shadowed {
-    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.4);
+@font-face {
+    font-family: 'Blender Pro Book';
+    src: url('./fonts/BlenderPro-Book.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.shower {
+    font-family: 'Blender Pro Book', sans-serif;
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: 300;
+    --color-yellow: #fcee0a;
+    --color-blue: #02d8f3;
+    --color-red: #ff003c;
+}
+
+.shower.list {
+    background: var(--color-yellow);
+}
+
+.shower.list .slide {
+    border-radius: 0;
+    box-shadow: 0 0 0 1px black;
+}
+
+.shower.list .slide:hover {
+    box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 1px black;
+}
+
+.shower.list .slide.active {
+    box-shadow: 15px 15px 0 0 black, 0 0 0 1px black;
+}
+
+.badge a {
+    background-color: #4dcfea;
+    color: black;
 }
 
 .slide h2, .caption h1 {
-    font-family: 'Yandex Sans Text Web', 'PT Sans Narrow', sans-serif;
-    font-weight: 300;
+    display: inline-block;
+    font-family: 'Blender Pro', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 0.25em;
+    position: relative;
+    margin: 0 0 0.3em;
+    letter-spacing: -2px;
+}
+
+.caption h1 {
+    font-size: 64px;
+}
+
+.slide h2::after,
+.caption h1::after {
+    content: "";
+    background: url('./images/theme/head-separator.svg');
+    height: 4px;
+    width: 264px;
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 
 .caption {
-    color: white;
+    color: black;
+    text-shadow: none;
 }
 
-.caption a {
-    color: var(--yandex-yellow);
+.caption a,
+.slide a {
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-style: dashed;
+    background-image: none;
+}
+
+.slide .copyright {
+    background-image: linear-gradient(45deg, transparent 0 4px, var(--color-blue) 4px calc(100% - 4px), transparent calc(100% - 4px));
+    color: black;
+    text-decoration: none;
+    padding: 3px 10px;
 }
 
 .slide h2 {
     color: black;
 }
 
-.shower.list {
-    background: #444;
-}
-
-.shower.list .slide.active {
-    box-shadow: 0 0 5px 1px rgba(0,0,0, 0.5), 0 0 0 20px var(--yandex-yellow), 0 20px 50px rgba(0, 0, 0, 0.3);
+.slide::after {
+    height: auto;
+    width: calc(var(--ribbon-size) * 1.5);
+    color: white;
+    background-image: linear-gradient(45deg, transparent 0 7px, black 7px);
+    background-repeat: no-repeat;
+    margin-top: 1em;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    padding-top: 0;
+    left: auto;
+    right: 0;
 }
 
 .slide .shout {
-    font-size: 3em;
-    line-height: 1.3;
-    box-sizing: border-box;
-    padding-left: 50px;
-    padding-right: 50px;
+
 }
 
 .slide s, .slide .strike {
@@ -83,36 +124,23 @@
     position: relative;
 }
 
+.slide s::before, .slide .strike::before,
 .slide s::after, .slide .strike::after {
     content: '';
     display: block;
-    background-color: var(--yandex-red);
+    background-color: var(--color-red);
     width: 110%;
     height: 0.1em;
     position: absolute;
     top: 50%;
     left: -5%;
+    transform: rotate(7deg);
+}
+
+.slide s::after, .slide .strike::after {
     transform: rotate(-7deg);
 }
 
-.slide blockquote::before {
-    margin: -0.15em 0 0 -0.53em;
-    color: var(--yandex-yellow);
-    font-size: 6em;
-}
-
-.slide::after {
-    height: auto;
-    width: calc(var(--ribbon-size) * 1.5);
-    background-color: var(--yandex-yellow);
-    color: black;
-    background-image: none;
-    margin-top: 1em;
-    padding-right: 0.5em;
-    padding-top: 0;
-    left: auto;
-    right: 0;
-}
 
 .slide pre code {
     line-height: 1.4;
@@ -120,7 +148,7 @@
 }
 
 .slide.title {
-    background-color: var(--yandex-yellow);
+    background-color: var(--color-yellow);
 }
 
 .slide.title::after {
@@ -130,47 +158,8 @@
 .slide.title h2 {
     color: black;
     text-align: left;
-    padding: 0 100px;
     box-sizing: border-box;
-}
-
-
-:root {
-    --yandex-yellow: #FFCC00;
-    --yandex-blue: #0077FF;
-    --yandex-red: #FF3333;
-}
-
-.shower {
-    font-family: 'Yandex Sans Text Web', 'PT Sans', sans-serif;
-    line-height: 1.6;
-    --color-blue: var(--yandex-yellow);
-}
-
-.slide .mark-trigger:not(.active) + * mark {
-    background: none;
-}
-
-.slide .grey {
-    color: #bbb;
-}
-
-.slide ul li:lang(ru)::before {
-    font-size: 1.4em;
-    content: '›';
-    line-height: 1.15em;
-    color: black;
-    font-weight: 300;
-}
-
-.badge a {
-    color: black;
-}
-
-.slide a {
-    color: var(--yandex-red);
-}
-
-.slide .shout a {
-    background-image: linear-gradient( to top, rgba(255, 51, 51, 0.6) 0.06em, transparent 0.06em );
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
