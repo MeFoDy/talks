@@ -114,6 +114,7 @@
     padding-top: 0;
     left: auto;
     right: 0;
+    font-size: 24px;
 }
 
 .slide .shout {
@@ -145,7 +146,7 @@
 
 .slide pre code {
     line-height: 1.4;
-    font-size: 0.9em;
+    font-size: 0.65em;
 }
 
 .slide.title {
