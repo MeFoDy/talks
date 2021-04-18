@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>«Напомни через минуту», или Как считать время в браузере</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Пришла как-то к разработчику Мефодию задача: показывать через заданное пользователем время попап с напоминалкой, что время прошло. Написал Мефодий setTimeout, запушил, тикет закрыл. А пользователь так и не дождался своей напоминалки. В докладе поговорим о том, как браузеры работают со временем, что такое время вообще и как всё-таки показать напоминалку в правильный момент.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>«Напомни через минуту», или Как считать время в браузере</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Яндекс.Поиск
+        </p>
+    </header>
+
+
+    <section class="slide clear">
+        <h2 style="font-size: 2em; font-weight: 500; color: #ed48d3; padding-left: 300px;">«Напомни через минуту», или <br>Как считать время в браузере</h2>
+        <p style="margin-top: 180px; color: #1293fd; padding-left: 300px;">Никита Дубко, Яндекс.Поиск</p>
+        <img src="./pictures/holyjs_background.png" alt="" class="cover width">
+        <img src="./pictures/cover.jpg" alt="" style="mix-blend-mode: hard-light; filter: blur(5px);" class="cover place left">
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 310px;">
+            <h2>Кто я?</h2>
+            <ul>
+                <li>доброжелюбный бородач</li>
+                <li>редактор новостей в Веб-стандартах</li>
+                <li>пятый голос одноименного подкаста</li>
+                <li>разработчик интерфейсов в <span style="color: red;">Я</span>ндекс.Поиске</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita-fc-2019.jpg" alt="" class="place left cover height">
+    </section>
+
+
+    <section class="slide">
+        <h2>Задачи со временем</h2>
+        <ul>
+            <li class="next">⏱ замеры производительности;</li>
+            <li class="next">🩺 медицинские таймеры;</li>
+            <li class="next">📈 акции и котировки;</li>
+            <li class="next">⚡️ период полураспада цезия на АЭС.</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2>JavaScript?</h2>
+        <ul>
+            <li>⏱ замеры производительности;</li>
+            <li><s>🩺 медицинские таймеры;</s></li>
+            <li><s>📈 акции и котировки;</s></li>
+            <li><s>⚡️ период полураспада цезия на АЭС.</s></li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2>Задача 👇</h2>
+        <p>показывать через заданное пользователем время попап с напоминалкой, что время прошло.</p>
+    </section>
+
+
+    <section class="slide">
+        <pre class="js place"><code>const ms = await getTime();
+setTimeout(showPopup, ms);</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <div class="terminal place" data-content="HolyJS 🤘">
+            <p>git commit -m 'Who cares?'</p>
+            <p>git push</p>
+        </div>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Спасибо за внимание!</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">🤔</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Задача 👇</h2>
+        <p>показывать <b>через заданное</b> пользователем <b>время</b> попап с напоминалкой, что время прошло.</p>
+    </section>
+
+
+    <section class="slide">
+        <h2>Задача 👇</h2>
+        <p><b>показывать</b> через заданное пользователем время <b>попап</b> с напоминалкой, что время прошло.</p>
+    </section>
+
+
+    <section class="slide">
+        <h2>Алгоритм 🤓</h2>
+        <ol>
+            <li>Получить текущее значение времени.</li>
+            <li>Отмерить промежуток времени от текущего значения.</li>
+            <li>Показать попап.</li>
+        </ol>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout chapter"><small style="opacity: 0.4; font-size: 0.5em; padding-left: 0.1em;">Глава 1</small> <br>Время</h2>
+    </section>
+
+
+    <section class="slide clear" style="background-color: #020412;">
+        <img src="./pictures/story-time.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/solar-watches-4445283_1280.png" alt="" class="cover" width="700">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/water-clock.jpg" alt="" class="place" width="300">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">«Время истекло»</h2>
+        <img src="./pictures/vislovo_about.png" alt="" class="place bottom right cover" style="opacity: 0.1;">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/E4CC_appendix2.jpg" alt="" class="place">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/871px-L-Cronometer.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/Seiko_35A.jpg" alt="" class="cover">
+        <a class="copyright" href="https://en.wikipedia.org/wiki/Quartz_clock">Quartz clock</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/1084px-Ytterbium_Lattice_Atomic_Clock_(10444764266).jpg" alt="" class="cover width">
+        <a class="copyright white" href="https://en.wikipedia.org/wiki/Atomic_clock">Atomic clock</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">🗺 GPS</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>1 секунда</h2>
+        <p style="font-size: 1.2em;">— время, равное 9 192 631 770 периодам излучения, соответствующего переходу между двумя сверхтонкими уровнями основного состояния атома цезия-133.</p>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">JavaScript 🙃</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">setTimeout</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">⚠️ Не часть ECMAScript</h2>
+    </section>
+
+
+    <section class="slide" style="background-color: #090c15;">
+        <img src="./pictures/settimeout-docs.png" alt="" class="place" width="700">
+        <a class="copyright" href="https://nodejs.org/api/timers.html#timers_settimeout_callback_delay_args">Node.js documentation</a>
+    </section>
+
+
+    <section class="slide">
+        <h2></h2>
+        <p>🇬🇧 When delay is larger than 2147483647 or less than 1, the delay will be set to 1. Non-integer delays are truncated to an integer.</p>
+
+        <p>🇷🇺 Когда задержка больше 2147483647 или меньше 1, значение задержки устанавливается в 1. Не-целые задержки обрезаются до целых.</p>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">2147483647 секунд<br><span style="color:var(--yandex-yellow);"> = </span><br> 24,8551348 дня</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="cpp">void Shell::SetTimeout(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args) {
+    Isolate* isolate = args.GetIsolate();
+    args.GetReturnValue().Set(v8::Number::New(isolate, 0));
+    if (args.Length() == 0 || !args[0]-&gt;IsFunction()) return;
+    Local&lt;Function&gt; callback = args[0].As&lt;Function&gt;();
+    Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+    <mark>PerIsolateData::Get(isolate)->SetTimeout(callback, context);</mark>
+}
+</code></pre>
+        <pre style="font-size: 0.8em;"><code class="cpp">void PerIsolateData::SetTimeout(Local&lt;Function&gt; callback,
+    Local&lt;Context&gt; context) {
+    set_timeout_callbacks_.emplace(isolate_, callback);
+    set_timeout_contexts_.emplace(isolate_, context);
+}</code></pre>
+        <a class="copyright" href="https://github.com/v8/v8/">github.com/v8/v8</a>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="cpp">bool Shell::<mark>CompleteMessageLoop</mark>(Isolate* isolate) {
+    auto get_waiting_behaviour = [isolate]() {
+        base::MutexGuard guard(isolate_status_lock_.Pointer());
+        DCHECK_GT(isolate_status_.count(isolate), 0);
+        bool <mark>should_wait</mark> = (options.wait_for_background_tasks &&
+                            isolate->HasPendingBackgroundTasks()) ||
+                            isolate_status_[isolate] ||
+                            isolate_running_streaming_tasks_[isolate] > 0;
+        return should_wait ? platform::MessageLoopBehavior::kWaitForWork
+                            : platform::MessageLoopBehavior::kDoNotWait;
+    };
+    return <mark>ProcessMessages</mark>(isolate, get_waiting_behaviour);
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="cpp">while (true) {
+    // кручу-верчу, таски выполнить хочу
+    // ...
+
+    bool ran_set_timeout = false;
+    if (!<mark>RunSetTimeoutCallback</mark>(isolate, &ran_set_timeout)) {
+        return false;
+    }
+
+    if (!ran_set_timeout) return true;
+}
+</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/jake-archibald-event-loop.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=cCOL7MC4Pl0">Джейк Арчибальд. В цикле - JSConf.Asia</a>
+    </section>
+
+
+
+    <section class="slide">
+        <h2>Node.js 15.0.0</h2>
+        <pre><code class="js">const { setTimeout } = require('timers/promises');
+
+async function myPromise(delay) {
+    <mark>await setTimeout</mark>(delay);
+    return new Promise((resolve) => {
+        resolve({
+            data: `The data from ${delay} ms delay`,
+        });
+    });
+}</code></pre>
+        <a class="copyright" href="https://nodejs.org/api/timers.html#timers_timerspromises_settimeout_delay_value_options">Node.js documentation</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">⚠️ Stability: Experimental</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Date</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">✅ Стандарт</h2>
+        <a class="copyright" href="https://262.ecma-international.org/5.1/#sec-15.9.5">ECMAScript® Language Specification</a>
+    </section>
+
+
+    <section class="slide">
+        <h2></h2>
+        <pre><code class="js">const currentDate = new Date();
+const timestamp = currentDate.getTime();
+
+// OR (IE9+)
+
+const timestamp = Date.now();</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="cpp">double JSDate::<mark>CurrentTimeValue</mark>(Isolate* isolate) {
+    if (FLAG_log_internal_timer_events) LOG(isolate, CurrentTimeEvent());
+    if (FLAG_correctness_fuzzer_suppressions) return 4.2;
+
+    // According to ECMA-262, section 15.9.1, page 117, the precision of
+    // the number in a Date object representing a particular instant in
+    // time is milliseconds. Therefore, we floor the result of getting
+    // the OS time.
+    return std::floor(V8::GetCurrentPlatform()-><mark>CurrentClockTimeMillis</mark>());
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="cpp">double DefaultPlatform::CurrentClockTimeMillis() {
+    return base::OS::TimeCurrentMillis();
+}
+
+double OS::TimeCurrentMillis() {
+    return Time::Now().ToJsTime();
+}
+</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="cpp">// WIN
+
+Time Now() {
+    // …
+
+    // Determine current time and ticks.
+    TimeTicks ticks = <mark>GetSystemTicks</mark>();
+    Time time = <mark>GetSystemTime</mark>();
+
+    // …
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="cpp">// POSIX
+
+Time Time::Now() {
+    struct timeval tv;
+    int result = <mark>gettimeofday</mark>(&tv, nullptr);
+    DCHECK_EQ(0, result);
+    USE(result);
+    return FromTimeval(tv);
+}
+</code></pre>
+        <img src="./pictures/deeper.jpg" alt="" class="deeper place bottom right next">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://aakinshin.net/posts/datetime/">DateTime under the hood, Andrey Akinshin</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="asm">; gettimeofday
+
+0x00000034f408c2d4 : mov    $0xffffffffff600000,%rax
+0x00000034f408c2db : callq  *%rax</code></pre>
+        <img src="./pictures/deeper.jpg" alt="" class="deeper place bottom right next">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">vsyscall, vDSO</h2>
+        <a class="copyright" href="https://lwn.net/Articles/446528/">On vsyscalls and the vDSO</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://0xax.gitbooks.io/linux-insides/content/SysCall/linux-syscall-3.html">System calls in the Linux kernel. Part 3.</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">System Time</h2>
+        <a class="copyright" href="https://en.wikipedia.org/wiki/System_time">System time</a>
+    </section>
+
+
+    <section class="slide black clear">
+        <h2 class="shout" style="color: var(--yandex-red); font-size: 2em; width: 90%; margin-left: 5%;">Спикер может наврать, потому что не является дипломированным сварщиком. Воспринимайте фантазии спикера с разумной долей критики. Доклад не является публичной офертой. Вы видите свой нос прямо сейчас.</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/impulse.jpg" alt="" class="place">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/crystall.png" alt="" class="cover" width="300">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">10 МГц <br><span style="color: var(--yandex-yellow);"> = </span><br> 10 000 000 <br>колебаний в секунду</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">10 000 000 колебаний <br><span style="color: var(--yandex-yellow);"> = </span><br> 1 секунда</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">👨‍🏭 VHDL</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/flip_flop.svg" alt="" width="300" class="place">
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="vhdl">entity D_FF is
+    PORT(
+        Input, Clk: in std_logic;
+        Output: out std_logic
+    );
+end D_FF;
+
+architecture behavioral of D_FF is
+begin
+    process(Clk)
+    begin
+        if(<mark>Clk='1' and Clk'EVENT</mark>) then
+            Output <= Input;
+        end if;
+    end process;
+end behavioral;
+</code></pre>
+        <a class="copyright" href="https://allaboutfpga.com/vhdl-code-flipflop-d-t-jk-sr/">VHDL Code for Flipflop – D, JK, SR, T</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/flip_flop_waveform.png" alt="" class="place">
+    </section>
+
+
+    <section class="slide black">
+        <img src="./pictures/d-flip-flop.png" alt="" class="place" width="700">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Реактивное программирование ⚡️</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">over<b>clock</b>ing 🏃‍♂️</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Замеры времени — <br>быстрые 🚀</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/meltdown.min.svg" alt="" class="place bottom" width="300">
+        <a class="copyright" href="https://meltdownattack.com/">Meltdown and Spectre</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/Processor_cacheM.png" alt="" class="place">
+        <a class="copyright" href="https://en.wikipedia.org/wiki/CPU_cache">CPU cache</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Браузерное <br>расширение 🕷</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Выныриваем 🤿</h2>
+        <img src="./pictures/deeper.jpg" alt="" class="deeper place bottom right">
+    </section>
+
+
+    <section class="slide">
+        <h2>Задача 👇</h2>
+        <p>показывать <b>через заданное</b> пользователем <b>время</b> попап с напоминалкой, что время прошло.</p>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">const start = Date.now();
+const timeout = 15000;
+
+function check() {
+    const now = Date.now();
+    if (now - start >  timeout) {
+        showPopup();
+    } else {
+        setTimeout(check, 1);
+    }
+}
+
+setTimeout(check, 1); </code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">🤦‍♂️🤦‍♂️🤦‍♂️</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+}
+
+sleep(15000);</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">👍👍👍</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Web Worker</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">// worker.js
+
+let time = Date.now();
+const start = time;
+
+while (true) {
+    if (Date.now() - start > 15000) {
+        postMessage('killme');
+        break;
+    }
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>// main.js
+
+function go() {
+    const worker = new Worker('/worker.js');
+
+    worker.onmessage = message => {
+        if (message.data === 'killme') {
+            worker.terminate();
+        }
+    };
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/victor-homyakov.jpg" alt="" class="cover">
+        <a class="copyright white" href="https://www.youtube.com/watch?v=Dylf_bfg6qg">Тяжёлое бремя времени / Виктор Хомяков</a>
+    </section>
+
+
+    <section class="slide">
+        <h2>NTP Daemon</h2>
+        <p>Network Time Protocol (NTP) daemon</p>
+        <a class="copyright" href="http://doc.ntp.org/4.1.0/ntpd.htm">Documents Home :: 4.1.0 :: ntpd.htm</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/change-time.png" alt="" class="cover" width="600">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/winter-time.png" alt="" class="cover" width="900">
+        <a class="copyright" href="https://en.wikipedia.org/wiki/Daylight_saving_time">Daylight saving time</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">performance</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="cpp">void Shell::PerformanceNow(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args) {
+    if (i::FLAG_verify_predictable) {
+        args.GetReturnValue().Set(g_platform-><mark>MonotonicallyIncreasingTime</mark>());
+    } else {
+        base::TimeDelta delta =
+            base::TimeTicks::<mark>HighResolutionNow</mark>() - kInitialTicks;
+        args.GetReturnValue().Set(delta.InMillisecondsF());
+    }
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="cpp">DEFINE_BOOL(verify_predictable, false,
+    "this mode is used for checking that V8 behaves predictably")
+
+</code></pre>
+        <pre><code class="cpp">const base::TimeTicks Shell::kInitialTicks =
+    base::TimeTicks::HighResolutionNow();
+
+</code></pre>
+        <pre><code class="cpp">TimeTicks TimeTicks::HighResolutionNow() {
+    return TimeTicks::Now();
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2></h2>
+        <pre style="font-size: 0.8em;"><code>// We use timeGetTime() to implement TimeTicks::Now().  This can be problematic
+// because it returns the number of milliseconds since Windows has started,
+// which will roll over the 32-bit value every ~49 days.  We try to track
+// rollover ourselves, which works if TimeTicks::Now() is called at least every
+// 48.8 days (not 49 days because only changes in the top 8 bits get noticed).</code></pre>
+        <h2 class="shout next">🤷‍♂️</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">QPC — <br>QueryPerformanceCounter</h2>
+        <a class="copyright" href="https://docs.microsoft.com/en-us/windows/win32/api/profileapi/nf-profileapi-queryperformancecounter">QueryPerformanceCounter function</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">DOMHighResTimeStamp</h2>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp">DOMHighResTimeStamp</a>
+    </section>
+
+
+    <section class="slide">
+        <h2></h2>
+        <p>The time, given in milliseconds, should be <mark>accurate to 5 µs</mark> (microseconds), with the fractional part of the number indicating fractions of a millisecond.</p>
+        <h2 class="shout next">😍</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/meltdown.min.svg" alt="" class="place bottom" width="300">
+        <a class="copyright" href="https://meltdownattack.com/">Meltdown and Spectre</a>
+    </section>
+
+
+
+    <section class="slide">
+        <p>To offer protection against timing attacks and fingerprinting, the precision of time stamps might get rounded depending on browser settings. In Firefox, the privacy.reduceTimerPrecision preference is enabled by default and defaults <mark>to 20 µs</mark> in Firefox 59; in 60 it will be <mark>2ms</mark>.</p>
+        <p>In Firefox, you can also enable <code>privacy.resistFingerprinting</code>, the precision will be <mark>100ms</mark> or the value of <code>privacy.resistFingerprinting.reduceTimerPrecision.<br>microseconds</code>, whichever is larger.</p>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp#reduced_time_precision">DOMHighResTimeStamp</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">// reduced time precision (2ms) in Firefox 60
+event.timeStamp
+// 1519211809934
+// 1519211810362
+// 1519211811670
+// ...
+
+// reduced time precision with `privacy.resistFingerprinting`
+event.timeStamp;
+// 1519129853500
+// 1519129858900
+// 1519129864400
+// ...</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">requestAnimationFrame</h2>
+    </section>
+
+
+    <section class="slide">
+        <p>The callback function is passed one single argument, a <b>DOMHighResTimeStamp</b> similar to the one returned by <code>performance.now()</code>, indicating the point in time when <code>requestAnimationFrame()</code> starts to execute callback functions.</p>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://developers.google.com/web/updates/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">2012 — requestAnimationFrame API: now with sub-millisecond precision</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="cpp">FrameRequestCallbackCollection::CallbackId
+FrameRequestCallbackCollection::RegisterFrameCallback(FrameCallback* callback) {
+    FrameRequestCallbackCollection::CallbackId id = ++next_callback_id_;
+    callback->SetIsCancelled(false);
+    callback->SetId(id);
+    frame_callbacks_.push_back(callback);
+
+    DEVTOOLS_TIMELINE_TRACE_EVENT_INSTANT("RequestAnimationFrame",
+                                            inspector_animation_frame_event::Data,
+                                            context_, id);
+    probe::AsyncTaskScheduledBreakable(context_, "requestAnimationFrame",
+                                        callback->async_task_id());
+    return id;
+}
+</code></pre>
+        <a class="copyright" href="https://github.com/chromium/chromium/blob/master/third_party/blink/renderer/core/dom/frame_request_callback_collection.cc">github.com/chromium/chromium</a>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="js">const timeout = 15000;
+let start;
+
+function check(timestamp) {
+    if (start === undefined) {
+        start = timestamp;
+    }
+    const elapsed = timestamp - start;
+
+    if (elapsed < timeout) {
+        window.requestAnimationFrame(check);
+    } else {
+        showPopup();
+    }
+}
+
+window.requestAnimationFrame(check);</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2>Как выбрать?</h2>
+        <p class="next">❓ Нужно точно?<br>
+            ✅ performance.now, requestAnimationFrame.</p>
+        <p class="next">❓ Точность не важна?<br>
+            ✅ Date.now, setTimeout.</p>
+        <p class="next">❓ Нужен контроль?<br>
+            ✅ Сервер</p>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Long polling</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">WebSockets</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Экзотика 🌴</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">CSS-анимации</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="css">.animation.active {
+    animation-duration: 1s;
+    animation-name: some;
+    animation-iteration-count: 1000;
+}
+
+@keyframes some {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">const animation = document.querySelector('.animation');
+let iterationCount = 0;
+
+animation.addEventListener('<mark>animationstart</mark>', () => { });
+
+animation.addEventListener('<mark>animationiteration</mark>', () => {
+    iterationCount++;
+});
+
+animation.addEventListener('<mark>animationend</mark>', () => { });
+
+animation.classList.toggle('active');</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Web Animations API</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="js">function ownSetTimeout(callback, duration) {
+    const div = document.createElement('div');
+    const keyframes = new KeyframeEffect(div, [], {
+        duration,
+        iterations: 1
+    });
+    const animation = new Animation(
+        keyframes,
+        document.timeline
+    );
+
+    animation.play();
+
+    animation.addEventListener('finish', () => {
+        callback();
+    });
+}</code></pre>
+        <a class="copyright" href="https://habr.com/ru/company/ruvds/blog/489818/">4 креативных подхода к измерению времени в браузерах</a>
+    </section>
+
+
+    <section class="slide" style="background-color: #252017;">
+        <img src="./pictures/caniuse-web-animation-api.png" alt="" class="place" width="900">
+        <a class="copyright" href="https://caniuse.com/web-animation">caniuse.com/web-animation</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Видео</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">var video = document.createElement('video');
+await video.play();
+
+// wait …
+console.log(video.currentTime);</code></pre>
+        <h2 class="shout next">😶</h2>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout chapter"><small style="opacity: 0.4; font-size: 0.5em; padding-left: 0.1em;">Глава 2</small> <br>Уведомление</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Браузер экономный 👛</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Оптимизации в фоне 🔧</h2>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API#policies_in_place_to_aid_background_page_performance">Policies in place to aid background page performance</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://developers.google.com/web/updates/2018/07/page-lifecycle-api">Page Lifecycle API</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Состояния страниц</h2>
+        <ul>
+            <li>Active 😀</li>
+            <li>Passive 😶</li>
+            <li>Hidden 🙈</li>
+            <li>Frozen 🥶</li>
+            <li>Terminated 🤖</li>
+            <li>Discarded ❌</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://chromium.googlesource.com/chromium/src/+/HEAD/chrome/browser/performance_manager/docs/freezing_opt_out_opt_in.md">Page Freezing Opt-In<br>and Opt-Out</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://docs.google.com/document/d/1QJpuBTdllLVflMJSov0tlFX3e3yfSfd_-al2IBavbQM/edit">Heuristics for Freezing & Discarding</a></h2>
+    </section>
+
+
+    <section class="slide">
+        <h2>Не фризит, если ...</h2>
+        <ul>
+            <li>Играет аудио</li>
+            <li>Используется WebRTC</li>
+            <li>Обновляется title или фавиконка 🙃</li>
+            <li>Показывается alert</li>
+            <li>Отправляется пуш-нотификация</li>
+        </ul>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Аудио 🔉</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">const audio = new Audio('path/to/sound');
+
+if (typeof audio.loop == 'boolean') {
+    audio.loop = true;
+} else {
+    myAudio.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+}
+
+audio.play();</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Заблокировано по умолчанию ❌</h2>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide">Autoplay guide for media</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Wake Lock API</h2>
+        <a class="copyright" href="https://web.dev/wakelock/">Screen Wake Lock API</a>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">let wakeLock = null;
+const requestWakeLock = async () => {
+    try {
+        wakeLock = await navigator.wakeLock.request();
+    } catch (err) {
+        console.error(`${err.name}, ${err.message}`);
+    }
+};
+
+await requestWakeLock();
+window.setTimeout(() => {
+    wakeLock.release();
+    wakeLock = null;
+}, 5000);
+</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">const handleVisibilityChange = async () => {
+    if (wakeLock !== null &&
+        document.visibilityState === 'visible') {
+        await requestWakeLock();
+    }
+};
+
+document.addEventListener(
+    'visibilitychange',
+    handleVisibilityChange
+);</code></pre>
+    </section>
+
+
+    <section class="slide" style="background-color: #252017;">
+        <img src="./pictures/caniuse-wakelock.png" alt="" class="place" width="900">
+        <a class="copyright" href="https://caniuse.com/wake-lock">caniuse.com/wake-lock</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Push Notifications</h2>
+        <a class="copyright" href="https://developers.google.com/web/ilt/pwa/introduction-to-push-notifications">Introduction to Push Notifications</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Web USB API</h2>
+        <a class="copyright" href="https://wicg.github.io/webusb/">WebUSB API</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout chapter"><small style="opacity: 0.4; font-size: 0.5em; padding-left: 0.1em;">Глава 3</small> <br>Будущее</h2>
+    </section>
+
+
+    <section class="slide">
+        <p>Currently `performance.now()` and related timestamps are coarsened based on site isolation status.
+            This change will align their coarsening based on cross-origin isolation capability, regardless of platform.
+            That would decrease their resolution on desktop from 5 microseconds to 100 microseconds in non-isolated contexts. It would also increase their resolution on Android from 100 microseconds to <mark>5 microseconds in cross-origin isolated contexts</mark>, where it's safe to do so.</p>
+        <a class="copyright" href="https://groups.google.com/a/chromium.org/g/blink-dev/c/k6M3HJiqmkE/m/zgaVyKfnAwAJ">Intent to Ship: Align performance API timer resolution to cross-origin isolated capability</a>
+    </section>
+
+
+    <section class="slide black">
+        <img src="./pictures/mozilla-standard-perf.jpg" alt="" class="cover width">
+        <a class="copyright" href="https://github.com/mozilla/standards-positions/issues/502">Aligning high-resolution timer granularity to cross-origin isolated capability</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Lock Screen API</h2>
+        <a class="copyright" href="https://github.com/WICG/lock-screen/blob/main/README.md">Lock Screen API Explainer</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Chrome Status: <br>Intent to Prototype 🔧</h2>
+        <a class="copyright" href="https://groups.google.com/a/chromium.org/g/blink-dev/c/006tkVwj1yw/m/7i4d1XXiBQAJ">Intent to Prototype: Lock Screen API</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Temporal 😍</h2>
+        <a class="copyright" href="https://tc39.es/proposal-temporal/docs/">Temporal</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/temporal-talk.png" alt="" class="place">
+        <a class="copyright" href="https://holyjs-piter.ru/2021/spb/talks/18jsdhfvmqgthre7enacdg/">Building futuristic JavaScript applications using Temporal</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Temporal.now</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code class="js">const timeStamp = Temporal.now.instant();
+
+// Timestamp in Milliseconds
+timeStamp.epochMilliseconds;</code></pre>
+        <pre class="next"><code class="js">const duration = Temporal.Duration.from({
+    hours: 130,
+    minutes: 20
+});
+
+duration.total({ unit: 'seconds' }); // => 469200</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Status?</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Stage 3 🥳</h2>
+        <a class="copyright" href="https://github.com/tc39/proposals#stage-3">ECMAScript proposals</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout" style="margin-top: -100px">«Вебня»</h2>
+        <img src="./pictures/webnya.jpg" alt="" class="place bottom" width="200" style="bottom: 150px;">
+        <a class="copyright" href="https://t.me/webnya">t.me/webnya</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Напоследок</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Time you enjoy wasting, <br>was not wasted.<br><span style="color: #777; font-size: 0.5em;">John Lennon</span></h2>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Спасибо за внимание!</h2>
+        <a href="https://mefody.dev/talks/wait-for-minute/">mefody.dev/talks/wait-for-minute/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
