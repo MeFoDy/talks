@@ -48,6 +48,9 @@
 * Frontend Live 2020 — «WWW-аппликация» ([видео](https://youtu.be/__o3EHC9nZQ))
 * DevFest by GDG Russia 2020 — [\<img\>](https://mefody.github.io/talks/img/) ([видео](https://www.youtube.com/watch?v=WfzKd16LplI))
 
+## 2021
+* HolyJS Piter 2021 — [«Напомни через минуту», или Как считать время в браузере](https://mefody.github.io/talks/wait-for-minute/)
+
 # Lectures
 
 * Students Lab, iTechArt — [«JavaScript как платформа разработки»](https://mefody.github.io/talks/itechart-js/)
