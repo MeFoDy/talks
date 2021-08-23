@@ -49,7 +49,9 @@
 * DevFest by GDG Russia 2020 — [\<img\>](https://mefody.github.io/talks/img/) ([видео](https://www.youtube.com/watch?v=WfzKd16LplI))
 
 ## 2021
+* Women Developer Academy — [Speakerpunk 2021](https://mefody.github.io/talks/speakerpunk-2021/)
 * HolyJS Piter 2021 — [«Напомни через минуту», или Как считать время в браузере](https://mefody.github.io/talks/wait-for-minute/)
+* GDG Minsk Web August Meetup — [«Управление воспроизведением в PWA»](https://mefody.github.io/talks/playback-control/)
 
 # Lectures
 
