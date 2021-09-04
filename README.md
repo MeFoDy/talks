@@ -52,6 +52,7 @@
 * Women Developer Academy — [Speakerpunk 2021](https://mefody.github.io/talks/speakerpunk-2021/)
 * HolyJS Piter 2021 — [«Напомни через минуту», или Как считать время в браузере](https://mefody.github.io/talks/wait-for-minute/) ([видео](https://youtu.be/gzPKR27PMTQ))
 * GDG Minsk Web August Meetup — [«Управление воспроизведением в PWA»](https://mefody.github.io/talks/playback-control/)
+* RndTechConf 2021 — [«Что веб грядущий нам готовит»](https://mefody.github.io/talks/web-future/)
 
 # Lectures
 

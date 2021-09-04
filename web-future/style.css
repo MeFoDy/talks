@@ -1,0 +1,214 @@
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 100;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-thin.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 300;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-light.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 400;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular.woff)
+        format("woff");
+}
+
+@font-face {
+    font-style: italic;
+    font-family: Yandex Sans Text Web;
+    font-weight: 400;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular-italic.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 500;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-medium.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 700;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-bold.woff)
+        format("woff");
+}
+
+.shadowed {
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.slide h2,
+.caption h1 {
+    font-family: "Yandex Sans Text Web", "PT Sans Narrow", sans-serif;
+    font-weight: 300;
+}
+
+.caption {
+    color: white;
+}
+
+.caption a {
+    color: var(--yandex-yellow);
+}
+
+.slide h2 {
+    color: black;
+}
+
+.shower.list {
+    background: #261839;
+}
+
+.shower.list .slide {
+    outline: 2px solid rgb(241 149 97 / 22%);
+}
+
+.shower.list .slide.active {
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5), 0 0 0 20px var(--yandex-yellow),
+        0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.slide .shout {
+    font-size: 3em;
+}
+
+.slide s,
+.slide .strike {
+    text-decoration: none;
+    position: relative;
+}
+
+.slide s::after,
+.slide .strike::after {
+    content: "";
+    display: block;
+    background-color: var(--yandex-red);
+    width: 110%;
+    height: 0.1em;
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: rotate(-7deg);
+}
+
+.slide blockquote::before {
+    margin: -0.15em 0 0 -0.53em;
+    color: var(--yandex-yellow);
+    font-size: 6em;
+}
+
+.slide::after {
+    height: auto;
+    width: calc(var(--ribbon-size) * 2.4);
+    background-color: transparent;
+    color: black;
+    background-image: linear-gradient(
+        100deg,
+        transparent 0 10px,
+        var(--yandex-yellow) 11px 20px,
+        transparent 21px 30px,
+        var(--yandex-yellow) 31px 40px,
+        transparent 41px 50px,
+        var(--yandex-yellow) 51px
+    );
+    margin-top: 1em;
+    padding-right: 0.5em;
+    padding-left: 2.5em;
+    padding-top: 0;
+    left: auto;
+    right: 0;
+    text-align: left;
+}
+
+.slide pre code {
+    line-height: 1.4;
+    font-size: 0.9em;
+}
+
+.slide.title {
+    background-color: #211136;
+    background-image: url(./pictures/delorean.png);
+    background-position: bottom 20px right 20px;
+    background-size: 300px;
+    background-repeat: no-repeat;
+}
+
+.slide.title::after {
+    content: "";
+}
+
+.slide.title h2 {
+    text-align: left;
+    padding: 0 100px;
+    box-sizing: border-box;
+    -webkit-text-stroke: 1px #ecd44b;
+    color: var(--yandex-yellow);
+    font-weight: bold;
+    text-shadow: 0 0 5px #ee696f;
+}
+
+img.shadowed {
+    box-shadow: 0 0 60px 0 rgba(0 0 0 / 0.4);
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+:root {
+    --yandex-yellow: #f19561;
+    --yandex-blue: #2a72b7;
+    --yandex-red: #d21a22;
+}
+
+.shower {
+    font-family: "Yandex Sans Text Web", "PT Sans", sans-serif;
+    line-height: 1.6;
+    --color-blue: var(--yandex-yellow);
+}
+
+.slide .mark-trigger:not(.active) + * mark {
+    background: none;
+}
+
+.slide .grey {
+    color: #bbb;
+}
+
+.slide ul li:lang(ru)::before {
+    font-size: 1.4em;
+    content: "›";
+    line-height: 1.15em;
+    color: black;
+    font-weight: 300;
+}
+
+.badge a {
+    color: black;
+}
+
+.slide a {
+    color: var(--yandex-red);
+}
+
+.slide .shout a {
+    background-image: linear-gradient(
+        to top,
+        rgba(255, 51, 51, 0.6) 0.06em,
+        transparent 0.06em
+    );
+}
+
+.slide.black {
+    background-color: #211136;
+}
+
+.c-blue {
+    color: var(--yandex-blue);
+}
