@@ -53,6 +53,8 @@
 * HolyJS Piter 2021 — [«Напомни через минуту», или Как считать время в браузере](https://mefody.github.io/talks/wait-for-minute/) ([видео](https://youtu.be/gzPKR27PMTQ))
 * GDG Minsk Web August Meetup — [«Управление воспроизведением в PWA»](https://mefody.github.io/talks/playback-control/)
 * RndTechConf 2021 — [«Что веб грядущий нам готовит»](https://mefody.github.io/talks/web-future/)
+* RndTechConf 2021 — [«На такой доклад я точно пойду»](https://twitter.com/dark_mefody/status/1434123381381738497)
+* Х5 Tech Природа Кода — [«Ты узнаешь её из тысячи: по JS, по img, по канвасу»](https://mefody.github.io/talks/fingerprinting/)
 
 # Lectures
 
