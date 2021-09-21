@@ -1,26 +1,43 @@
 {
-  "name": "shower-ribbon",
-  "description": "Ribbon theme for Shower HTML presentation engine",
-  "version": "3.1.2",
+  "_from": "@shower/ribbon@^3.4.3",
+  "_id": "@shower/ribbon@3.4.3",
+  "_inBundle": false,
+  "_integrity": "sha512-LE+s/i8xlI2Ek7aRNMXxEnWAro7lCC6lDAC6GJKrBRd9IayU6wGpGQDAUwKHDmCY0o4c5AqKE7UliQW0iMPhGw==",
+  "_location": "/@shower/ribbon",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@shower/ribbon@^3.4.3",
+    "name": "@shower/ribbon",
+    "escapedName": "@shower%2fribbon",
+    "scope": "@shower",
+    "rawSpec": "^3.4.3",
+    "saveSpec": null,
+    "fetchSpec": "^3.4.3"
+  },
+  "_requiredBy": [
+    "/@shower/shower"
+  ],
+  "_resolved": "https://registry.npmjs.org/@shower/ribbon/-/ribbon-3.4.3.tgz",
+  "_shasum": "873319e07b3933d400825edfde1d19d243170629",
+  "_spec": "@shower/ribbon@^3.4.3",
+  "_where": "/Users/asd/Sites/talks/node_modules/@shower/shower",
   "author": {
     "name": "Vadim Makeev",
-    "url": "http://pepelsbey.net/"
-  },
-  "homepage": "https://github.com/shower/ribbon",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/shower/ribbon.git"
+    "url": "https://pepelsbey.net/"
   },
   "bugs": {
-    "url": "http://github.com/shower/shower/issues"
+    "url": "https://github.com/shower/shower/issues"
   },
-  "license": "MIT",
-  "keywords": [
-    "shower",
-    "presentation",
-    "ribbon",
-    "theme"
-  ],
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Ribbon theme for Shower HTML presentation engine",
+  "devDependencies": {
+    "@shower/core": "^3.2.0",
+    "browser-sync": "^2.26.14",
+    "stylelint": "^13.13.1"
+  },
   "files": [
     "fonts/**",
     "pictures/**",
@@ -29,13 +46,25 @@
     "LICENSE.md",
     "README.md"
   ],
-  "devDependencies": {
-    "live-server": "^1.2.0",
-    "shower-core": "^2.1.0",
-    "stylelint": "^9.2.1"
+  "homepage": "https://github.com/shower/ribbon",
+  "keywords": [
+    "shower",
+    "presentation",
+    "ribbon",
+    "theme"
+  ],
+  "license": "MIT",
+  "name": "@shower/ribbon",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shower/ribbon.git"
   },
   "scripts": {
-    "test": "stylelint 'styles/**/*.css'",
-    "start": "live-server . --watch='fonts/*,pictures/*,styles/**,index.html'"
-  }
+    "start": "browser-sync start --server --no-notify --no-ui --no-ghost-mode --files 'fonts/*,pictures/*,styles/**,index.html'",
+    "test": "stylelint 'styles/**/*.css'"
+  },
+  "version": "3.4.3"
 }
