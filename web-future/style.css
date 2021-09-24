@@ -212,3 +212,39 @@ img.shadowed {
 .c-blue {
     color: var(--yandex-blue);
 }
+
+.slide .shout.neon-text {
+    --color-100: rgb(0, 211, 255);
+    --color-50: rgba(0, 211, 255, 0.5);
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--color-100);
+    filter: drop-shadow(0px 2px 1px var(--color-100))
+            drop-shadow(0px 0px 2px var(--color-50))
+            drop-shadow(0px 0px 5px var(--color-50))
+            drop-shadow(0px 0px 15px var(--color-50))
+            drop-shadow(0px 0px 25px var(--color-100));
+
+    color: var(--color-100);
+    caret-color: transparent;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+
+.neon {
+    --yandex-yellow: rgb(0, 211, 255);
+    --yandex-blue: #2a72b7;
+    --yandex-red: #ff006d;
+}
+
+.neon .list {
+    background: #180929;
+}
+
+.neon img.shadowed {
+    border-radius: 0;
+    border-image-source: linear-gradient(144deg,#00cfff,#d000e9);
+    border-style: solid;
+    border-image-slice: 1;
+    border-width: 2px;
+}
