@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAV to Image</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            background: #111;
+            color: #ddd;
+            font-family: system-ui, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #image {
+            display: block;
+            width: 70vmin;
+            height: auto;
+            border: 1px dotted #333;
+        }
+
+        #file {
+            margin: 15px;
+        }
+
+        #go, #stop {
+            padding: 5px 10px;
+            border: 1px solid #777;
+            background: #222;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        #go:hover, #stop:hover {
+            background: #444;
+        }
+
+        #controls {
+            min-width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+    </style>
+
+    <div id="controls">
+        <input type="file" 
+               id="file" 
+               accept=".mp3, .wav">
+        <button id="go">Go!</button>
+        <button id="stop">Stop</button>
+    </div>
+
+    <canvas id="image" width="1000" height="1000"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>

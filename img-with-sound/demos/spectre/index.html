@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectre</title>
+</head>
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            background: #111;
+            color: #ddd;
+            font-family: system-ui, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #oscilogram {
+            display: block;
+            width: 70vmin;
+            height: 200px;
+            border: 1px dotted #333;
+        }
+
+        #spectre {
+            display: block;
+            width: 70vmin;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            border: 1px dotted #333;
+        }
+
+        #oscilogram.logarithmic {
+            width: 90vw;
+        }
+
+        #spectre.logarithmic {
+            aspect-ratio: 12 / 1;
+            width: 90vw;
+        }
+
+        #file {
+            margin: 15px;
+        }
+
+        #go, #stop {
+            padding: 5px 10px;
+            border: 1px solid #777;
+            background: #222;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        #go:hover, #stop:hover {
+            background: #444;
+        }
+
+        #controls {
+            min-width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+    </style>
+
+    <div id="controls">
+        <input type="file" 
+               id="file" 
+               accept=".mp3, .wav">
+        <button id="go">Go!</button>
+        <button id="stop">Stop</button>
+        
+        <label>
+            <input type="checkbox" id="logarithm"> Logarithmic Scale
+        </label>
+    </div>
+
+    <canvas id="oscilogram" width="1000" height="200"></canvas>
+    <canvas id="spectre" width="1000" height="400"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
