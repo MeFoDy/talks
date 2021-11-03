@@ -72,9 +72,6 @@ goButton.addEventListener(
             wave.header.numChannels = channelsCount;
             wave.header.bitsPerSample = 16;
             wave.Make(waveData);
-            const tBlob = dataURLtoBlob(wave.dataURI);
-
-            console.log(tBlob);
 
             audio.src = wave.dataURI;
             audio.title = file.name + '.wav';
@@ -83,16 +80,3 @@ goButton.addEventListener(
     },
     false
 );
-
-// https://stackoverflow.com/questions/23150333/html5-javascript-dataurl-to-blob-blob-to-dataurl/30407959#30407959
-function dataURLtoBlob(dataurl) {
-    var arr = dataurl.split(','),
-        mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[1]),
-        n = bstr.length,
-        u8arr = new Uint8Array(n);
-    while (n--) {
-        u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new Blob([u8arr], { type: mime });
-}

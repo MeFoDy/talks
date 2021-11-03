@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Картинки со звуком</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Пришла как-то к разработчику Мефодию задача: показывать через заданное пользователем время попап с напоминалкой, что время прошло. Написал Мефодий setTimeout, запушил, тикет закрыл. А пользователь так и не дождался своей напоминалки. В докладе поговорим о том, как браузеры работают со временем, что такое время вообще и как всё-таки показать напоминалку в правильный момент.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Картинки со звуком</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, HR-Tech@Яндекс
+        </p>
+    </header>
+
+
+    <section class="slide clear" style="background-color: black;">
+        <h2 style="font-size: 3em; font-weight: 500; margin-top: 35px; color: white; text-align: center;">Картинки со звуком</h2>
+        <p style="margin-top: 230px; color: var(--color-pink); text-align: center;">Никита Дубко, HR-Tech@Яндекс</p>
+        <img src="./pictures/oscillogram.png" alt="" style="mix-blend-mode: hard-light;" class="cover height">
+        <img src="./pictures/holyjs-logo.svg" alt="" class="place" width="100">
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 330px;">
+            <h2>Кто я?</h2>
+            <ul>
+                <li>доброжелюбный бородач</li>
+                <li>редактор новостей в Веб-стандартах</li>
+                <li>пятый голос одноименного подкаста</li>
+                <li>Google Developer Expert по вебу</li>
+                <li>старший разработчик в HR-Tech <span style="color: red;">Я</span>ндекса</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+
+    <section class="slide">
+        <h2>Задачи со временем</h2>
+        <ul>
+            <li class="next">⏱ замеры производительности;</li>
+            <li class="next">🩺 медицинские таймеры;</li>
+            <li class="next">📈 акции и котировки;</li>
+            <li class="next">⚡️ период полураспада цезия на АЭС.</li>
+        </ul>
+    </section>
+
+
+<section class="slide">
+    картинки со звуком
+</section>
+
+<section class="slide">
+    https://static.wikia.nocookie.net/mems/images/e/ef/Адвокат.jpg/revision/latest?cb=20190929120153&path-prefix=ru
+</section>
+
+<section class="slide">
+    https://i.ytimg.com/vi/MPGbtBCl_cg/maxresdefault.jpg
+</section>
+
+<section class="slide">
+    как записать звук
+</section>
+
+<section class="slide">
+    дудец
+</section>
+
+<section class="slide">
+    второй дудец
+</section>
+
+<section class="slide">
+    невмы https://en.wikipedia.org/wiki/Neume
+</section>
+
+<section class="slide">
+    оркестр
+</section>
+
+<section class="slide">
+    ноты
+</section>
+
+<section class="slide">
+    второй оркестр
+</section>
+
+<section class="slide">
+    музыкальная шкатулка
+</section>
+
+<section class="slide">
+    1877 Шарль Кро запись звука на барабан или диск
+</section>
+
+<section class="slide">
+    1877 Томас Эдисон фонограф
+</section>
+
+<section class="slide">
+    1887 Эмиль Берлинер грамофонные пластинки + граммофон
+</section>
+
+<section class="slide">
+    пластинка под микроскопом
+</section>
+
+<section class="slide">
+    головка по канавкам
+</section>
+
+<section class="slide">
+    звукозапись изменила мировую экономику
+</section>
+
+<section class="slide">
+    цифровой звук https://xakep.ru/2020/07/31/digital-sound-howto/
+</section>
+
+<section class="slide">
+    https://habr.com/ru/company/yandex/blog/270765/
+</section>
+
+<section class="slide">
+    PCM pulse code modulation
+</section>
+
+<section class="slide">
+    Импульсно-кодовая модуляция
+</section>
+
+<section class="slide">
+    теорема Котельникова или Найквиста-Шеннона
+</section>
+
+<section class="slide">
+    дискретизация
+</section>
+
+<section class="slide">
+    Любую функцию F(t), состоящую из частот от 0 до f<sub>1</sub>, можно непрерывно передавать с любой точностью при помощи чисел, следующих друг за другом через 1/(2f<sub>1</sub>) секунд
+</section>
+
+<section class="slide">
+    Чтобы была возможность восстановить приблизительно исходное состояние сигнала, частота дискретизации должна равняться как минимум удвоенной верхней граничной частоте этого сигнала.
+</section>
+
+<section class="slide">
+    частота дискретизации 44,1 кГц
+</section>
+
+<section class="slide">
+    ухо ловит 20 кГц
+</section>
+
+<section class="slide">
+    стандарт телевещания PAL у Sony
+</section>
+
+<section class="slide">
+    разрядность квантования — 16 бит (амплитуда)
+</section>
+
+<section class="slide">
+    65 536
+</section>
+
+<section class="slide">
+    Compact Disc Digital Audio
+</section>
+
+<section class="slide">
+    АЦП — Аналогово-цифровой преобразователь
+</section>
+
+<section class="slide">
+    звук https://ru.wikipedia.org/wiki/Звук
+</section>
+
+<section class="slide">
+    физика колебаний
+</section>
+
+<section class="slide">
+    области сжатия и разрежения у уха
+</section>
+
+<section class="slide">
+    звуковое давление
+</section>
+
+<section class="slide">
+    инфразвук
+</section>
+
+<section class="slide">
+    ультразвук
+</section>
+
+<section class="slide">
+    ухо — мембрана, которая снимает мгновенные значения звукового давление
+</section>
+
+<section class="slide">
+    составляющие волны: частота, амплитуда, фаза
+</section>
+
+<section class="slide">
+    спектрограмма https://habr.com/ru/company/skillfactory/blog/536834/
+</section>
+
+<section class="slide">
+    время, частота, амплитуда
+</section>
+
+<section class="slide">
+    3d -> цвет
+</section>
+
+<section class="slide">
+    Aphex Twin
+</section>
+
+<section class="slide">
+    venetian-snares-look
+</section>
+
+<section class="slide">
+    Web Audio API
+</section>
+
+<section class="slide">
+    https://webaudioapi.com/book/Web_Audio_API_Boris_Smus.pdf
+</section>
+
+<section class="slide">
+    https://github.com/yandex/audio-js/blob/master/tutorial/web-audio-api.md
+</section>
+
+<section class="slide">
+    это про потоки, не про файлы
+</section>
+
+<section class="slide">
+    сигналы, их можно соединять
+</section>
+
+<section class="slide">
+    как генерировать звук https://css-tricks.com/introduction-web-audio-api/ Грег Хованесян
+</section>
+
+<section class="slide">
+    https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques
+</section>
+
+<section class="slide">
+    доклад не про это
+</section>
+
+<section class="slide">
+    буффер
+</section>
+
+<section class="slide">
+    рисуем осциллограмму демо
+</section>
+
+<section class="slide">
+    рисуем спектр демо
+</section>
+
+<section class="slide">
+    спектр в аудио?
+</section>
+
+<section class="slide">
+    будут потери
+</section>
+
+<section class="slide">
+    https://datascience.ch/how-to-generate-audio-using-time-frequency-representations/
+</section>
+
+<section class="slide">
+    но если нам пофиг на качество звука?
+</section>
+
+<section class="slide">
+    вольфрам https://www.wolfram.com/language/12/new-in-audio-processing/generate-sound-from-image-using-inverse-spectrogram.html?product=mathematica
+</section>
+
+<section class="slide">
+    https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
+</section>
+
+<section class="slide">
+    преобразования фурье http://shackmaster.narod.ru/fourier.htm
+</section>
+
+<section class="slide">
+    демо spectre
+</section>
+
+<section class="slide">
+    буффер в блоб https://www.russellgood.com/how-to-convert-audiobuffer-to-audio-file/
+</section>
+
+<section class="slide">
+    блоб в аудио
+</section>
+
+<section class="slide">
+    Perl http://www.ohmpie.com/imageencode/
+</section>
+
+<section class="slide">
+    до меня уже сделали такое в браузере https://github.com/alexadam/img-encode
+</section>
+
+<section class="slide">
+    анализ спектра для поиска паттернов
+</section>
+
+<section class="slide">
+    стеганограмма
+</section>
+
+<section class="slide">
+    подпись файлов
+</section>
+
+<section class="slide">
+    амплитуды — числа
+</section>
+
+<section class="slide">
+    картинка — пиксели
+</section>
+
+<section class="slide">
+    пиксели — RGB
+</section>
+
+<section class="slide">
+    RGB — числа
+</section>
+
+<section class="slide">
+    Числа — числа
+</section>
+
+<section class="slide">
+    Хм...
+</section>
+
+<section class="slide">
+    Звук в картинку
+</section>
+
+<section class="slide">
+    Демо
+</section>
+
+<section class="slide">
+    Картинка в звук
+</section>
+
+<section class="slide">
+    Демо
+</section>
+
+<section class="slide">
+    Сжатие картинок через squoosh
+</section>
+
+<section class="slide">
+    Выводы
+</section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Спасибо за внимание!</h2>
+        <a href="https://mefody.dev/talks/img-with-sound/">mefody.dev/talks/img-with-sound/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

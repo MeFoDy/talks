@@ -18,6 +18,15 @@ const audioCtx = new (AudioContext || webkitAudioContext)();
 let activeSource = null;
 let activeAnalyzer = null;
 
+logarithmCheckbox.addEventListener('click', () => {
+    const isLogarithmic = logarithmCheckbox.checked;
+    if (isLogarithmic) {
+        document.body.classList.add('logarithmic');
+    } else {
+        document.body.classList.remove('logarithmic');
+    }
+});
+
 stopButton.addEventListener('click', () => {
     reset();
 });
@@ -39,14 +48,29 @@ goButton.addEventListener(
 
         const fileReader = new FileReader();
         fileReader.onload = async function (e) {
+            showLoader();
+
             const buffer = await audioCtx.decodeAudioData(e.target.result);
+            await processSpectre(buffer);
+            processOscillogram(buffer);
+
             playSound(buffer);
-            process(buffer);
+            drawProgress(buffer.duration);
+
+            hideLoader();
         };
         fileReader.readAsArrayBuffer(file);
     },
     false
 );
+
+function showLoader() {
+    document.querySelector('html').classList.add('loading');
+}
+
+function hideLoader() {
+    document.querySelector('html').classList.remove('loading');
+}
 
 function reset() {
     if (isPlaying) {
@@ -68,7 +92,7 @@ function resetOscillogramCanvas() {
     osciCanvasCtx.fillRect(0, 0, osciCanvas.width, osciCanvas.height);
 }
 
-function process(buffer) {
+function processOscillogram(buffer) {
     const leftBuffer = buffer.getChannelData(0);
     const hasMultipleChannels = buffer.numberOfChannels > 1;
 
@@ -106,20 +130,16 @@ async function playSound(buffer) {
     source.connect(audioCtx.destination);
     source.start(0);
     isPlaying = true;
+    needToStop = false;
+}
 
+async function processSpectre(buffer) {
     resetSpectreCanvas();
     await drawSpectre(buffer);
 }
 
 async function drawSpectre(audioBuffer) {
     const isLogarithmic = logarithmCheckbox.checked;
-    if (isLogarithmic) {
-        spectreCanvas.classList.add('logarithmic');
-        osciCanvas.classList.add('logarithmic');
-    } else {
-        spectreCanvas.classList.remove('logarithmic');
-        osciCanvas.classList.remove('logarithmic');
-    }
 
     spectreCanvas.width =
         spectreCanvas.offsetWidth * getCurrentPixelRatio(spectreCanvas);
@@ -254,17 +274,20 @@ function drawOscilogram(buffer, y, h, d) {
             currentValue
         );
     }
+}
 
+function drawProgress(d) {
     const start = audioCtx.currentTime;
+    const w = osciCanvas.width;
     const ch = osciCanvas.height;
     const saved = osciCanvasCtx.getImageData(0, 0, w, ch);
+
     requestAnimationFrame(function x() {
         if (needToStop) {
             needToStop = false;
             return;
         }
         const c = (audioCtx.currentTime - start) % d;
-        console.log(c, d);
         osciCanvasCtx.putImageData(saved, 0, 0);
         osciCanvasCtx.fillStyle = 'hsla(260, 80%, 30%, 0.5)';
         osciCanvasCtx.fillRect(0, 0, w * (c / d), ch);
@@ -347,3 +370,10 @@ LogScale.prototype.logarithmicToLinear = function (value) {
         return Math.log(normalizedValue) / Math.log(this.getRange() + 1);
     }
 };
+
+CSS.registerProperty({
+    name: '--h',
+    syntax: '<integer>',
+    inherits: false,
+    initialValue: '0',
+});
