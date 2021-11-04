@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Пришла как-то к разработчику Мефодию задача: показывать через заданное пользователем время попап с напоминалкой, что время прошло. Написал Мефодий setTimeout, запушил, тикет закрыл. А пользователь так и не дождался своей напоминалки. В докладе поговорим о том, как браузеры работают со временем, что такое время вообще и как всё-таки показать напоминалку в правильный момент.">
     <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
-    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
     <link rel="stylesheet" href="style.css?v=0.0.0">
 </head>
 
@@ -44,359 +44,823 @@
         <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
     </section>
 
+    <section class="slide">
+        <h2 class="shout">Слышу глазами 👁</h2>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/screen-configure.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/advocate.jpg" alt="" class="cover">
+    </section>
 
     <section class="slide">
-        <h2>Задачи со временем</h2>
-        <ul>
-            <li class="next">⏱ замеры производительности;</li>
-            <li class="next">🩺 медицинские таймеры;</li>
-            <li class="next">📈 акции и котировки;</li>
-            <li class="next">⚡️ период полураспада цезия на АЭС.</li>
-        </ul>
+        <img src="./pictures/300.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <blockquote class="cite place">
+            Я вижу, где смеётся Маша.<br>
+            <span class="cite-author">Вадим Макеев</span>
+        </blockquote>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Пятиминутка <br> истории</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✏️</h2>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/dudets.jpg" alt="" width="500" class="place">
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/dudets.jpg" alt="" width="500" class="place right">
+        <img src="./pictures/dudets.jpg" alt="" width="500" class="place left" style="transform: scaleX(-1) translateY(-50%);">
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/neume.jpeg" alt="" class="cover" width="800">
+        <a class="copyright" href="https://en.wikipedia.org/wiki/Neume">Neume</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/old-orchestra.jpg" alt="" class="cover">
+        <a class="copyright" href="https://diletant.media/articles/45255336/">Золотые хиты Средневековья</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🪕 Гвидо из Ареццо, <br>XI век</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/old-notes.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/old-orchestra-2.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/music-box.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1877</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/cro.jpg" alt="" class="cover" width="600">
+        <a class="copyright" href="https://en.wikipedia.org/wiki/Charles_Cros">Charles Cro</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/edison_and_phonograph.jpg" alt="" class="cover">
+        <a class="copyright" href="https://en.wikipedia.org/wiki/Phonograph">Phonograph</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/Emile_Berliner_with_phonograph.jpg" alt="" class="cover">
+        <a class="copyright" href="https://en.wikipedia.org/wiki/Emile_Berliner">Emile Berliner</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/electron-microscope-slow-motion-vinyl-recording-ben-krasnow.jpg" alt="" class="cover height">
+        <a class="copyright" href="https://www.demilked.com/electron-microscope-slow-motion-vinyl-recording-ben-krasnow/">Vinyl Put Under Microscope In Slow Motion Video</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Пластинки изменили <br> мировую экономику 📈</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1904</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/sound-on-video.jpeg" alt="" class="place" width="600">
+        <a class="copyright" href="https://xakep.ru/2014/10/17/cinema-voice-history/">Рисованный звук: из прошлого в будущее</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/variofon.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://zen.yandex.ru/media/sywmusic/sintezirovannyi-bumajnyi-zvuk-kak-v-1930-sovetskii-izobretatel-perevernul-muzykalnuiu-industriiu-5e6de7b83e1cee725cf9562a">Синтезированный «бумажный звук»</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/ans1.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://xakep.ru/2014/10/17/cinema-voice-history/">Евгений Мурзин показывает свое детище. ВДНХ. 1962</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Оптическая реализация алгоритма преобразования Фурье 🤯</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout" style="font-weight: 300;">Что такое <strong>звук</strong>?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 style="text-align: center; color: var(--color-red);">Дисклеймер</h2>
+        <p>Автор не имеет докторской степени по физике звука. Дальнейшие объяснения основаны на собственном опыте и активном гуглении. Если вы считаете, что автор не прав, не стесняйтесь вступать в дискуссии после доклада. Если это кто-то читает, то вот вам интересный факт: шум моря, который мы слышим через морскую раковину, на самом всего лишь звук крови, протекающей по нашим сосудам.</p>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/ear.png" alt="" class="cover">
+        <a class="copyright" href="https://ru.wikipedia.org/wiki/Звук">Звук</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">〰 Упругие волны <br> механических колебаний</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/1D-Wave.gif" alt="" class="place">
+        <a class="copyright" href="https://ru.wikipedia.org/wiki/Волна">Волна</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/sound-wave.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wave-formulae.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/frequency-formulae.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">16–20 000 Гц</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Инфразвук < 16 Гц</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Ультразвук > 20 000 Гц</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pressure-formulae.png" alt="" class="cover">
+        <a class="copyright" href="https://ru.wikipedia.org/wiki/Звуковое_давление">Звуковое давление</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pressure-level-formulae.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/ear.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/micro.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1933</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📖 Теорема Котельникова <br> (Найквиста-Шеннона)</h2>
+    </section>
+
+    <section class="slide">
+        <blockquote class="place" style="width: 70%;">
+            Любую функцию F(t), состоящую из частот от 0 до f<sub>1</sub>, можно непрерывно передавать с любой точностью при помощи чисел, следующих друг за другом через 1/(2f<sub>1</sub>) секунд
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/signal.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/signal-diskr.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/signal-quant.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            частота дискретизации <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            44,1 кГц
+        </h2>
+        <a class="copyright" href="https://xakep.ru/2020/07/31/digital-sound-howto/">Не пустой звук</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            разрядность квантования <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            16 бит
+        </h2>
+        <a class="copyright" href="https://xakep.ru/2020/07/31/digital-sound-howto/">Не пустой звук</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            16 бит <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            65 536
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            PCM <br>
+            <small class="grey">Pulse Code Modulation</small>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            ИКМ <br>
+            <small class="grey">Импульсно-Кодовая Модуляция</small>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            АЦП <br>
+            <small class="grey">Аналогово-Цифровой Преобразователь</small>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/micro.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/yandex-music-sound-guide.png" alt="" class="cover height place top">
+        <a class="copyright" href="https://habr.com/ru/company/yandex/blog/270765/">Теория звука. Что нужно знать о звуке, чтобы с ним работать</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Время, <br> частота, <br> амплитуда</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            Время <span style="color: var(--color-pink)">X</span>, <br>
+            частота <span style="color: var(--color-pink)">Y</span>, <br>
+            амплитуда <span style="color: var(--color-pink)">Z</span></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/spectrogram.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Спектрограмма 🎨</h2>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/aphex-twin.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">
+            Web Audio API
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/web-audio-api-cover.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/borismus/webaudioapi.com/blob/master/content/book/Web_Audio_API_Boris_Smus.pdf">Web Audio API, Boris Smus</a>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/web-audio-api-spec.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://webaudio.github.io/web-audio-api/">Web Audio API</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/web-audio-api-yandex.png" alt="" class="cover width">
+        <a class="copyright" href="https://github.com/yandex/audio-js/blob/master/tutorial/web-audio-api.md">Web Audio API, Михаил Силаев</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Не про файлы ☐</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Про сигналы 〰</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/web-audio-api-complex-context.png" alt="" class="place" width="400">
+        <a class="copyright" href="https://github.com/borismus/webaudioapi.com/blob/master/content/book/Web_Audio_API_Boris_Smus.pdf">Web Audio API, Boris Smus</a>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="The Bluesman - You Can Play The Blues (Web Audio API)" src="https://codepen.io/gregh/embed/zNzvOm?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/gregh/pen/zNzvOm">
+            The Bluesman - You Can Play The Blues (Web Audio API)</a> by Greg Hovanesyan (<a href="https://codepen.io/gregh">@gregh</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Доклад не про это 🤷‍♂️</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout" style="font-weight: 300;">
+            Демо 1. <br>
+            <strong>Осцилограмма</strong>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>const audioCtx = new (AudioContext || webkitAudioContext)();
+
+const buffer = await audioCtx.decodeAudioData(file);
+
+const source = audioCtx.createBufferSource();
+source.buffer = buffer;
+
+source.connect(audioCtx.destination);
+
+source.start(0);
+</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>buffer: AudioBuffer
+    duration: 91.53199546485261
+    length: 4036561
+    numberOfChannels: 2
+</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>buffer.getChannelData(0);
+
+Float32Array(6506070) [0.0014954069629311562, 0.0019531846046447754,
+0.0016785180196166039, 0.0018616290763020515, 0.0017700735479593277,
+0.0017700735479593277, 0.0018005920574069023, 0.0017700735479593277,
+0.0017700735479593277, 0.001831110566854477, 0.001831110566854477,
+0.0019226660951972008, 0.0020142216235399246, 0.0020447401329874992,
+0.0021057771518826485, 0.002227851189672947, 0.0023194067180156708,
+0.002471999265253544, 0.002533036284148693, 0.002624591812491417,
+0.0027161473408341408, 0.0027161473408341408, 0.00277718435972929,
+0.00277718435972929, 0.0028382213786244392, 0.00277718435972929,
+0.0028077028691768646, 0.0028382213786244392, 0.0028382213786244392,
+0.0028077028691768646, 0.00277718435972929, 0.0028382213786244392,
+0.0028077028691768646, 0.002868739888072014, 0.0028077028691768646,
+0.0028077028691768646, 0.0028077028691768646, 0.0028382213786244392, ...
+        </code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/signal.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <pre><code>const dotsCount = buffer.length;
+const dotsInPixel = Math.floor(dotsCount / canvas.width);
+const values = [];
+
+for (let i = 0; i < canvas.width; i++) {
+    let sum = 0;
+    for (let j = i * dotsInPixel; j < (i + 1) * dotsInPixel; j++) {
+        sum += Math.pow(buffer[j], 2);
+    }
+    values.push(Math.sqrt(sum));
+}
+const maxValue = Math.ceil(Math.max(...values));</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>const yCenter = Math.floor(h / 2);
+const h = canvas.height;
+
+for (let i = 0; i < canvas.width; i++) {
+    const currentValue = Math.round(
+        (values[i] / maxValue) * h * 0.8
+    );
+    canvas.fillRect(
+        i,
+        y + yCenter - currentValue / 2,
+        1,
+        currentValue
+    );
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/oscilogram/" target="_blank">Demo</a></h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout" style="font-weight: 300;">
+            Демо 2. <br>
+            <strong>Спектрограмма</strong>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>const offlineCtx = new OfflineAudioContext(
+    audioBuffer.numberOfChannels,
+    audioBuffer.length,
+    audioBuffer.sampleRate
+);
+
+const offlineSource = offlineCtx.createBufferSource();
+offlineSource.buffer = audioBuffer;
+offlineSource.channelCount = audioBuffer.numberOfChannels;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Не про файлы ☐</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">OfflineAudioContext 💡</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code class="js">const config = {
+    fftResolution: 4096,
+    smoothingTimeConstant: 0.02,
+    processorBufferSize: 2048,
+};
+
+const analyzer = offlineCtx.createAnalyser();
+analyzer.fftSize = config.fftResolution;
+analyzer.smoothingTimeConstant = config.smoothingTimeConstant;</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/analyzer-node.svg" alt="" class="place" width="900" style="filter: invert(1);">
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode">AnalyserNode</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">FFT?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Быстрое <br> преобразование <br> Фурье</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fft-re.png" alt="" class="cover">
+        <a class="copyright" href="http://shackmaster.narod.ru/fourier.htm">Применение преобразования Фурье в цифровой обработке звука</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fft-im.png" alt="" class="cover">
+        <a class="copyright" href="http://shackmaster.narod.ru/fourier.htm">Применение преобразования Фурье в цифровой обработке звука</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fft-a-p.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code class="js">offlineSource.connect(analyzer);
+
+offlineCtx.createScriptProcessor =
+    offlineCtx.createScriptProcessor || offlineCtx.createJavaScriptNode;
+
+const processor = offlineCtx.createScriptProcessor(
+    config.processorBufferSize,
+    1,
+    1
+);
+
+const channelFFtDataBuffer = new Uint8Array(
+    (audioBuffer.length / config.processorBufferSize) *
+        (config.fftResolution / 2)
+);</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>let offset = 0;
+processor.onaudioprocess = (e) => {
+    const freqData = new Uint8Array(
+        channelFFtDataBuffer.buffer,
+        offset,
+        analyzer.frequencyBinCount
+    );
+    analyzer.getByteFrequencyData(freqData);
+    offset += analyzer.frequencyBinCount;
+};
+
+offlineSource.connect(processor);
+processor.connect(offlineCtx.destination);
+offlineSource.start(0);</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">getByteFrequencyData</h2>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>const stride = generalAnalyzer.frequencyBinCount;
+
+for (let i = 0; i < w; i++) {
+    const startIndex = i * ticksPerLine * stride;
+
+    for (let j = 0; j < stride; j++) {
+        const index = startIndex + j;
+        const db = data.channel[index] / 255;
+        const hColor = Math.round((db * 120 + 280) % 360);
+        const lColor = 10 + 70 * db + '%';
+        spectreCanvasCtx.fillStyle =
+            `hsl(${hColor}, 100%, ${lColor})`;
+        spectreCanvasCtx.fillRect(
+            i * cellWidth, h - cellHeight * j,
+            cellWidth, cellHeight
+        );
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/spectre/" target="_blank">Demo</a></h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout" style="font-weight: 300;">
+            Демо 3. <br>
+            <strong>Spectrodrawing</strong>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            Спектрограмма <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            Звук
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wolfram.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.wolfram.com/language/12/new-in-audio-processing/generate-sound-from-image-using-inverse-spectrogram.html?product=mathematica">Generate Sound from Image Using Inverse Spectrogram</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Потери ☹️</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Ну и ладно 😁</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code class="js">const imgData = ctx.getImageData(0, 0, w, h).data;
+const durationSeconds = 10;
+const sampleRate = 44100;
+const channelsCount = 1;
+const samplesCount = Math.round(sampleRate * durationSeconds);
+const maxPossibleFrequency = 20000; // Hz
+const coeff = maxPossibleFrequency / canvas.height;
+const samplesPerLineX = Math.floor(samplesCount / canvas.width);
+const samples = [];
+
+let maxFreq = -Infinity;
+let yFactor = 2;</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fft-reverse.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>for (let i = 0; i < samplesCount; i++) {
+    const x = Math.floor(i / samplesPerLineX);
+    let reX = 0;
+
+    for (let y = 0; y < h; y += yFactor) {
+        const j = (y * w + x) * 4;
+        const sum = imgData[j] + imgData[j + 1] + imgData[j + 2];
+        const volume = Math.pow((sum / (255 * 3)) * 100, 2);
+        const freq = Math.round(coeff * (h - y + 1));
+        reX += Math.floor(
+            volume * Math.cos((freq * 2 * Math.PI * i) / sampleRate)
+        );
+    }
+
+    samples.push(reX);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code class="js">volume * Math.cos((freq * 2 * Math.PI * i) / sampleRate)</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">4 часа дебага спустя...</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/image-to-spectre/" target="_blank">Demo</a></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/img-encode.png" alt="" class="cover width">
+        <a class="copyright" href="https://github.com/alexadam/img-encode">img-encode</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/virtual-ans.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.warmplace.ru/soft/ans/index_ru.php">Virtual ANS</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Зачем? 😶</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Визуальный поиск <br> паттернов 👀</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Распознавание речи по картинке</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Стеганограмма 🥷</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Подпись файлов ✍️</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout" style="font-weight: 300;">
+            Демо 4. <br>
+            <strong>Музыка в картинку</strong>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            амплитуда <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            число
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            картинка <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            пиксели
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            пиксель <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            <span style="color: red">R</span> <span style="color: green">G</span> <span style="color: blue">B</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span style="color: red">R</span> <span style="color: green">G</span> <span style="color: blue">B</span><br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            числа
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            числа <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            числа
+        </h2>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/meme.jpg" alt="" class="place">
+    </section>
+
+    <section class="slide">
+        <pre><code>const buffers = [];
+const buffersCount = source.buffer.numberOfChannels;
+
+for (let i = 0; i < buffersCount; i++) {
+    buffers.push(source.buffer.getChannelData(i));
+}
+
+const size = Math.ceil(Math.sqrt(buffers[0].length / 3));
+const cellSize = 1;
+const h = (canvas.height = size * cellSize * buffersCount);
+const w = (canvas.width = size * cellSize);</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+        const index = (y * size + x) * 3;
+        const r = Math.floor((255 * (buffer[index] + 1)) / 2);
+        const g = Math.floor((255 * (buffer[index + 1] + 1)) / 2);
+        const b = Math.floor((255 * (buffer[index + 2] + 1)) / 2);
+        const fillStyle = `rgb(${r}, ${g}, ${b})`;
+        canvasCtx.fillStyle = fillStyle;
+        canvasCtx.fillRect(
+            x * cellSize,
+            y * cellSize + i * w,
+            cellSize,
+            cellSize
+        );
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/wav-to-image/" target="_blank">Demo</a></h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout" style="font-weight: 300;">
+            Демо 5. <br>
+            <strong>Картинка в музыку</strong>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>const data = ctx.getImageData(0, 0, w, h).data;
+
+const buffersCount = Math.round(h / w);
+const bufferLength = (data.length * 3) / 4 / buffersCount;
+const audioBuffer = new AudioBuffer({
+    length: bufferLength,
+    sampleRate: 44100,
+    numberOfChannels: buffersCount,
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>for (let j = 0; j < buffersCount; j++) {
+    const pixels = [];
+    const dotsCount = data.length / 4 / buffersCount;
+    for (let i = 0; i < dotsCount; i++) {
+        const index = j * dotsCount * 4 + i * 4;
+        const r = (data[index] * 2) / 255 - 1;
+        const g = (data[index + 1] * 2) / 255 - 1;
+        const b = (data[index + 2] * 2) / 255 - 1;
+        pixels.push(r);
+        pixels.push(g);
+        pixels.push(b);
+    }
+    const buffer = Float32Array.from(pixels);
+    audioBuffer.copyToChannel(buffer, j, 0);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>const objectUrl = URL.createObjectURL(
+    bufferToWave(abuffer, total_samples)
+);
+
+audio.src = objectUrl;
+audio.title = filename + '.wav';
+
+function bufferToWave(abuffer, len) {
+    // ...
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/image-to-wav/" target="_blank">Demo</a></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Squoosh 😈</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Физика — <br> это интересно 🙃</h2>
     </section>
 
 
-<section class="slide">
-    картинки со звуком
-</section>
-
-<section class="slide">
-    https://static.wikia.nocookie.net/mems/images/e/ef/Адвокат.jpg/revision/latest?cb=20190929120153&path-prefix=ru
-</section>
-
-<section class="slide">
-    https://i.ytimg.com/vi/MPGbtBCl_cg/maxresdefault.jpg
-</section>
-
-<section class="slide">
-    как записать звук
-</section>
-
-<section class="slide">
-    дудец
-</section>
-
-<section class="slide">
-    второй дудец
-</section>
-
-<section class="slide">
-    невмы https://en.wikipedia.org/wiki/Neume
-</section>
-
-<section class="slide">
-    оркестр
-</section>
-
-<section class="slide">
-    ноты
-</section>
-
-<section class="slide">
-    второй оркестр
-</section>
-
-<section class="slide">
-    музыкальная шкатулка
-</section>
-
-<section class="slide">
-    1877 Шарль Кро запись звука на барабан или диск
-</section>
-
-<section class="slide">
-    1877 Томас Эдисон фонограф
-</section>
-
-<section class="slide">
-    1887 Эмиль Берлинер грамофонные пластинки + граммофон
-</section>
-
-<section class="slide">
-    пластинка под микроскопом
-</section>
-
-<section class="slide">
-    головка по канавкам
-</section>
-
-<section class="slide">
-    звукозапись изменила мировую экономику
-</section>
-
-<section class="slide">
-    цифровой звук https://xakep.ru/2020/07/31/digital-sound-howto/
-</section>
-
-<section class="slide">
-    https://habr.com/ru/company/yandex/blog/270765/
-</section>
-
-<section class="slide">
-    PCM pulse code modulation
-</section>
-
-<section class="slide">
-    Импульсно-кодовая модуляция
-</section>
-
-<section class="slide">
-    теорема Котельникова или Найквиста-Шеннона
-</section>
-
-<section class="slide">
-    дискретизация
-</section>
-
-<section class="slide">
-    Любую функцию F(t), состоящую из частот от 0 до f<sub>1</sub>, можно непрерывно передавать с любой точностью при помощи чисел, следующих друг за другом через 1/(2f<sub>1</sub>) секунд
-</section>
-
-<section class="slide">
-    Чтобы была возможность восстановить приблизительно исходное состояние сигнала, частота дискретизации должна равняться как минимум удвоенной верхней граничной частоте этого сигнала.
-</section>
-
-<section class="slide">
-    частота дискретизации 44,1 кГц
-</section>
-
-<section class="slide">
-    ухо ловит 20 кГц
-</section>
-
-<section class="slide">
-    стандарт телевещания PAL у Sony
-</section>
-
-<section class="slide">
-    разрядность квантования — 16 бит (амплитуда)
-</section>
-
-<section class="slide">
-    65 536
-</section>
-
-<section class="slide">
-    Compact Disc Digital Audio
-</section>
-
-<section class="slide">
-    АЦП — Аналогово-цифровой преобразователь
-</section>
-
-<section class="slide">
-    звук https://ru.wikipedia.org/wiki/Звук
-</section>
-
-<section class="slide">
-    физика колебаний
-</section>
-
-<section class="slide">
-    области сжатия и разрежения у уха
-</section>
-
-<section class="slide">
-    звуковое давление
-</section>
-
-<section class="slide">
-    инфразвук
-</section>
-
-<section class="slide">
-    ультразвук
-</section>
-
-<section class="slide">
-    ухо — мембрана, которая снимает мгновенные значения звукового давление
-</section>
-
-<section class="slide">
-    составляющие волны: частота, амплитуда, фаза
-</section>
-
-<section class="slide">
-    спектрограмма https://habr.com/ru/company/skillfactory/blog/536834/
-</section>
-
-<section class="slide">
-    время, частота, амплитуда
-</section>
-
-<section class="slide">
-    3d -> цвет
-</section>
-
-<section class="slide">
-    Aphex Twin
-</section>
-
-<section class="slide">
-    venetian-snares-look
-</section>
-
-<section class="slide">
-    Web Audio API
-</section>
-
-<section class="slide">
-    https://webaudioapi.com/book/Web_Audio_API_Boris_Smus.pdf
-</section>
-
-<section class="slide">
-    https://github.com/yandex/audio-js/blob/master/tutorial/web-audio-api.md
-</section>
-
-<section class="slide">
-    это про потоки, не про файлы
-</section>
-
-<section class="slide">
-    сигналы, их можно соединять
-</section>
-
-<section class="slide">
-    как генерировать звук https://css-tricks.com/introduction-web-audio-api/ Грег Хованесян
-</section>
-
-<section class="slide">
-    https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques
-</section>
-
-<section class="slide">
-    доклад не про это
-</section>
-
-<section class="slide">
-    буффер
-</section>
-
-<section class="slide">
-    рисуем осциллограмму демо
-</section>
-
-<section class="slide">
-    рисуем спектр демо
-</section>
-
-<section class="slide">
-    спектр в аудио?
-</section>
-
-<section class="slide">
-    будут потери
-</section>
-
-<section class="slide">
-    https://datascience.ch/how-to-generate-audio-using-time-frequency-representations/
-</section>
-
-<section class="slide">
-    но если нам пофиг на качество звука?
-</section>
-
-<section class="slide">
-    вольфрам https://www.wolfram.com/language/12/new-in-audio-processing/generate-sound-from-image-using-inverse-spectrogram.html?product=mathematica
-</section>
-
-<section class="slide">
-    https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode
-</section>
-
-<section class="slide">
-    преобразования фурье http://shackmaster.narod.ru/fourier.htm
-</section>
-
-<section class="slide">
-    демо spectre
-</section>
-
-<section class="slide">
-    буффер в блоб https://www.russellgood.com/how-to-convert-audiobuffer-to-audio-file/
-</section>
-
-<section class="slide">
-    блоб в аудио
-</section>
-
-<section class="slide">
-    Perl http://www.ohmpie.com/imageencode/
-</section>
-
-<section class="slide">
-    до меня уже сделали такое в браузере https://github.com/alexadam/img-encode
-</section>
-
-<section class="slide">
-    анализ спектра для поиска паттернов
-</section>
-
-<section class="slide">
-    стеганограмма
-</section>
-
-<section class="slide">
-    подпись файлов
-</section>
-
-<section class="slide">
-    амплитуды — числа
-</section>
-
-<section class="slide">
-    картинка — пиксели
-</section>
-
-<section class="slide">
-    пиксели — RGB
-</section>
-
-<section class="slide">
-    RGB — числа
-</section>
-
-<section class="slide">
-    Числа — числа
-</section>
-
-<section class="slide">
-    Хм...
-</section>
-
-<section class="slide">
-    Звук в картинку
-</section>
-
-<section class="slide">
-    Демо
-</section>
-
-<section class="slide">
-    Картинка в звук
-</section>
-
-<section class="slide">
-    Демо
-</section>
-
-<section class="slide">
-    Сжатие картинок через squoosh
-</section>
-
-<section class="slide">
-    Выводы
-</section>
-
-
     <section class="slide clear" id="final">
-        <h2>Спасибо за внимание!</h2>
+        <h2>Have Fun!</h2>
         <a href="https://mefody.dev/talks/img-with-sound/">mefody.dev/talks/img-with-sound/</a>
         <br>
         <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
         <br>
         <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
-        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300">
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
     </section>
 
     <footer class="badge">

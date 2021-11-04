@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    background: #111;
+    color: #ddd;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 25% 80vmin auto;
+    grid-template-rows: 20vmin 80vmin;
+    position: relative;
+}
+
+html {
+    --h: 0;
+}
+
+html.loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0 0 0 / 0.5);
+    z-index: 1;
+}
+
+html.loading::after {
+    content: '';
+    position: absolute;
+    background: rgba(0 0 0 / 0.2);
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: hsl(var(--h), 50%, 50%);
+    animation: loader infinite linear 5s;
+}
+
+@keyframes loader {
+    0% {
+        --h: 0;
+        transform: translate(-50%, -50%) rotate(0turn);
+    }
+    100% {
+        --h: 359;
+        transform: translate(-50%, -50%) rotate(1turn);
+    }
+}
+
+body.logarithmic {
+    grid-template-columns: 25% 10fr 0;
+    grid-template-rows: 50vh 50vh;
+}
+
+#controls {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 2em;
+    background: linear-gradient(to right bottom, #202, #606);
+}
+
+.control {
+    margin: 1em 0;
+    font-size: 1em;
+}
+
+#file::-webkit-file-upload-button {
+    visibility: hidden;
+    width: 1px;
+}
+
+#file::before {
+    content: 'Select the music file';
+    display: inline-block;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    padding: 5px 10px;
+    border: 1px solid #777;
+    background: #222;
+    color: #ddd;
+    cursor: pointer;
+}
+
+#file:hover::before {
+    background: #444;
+}
+
+#file:active::before {
+    background: #444;
+}
+
+#oscilogram {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#go,
+#stop {
+    padding: 5px 10px;
+    border: 1px solid #777;
+    background: #222;
+    color: #ddd;
+    cursor: pointer;
+}
+
+#go:hover,
+#stop:hover {
+    background: #444;
+}

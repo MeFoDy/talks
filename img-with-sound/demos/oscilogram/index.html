@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscillogram</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="logarithmic">
+    <div id="controls">
+        <h1>Music to Oscillogram</h1>
+        <input type="file"
+               class="control"
+               id="file"
+               accept=".mp3, .wav">
+        <button class="control" id="go">Go!</button>
+        <button class="control" id="stop">Stop</button>
+
+    </div>
+
+    <canvas id="oscilogram"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>

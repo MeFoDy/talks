@@ -121,7 +121,7 @@
 }
 
 .slide.title {
-    background-color: var(--color-pink);
+    background-image: linear-gradient(to right bottom, #202, #606);
 }
 
 .slide.title::after {
@@ -129,10 +129,11 @@
 }
 
 .slide.title h2 {
-    color: black;
+    color: white;
     text-align: left;
     padding: 0 100px;
     box-sizing: border-box;
+    font-weight: bold;
 }
 
 :root {
@@ -186,4 +187,20 @@
 .terminal::before,
 .terminal::after {
     box-sizing: border-box;
+}
+
+.cite {
+    font-size: 1.5em;
+}
+
+.cite-author {
+    font-size: 0.7em;
+}
+
+.slide.white {
+    background-color: white;
+}
+
+pre code.hljs {
+    padding: 0 0 0 var(--slide-side);
 }
