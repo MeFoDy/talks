@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="neon">
+<html lang="ru" class="merge">
 
 <head>
     <title>Что веб грядущий нам готовит</title>
@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
     <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
     <link rel="stylesheet" href="style.css?v=0.0.0">
+    <link rel="stylesheet" href="merge.css?v=0.0.0">
 </head>
 
 <body class="shower list">
@@ -18,21 +19,23 @@
     <header class="caption">
         <h1 style="color: var(--yandex-red)">Что веб грядущий нам готовит</h1>
         <p>
-            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Яндекс
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, HR Tech @ Яндекс
         </p>
     </header>
 
 
+    <section class="slide clear">
+        <img src="./pictures/merge-cover.png" alt="" class="cover">
+    </section>
+
+
     <section class="slide clear" id="cover" style="background-color: #171219;">
         <h2
-            style="font-size: 2.3em; color: var(--yandex-yellow); background: linear-gradient(169deg,#ff006d,#a82dff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">
+            style="font-size: 2.3em; color: var(--yandex-yellow); background: linear-gradient(169deg,#2BD6E1,#42D23E); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">
             Что веб грядущий<br>нам готовит</h2>
         <p style="margin-top: 35%; color: white;">
-            <a href="https://twitter.com/dark_mefody" style="color: var(--yandex-yellow)">Никита Дубко</a>, Яндекс
+            <a href="https://twitter.com/dark_mefody" style="color: var(--yandex-yellow)">Никита Дубко</a>, HR Tech @ Яндекс
         </p>
-        <video autoplay muted loop class="cover">
-            <source src="./pictures/404-bg.mp4" type="video/mp4">
-        </video>
         <img src="./pictures/cover.png" alt="" class="cover place right"
             style="-webkit-mask-image: linear-gradient(to left, black 0 80%, transparent); right: -30%; mix-blend-mode: exclusion;">
     </section>
@@ -44,7 +47,7 @@
 
 
     <section class="slide">
-        <img src="./pictures/yandex-search.png" alt="" class="cover height place left">
+        <img src="./pictures/ya-contest.png" alt="" class="cover height place left">
     </section>
 
 
@@ -111,10 +114,7 @@
     </section>
 
     <section class="slide title">
-        <h2 class="shout neon-text">Зачем смотреть в будущее?</h2>
-        <video autoplay muted loop class="cover">
-            <source src="./pictures/404-bg.mp4" type="video/mp4">
-        </video>
+        <h2 class="shout">Зачем смотреть в будущее?</h2>
     </section>
 
     <section class="slide">
@@ -213,6 +213,11 @@
     </section>
 
     <section class="slide">
+        <img src="./pictures/photoshop-web.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://web.dev/ps-on-the-web/">Photoshop's journey to the web</a>
+    </section>
+
+    <section class="slide">
         <img src="./pictures/stateofjs.png" alt="" class="cover width place top">
         <a class="copyright" href="https://2020.stateofjs.com/ru-RU/features/browser-apis/">API браузера</a>
     </section>
@@ -241,10 +246,7 @@
     </section>
 
     <section class="slide title">
-        <h2 class="shout neon-text">Как смотреть в будущее?</h2>
-        <video autoplay muted loop class="cover">
-            <source src="./pictures/404-bg.mp4" type="video/mp4">
-        </video>
+        <h2 class="shout">Как смотреть в будущее?</h2>
     </section>
 
     <section class="slide">
@@ -358,7 +360,7 @@
 
 
     <section class="slide title">
-        <h2 class="shout neon-text">Чего ожидать <br> очень скоро?</h2>
+        <h2 class="shout">Чего ожидать <br> очень скоро?</h2>
         <video autoplay muted loop class="cover">
             <source src="./pictures/404-bg.mp4" type="video/mp4">
         </video>
@@ -374,14 +376,26 @@
     </section>
 
     <section class="slide">
-        <img src="./pictures/steiner-multi-screen.jpeg" alt="" class="cover width">
-        <a class="copyright white" href="https://web.dev/multi-screen-window-placement/">Managing several displays with
-            the Multi-Screen Window Placement API</a>
+        <pre style="font-size: 0.8em;"><code>// In all contexts
+// For details on the `mode` parameter see "Exposing AccessHandles on all
+// filesystems" below
+const handle = await file.createAccessHandle({ mode: "in-place" });
+await handle.writable.getWriter().write(buffer);
+const reader = handle.readable.getReader({ mode: "byob" });
+// Assumes seekable streams, and SharedArrayBuffer support are available
+await reader.read(buffer, { at: 1 });
+
+// Only in a worker context
+const handle = await file.createSyncAccessHandle();
+const writtenBytes = handle.write(buffer);
+const readBytes = handle.read(buffer, { at: 1 });</code></pre>
+        <a class="copyright" href="https://github.com/WICG/file-system-access/blob/main/AccessHandle.md">AccessHandle Proposal</a>
     </section>
 
     <section class="slide">
-        <img src="./pictures/web-codecs-api.png" alt="" class="place" width="600">
-        <a class="copyright" href="https://developer.chrome.com/blog/new-in-chrome-94/">New in Chrome 94</a>
+        <img src="./pictures/steiner-multi-screen.jpeg" alt="" class="cover width">
+        <a class="copyright white" href="https://web.dev/multi-screen-window-placement/">Managing several displays with
+            the Multi-Screen Window Placement API</a>
     </section>
 
     <section class="slide">
@@ -393,6 +407,10 @@
     <section class="slide">
         <img src="./pictures/tanalin.png" alt="" class="cover width place top">
         <a class="copyright" href="https://tanalin.com/blog/">Марат Таналин о веб-разработке и ИТ</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">AVIF 🖼</h2>
     </section>
 
     <section class="slide">
@@ -420,7 +438,7 @@ window.addEventListener("gamepaddisconnected", function(e) {
     </section>
 
     <section class="slide">
-        <pre class="place" style="font-size: 1.5em;"><code>font-family: system-ui;</code></pre>
+        <pre class="place css" style="font-size: 1.5em;"><code>@import(utilities.css) layer(utilities);</code></pre>
     </section>
 
     <section class="slide">
@@ -435,6 +453,10 @@ window.addEventListener("gamepaddisconnected", function(e) {
     </section>
 
     <section class="slide">
+        <pre class="place html" style="font-size: 1.5em;"><code>&lt;dialog&gt;</code></pre>
+    </section>
+
+    <section class="slide">
         <img src="./pictures/safari-release-notes.png" alt="" class="cover width place top">
         <a class="copyright" href="https://developer.apple.com/documentation/safari-release-notes">Safari Release
             Notes</a>
@@ -443,8 +465,7 @@ window.addEventListener("gamepaddisconnected", function(e) {
     <section class="slide">
         <blockquote class="place">Added support for lab(), lch(), hwb() color syntaxes.</blockquote>
         <a class="copyright"
-            href="https://developer.apple.com/documentation/safari-release-notes/safari-15-beta-release-notes">Safari 15
-            Beta Release Notes</a>
+            href="https://developer.apple.com/documentation/safari-release-notes/safari-15-release-notes">Safari 15 Release Notes</a>
     </section>
 
     <section class="slide">
@@ -491,8 +512,8 @@ window.addEventListener("gamepaddisconnected", function(e) {
     </section>
 
     <section class="slide">
-        <img src="./pictures/single-touch-screen-device.png" alt="" class="place" width="90%">
-        <a class="copyright" href="https://w3c.github.io/editing/docs/virtualkeyboard/">VirtualKeyboard API</a>
+        <img src="./pictures/bfcache.png" alt="" class="place" width="90%">
+        <a class="copyright" href="https://web.dev/bfcache/">Back/forward cache</a>
     </section>
 
     <section class="slide">
@@ -536,10 +557,7 @@ window.addEventListener("gamepaddisconnected", function(e) {
     </section>
 
     <section class="slide title">
-        <h2 class="shout neon-text">Чего ожидать не очень скоро?</h2>
-        <video autoplay muted loop class="cover">
-            <source src="./pictures/404-bg.mp4" type="video/mp4">
-        </video>
+        <h2 class="shout">Чего ожидать не очень скоро?</h2>
     </section>
 
     <section class="slide">
@@ -691,10 +709,7 @@ assert.equal(wholeHour.toString(), '12:00:00');</code></pre>
     </section>
 
     <section class="slide title">
-        <h2 class="shout neon-text">Чего ожидать <br> очень не скоро?</h2>
-        <video autoplay muted loop class="cover">
-            <source src="./pictures/404-bg.mp4" type="video/mp4">
-        </video>
+        <h2 class="shout">Чего ожидать <br> очень не скоро?</h2>
     </section>
 
     <section class="slide">
@@ -793,11 +808,13 @@ array.groupBy(i => {
         <a class="copyright" href="https://wicg.github.io/sanitizer-api/">HTML Sanitizer API</a>
     </section>
 
+    <section class="slide">
+        <img src="./pictures/sanitizer-api-progress.png" alt="" class="place" width="800">
+        <a class="copyright" href="https://web.dev/sanitizer/">Safe DOM manipulation with the Sanitizer API</a>
+    </section>
+
     <section class="slide title">
-        <h2 class="shout neon-text">Долго?</h2>
-        <video autoplay muted loop class="cover">
-            <source src="./pictures/404-bg.mp4" type="video/mp4">
-        </video>
+        <h2 class="shout">Долго?</h2>
     </section>
 
     <section class="slide">
@@ -826,10 +843,7 @@ const result = p.exec('https://imagecdn1.example.com/foo/cat.jpg');
     </section>
 
     <section class="slide title">
-        <h2 class="shout neon-text">Как менять будущее?</h2>
-        <video autoplay muted loop class="cover">
-            <source src="./pictures/404-bg.mp4" type="video/mp4">
-        </video>
+        <h2 class="shout">Как менять будущее?</h2>
     </section>
 
     <section class="slide">
@@ -951,17 +965,14 @@ const result = p.exec('https://imagecdn1.example.com/foo/cat.jpg');
 
 
     <section class="slide clear title" id="final">
-        <h2 class="shout neon-text" style="top: 20%">Спасибо!</h2>
+        <h2 class="shout" style="top: 20%; text-align: center;">Спасибо!</h2>
         <div style="text-align: center; margin-top: 120px;">
-            <img src="./pictures/qr-code-404.gif" alt="" class="" width="220" style="filter: invert(1);">
+            <img src="./pictures/qr-code-merge.gif" alt="" class="" width="220" style="filter: invert(1);">
             <br>
-            <a href="https://mefody.dev/talks/web-future/404.html">https://mefody.dev/talks/web-future/404.html</a>
+            <a href="https://mefody.dev/talks/web-future/merge.html">https://mefody.dev/talks/web-future/merge.html</a>
             <br>
             <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
         </div>
-        <video autoplay muted loop class="cover">
-            <source src="./pictures/404-bg.mp4" type="video/mp4">
-        </video>
     </section>
 
 

@@ -1,0 +1,35 @@
+.merge {
+    --yandex-yellow: #2BD6E1;
+    --yandex-blue: #2BD6E1;
+    --yandex-red: #42D23E;
+}
+
+.merge .list {
+    background: #ffffff;
+}
+
+.merge img.shadowed {
+    border-radius: 0;
+    border-image-source: linear-gradient(144deg,#2BD6E1,#42D23E);
+    border-style: solid;
+    border-image-slice: 1;
+    border-width: 2px;
+}
+
+.merge .caption {
+    text-shadow: none;
+}
+
+.merge .black {
+    background-color: black;
+}
+
+.merge .slide.title h2 {
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+}
+
+.merge .slide.title {
+    background-color: black;
+    background-image: none;
+}
