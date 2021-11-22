@@ -1,0 +1,64 @@
+.js-congress {
+    --yandex-yellow: #ffdd20;
+    --yandex-blue: #4756df;
+    --yandex-red: #ff164c;
+    --color-black: #323330;
+
+    color: #1b1e23;
+}
+
+.js-congress .list {
+    background: var(--color-black);
+}
+
+.js-congress img.shadowed {
+    border-radius: 10px;
+    border: 3px solid var(--yandex-yellow);
+}
+
+.js-congress .caption {
+    text-shadow: none;
+    line-height: 1;
+}
+
+.js-congress .caption h1,
+.js-congress .caption p,
+.js-congress .caption a {
+    background-color: var(--yandex-yellow);
+    color: #1b1e23 !important;
+    text-size-adjust: 100%;
+    display: inline-block;
+}
+
+.js-congress .caption h1 {
+    font-weight: bold;
+    line-height: 1;
+    font-size: 0.8em;
+}
+
+.js-congress .caption p {
+    font-size: 0.5em;
+}
+
+.js-congress .black {
+    background-color: black;
+}
+
+.js-congress .slide.title h2 {
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+}
+
+.js-congress .slide.title {
+    background-color: black;
+    background-image: none;
+}
+
+.js-congress .slide.title .shout {
+    background: var(--yandex-yellow);
+    color: #1b1e23;
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    margin-left: 100px;
+}

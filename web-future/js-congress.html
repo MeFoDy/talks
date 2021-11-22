@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" class="js-congress">
+
+<head>
+    <title>Explore new web features before everyone else</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Web Platform is developing fast. Too fast. Yesterday I used table layouts to make my website pixel perfect. Today I use flexbox and grid to make it adaptive. Tomorrow I will use cascading layers and container queries to be on the edge of technology. But where can I find the info about all the new features available? Where can I look to the future?">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+    <link rel="stylesheet" href="js-congress.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Explore new web features before everyone else</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Nikita Dubko</a>, Yandex
+        </p>
+    </header>
+
+
+    <section class="slide clear">
+        <img src="./pictures/cover-h-2.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide clear" id="cover" style="background-color: #171219;">
+        <h2 style="font-size: 2.3em; color: var(--yandex-blue);">Explore new <br> web features <br> before <br> everyone else</h2>
+        <p style="margin-top: 20%; color: white;">
+            <a href="https://twitter.com/dark_mefody" style="color: var(--yandex-yellow)">Nikita Dubko</a>, Yandex
+        </p>
+        <video autoplay muted loop class="cover">
+            <source src="./pictures/404-bg.mp4" type="video/mp4">
+        </video>
+        <img src="./pictures/cover.png" alt="" class="cover place right"
+            style="-webkit-mask-image: linear-gradient(to left, black 0 80%, transparent); right: -30%; mix-blend-mode: exclusion;">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/gde-minsk.png" alt="" class="cover width">
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/web-standards-gold.jpeg" alt="" class="cover height">
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/web-standards.jpeg" alt="" class="cover height">
+    </section>
+
+
+    <section class="slide black">
+        <img src="./pictures/wst-public.png" alt="" class="cover height shadowed">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/sasha-gdg.png" alt="" class="cover width">
+        <a class="copyright" href="https://youtu.be/GdxlnUdsgtU">GDG Minsk Web August Meetup</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/back-to-the-future-doc-brown.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/segmentation-concept.svg" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/handwriting-recognition-explainer.png" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/WICG/handwriting-recognition/blob/main/explainer.md">Handwriting
+            Recognition Explainer</a>
+    </section>
+
+
+    <section class="slide">
+        <pre class="stylus place"><code>.class
+    color #fff
+    background #f00
+    border-color #fff
+
+    ::after
+        content 'Hello!'
+</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/css-parser-api.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/WICG/css-parser-api">CSS Parser API</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/mac-touchbar.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/macos-touchbar-api.png" alt="" class="cover width">
+        <a class="copyright" href="https://bugs.chromium.org/p/chromium/issues/detail?id=897315">Issue 897315: macOS
+            Touch Bar API</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Why do I need it?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⬆️ Progressive <br> enhancement</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/nfc.png" alt="" class="place" width="600">
+        <a class="copyright" href="https://web.dev/nfc/">Interact with NFC devices on Chrome for Android</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/file-system-api.jpeg" alt="" class="place" width="700">
+        <a class="copyright" href="https://web.dev/file-system-access/">The File System Access API</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/retina-cat.jpeg" alt="" class="cover" width="900">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔄 Refactoring</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code class="css">.parent {
+    position: relative;
+}
+
+.child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code class="css">.parent {
+    display: flex;
+    place-items: center;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>.card__media {
+    aspect-ratio: 2 / 3;
+    background-image: url("test.jpg");
+}
+.container {
+    contain: layout inline-size;
+}
+
+@container (min-width: 480px) {
+    .card__media {
+        aspect-ratio: 16 / 9;
+        background-image: url("test-wide.jpg");
+    }
+}</code></pre>
+        <a class="copyright"
+            href="https://www.sarasoueidan.com/blog/component-level-art-direction-with-container-queries-and-picture/">Component-level
+            art direction with CSS Container Queries</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>.section-title {
+    font-size: clamp(1.25rem, <mark>3qw</mark>, 2rem);
+    margin-bottom: clamp(0.5rem, <mark>1.5qw</mark>, 1rem);
+}</code></pre>
+        <a class="copyright" href="https://ishadeed.com/article/container-query-units/">CSS Container Query Units</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🏃‍♂️ Be ahead</h2>
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/webgpu.mp4" class="cover height" autoplay muted loop playsinline></video>
+        <a class="copyright white" href="https://web.dev/gpu/">Access modern GPU features with WebGPU</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/kharkivcss.png" alt="" class="cover">
+        <a href="https://www.youtube.com/watch?v=xFXCfTHTmoA" class="copyright white">KharkivCSS #4 2018 — Микита Дубко
+            "Houdini — CSS, который JavaScript"</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webassembly.svg" alt="" class="place" width="500">
+    </section>
+
+    <section class="slide black" style="background-color: #222429;">
+        <img src="./pictures/stateofjs-shadow-dom-en.png" alt="" class="cover">
+        <a class="copyright" href="https://2020.stateofjs.com/en-us/features/browser-apis/">Browser APIs</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚀 Fast development</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/accent-color.png" alt="" class="cover" width="700">
+        <a class="copyright" href="https://web.dev/accent-color/">CSS accent-color</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✏️ Influence</h2>
+    </section>
+
+    <section class="slide" style="background-color: #22272e;">
+        <img src="./pictures/promise-any-spec.png" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/tc39/proposal-promise-any">ECMAScript proposal: Promise.any +
+            AggregateError</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">How to look <br> to the future?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/back-to-the-future-west.jpeg" alt="" class="cover width place top">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/trident-era-ends.jpeg" alt="" class="cover place bottom width">
+        <a class="copyright" href="https://schepp.dev/posts/today-the-trident-era-ends/">Today, the Trident Era Ends</a>
+    </section>
+
+    <section class="slide">
+        <h2>Internet Explorer</h2>
+        <pre class="place"><code>&lt;meta http-equiv=&quot;Page-Enter&quot;
+      content=&quot;RevealTrans(Duration=0.600, Transition=6)&quot;&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/portals.mp4" class="cover" autoplay muted loop playsinline></video>
+        <a class="copyright" href="https://web.dev/hands-on-portals/">Hands-on with Portals: seamless navigation on the
+            web</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>async function navigateToSettingsPage() {
+    await document.documentTransition.prepare({
+        rootTransition: 'cover-up',
+        sharedElements: [element1, element2, element3],
+    });
+
+    updateDOMForSettingsPage();
+
+    await document.documentTransition.start({
+        sharedElements: [element1, element4, element5],
+    });
+}</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/blog/shared-element-transitions-for-spas/">Smooth and
+            simple page transitions with the shared element transition API</a>
+    </section>
+
+    <section class="slide">
+        <h2>Internet Explorer 4+</h2>
+        <pre class="place"><code>filter: progid:DXImageTransform.Microsoft.Matrix(
+    M11=0.9659258262890683,
+    M12=-0.2588190451025207,
+    M21=0.2588190451025207,
+    M22=0.9659258262890683,
+    SizingMethod='auto expand');</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>transform: rotate(15deg);</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Discomfort <br><span class="c-blue">↓</span><br> New feature</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Discomfort <br>
+            <span class="c-blue">↓</span><br>
+            Discussion <br>
+            <span class="c-blue">↓</span><br>
+            New feature
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Discomfort <br>
+            <span class="c-blue">↓</span><br>
+            Discussion <br>
+            <span class="c-blue">↓</span><br>
+            Standard
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🌐 Browsers</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📃 Standards</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/W3C-icon.svg" alt="" class="place" width="300">
+        <a class="copyright" href="https://www.w3.org/">W3C</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/whatwg-logo.svg" alt="" class="place" width="200">
+        <a class="copyright" href="https://spec.whatwg.org/">WHATWG</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tc39-logo.svg" alt="" class="place" width="200">
+        <a class="copyright" href="https://tc39.es/">TC39</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wicg-logo.svg" alt="" class="place" width="200">
+        <a class="copyright" href="https://wicg.io/">WICG</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">What to expect <br> very soon?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💽 Browser releases</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/new-in-chrome.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://developer.chrome.com/tags/new-in-chrome/">New in Chrome</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/steiner-multi-screen.jpeg" alt="" class="cover width">
+        <a class="copyright white" href="https://web.dev/multi-screen-window-placement/">Managing several displays with
+            the Multi-Screen Window Placement API</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/firefox-releases.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://hacks.mozilla.org/category/firefox/firefox-releases/">Firefox Releases
+            Articles</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>var gamepads = {};
+
+function gamepadHandler(event, connecting) {
+    var gamepad = event.gamepad;
+
+    if (connecting) {
+        gamepads[gamepad.index] = gamepad;
+    } else {
+        delete gamepads[gamepad.index];
+    }
+}
+
+window.addEventListener("gamepadconnected", function(e) {
+    gamepadHandler(e, true);
+}, false);
+window.addEventListener("gamepaddisconnected", function(e) {
+    gamepadHandler(e, false);
+}, false);</code></pre>
+        <a class="copyright"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API">Using the Gamepad
+            API</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place" style="font-size: 1.5em;"><code>font-family: system-ui;</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webkit-blog.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://webkit.org/blog/">Webkit Blog</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/model-webkit.jpeg" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/WebKit/explainers/blob/main/model/README.md">The &lt;model&gt;
+            element</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/safari-release-notes.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://developer.apple.com/documentation/safari-release-notes">Safari Release
+            Notes</a>
+    </section>
+
+    <section class="slide">
+        <blockquote class="place">Added support for lab(), lch(), hwb() color syntaxes.</blockquote>
+        <a class="copyright"
+            href="https://developer.apple.com/documentation/safari-release-notes/safari-15-beta-release-notes">Safari 15
+            Beta Release Notes</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/edge-release-notes.png" alt="" class="cover width place top">
+        <a class="copyright"
+            href="https://docs.microsoft.com/en-us/deployedge/microsoft-edge-relnote-stable-channel">Release notes for
+            Microsoft Edge Stable Channel</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>&lt;script type=&quot;text/javascript&quot;&gt;
+    var recognition = new SpeechRecognition();
+    recognition.onresult = function(event) {
+        if (event.results.length &gt; 0) {
+            q.value = event.results[0][0].transcript;
+            q.form.submit();
+        }
+    }
+&lt;/script&gt;
+
+&lt;form action=&quot;https://www.example.com/search&quot;&gt;
+    &lt;input type=&quot;search&quot; id=&quot;q&quot; name=&quot;q&quot; size=60&gt;
+    &lt;input type=&quot;button&quot; value=&quot;Click to speak&quot; onclick=&quot;recognition.start()&quot;&gt;
+&lt;/form&gt;</code></pre>
+        <a class="copyright" href="https://wicg.github.io/speech-api/">Web Speech API</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/electron-release-notes.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.electronjs.org/releases/stable">Electron Stable Releases</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🐥 Canaries</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tomas-steiner-doc.jpeg" alt="" class="place">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/chromium-beta.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://blog.chromium.org/search/label/beta">Chromium Blog</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/single-touch-screen-device.png" alt="" class="place" width="90%">
+        <a class="copyright" href="https://w3c.github.io/editing/docs/virtualkeyboard/">VirtualKeyboard API</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">FTP is dead ☠️</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/firefox-nightly-news.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://blog.nightly.mozilla.org/">Firefox Nightly News</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖥 M1</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔐 Fission</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/intenttoship.png" alt="" class="cover height">
+        <a class="copyright" href="https://twitter.com/intenttoship">@intenttoship</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">👩‍💻 DevRel 👨🏻‍💻</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wst-telegram.png" alt="" class="place" width="500">
+        <a class="copyright" href="https://t.me/webstandards_ru">t.me/webstandards_ru</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/silverstar-codes.png" alt="" class="place top cover width">
+        <a class="copyright" href="https://mentor.silvestar.codes/reads/">UI Dev Newsletter</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📬 RSS</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">What to expect <br> not so soon?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📃 W3C Specs</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/w3c-specs.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.w3.org/TR/?status=wd">All standards and drafts</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 1.5em;">
+            Working Draft (WD) <br>
+            <span class="c-blue">↓</span><br>
+            Candidate Recommendation (CR) <br>
+            <span class="c-blue">↓</span><br>
+            W3C Recommendation (REC)
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/w3c-process.png" alt="" class="cover">
+        <a class="copyright" href="https://www.w3.org/Consortium/Process/">W3C Process Document</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/css-nesting-module.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.w3.org/TR/2021/WD-css-nesting-1-20210831/">CSS Nesting Module</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>.foo {
+    color: blue;
+    & > .bar { color: red; }
+}
+
+.foo {
+    color: red;
+    @nest .parent & {
+        color: blue;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📃 TC39 Specs</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 1.5em;">
+            Stage 0 <br>
+            <span class="c-blue">↓</span><br>
+            Stage 1 <br>
+            <span class="c-blue">↓</span><br>
+            Stage 2 <br>
+            <span class="c-blue">↓</span><br>
+            Stage 3 <br>
+            <span class="c-blue">↓</span><br>
+            Stage 4
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tc39-process.png" alt="" class="cover height">
+        <a class="copyright" href="https://tc39.es/process-document/">The TC39 Process</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const birthday = Temporal.PlainMonthDay.from('12-15');
+
+const birthdayIn2030 = birthday.toPlainDate({ year: 2030 });
+birthdayIn2030.dayOfWeek; // => 7
+
+assert(birthdayIn2030 instanceof Temporal.PlainDate);
+assert.equal(birthdayIn2030.toString(), '2030-12-15');</code></pre>
+        <a class="copyright" href="https://tc39.es/proposal-temporal/docs/">Temporal</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const time = Temporal.PlainTime.from('12:38:28.138818731');
+
+const wholeHour = time.round({
+    smallestUnit: 'hour',
+    roundingMode: 'floor'
+});
+
+assert.equal(wholeHour.toString(), '12:00:00');</code></pre>
+        <a class="copyright" href="https://tc39.es/proposal-temporal/docs/">Temporal</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🧪 Experiments</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Chrome Canary</h2>
+        <ul>
+            <li>Go to <code>chrome://flags/</code></li>
+            <li>Enable “Experimental Web Platform features”.</li>
+            <li>Restart the browser.</li>
+            <li>Have fun!</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Firefox Nightly</h2>
+        <ul>
+            <li>Go to <code>about:config</code></li>
+            <li>Enable “browser.preferences.experimental”.</li>
+            <li>Restart the browser.</li>
+            <li>Have fun!</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/canary-flags.png" alt="" class="cover width place top">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-api-tracker.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://fugu-tracker.web.app/">Fugu API Tracker</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em"><code>{
+    "file_handlers": {
+        "graph": {
+            "extensions": [ "svg" ],
+            "include_directories": false,
+            "types": [ "image/svg+xml" ],
+            "verb": "open_with"
+        },
+        "raw": {
+            "extensions": [ "csv" ],
+            "include_directories": false,
+            "types": [ "text/csv" ],
+            "verb": "open_with"
+        }
+    }
+}</code></pre>
+        <a class="copyright" href="https://github.com/WICG/file-handling/blob/main/explainer.md">File Handling API
+            Explainer</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">What to expect <br> someday?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🥚 Stage 1</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const array = [1, 2, 3, 4, 5];
+
+// groupBy groups items by arbitrary key.
+// In this case, we're grouping by even/odd keys
+array.groupBy(i => {
+    return i % 2 === 0 ? 'even': 'odd';
+});
+
+// =>  { odd: [1, 3, 5], even: [2, 4] }</code></pre>
+        <a class="copyright" href="https://github.com/tc39/proposal-array-grouping">proposal-array-grouping</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/crypto-secure-ecmascript.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/tc39/proposal-csprng">Cryptographically Secure Pseudo-Random
+            Number Generation (CSPRNG) for ECMAScript</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📝 Explainers</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webkit-explainers.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/WebKit/explainers/">WebKit Explainers</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/isloggedin.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/privacycg/is-logged-in">Explainer: IsLoggedIn</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/msedge-explainers.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/MicrosoftEdge/MSEdgeExplainers">Microsoft Edge Explainers</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;style&gt;
+    .styled-select::part(button) {
+        background-color: red;
+    }
+    .styled-select:open::part(button) {
+        background-color: lightgray;
+    }
+&lt;/style&gt;
+&lt;select class=&quot;styled-select&quot;&gt;
+    &lt;option&gt;choice 1&lt;/option&gt;
+    &lt;option&gt;choice 2&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+        <a class="copyright"
+            href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/ControlUICustomization/explainer.md">Enabling
+            Custom Control UI</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/eyedropper-preview.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/WICG/eyedropper-api">EyeDropper API</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js place"><code>await new EyeDropper().open();
+// { sRGBHex: '#ff0000' }</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/foldable-css-env-variables.svg" alt="" class="place" width="700">
+        <a class="copyright"
+            href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Foldables/explainer.md">Web Platform
+            Primitives for Enlightened Experiences on Foldable Devices</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/foldable-phone.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wicg-github.png" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/wicg/">Web Incubator CG</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lockscreen-api.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/WICG/lock-screen">Lock Screen API Explainer</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/sanitizer-api.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://wicg.github.io/sanitizer-api/">HTML Sanitizer API</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">How long?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">EyeDropper API <br> ✏️ <br> 2021, August</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">App History API <br> ✏️ <br> 2021, February</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">URLPattern <br> ✏️ <br> 2019, August</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const p = new URLPattern({
+    hostname: ':subdomain.example.com',
+    pathname: '/*/:image.jpg'
+});
+
+const result = p.exec('https://imagecdn1.example.com/foo/cat.jpg');
+// result.hostname.groups.subdomain will be 'imagecdn1'
+// result.pathname.groups[0] will be 'foo', corresponding to *
+// result.pathname.groups.image will be 'cat'</code></pre>
+        <a class="copyright" href="https://web.dev/urlpattern/">URLPattern brings routing to the web platform</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">How to change <br> the future?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😡 If something is bad, <br> I can...</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🗣 Talk with <br> colleagues</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📱 Complain <br> on social networks</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⚠️ Create an issue</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💻 Make a pull request</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/w3c-github.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/w3c">World Wide Web Consortium</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tc39-github.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/tc39">Ecma TC39</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wicg-github.png" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/wicg/">Web Incubator CG</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🎩 Experts</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/work-with-cookie-the-modern-way.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://mefody.dev/chunks/cookie-store-api/">Work with cookies the modern way</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/cookie-store.png" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/WICG/cookie-store/pull/196">Fix and simplify cookie writing
+            example</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/selenit-csswg.png" alt="" class="cover height">
+        <a class="copyright"
+            href="https://github.com/w3c/csswg-drafts/pulls?q=is%3Apr+author%3ASelenIT+is%3Aclosed">csswg-drafts</a>
+    </section>
+
+    <section class="slide" style="background-color: #22272e;">
+        <img src="./pictures/css-math-spec.png" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/w3c/csswg-drafts/issues/2331">[css-values] Trigonometric
+            functions</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/chrome-job.png" alt="" class="cover width place top">
+        <a class="copyright"
+            href="https://careers.google.com/jobs/results/116756275951215302-software-engineer-chrome/?distance=50&q=chrome">Software
+            Engineer, Chrome</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/firefox-jobs.png" alt="" class="cover width place top">
+        <a class="copyright"
+            href="https://careers.mozilla.org/listings/">Mozilla Careers</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🐞 Bring new bugs</h2>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/bugzilla-firefox.png" alt="" class="place shadowed" width="700">
+        <a class="copyright" href="https://bugzilla.mozilla.org/home">Bugzilla Mozilla</a>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/bugzilla-webkit.png" alt="" class="place shadowed" width="700">
+        <a class="copyright" href="https://bugs.webkit.org/">Bugzilla Webkit</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bugs-chromium.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://bugs.chromium.org/p/chromium/issues/list">Chromium Bugs</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/gde-logo.png" alt="" class="cover" width="400">
+    </section>
+
+
+
+    <section class="slide">
+        <blockquote class="place">Even the smallest person can change the course of the future.<br><small>Galadriel, The Fellowship of the Ring</small></blockquote>
+    </section>
+
+
+
+    <section class="slide clear title" id="final">
+        <h2 class="shout" style="top: 20%">Thank you!</h2>
+        <div style="margin-top: 120px;">
+            <img src="./pictures/qr-code-js-congress.gif" alt="" class="" width="220" style="filter: invert(1);">
+            <br>
+            <a href="https://mefody.dev/talks/web-future/js-congress.html">https://mefody.dev/talks/web-future/js-congress.html</a>
+            <br>
+            <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        </div>
+    </section>
+
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Made with Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
