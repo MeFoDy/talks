@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Open Graph для тех, кто не хочет думать</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Чтобы на сайт перешли из социальной сети, у него просто обязана быть красивая превьюшка. Как сделать так, чтобы один раз что-то настроить, а превьюшки всегда были красивыми — поговорим в докладе.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Open Graph для тех, кто не хочет думать</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Веб-стандарты
+        </p>
+    </header>
+
+
+    <section class="slide clear" style="background-color: black;">
+        <h2 style="font-size: 3em; font-weight: 500; margin-top: 20px; color: white; text-align: center;">Open Graph для тех, кто не хочет думать</h2>
+        <p style="margin-top: 230px; color: var(--color-pink); text-align: center;">Никита Дубко, Веб-стандарты</p>
+        <img src="./pictures/og-logo.png" alt="" class="place" width="200" style="top: 62%; mix-blend-mode: hard-light;">
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 330px;">
+            <h2>Кто я?</h2>
+            <ul>
+                <li>доброжелюбный бородач</li>
+                <li>редактор новостей в Веб-стандартах</li>
+                <li>пятый голос одноименного подкаста</li>
+                <li>Google Developer Expert по вебу</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/wst-full.jpg" alt="" class="cover width">
+        <a class="copyright" href="https://web-standards.ru/podcast/">Веб-стандарты</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Сделай мне красиво!</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tg-example.png" alt="" class="place" width="700">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/facebook-og-example.png" alt="" class="place" width="500">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/csstricks-og.jpeg" alt="" class="place" width="800">
+        <a class="copyright" href="https://css-tricks.com/create-your-own-automated-social-images-with-resoc/">Create Your Own Automated Social Images With Resoc</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/zachleat-og.jpeg" alt="" class="place" width="800">
+        <a class="copyright" href="https://www.zachleat.com/web/api-opengraph-image/">Recycling Open Graph images for display on my web site</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/sm-og.jpg" alt="" class="place" width="800">
+        <a class="copyright" href="https://www.smashingmagazine.com/2021/10/respecting-users-motion-preferences/">Respecting Users’ Motion Preferences</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout"><span class="opaque">The</span><br> Open Graph <br> <span class="opaque">protocol</span></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/og-logo.png" alt="" class="place">
+        <a class="copyright" href="https://ogp.me/">The Open Graph protocol</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;head&gt;
+    &lt;title&gt;Fwdays: JS is back!&lt;/title&gt;
+
+    &lt;meta property=&quot;og:title&quot;
+          content=&quot;Fwdays: JS is back!&quot;&gt;
+    &lt;meta property=&quot;og:type&quot;
+          content=&quot;website&quot;&gt;
+    &lt;meta property=&quot;og:url&quot;
+          content=&quot;https://fwdays.com/&quot;&gt;
+    &lt;meta property=&quot;og:image&quot;
+          content=&quot;https://fwdays.com/og_image.jpg&quot; /&gt;
+&lt;/head&gt;
+        </code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;head&gt;
+    &lt;title&gt;Fwdays: JS is back!&lt;/title&gt;
+
+    &lt;meta property=&quot;<mark>og</mark>:title&quot;
+          content=&quot;Fwdays: JS is back!&quot;&gt;
+    &lt;meta property=&quot;<mark>og</mark>:type&quot;
+          content=&quot;website&quot;&gt;
+    &lt;meta property=&quot;<mark>og</mark>:url&quot;
+          content=&quot;https://fwdays.com/&quot;&gt;
+    &lt;meta property=&quot;<mark>og</mark>:image&quot;
+          content=&quot;https://fwdays.com/og_image.jpg&quot; /&gt;
+&lt;/head&gt;
+        </code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>og:*</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tg-example.png" alt="" class="place" width="700">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tg-example.png" alt="" class="place" width="700">
+        <h2 class="place right spotlabel" style="right: 30%; top: 30%"><code>og:title</code></h2>
+        <div class="spotlight" style="
+                --spotlight-radius: 0;
+                --spotlight-opacity: 0.6;
+                --spotlight-width: 300px;
+                --spotlight-height: 35px;
+                --spotlight-top: -112px;
+                --spotlight-left: -14.5%;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tg-example.png" alt="" class="place" width="700">
+        <h2 class="place right spotlabel" style="right: 17%; top: 34%"><code>og:description</code></h2>
+        <div class="spotlight" style="
+                --spotlight-radius: 0;
+                --spotlight-opacity: 0.6;
+                --spotlight-width: 300px;
+                --spotlight-height: 45px;
+                --spotlight-top: -75px;
+                --spotlight-left: -14.5%;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tg-example.png" alt="" class="place" width="700">
+        <h2 class="place right spotlabel" style="right: 28%; top: 40%"><code>og:image</code></h2>
+        <div class="spotlight" style="
+                --spotlight-radius: 0;
+                --spotlight-opacity: 0.6;
+                --spotlight-width: 320px;
+                --spotlight-height: 100px;
+                --spotlight-top: -7px;
+                --spotlight-left: -13.5%;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tg-example.png" alt="" class="place" width="700">
+        <h2 class="place right spotlabel" style="right: 21%; top: 20%"><code>og:site_name</code></h2>
+        <div class="spotlight" style="
+                --spotlight-radius: 0;
+                --spotlight-opacity: 0.6;
+                --spotlight-width: 100px;
+                --spotlight-height: 20px;
+                --spotlight-top: -137px;
+                --spotlight-left: -24.5%;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>og:type</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2><code>article</code></h2>
+        <ul>
+            <li><code>article:published_time</code></li>
+            <li><code>article:modified_time</code></li>
+            <li><code>article:expiration_time</code></li>
+            <li><code>article:author</code></li>
+            <li><code>article:tag</code></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2><code>video.movie</code></h2>
+        <ul>
+            <li><code>video:actor</code></li>
+            <li><code>video:actor:role</code></li>
+            <li><code>video:director</code></li>
+            <li><code>video:writer</code></li>
+            <li><code>video:duration</code></li>
+            <li><code>video:release_date</code></li>
+            <li><code>video:tag</code></li>
+        </ul>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/og-types.png" alt="" class="cover">
+        <a class="copyright" href="https://ogp.me/#no_vertical">Open Graph Types</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>og:image</code></h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;meta property=&quot;og:image&quot;
+      content=&quot;https://fwdays.com/ogp.jpg&quot;&gt;
+<span class="next">&lt;meta property=&quot;og:image:secure_url&quot;
+      content=&quot;https://s.fwdays.com/ogp.jpg&quot;&gt;</span>
+<span class="next">&lt;meta property=&quot;og:image:type&quot;
+      content=&quot;image/jpeg&quot;&gt;</span>
+<span class="next">&lt;meta property=&quot;og:image:width&quot;
+      content=&quot;1200&quot;&gt;</span>
+<span class="next">&lt;meta property=&quot;og:image:height&quot;
+      content=&quot;630&quot;&gt;</span>
+<span class="next">&lt;meta property=&quot;og:image:alt&quot;
+      content=&quot;Happy people are smiling&quot;&gt;</span></code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Массивы</h2>
+        <pre><code>&lt;meta property=&quot;og:image&quot;
+      content=&quot;https://mefody.dev/og-s.jpg&quot;&gt;
+&lt;meta property=&quot;og:image:width&quot; content=&quot;300&quot;&gt;
+&lt;meta property=&quot;og:image:height&quot; content=&quot;300&quot;&gt;
+
+&lt;meta property=&quot;og:image&quot;
+      content=&quot;https://mefody.dev/og-l.jpg&quot;&gt;
+&lt;meta property=&quot;og:image:width&quot; content=&quot;1000&quot;&gt;
+&lt;meta property=&quot;og:image:height&quot; content=&quot;1000&quot;&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <code>og:locale</code>
+            <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            uk_UA, en_US
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <code>og:determiner</code>
+            <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            a, an, the, "", auto
+        </h2>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">
+            Facebook
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/facebook-guide.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://developers.facebook.com/docs/sharing/webmasters#markup">Руководство по публикации для веб-мастеров</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>fb:app_id</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <code>og:asset</code><br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            3D asset URL
+        </h2>
+        <a class="copyright" href="https://developers.facebook.com/docs/sharing/webmasters/getting-started/3d-asset-link">How to Specify 3D Assets for Link Sharing</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"> <span style="color: var(--color-pink);">&gt;</span> 200 x 200</h2>
+        <a class="copyright" href="https://developers.facebook.com/docs/sharing/webmasters/images">Изображения в публикациях ссылок</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"> <span style="color: var(--color-pink);">&lt;</span> 8 МБ</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"> <span style="color: var(--color-pink);">HD:</span> 1200 х 630</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"> <span style="color: var(--color-pink);">&gt;</span> 600 х 315</h2>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Twitter</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/twitter-guide.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started">Twitter Cards</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>&lt;meta name=&quot;twitter:card&quot;
+      content=&quot;summary&quot;&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <code>twitter:card</code>
+            <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            <small style="font-size: 0.6em;">summary <br> summary_large_image <br> app <br> player</small>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <code>twitter:site</code><br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            @fwdays
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <code>twitter:creator</code><br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            @dark_mefody
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup">Cards Markup <br> Tag Reference</a></h2>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Pinterest</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre class="place"><code>&lt;meta name=&quot;pinterest-rich-pin&quot;
+      content=&quot;false&quot;&gt;</code></pre>
+        <a class="copyright" href="https://developers.pinterest.com/docs/rich-pins/overview/">Pinterest Developers</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <code>og:availability</code>
+            <br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            <small style="font-size: 0.6em;">instock, preorder, backorder, <br> out of stock, discontinued</small>
+        </h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Crawlers 🕷</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            Twitter<br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            <code style="font-size: 0.6em;">Twitterbot/1.0</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            Facebook<br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            <code style="font-size: 0.6em;">facebookexternalhit/1.1</code>
+        </h2>
+        <a class="copyright" href="https://developers.facebook.com/docs/sharing/webmasters/crawler">Краулер Facebook</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            Telegram<br>
+            <span style="color: var(--color-pink);">↓</span><br>
+            <code style="font-size: 0.6em;">TelegramBot (like TwitterBot)</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>robots.txt</h2>
+        <pre><code>User-agent: Twitterbot
+Disallow:</code></pre>
+        <img src="./pictures/telegram-logo.svg" width="200" alt="" class="place bottom right next" style="right: 15%; bottom: 10%">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/crawler-user-agents.png" alt="" class="place" width="700">
+        <a class="copyright" href="https://github.com/monperrus/crawler-user-agents">monperrus/crawler-user-agents</a>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Как проверить?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/twitter-validator.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://cards-dev.twitter.com/validator">Twitter Card validator</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/facebook-validator.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://developers.facebook.com/tools/debug/">Facebook: отладчик репостов</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/linkedin-validator.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.linkedin.com/post-inspector/">LinkedIn Post Inspector</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/telegram-validator.png" alt="" class="place" width="500">
+        <a class="copyright" href="https://telegram.me/webpagebot">@webpagebot</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/metatags-io.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://metatags.io/">metatags.io</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/og-spy.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://chrome.google.com/webstore/detail/og-spy/gbladodjhonkijdnbbcfoingmljmolnp?hl=en">OG Spy</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Картинки кэшируются</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">По урлу</h2>
+    </section>
+
+    <section class="slide">
+        <blockquote class="place">The Twitter web crawler re-indexes the Card tag information on your page roughly every seven days.</blockquote>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Прикручиваем og:image</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/gh-open-graph-images.png" alt="" class="place" width="800">
+        <a class="copyright" href="https://github.blog/2021-06-22-framework-building-open-graph-images/">A framework for building Open Graph images</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/vercel.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://og-image.vercel.app/">Vercel</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/api-opengraph-image.png" alt="" class="place" width="800">
+        <a class="copyright" href="https://github.com/11ty/api-opengraph-image">11ty/api-opengraph-image</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">
+            Пишем велосипед <br>
+            <span class="opaque">на электродвигателе</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/puppeteer.png" alt="" class="place" width="200">
+        <a class="copyright" href="https://pptr.dev/">Puppeteer</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const browser = await puppeteer.launch();
+const page = await browser.newPage();
+await page.setViewport({
+    width: 1200,
+    height: 630,
+    deviceScaleFactor: 1,
+});
+await page.goto(url);
+const screenshotBuffer = await page.screenshot({
+    fullPage: false,
+    type: 'png',
+});
+await page.close();</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Live Coding 💻</h2>
+    </section>
+
+    <section class="slide clear" id="final">
+        <h2>Be lazy!</h2>
+        <a href="https://mefody.dev/talks/lazy-og/">mefody.dev/talks/lazy-og/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

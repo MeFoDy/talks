@@ -1,0 +1,60 @@
+body {
+    background: linear-gradient(to bottom right, #00008B, #3dcc85);
+    color: white;
+    font-size: 24px;
+}
+
+.wrapper {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+        'head head'
+        'avatar name'
+        'avatar position'
+        'title title'
+        'bottom bottom';
+    grid-template-columns: calc(330px + 5vw) auto;
+    grid-template-rows: 10vh 25vh 25vh 30vh 10vh;
+}
+
+.title {
+    grid-area: title;
+    font-weight: bold;
+    font-size: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 5vw;
+    text-align: right;
+}
+
+.avatar {
+    grid-area: avatar;
+    padding-left: 5vw;
+}
+
+.avatar img {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.name {
+    grid-area: name;
+    font-weight: bold;
+    font-size: 36px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.position {
+    grid-area: position;
+}
+
+.bottom {
+    grid-area: bottom;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding-left: 5vw;
+}
