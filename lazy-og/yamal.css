@@ -1,0 +1,34 @@
+.shower {
+    --color-red: #ff3333;
+    --color-text: #ddd;
+    --color-bg: #1d1d1b;
+
+    --color-blue: #829efe;
+    --color-green: #50c16b;
+    --color-pink: #aa7cff;
+    --color-yellow: #fddd5e;
+
+    font-family: "Yandex Sans Text Web", "PT Sans", sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.slide {
+    background-color: var(--color-bg);
+}
+
+.slide .shout a {
+    background-image: linear-gradient(to top, rgba(170, 124, 255, 0.4) 0.06em, transparent 0.06em );
+}
+
+.caption a {
+    color: var(--color-yellow);
+}
+
+.slide.title {
+    background: var(--color-green);
+}
+
+.slide.title h2 {
+    color: white;
+}
