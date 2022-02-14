@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'Blender Pro';
+    src: url('./fonts/BlenderPro-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Blender Pro';
+    src: url('./fonts/BlenderPro-Book.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.shower {
+    font-family: 'Blender Pro', sans-serif;
+    font-size: 32px;
+    line-height: 1.25;
+    font-weight: 300;
+    --color-yellow: #fcee0a;
+    --color-blue: #02d8f3;
+    --color-red: #ff003c;
+}
+
+.shower.list {
+    background: var(--color-yellow);
+}
+
+.shower.list .slide {
+    border-radius: 0;
+    box-shadow: 0 0 0 2px black;
+}
+
+.shower.list .slide:hover {
+    box-shadow: 15px 15px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 2px black;
+}
+
+.shower.list .slide.active {
+    box-shadow: 15px 15px 0 0 black, 0 0 0 2px black;
+}
+
+.badge a {
+    background-color: #4dcfea;
+    color: black;
+}
+
+.slide h2, .caption h1 {
+    display: inline-block;
+    font-family: 'Blender Pro', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 0.25em;
+    position: relative;
+    margin: 0 0 0.3em;
+    letter-spacing: -2px;
+}
+
+.caption h1 {
+    font-size: 64px;
+}
+
+.slide h2:not(.shout)::after,
+.caption h1::after {
+    content: "";
+    background: url('./images/theme/head-separator.svg');
+    height: 4px;
+    width: 264px;
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.caption {
+    color: black;
+    text-shadow: none;
+}
+
+.caption a,
+.slide a {
+    color: black;
+    text-decoration: underline;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-style: dashed;
+    background-image: none;
+}
+
+.slide .copyright {
+    background-image: linear-gradient(45deg, transparent 0 4px, var(--color-blue) 4px calc(100% - 4px), transparent calc(100% - 4px));
+    color: black;
+    text-decoration: none;
+    padding: 3px 10px;
+    font-size: 14px;
+    opacity: 1;
+}
+
+.slide h2 {
+    color: black;
+}
+
+.slide::after {
+    height: auto;
+    width: calc(var(--ribbon-size) * 1.5);
+    color: white;
+    background-image: linear-gradient(45deg, transparent 0 7px, black 7px);
+    background-repeat: no-repeat;
+    margin-top: 1em;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    padding-top: 0;
+    left: auto;
+    right: 0;
+    font-size: 24px;
+}
+
+.slide .shout {
+    font-size: 72px;
+}
+
+.slide s, .slide .strike {
+    text-decoration: none;
+    position: relative;
+}
+
+.slide s::before, .slide .strike::before,
+.slide s::after, .slide .strike::after {
+    content: '';
+    display: block;
+    background-color: var(--color-red);
+    width: 110%;
+    height: 0.1em;
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: rotate(7deg);
+}
+
+.slide s::after, .slide .strike::after {
+    transform: rotate(-7deg);
+}
+
+
+.slide pre code {
+    line-height: 1.4;
+    font-size: 0.65em;
+}
+
+.slide.title {
+    background-color: var(--color-yellow);
+}
+
+.slide.title::after {
+    content: '';
+}
+
+.slide.title h2 {
+    color: black;
+    text-align: left;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sketch {
+    mix-blend-mode: darken;
+    opacity: 0.2;
+}
+
+.point::before {
+    content: '→ ';
+    color: var(--color-blue);
+}
+.point::after {
+    content: ' ←';
+    color: var(--color-blue);
+}
+
+.slide .c-red {
+    color: var(--color-red);
+}
+
+.slide .c-blue {
+    color: var(--color-blue);
+}
+
+.slide h2.image-caption {
+    background-image: linear-gradient(-45deg, transparent 0 0.3em, var(--color-yellow) 0.3em);
+    margin-left: calc(-1 * var(--slide-side));
+    padding-left: var(--slide-side);
+    padding-right: 0.8em;
+    padding-top: 0.25em;
+    position: absolute;
+    bottom: 30px;
+    margin-bottom: 0;
+    font-size: 32px;
+}
+
+.slide h2.image-caption::after {
+    display: none;
+}
