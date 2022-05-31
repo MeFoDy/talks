@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WebHID API: Control Everything via USB</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operational System allows controlling different devices using Human Interface Device protocol for a long time. With WebHID API you can do the same right from the browser. Let’s talk about the protocol features and limitations. We’ll try to connect some devices to the laptop and control them with JavaScript.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>WebHID API: Control Everything via USB</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Nikita Dubko</a>, Web Standards
+        </p>
+    </header>
+
+    <section class="slide clear" style="background-color: black;">
+        <h2 style="font-size: 3em; font-weight: 500; margin-top: 20px; color: var(--color-red); text-align: center;">WebHID API: Control Everything via USB</h2>
+        <p style="margin-top: 230px; color: var(--color-yellow); text-align: center;">Nikita Dubko, Web Standards</p>
+        <img src="./pictures/ring.png" alt="" class="place" width="200" style="top: 62%; mix-blend-mode: hard-light;">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/gd_experts_lockup_horizontal_color.png" alt="" class="cover" width="700">
+        <a class="copyright" href="https://developers.google.com/community/experts/directory/profile/profile-nikita-dubko">GDE Directory</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Knowledge 🪄</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">How it all began...</h2>
+    </section>
+
+    <section class="slide">
+        <blockquote class="place">Frontend is not real programming!!!<br>
+            <small style="color: var(--color-grey)">Somebody from Twitter</small></blockquote>
+    </section>
+
+    <section class="slide">
+        <h2>You don't have an access to real devices!</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Really?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">HID</h2>
+        <a href="https://www.usb.org/hid">usb.org</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">H<span style="font-weight: 300">uman</span><br>I<span style="font-weight: 300">nterface</span><br>D<span style="font-weight: 300">evices</span></h2>
+    </section>
+
+    <section class="slide">
+        <h2>Keyboards, mice, game controllers, etc.</h2>
+    </section>
+
+    <section class="slide">
+        <h2>USB + Bluetooth HID-Class</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Drivers</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://en.wikipedia.org/wiki/File:Operating_system_placement.svg</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://github.com/libusb/hidapi</h2>
+    </section>
+
+    <section class="slide">
+        <h2>125Hz Polling</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Connection -> Enumeration</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://www.silabs.com/documents/public/application-notes/AN249.pdf</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://www.usb.org/sites/default/files/hid1_11.pdf</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Input Reports, Feature Reports and Output Reports</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Poll -> Have something? -> Send</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Push -> SET_FEATURE</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Push -> SET_REPORT</h2>
+    </section>
+
+    <section class="slide">
+        <h2>A lot of numbers</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Debug with https://www.wireshark.org/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Fear!</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://gist.github.com/cliffrowley/d18a9c4569537b195f2b1eb6c68469e0</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://github.com/Julusian/node-elgato-stream-deck</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Browsers use HID a lot!</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://source.chromium.org/chromium/chromium/src/+/main:services/device/public/mojom/hid.mojom</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Mouse, keyboards, gamepads</h2>
+    </section>
+
+    <section class="slide">
+        <h2>WebHID</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Browser API</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Is not a W3C Standard</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Chrome 89+ https://chromestatus.com/feature/5172464636133376</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Mozilla https://github.com/mozilla/standards-positions/issues/459</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Safari https://webkit.org/tracking-prevention/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Doesn't work with trusted input</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://source.chromium.org/chromium/chromium/src/+/main:services/device/public/cpp/hid/hid_usage_and_page.cc</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Requires user gesture to allow</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://wicg.github.io/webhid/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://github.com/WICG/webhid/blob/main/EXPLAINER.md</h2>
+    </section>
+
+    <section class="slide">
+        <h2>How to work with HID?</h2>
+    </section>
+
+    <section class="slide">
+        <h2>navigator.hid</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Examples https://web.dev/hid-examples/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Sony DualShock 4: https://github.com/TheBITLINK/WebHID-DS4</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://www.psdevwiki.com/ps4/DS4-USB</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Materials https://github.com/robatwilliams/awesome-webhid</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://web.dev/hid/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://devicehunt.com/all-usb-vendors</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://www.the-sz.com/products/usbid/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>about://device-log</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Google Meet + Elgato: https://github.com/petele/StreamDeck-Meet</h2>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Frontend Power!</h2>
+        <a href="https://mefody.dev/talks/webhid/">mefody.dev/talks/webhid/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Made with Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

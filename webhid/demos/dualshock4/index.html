@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WebHID — Sony DualShock 4 Demo</title>
+    </head>
+    <body>
+        <div class="buttons">
+            <button class="connect">Connect</button>
+            <input type="color" class="color" />
+            <button class="vibrate">Vibrate</button>
+        </div>
+        <div class="container">
+            <div class="button triangle"></div>
+            <div class="button circle"></div>
+            <div class="button cross"></div>
+            <div class="button square"></div>
+            <div class="button tpad"></div>
+            <div class="button l3"></div>
+            <div class="button r3"></div>
+            <div class="button left"></div>
+            <div class="button up"></div>
+            <div class="button right"></div>
+            <div class="button down"></div>
+            <div class="button share"></div>
+            <div class="button options"></div>
+            <div class="button ps"></div>
+            <div class="button l1"></div>
+            <div class="button r1"></div>
+            <div class="button l2"></div>
+            <div class="button r2"></div>
+            <div class="info"></div>
+            <img
+                src="./sony-ps4-dualshock-controller.jpeg"
+                alt=""
+                width="800"
+                height="800"
+            />
+        </div>
+
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            .container {
+                position: relative;
+            }
+
+            .button {
+                display: none;
+                box-sizing: border-box;
+                position: absolute;
+                width: 45px;
+                height: 45px;
+                background-color: lightblue;
+                border-radius: 50%;
+                border: 3px solid white;
+                animation: blink 1s linear infinite;
+            }
+
+            .button.active {
+                display: block;
+            }
+
+            .triangle {
+                left: 629px;
+                top: 219px;
+            }
+
+            .circle {
+                left: 689px;
+                top: 278px;
+            }
+
+            .cross {
+                left: 629px;
+                top: 338px;
+            }
+
+            .square {
+                left: 570px;
+                top: 278px;
+            }
+
+            .tpad {
+                left: 378px;
+                top: 228px;
+            }
+
+            .l3 {
+                left: 248px;
+                top: 388px;
+                display: block;
+                background-color: white;
+                animation-name: none;
+            }
+
+            .r3 {
+                left: 508px;
+                top: 388px;
+                display: block;
+                background-color: white;
+                animation-name: none;
+            }
+
+            .l3.button.active,
+            .r3.button.active {
+                animation-name: blink;
+            }
+
+            .left {
+                left: 78px;
+                top: 278px;
+            }
+            .right {
+                left: 174px;
+                top: 278px;
+            }
+            .up {
+                left: 127px;
+                top: 231px;
+            }
+            .down {
+                left: 127px;
+                top: 324px;
+            }
+            .share {
+                left: 213px;
+                top: 198px;
+            }
+            .options {
+                left: 543px;
+                top: 198px;
+            }
+            .ps {
+                left: 378px;
+                top: 391px;
+            }
+            .l1 {
+                left: 103px;
+                top: 148px;
+            }
+            .l2 {
+                left: 163px;
+                top: 148px;
+            }
+            .r1 {
+                left: 593px;
+                top: 148px;
+            }
+            .r2 {
+                left: 653px;
+                top: 148px;
+            }
+
+            .info {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: auto;
+                text-align: left;
+                opacity: 0.4;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 12px;
+            }
+
+            @keyframes blink {
+                0%,
+                100% {
+                    background-color: greenyellow;
+                }
+                50% {
+                    background-color: yellow;
+                }
+            }
+        </style>
+
+        <script>
+            // Inspired by https://github.com/TheBITLINK/WebHID-DS4
+
+            let indicators, device;
+            initDomElements();
+
+            const infoDiv = document.querySelector(".info");
+
+            const connectBtn = document.querySelector(".connect");
+            connectBtn.onclick = () => {
+                init();
+            };
+
+            const colorInput = document.querySelector(".color");
+            colorInput.addEventListener("input", (e) => {
+                if (!device) return;
+
+                sendReport({
+                    lightbar: hexToRgb(e.target.value),
+                    rumble: {
+                        light: 0,
+                        heavy: 0,
+                    },
+                });
+            });
+
+            const vibrateBtn = document.querySelector(".vibrate");
+            vibrateBtn.onclick = () => {
+                sendReport({
+                    lightbar: hexToRgb(colorInput.value),
+                    rumble: {
+                        light: Math.ceil(Math.random() * 127),
+                        heavy: Math.ceil(Math.random() * 127),
+                    },
+                });
+            };
+
+            function initDomElements() {
+                indicators = {
+                    triangle: document.querySelector(".triangle"),
+                    circle: document.querySelector(".circle"),
+                    cross: document.querySelector(".cross"),
+                    square: document.querySelector(".square"),
+
+                    up: document.querySelector(".up"),
+                    right: document.querySelector(".right"),
+                    down: document.querySelector(".down"),
+                    left: document.querySelector(".left"),
+
+                    l1: document.querySelector(".l1"),
+                    l2: document.querySelector(".l2"),
+                    r1: document.querySelector(".r1"),
+                    r2: document.querySelector(".r2"),
+                    l3: document.querySelector(".l3"),
+                    r3: document.querySelector(".r3"),
+                    r3: document.querySelector(".r3"),
+
+                    share: document.querySelector(".share"),
+                    options: document.querySelector(".options"),
+                    ps: document.querySelector(".ps"),
+                    tpad: document.querySelector(".tpad"),
+                };
+            }
+
+            async function init() {
+                if ("hid" in navigator) {
+                    // The WebHID API is supported.
+
+                    const filters = [
+                        { vendorId: 0x054c, productId: 0x0ba0 },
+                        { vendorId: 0x054c, productId: 0x05c4 },
+                        { vendorId: 0x054c, productId: 0x09cc },
+                        { vendorId: 0x054c, productId: 0x05c5 },
+                    ];
+
+                    [device] = await navigator.hid.requestDevice({
+                        filters,
+                    });
+
+                    console.log("Connected device", { device });
+                    await device.open();
+
+                    device.addEventListener("inputreport", (event) => {
+                        const { data, device, reportId } = event;
+
+                        if (device.productId !== 0x9cc && reportId !== 0x01)
+                            return;
+
+                        draw(processInputReport(data));
+                    });
+                }
+            }
+
+            function draw({ buttons, axes, sensors }) {
+                for (let field in buttons) {
+                    if (buttons[field]) {
+                        indicators[field].classList.add("active");
+                    } else {
+                        indicators[field].classList.remove("active");
+                    }
+                }
+
+                indicators.l3.style.transform = `translate(${
+                    axes.leftStickX * 30
+                }px, ${axes.leftStickY * 30}px)`;
+
+                indicators.r3.style.transform = `translate(${
+                    axes.rightStickX * 30
+                }px, ${axes.rightStickY * 30}px)`;
+
+                infoDiv.innerHTML = `
+<b>Gyroscope:</b><br>X: ${sensors.gyroX}<br>Y: ${sensors.gyroY}<br>Z: ${sensors.gyroZ}<br>
+<b>Accelerometer:</b><br>X: ${sensors.accelX}<br>Y: ${sensors.accelY}<br>Z: ${sensors.accelZ}`;
+                JSON.stringify(sensors);
+            }
+
+            function processInputReport(data) {
+                // https://www.psdevwiki.com/ps4/DS4-USB
+
+                const buttonsLeftRight = data.getUint8(4);
+                const dPad = buttonsLeftRight & 0x0f;
+                const additionalButtons = data.getUint8(5);
+                const serviceButtons = data.getUint8(6);
+
+                const buttons = {
+                    triangle: !!(buttonsLeftRight & 0x80),
+                    circle: !!(buttonsLeftRight & 0x40),
+                    cross: !!(buttonsLeftRight & 0x20),
+                    square: !!(buttonsLeftRight & 0x10),
+
+                    up: dPad === 7 || dPad === 0 || dPad === 1,
+                    right: dPad === 1 || dPad === 2 || dPad === 3,
+                    down: dPad === 3 || dPad === 4 || dPad === 5,
+                    left: dPad === 5 || dPad === 6 || dPad === 7,
+
+                    l1: !!(additionalButtons & 0x01),
+                    r1: !!(additionalButtons & 0x02),
+                    l2: !!(additionalButtons & 0x04),
+                    r2: !!(additionalButtons & 0x08),
+                    share: !!(additionalButtons & 0x10),
+                    options: !!(additionalButtons & 0x20),
+                    l3: !!(additionalButtons & 0x40),
+                    r3: !!(additionalButtons & 0x80),
+
+                    ps: !!(serviceButtons & 0x01),
+                    tpad: !!(serviceButtons & 0x02),
+                };
+
+                const axes = {
+                    leftStickX: normalizeStick(data.getUint8(0)),
+                    leftStickY: normalizeStick(data.getUint8(1)),
+                    rightStickX: normalizeStick(data.getUint8(2)),
+                    rightStickY: normalizeStick(data.getUint8(3)),
+                };
+
+                const sensors = {
+                    gyroX: data.getUint16(13),
+                    gyroY: data.getUint16(15),
+                    gyroZ: data.getUint16(17),
+                    accelX: data.getInt16(19),
+                    accelY: data.getInt16(21),
+                    accelZ: data.getInt16(23),
+                };
+
+                return {
+                    buttons,
+                    axes,
+                    sensors,
+                };
+            }
+
+            function sendReport({ lightbar, rumble }) {
+                const report = new Uint8Array(16);
+
+                // Report ID
+                report[0] = 0x05;
+
+                // Enable Rumble (0x01), Lightbar (0x02)
+                report[1] = 0xf0 | 0x01 | 0x02;
+
+                // Light rumble motor
+                report[4] = rumble.light;
+                // Heavy rumble motor
+                report[5] = rumble.heavy;
+
+                // Lightbar Red
+                report[6] = lightbar.r;
+                // Lightbar Green
+                report[7] = lightbar.g;
+                // Lightbar Blue
+                report[8] = lightbar.b;
+
+                return device.sendReport(report[0], report.slice(1));
+            }
+
+            function normalizeStick(input, deadZone = 0) {
+                const rel = (input - 128) / 128;
+                if (Math.abs(rel) <= deadZone) return 0;
+
+                return Math.min(1, Math.max(-1, rel));
+            }
+
+            // https://stackoverflow.com/a/5624139
+            function hexToRgb(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
+                    hex
+                );
+                return result
+                    ? {
+                          r: parseInt(result[1], 16),
+                          g: parseInt(result[2], 16),
+                          b: parseInt(result[3], 16),
+                      }
+                    : null;
+            }
+        </script>
+    </body>
+</html>
