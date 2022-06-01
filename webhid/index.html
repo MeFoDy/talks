@@ -22,9 +22,29 @@
     </header>
 
     <section class="slide clear" style="background-color: black;">
-        <h2 style="font-size: 3em; font-weight: 500; margin-top: 20px; color: var(--color-red); text-align: center;">WebHID API: Control Everything via USB</h2>
+        <h2 style="font-size: 3em; font-weight: 500; margin-top: 20px; color: var(--color-red); text-align: center;">WebHID API: Control Everything via USB*</h2>
         <p style="margin-top: 230px; color: var(--color-yellow); text-align: center;">Nikita Dubko, Web Standards</p>
         <img src="./pictures/ring.png" alt="" class="place" width="200" style="top: 62%; mix-blend-mode: hard-light;">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout opaque">* not only USB</h2>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 380px;">
+            <h2>Nikita <br> Dubko</h2>
+            <ul>
+                <li>web development</li>
+                <li>podcasts</li>
+                <li>D&D</li>
+                <li>kayaking</li>
+                <li>drums & piano</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
     </section>
 
 
@@ -39,42 +59,86 @@
     </section>
 
 
-    <section class="slide">
-        <h2 class="shout">How it all began...</h2>
+    <section class="slide title">
+        <h2 class="shout">How it all <br> started...</h2>
+        <img src="./pictures/gandalf-black.jpg" alt="" class="cover place right" style="mix-blend-mode: lighten; right: 50px">
     </section>
 
     <section class="slide">
         <blockquote class="place">Frontend is not real programming!!!<br>
-            <small style="color: var(--color-grey)">Somebody from Twitter</small></blockquote>
+            <small style="color: var(--color-grey)">Somebody on Twitter</small></blockquote>
     </section>
 
     <section class="slide">
-        <h2>You don't have an access to real devices!</h2>
+        <blockquote class="place">You don't even have access to real devices!<br>
+            <small style="color: var(--color-grey)">Somebody on Twitter</small></blockquote>
     </section>
 
     <section class="slide">
-        <h2>Really?</h2>
+        <h2 class="shout">Really? 🤔</h2>
+    </section>
+
+    <section class="slide title white">
+        <h2 class="shout">Somewhere in C++</h2>
+
+        <img src="./pictures/dragon-white.jpg" alt="" class="cover place right bottom" height="50%" style="filter: brightness(1.1);">
     </section>
 
     <section class="slide">
         <h2 class="shout">HID</h2>
-        <a href="https://www.usb.org/hid">usb.org</a>
+        <a href="https://www.usb.org/hid" class="copyright">usb.org</a>
     </section>
 
     <section class="slide title">
         <h2 class="shout">H<span style="font-weight: 300">uman</span><br>I<span style="font-weight: 300">nterface</span><br>D<span style="font-weight: 300">evices</span></h2>
+        <img src="./pictures/keyboard.png" alt="" class="place right bottom next" height="200">
+        <img src="./pictures/mice.png" alt="" class="place right top next" height="200">
+        <img src="./pictures/gamepad.png" alt="" class="place right next" height="200" style="right: 120px; top: 45%">
     </section>
 
     <section class="slide">
-        <h2>Keyboards, mice, game controllers, etc.</h2>
+        <h2 class="shout">USB <br> <span class="opaque thin">&</span> <br> Bluetooth HID-Class</h2>
     </section>
 
     <section class="slide">
-        <h2>USB + Bluetooth HID-Class</h2>
+        <h2 class="shout">USB <br> <span class="opaque thin">&</span> <br> <span class="opaque">Bluetooth HID-Class</span></h2>
     </section>
 
     <section class="slide">
-        <h2>Drivers</h2>
+        <h2 class="shout shadowed">Drivers</h2>
+        <img src="./pictures/jason-statham-driving.jpeg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shadowed">Drivers</h2>
+        <pre style="font-size: 0.5em;"><code>#include "clisrv.h"
+#include "device.h"
+#include "server.h"
+#if defined(EVENT_TRACING)
+#include "server.tmh"
+#endif
+_IRQL_requires_max_(PASSIVE_LEVEL)
+NTSTATUS
+BthEchoSrvQueryInterfaces(_In_ PBTHECHOSAMPLE_SERVER_CONTEXT DevCtx);
+#ifdef ALLOC_PRAGMA
+#pragma alloc_text (PAGE, BthEchoSrvInitialize)
+#pragma alloc_text (PAGE, BthEchoSrvUnregisterPSM)
+#pragma alloc_text (PAGE, BthEchoSrvUnregisterL2CAPServer)
+#pragma alloc_text (PAGE, BthEchoSrvPublishSdpRecord)
+#pragma alloc_text (PAGE, BthEchoSrvRemoveSdpRecord)
+#pragma alloc_text (PAGE, BthEchoSrvQueryInterfaces)
+#endif
+
+void InsertConnectionEntryLocked(
+    PBTHECHOSAMPLE_SERVER_CONTEXT devCtx,
+    PLIST_ENTRY ple
+    )
+{
+    WdfSpinLockAcquire(devCtx->ConnectionListLock);
+    InsertTailList(&devCtx->ConnectionList, ple);
+    WdfSpinLockRelease(devCtx->ConnectionListLock);
+}</code></pre>
+<a class="copyright" href="https://github.com/microsoft/Windows-driver-samples/blob/main/bluetooth/bthecho/bthsrv/sys/server.c">microsoft / Windows-driver-samples</a>
     </section>
 
     <section class="slide">

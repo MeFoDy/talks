@@ -227,3 +227,11 @@ pre code.hljs {
 .slide .copyright {
     color: var(--color-yellow);
 }
+
+.slide .thin {
+    font-weight: 300;
+}
+
+.shadowed {
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
