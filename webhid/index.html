@@ -142,163 +142,393 @@ void InsertConnectionEntryLocked(
     </section>
 
     <section class="slide">
-        <h2>https://en.wikipedia.org/wiki/File:Operating_system_placement.svg</h2>
+        <img src="./pictures/os-1.png" alt="" class="cover" style="filter: invert(); mix-blend-mode: lighten;">
     </section>
 
     <section class="slide">
-        <h2>https://github.com/libusb/hidapi</h2>
+        <img src="./pictures/os-2.png" alt="" class="cover" style="filter: invert(); mix-blend-mode: lighten;">
     </section>
 
     <section class="slide">
-        <h2>125Hz Polling</h2>
+        <img src="./pictures/os-3.png" alt="" class="cover" style="filter: invert(); mix-blend-mode: lighten;">
     </section>
 
     <section class="slide">
-        <h2>Connection -> Enumeration</h2>
+        <img src="./pictures/os-polling.png" alt="" class="cover" style="filter: invert(); mix-blend-mode: lighten;">
+        <h2 class="place next" style="left: 75%; top: 58%">Polling</h2>
     </section>
 
     <section class="slide">
-        <h2>https://www.silabs.com/documents/public/application-notes/AN249.pdf</h2>
+        <h2 class="shout">125 Hz</h2>
     </section>
 
     <section class="slide">
-        <h2>https://www.usb.org/sites/default/files/hid1_11.pdf</h2>
+        <h2 class="shout">125 <span class="thin">times per second</span></h2>
     </section>
 
     <section class="slide">
-        <h2>Input Reports, Feature Reports and Output Reports</h2>
+        <h2 class="shout">60 FPS</h2>
     </section>
 
     <section class="slide">
-        <h2>Poll -> Have something? -> Send</h2>
+        <h2 class="shout">Connection <br><span class="arrow">↓</span><br> Enumeration</h2>
     </section>
 
     <section class="slide">
-        <h2>Push -> SET_FEATURE</h2>
+        <h2 class="shout">Poll <br><span class="arrow">↓</span><br> Have something? <br><span class="arrow">↓</span><br> Give it to me</h2>
     </section>
 
     <section class="slide">
-        <h2>Push -> SET_REPORT</h2>
+        <h2 class="shout">Input <span class="thin">Reports</span>,<br>Feature <span class="thin">Reports, and </span><br>Output <span class="thin">Reports</span></h2>
     </section>
 
     <section class="slide">
-        <h2>A lot of numbers</h2>
+        <h2 class="shout">Push <br><span class="arrow">↓</span><br> <code>SET_REPORT</code></h2>
     </section>
 
     <section class="slide">
-        <h2>Debug with https://www.wireshark.org/</h2>
+        <h2 class="shout">Push <br><span class="arrow">↓</span><br> <code>SET_FEATURE</code></h2>
     </section>
 
     <section class="slide">
-        <h2>Fear!</h2>
+        <h2 class="shout shadowed">What is report?</h2>
+        <img src="./pictures/reports.jpeg" alt="" class="cover width" style="opacity: 0.5;">
     </section>
 
     <section class="slide">
-        <h2>https://gist.github.com/cliffrowley/d18a9c4569537b195f2b1eb6c68469e0</h2>
+        <pre><code>Offset(d) 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15
+
+00000000  01 7d 80 7f 80 08 00 f0 00 00 98 5b fd 07 00 57
+00000016  00 9b fe 8d 0d 1b 1f 6d 05 00 00 00 00 00 1b 00
+00000032  00 01 2b a9 b8 41 16 ab 86 e5 12 00 80 00 00 00
+00000048  80 00 00 00 00 80 00 00 00 80 00 00 00 00 80 00</code></pre>
     </section>
 
     <section class="slide">
-        <h2>https://github.com/Julusian/node-elgato-stream-deck</h2>
+        <pre><code>Offset(d) 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15
+
+00000000  01 7e 81 7f 7e 08 00 bc 00 00 17 a1 fd fd ff 01
+00000016  00 01 00 8d 00 a3 20 d1 07 00 00 00 00 00 1b 00
+00000032  00 02 3c 0b 5b 94 1a 87 de c0 1b 41 0b 5e 94 1a
+00000048  87 de c0 1b 00 80 00 00 00 80 00 00 00 00 80 00</code></pre>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/usb-hid-spec.jpg" alt="" class="cover" height="400">
+        <a class="copyright" href="https://www.usb.org/sites/default/files/hid1_11.pdf">Device Class Definition for Human Interface Devices</a>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/joystick-descriptor.jpg" alt="" class="cover" height="500">
+        <a class="copyright" href="https://www.usb.org/sites/default/files/hid1_11.pdf">Device Class Definition for Human Interface Devices</a>
     </section>
 
     <section class="slide">
-        <h2>Browsers use HID a lot!</h2>
+        <img src="./pictures/usb-sniffing.png" alt="" class="cover">
+        <a class="copyright" href="https://www.umpah.net/how-to-sniff-usb-traffic-reverse-engineer-usb-device-interactions/">How to Sniff USB Traffic/Reverse Engineer USB Device Interactions</a>
     </section>
 
     <section class="slide">
-        <h2>https://source.chromium.org/chromium/chromium/src/+/main:services/device/public/mojom/hid.mojom</h2>
+        <img src="./pictures/libusb.jpg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/libusb/hidapi">libusb / hidapi</a>
     </section>
 
     <section class="slide">
-        <h2>Mouse, keyboards, gamepads</h2>
+        <video src="./pictures/golum.mp4" class="cover width place bottom" autoplay muted loop playsinline></video>
     </section>
 
     <section class="slide">
-        <h2>WebHID</h2>
+        <h2 class="shout">HID is already <br> in browsers!</h2>
     </section>
 
     <section class="slide">
-        <h2>Browser API</h2>
+        <h2 class="shout"><code>services / device / public / mojom / hid.mojom</code></h2>
     </section>
 
     <section class="slide">
-        <h2>Is not a W3C Standard</h2>
+        <pre style="font-size: 0.5em;"><code>const uint16 kGenericDesktopUndefined = 0x00;
+const uint16 kGenericDesktopPointer = 0x01;
+const uint16 kGenericDesktopMouse = 0x02;
+const uint16 kGenericDesktopJoystick = 0x04;
+const uint16 kGenericDesktopGamePad = 0x05;
+const uint16 kGenericDesktopKeyboard = 0x06;
+const uint16 kGenericDesktopKeypad = 0x07;
+const uint16 kGenericDesktopMultiAxisController = 0x08;
+const uint16 kGenericDesktopX = 0x30;
+const uint16 kGenericDesktopY = 0x31;
+const uint16 kGenericDesktopZ = 0x32;
+const uint16 kGenericDesktopRx = 0x33;
+const uint16 kGenericDesktopRy = 0x34;
+const uint16 kGenericDesktopRz = 0x35;
+const uint16 kGenericDesktopSlider = 0x36;
+const uint16 kGenericDesktopDial = 0x37;
+const uint16 kGenericDesktopWheel = 0x38;
+const uint16 kGenericDesktopHatSwitch = 0x39;
+const uint16 kGenericDesktopCountedBuffer = 0x3a;
+const uint16 kGenericDesktopByteCount = 0x3b;
+const uint16 kGenericDesktopMotionWakeup = 0x3c;
+const uint16 kGenericDesktopStart = 0x3d;
+const uint16 kGenericDesktopSelect = 0x3e;
+const uint16 kGenericDesktopVx = 0x40;
+...</code></pre>
+        <a class="copyright" href="https://source.chromium.org/chromium/chromium/src/+/main:services/device/public/mojom/hid.mojom">Chromium Source Code</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">H<span style="font-weight: 300">uman</span><br>I<span style="font-weight: 300">nterface</span><br>D<span style="font-weight: 300">evices</span></h2>
+        <img src="./pictures/keyboard.png" alt="" class="place right bottom" height="200">
+        <img src="./pictures/mice.png" alt="" class="place right top" height="200">
+        <img src="./pictures/gamepad.png" alt="" class="place right" height="200" style="right: 120px; top: 45%">
+    </section>
+
+    <section class="slide title white">
+        <h2 class="shout">WebHID</h2>
+        <img src="./pictures/gandalf-white.jpg" alt="" class="cover place right" style="filter: brightness(1.2); right: -100px">
     </section>
 
     <section class="slide">
-        <h2>Chrome 89+ https://chromestatus.com/feature/5172464636133376</h2>
+        <h2 class="shout">Browser API</h2>
     </section>
 
     <section class="slide">
-        <h2>Mozilla https://github.com/mozilla/standards-positions/issues/459</h2>
+        <h2 class="shout">Is NOT a W3C Standard</h2>
     </section>
 
     <section class="slide">
-        <h2>Safari https://webkit.org/tracking-prevention/</h2>
+        <img src="./pictures/webhid-spec.jpg" alt="" class="cover width place top">
+        <a class="copyright" href="https://wicg.github.io/webhid/">WebHID API</a>
     </section>
 
     <section class="slide">
-        <h2>Doesn't work with trusted input</h2>
+        <h2 class="shout">Chrome 89+ ✅</h2>
+        <a class="copyright" href="https://chromestatus.com/feature/5172464636133376">Chrome Platform Status</a>
     </section>
 
     <section class="slide">
-        <h2>https://source.chromium.org/chromium/chromium/src/+/main:services/device/public/cpp/hid/hid_usage_and_page.cc</h2>
+        <h2 class="shout">Mozilla 🚫</h2>
+        <a class="copyright" href="https://github.com/mozilla/standards-positions/issues/459">mozilla / standards-positions</a>
     </section>
 
     <section class="slide">
-        <h2>Requires user gesture to allow</h2>
+        <h2 class="shout">Safari 🚫</h2>
+        <a class="copyright" href="https://webkit.org/tracking-prevention/">Tracking Prevention in WebKit</a>
     </section>
 
     <section class="slide">
-        <h2>https://wicg.github.io/webhid/</h2>
+        <h2 class="shout"><span class="thin">Doesn't work with </span><br>trusted input</h2>
     </section>
 
     <section class="slide">
-        <h2>https://github.com/WICG/webhid/blob/main/EXPLAINER.md</h2>
+        <pre style="font-size: 0.5em;"><code>bool IsAlwaysProtected(const mojom::HidUsageAndPage& hid_usage_and_page) {
+    const uint16_t usage = hid_usage_and_page.usage;
+    const uint16_t usage_page = hid_usage_and_page.usage_page;
+
+    if (usage_page == mojom::kPageKeyboard)
+        return true;
+    if (usage_page != mojom::kPageGenericDesktop)
+        return false;
+    if (usage == mojom::kGenericDesktopPointer ||
+        usage == mojom::kGenericDesktopMouse ||
+        usage == mojom::kGenericDesktopKeyboard ||
+        usage == mojom::kGenericDesktopKeypad) {
+        return true;
+    }
+    if (usage >= mojom::kGenericDesktopSystemControl &&
+        usage <= mojom::kGenericDesktopSystemWarmRestart) {
+        return true;
+    }
+    if (usage >= mojom::kGenericDesktopSystemDock &&
+        usage <= mojom::kGenericDesktopSystemDisplaySwap) {
+        return true;
+    }
+
+    return false;
+}</code></pre>
+        <a class="copyright" href="https://source.chromium.org/chromium/chromium/src/+/main:services/device/public/cpp/hid/hid_usage_and_page.cc">Chromium Source Code</a>
     </section>
 
     <section class="slide">
-        <h2>How to work with HID?</h2>
+        <h2 class="shout" style="font-weight: 300;">Requires <br><span style="font-weight: bold;">user gesture</span><br> to allow</h2>
     </section>
 
     <section class="slide">
-        <h2>navigator.hid</h2>
+        <video src="./pictures/yolo.mp4" class="cover width place" autoplay muted loop playsinline></video>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">How to work with HID?</h2>
     </section>
 
     <section class="slide">
-        <h2>Examples https://web.dev/hid-examples/</h2>
+        <h2 class="shout"><code>navigator.hid</code></h2>
     </section>
 
     <section class="slide">
-        <h2>Sony DualShock 4: https://github.com/TheBITLINK/WebHID-DS4</h2>
+        <pre><code>if ("hid" in navigator) {
+    const opts = {
+        filters: [
+            {
+                vendorId: 0x0fd9,
+                productId: 0x006d
+            }
+        ]
+    };
+    const devices = await navigator.hid.requestDevice(opts);
+}</code></pre>
     </section>
 
     <section class="slide">
-        <h2>https://www.psdevwiki.com/ps4/DS4-USB</h2>
+        <h2 class="shout"><code>about://device-log</code></h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/about-device-log.jpg" alt="" class="cover place">
     </section>
 
     <section class="slide">
-        <h2>Materials https://github.com/robatwilliams/awesome-webhid</h2>
+        <h2 class="shout"><code>devicehunt.com</code></h2>
+        <a class="copyright" href="https://devicehunt.com/all-usb-vendors">All USB Vendors</a>
     </section>
 
-    <section class="slide">
-        <h2>https://web.dev/hid/</h2>
-    </section>
-
-    <section class="slide">
-        <h2>https://devicehunt.com/all-usb-vendors</h2>
-    </section>
-
-    <section class="slide">
+    <!-- <section class="slide">
         <h2>https://www.the-sz.com/products/usbid/</h2>
+    </section> -->
+
+    <section class="slide">
+        <pre><code>const device = devices[0];
+
+await device.open();
+
+device.addEventListener("inputreport", (event) => {
+    const { data, device, reportId } = event;
+
+    if (reportId === 0x01) { // <== You need specs here
+        // Do something
+    }
+});</code></pre>
     </section>
 
     <section class="slide">
-        <h2>about://device-log</h2>
+        <h2 class="shout"><code>DataView</code></h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/ps4-ds-data-format.jpg" alt="" class="cover place top">
+        <a class="copyright" href="https://www.psdevwiki.com/ps4/DS4-USB">DS4-USB</a>
     </section>
 
     <section class="slide">
-        <h2>Google Meet + Elgato: https://github.com/petele/StreamDeck-Meet</h2>
+        <pre style="font-size: 0.85em;" class="js"><code>const buttonsLeftRight = data.<mark>getUint8(4)</mark>;
+const dPad = buttonsLeftRight & 0x0f;
+const additionalButtons = data.getUint8(5);
+const serviceButtons = data.getUint8(6);
+
+const buttons = {
+    triangle: !!(buttonsLeftRight & 0x80),
+    circle: !!(buttonsLeftRight & 0x40),
+    cross: !!(buttonsLeftRight & 0x20),
+    square: !!(buttonsLeftRight & 0x10),
+
+    up: dPad === 7 || dPad === 0 || dPad === 1,
+    right: dPad === 1 || dPad === 2 || dPad === 3,
+    down: dPad === 3 || dPad === 4 || dPad === 5,
+    left: dPad === 5 || dPad === 6 || dPad === 7,
+    // ...
+};</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="js" style="font-size: 0.75em;"><code>const report = new Uint8Array(16);
+
+// Report ID
+report[0] = 0x05;
+
+// Enable Rumble (0x01), Lightbar (0x02)
+report[1] = 0xf0 | 0x01 | 0x02;
+
+// Light / Heavy rumble motor
+report[4] = 64;
+report[5] = 127;
+
+// Lightbar Red / Green / Blue
+report[6] = 255;
+report[7] = 0;
+report[8] = 0;
+
+return device.<mark>sendReport</mark>(report[0], report.slice(1));</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/dualshock4/">Demo Time 🎮</a></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/ds4-github.jpg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/TheBITLINK/WebHID-DS4">WebHID-DS4</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Stream Deck</h2>
+        <img src="./pictures/elgato-streamdeck.webp" alt="" class="cover">
+        <a class="copyright" href="https://www.elgato.com/en/stream-deck">Elgato Stream Deck</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Pete LePage <br><span class="arrow opaque">+</span><br> StreamDeck <br><span class="arrow opaque">+</span><br> Google Meet <br><span class="arrow opaque"> = </span><br></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meet-helper.jpg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/petele/StreamDeck-Meet">petele / StreamDeck-Meet</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Bramus Van Damme <br><span class="arrow opaque">+</span><br> StreamDeck Helper <br><span class="arrow opaque"> = </span><br> </h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/bramus-article.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.bram.us/2021/02/12/webhid-demo-elgato-stream-deck-daft-punk-soundboard/">WebHID Demo: Elgato Stream Deck Daft Punk Soundboard</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/streamdeck-protocol.jpg" alt="" class="cover">
+        <a class="copyright" href="https://gist.github.com/cliffrowley/d18a9c4569537b195f2b1eb6c68469e0">Stream Deck Protocol</a>
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/happy.mp4" class="cover width place bottom" autoplay muted loop playsinline></video>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/streamdeck/">Demo Time 🎸</a></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>device.close()</code></h2>
+    </section>
+
+    <!-- <section class="slide">
+        <h2>https://github.com/Julusian/node-elgato-stream-deck</h2>
+    </section> -->
+
+    <section class="slide title">
+        <h2 class="shout">What's next?</h2>
+        <img src="./pictures/gandalf-black.jpg" alt="" class="cover place right" style="mix-blend-mode: lighten; right: 50px">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/awesome-webhid.jpg" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/robatwilliams/awesome-webhid">Awesome WebHID</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webhid-web-dev.png" alt="" class="cover height">
+        <a class="copyright" href="https://web.dev/hid/">Connecting to uncommon HID devices</a>
     </section>
 
 

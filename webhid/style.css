@@ -225,7 +225,7 @@ pre code.hljs {
 }
 
 .slide .copyright {
-    color: var(--color-yellow);
+    color: var(--color-red);
 }
 
 .slide .thin {
@@ -234,4 +234,9 @@ pre code.hljs {
 
 .shadowed {
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.arrow {
+    color: var(--color-yellow);
+    opacity: 0.5;
 }

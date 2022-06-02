@@ -86,6 +86,7 @@ class DrumPad {
                 `button[data-page-index="${this.activePageIndex}"][data-button-index="${e.detail.buttonId}"]`
             );
             if ($button) {
+                document.activeElement.blur();
                 $button.focus();
                 $button.click();
             }
