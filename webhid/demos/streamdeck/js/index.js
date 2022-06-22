@@ -4,7 +4,22 @@ import { StreamDeck } from "./StreamDeck.js";
 // Mapping of the buttons, paged
 const buttonConfig = [
     {
-        2: {
+        0: {
+			label: 'Guitar',
+			keyCode: 'Digit1',
+			textColor: '#fff',
+			action: function(e) {
+				this.activeButtonPageAtIndex(0);
+			},
+		},
+		1: {
+			label: 'Piano',
+			keyCode: 'Digit2',
+			action: function(e) {
+				this.activeButtonPageAtIndex(1);
+			},
+		},
+        3: {
             image: "pictures/drums.png",
             width: 1024,
             height: 765,
@@ -56,6 +71,85 @@ const buttonConfig = [
             audio: "sounds/g.wav",
             action: function (e) {
                 this.playSound("KeyG");
+            },
+        },
+    },
+    {
+        0: {
+			label: 'Guitar',
+			keyCode: 'Digit1',
+			action: function(e) {
+				this.activeButtonPageAtIndex(0);
+			},
+		},
+		1: {
+			label: 'Piano',
+			keyCode: 'Digit2',
+			textColor: '#fff',
+			action: function(e) {
+				this.activeButtonPageAtIndex(1);
+			},
+		},
+        3: {
+            image: "pictures/drums.png",
+            width: 1024,
+            height: 765,
+            // label: "Drums",
+            keyCode: "KeyQ",
+            audio: "sounds/drums-fast.wav",
+            action: function (e) {
+                this.playSound("KeyQ", 0.5);
+            },
+        },
+        5: {
+            label: "C",
+            keyCode: "KeyX",
+            audio: "sounds/pC.wav",
+            action: function (e) {
+                this.playSound("KeyX", 0.2);
+            },
+        },
+        6: {
+            label: "D",
+            keyCode: "KeyC",
+            audio: "sounds/pDd.wav",
+            action: function (e) {
+                this.playSound("KeyC", 0.2);
+            },
+        },
+        7: {
+            label: "E",
+            keyCode: "KeyV",
+            audio: "sounds/pE.wav",
+            action: function (e) {
+                this.playSound("KeyV", 0.2);
+            },
+        },
+        8: {
+            label: "G",
+            keyCode: "KeyB",
+            audio: "sounds/pG.wav",
+            action: function (e) {
+                this.playSound("KeyB", 0.2);
+            },
+        },
+        10: {
+            // image: "pictures/guitar.png",
+            // width: 822,
+            // height: 2463,
+            label: "B2",
+            keyCode: "KeyN",
+            audio: "sounds/pB.wav",
+            action: function (e) {
+                this.playSound("KeyN", 0.2);
+            },
+        },
+        11: {
+            label: "C2",
+            keyCode: "KeyM",
+            audio: "sounds/pC2.wav",
+            action: function (e) {
+                this.playSound("KeyM", 0.2);
             },
         },
     },

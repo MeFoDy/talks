@@ -169,7 +169,7 @@
                 bottom: auto;
                 text-align: left;
                 opacity: 0.4;
-                font-family: 'Courier New', Courier, monospace;
+                font-family: "Courier New", Courier, monospace;
                 font-size: 12px;
             }
 
@@ -266,6 +266,8 @@
                     console.log("Connected device", { device });
                     await device.open();
 
+                    // logDeviceInfo(device);
+
                     device.addEventListener("inputreport", (event) => {
                         const { data, device, reportId } = event;
 
@@ -274,6 +276,33 @@
 
                         draw(processInputReport(data));
                     });
+                }
+            }
+
+            function logDeviceInfo(device) {
+                for (let collection of device.collections) {
+                    // An HID collection includes usage, usage page, reports, and subcollections.
+                    console.log(`Usage: ${collection.usage}`);
+                    console.log(`Usage page: ${collection.usagePage}`);
+
+                    for (let inputReport of collection.inputReports) {
+                        console.log(`Input report: ${inputReport.reportId}`);
+                        // Loop through inputReport.items
+                    }
+
+                    for (let outputReport of collection.outputReports) {
+                        console.log(`Output report: ${outputReport.reportId}`);
+                        // Loop through outputReport.items
+                    }
+
+                    for (let featureReport of collection.featureReports) {
+                        console.log(
+                            `Feature report: ${featureReport.reportId}`
+                        );
+                        // Loop through featureReport.items
+                    }
+
+                    // Loop through subcollections with collection.children
                 }
             }
 

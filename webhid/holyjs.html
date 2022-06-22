@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>WebHID API: управление почти чем угодно из браузера</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="По протоколу HID (Human Interface Device) давно можно управлять различными устройствами из операционной системы. Со свежим WebHID API можно делать то же самое прямо из браузера.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
+    <link rel="stylesheet" href="holyjs.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>WebHID API: управление почти чем угодно из браузера</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Яндекс
+        </p>
+    </header>
+
+    <section class="slide clear" style="background-color: black;">
+        <h2 style="font-size: 2.2em; font-weight: 500; color: var(--color-pink); text-align: center;">WebHID API: управление почти чем угодно из браузера</h2>
+        <p style="margin-top: 300px; color: var(--color-yellow); text-align: center;">Никита Дубко, Яндекс</p>
+        <img src="./pictures/ring.png" alt="" class="place" width="200" style="top: 63%; mix-blend-mode: hard-light;">
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 380px;">
+            <h2>Никита <br> Дубко</h2>
+            <ul>
+                <li>веб-разработчик</li>
+                <li>подкастер</li>
+                <li>игрок в D&D</li>
+                <li>сплавляюсь на байдарках</li>
+                <li>играю на барабанах и пианино</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/gd_experts_lockup_horizontal_color.png" alt="" class="cover" width="700">
+        <a class="copyright" href="https://developers.google.com/community/experts/directory/profile/profile-nikita-dubko">GDE Directory</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Знания 🪄</h2>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Как всё <br> началось...</h2>
+        <img src="./pictures/gandalf-black.jpg" alt="" class="cover place right" style="mix-blend-mode: lighten; right: 50px">
+    </section>
+
+    <section class="slide">
+        <blockquote class="place">Фронтенд — это не настоящее программирование!!!<br>
+            <small style="color: var(--color-grey)">Кто-то в твиттере</small></blockquote>
+    </section>
+
+    <section class="slide">
+        <blockquote class="place">У вас даже нет доступа к реальным устройствам!<br>
+            <small style="color: var(--color-grey)">Кто-то в твиттере</small></blockquote>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Правда? 🤔</h2>
+    </section>
+
+    <section class="slide title white">
+        <h2 class="shout">Где-то в C++</h2>
+
+        <img src="./pictures/dragon-white.jpg" alt="" class="cover place right bottom" height="50%" style="filter: brightness(1.1);">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">HID</h2>
+        <a href="https://www.usb.org/hid" class="copyright">usb.org</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">H<span style="font-weight: 300">uman</span><br>I<span style="font-weight: 300">nterface</span><br>D<span style="font-weight: 300">evices</span></h2>
+        <img src="./pictures/keyboard.png" alt="" class="place right bottom next" height="200">
+        <img src="./pictures/mice.png" alt="" class="place right top next" height="200">
+        <img src="./pictures/gamepad.png" alt="" class="place right next" height="200" style="right: 120px; top: 45%">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">USB <br> <span class="opaque thin">&</span> <br> Bluetooth HID-Class</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">USB <br> <span class="opaque thin">&</span> <br> <span class="opaque">Bluetooth HID-Class</span></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shadowed">Драйверы</h2>
+        <img src="./pictures/jason-statham-driving.jpeg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shadowed">Драйверы</h2>
+        <pre style="font-size: 0.5em;"><code>#include "clisrv.h"
+#include "device.h"
+#include "server.h"
+#if defined(EVENT_TRACING)
+#include "server.tmh"
+#endif
+_IRQL_requires_max_(PASSIVE_LEVEL)
+NTSTATUS
+BthEchoSrvQueryInterfaces(_In_ PBTHECHOSAMPLE_SERVER_CONTEXT DevCtx);
+#ifdef ALLOC_PRAGMA
+#pragma alloc_text (PAGE, BthEchoSrvInitialize)
+#pragma alloc_text (PAGE, BthEchoSrvUnregisterPSM)
+#pragma alloc_text (PAGE, BthEchoSrvUnregisterL2CAPServer)
+#pragma alloc_text (PAGE, BthEchoSrvPublishSdpRecord)
+#pragma alloc_text (PAGE, BthEchoSrvRemoveSdpRecord)
+#pragma alloc_text (PAGE, BthEchoSrvQueryInterfaces)
+#endif
+
+void InsertConnectionEntryLocked(
+    PBTHECHOSAMPLE_SERVER_CONTEXT devCtx,
+    PLIST_ENTRY ple
+    )
+{
+    WdfSpinLockAcquire(devCtx->ConnectionListLock);
+    InsertTailList(&devCtx->ConnectionList, ple);
+    WdfSpinLockRelease(devCtx->ConnectionListLock);
+}</code></pre>
+<a class="copyright" href="https://github.com/microsoft/Windows-driver-samples/blob/main/bluetooth/bthecho/bthsrv/sys/server.c">microsoft / Windows-driver-samples</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/os-1.png" alt="" class="cover" style="filter: invert(); mix-blend-mode: lighten;">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/os-2.png" alt="" class="cover" style="filter: invert(); mix-blend-mode: lighten;">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/os-3.png" alt="" class="cover" style="filter: invert(); mix-blend-mode: lighten;">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/os-polling.png" alt="" class="cover" style="filter: invert(); mix-blend-mode: lighten;">
+        <h2 class="place next" style="left: 75%; top: 58%">Polling</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">125 Hz</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">125 <span class="thin">раз в секунду</span></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Input <span class="thin">Reports</span>,<br>Feature <span class="thin">Reports и </span><br>Output <span class="thin">Reports</span></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">60 FPS</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shadowed">Что такое report?</h2>
+        <img src="./pictures/reports.jpeg" alt="" class="cover width" style="opacity: 0.5;">
+    </section>
+
+    <section class="slide">
+        <pre><code>Offset(d) 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15
+
+00000000  01 7d 80 7f 80 08 00 f0 00 00 98 5b fd 07 00 57
+00000016  00 9b fe 8d 0d 1b 1f 6d 05 00 00 00 00 00 1b 00
+00000032  00 01 2b a9 b8 41 16 ab 86 e5 12 00 80 00 00 00
+00000048  80 00 00 00 00 80 00 00 00 80 00 00 00 00 80 00</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>Offset(d) 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15
+
+00000000  01 7e 81 7f 7e 08 00 bc 00 00 17 a1 fd fd ff 01
+00000016  00 01 00 8d 00 a3 20 d1 07 00 00 00 00 00 1b 00
+00000032  00 02 3c 0b 5b 94 1a 87 de c0 1b 41 0b 5e 94 1a
+00000048  87 de c0 1b 00 80 00 00 00 80 00 00 00 00 80 00</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/comedy-usb-duet.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/usb-hid-spec.jpg" alt="" class="cover" height="400">
+        <a class="copyright" href="https://www.usb.org/sites/default/files/hid1_11.pdf">Device Class Definition for Human Interface Devices</a>
+    </section>
+
+
+    <section class="slide black clear">
+        <video src="./pictures/mordor.mp4" class="cover width" autoplay muted loop playsinline></video>
+    </section><section class="slide">
+        <h2 class="shout">Подключение <br><span class="arrow">↓</span><br> Перечисление</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>Get_Descriptor</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/descriptors.png" alt="" class="cover" height="400" style="filter: invert(); mix-blend-mode: lighten;">
+    </section>
+
+    <section class="slide">
+        <h2>Стандартные дескрипторы (USB)</h2>
+        <ul>
+            <li>Device</li>
+            <li>Configuration</li>
+            <li>Interface</li>
+            <li>Endpoint</li>
+            <li>String</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>HID-специфичные дескрипторы</h2>
+        <ul>
+            <li>HID</li>
+            <li>Report</li>
+            <li>Physical</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">R<span class="thin">ead</span> O<span class="thin">nly</span> M<span class="thin">emory</span></h2>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 00 00
+08 ff ff 00 01 01 00
+04 0e 30 01</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code><mark>12</mark> 01 01 00 00 00 00
+08 ff ff 00 01 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0x12 = 18</code> — размер дескриптора</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 <mark>01</mark> 01 00 00 00 00
+08 ff ff 00 01 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0x01</code> — тип дескриптора</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 <mark>01 00</mark> 00 00 00
+08 ff ff 00 01 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0x100</code> — USB HID Specification Release 1.0.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 <mark>00</mark> 00 00
+08 ff ff 00 01 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0x00</code> — код класса (требования к передаче данных)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 <mark>00</mark> 00
+08 ff ff 00 01 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0x00</code> — код подкласса (boot или нет)</p>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/subclass-codes.png" alt="" class="place" height="300" style="filter: invert(); mix-blend-mode: lighten;">
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 00 <mark>00</mark>
+08 ff ff 00 01 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0x00</code> — код протокола (1 — клавиатура, 2 — мышь)</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 00 00
+<mark>08</mark> ff ff 00 01 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0x08</code> — максимальный размер пакета 0-го эндпоинта</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 00 00
+08 <mark>ff ff</mark> 00 01 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0xffff</code> — Vendor ID</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 00 00
+08 ff ff <mark>00 01</mark> 01 00
+04 0e 30 01</code></pre>
+
+        <p><code>0x0001</code> — Product ID</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 00 00
+08 ff ff 00 01 <mark>01 00</mark>
+04 0e 30 01</code></pre>
+
+        <p><code>0x0100</code> — релизный номер устройства</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 00 00
+08 ff ff 00 01 01 00
+<mark>04 0e 30</mark> 01</code></pre>
+
+        <p><code>0x04, 0x0e, 0x30</code> — индексы строковых дескрипторов</p>
+    </section>
+
+    <section class="slide">
+        <h2>Device Descriptor</h2>
+        <pre><code>12 01 01 00 00 00 00
+08 ff ff 00 01 01 00
+04 0e 30 <mark>01</mark></code></pre>
+
+        <p><code>0x01</code> — количество конфигураций</p>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/joystick-descriptor.jpg" alt="" class="cover" height="500">
+        <a class="copyright" href="https://www.usb.org/sites/default/files/hid1_11.pdf">Device Class Definition for Human Interface Devices</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.7em;"><code class="c">static u8 dualshock4_usb_rdesc[] = {
+    0x05, 0x01,         /*  Usage Page (Desktop),               */
+    0x09, 0x05,         /*  Usage (Gamepad),                    */
+    0xA1, 0x01,         /*  Collection (Application),           */
+    0x85, 0x01,         /*      Report ID (1),                  */
+    0x09, 0x30,         /*      Usage (X),                      */
+    0x09, 0x31,         /*      Usage (Y),                      */
+    0x09, 0x32,         /*      Usage (Z),                      */
+    0x09, 0x35,         /*      Usage (Rz),                     */
+    0x15, 0x00,         /*      Logical Minimum (0),            */
+    0x26, 0xFF, 0x00,   /*      Logical Maximum (255),          */
+    0x75, 0x08,         /*      Report Size (8),                */
+    0x95, 0x04,         /*      Report Count (4),               */
+    0x81, 0x02,         /*      Input (Variable),               */
+    0x09, 0x39,         /*      Usage (Hat Switch),             */
+    0x15, 0x00,         /*      Logical Minimum (0),            */
+    0x25, 0x07,         /*      Logical Maximum (7),            */
+    0x35, 0x00,         /*      Physical Minimum (0),           */
+    0x46, 0x3B, 0x01,   /*      Physical Maximum (315),         */
+    0x65, 0x14,         /*      Unit (Degrees),                 */</code></pre>
+        <a class="copyright" href="https://android.googlesource.com/kernel/common.git/+/brillo-m9-release/drivers/hid/hid-sony.c">android / kernel / common.git / brillo-m9-release / . / drivers / hid / hid-sony.c</a>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/hid-descriptor-tool.png" alt="" class="cover" height="300">
+        <a class="copyright" href="https://www.usb.org/document-library/hid-descriptor-tool">HID Descriptor Tool</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Поллинг <br><span class="arrow">↓</span><br> Есть чё? <br><span class="arrow">↓</span><br> Дай мне</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Pull <br><span class="arrow">↓</span><br> <code>GET_REPORT 0x01</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Push <br><span class="arrow">↓</span><br> <code>SET_REPORT</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Push <br><span class="arrow">↓</span><br> <code>SET_FEATURE</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/usb-sniffing.png" alt="" class="cover">
+        <a class="copyright" href="https://www.umpah.net/how-to-sniff-usb-traffic-reverse-engineer-usb-device-interactions/">How to Sniff USB Traffic/Reverse Engineer USB Device Interactions</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/libusb.jpg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/libusb/hidapi">libusb / hidapi</a>
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/golum.mp4" class="cover width place bottom" autoplay muted loop playsinline></video>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">HID уже <br> в браузерах!</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>services / device / public / mojom / hid.mojom</code></h2>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.5em;"><code>const uint16 kGenericDesktopUndefined = 0x00;
+const uint16 kGenericDesktopPointer = 0x01;
+const uint16 kGenericDesktopMouse = 0x02;
+const uint16 kGenericDesktopJoystick = 0x04;
+const uint16 kGenericDesktopGamePad = 0x05;
+const uint16 kGenericDesktopKeyboard = 0x06;
+const uint16 kGenericDesktopKeypad = 0x07;
+const uint16 kGenericDesktopMultiAxisController = 0x08;
+const uint16 kGenericDesktopX = 0x30;
+const uint16 kGenericDesktopY = 0x31;
+const uint16 kGenericDesktopZ = 0x32;
+const uint16 kGenericDesktopRx = 0x33;
+const uint16 kGenericDesktopRy = 0x34;
+const uint16 kGenericDesktopRz = 0x35;
+const uint16 kGenericDesktopSlider = 0x36;
+const uint16 kGenericDesktopDial = 0x37;
+const uint16 kGenericDesktopWheel = 0x38;
+const uint16 kGenericDesktopHatSwitch = 0x39;
+const uint16 kGenericDesktopCountedBuffer = 0x3a;
+const uint16 kGenericDesktopByteCount = 0x3b;
+const uint16 kGenericDesktopMotionWakeup = 0x3c;
+const uint16 kGenericDesktopStart = 0x3d;
+const uint16 kGenericDesktopSelect = 0x3e;
+const uint16 kGenericDesktopVx = 0x40;
+...</code></pre>
+        <a class="copyright" href="https://source.chromium.org/chromium/chromium/src/+/main:services/device/public/mojom/hid.mojom">Chromium Source Code</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">H<span style="font-weight: 300">uman</span><br>I<span style="font-weight: 300">nterface</span><br>D<span style="font-weight: 300">evices</span></h2>
+        <img src="./pictures/keyboard.png" alt="" class="place right bottom" height="200">
+        <img src="./pictures/mice.png" alt="" class="place right top" height="200">
+        <img src="./pictures/gamepad.png" alt="" class="place right" height="200" style="right: 120px; top: 45%">
+    </section>
+
+    <section class="slide title white">
+        <h2 class="shout">WebHID</h2>
+        <img src="./pictures/gandalf-white.jpg" alt="" class="cover place right" style="filter: brightness(1.2); right: -100px">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Браузерный API</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">НЕ W3C стандарт</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webhid-spec.jpg" alt="" class="cover width place top">
+        <a class="copyright" href="https://wicg.github.io/webhid/">WebHID API</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Chrome 89+ ✅</h2>
+        <a class="copyright" href="https://chromestatus.com/feature/5172464636133376">Chrome Platform Status</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Mozilla 🚫</h2>
+        <a class="copyright" href="https://github.com/mozilla/standards-positions/issues/459">mozilla / standards-positions</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Safari 🚫</h2>
+        <a class="copyright" href="https://webkit.org/tracking-prevention/">Tracking Prevention in WebKit</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="thin">Не работает с </span><br>доверенным вводом</h2>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.5em;"><code>bool IsAlwaysProtected(const mojom::HidUsageAndPage& hid_usage_and_page) {
+    const uint16_t usage = hid_usage_and_page.usage;
+    const uint16_t usage_page = hid_usage_and_page.usage_page;
+
+    if (usage_page == mojom::kPageKeyboard)
+        return true;
+    if (usage_page != mojom::kPageGenericDesktop)
+        return false;
+    if (usage == mojom::kGenericDesktopPointer ||
+        usage == mojom::kGenericDesktopMouse ||
+        usage == mojom::kGenericDesktopKeyboard ||
+        usage == mojom::kGenericDesktopKeypad) {
+        return true;
+    }
+    if (usage >= mojom::kGenericDesktopSystemControl &&
+        usage <= mojom::kGenericDesktopSystemWarmRestart) {
+        return true;
+    }
+    if (usage >= mojom::kGenericDesktopSystemDock &&
+        usage <= mojom::kGenericDesktopSystemDisplaySwap) {
+        return true;
+    }
+
+    return false;
+}</code></pre>
+        <a class="copyright" href="https://source.chromium.org/chromium/chromium/src/+/main:services/device/public/cpp/hid/hid_usage_and_page.cc">Chromium Source Code</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-weight: 300;">Требует <br><span style="font-weight: bold;">пользовательский жест</span><br> для разрешения работы</h2>
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/yolo.mp4" class="cover width place" autoplay muted loop playsinline></video>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Как работать с HID?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>navigator.hid</code></h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>if ("hid" in navigator) {
+    const opts = {
+        filters: [
+            {
+                vendorId: 0x0fd9,
+                productId: 0x006d
+            }
+        ]
+    };
+    const devices = await navigator.hid.requestDevice(opts);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>if ("hid" in navigator) {
+    const opts = {
+        filters: [
+            {
+                usagePage: 0x000c, // Consumer
+                usage: 0x0001 // Consumer Control
+            }
+        ]
+    };
+    const devices = await navigator.hid.requestDevice(opts);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>about://device-log</code></h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/about-device-log.jpg" alt="" class="cover place">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>devicehunt.com</code></h2>
+        <a class="copyright" href="https://devicehunt.com/all-usb-vendors">All USB Vendors</a>
+    </section>
+
+    <!-- <section class="slide">
+        <h2>https://www.the-sz.com/products/usbid/</h2>
+    </section> -->
+
+    <section class="slide">
+        <pre><code>const device = devices[0];
+
+await device.open();
+
+device.addEventListener("inputreport", (event) => {
+    const { data, device, reportId } = event;
+
+    if (reportId === 0x01) { // <== You need specs here
+        // Что-то делаем
+    }
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>DataView</code></h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/ps4-ds-data-format.jpg" alt="" class="cover place top">
+        <a class="copyright" href="https://www.psdevwiki.com/ps4/DS4-USB">DS4-USB</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.85em;" class="js"><code>const buttonsLeftRight = data.<mark>getUint8(4)</mark>;
+const dPad = buttonsLeftRight & 0x0f;
+const additionalButtons = data.getUint8(5);
+const serviceButtons = data.getUint8(6);
+
+const buttons = {
+    triangle: !!(buttonsLeftRight & 0x80),
+    circle: !!(buttonsLeftRight & 0x40),
+    cross: !!(buttonsLeftRight & 0x20),
+    square: !!(buttonsLeftRight & 0x10),
+
+    up: dPad === 7 || dPad === 0 || dPad === 1,
+    right: dPad === 1 || dPad === 2 || dPad === 3,
+    down: dPad === 3 || dPad === 4 || dPad === 5,
+    left: dPad === 5 || dPad === 6 || dPad === 7,
+    // ...
+};</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="js" style="font-size: 0.75em;"><code>const report = new Uint8Array(16);
+
+// Report ID
+report[0] = 0x05;
+
+// Enable Rumble (0x01), Lightbar (0x02)
+report[1] = 0xf0 | 0x01 | 0x02;
+
+// Light / Heavy rumble motor
+report[4] = 64;
+report[5] = 127;
+
+// Lightbar Red / Green / Blue
+report[6] = 255;
+report[7] = 0;
+report[8] = 0;
+
+return device.<mark>sendReport</mark>(report[0], report.slice(1));</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/dualshock4/">Время демо 🎮</a></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/ds4-github.jpg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/TheBITLINK/WebHID-DS4">WebHID-DS4</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Stream Deck</h2>
+        <img src="./pictures/elgato-streamdeck.webp" alt="" class="cover">
+        <a class="copyright" href="https://www.elgato.com/en/stream-deck">Elgato Stream Deck</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Pete LePage <br><span class="arrow opaque">+</span><br> StreamDeck <br><span class="arrow opaque">+</span><br> Google Meet <br><span class="arrow opaque"> = </span><br></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meet-helper.jpg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/petele/StreamDeck-Meet">petele / StreamDeck-Meet</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Bramus Van Damme <br><span class="arrow opaque">+</span><br> StreamDeck Helper <br><span class="arrow opaque"> = </span><br> </h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/bramus-article.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.bram.us/2021/02/12/webhid-demo-elgato-stream-deck-daft-punk-soundboard/">WebHID Demo: Elgato Stream Deck Daft Punk Soundboard</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/streamdeck-protocol.jpg" alt="" class="cover">
+        <a class="copyright" href="https://gist.github.com/cliffrowley/d18a9c4569537b195f2b1eb6c68469e0">Stream Deck Protocol</a>
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/happy.mp4" class="cover width place bottom" autoplay muted loop playsinline></video>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demos/streamdeck/">Время демо 🎸</a></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>device.close()</code></h2>
+    </section>
+
+    <!-- <section class="slide">
+        <h2>https://github.com/Julusian/node-elgato-stream-deck</h2>
+    </section> -->
+
+    <section class="slide title">
+        <h2 class="shout">Что дальше?</h2>
+        <img src="./pictures/gandalf-black.jpg" alt="" class="cover place right" style="mix-blend-mode: lighten; right: 50px">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/awesome-webhid.jpg" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/robatwilliams/awesome-webhid">Awesome WebHID</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webhid-web-dev.png" alt="" class="cover height">
+        <a class="copyright" href="https://web.dev/hid/">Connecting to uncommon HID devices</a>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Берегите себя!</h2>
+        <a href="https://mefody.dev/talks/webhid/holyjs.html">mefody.dev/talks/webhid/holyjs.html</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        <img src="./pictures/qr-code-holy.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
