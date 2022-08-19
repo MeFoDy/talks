@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Критерии хорошего фронтенд-проекта</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Критерии хорошего фронтенд-проекта</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, HRTech@Яндекс
+        </p>
+    </header>
+
+
+    <section class="slide clear" id="cover" style="background: black">
+        <h2 style="font-size: 2.5em; color: var(--yandex-yellow);text-shadow: 1px 1px 4px black, 1px 1px 6px black; font-weight: 700;">Критерии хорошего фронтенд-проекта</h2>
+        <p style="margin-top: 30%; color: white">
+            <a href="https://twitter.com/dark_mefody" style="color: var(--yandex-yellow)">Никита Дубко</a>, HRTech@Яндекс
+        </p>
+        <img src="./pictures/bad_comedian.png" alt="" class="cover width" style="transform: translate(-50%, -50%) scaleX(-1); filter: blur(2px)">
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Чтобы что?</h2>
+    </section>
+
+
+    <section class="slide">
+        <blockquote class="place">Да зачем вообще для внутренних сервисов делать что-то хорошо? Мы ж не Поиск, а у яндексоидов хороший интернет всегда.
+            <br>
+            <small>Подслушано в курилке</small>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🐌 Интернет хороший<br> не всегда</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">20 000 сотрудников<br>✖️<br>10 секунд ожидания<br>🟰<br>55.5 часов впустую</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🦯 Есть незрячие <br> сотрудники</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Давайте делать хорошо!</h2>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Спасибо за внимание!</h2>
+        <a href="https://mefody.dev/talks/frontend-criterias/tt.html">mefody.dev/talks/frontend-criterias/tt.html</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:mefody@yandex-team.ru">mefody@yandex-team.ru</a>
+        <img src="./pictures/qr-code.gif" alt="" class="place bottom right" width="300">
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Вёрстка</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖼 Pixel Perfect</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/naher.jpg" alt="" class="place cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про Pixel Perfect</h2>
+        <p>📚 <a href="https://htmlacademy.ru/blog/articles/pixel-perfect">Что такое Pixel Perfect вёрстка и зачем она нужна</a></p>
+        <p>📚 <a href="https://doka.guide/css/pixel-perfect/">Подход «Pixel Perfect»</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">#️⃣ Семантика</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/div-click.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про семантику</h2>
+        <p>📚 <a href="https://doka.guide/html/">Дока / HTML</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖥 Нет горизонтальной прокрутки</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/adaptive-quantum.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про проблему</h2>
+        <p>📚 <a href="https://linkedlist.ch/avoid_width_100vw_47/">Avoid "width: 100vw" in CSS</a></p>
+        <p>📚 <a href="https://chenhuijing.com/blog/the-horizontal-overflow-problem/#%F0%9F%96%8C">The horizontal overflow problem</a></p>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">🍔 Тест на переполнение контентом</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/odo.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">🍔 Тест на недозаполнение контентом</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про хорошие практики</h2>
+        <p>📚 <a href="https://ishadeed.com/article/defensive-css/">Defensive CSS</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🗄 Валидная структура заголовков</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про заголовки</h2>
+        <p>📚 <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/">Headings</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Формы должны работать. <br>Даже без JS.</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про формы</h2>
+        <p>📚 <a href="https://funwithforms.com/posts/form-element/">Fun with forms</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🏷 У каждого элемента формы есть свой <code>label</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про лейблы</h2>
+        <p>📚 <a href="https://css-tricks.com/html-inputs-and-labels-a-love-story/">HTML Inputs and Labels: A Love Story</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">☑️ W3C-валидация</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про валидацию</h2>
+        <p>📚 <a href="https://validator.w3.org/about.html">About The W3C Markup Validation Service</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🗜 Код минифицирован</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про минификацию</h2>
+        <p>📚 <a href="https://css-tricks.com/the-difference-between-minification-and-gzipping/">The Difference Between Minification and Gzipping</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖼 Есть фавиконка</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про фавиконки</h2>
+        <p>📚 <a href="https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs">How to Favicon in 2022: Six files that fit most needs</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">↔️ Разные <code>title</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про заголовки</h2>
+        <p>📚 <a href="https://doka.guide/html/title/">Дока / HTML / title</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">↕️ У картинок выставлены <code>width</code> и <code>height</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про размеры</h2>
+        <p>📚 <a href="https://jakearchibald.com/2022/img-aspect-ratio/">Avoiding img layout shifts: aspect-ratio vs width & height attributes</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Двойной <code>br</code> — нельзя</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/br.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про br</h2>
+        <p>📚 <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-br-element">The br element</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🟩 Цвет-заменитель на время загрузки картинки</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/ya-subbotnik.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про плейсхолдеры</h2>
+        <p>📚 <a href="https://css-tricks.com/the-complete-guide-to-lazy-loading-images/#aa-tip-1-use-the-right-placeholder">Use the Right Placeholder</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">↕️ <code>picture</code> или <code>srcset</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/picture.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про адаптивные картинки</h2>
+        <p>📚 <a href="https://habr.com/ru/company/yandex/blog/559442/">img. Доклад Яндекса</a></p>
+    </section>
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Стили</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🗜 Код оптимизирован</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про загрузку CSS</h2>
+        <p>📚 <a href="https://habr.com/ru/company/yandex/blog/501998/">Дорогая цена стилей. Доклад Яндекса</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⚠️ Критический CSS</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про критический CSS</h2>
+        <p>📚 <a href="https://www.smashingmagazine.com/2015/08/understanding-critical-css/">Understanding Critical CSS</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🍻 БЭМ-нейминг</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про БЭМ-нейминг</h2>
+        <p>📚 <a href="https://ru.bem.info/methodology/naming-convention/">БЭМ / Соглашение по именованию
+        </a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📱 Прописаны стили для состояний</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/focus-visible.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про состояния</h2>
+        <p>📚 <a href="https://bitsofco.de/when-do-the-hover-focus-and-active-pseudo-classes-apply/">When do the :hover, :focus, and :active pseudo-classes apply?</a></p>
+        <p>📚 <a href="https://matthiasott.com/notes/focus-visible-is-here">:focus-visible Is Here</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Запрет на <code>!important</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/important.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про !important</h2>
+        <p>📚 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity#the_!important_exception">The !important exception</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔤 Фолбеки на системные шрифты</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про загрузку шрифтов</h2>
+        <p>📚 <a href="https://www.zachleat.com/web/comprehensive-webfonts/">A COMPREHENSIVE GUIDE TO FONT LOADING STRATEGIES</a></p>
+        <p>📚 <a href="https://css-tricks.com/css-basics-fallback-font-stacks-robust-web-typography/">CSS Basics: Fallback Font Stacks for More Robust Web Typography</a></p>
+        <p>📚 <a href="https://www.smashingmagazine.com/2021/05/reduce-font-loading-impact-css-descriptors/#making-your-fallback-font-more-closely-match-your-font">Making Your Fallback Font More Closely Match Your Font</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🦎 Адаптивность</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про адаптивность</h2>
+        <p>📚 <a href="https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/">Responsive Web Design: What It Is And How To Use It</a></p>
+    </section>
+
+
+
+    <section class="slide title">
+        <h2 class="shout">JavaScript</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 В консоли браузера не возникает ошибок</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/console-error.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⚠️ В консоли браузера не возникает ворнингов</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⚠️ <code>error-booster</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про error-booster</h2>
+        <p>📚 <a href="https://nda.ya.ru/t/6Fywel7U5L6woc">Как начать отправлять ошибки</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🎩 На клиент не попадает закомментированный код</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Как выключить</h2>
+        <p>📚 <a href="https://v4.webpack.js.org/plugins/uglifyjs-webpack-plugin/#remove-comments">Remove Comments</a></p>
+        <p>📚 <a href="https://v4.webpack.js.org/plugins/uglifyjs-webpack-plugin/#extractcomments">extractComments</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">☎️ Кроссбраузерность</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про ES6-фичи</h2>
+        <p>📚 <a href="https://kangax.github.io/compat-table/es6/">ECMAScript compatibility table</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚂 Модульный JS</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про загрузку модулей</h2>
+        <p>📚 <a href="https://web.dev/serve-modern-code-to-modern-browsers/">Serve modern code to modern browsers for faster page loads</a></p>
+        <p>📚 <a href="https://philipwalton.com/articles/using-native-javascript-modules-in-production-today/">Using Native JavaScript Modules in Production Today</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🌊 Нет утечек памяти</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про профилирование</h2>
+        <p>📚 <a href="https://blogs.windows.com/msedgedev/2021/12/09/debug-memory-leaks-detached-elements-tool-devtools/">Debug memory leaks with the Microsoft Edge Detached Elements tool</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🌴 Tree shaking</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про tree shaking</h2>
+        <p>📚 <a href="https://web.dev/reduce-javascript-payloads-with-tree-shaking/">Reduce JavaScript payloads with tree shaking</a></p>
+        <p>📚 <a href="https://hackernoon.com/lessons-learned-code-splitting-with-webpack-and-react-f012a989113">Lessons Learned: Code Splitting with Webpack and React</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🛁 Частичная гидрация</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про частичную гидрацию</h2>
+        <p>📚 <a href="https://medium.com/@luke_schmuke/how-we-achieved-the-best-web-performance-with-partial-hydration-20fab9c808d5">The case of partial hydration (with Next and Preact)</a></p>
+        <p>📚 <a href="https://github.com/LukasBombach/next-super-performance">LukasBombach / next-super-performance</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📈 defer, async</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про загрузку скриптов</h2>
+        <p>📚 <a href="https://zellwk.com/blog/javascript-async-and-defer/">How and when to use Async and Defer attributes</a></p>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">A11y</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">👀 <a href="https://nda.ya.ru/t/04s9JYyg5L72Jz">Подсмотреть у СЕРПа</a></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⌨️ ESC</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про модалки</h2>
+        <p>📚 <a href="https://accessibility.huit.harvard.edu/support-keyboard-interaction">Support keyboard interaction</a></p>
+        <p>📚 <a href="http://simplyaccessible.com/article/closing-modals/">ESC key to close modals & menus</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🎯 Видимый фокус</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про фокус</h2>
+        <p>📚 <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html">Understanding Success Criterion 2.4.7: Focus Visible</a></p>
+        <p>📚 <a href="https://www.sarasoueidan.com/blog/focus-indicators/">A guide to designing accessible, WCAG-compliant focus indicators</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📌 Кнопки и ссылки</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wiki-nav.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про кнопки и ссылки</h2>
+        <p>📚 <a href="https://www.smashingmagazine.com/2019/02/buttons-interfaces/">When Is A Button Not A Button?</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖼 Графика подписана</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про подписи к контентной графике</h2>
+        <p>📚 <a href="https://www.w3.org/WAI/tutorials/images/informative/">Informative Images</a></p>
+        <p>📚 <a href="https://www.a11yproject.com/posts/alt-text/">Using alt text properly</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🏷 Интерактивные элементы подписаны</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про подписи кнопкам и ссылкам</h2>
+        <p>📚 <a href="https://hidde.blog/accessibly-labelling-interactive-elements/">Accessibly labelling interactive elements</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📱 Большая область клика</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/staff-buttons.png" alt="" class="place">
+    </section>
+
+    <section class="slide">
+        <h2>Про размеры</h2>
+        <p>📚 <a href="https://www.w3.org/WAI/WCAG21/Understanding/target-size.html">Understanding Success Criterion 2.5.5: Target Size</a></p>
+        <p>📚 <a href="https://css-tricks.com/looking-at-wcag-2-5-5-for-better-target-sizes/">Looking at WCAG 2.5.5 for Better Target Sizes</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔀 Правильный порядок фокуса</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про порядок</h2>
+        <p>📚 <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html">Understanding Success Criterion 2.4.3: Focus Order</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚨 Lighthouse</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про Lighthouse</h2>
+        <p>📚 <a href="https://www.adrianbolonio.com/blog/accessibility-github-actions">Automating the accessibility tests of your source code with GitHub Actions</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🦚 <code>prefers-reduced-motion</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/prefers-reduced-motion.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про prefers-reduced-motion</h2>
+        <p>📚 <a href="https://tatiana-fokina-blog.ru/posts/how-to-protect-users-with-epilepsy-and-vd/">Как не навредить пользователям с эпилепсией и вестибулярными нарушениями</a></p>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Производительность</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">👀 <a href="https://3perf.com/talks/web-perf-101/">3perf</a></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">👀 <a href="https://www.smashingmagazine.com/2021/01/front-end-performance-2021-free-pdf-checklist/">Smashing Magazine</a></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🐆 <code>preload</code> для шрифтов</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про preload</h2>
+        <p>📚 <a href="https://www.zachleat.com/web/preload/">THE WEB FONTS: PRELOADED</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🦥 <code>loading=lazy</code> для картинок и фреймов</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про ленивую загрузку</h2>
+        <p>📚 <a href="https://web.dev/browser-level-image-lazy-loading/">Отложенная загрузка изображений для веб-сайтов на уровне браузера</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🦥 <code>decoding=async</code> для картинок</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/decoding-async.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Про декодирование</h2>
+        <p>📚 <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding">HTMLImageElement.decoding</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖼 Адекватные реальные размеры</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про picture</h2>
+        <p>📚 <a href="https://almanac.httparchive.org/en/2021/media#picture-usage">picture usage 5.9%</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖼 Оптимальный формат</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про форматы</h2>
+        <p>📚 <a href="https://jakearchibald.com/2020/avif-has-landed/">AVIF has landed</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🗜 brotli, gzip</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про сжатие</h2>
+        <p>📚 <a href="https://www.smashingmagazine.com/2016/10/next-generation-server-compression-with-brotli/">Next Generation Server Compression With Brotli</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📖 Кэширование</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про кэширование</h2>
+        <p>📚 <a href="https://web.dev/http-cache/">Предотвращение ненужных сетевых запросов с помощью кэша HTTP</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚨 Lighthouse</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про Lighhouse</h2>
+        <p>📚 <a href="https://github.com/GoogleChrome/lighthouse">GoogleChrome / lighthouse</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">👷‍♂️ Веб-воркеры</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про веб-воркеры</h2>
+        <p>📚 <a href="https://www.smashingmagazine.com/2021/06/web-workers-2021/">The State Of Web Workers In 2021</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💰 Бюджет производительности</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про бюджет производительности</h2>
+        <p>📚 <a href="https://web.dev/use-lighthouse-for-performance-budgets/">Используйте Lighthouse для расчета бюджета производительности</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔥 Прогретое подключение к домену</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про preconnect</h2>
+        <p>📚 <a href="https://3perf.com/blog/link-rels/">Preload, prefetch and other link tags</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔥 HTTP2+</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про HTTP2+</h2>
+        <p>📚 <a href="https://www.smashingmagazine.com/2016/02/getting-ready-for-http2/">Getting Ready For HTTP2: A Guide For Web Designers And Developers</a></p>
+        <p>📚 <a href="https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/">HTTP/3 From A To Z: Core Concepts</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⏱ RUM</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про мониторинги</h2>
+        <p>📚 <a href="https://nda.ya.ru/t/Qm2YzA7_5L7GCy">rum-counter</a></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⏱ yastatic.net</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Про прокси</h2>
+        <p>📚 <a href="https://nda.ya.ru/t/oEwwPjuP5L7GFa">yastatic.net</a></p>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Безопасность</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🛡 molly</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🛡 POST-запросы</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🛡 HTTPS-сертификат</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🛡 Аудиты СИБ</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🛡 CSP</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🛡 <code>rel="noopener noreferrer"</code></h2>
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">UX</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">❤️ Кастомные 40х, 50х</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">❤️ При ошибке направлять пользователя</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">❤️ Мультиязычность</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">❤️ Тёмная тема</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">❤️ Управление ожиданием</h2>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://nda.ya.ru/t/0JStpdyM5L7HR2">Всё вместе</a></h2>
+    </section>
+
+
+
+    <section class="slide clear" id="final">
+        <h2>Спасибо за внимание!</h2>
+        <a href="https://mefody.dev/talks/frontend-criterias/tt.html">mefody.dev/talks/frontend-criterias/tt.html</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:mefody@yandex-team.ru">mefody@yandex-team.ru</a>
+        <img src="./pictures/qr-code.gif" alt="" class="place bottom right" width="300">
+    </section>
+
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
