@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Проект Fugu — это съедобно?</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Представьте, что у вас есть доступ к любым API, которыми уже пользуются iOS- и Android-разработчики. Не внутри WebView, а прямо на веб-странице. Проект Fugu — это инициатива, цель которой дать такие нативные возможности веб-приложениям. Давайте обсудим, какие API мы можем использовать прямо сегодня в продакшене.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
+    <link rel="stylesheet" href="podlodka.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Проект Fugu — это съедобно?</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, Веб-стандарты
+        </p>
+    </header>
+
+    <section class="slide clear">
+        <img src="./pictures/nikita_preview.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide clear with-fugu">
+        <h2 style="font-size: 3em; font-weight: 500; margin-top: 20px; color: var(--color-red); text-align: center;">Проект Fugu.<br> Это съедобно?</h2>
+        <div style="font-size: 5em; text-align: center;" class="fugu">🐡</div>
+        <p style="margin-top: 0; color: var(--color-yellow); text-align: center;">Никита Дубко, Веб-стандарты</p>
+        <style>
+            .with-fugu .fugu {
+                animation: fugu linear 10s infinite, fugu-body ease-in-out 0.5s infinite;
+            }
+
+            @keyframes fugu {
+                0% {
+                    translate: 100%;
+                }
+                100% {
+                    translate: -100%;
+                }
+            }
+
+            @keyframes fugu-body {
+                0%, 100% {
+                    rotate: 5deg;
+                }
+                50% {
+                    rotate: -5deg;
+                }
+            }
+        </style>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 380px;">
+            <h2>Никита <br> Дубко</h2>
+            <ul>
+                <li>веб-разработчик</li>
+                <li>подкастер</li>
+                <li>D&D-мастер</li>
+                <li>пианист и барабанщик</li>
+                <li>Fugu-исследователь</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/wst.jpeg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">Фугу?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-fish.jpeg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tetrodotoxin.svg" alt="" class="place" style="filter: invert(1);">
+        <a class="copyright" href="https://en.wikipedia.org/wiki/Tetrodotoxin">Тетродотоксин</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-project.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.chromium.org/teams/web-capabilities-fugu/">Web Capabilities (Project Fugu)</a>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/ape_fwk_sensors.png" alt="" class="cover">
+        <a class="copyright" href="https://source.android.com/docs/core/interaction/sensors/sensor-stack">Sensor stack</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Веб-приложение <br><span class="arrow">↓↑</span><br> Браузер <br><span class="arrow">↓↑</span><br> ОС</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/iceberg.jpeg" alt="" class="cover width" style="filter: blur(20px);">
+        <img src="./pictures/iceberg.jpeg" alt="" class="cover">
+        <div style="font-size: 5em; text-align: center;" class="fugu next">🐡</div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Просто включите! 🌝</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Приватность ⚠️</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Распознавание лиц 😱</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Геопозиция 🎯</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/firefox-standards-positions.png" alt="" class="cover">
+        <img src="./pictures/Firefox_logo_2019.svg" alt="" class="place top left" style="left: 5%; top: 5%; width: 100px">
+        <a class="copyright" href="https://mozilla.github.io/standards-positions/">Mozilla Specification Positions</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webkit-status.png" alt="" class="cover">
+        <a class="copyright" href="https://webkit.org/status/">WebKit Feature Status</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webkit-standards-positions.png" alt="" class="cover">
+        <a class="copyright" href="https://github.com/WebKit/standards-positions">WebKit's positions on emerging web specifications</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/Chromium_11_Logo.svg" alt="Chromium" class="place">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Только Chromium? 🤨</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-web-bluetooth.png" alt="" class="cover">
+        <div class="spotlight next" style="
+                --spotlight-opacity: 0.7;
+                --spotlight-width: 70px;
+                --spotlight-height: 70px;
+                --spotlight-top: -170px;
+                --spotlight-left: 460px;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Вы можете сделать<br> много пользователей <br> счастливее 🤩</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Счастье 🤩<br><span class="arrow">↓</span><br> Деньги 💰</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🪄 <br> Прогрессивное <br> улучшение</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/progressive-enchance-webdev.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/progressively-enhance-your-pwa/">Progressively enhance your PWA</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>if ('contacts' in navigator) {
+    import('./contacts.mjs');
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>const copy = async (blob) => {
+    <mark>try</mark> {
+        await navigator.clipboard.write([
+            new ClipboardItem({
+                [blob.type]: blob,
+            }),
+        ]);
+    } <mark>catch</mark> (err) {
+        console.error(err.name, err.message);
+    }
+};</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-api-tracker.png" alt="" class="cover">
+        <a class="copyright" href="https://fugu-tracker.web.app/">Fugu API Tracker</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Давайте поиграем 🎲</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            что-то сделать
+            <br>
+            <span class="thin opaque">в веб-приложении?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Нет</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            работать с Bluetooth
+            <br>
+            <span class="thin opaque">в веб-приложении?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-bluetooth.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/bluetooth/">Communicating with Bluetooth devices over JavaScript</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>navigator.bluetooth.requestDevice({
+        filters: [{
+            services: [
+                0x1234,
+                0x12345678,
+                '99999999-0000-1000-8000-00805f9b34fb'
+            ]
+        }]
+    })
+    .then(device => { /* … */ })
+    .catch(error => { console.error(error); });</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            менять macOS Touch Bar
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Нет</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/touchbar-is-dead.png" alt="" class="cover" width="800">
+        <a class="copyright" href="https://bugs.chromium.org/p/chromium/issues/detail?id=897315">Issue 897315: macOS Touch Bar API</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            добавить беджик <br> к иконке приложения
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-badging.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/badging-api/">Badging for app icons</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const unreadCount = 24;
+
+// Set the badge
+navigator.setAppBadge(unreadCount).catch((error) => {
+    // Do something with the error.
+});
+
+// Clear the badge
+navigator.clearAppBadge().catch((error) => {
+    // Do something with the error.
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/badging.jpeg" alt="" class="place" width="600">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            верифицировать пользователя по SMS
+            <br>
+            <span class="thin opaque">в веб-приложении?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-otp.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/web-otp/">Verify phone numbers on the web with the WebOTP API</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const ac = new AbortController();
+
+navigator.credentials.get({
+    otp: { transport: ['sms'] },
+    signal: ac.signal
+}).then(otp => {
+    input.value = otp.code;
+    if (form) form.submit();
+}).catch(err => {
+    console.log(err);
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            распознавать <br> рукописные тексты
+            <br>
+            <span class="thin opaque">в веб-приложении?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да, но...</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Только в ChromeOS 😶</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const modelConstraint = {
+    languages: ['en']
+};
+
+try {
+    const recognizer = await navigator
+        .createHandwritingRecognizer(modelConstraint);
+    // Do something with recognizer
+} catch (err) {
+    // Ooops
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Я верю в AI 🦾</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/open-ai.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/terminator.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            проверять правописание
+            <br>
+            <span class="thin opaque">в веб-приложении?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Нет, но...</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/spellcheck-api.png" alt="" class="place" width="800">
+        <a class="copyright" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1216516">Issue 1216516: Spellcheck API</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            выключить устройство
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Нет, просто нет</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            не давать уснуть экрану
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-wake-lock.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/wake-lock/">Stay awake with the Screen Wake Lock API</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js" style="font-size: 0.8em;"><code>const requestWakeLock = async () => {
+    try {
+        wakeLock = await navigator.wakeLock.request();
+        wakeLock.addEventListener('release', () => {
+            console.log('Screen Wake Lock released:', wakeLock.released);
+        });
+    } catch (err) {
+        // Oops
+    }
+};
+
+await requestWakeLock();
+window.setTimeout(() => {
+    wakeLock.release();
+    wakeLock = null;
+}, 5000);</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            получать цвета <br> с экрана пользователя
+            <br>
+            <span class="thin opaque">в веб-приложении?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-eyedropper.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/eyedropper/">Picking colors of any pixel on the screen with the EyeDropper API</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const eyeDropper = new EyeDropper();
+
+try {
+    const result = await eyeDropper.open();
+    // The user selected a pixel, here is its color:
+    const colorHexValue = result.sRGBHex;
+} catch (err) {
+    // The user escaped the eyedropper mode.
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/eyedropper-preview.png" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            получать информацию об освещении
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да, но...</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">За флагом 🚩</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const sensor = new AmbientLightSensor();
+
+sensor.addEventListener('reading', (event) => {
+    console.log('Current light level:', sensor.illuminance);
+});
+
+sensor.addEventListener('error', (event) => {
+    console.log(event.error.name, event.error.message);
+});
+
+sensor.start();</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            контролировать яркость экрана
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Нет, но...</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/screen-brightness.png" alt="" class="cover">
+        <a class="copyright" href="https://github.com/w3c/screen-wake-lock/blob/gh-pages/brightness-mode-explainer.md">Design Document: the need to control screen brightness</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const lock = await navigator.wakeLock.request({
+    increaseBrightness: true
+});
+
+// Or
+try {
+    const sentinel = await screen.requestBrightnessIncrease();
+    window.setTimeout(() => {
+        await sentinel.release();
+    }, 5000);
+} catch (e) {
+    // Oops
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            работать с Lock Screen
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Нет, но...</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lockscreen-api.png" alt="" class="cover" width="700">
+        <a class="copyright" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1006642">Issue 1006642: Web API to allow apps to run on the lock screen</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>// app.manifest
+"lock_screen": {
+    "start_url": "/some/url"
+}</code></pre>
+        <br>
+        <pre class="js"><code>// app.js
+const data = await window.getLockScreenData();
+await data.setData("my-key", "my-content");</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            работать с Sony DualShock
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-hid.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/hid/">Connecting to uncommon HID devices</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webhid-jsnation.png" alt="" class="cover">
+        <a class="copyright" href="https://portal.gitnation.org/contents/webhid-api-control-everything-via-usb">WebHID API: Control Everything via USB</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            определить, <br> активен ли пользователь,
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-idle-detection.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/idle-detection/">Detect inactive users with the Idle Detection API</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const controller = new AbortController();
+const signal = controller.signal;
+
+const idleDetector = new IdleDetector();
+idleDetector.addEventListener('change', () => {
+    const userState = idleDetector.userState;
+    const screenState = idleDetector.screenState;
+    console.log(`Idle change: ${userState}, ${screenState}.`);
+});
+
+await idleDetector.start({
+    threshold: 60000,
+    signal,
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            генерировать PDF
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🚫 Нет, но...</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/generate-pdf.png" alt="" class="place" width="800">
+        <a class="copyright" href="https://bugs.chromium.org/p/chromium/issues/detail?id=1087120">Issue 1087120: Async Clipboard: Add PDF support</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">CSS Print Media 🖨</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/print-css.png" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=xVPCZFBpjsI">Распечатай мне курсач. На CSS, Никита Дубко</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            управлять множеством экранов
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-multiscreen.png" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/multi-screen-window-placement/">Managing several displays with the Multi-Screen Window Placement API</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>try {
+    const screenDetails = await window.getScreenDetails();
+    const primaryScreen = screenDetails
+        .screens
+        .filter((screen) => screen.isPrimary)[0];
+    await document.body.requestFullscreen({
+        screen: primaryScreen
+    });
+} catch (err) {
+    // Oops
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span class="thin opaque">Можем ли мы</span>
+            <br>
+            определять степень использования CPU
+            <br>
+            <span class="thin opaque">из веб-приложения?</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Да, но...</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">За флагом 🚩</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/webdev-compute-pressure.png" alt="" class="cover">
+        <a class="copyright" href="https://developer.chrome.com/docs/web-platform/compute-pressure/">Observing compute pressure</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js" style="font-size: 0.9em;"><code>function callback(update) {
+    if (update.cpuSpeed > 0.5) {
+        // The CPU is running at faster than base speed.
+    } else {
+        // The CPU is running at normal or reduced speed.
+    }
+
+    if (update.cpuUtilization >= 0.9) {
+        // CPU utilization is over 90%.
+    } else if (update.cpuUtilization >= 0.5) {
+        // CPU utilization is over 50%.
+    } else {
+        // CPU utilization is under 50%.
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const observer = new ComputePressureObserver(callback, {
+    cpuUtilizationThresholds: [0.5, 0.9],
+    cpuSpeedThresholds: [0.5],
+});
+
+observer.observe();
+
+// Later
+observer.unobserve();</code></pre>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Can I Use? 🤔</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/webdev-fugu-showcase.png" alt="" class="cover">
+        <a class="copyright" href="https://developer.chrome.com/blog/fugu-showcase/">Project Fugu API showcase</a>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://googlechromelabs.github.io/fugu-showcase/data/" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/how-fugu-is-the-web.png" alt="" class="cover">
+        <a class="copyright" href="https://github.com/tomayac/how-fugu-is-the-web">Project Fugu 🐡 API Detector</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-detector.png" alt="" class="cover">
+        <a class="copyright" href="https://mefody.github.io/fugu-detector/">Project Fugu Detector</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/qr-code-detector.gif" alt="" class="place">
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Что дальше? 🔮</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-api-tracker.png" alt="" class="cover">
+        <a class="copyright" href="https://fugu-tracker.web.app/">Fugu API Tracker</a>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/fugu-tpac.png" alt="" class="cover">
+        <a class="copyright" href="https://www.w3.org/events/meetings/3b43f7a6-caf4-4e07-a8e6-564741465618">Project Fugu 🐡: What we have enabled</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="https://bit.ly/fugu-sync">bit.ly/fugu-sync</a></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-tpac-pres.png" alt="" class="cover">
+        <a class="copyright" href="https://goo.gle/project-fugu-tpac2022">Project Fugu 🐡: What we have enabled</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Участвовать? 🙃</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/fugu-process.avif" alt="" class="place" width="800">
+        <a class="copyright" href="https://developer.chrome.com/blog/capabilities/">Unlocking new capabilities for the web</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/sasha_preview.jpg" alt="" class="cover">
+    </section>
+
+
+
+    <section class="slide clear with-fugu" id="final">
+        <h2>Всего хорошего, <br>и спасибо за рыбу!</h2>
+        <a href="https://mefody.dev/talks/fugu-status/podlodka.html">mefody.dev/talks/fugu-status/podlodka.html</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="mailto:n.a.dubko@gmail.com">n.a.dubko@gmail.com</a>
+        <img src="./pictures/qr-code-podlodka.gif" alt="QR-code with link to the slides" class="place bottom right" width="250" style="filter: invert(1); right: 100px; bottom: 80px">
+        <div style="font-size: 2em; text-align: center; margin-top: 130px;" class="fugu">🐡</div>
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
