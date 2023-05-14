@@ -9,7 +9,7 @@
   "author": "Nikita Dubko <n.a.dubko@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "puppeteer": "^11.0.0"
+    "puppeteer": "^20.2.0"
   },
   "type": "module"
 }
