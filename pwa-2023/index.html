@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="По протоколу HID (Human Interface Device) давно можно управлять различными устройствами из операционной системы. Со свежим WebHID API можно делать то же самое прямо из браузера.">
+    <meta name="description" content="Термин PWA появился еще в 2015 году, но из-за браузерных разногласий долгое время был лишь красивой идеей. В 2023 году появилась надежда, что на iOS появятся альтернативные браузерные движки, а это может привести к тому, что для создания почти полноценных приложений будет достаточно знаний фронтенда.">
     <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
     <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
     <link rel="stylesheet" href="style.css?v=0.0.0">
@@ -429,6 +429,7 @@ if (navigator.canShare) {
     </section>
 
     <section class="slide">
+        <!-- {flag_pwa_is_awesome} -->
         <pre><code style="font-size: 0.6em;">document.addEventListener('paste', async (e) => {
     e.preventDefault();
     const clipboardItems = typeof navigator?.clipboard?.read === 'function'
