@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>IndieWeb, или Ваш контент принадлежит вам</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Знали ли вы, что есть целый ряд спецификаций, который делает ваш контент по-настоящему вашим? В докладе покажу, что входит в инициативу IndieWeb и как реализовать его идеи на своём сайте.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>IndieWeb, или<br> Ваш контент принадлежит вам</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, HR Tech Яндекса
+        </p>
+    </header>
+
+    <section class="slide clear">
+        <h2 style="font-size: 2.2em; font-weight: 500; color: var(--color-pink)">IndieWeb, или Ваш контент принадлежит вам</h2>
+        <p style="margin-top: 300px">Никита Дубко, HR Tech Яндекса</p>
+        <img src="./pictures/moscowcss-star.png" alt="" class="place right bottom" width="400">
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 380px;">
+            <h2>Никита Дубко</h2>
+            <ul>
+                <li>руководитель службы разработки</li>
+                <li>пятый голос в «Веб-стандартах»</li>
+                <li>игрок и мастер в D&D</li>
+                <li>беларус</li>
+                <li>15 лет в вебе</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tvitter-evolyuciya-logotipa-1.jpg" width="500" class="place">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/twitter.svg" width="300" class="place">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/twitter-mefody.jpeg" alt="" class="place top" width="400">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/elon.avif" alt="" class="place">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/medium_logo.png" alt="" width="500" class="place">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/google_plus_logo.svg" alt="" width="300" class="place">
+    </section>
+
+    <section class="slide">
+        <h2>Google закрыл</h2>
+        <ul>
+            <li>Google Hangouts</li>
+            <li>Inbox</li>
+            <li>Google URL Shortener</li>
+            <li>Picasa</li>
+            <li>Google Reader</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/YaNarod.gif" style="image-rendering: pixelated" alt="" width="300" class="place">
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Ваш контент вам не принадлежит</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Cобственный сайт?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pinterst_login.png" alt="" class="cover">
+    </section>
+
+    <section class="slide" style="background-color: #2e9fff;">
+        <img src="./pictures/disqus-screenshot-1.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_trevoga.jpg" alt="" class="cover height">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/indiewebcamp.svg" alt="" class="place" width="400">
+        <a class="copyright" href="https://indieweb.org/">IndieWeb</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Indie<br><span class="opaque">↓</span><br>Independent</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/1600px-indie-web-camp-2011.jpg" alt="" class="cover height">
+    </section>
+
+    <section class="slide">
+        <h2>IndieWebCamp 2011</h2>
+        <ul>
+            <li>Aaron Parecki</li>
+            <li>Amber Case</li>
+            <li>Crystal Beasley</li>
+            <li>Jeremy Keith</li>
+            <li>Tab Atkins</li>
+            <li>Tantek Çelik</li>
+            <li>etc.</li>
+        </ul>
+        <a class="copyright" href="https://indieweb.org/2011/Guest_List">2011/Guest List</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Часть w3c</h2>
+        <a class="copyright" href="https://indieweb.org/W3C">W3C</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webmention-w3c.png" alt="" class="cover width place top">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Ценности IndieWeb</h2>
+        <a class="copyright" href="https://indieweb.org/principles">principles</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✊ Владей <br> своими данными</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔍 Используй и публикуй видимые данные</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💪 Делай, что тебе нужно</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😋 Используй то, что делаешь!</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📓 Документируй</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💞 Выкладывай в Open Source</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📐 UX и дизайн важнее</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🌐 Модульность</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🗿 Долголетие</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✨ Множество</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🎉 Самое главное, веселитесь</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">mefody.dev</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/mefody_dev.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/mefody_dev_mentions.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1. Заведи свой домен</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🌐 username.dev</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🌐 username.tech</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💰 $12 в год</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💰 10 латте в год</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">2. Собери себе сайт</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/x5-meetup.png" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=H59HVR53FVY&ab_channel=X5Tech">X5 Frontend Meetup #2</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">2*. Выбери хостинг</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/github-logo.svg" alt="" class="place" width="300">
+        <a class="copyright" href="https://pages.github.com/">GitHub Pages</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/netlify_logo.svg" alt="" class="place" width="500">
+        <a class="copyright" href="https://www.netlify.com/">Netlify</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">3. Идентифицируй себя</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="html"><code>&lt;ul class=&quot;social-list&quot;&gt;
+    &lt;li class=&quot;social-list__item&quot;&gt;
+        &lt;a href=&quot;https://twitter.com/dark_mefody&quot; <mark>rel=&quot;me&quot;</mark>&gt;
+            Twitter
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;social-list__item&quot;&gt;
+        &lt;a href=&quot;https://github.com/MeFoDy&quot; <mark>rel=&quot;me&quot;</mark>&gt;
+            GitHub
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="html"><code>&lt;link rel=&quot;me&quot;
+      href=&quot;https://github.com/MeFoDy&quot;
+/&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">4. Разметь контент</h2>
+        <a class="copyright" href="https://microformats.org/">Microformats</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;a class=&quot;h-card&quot; href=&quot;https://tantek.com/&quot;&gt;
+    Tantek &#199;elik
+&lt;/a&gt;,
+
+&lt;span class=&quot;h-card&quot;&gt;
+    &lt;a class=&quot;p-name p-org u-url&quot;
+       href=&quot;https://microformats.org/&quot;&gt;
+        microformats.org
+    &lt;/a&gt;
+&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">5. Подключи <br> комментарии</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Webmention</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webmention.png" alt="" class="place" width="500">
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>&lt;link rel=&quot;webmention&quot;
+      href=&quot;https://webmention.io/mefody.dev/webmention&quot; /&gt;
+&lt;link rel=&quot;pingback&quot;
+      href=&quot;https://webmention.io/mefody.dev/xmlrpc&quot; /&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>async function fetchWebmentions(since, perPage = 10000) {
+    if (!TOKEN) return false;
+
+    let url = `https://webmention.io/api/mentions.jf2`;
+    url += `?domain=${domain}&token=${TOKEN}&per-page=${perPage}`;
+    if (since) { url += `&since=${since}`; }
+
+    const response = await fetch(url);
+    if (response.ok) {
+        return await response.json();
+    }
+
+    return null;
+}</code></pre>
+        <a class="copyright" href="https://github.com/MeFoDy/mefody.dev/blob/main/src/data/webmentions.js">mefody.dev/src/data/webmentions.js</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bridgy.png" alt="" class="cover">
+        <a class="copyright" href="https://brid.gy/">Bridgy</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/max.png" alt="" class="cover">
+        <a class="copyright" href="https://mxb.dev/blog/using-webmentions-on-static-sites/">Using Webmentions in Eleventy</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">6. Настрой<br>экспорт/импорт</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/micropub.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://micropub.spec.indieweb.org/">Micropub</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tg-json.png" alt="" class="cover height">
+        <a class="copyright" href="https://tg.i-c-a.su/">Telegram RSS / JSON Generator</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Руками? 😟</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Wordpress: IndieWeb</h2>
+        <a class="copyright" href="https://wordpress.org/plugins/indieweb/">indieweb</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">IndieWebify.Me</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Indiekit</h2>
+        <a class="copyright" href="https://getindiekit.com/get-started#what-is-indiekit">Get started</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/mastodon.png" alt="" class="cover height">
+        <a class="copyright" href="https://indieweb.social/about">Mastodon</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;">💳 Поддержать:<br>opencollective.com/indieweb</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/Fediverse_logo_proposal.svg" alt="" class="place" width="300">
+        <a class="copyright" href="https://ru.wikipedia.org/wiki/Fediverse">Fediverse</a>
+    </section>
+
+
+
+
+
+    <section class="slide clear" id="final">
+        <h2>Берегите себя!</h2>
+        <a href="https://mefody.dev/talks/indieweb/">mefody.dev/talks/indieweb/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

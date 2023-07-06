@@ -1,0 +1,242 @@
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 100;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-thin.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 300;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-light.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 400;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular.woff)
+        format("woff");
+}
+
+@font-face {
+    font-style: italic;
+    font-family: Yandex Sans Text Web;
+    font-weight: 400;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular-italic.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 500;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-medium.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 700;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-bold.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: VAG;
+    src: url(../src/shower/themes/yandex2/fonts/VAG-Rounded-TL.woff2)
+        format("woff2");
+}
+
+.slide h2,
+.caption h1 {
+    font-family: VAG, "PT Sans Narrow", sans-serif;
+}
+
+.caption {
+    color: var(--color-grey);
+}
+
+.caption a {
+    color: var(--color-red);
+}
+
+.slide {
+    background-color: #fff;
+}
+
+.slide h2 {
+    color: var(--color-grey);
+}
+
+.shower.list {
+    background: #cecece;
+}
+
+.shower.list .slide.active {
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5), 0 0 0 20px var(--color-red),
+        0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.slide .shout {
+    font-size: 3em;
+}
+
+.slide .shout a {
+    background-image: linear-gradient(
+        to top,
+        rgba(255, 0, 0, 0.2) 0.06em,
+        transparent 0.06em
+    );
+}
+
+.slide s {
+    text-decoration: none;
+    position: relative;
+    color: #666;
+}
+
+.slide s::after {
+    content: "";
+    display: block;
+    background-color: var(--color-red);
+    width: 102%;
+    height: 0.1em;
+    position: absolute;
+    top: 50%;
+    left: -1%;
+    transform: rotate(2deg);
+}
+
+.slide::after {
+    height: auto;
+    width: calc(var(--ribbon-size) * 1.5);
+    background-color: var(--color-red);
+    color: white;
+    background-image: none;
+    margin-top: 1em;
+    padding-right: 0.5em;
+    padding-top: 0;
+    left: auto;
+    right: 0;
+}
+
+.slide pre code {
+    line-height: 1.4;
+    font-size: 0.9em;
+}
+
+.slide.title {
+    background-color: var(--color-red);
+}
+
+.slide.title::after {
+    content: "";
+}
+
+.slide.title h2 {
+    color: white;
+    text-align: left;
+    padding: 0 100px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+:root {
+    --color-red: #ea3328;
+    --color-grey: #444;
+    --color-white: white;
+    --color-light-grey: #ddd;
+}
+
+.shower {
+    --color-blue: var(--color-red);
+    --color-fill: rgba(88, 90, 94, 0.4);
+    font-family: "Yandex Sans Text Web", "PT Sans", sans-serif;
+    line-height: 1.6;
+    color: var(--color-grey);
+}
+
+.slide .mark-trigger:not(.active) + * mark {
+    background: none;
+}
+
+.slide .grey {
+    color: #bbb;
+}
+
+.slide ul li:lang(ru)::before {
+    font-size: 1.4em;
+    content: "✦";
+    line-height: 1.15em;
+    color: var(--color-red);
+    font-weight: 300;
+}
+
+.badge a {
+    color: white;
+}
+
+.slide a {
+    color: var(--color-red);
+}
+
+.yellow {
+    color: var(--color-red);
+}
+
+.slide blockquote::before {
+    color: var(--color-red);
+    opacity: 0.5;
+}
+
+.terminal,
+.terminal *,
+.terminal::before,
+.terminal::after {
+    box-sizing: border-box;
+}
+
+.cite {
+    font-size: 1.5em;
+}
+
+.cite-author {
+    font-size: 0.7em;
+}
+
+.slide.white {
+    background-color: white;
+}
+
+pre code.hljs {
+    padding: 0 0 0 var(--slide-side);
+}
+
+.slide .thin {
+    font-weight: 300;
+}
+
+.shadowed {
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.arrow {
+    color: var(--color-red);
+}
+
+.slide .opaque {
+    opacity: 0.5;
+}
+
+.slide mark {
+    background-color: var(--color-light-grey);
+}
+
+.slide.white {
+    background-color: var(--color-white);
+    background-image: none;
+}
+
+.slide.white h2 {
+    color: var(--color-red);
+}
