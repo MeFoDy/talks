@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>PWA: когда нативные приложения больше не нужны</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Термин PWA появился еще в 2015 году, но из-за браузерных разногласий долгое время был лишь красивой идеей. В 2023 году появилась надежда, что на iOS появятся альтернативные браузерные движки, а это может привести к тому, что для создания почти полноценных приложений будет достаточно знаний фронтенда.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-gist.css">
+    <link rel="stylesheet" href="udw.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>PWA: когда нативные приложения больше не нужны</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, HR Tech Яндекса
+        </p>
+    </header>
+
+    <section class="slide clear">
+        <img src="./pictures/ring.png" class="place right" alt="" width="500" style="top: 90%; z-index: -1;">
+        <img src="./pictures/UDW_LOGO_DARK.png" alt=""width="300">
+        <h2 style="font-size: 2.2em; font-weight: 500; color: var(--color-pink); margin-top: 20px;">PWA: когда нативные приложения больше не нужны</h2>
+        <p style="margin-top: 0px; color: var(--color-text);">Никита Дубко, HR Tech Яндекса</p>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 380px;">
+            <h2>Никита <br> Дубко</h2>
+            <ul>
+                <li>руководитель службы разработки</li>
+                <li>подкастер</li>
+                <li>игрок и мастер в D&D</li>
+                <li>сплавляюсь на байдарках</li>
+                <li>беларус</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pwa-icon.svg" alt="" class="place">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wsd-2016-pwa.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/live/cOTOSbjet_8?feature=share">Web Standards Days в Минске, 2016</a>
+    </section>
+
+    <section class="slide">
+        <h2>2007</h2>
+        <img src="./pictures/wwdc-2007.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>2015</h2>
+        <img src="./pictures/pwa-2015.jpg" alt="" class="place" width="600">
+        <a class="copyright" href="https://medium.com/@slightlylate/progressive-apps-escaping-tabs-without-losing-our-soul-3b93a8561955">Progressive Web Apps:
+            Escaping Tabs Without Losing Our Soul</a>
+    </section>
+
+    <section class="slide">
+        <h2>PWA</h2>
+        <ul class="columns two">
+            <li>отзывчивое;</li>
+            <li class="next">не зависит от сети;</li>
+            <li class="next">как приложения;</li>
+            <li class="next">свежее;</li>
+            <li class="next">безопасное;</li>
+            <li class="next">находимое;</li>
+            <li class="next">вовлекающее (пуши);</li>
+            <li class="next">устанавливаемое;</li>
+            <li class="next">можно дать ссылку.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/apple-meme.jpg" alt="" class="place" width="600">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/yes-no.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide black">
+        <h2>Android</h2>
+        <img src="./pictures/pwa-android.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide black">
+        <h2>iOS</h2>
+        <img src="./pictures/pwa-ios.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pwa-desktop.jpg" alt="" class="cover" width="800">
+    </section>
+
+    <section class="slide">
+        <h2>Требования к установке</h2>
+        <ul>
+            <li class="next">ещё не установлено;</li>
+            <li class="next">пользователь провёл на странице больше 30 секунд;</li>
+            <li class="next">пользователь кликнул на странице;</li>
+            <li class="next">HTTPS;</li>
+            <li class="next">web app manifest;</li>
+            <li class="next">service worker.</li>
+        </ul>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs">How to make PWAs installable</a>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/caniuse-aths.jpg" alt="" class="cover">
+        <a class="copyright" href="https://caniuse.com/web-app-manifest">caniuse</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/versus.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🤸 Гибкость</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme-unmasked.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">📨 Дистрибуция</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/flutter-logo.svg" alt="" class="place" width="500">
+    </section>
+
+    <section class="slide">
+        <div class="columns three place" style="width: 800px; background: inherit;">
+            <img width="190" src="./pictures/app-store-icon.png" alt="">
+            <img width="190" src="./pictures/microsoft-store-icon.png" alt="">
+            <img width="190" src="./pictures/google-play-icon.jpg" alt="" style="mix-blend-mode: darken;">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="columns three place" style="width: 800px; background: inherit;">
+            <img width="190" src="./pictures/app-store-icon.png" alt="">
+            <img width="190" src="./pictures/microsoft-store-icon.png" alt="">
+            <img width="190" src="./pictures/google-play-icon.jpg" alt="" style="mix-blend-mode: darken;">
+            <img width="190" src="./pictures/Chromium_11_Logo.svg" alt="">
+            <img width="190" src="./pictures/Firefox_logo_2019.svg" alt="">
+            <img width="190" src="./pictures/safari-logo.svg" alt="">
+        </div>
+        <a class="copyright" href="https://web.dev/pwas-in-app-stores/">PWAs in app stores</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🔄 Обновление</h2>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">👇 F5</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme-webview.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">⚙️ API</h2>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🐡 Project Fugu</h2>
+        <a class="copyright" href="https://fugu-tracker.web.app/">Fugu tracker</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-api-tracker.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fugu-talk.jpg" alt="" class="cover">
+        <a class="copyright" href="https://youtu.be/iC3fspqn3vA">Project Fugu. Is it edible? – Nikita Dubko</a>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/webhid-talk.jpg" alt="" class="cover">
+        <a class="copyright" href="https://youtu.be/p9Nc3TaCdKw?t=983">Никита Дубко — WebHID API: управление почти чем угодно из браузера</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/apple-logo.png" alt="" class="place" width="200">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme-eu.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.theregister.com/2023/02/07/mozilla_google_apple_webkit/">Mozilla, like Google, is looking ahead to the end of Apple's WebKit rule</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/chrome-for-ios.jpg" alt="" class="cover">
+        <a class="copyright" href="https://chromium.googlesource.com/chromium/src/+/main/docs/ios/build_instructions.md">Checking out and building Chromium for iOS</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🤷‍♂️ Да кому оно надо?</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/spotify-logo.webp" alt="" class="place" width="400">
+        <img src="./pictures/tiktok-logo.webp" alt="" class="place next" width="400">
+        <img src="./pictures/twitter-logo.jpg" alt="" class="place next" width="400">
+        <img src="./pictures/pinterest-logo.png" alt="" class="place next" width="400">
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/fugu-api-showcase.jpg" alt="" class="cover">
+        <a class="copyright" href="https://developer.chrome.com/fugu-showcase/">Project Fugu API Showcase</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/squoosh.png" alt="" class="place" width="700">
+        <a class="copyright" href="https://squoosh.app/">Squoosh</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/excalidraw.jpg" alt="" class="cover" width="800">
+        <a class="copyright" href="https://excalidraw.com/">Excalidraw</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/svgcode.png" alt="" class="place" width="700">
+        <a class="copyright" href="https://svgco.de/">SVGCode</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🪄 Вжух</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/dnd.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <iframe src="https://mefody.github.io/fugu-detector/" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/qrcode_dnd-tokenizer.png" alt="" class="place" width="350" style="border-radius: 1em;">
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🥷 Прячем кнопку установки</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>// app.manifest
+"related_applications": [
+    {
+        "platform": "webapp",
+        "url": "https://my.app/app.webmanifest"
+    }
+],</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>if ('getInstalledRelatedApps' in navigator) {
+    const relatedApps =
+        await navigator.<mark>getInstalledRelatedApps</mark>();
+    const PWAisInstalled = relatedApps.length > 0;
+
+    if (PWAisInstalled) {
+        installButton.classList.add('hidden');
+    }
+}</code></pre>
+        <a class="copyright" href="https://web.dev/learn/pwa/detection/">PWA Detection</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>@media (display-mode: standalone),
+       (display-mode: window-controls-overlay) {
+
+    .pwa-install-button {
+        display: none;
+    }
+
+}</code></pre>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">💄 Красивая установка</h2>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>// app.manifest
+"short_name": "D&D Tokenizer",
+"description": "Some description.",
+"screenshots": [
+    {
+        "src": "./screens/desktop.jpg",
+        "type": "image/jpeg",
+        "sizes": "800x583",
+        "form_factor": "wide"
+    },
+    {
+        "src": "./screens/mobile.jpg",
+        "type": "image/jpeg",
+        "sizes": "530x700",
+        "form_factor": "narrow"
+    }
+],</code></pre>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/pwa-install.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">⬇️ Получать</h2>
+    </section>
+
+    <section class="slide black">
+        <video src="./videos/web-share-target.mp4" class="cover height" autoplay muted loop playsinline></video>
+    </section>
+
+    <section class="slide">
+        <pre><code>// app.manifest
+"share_target": {
+    "action": "/?share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+        "files": [
+            {
+                "name": "image",
+                "accept": ["image/*"]
+            }
+        ]
+    }
+},</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre style="font-size: 0.6em;" class="js"><code>// sw.js
+self.addEventListener('fetch', (fetchEvent) => {
+    const url = new URL(fetchEvent.request.url);
+    if (
+        url.pathname === '/' &&
+        url.searchParams.has('share-target') &&
+        fetchEvent.request.method === 'POST'
+    ) {
+        return fetchEvent.respondWith(
+            (async () => {
+                const formData = await fetchEvent.request.formData();
+                const image = formData.get('image');
+                const keys = await caches.keys();
+                const sharedCache = await caches.open(
+                    keys.filter((key) => key.startsWith('share-target'))[0]
+                );
+                await sharedCache.put('shared-image', new Response(image));
+                return Response.redirect('./?share-target', 303);
+            })()
+        );
+    }
+});</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/articles/web-share-target/">Receiving shared data with the Web Share Target API</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;" class="js"><code>// main.js
+window.addEventListener('load', async () => {
+    if (location.search.includes('share-target')) {
+        const keys = await caches.keys();
+        const sharedCache = await caches.open(
+            keys.filter((key) => key.startsWith('share-target'))[0]
+        );
+        const image = await sharedCache.match('shared-image');
+        if (image) {
+            const blob = await image.blob();
+            await sharedCache.delete('shared-image');
+            // do something with blob
+        }
+    }
+});</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/articles/web-share-target/">Receiving shared data with the Web Share Target API</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">⬆️ Делиться</h2>
+    </section>
+
+    <section class="slide black">
+        <video src="./videos/web-share.mp4" class="cover height" autoplay muted loop playsinline></video>
+    </section>
+
+    <section class="slide">
+        <pre><code style="font-size: 0.6em;">const shareButton = document.querySelector('.button');
+if (navigator.canShare) {
+    shareButton.addEventListener('click', async () => {
+        const blob = getBlobFromImage();
+        const file = new File([blob], 'token.png', {
+            type: 'image/png',
+        });
+        const data = {
+            files: [file],
+        };
+        if (navigator.<mark>canShare(data)</mark>) {
+            try {
+                await navigator.<mark>share(data)</mark>;
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    console.error(err.name, err.message);
+                }
+            }
+        }
+    });
+}</code></pre>
+        <a class="copyright" href="https://web.dev/web-share/">Integrate with the OS sharing UI with the Web Share API</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">📦 Буфер обмена</h2>
+    </section>
+
+    <section class="slide">
+        <!-- {flag_pwa_is_awesome} -->
+        <pre><code style="font-size: 0.6em;">document.addEventListener('paste', async (e) => {
+    e.preventDefault();
+    const clipboardItems = typeof navigator?.clipboard?.read === 'function'
+            ? await <mark>navigator.clipboard.read()</mark>
+            : e.clipboardData.files;
+    for (const clipboardItem of clipboardItems) {
+        let blob;
+        if (clipboardItem.type?.startsWith('image/')) {
+            blob = clipboardItem;
+            // do something with blob
+        } else {
+            const imageTypes = clipboardItem.types?.filter((type) =>
+                type.startsWith('image/')
+            );
+            for (const imageType of imageTypes) {
+                blob = await clipboardItem.getType(imageType);
+                // do something with blob
+            }
+        }
+    }
+});</code></pre>
+        <a class="copyright" href="https://web.dev/async-clipboard/">Unblocking clipboard access</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🖥 Нативный UI</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>// app.manifest
+"display": "standalone",
+"display_override": ["window-controls-overlay"],</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>/* style.css */
+@media (display-mode: window-controls-overlay) {
+    .header {
+        padding-right: calc(2 * env(titlebar-area-x));
+        padding-left: env(titlebar-area-x);
+        height: calc(env(titlebar-area-height) + 10px);
+    }
+}
+
+.header__title {
+    <mark>-webkit-app-region: drag;</mark>
+}</code></pre>
+        <a class="copyright" href="https://github.com/WICG/window-controls-overlay/blob/main/explainer.md">Window Controls Overlay for Installed Desktop Web Apps</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">📂 Файловая система</h2>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.6em;"><code>const supportsFileSystemAccess =
+    'showOpenFilePicker' in window &&
+    (() => {
+        try {
+            return window.self === window.top;
+        } catch {
+            return false;
+        }
+    })();
+
+if (supportsFileSystemAccess) {
+    let fileHandle = undefined;
+    try {
+        [fileHandle] = await <mark>showOpenFilePicker()</mark>;
+        return await fileHandle.getFile();
+    } catch (err) {
+        if (err.name !== 'AbortError') {
+            console.error(err.name, err.message);
+        }
+    }
+}</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/articles/browser-fs-access/">Reading and writing files and directories with the browser-fs-access library</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">👀 Запускать <br> на старте OS</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>let promise = navigator.runOnOsLogin.set({
+    mode: "windowed",
+});
+
+promise.then(function() {
+    // Пользователь дал добро
+},
+function(reason) {
+    // Что-то пошло не так
+});</code></pre>
+        <a class="copyright" href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/RunOnLogin/Explainer.md">Run on OS Login</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🎨 EyeDropper API</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const eyeDropper = new EyeDropper();
+
+try {
+    const result = await eyeDropper.open();
+    // Пользователь выбрал пиксель с цветом:
+    const colorHexValue = result.sRGBHex;
+} catch (err) {
+    // Пользователь выключил пипетку
+}</code></pre>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🤔 Свой протокол</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">web+dnd://some.url</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>// app.manifest
+"protocol_handlers": [
+    {
+        "protocol": "web+tokenizer",
+        "url": "/?from=%s"
+    }
+],</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/articles/url-protocol-handler/">URL protocol handler registration for PWAs</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🦉 Приложение вместо ссылки</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>// app.manifest
+"capture_links": "existing_client_event",
+"url_handlers": [
+    {
+        "origin": "https://dnd-tokenizer-41471e.netlify.app"
+    }
+]</code></pre>
+        <a href="https://dnd-tokenizer-41471e.netlify.app" class="next">Test</a>
+        <a class="copyright" href="https://github.com/WICG/pwa-url-handler/blob/main/explainer.md">PWAs as URL Handlers</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🩳 Шорткаты</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pwa-shortcut.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <pre><code>// app.manifest
+"shortcuts": [
+    {
+        "name": "Create new token",
+        "url": "/"
+    }
+],
+"launch_handler": {
+    "client_mode": "focus-existing"
+},</code></pre>
+        <a class="copyright" href="https://github.com/MicrosoftEdge/MSEdgeExplainers/blob/main/Shortcuts/explainer.md">Shortcuts Explainer</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🌌 Открывать файлы</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>// app.manifest
+"file_handlers": [
+    {
+        "action": "/",
+        "accept": {
+            "image/*": [
+                ".jpg", ".jpeg", ".webp",
+                ".png", ".avif", ".gif"
+            ]
+        }
+    }
+],</code></pre>
+        <a class="copyright" href="https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files">Handle files in Progressive Web Apps</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>// main.js
+if ('launchQueue' in window) {
+    launchQueue.setConsumer((launchParams) => {
+        const files = launchParams.files;
+        for (const file of files) {
+            const blob = await file.getFile();
+            blob.handle = file;
+            // Сделать что-то с файлом
+        }
+    });
+} else {
+    console.error('File Handling API is not supported!');
+}</code></pre>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">🗄 Своя файловая система</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const opfsRoot = await navigator.storage.getDirectory();
+
+const fileHandle = await opfsRoot
+    .getFileHandle('file', { create: true });
+const directoryHandle = await opfsRoot
+    .getDirectoryHandle('folder', { create: true });
+
+const nestedFileHandle = await directoryHandle
+    .getFileHandle('nested file', { create: true });
+const nestedDirectoryHandle = await directoryHandle
+    .getDirectoryHandle('nested folder', { create: true });
+        </code></pre>
+        <a class="copyright" href="https://developer.chrome.com/articles/origin-private-file-system/">The origin private file system</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout">📚 Локальные шрифты</h2>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>try {
+    const availableFonts = await window.<mark>queryLocalFonts</mark>();
+    const list = document.querySelector('select.fonts');
+
+    for (const fontData of availableFonts) {
+        const option = document.createElement('option');
+        option.text = fontData.fullName;
+        option.value = fontData.postscriptName;
+        if (fontData.fullName === 'Times New Roman') {
+            option.selected = true;
+        }
+        list?.appendChild(option);
+    }
+} catch (err) {
+    console.error(err.name, err.message);
+}</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/articles/local-fonts/">Use advanced typography with local fonts</a>
+    </section>
+
+    <section class="slide clear">
+        <h2 style="text-align: center;"><a href="https://github.com/MeFoDy/dnd-tokenizer">MeFoDy / dnd-tokenizer</a></h2>
+        <img src="./pictures/qr-code-github.gif" alt="" class="place" width="250" style="border-radius: 1em;">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme-choice.jpg" alt="" class="cover">
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Берегите себя!</h2>
+        <a href="https://mefody.dev/talks/pwa-2023/udw.html">mefody.dev/talks/pwa-2023/udw.html</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="right: 100px; bottom: 80px; border-radius: 1em;">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
