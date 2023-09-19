@@ -1,0 +1,28 @@
+<style>
+@property --color-text {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: red;
+}
+
+body {
+    background-color: transparent;
+    font-size: 24px;
+}
+
+* {
+    color: var(--color-text);
+}
+
+.text {
+    --color-text: yellow;
+}
+</style>
+
+<div class="card">
+    Parent Card
+    <p class="text">
+        Text of P
+        <span>Span inside of P</span>
+    </p>
+</p>

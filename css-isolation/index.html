@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Алло, мы с нижнего этажа, у вас стили протекают</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="С тех пор как одному DOM-элементу стало возможно добавить несколько CSS-классов, веб-разработчики ищут способы изолировать стили, избавиться от наследования, закрыть CSS-свойства в закрытую коробочку. БЭМ, Atomic CSS, OOCSS, Shadow DOM, CSS-in-JS, Styled Components — скорее всего, на вашем сайте есть что-то из этого списка. Почему до сих пор проблему не решили на уровне самого CSS? Или всё-таки решили?">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Алло, мы с нижнего этажа, у вас стили протекают</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, HR Tech Яндекса
+        </p>
+    </header>
+
+    <section class="slide clear" style="background: url(pictures/fc23-title-2.png) no-repeat center center; background-size: contain;">
+        <h2 style="color: var(--color-black);">Алло, мы с нижнего этажа,<br>у вас стили протекают</h2>
+        <p style="color: var(--color-black);">Никита Дубко, HR Tech Яндекса</p>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 380px;">
+            <h2>Никита <br> Дубко</h2>
+            <ul>
+                <li>руководитель службы разработки</li>
+                <li>подкастер</li>
+                <li>FrontendConf, MinskCSS, MinskJS</li>
+                <li>верстаю больше 15 лет</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide">
+        <div class="shout">2013 год</div>
+        <img src="./pictures/iphone_5C_2.jpg" alt="" class="cover width" style="opacity: 0.2;">
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Нужно быстро сверстать страничку!<br>
+            <span class="cite-author">Руководитель</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Мы потом обязательно переделаем нормально.<br>
+            <span class="cite-author">Руководитель</span>
+        </blockquote>
+        <img src="./pictures/meme_charlie.png" alt="" class="place bottom right next" width="400">
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">А ещё мы её будем печатать, показывать заказчику.<br>
+            <span class="cite-author">Руководитель</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bootstrap.jpeg" alt="" class="cover height">
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Перекрась ссылки в навигации, плиз.<br>
+            <span class="cite-author">Руководитель</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>.nav-link {
+    color: lightsteelblue;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😕 Не работает</h2с>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>.navbar-inverse .navbar-nav > li > .nav-link {
+    color: lightsteelblue;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😐 Работает</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>.nav-link {
+    color: lightsteelblue !important;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😬 Тоже работает</h2>
+        <img src="./pictures/meme_i_tak_soidet.png" alt="" class="place bottom right next" width="300">
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Там при печати картинки разнесло. Починишь?<br>
+            <span class="cite-author">Руководитель</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>@media print {
+    .card-image {
+        max-width: 200px;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😕 Не работает</h2с>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>@media print {
+    .card-image {
+        max-width: 200px !important;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😐 Работает</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bootstrap-important.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😢 Но зачем?</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>.navbar-inverse .navbar-nav > li > a {
+    color: #9d9d9d;
+}
+
+.link { color: red; }
+
+.nav-link { color: lightsteelblue; }
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}</code></pre>
+        <div class="spotlight next" style="
+        --spotlight-radius: 0;
+        --spotlight-opacity: 0.7;
+        --spotlight-width: 500px;
+        --spotlight-height: 177px;
+        --spotlight-top: 118px;
+        --spotlight-left: -18%;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <h2>⬇️ Сверху вниз</h2>
+        <table>
+            <tr>
+                <th>Селектор</th>
+                <th>Свойство</th>
+                <th>Значение</th>
+            </tr>
+            <tr>
+                <td>.navbar-inverse .navbar-nav > li > a</td>
+                <td><code>color</code></td>
+                <td>#9d9d9d</td>
+            </tr>
+            <tr>
+                <td>.link</td>
+                <td><code>color</code></td>
+                <td>red</td>
+            </tr>
+            <tr>
+                <td>.nav-link</td>
+                <td><code>color</code></td>
+                <td>lightsteelblue</td>
+            </tr>
+            <tr>
+                <td>a:-webkit-any-link</td>
+                <td><code>color</code></td>
+                <td>-webkit-link</td>
+            </tr>
+            <tr>
+                <td>a:-webkit-any-link</td>
+                <td><code>cursor</code></td>
+                <td>pointer</td>
+            </tr>
+            <tr>
+                <td>a:-webkit-any-link</td>
+                <td><code>text-decoration</code></td>
+                <td>underline</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <table>
+            <tr>
+                <th></th>
+                <th class="center">ID</th>
+                <th class="center">:pseudo,<br>.class,<br>[attr]</th>
+                <th class="center">::pseudo,<br>element</th>
+                <th class="center">Source</th>
+            </tr>
+            <tr>
+                <td>.navbar-inverse .navbar-nav > li > a</td>
+                <td class="center">0</td>
+                <td class="center">2</td>
+                <td class="center">2</td>
+                <td class="center">Dev</td>
+            </tr>
+            <tr class="next">
+                <td>.link</td>
+                <td class="center">0</td>
+                <td class="center">1</td>
+                <td class="center">0</td>
+                <td class="center">Dev</td>
+            </tr>
+            <tr class="next">
+                <td>.nav-link</td>
+                <td class="center">0</td>
+                <td class="center">1</td>
+                <td class="center">0</td>
+                <td class="center">Dev</td>
+            </tr>
+            <tr class="next">
+                <td>a:-webkit-any-link</td>
+                <td class="center">0</td>
+                <td class="center">2</td>
+                <td class="center">0</td>
+                <td class="center">Browser</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>⬇️ Сверху вниз</h2>
+        <table style="font-size: 0.8em;">
+            <tr>
+                <th>Селектор</th>
+                <th>Свойство</th>
+                <th>Значение</th>
+                <th>Вес</th>
+            </tr>
+            <tr>
+                <td>.navbar-inverse .navbar-nav > li > a</td>
+                <td><code>color</code></td>
+                <td>#9d9d9d</td>
+                <td>0,2,2</td>
+            </tr>
+            <tr>
+                <td>.link</td>
+                <td><code>color</code></td>
+                <td>red</td>
+                <td>0,1,0</td>
+            </tr>
+            <tr>
+                <td>.nav-link</td>
+                <td><code>color</code></td>
+                <td>lightsteelblue</td>
+                <td>0,1,0</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>color</code></td>
+                <td>-webkit-link</td>
+                <td>0,2,0</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>cursor</code></td>
+                <td>pointer</td>
+                <td>0,2,0</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>text-decoration</code></td>
+                <td>underline</td>
+                <td>0,2,0</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>⬆️ Снизу вверх</h2>
+        <table style="font-size: 0.8em;">
+            <tr>
+                <th>Селектор</th>
+                <th>Свойство</th>
+                <th>Значение</th>
+                <th>Вес</th>
+            </tr>
+            <tr>
+                <td>.nav-link</td>
+                <td><code>color</code></td>
+                <td>lightsteelblue</td>
+                <td>0,1,0</td>
+            </tr>
+            <tr>
+                <td>.link</td>
+                <td><code>color</code></td>
+                <td>red</td>
+                <td>0,1,0</td>
+            </tr>
+            <tr>
+                <td>.navbar-inverse .navbar-nav > li > a</td>
+                <td><code>color</code></td>
+                <td>#9d9d9d</td>
+                <td>0,2,2</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>color</code></td>
+                <td>-webkit-link</td>
+                <td>0,2,0</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>cursor</code></td>
+                <td>pointer</td>
+                <td>0,2,0</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>text-decoration</code></td>
+                <td>underline</td>
+                <td>0,2,0</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>🔀 Сортируем</h2>
+        <table style="font-size: 0.8em;">
+            <tr>
+                <th>Селектор</th>
+                <th>Свойство</th>
+                <th>Значение</th>
+                <th>Вес</th>
+            </tr>
+            <tr>
+                <td>.navbar-inverse .navbar-nav > li > a</td>
+                <td><code>color</code></td>
+                <td>#9d9d9d</td>
+                <td>0,2,2</td>
+            </tr>
+            <tr>
+                <td>.nav-link</td>
+                <td><code>color</code></td>
+                <td>lightsteelblue</td>
+                <td>0,1,0</td>
+            </tr>
+            <tr>
+                <td>.link</td>
+                <td><code>color</code></td>
+                <td>red</td>
+                <td>0,1,0</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>color</code></td>
+                <td>-webkit-link</td>
+                <td>0,2,0</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>cursor</code></td>
+                <td>pointer</td>
+                <td>0,2,0</td>
+            </tr>
+            <tr class="grey">
+                <td>a:-webkit-any-link</td>
+                <td><code>text-decoration</code></td>
+                <td>underline</td>
+                <td>0,2,0</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;nav class=&quot;navbar&#45;inverse&quot;&gt;
+    &lt;ul class=&quot;navbar&#45;nav&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;nav&#45;link&quot;&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;nav&#45;link&quot;&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+        <table style="font-size: 0.8em;">
+            <tr class="next">
+                <td>.navbar-inverse .navbar-nav > li > a ✅</td>
+                <td><code>color</code></td>
+                <td>#9d9d9d</td>
+            </tr>
+            <tr class="next grey">
+                <td>.nav-link ❌</td>
+                <td><code>color</code></td>
+                <td>lightsteelblue</td>
+            </tr>
+            <tr class="next grey">
+                <td>.link ❌</td>
+                <td><code>color</code></td>
+                <td>red</td>
+            </tr>
+            <tr class="next grey">
+                <td>a:-webkit-any-link ❌</td>
+                <td><code>color</code></td>
+                <td>-webkit-link</td>
+            </tr>
+            <tr class="next">
+                <td>a:-webkit-any-link ✅</td>
+                <td><code>cursor</code></td>
+                <td>pointer</td>
+            </tr>
+            <tr class="next">
+                <td>a:-webkit-any-link ✅</td>
+                <td><code>text-decoration</code></td>
+                <td>underline</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/www-application.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=__o3EHC9nZQ">WWW-аппликация / Никита Дубко</a>
+    </section>
+
+    <section class="slide">
+        <h2>Нужно учитывать</h2>
+        <ul>
+            <li class="next">Вес селектора.</li>
+            <li class="next">Правильный порядок подключения стилей.</li>
+            <li class="next">Каскад.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/css-live-cascade.jpeg" alt="" class="place" width="800">
+        <a class="copyright" href="https://css-live.ru/css/nikto-ne-znaet-css-specifichnost-ne-kaskad.html">Никто не знает CSS: специфичность — не каскад</a>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/meme_prosti.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Как сделать хорошо?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1. Избавляемся от веса</h2>
+        <img src="./pictures/book_weight.webp" alt="" class="cover" width="300" style="opacity: 0.3; rotate: 20deg; transform-origin: center center; transform: translate(0, -50%);">
+    </section>
+
+    <section class="slide">
+        <h2>Единая специфичность (0, 1, 0)</h2>
+        <pre class="css"><code>.one {
+    /* ... */
+}
+
+.two {
+    /* ... */
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>:hover</code>, <code>:focus</code>?</h2>
+    </section>
+
+    <section class="slide">
+        <h2>(0, 2, 0)</h2>
+        <pre class="css"><code>.one {
+    /* ... */
+}
+
+.one:hover {
+    /* ... */
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А с вложенностью что?</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;nav class="b-nav"&gt;
+    &lt;ul class="b-list"&gt;
+        &lt;li class="b-list-item"&gt;
+            &lt;a href="#" class="b-link"&gt;Ссылка&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Абсолютно <br> независимые <br> блоки</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/anb.jpeg" alt="" class="cover place top width">
+        <a class="copyright" href="http://vitaly.harisov.name/article/independent-blocks.html">Вёрстка независимыми блоками</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😭 Придумать уникальное имя</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💡 Правила именования</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;nav class="nav"&gt; &lt;!-- ⬅ Блок --&gt;
+    &lt;ul class="nav__list"&gt; &lt;!-- ⬅ Элемент --&gt;
+        &lt;li class="nav__list-item"&gt;
+            &lt;a href="#" class="nav__link"&gt;
+                Ссылка 1
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav__list-item"&gt; &lt;!-- Модификатор ⬇ --&gt;
+            &lt;a href="#" class="nav__link nav__link--active"&gt;
+                Ссылка 2
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💡 Правила именования файлов</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>/* nav.css */
+
+.nav { /* ... */ }
+.nav__list { /* ... */ }
+.nav__list-item { /* ... */ }
+.nav__link { /* ... */ }
+.nav__link--active { /* ... */ }</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если вложенные блоки?</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;nav class="nav"&gt;
+    &lt;ul class="nav__list list"&gt;
+        &lt;li class="list__item"&gt;
+            &lt;a href="#" class="list__item-link link"&gt;
+                &lt;span class="link__text"&gt;Ссылка&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Ещё одна договорённость</h2>
+        <ul>
+            <li>Внутреннее поведение описываем в блоках.</li>
+            <li>Внешнее поведение можно описывать только для элементов.</li>
+            <li class="next">Тогда <code>html</code> и <code>body</code> — тоже блоки.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">👑 Наследуемые свойства?<br><code>font-size</code>, <code>color</code>?</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Ещё одна договорённость</h2>
+        <ul>
+            <li>Блок содержит все стили, которые ему нужны для работы.</li>
+            <li>Если шрифт должен быть зафиксирован, его нужно зафиксировать.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_long-list.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🧸 БЭМ</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bem.jpeg" alt="" class="cover width">
+        <a class="copyright" href="https://ru.bem.info/">БЭМ</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">БЭМ, OOCSS, SMACSS...</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            Дизайнер
+            <br>
+            <span class="next"><span class="arrow">⬇</span><br>
+            Верстальщик</span>
+            <br>
+            <span class="next"><span class="arrow">⬇</span><br>
+            Бэкенд-разработчик</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Профит!</h2>
+    </section>
+
+    <section class="slide">
+        <h2>✅ Плюсы БЭМ & Co</h2>
+        <ul>
+            <li class="next">Сущности дизайна однозначно привязаны к вёрстке.</li>
+            <li class="next">Решены проблемы каскада и специфичности.</li>
+            <li class="next">Никаких ограничений по фичам CSS.</li>
+            <li class="next">Блоки работают везде, где их используют.</li>
+            <li class="next">Большие комьюнити.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>❌ Минусы БЭМ & Co</h2>
+        <ul>
+            <li class="next">Разработка замедляется.</li>
+            <li class="next">Рефакторинг сложный.</li>
+            <li class="next">Проблема именования классов (как переменных в JS).</li>
+            <li class="next">Нужно строгое соблюдение правил.</li>
+            <li class="next">Большой CSS-бандл.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Большой бандл?</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>.card {
+    box-sizing: border-box;
+    padding: var(--token-padding-s);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Нашёл в Поиске</h2>
+        <ul>
+            <li class="next"><code>display: block</code> — 42 раза;</li>
+            <li class="next"><code>display: inline-block</code> — 52 раза;</li>
+            <li class="next"><code>display: flex</code> — 37 раз;</li>
+            <li class="next"><code>overflow: hidden</code> — 55 раз;</li>
+            <li class="next"><code>white-space: nowrap</code> — 46 раз;</li>
+            <li class="next"><code>position: relative</code> — 68 раз;</li>
+            <li class="next"><code>!important</code> — 7 раз.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🗜️ Но есть же gzip!</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/gudim_wish_you.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://t.me/yesbut_official">Yes, But Official</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💡 Блоки-утилиты</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🧐 Хочу текст <br> размером 16px</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>.fs-16 {
+    font-size: 16px;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🧐 Хочу стилизовать <code>::before</code> и <code>:hover</code></h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>.fs-16\:\:b,
+.fs-16\:h {
+    font-size: 16px;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⚛️ AtomicCSS</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Основные идеи</h2>
+        <ul>
+            <li class="next">Ограниченный набор классов.</li>
+            <li class="next">CSS-бандл не растёт.</li>
+            <li class="next">Правила именования классов.</li>
+            <li class="next">Стили по сути переезжают в HTML.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😐 HTML же раздуется!</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="ini place"><code>header__list-item link link--active
+
+fs-16 c-red с-blue:h m-0 mb-12 p-0</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/atomic-example.jpeg" alt="" class="cover width">
+        <img src="./pictures/garold.png" alt="" class="place bottom right next" width="300">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤖 Можно отдать в сборщик</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔 А как рефакторить?</h2>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.7em;"><code>// Notification.jsx
+
+function Notification({ imageUrl, imageAlt, title, message }) {
+    return (
+        &lt;div className="p-6 max-w-sm mx-auto rounded-xl flex items-center space-x-4"&gt;
+            &lt;div className="shrink-0"&gt;
+                &lt;img className="h-12 w-12" src={imageUrl.src} alt={imageAlt}&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;div className="text-xl font-medium text-black"&gt;{title}&lt;/div&gt;
+                &lt;p className="text-slate-500"&gt;{message}&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    )
+}</code></pre>
+        <a class="copyright" href="https://tailwindcss.com/docs/reusing-styles">Reusing Styles</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔 Но я просто хочу одинаковую кнопку</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold
+        rounded-lg shadow-md hover:bg-blue-700
+        focus:outline-none focus:ring-2
+        focus:ring-blue-400 focus:ring-opacity-75;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">♒️ TailwindCSS</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tailwind-github.jpeg" alt="" class="place" width="600">
+        <img src="./pictures/meme_awesome.png" alt="" class="place bottom right next" width="250">
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/gudim_cat.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🥴 Новый выдуманный синтаксис</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tailwind-example.jpeg" alt="" class="cover width">
+        <img src="./pictures/garold.png" alt="" class="place bottom right next" width="300">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🧐 Хочу новые фичи CSS!</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⏳ Хоти</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/tailwind-cq.jpeg" alt="" class="place" width="800">
+        <a class="copyright" href="https://tailwindcss.com/blog/tailwindcss-v3-2">Tailwind CSS v3.2</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🥹 Всегда новое будет появляться быстро?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">В браузерах — да 😁</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Во фреймворках — не факт 🤷‍♂️</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💎 Редкие свойства?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Из коробки — нет</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">👍 Но можно добавить<br>свой класс</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🥹 Хочу собрать демку для дебага на codepen</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⏳ Хоти</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/nikita-devtools-talk.png" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=TiykIPnHvmI">Chrome DevTools — спрятанные полезности / Никита Дубко</a>
+    </section>
+
+    <section class="slide">
+        <h2>✅ Плюсы TailwindCSS</h2>
+        <ul>
+            <li class="next">Разработка очень быстрая.</li>
+            <li class="next">Маленький CSS-бандл.</li>
+            <li class="next">Код более-менее читаемый.</li>
+            <li class="next">Решает проблему изоляции стилей.</li>
+            <li class="next">Большое комьюнити.</li>
+            <li class="next">Целая экосистема.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>❌ Минусы TailwindCSS</h2>
+        <ul>
+            <li class="next">Нужно учить придуманный синтаксис.</li>
+            <li class="next">Дизайн переехал в HTML.</li>
+            <li class="next">Не работает в браузере из коробки.</li>
+            <li class="next">Более сложный рефакторинг.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Давай подключим карусельку!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">И дейтпикер!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">И дизайн-систему, у гугла видел хорошую!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_hangover.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/meme_but.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😐 Внешний мир ничего вам не должен </h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lodash-hacker-news.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://news.ycombinator.com/item?id=37538426">Hacker News</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если я разработчик библиотеки?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔 Как обычно подключают библиотеку?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_padme.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/gravity-falls-drinking-water.mp4" class="cover width place bottom" autoplay muted loop playsinline></video>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Нужна изоляция</h2>
+        <img src="./pictures/teploiz.png" alt="" class="cover" width="600" style="opacity: 0.4; rotate: 20deg; transform-origin: center center; transform: translate(0, -50%);">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если на JS?</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>import styled from 'styled-components'
+
+const Container = styled.div`
+    background-color: #2b2b2b;
+    border-radius: 5px;
+`
+const Title = styled.h1`
+    font-weight: 300;
+`
+export const SimpleComponent = () => (
+    &lt;Container&gt;
+        &lt;Title&gt;Styled Component&lt;/Title&gt;
+    &lt;/Container&gt;
+)</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="json"><code>{
+    "color": {
+        "primary": "#ff0000",
+        "secondary": "#cc6600"
+    },
+    "typography": {
+        "fontSize": {
+            "sm": "12px",
+            "m": "14px",
+            "l": "16px"
+        }
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔥 Удобно!</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/gudim_coffee.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>style="width: NaNpx; color: undefined"
+class="undefined"</code></pre>
+    </section>
+
+    <section class="slide">
+        <div style="display: grid; grid-template-columns: 1fr 1fr;">
+            <div>
+                <h2>CSS</h2>
+                <ol>
+                    <li class="next">загрузка CSS;</li>
+                    <li class="next">парсинг CSS;</li>
+                    <li class="next">применение CSS;</li>
+                    <li class="next">отрисовка.</li>
+                </ol>
+            </div>
+            <div>
+                <h2 class="next">CSS-in-JS</h2>
+                <ol>
+                    <li class="next">загрузка JS;</li>
+                    <li class="next">парсинг JS;</li>
+                    <li class="next">построение AST;</li>
+                    <li class="next">компиляция JS;</li>
+                    <li class="next">выполнение JS;</li>
+                    <li class="next">вставка CSS;</li>
+                    <li class="next">парсинг CSS;</li>
+                    <li class="next">применение CSS;</li>
+                    <li class="next">отрисовка.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💡 Автоматические уникальные классы</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="css"><code>import styles from './App.css';
+
+class App extends Component {
+    render() {
+        return (
+            &lt;div className={ styles.app }&gt;
+                &lt;div className={ styles.header } /&gt;
+                &lt;p className={ styles.intro }&gt;
+                    Hello!
+                &lt;/p&gt;
+            &lt;/div&gt;
+        );
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/css-modules-example.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⚙️ CSS Modules</h2>
+        <a class="copyright" href="https://github.com/css-modules/css-modules">CSS Modules</a>
+    </section>
+
+    <section class="slide">
+        <h2>✅ Плюсы CSS Modules</h2>
+        <ul>
+            <li class="next">Стили в CSS.</li>
+            <li class="next">Решена проблема изоляции стилей.</li>
+            <li class="next">Удобная интеграция с JS.</li>
+            <li class="next">Поддержка сообществом.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>❌ Минусы CSS Modules</h2>
+        <ul>
+            <li class="next">Нужно суметь подключить.</li>
+            <li class="next">Есть <code>:global</code>, который не работает в обычном CSS.</li>
+            <li class="next">Рефакторинг сразу в двух файлах.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Какой процесс я хочу</h2>
+        <ul>
+            <li class="next">Дизайнер нарисовал макет, предусмотрел в нём все состояния.</li>
+            <li class="next">Верстальщик собрал компоненты на любимых технологиях.</li>
+            <li class="next">Тесты!</li>
+            <li class="next">Используем компоненты в приложении.</li>
+            <li class="next">Тесты!</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔍 Инструментов полно!</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Какой процесс я хочу</h2>
+        <ul>
+            <li class="next">Дизайн в Figma.</li>
+            <li class="next">Изолированные компоненты в Storybook.</li>
+            <li class="next">Тесты в Playwright.</li>
+            <li class="next">Плагины для связи между инструментами.</li>
+            <li class="next">Не бороться с CSS.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А что там в CSS?</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/meme_dogs.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>😒 Нет контроля</h2>
+        <ul>
+            <li>над наследованием;</li>
+            <li>над каскадом;</li>
+            <li>над изоляцией стилей.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_its_time.png" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <h2>Что изменилось?</h2>
+        <ul>
+            <li class="next">Мощность персональных устройств.</li>
+            <li class="next">Процесс внедрения спецификаций.</li>
+            <li class="next">Проект Interop.</li>
+            <li class="next">Алгоритмы парсинга CSS.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🏹 Сквозное API</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>--color-primary</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/figma-variables.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>:root {
+    --base-text-primary: #2F3337;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>.component {
+    color: var(--base-text-primary);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/design-tokens-talk.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=X3ciRPwzEMs">Токены в дизайн-системах / Юрий Ветров</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/nikita-houdini-talk.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=4kr5K-nWG3Y">Houdini — великий разоблачитель, Никита Дубко</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_azkaban.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🪄 <code>@property</code></h2>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property">@property</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>window.CSS.registerProperty({
+    name: "--my-color",
+    syntax: "&lt;color&gt;",
+    inherits: false,
+    initialValue: "#c0ffee",
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>@property --my-color {
+    syntax: "&lt;color&gt;";
+    inherits: false;
+    initial-value: #c0ffee;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😒 Оно же не работает</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-property.jpeg" alt="" class="place" width="800">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😈 Ломаем наследование</h2>
+    </section>
+
+    <section class="slide">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; font-size: 0.8em;">
+            <div>
+                <pre><code>@property --color-text {
+    syntax: "&lt;color&gt;";
+    inherits: false;
+    initial-value: red;
+}
+
+* {
+    color: var(--color-text);
+}
+
+.text {
+    --color-text: yellow;
+}</code></pre>
+        </div>
+        <div>
+            <pre><code>&lt;div class="card"&gt;
+    Parent Card
+    &lt;p class="text"&gt;
+        Text of P
+        &lt;span&gt;Span inside of P&lt;/span&gt;
+    &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                <iframe src="./demos/property.html" height="200" frameborder="0" class="next"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А что там с каскадом?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>@layer</code></h2>
+    </section>
+
+    <section class="slide">
+        <pre class="css"><code>@layer reset, bootstrap, utilities;
+@import url('bootstrap.css') layer(bootstrap);
+
+@layer utilities {
+    .sr-only { /* ... */ }
+}
+
+@layer reset {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+}
+
+p { font-size: 18px; }</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="html"><code>&lt;p id="id" class="class"&gt;Text&lt;/p&gt;</code></pre>
+        <pre class="css"><code>@layer first, second;
+@layer second {
+    p { color: yellow; }
+    #id { color: red; }
+}
+@layer first {
+    .class { color: blue; }
+}
+
+p { color: green; }</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>⬇️ Сверху вниз</h2>
+        <table style="font-size: 0.8em;">
+            <tr>
+                <th>Слой</th>
+                <th>Селектор</th>
+                <th>Свойство</th>
+                <th>Вес</th>
+            </tr>
+            <tr>
+                <td>second</td>
+                <td>p</td>
+                <td><code>color: <span style="color: yellow">yellow</span></code></td>
+                <td>0,0,1</td>
+            </tr>
+            <tr>
+                <td>second</td>
+                <td>#id</td>
+                <td><code>color: <span style="color: red">red</span></code></td>
+                <td>1,0,0</td>
+            </tr>
+            <tr>
+                <td>first</td>
+                <td>.class</td>
+                <td><code>color: <span style="color: blue">blue</span></code></td>
+                <td>0,1,0</td>
+            </tr>
+            <tr>
+                <td>undefined</td>
+                <td>p</td>
+                <td><code>color: <span style="color: green">green</span></code></td>
+                <td>0,0,1</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>🔀 Сортируем слои</h2>
+        <table style="font-size: 0.8em;">
+            <tr>
+                <th>Слой</th>
+                <th>Селектор</th>
+                <th>Свойство</th>
+                <th>Вес</th>
+            </tr>
+            <tr>
+                <td>undefined</td>
+                <td>p</td>
+                <td><code>color: <span style="color: green">green</span></code></td>
+                <td>0,0,1</td>
+            </tr>
+            <tr>
+                <td>first</td>
+                <td>.class</td>
+                <td><code>color: <span style="color: blue">blue</span></code></td>
+                <td>0,1,0</td>
+            </tr>
+            <tr>
+                <td>second</td>
+                <td>p</td>
+                <td><code>color: <span style="color: yellow">yellow</span></code></td>
+                <td>0,0,1</td>
+            </tr>
+            <tr>
+                <td>second</td>
+                <td>#id</td>
+                <td><code>color: <span style="color: red">red</span></code></td>
+                <td>1,0,0</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>🔀 Сортируем внутри слоёв</h2>
+        <table style="font-size: 0.8em;">
+            <tr>
+                <th>Слой</th>
+                <th>Селектор</th>
+                <th>Свойство</th>
+                <th>Вес</th>
+            </tr>
+            <tr>
+                <td>undefined</td>
+                <td>p</td>
+                <td><code>color: <span style="color: green">green</span></code></td>
+                <td>0,0,1</td>
+            </tr>
+            <tr>
+                <td>first</td>
+                <td>.class</td>
+                <td><code>color: <span style="color: blue">blue</span></code></td>
+                <td>0,1,0</td>
+            </tr>
+            <tr>
+                <td>second</td>
+                <td>#id</td>
+                <td><code>color: <span style="color: red">red</span></code></td>
+                <td>1,0,0</td>
+            </tr>
+            <tr>
+                <td>second</td>
+                <td>p</td>
+                <td><code>color: <span style="color: yellow">yellow</span></code></td>
+                <td>0,0,1</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>⏺️ Ищем победителя</h2>
+        <table style="font-size: 0.8em;">
+            <tr>
+                <th>Слой</th>
+                <th>Селектор</th>
+                <th>Свойство</th>
+                <th>Вес</th>
+            </tr>
+            <tr style="background-color: lime; color: black;">
+                <td>undefined</td>
+                <td>p</td>
+                <td><code>color: <span style="color: green">green</span></code></td>
+                <td>0,0,1</td>
+            </tr>
+            <tr>
+                <td>first</td>
+                <td>.class</td>
+                <td><code>color: <span style="color: blue">blue</span></code></td>
+                <td>0,1,0</td>
+            </tr>
+            <tr>
+                <td>second</td>
+                <td>#id</td>
+                <td><code>color: <span style="color: red">red</span></code></td>
+                <td>1,0,0</td>
+            </tr>
+            <tr>
+                <td>second</td>
+                <td>p</td>
+                <td><code>color: <span style="color: yellow">yellow</span></code></td>
+                <td>0,0,1</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <pre><code>@layer default {
+    a { color: maroon; }
+}
+
+@layer theme {
+    a {
+        color: var(--brand-primary, purple);
+    }
+
+    .no-theme {
+        color: revert-layer;
+    }
+}</code></pre>
+
+        <div class="spotlight next" style="
+            --spotlight-radius: 0;
+            --spotlight-opacity: 0.7;
+            --spotlight-width: 410px;
+            --spotlight-height: 107px;
+            --spotlight-top: 118px;
+            --spotlight-left: -18%;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <pre class="css place"><code>@import url('bootstrap.css') layer(bootstrap);
+
+button {
+    font-size: 18px;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>@layer utilities {
+    @layer common, important;
+
+    @layer important { /* ... */ }
+
+    @layer common { /* ... */ }
+}
+
+@layer utilities.common {
+    /* ... */
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>@layer utilities {
+    @layer important {
+        /* ... */
+    }
+}
+
+@layer utilities.common {
+    /* ... */
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😒 Сказки какие-то...</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-layer.jpeg" alt="" class="place" width="800">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤩 Уже можно</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/csstricks-layer.jpeg" alt="" class="place" width="700">
+        <a class="copyright" href="https://css-tricks.com/css-cascade-layers/">A Complete Guide to CSS Cascade Layers</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/layers-debugger.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://www.projectwallace.com/css-layers-visualizer">CSS @layer visualizer</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А что там с изоляцией?</h2>
+        <img src="./pictures/teploiz.png" alt="" class="cover" width="600" style="opacity: 0.4; rotate: 20deg; transform-origin: center center; transform: translate(0, -50%);">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>@scope</code></h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>&lt;div className="card"&gt;
+
+    &lt;style scoped&gt;
+        h2 { font-weight: 300; }
+    &lt;/style&gt;
+
+    &lt;h2&gt;Title&lt;/h2&gt;
+
+    &lt;img src="image.jpg" alt=""/&gt;
+&lt;/div&gt;</code></pre>
+        <div class="spotlight next" style="
+            --spotlight-radius: 0;
+            --spotlight-opacity: 0.7;
+            --spotlight-width: 410px;
+            --spotlight-height: 117px;
+            --spotlight-top: -49px;
+            --spotlight-left: 2%;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>&lt;div className="card"&gt;
+
+    &lt;style scoped&gt;
+        h2 { font-weight: 300; }
+    &lt;/style&gt;
+
+    &lt;h2&gt;Title&lt;/h2&gt;
+
+    &lt;img src="image.jpg" alt=""/&gt;
+&lt;/div&gt;</code></pre>
+        <img src="./pictures/deprecated.png" alt="" class="place" width="600" style="filter: brightness(1.5);
+        transform: translate(-50%, -50%) rotate(-20deg);
+        transform-origin: center center;">
+    </section>
+
+    <section class="slide">
+        <div style="display: grid; grid-template-columns: 1fr 1fr;">
+            <div>
+                <pre><code>&lt;div class="red"&gt;
+    &lt;div class="green"&gt;
+        &lt;p&gt;Text&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div>
+                <pre><code>.green p {
+    color: green;
+}
+
+.red p {
+    color: red;
+}</code></pre>
+            </div>
+        </div>
+        <h2 class="place bottom next" style="color: var(--color-red); font-size: 3em; bottom: 100px">RED</h2>
+    </section>
+
+    <section class="slide">
+        <div style="display: grid; grid-template-columns: 1fr 1fr;">
+            <div>
+                <pre><code>&lt;div class="red"&gt;
+    &lt;div class="green"&gt;
+        &lt;p&gt;Text&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div>
+                <pre><code>@scope(.green) {
+    p { color: green; }
+}
+
+@scope(.red) {
+    p { color: red; }
+}</code></pre>
+            </div>
+        </div>
+        <h2 class="place bottom next" style="color: greenyellow; font-size: 3em; bottom: 100px">GREEN</h2>
+    </section>
+
+    <section class="slide white">
+        <img src="./pictures/bramus-cascade.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.bram.us/2023/08/22/a-quick-introduction-to-css-scope/">A quick introduction to CSS @scope</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>@scope(.library) {
+    .btn {
+        background-color: green;
+    }
+}
+
+.btn {
+    background-color: red;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;div class="card"&gt;
+    &lt;p&gt;Some Text&lt;/p&gt;
+    &lt;div class="content"&gt;
+        &lt;h3&gt;Title&lt;/h3&gt;
+        &lt;p&gt;Content&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <pre><code>@scope (.card) to (.content) {
+    p {
+        color: var(--color-card);
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class><code>&lt;div className="card"&gt;
+
+    &lt;style scoped&gt;
+        h2 { font-weight: 300; }
+    &lt;/style&gt;
+
+    &lt;h2&gt;Title&lt;/h2&gt;
+
+    &lt;img src="image.jpg" alt=""/&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class><code>&lt;div className="card"&gt;
+    &lt;style&gt;
+        @scope {
+            h2 { font-weight: 300; }
+        }
+    &lt;/style&gt;
+    &lt;h2&gt;Title&lt;/h2&gt;
+
+    &lt;img src="image.jpg" alt=""/&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🥹 И это тоже везде работает?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-scope.jpeg" alt="" class="place" width="800">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😭 Обманул</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/scope-webkit.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://webkit.org/standards-positions/">WebKit Standards Positions</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤷‍♂️ Firefox</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/scope-proposal.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://css.oddbird.net/scope/explainer/">Scope Proposal & Explainer</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Подытожим</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Контроль</h2>
+        <ul>
+            <li>✅ над наследованием;</li>
+            <li>✅ над каскадом;</li>
+            <li>⏳ над изоляцией стилей.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💪 CSS ещё могёт!</h2>
+    </section>
+
+    <section class="slide clear" id="final">
+        <h2>Берегите себя!</h2>
+        <a href="https://mefody.dev/talks/css-isolation/">mefody.dev/talks/css-isolation/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+        <img src="./pictures/qr.jpeg" alt="QR-код на голосование" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
