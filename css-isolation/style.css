@@ -97,9 +97,15 @@
     color: var(--color-red);
 }
 
+.slide blockquote.place {
+    width: 60%;
+}
+
 .slide blockquote::before {
     color: var(--color-yellow);
     opacity: 0.5;
+    font-size: 6em;
+    left: -24px;
 }
 
 .slide .opaque {
