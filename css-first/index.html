@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>CSS first. Когда JS не нужен</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Про то, как переписать целые JS-библиотеки на CSS и в каких случаях это не стоит делать.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>CSS First. Когда JavaScript не нужен</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, HR Tech Яндекса
+        </p>
+    </header>
+
+    <section class="slide clear" style="background-color: black;">
+        <h2 class="shadowed" style="font-size: 3em; font-weight: 500; color: var(--color-white); text-align: center;">CSS First.<br>Когда JavaScript не нужен</h2>
+        <p style="margin-top: 180px; color: var(--color-yellow); text-align: center;">Никита Дубко, HR Tech Яндекса</p>
+        <img src="./pictures/shedevrum.jpeg" alt="" class="cover width place bottom" style="filter: blur(5px);">
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 350px;">
+            <h2>Никита Дубко</h2>
+            <ul>
+                <li>руководитель службы разработки</li>
+                <li>15 лет в профессии</li>
+                <li>верстаю на CSS 5</li>
+                <li>подкастер</li>
+                <li>беларус</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/wst.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://web-standards.ru/">Веб-стандарты</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="place" style="left: 60%;
+        top: 15%;
+        background: rgba(0 0 0 / 0.3);
+        padding: 0.5em;
+        text-align: center;
+        width: min-content;
+        border-radius: 1em;">JavaScript везде</h2>
+        <img src="./pictures/meme_is_everywhere.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/web-almanac.jpeg" alt="" class="place rounded" width="500">
+        <a class="copyright" href="https://almanac.httparchive.org/en/2022/">Web Almanac</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📱 2019 KB</h2>
+        <a class="copyright" href="https://almanac.httparchive.org/en/2022/page-weight">Page Weight</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖥️ 2314 KB</h2>
+        <a class="copyright" href="https://almanac.httparchive.org/en/2022/page-weight">Page Weight</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/median-page-weight-by-content-type.png" alt="" class="place rounded" width="800">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/unused-js.png" alt="" class="place rounded" width="800">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/frameworks-libraries.png" alt="" class="place rounded" width="600">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔 Заменить на CSS?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_battle.jpg" alt="" class="cover">
+        <h2 class="shout shadowed">JS vs CSS</h2>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">На сайт нужна каруселька!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-caruselka.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">ChatGPT, помоги найти хорошую карусельку в npm.</blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-swiper.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://www.npmjs.com/package/swiper">swiper</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;" class="place"><code>&lt;link
+    rel=&quot;stylesheet&quot;
+    href=&quot;https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css&quot;
+/&gt;
+
+&lt;script
+    src=&quot;https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js&quot;
+&gt;&lt;/script&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤩 PROFIT!</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_fry.png" alt="" class="cover rounded" width="600">
+    </section>
+
+    <section class="slide">
+        <pre class="bash place"><code>gzip_size() {
+    echo "Plain: $(curl -s $1 | wc -c)";
+    echo "Gzipped: $(curl -s $1 | gzip | wc -c)";
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   148159
+                    <br>
+                    Gzipped:    41120
+                </span>
+            </p>
+            <p>gzip_size https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   18435
+                    <br>
+                    Gzipped:    4845
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/math-zack-galifianakis.mp4" class="cover rounded" autoplay muted loop width="500"></video>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">41 120 <span class="pink">+</span> 4 845 <span class="pink">=</span> 45 965</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Топ-200 в LiveInternet</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">100 000 DAU</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1 запрос в день</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="pink">≈</span>30 дней в месяце</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">100 000 <span class="pink">×</span> 30 <span class="pink">×</span> 45 965 <span class="pink">=</span> 137 895 000 000</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">137.895 Гб</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">0.522 ₽ за гигабайт</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="pink">≈</span>72 ₽ в месяц</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">100 000 000 DAU</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="pink">≈</span>72 000 ₽ в месяц</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Скорость мобильного интернета</h2>
+        <ul>
+            <li>EDGE — 0,2 Мбит/с, 1000 мс RTT;</li>
+            <li>3G — 1,0 Мбит/с, 600 мс RTT;</li>
+            <li>4G (LTE) — 2,0 Мбит/с, 220 мс RTT.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1 Мбит/с <span class="pink">=</span> 125 Кб/с</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            370 мс <span class="pink">+</span> 600 мс RTT <span class="pink">=</span>
+            <br>
+            970 мс
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤨 Манипуляция <br> числами</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Отчасти 🙃</h2>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Карусельку хочу, чтобы карточки свайпать с товарами!<br>Но красиво, с прилипанием.<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🧐 CSS?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/media-scroller-component.jpeg" alt="" class="cover width place top">
+        <a class="copyright" href="https://web.dev/articles/building/a-media-scroller-component?hl=en">Building a media scroller component</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;ul class=&quot;horizontal-media-scroller&quot;&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;figure&gt;
+                &lt;picture&gt;
+                    &lt;img alt=&quot;...&quot; loading=&quot;lazy&quot; src=&quot;...&quot; /&gt;
+                &lt;/picture&gt;
+                &lt;figcaption&gt;Image Caption&lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="css" style="font-size: 0.9em;"><code>.horizontal-media-scroller {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: calc(var(--gap) / 2);
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gap);
+}
+
+.horizontal-media-scroller figure {
+    scroll-snap-align: start;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>overscroll-behavior-x: contain;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>scroll-snap-type: x mandatory;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>scroll-snap-align: start;</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demo/scroller/index.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size http://127.0.0.1:8080/demo/style.min.css
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   2855
+                    <br>
+                    Gzipped:    993
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">45 965 <span class="pink">−</span> 993 <span class="pink">=</span> 44 972 <br><br> ⬇️ 97%</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤨 Опять манипуляция</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">☝️ Уточняйте требования заказчика</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/simple-slider.jpeg" alt="" class="place rounded" width="800">
+        <a class="copyright" href="https://barthy-koeln.github.io/scroll-snap-slider/">Simple Slider</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/scroll-snap-slider.jpeg" alt="" class="place rounded" width="800">
+        <a class="copyright" href="https://bundlephobia.com/package/scroll-snap-slider@3.1.1">scroll-snap-slider@3.1.1</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-scroll-snap.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/css-snappoints">CSS Scroll Snap</a>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Нужно по клику на ссылку плавно скроллить к блоку!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-smooth-scroll.jpeg" alt="" class="place rounded" width="400">
+        <a class="copyright" href="https://www.npmjs.com/package/smooth-scroll">Smooth Scroll</a>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   6561
+                    <br>
+                    Gzipped:    2709
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>scroll-behavior: smooth;</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://doka.guide/css/scroll-behavior/demos/values/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://doka.guide/css/scroll-behavior/">Дока: scroll-behavior</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤨 А если sticky-шапка?</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>scroll-margin-top: 100px;</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demo/smooth-scrolling/index.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>@media (prefers-reduced-motion: no-preference) {
+    .smooth-scroll {
+        scroll-behavior: smooth;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size http://127.0.0.1:8080/demo/smooth.min.css
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   86
+                    <br>
+                    Gzipped:    93
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">2 709 <span class="pink">−</span> 93 <span class="pink">=</span> 2 616 <br><br> ⬇️ 96.5%</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-scroll-behavior.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/css-scroll-behavior">CSS Scroll-behavior</a>
+    </section>
+
+    <section class="slide">
+        <h2>Параллакс</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://www.npmjs.com/package/react-scroll-parallax</h2>
+        <a class="copyright" href="https://react-scroll-parallax-examples.vercel.app/"></a>
+    </section>
+
+    <section class="slide">
+        <h2>Параллакс — Scroll Animation API https://twitter.com/jh3yy/status/1714404585660379593?s=52&t=bjYuNpX1kBifO2rkUV1HWA</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Баг с высотой вьюпорта в Safari — dvh</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://github.com/TheLastProject/CSSBox</h2>
+        <p>https://sylviavanos.nl/CSSBox/#void</p>
+        <p>https://codepen.io/gschier/pen/kyRXVx</p>
+    </section>
+
+    <section class="slide">
+        <h2>Попап — модалка</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Фокус внутри попапа</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Тултип — anchor positioning https://kizu.dev/position-driven-styles/ https://developer.chrome.com/blog/introducing-popover-api/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Плавающий фокус на странице — anchor positioning, https://twitter.com/jh3yy/status/1719147616477331650</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Сложные анимации по пути — SVG Path, linear() https://twitter.com/jh3yy/status/1705359842523701520</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Переходы в SPA — View Transition API https://astro.build/blog/astro-3/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Размер контейнера — Container Queries</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Количество элементов в строке: https://www.bram.us/2023/01/12/sibling-scopes-in-css-thanks-to-has/ https://www.bram.us/2022/11/17/style-a-parent-element-based-on-its-number-of-children-using-css-has/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>А есть ли скролл? https://www.bram.us/2023/09/16/solved-by-css-scroll-driven-animations-detect-if-an-element-can-scroll-or-not/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>А какое у него направление?  https://www.bram.us/2023/10/23/css-scroll-detection/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Прогресс скролла — https://twitter.com/jh3yy/status/1699873044548751485</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://scroll-driven-animations.style/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>https://kizu.dev/scroll-driven-animations/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Состояние интерфейса — style queries</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Появление из жёлтого при загрузке https://www.bram.us/2023/05/24/the-yellow-fade-technique-with-modern-css-using-starting-style/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Стилизация селектов https://talks.hiddedevries.nl/iohQPm/styling-selects-youve-got-options#sEH8WFc https://css-tricks.com/the-selectmenu-element/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Нативный аккордеон при помощи summary с именем https://twitter.com/jh3yy/status/1707939551312765206</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Lightbox https://codesalad.dev/blog/how-to-create-an-image-lightbox-in-pure-css-25</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Табуляция на CSS https://css-tricks.com/functional-css-tabs-re-revisited/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>http://youmightnotneedjs.com/</h2>
+    </section>
+
+    <section class="slide">
+        <h2>CSS Loader</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Ресайзилка https://twitter.com/jh3yy/status/1707514774685106581?s=52&t=bjYuNpX1kBifO2rkUV1HWA https://til.simonwillison.net/css/resizing-textarea</h2>
+    </section>
+
+    <section class="slide">
+        <h2>CSS Game</h2>
+    </section>
+
+    <section class="slide">
+        <h2>CSS Mirror Background</h2>
+    </section>
+
+
+
+    <section class="slide">
+        <h2>тг-канал</h2>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Давайте жить дружно!</h2>
+        <a href="https://mefody.dev/talks/css-first/">mefody.dev/talks/css-first/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
