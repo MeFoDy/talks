@@ -417,16 +417,227 @@
     </section>
 
     <section class="slide">
-        <h2>Параллакс</h2>
+        <blockquote class="big place">Хочу параллакс по скроллу!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
     </section>
 
     <section class="slide">
-        <h2>https://www.npmjs.com/package/react-scroll-parallax</h2>
-        <a class="copyright" href="https://react-scroll-parallax-examples.vercel.app/"></a>
+        <iframe src="https://react-scroll-parallax-examples.vercel.app/" frameborder="0" class="cover width height"></iframe>
     </section>
 
     <section class="slide">
-        <h2>Параллакс — Scroll Animation API https://twitter.com/jh3yy/status/1714404585660379593?s=52&t=bjYuNpX1kBifO2rkUV1HWA</h2>
+        <img src="./pictures/npm-react-scroll-parallax.jpeg" alt="" class="place rounded" width="400">
+        <a class="copyright" href="https://www.npmjs.com/package/react-scroll-parallax">react-scroll-parallax</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bundle-react-scroll-parallax.jpeg" width="800" alt="" class="place rounded">
+        <a class="copyright" href="https://bundlephobia.com/package/react-scroll-parallax@3.4.3">react-scroll-parallax@3.4.3</a>
+    </section>
+
+    <section class="slide">
+        <iframe scrolling="no" class="cover width height" title="Pop out image scrollers with CSS scroll-driven animations 🤙" src="https://codepen.io/jh3y/embed/abPgrGR?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/abPgrGR">
+            Pop out image scrollers with CSS scroll-driven animations 🤙</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3em;">
+            <img src="./pictures/jhey.png" alt="" style="width: 20%; border-radius: 100%;">
+            x.com/jh3yy
+        </h2>
+    </section>
+
+    <section class="slide">
+        <pre class="css" style="font-size: 0.9em;"><code>.pop {
+    view-timeline-name: --pop;
+}
+img {
+    animation: slide both;
+    animation-timeline: --pop;
+    animation-range: entry 100% cover 50%;
+}
+.skateboarder {
+    --x: 0;
+    --y: -45%;
+}
+@keyframes slide {
+    to { translate: var(--x) var(--y); }
+}</code></pre>
+        <a class="copyright" href="https://twitter.com/jh3yy/status/1714404585660379593">jh3yy tweet</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>animation: some 2s linear infinite;</code></pre>
+    </section>
+    <section class="slide">
+        <pre class="place big css"><code>animation-name: some;
+animation-duration: 2s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">2s <span class="pink">=</span> 100%</h2>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://scroll-driven-animations.style/tools/scroll-timeline/progress/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://scroll-driven-animations.style/tools/scroll-timeline/progress/">Scroll Timeline Visualizer</a>
+    </section>
+
+    <section class="slide clear white">
+        <iframe src="https://scroll-driven-animations.style/demos/progress-bar/css/scroll-defaults.html?embed" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.9em;"><code>@keyframes grow-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+#progress {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 1em;
+    background: red;
+
+    transform-origin: 0 50%;
+    animation: grow-progress auto linear;
+    animation-timeline: scroll();
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>animation-timeline: scroll();</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>animation-timeline: scroll(nearest block);</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place css"><code>.container {
+    scroll-timeline-name: --scroll-timeline;
+    scroll-timeline-axis: inline; /* or block */
+}
+
+.child {
+    animation-timeline: --scroll-timeline;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bundle-readprogress.jpeg" alt="" class="place rounded" width="800">
+        <a class="copyright" href="https://bundlephobia.com/package/readprogress@0.0.8">readprogress</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-scroll-driven.avif" alt="" width="700" class="place rounded">
+        <a class="copyright" href="https://developer.chrome.com/articles/scroll-driven-animations/">Animate elements on scroll with Scroll-driven animations</a>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://scroll-driven-animations.style/tools/view-timeline/ranges/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://scroll-driven-animations.style/tools/view-timeline/ranges/">Range and Animation Progress Visualizer</a>
+    </section>
+
+    <section class="slide">
+        <iframe scrolling="no" class="cover width height" title="Pop out image scrollers with CSS scroll-driven animations 🤙" src="https://codepen.io/jh3y/embed/abPgrGR?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/abPgrGR">
+            Pop out image scrollers with CSS scroll-driven animations 🤙</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <pre class="css" style="font-size: 0.9em;"><code>.pop {
+    view-timeline-name: --pop;
+}
+img {
+    animation: slide both;
+    animation-timeline: --pop;
+    animation-range: entry 100% cover 50%;
+}
+.skateboarder {
+    --x: 0;
+    --y: -45%;
+}
+@keyframes slide {
+    to { translate: var(--x) var(--y); }
+}</code></pre>
+        <a class="copyright" href="https://twitter.com/jh3yy/status/1714404585660379593">jh3yy tweet</a>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="Dynamic Scroll Indicators with Scroll Driven Animations [Polyfilled too!]" src="https://codepen.io/jh3y/embed/OJrRvEV?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/OJrRvEV">
+            Dynamic Scroll Indicators with Scroll Driven Animations [Polyfilled too!]</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/scroll-driven-animations.jpeg" alt="" width="600" class="place rounded">
+        <a class="copyright" href="https://scroll-driven-animations.style/">Scroll-driven Animations</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-scroll-timeline.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/mdn-css_properties_scroll-timeline">CSS property: scroll-timeline</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/scroll-timeline-polyfill.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/flackr/scroll-timeline">flackr/scroll-timeline</a>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   39988
+                    <br>
+                    Gzipped:    11512
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <pre><code>@keyframes detect-scroll {
+    from, to { --can-scroll: ; }
+}
+
+.container {
+    animation: detect-scroll linear;
+    animation-timeline: scroll(self);
+
+    --bg-if-can-scroll: var(--can-scroll) lime;
+    --bg-if-cant-scroll: red;
+    background: var(--bg-if-can-scroll, var(--bg-if-cant-scroll));
+}</code></pre>
+        <a class="copyright" href="https://www.bram.us/2023/09/16/solved-by-css-scroll-driven-animations-detect-if-an-element-can-scroll-or-not/">Detect if an element can scroll or not</a>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="Scroll Detection with CSS Scroll-Driven Animations (Space Toggle)" src="https://codepen.io/bramus/embed/oNJeQjr?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/bramus/pen/oNJeQjr">
+            Scroll Detection with CSS Scroll-Driven Animations (Space Toggle)</a> by Bramus (<a href="https://codepen.io/bramus">@bramus</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bramus-scroll-direction.jpeg" alt="" width="700" class="place rounded">
+        <a class="copyright" href="https://www.bram.us/2023/10/23/css-scroll-detection/">Style an element based on the active Scroll Direction and Scroll Speed</a>
     </section>
 
     <section class="slide">
@@ -460,35 +671,7 @@
     </section>
 
     <section class="slide">
-        <h2>Переходы в SPA — View Transition API https://astro.build/blog/astro-3/</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Размер контейнера — Container Queries</h2>
-    </section>
-
-    <section class="slide">
         <h2>Количество элементов в строке: https://www.bram.us/2023/01/12/sibling-scopes-in-css-thanks-to-has/ https://www.bram.us/2022/11/17/style-a-parent-element-based-on-its-number-of-children-using-css-has/</h2>
-    </section>
-
-    <section class="slide">
-        <h2>А есть ли скролл? https://www.bram.us/2023/09/16/solved-by-css-scroll-driven-animations-detect-if-an-element-can-scroll-or-not/</h2>
-    </section>
-
-    <section class="slide">
-        <h2>А какое у него направление?  https://www.bram.us/2023/10/23/css-scroll-detection/</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Прогресс скролла — https://twitter.com/jh3yy/status/1699873044548751485</h2>
-    </section>
-
-    <section class="slide">
-        <h2>https://scroll-driven-animations.style/</h2>
-    </section>
-
-    <section class="slide">
-        <h2>https://kizu.dev/scroll-driven-animations/</h2>
     </section>
 
     <section class="slide">
@@ -512,15 +695,7 @@
     </section>
 
     <section class="slide">
-        <h2>Табуляция на CSS https://css-tricks.com/functional-css-tabs-re-revisited/</h2>
-    </section>
-
-    <section class="slide">
         <h2>http://youmightnotneedjs.com/</h2>
-    </section>
-
-    <section class="slide">
-        <h2>CSS Loader</h2>
     </section>
 
     <section class="slide">
@@ -561,6 +736,28 @@
     <script src="../src/shower/shower.min.js"></script>
     <script src="../src/highlight/highlight.pack.js"></script>
     <script>hljs.highlightAll();</script>
+    <script>
+        (function() {
+            var mouseTimer = null, cursorVisible = true;
+
+            function disappearCursor() {
+                mouseTimer = null;
+                document.body.style.cursor = "none";
+                cursorVisible = false;
+            }
+
+            document.onmousemove = function() {
+                if (mouseTimer) {
+                    window.clearTimeout(mouseTimer);
+                }
+                if (!cursorVisible) {
+                    document.body.style.cursor = "default";
+                    cursorVisible = true;
+                }
+                mouseTimer = window.setTimeout(disappearCursor, 3000);
+            };
+        })();
+    </script>
 </body>
 
 </html>
