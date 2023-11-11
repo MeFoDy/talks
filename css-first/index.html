@@ -612,6 +612,23 @@ img {
     </section>
 
     <section class="slide">
+        <h2 class="shout">Interop 2024</h2>
+        <a class="copyright" href="https://github.com/orgs/web-platform-tests/projects/3">Interop 2024</a>
+    </section>
+
+    <section class="slide">
+        <div class="spotlight next" style="
+                --spotlight-radius: 0;
+                --spotlight-opacity: 0.5;
+                --spotlight-width: 31%;
+                --spotlight-height: 34px;
+                --spotlight-top: -57px;
+                --spotlight-left: -33%;
+        "></div>
+        <img src="./pictures/interop-2024.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
         <pre><code>@keyframes detect-scroll {
     from, to { --can-scroll: ; }
 }
@@ -641,21 +658,176 @@ img {
     </section>
 
     <section class="slide">
-        <h2>Баг с высотой вьюпорта в Safari — dvh</h2>
+        <blockquote class="big place">Ребята, тут в Safari <br> какой-то баг...<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
     </section>
 
     <section class="slide">
-        <h2>https://github.com/TheLastProject/CSSBox</h2>
-        <p>https://sylviavanos.nl/CSSBox/#void</p>
-        <p>https://codepen.io/gschier/pen/kyRXVx</p>
+        <img src="./pictures/meme_criminal.jpg" alt="" class="cover">
     </section>
 
     <section class="slide">
-        <h2>Попап — модалка</h2>
+        <blockquote class="big place">Кнопка «Корзины» не прилипает к низу!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
     </section>
 
     <section class="slide">
-        <h2>Фокус внутри попапа</h2>
+        <img src="./pictures/webdev_dvh.png" alt="" class="place rounded" width="800">
+        <a class="copyright" href="https://web.dev/blog/viewport-units">The large, small, and dynamic viewport units</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>.my-element {
+    height: calc(var(--vh, 1vh) * 100);
+}</code></pre><br>
+        <pre class="next"><code>const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+window.addEventListener('resize', () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});</code></pre>
+
+        <a class="copyright" href="https://stackoverflow.com/a/56671096">Safari Viewport Bug</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>height: 100dvh;</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-small-large-vw.jpeg" alt="" class="place rounded" width="870">
+        <a class="copyright" href="https://caniuse.com/viewport-unit-variants">Small, Large, and Dynamic viewport units</a>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Хочу нажимать на картинку, а она чтобы на весь экран открывалась.<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://lokeshdhakar.com/projects/lightbox2/" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lightbox-jquery.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lightbox-jquery.jpeg" alt="" class="cover" style="scale: 3; translate: 351px 200px;">
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/meme-nope-danny-de-vito.mp4" class="cover rounded" autoplay muted loop width="500"></video>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-lightgallery.jpeg" alt="" class="place rounded" width="400">
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size https://unpkg.com/focus-trap@7.5.4/dist/focus-trap.umd.min.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   10717
+                    <br>
+                    Gzipped:    3555
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔 CSS?</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;a href=&quot;#img1&quot;&gt;
+    &lt;img src=&quot;./small.jpg&quot;&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;lightbox&quot; id=&quot;img1&quot;&gt;
+    &lt;span style=&quot;background-image: url(&#39;./large.jpg&#39;)&quot;&gt;&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre><code>.lightbox {
+    display: none;
+
+    position: fixed;
+    z-index: 999;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+    display: block;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-target.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://caniuse.com/mdn-css_selectors_target">CSS selector: :target</a>
+    </section>
+
+    <section class="slide white">
+        <iframe src="https://sylviavanos.nl/CSSBox/" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Фокус не должен выходить за пределы попапа.<br>
+            <span class="cite-author">ГОСТ Р 52872-2019</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-focus-trap.jpeg" alt="" width="400" class="place rounded">
+        <a class="copyright" href="https://www.npmjs.com/package/focus-trap">focus-trap</a>
+    </section>
+
+    <section class="slide">
+        <pre class="big place"><code>&lt;div class=&quot;popup&quot; inert&gt;
+    &lt;!-- content --&gt;
+&lt;/div&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert">inert</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-inert.jpeg" alt="" class="place rounded" width="870">
+        <a class="copyright" href="https://caniuse.com/mdn-html_global_attributes_inert">HTML attribute: inert</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-dialog.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/articles/building/a-dialog-component">Building a dialog component</a>
+    </section>
+
+    <section class="slide">
+        <iframe scrolling="no" class="cover width height" title="Basic &lt;dialog&gt;" src="https://codepen.io/web-dot-dev/embed/popLbZB?default-tab=html%2Cresult" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/web-dot-dev/pen/popLbZB">
+            Basic &lt;dialog&gt;</a> by web.dev (<a href="https://codepen.io/web-dot-dev">@web-dot-dev</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>&lt;dialog inert&gt;
+    &lt;form method=&quot;dialog&quot;&gt;
+        &lt;button&gt;Close&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/dialog&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-dialog.jpeg" alt="" width="870" class="place rounded">
+        <a class="copyright" href="https://caniuse.com/dialog">dialog</a>
     </section>
 
     <section class="slide">
@@ -714,6 +886,10 @@ img {
 
     <section class="slide">
         <h2>тг-канал</h2>
+    </section>
+
+    <section class="slide">
+        <h2>arc собрать все ссылки из доклада</h2>
     </section>
 
 
