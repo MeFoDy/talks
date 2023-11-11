@@ -330,3 +330,14 @@ a.copyright:hover,
 a.copyright:focus {
     opacity: 1;
 }
+
+.circle {
+    border-radius: 100%;
+}
+
+.character {
+    border-radius: 100%;
+    margin: 3em;
+    width: 5em;
+    box-shadow: 0 0 0.3em var(--color-grey);
+}
