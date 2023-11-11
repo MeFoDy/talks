@@ -257,14 +257,6 @@
     content: '~$ ';
 }
 
-.cite {
-    font-size: 1.5em;
-}
-
-.cite-author {
-    font-size: 0.7em;
-}
-
 .slide.white {
     background-color: white;
 }
@@ -317,6 +309,10 @@ pre code.hljs {
 .cite-author {
     font-size: 0.7em;
     color: var(--color-grey);
+}
+
+.title .cite-author {
+    color: var(--color-pink);
 }
 
 .pink {
