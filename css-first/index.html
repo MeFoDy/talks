@@ -1000,18 +1000,68 @@ window.addEventListener('resize', () => {
         <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
     </section>
 
-    <section class="slide">
-        <h2>loading=lazy</h2>
+    <section class="slide title">
+        <blockquote class="big place">Давайте ускорим сайт! Что-то слышал про Core Web Vitals.<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
     </section>
 
     <section class="slide">
-        <h2>Ресайзилка https://twitter.com/jh3yy/status/1707514774685106581?s=52&t=bjYuNpX1kBifO2rkUV1HWA https://til.simonwillison.net/css/resizing-textarea</h2>
+        <h2 class="shout">🦥 Ленивая загрузка?</h2>
     </section>
 
     <section class="slide">
-        <h2>Стилизация селектов https://talks.hiddedevries.nl/iohQPm/styling-selects-youve-got-options#sEH8WFc https://css-tricks.com/the-selectmenu-element/</h2>
+        <img src="./pictures/npm-lazy-load.jpeg" alt="" class="place rounded" width="400">
+        <a class="copyright" href="https://www.npmjs.com/package/vanilla-lazyload">vanilla-lazyload</a>
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
     </section>
 
+    <section class="slide">
+        <pre class="place big"><code>&lt;img src=&quot;photo.jpg&quot; loading=&quot;lazy&quot;&gt;</code></pre>
+        <img src="./pictures/html-girl.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>&lt;iframe src=&quot;frame.html&quot; loading=&quot;lazy&quot;&gt;</code></pre>
+        <img src="./pictures/html-girl.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-loading-lazy.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/loading-lazy-attr">loading=lazy</a>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Можем сделать панельки, которые изменяют размер?<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="It's 2023 and you can't style the resize handle..." src="https://codepen.io/jh3y/embed/WNLJLXw?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/WNLJLXw">
+            It's 2023 and you can't style the resize handle...</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <pre><code>.panels {
+    display: grid;
+    grid-template-columns: auto 1fr; /* 👈 */
+}
+
+.resizer {
+    max-width: 100cqi;
+    overflow: hidden;
+    resize: horizontal; /* 👈 */
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-resize.jpeg" width="900" alt="" class="place rounded">
+        <a class="copyright" href="https://caniuse.com/css-resize">CSS: resize</a>
+    </section>
 
     <section class="slide">
         <iframe class="cover width height" scrolling="no" title="09. CSS Anchor Positioning Bar Chart" src="https://codepen.io/web-dot-dev/embed/PoeNKXJ?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
