@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>По-настоящему красивые переходы средствами браузера</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="View Transitions API и Scroll-driven Animations — новые интересные фичи, которые уже позволяют в некоторых браузерах делать очень красивые переходы между состояниями веб-приложений.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>По-настоящему красивые переходы средствами браузера</h1>
+        <p>
+            <a href="https://x.com/dark_mefody">Никита Дубко</a>, «Веб-стандарты»
+        </p>
+    </header>
+
+    <section class="slide clear">
+        <h2 class="">По-настоящему красивые переходы средствами браузера</h2>
+        <p>Никита Дубко, «Веб-стандарты»</p>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 350px;">
+            <h2>Никита Дубко</h2>
+            <ul>
+                <li>15 лет в профессии</li>
+                <li>верстаю на CSS 5</li>
+                <li>подкастер</li>
+                <li>беларус</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide clear black">
+        <img src="./pictures/wst.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://web-standards.ru/">Веб-стандарты</a>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout next"><mark class="label">CSS Only</mark></h2>
+        <iframe src="./demo/coverflow/index.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout next"><mark class="label">Без библиотек</mark></h2>
+        <iframe src="./demo/lightbox-like/index.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout"><small style="font-weight: 400;">Часть 1.</small><br>Анимации</h2>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://scroll-driven-animations.style/demos/stacking-cards/css/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright bottom" href="https://scroll-driven-animations.style/demos/stacking-cards/css/">Stacking Cards demo</a>
+    </section>
+
+    <section class="slide clear">
+        <video src="./pictures/dump-talk-example.h264.mp4" autoplay muted loop playsinline class="cover width"></video>
+    </section>
+
+    <section class="slide black">
+        <div class="terminal" data-content="Dump: gzip_size">
+            <p>gzip_size https://static.tildacdn.com/js/tilda-animation-2.0.min.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   34298
+                    <br>
+                    Gzipped:    6749
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">CDN <span class="pink">!=</span> Cache</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Intersection<br>Observer API</h2>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">MDN</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>const observer = new IntersectionObserver(
+    callback,
+    {
+        root: document.querySelector('#scrollArea'),
+        rootMargin: '0px',
+        threshold: [1.0],
+    }
+);</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            if (entry.intersectionRatio >= 0.75) {
+                // TODO
+            }
+        }
+    });
+};</code></pre>
+        <img src="./pictures/hadouken.jpeg" alt="" class="place left next" width="200" style="left: 3%;
+            top: 54%;
+            mix-blend-mode: darken;">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Что такое анимация?</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>animation: hadouken 2s linear infinite;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>animation-name: hadouken;
+animation-duration: 2s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">2s <span class="pink">=</span> 100%</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">animation <span class="pink">=</span> F(t)</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>function easeInOut(t) {
+    if (t <= 0.5) {
+        return 2 * t * t;
+    }
+    t -= 0.5;
+    return 2 * t * (1 - t) + 0.5;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Мы даже можем проигрывать эту функцию назад в DevTools.</h2>
+    </section>
+
+    <section class="slide">
+        <h2>мем: задумчивость</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если привязаться к скроллу?</h2>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://scroll-driven-animations.style/tools/scroll-timeline/progress/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright bottom" href="https://scroll-driven-animations.style/tools/scroll-timeline/progress/">Progress</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>@keyframes grow-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.target {
+    transform-origin: 0 50%;
+    animation: grow-progress auto linear;
+    animation-timeline: scroll();
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>animation-timeline: scroll(&lt;scroller&gt; &lt;axis&gt;)</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">&lt;scroller&gt;: nearest, root, self</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">&lt;axis&gt;: block, inline, x, y</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если я хочу хитро привязаться к чему угодно на странице?</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>@keyframes animate-it { … }
+
+.scroller {
+    scroll-timeline-name: --my-scroller;
+    scroll-timeline-axis: inline;
+    /* scroll-timeline: --my-scroller inline; */
+}
+
+.target {
+    animation: animate-it linear;
+    animation-timeline: --my-scroller;
+}</code></pre>
+    </section>
+
+    <section class="slide clear white">
+        <iframe src="https://scroll-driven-animations.style/demos/progress-bar/css/scroll-defaults.html?embed" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">https://developer.chrome.com/docs/css-ui/scroll-driven-animations?hl=en</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">То же самое на JS</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>const $progressbar = document.querySelector('#progress');
+
+$progressbar.style.transformOrigin = '0% 50%';
+$progressbar.animate(
+    {
+    transform: ['scaleX(0)', 'scaleX(1)'],
+    },
+    {
+    fill: 'forwards',
+    timeline: new ScrollTimeline({
+        source: document.documentElement,
+    }),
+    }
+);</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если привязаться к вьюпорту, как в Intersection Observer API?</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>animation-timeline: (&lt;axis&gt; &lt;view-timeline-inset&gt;)</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre class="css"><code>.revealing-image {
+    view-timeline-name: --revealing-image;
+    view-timeline-axis: block;
+
+    animation: auto linear reveal both;
+    animation-timeline: --revealing-image;
+    animation-range: entry 25% cover 50%;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">animation-range: entry 0% entry 100%;</h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>const tl = new ViewTimeline({
+    subject: document.getElementById('subject'),
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://scroll-driven-animations.style/tools/view-timeline/ranges/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://scroll-driven-animations.style/tools/view-timeline/ranges/">Range and Animation Progress Visualizer</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">x.com/jh3yy</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Демо https://codepen.io/jh3y/pen/abPgrGR</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Демо 1 https://codepen.io/jh3y/pen/LYayOKG</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Демо 2 https://codepen.io/jh3y/pen/NWevEdv</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Где работает в браузерах</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Полифил https://github.com/flackr/scroll-timeline</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout"><small style="font-weight: 400;">Часть 2.</small><br>Переходы</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Пример на Angular.js, Vue, React</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Это сложно</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Это много весит (размер библиотеки)</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Как устроено</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Есть элемент, который превращается в другой элемент</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">По клику запоминаем, где он</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Скачиваем и рисуем всё, что нужно на новой странице, скрыто</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Включаем сложную анимацию прятания старых DOM-узлов, показываем новые</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если VTA?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">https://developer.chrome.com/docs/web-platform/view-transitions/</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">startViewTransition — запоминаем текущее состояние страницы. В том числе делаем скриншот</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">вызываем колбек</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Сохраняем новое состояние страницы</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Браузер создаёт псевдоэлементы</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>::view-transition
+└─ ::view-transition-group(root)
+    └─ ::view-transition-image-pair(root)
+        ├─ ::view-transition-old(root)
+        └─ ::view-transition-new(root)</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Делаем анимацию между состояниями средствами браузера</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Мы можем управлять при помощи CSS</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 5s;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">`view-transition-name` — задаём новую группу для перехода</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Можно анимировать: прозрачность, transform, width/height</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Дебажить через консоль там же, где и обычные анимации</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Ссылка на мой доклад про DevTools</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если элемента раньше не было? Или есть только на новой странице?</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>/* Entry transition */
+::view-transition-new(sidebar):only-child {
+    animation: 300ms cubic-bezier(0, 0, 0.2, 1) both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+/* Exit transition */
+::view-transition-old(sidebar):only-child {
+    animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-right;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Но что делать, если нужно что-то скачать и это медленно?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Можно использовать `Promise.race([ document.fonts.ready, wait(100) ])`</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Поэтому сейчас API работает только для SPA, навигацию нужно обновлять руками.</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>::view-transition-old(full-embed),
+::view-transition-new(full-embed) {
+    /* Prevent the default animation,
+    so both views remain opacity:1 throughout the transition */
+    animation: none;
+    /* Use normal blending,
+    so the new view sits on top and obscures the old view */
+    mix-blend-mode: normal;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А для мобилок?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">@media (min-width: 500px)</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Доступность?</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>@media (prefers-reduced-motion) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+    animation: none !important;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <p>`const transition = document.startViewTransition` — посмотреть в инспекторе, что возвращает</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">`transition.finished` — завершились</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">`transition.ready` — элементы готовы</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">В каких браузерах работает?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">https://webkit.org/standards-positions/, https://mozilla.github.io/standards-positions/</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">https://bugzilla.mozilla.org/show_bug.cgi?id=1823896</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">https://bugs.webkit.org/show_bug.cgi?id=259055</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Как проверить: `document.startViewTransition`</h2>
+    </section>
+
+
+    <section class="slide">
+        <pre><code>function startViewTransition(callback) {
+    if (!document.startViewTransition) {
+    callback();
+    return;
+    }
+
+    document.startViewTransition(callback);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <p>Ломает инкрементальный рендеринг https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Что такое инкрементальный рендеринг?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">prefetch, prerender</h2>
+    </section>
+
+    <section class="slide">
+        <p>https://github.com/GoogleChromeLabs/quicklink#quicklinkprerenderurls</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">готовая библиотека https://github.com/noamr/velvette?tab=readme-ov-file</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">НЕ SPA: https://github.com/WICG/view-transitions/blob/main/cross-doc-explainer.md</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Демо 1 https://codepen.io/bramus/pen/MWLZoRd</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Демо 2 https://codepen.io/bramus/pen/BabRVLg</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Демо 3 https://codepen.io/dannymoerkerke/pen/ExMEPaW</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Переключение темы https://codepen.io/jh3y/pen/MWzdvwL</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout"><small style="font-weight: 400;">Часть 3.</small><br>Практика</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Страничка конференции со спикерами</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">По клику на аватарку пусть открывается страничка спикера с докладом</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Шапка не меняется</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">По скроллу карточки спикеров красивенько выезжают и зумятся</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">https://dump-spb.ru/#!/tfeeds/687772436761/c/Frontend</h2>
+    </section>
+
+
+    <section class="slide black">
+        <img src="./pictures/mefody_dev_tg.jpeg" alt="" class="place rounded left" width="700" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+        <img src="./pictures/qr-code-tg.png" alt="" class="place right rounded" width="250" style="margin-right: 100px;">
+    </section>
+
+    <section class="slide clear" id="final">
+        <h2>Красота спасёт мир!</h2>
+        <b>Слайды</b><br>
+        <a href="https://mefody.dev/talks/pretty-transitions/">mefody.dev/talks/pretty-transitions/</a>
+        <br><br>
+        <b>Подписаться</b><br>
+        <a href="https://x.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.png" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script>
+        (function() {
+            var mouseTimer = null, cursorVisible = true;
+
+            function disappearCursor() {
+                mouseTimer = null;
+                document.body.style.cursor = "none";
+                cursorVisible = false;
+            }
+
+            document.onmousemove = function() {
+                if (mouseTimer) {
+                    window.clearTimeout(mouseTimer);
+                }
+                if (!cursorVisible) {
+                    document.body.style.cursor = "default";
+                    cursorVisible = true;
+                }
+                mouseTimer = window.setTimeout(disappearCursor, 3000);
+            };
+        })();
+    </script>
+</body>
+
+</html>

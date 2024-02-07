@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="style.css">
+
+<aside id="js-overlay" class="overlay">
+  <div id="js-overlay-target" class="overlay__inner"></div>
+</aside>
+<main>
+  <figure style="--color: #dfe7fd" onclick="toggleImageView(1)">
+    <div>
+      <img id="js-gallery-image-1" class="gallery__image" src="https://images.unsplash.com/photo-1581260466152-d2c0303e54f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1336&q=70" />
+    </div>
+    <figcaption>Peyto Lake, Canada</figcaption>
+  </figure>
+
+  <figure style="--color: #f8ad9d" onclick="toggleImageView(2)">
+    <div>
+      <img id="js-gallery-image-2" class="gallery__image" src="https://images.unsplash.com/photo-1573057454928-f6eda06245ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1336&q=70" />
+    </div>
+    <figcaption>Two Jack Lake, Canada</figcaption>
+  </figure>
+
+  <figure style="--color: #d8e2dc" onclick="toggleImageView(3)">
+    <div>
+      <img id="js-gallery-image-3" class="gallery__image" src="https://images.unsplash.com/photo-1571369985645-7859660074fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1336&q=70" />
+    </div>
+    <figcaption>Crail cottage in Mooroolbark, Australia</figcaption>
+  </figure>
+
+  <figure style="--color: #c1d3fe" onclick="toggleImageView(4)">
+    <div>
+      <img id="js-gallery-image-4" class="gallery__image" src="https://images.unsplash.com/photo-1611029238634-0a9f540a94fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1336&q=70" />
+    </div>
+    <figcaption>Icefields Parkway, Canada</figcaption>
+  </figure>
+
+  <figure style="--color: #d0f4de" onclick="toggleImageView(5)">
+    <div>
+      <img id="js-gallery-image-5" class="gallery__image" src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1336&q=70" />
+    </div>
+    <figcaption>Sunlight passing through the tree</figcaption>
+  </figure>
+
+  <figure style="--color: #7bf1a8" onclick="toggleImageView(6)">
+    <div>
+      <img id="js-gallery-image-6" class="gallery__image" src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1336&q=70" />
+    </div>
+    <figcaption>Bridge over a green waterfall</figcaption>
+  </figure>
+</main>
+
+<aside style="display: none" id="js-banner" class="banner">
+  <div class="banner__inner">
+    This browser currently doesn't support View Transitions API. Use Chrome 111 or newer version to view the
+    example.
+  </div>
+</aside>
+
+<script src="script.js"></script>
