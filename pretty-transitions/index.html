@@ -723,23 +723,84 @@ console.log(transition);</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Страничка конференции со спикерами</h2>
+        <h2 class="shout"><a href="./demo/conf-demo/index.html">🌌 Демо</a></h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout">По клику на аватарку пусть открывается страничка спикера с докладом</h2>
+        <pre class="place"><code>@keyframes header {
+    from {
+        filter: hue-rotate(0turn);
+    }
+    to {
+        filter: hue-rotate(1turn);
+    }
+}
+
+header::before {
+    animation: header auto linear;
+    animation-timeline: scroll();
+}</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Шапка не меняется</h2>
+        <h2 class="shout"><a href="./demo/conf-demo/index-scroll.html">🌌 Версия со scroll()</a></h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout">По скроллу карточки спикеров красивенько выезжают и зумятся</h2>
+        <pre class="place"><code>.card {
+    transform-origin: 50% 0;
+    animation: card ease both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+}
+
+@keyframes card {
+    0% { translate: -100%; filter: blur(10px); opacity: 0; }
+    100% { translate: 0; filter: blur(0); opacity: 1; }
+}</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">https://dump-spb.ru/#!/tfeeds/687772436761/c/Frontend</h2>
+        <h2 class="shout"><a href="./demo/conf-demo/index-view.html">🌌 Версия с view()</a></h2>
+    </section>
+
+    <section class="slide">
+        <pre><code>onLinkNavigate(async ({ fromPath, toPath }) => {
+    const content = await getPageContent(toPath);
+
+    const avatar = getLink(toPath)
+        .closest(".card")
+        .querySelector("img");
+    avatar.style.viewTransitionName = "avatar-img";
+
+    transitionHelper({
+        updateDOM() {
+            document.body.innerHTML = content;
+        },
+    });
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>.talk img {
+    view-transition-name: avatar-img;
+}
+
+@media (prefers-reduced-motion) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><a href="./demo/conf-demo/index-vta.html">🌌 View Transitions API</a></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😉 Пора меняться!</h2>
     </section>
 
 
