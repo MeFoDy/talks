@@ -603,7 +603,7 @@ document.startViewTransition(async () => {
     </section>
 
     <section class="slide">
-        <pre class="place"><code>@media (prefers-reduced-motion) {
+        <pre class="place big"><code>@media (prefers-reduced-motion) {
     ::view-transition-group(*),
     ::view-transition-old(*),
     ::view-transition-new(*) {
@@ -652,28 +652,34 @@ console.log(transition);</code></pre>
 }</code></pre>
     </section>
 
-    <section class="slide">
-        <p>Ломает инкрементальный рендеринг https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/</p>
+    <section class="slide" style="background-color: #e6e6e6;">
+        <img src="./pictures/vta-incremental-rendering.jpeg" alt="" class="cover" width="800">
+        <a class="copyright" href="https://ericportis.com/posts/2023/view-transitions-break-incremental-rendering/">View Transitions Break Incremental Rendering</a>
+    </section>
+
+    <section class="slide" style="background-color: #414141;">
+        <img src="./pictures/incremental-rendering.png" alt="" class="place" width="800">
     </section>
 
     <section class="slide">
-        <h2 class="shout">Что такое инкрементальный рендеринг?</h2>
+        <pre class="place"><code>&lt;link rel="prefetch" href="/another-page"&gt;
+
+&lt;script type="speculationrules"&gt;
+    {
+        "prerender": [
+            {
+                "source": "list",
+                "urls": ["page-1.html", "page-2.html"]
+            }
+        ]
+    }
+&lt;/script&gt;
+        </code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">prefetch, prerender</h2>
-    </section>
-
-    <section class="slide">
-        <p>https://github.com/GoogleChromeLabs/quicklink#quicklinkprerenderurls</p>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">готовая библиотека https://github.com/noamr/velvette?tab=readme-ov-file</h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">НЕ SPA: https://github.com/WICG/view-transitions/blob/main/cross-doc-explainer.md</h2>
+        <img src="./pictures/quickling.png" alt="" class="place" width="700">
+        <a class="copyright" href="https://github.com/GoogleChromeLabs/quicklink#quicklinkprerenderurls">GoogleChromeLabs/quicklink</a>
     </section>
 
     <section class="slide">
@@ -699,7 +705,17 @@ console.log(transition);</code></pre>
     </section>
 
     <section class="slide">
-        <h2>Astro</h2>
+        <h2 class="shout"><a href="https://github.com/noamr/velvette?tab=readme-ov-file">noamr / velvette</a></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/astro-logo-dark.svg" alt="" class="place" width="500">
+        <a class="copyright" href="https://docs.astro.build/en/tutorials/add-view-transitions/">Tutorial - Extend with View Transitions</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/cross-document-transitions.jpeg" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/WICG/view-transitions/blob/main/cross-doc-explainer.md">Cross Document View Transitions</a>
     </section>
 
     <section class="slide title">
