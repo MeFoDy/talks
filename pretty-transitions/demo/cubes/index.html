@@ -1,0 +1,140 @@
+<style>
+    body {
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #262626;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*,
+*::before,
+*::after {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.container {
+  width: 10vmin;
+  height: 10vmin;
+  border: 1px solid red;
+  position: relative;
+  transform: rotatex(-35deg) rotatey(45deg);
+}
+
+.cube {
+  display: block;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 10vmin;
+  height: 10vmin;
+  background-color: #E79C10;
+  -webkit-animation: cubePath infinite 3.6s cubic-bezier(0.8, 0, 0.2, 1);
+          animation: cubePath infinite 3.6s cubic-bezier(0.8, 0, 0.2, 1);
+}
+.cube::before {
+  display: block;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 10vmin;
+  height: 10vmin;
+  content: "";
+  background-color: #1D9099;
+  transform: rotatex(-90deg);
+  transform-origin: top;
+}
+.cube::after {
+  display: block;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 10vmin;
+  height: 10vmin;
+  content: "";
+  background-color: #D53A33;
+  transform: rotatey(90deg);
+  transform-origin: left;
+}
+
+@-webkit-keyframes cubePath {
+  0% {
+    transform: translate3d(calc(var(--x) * 1 * 10vmin), calc(var(--y) * 1 * 10vmin), calc(var(--z) * 1 * 10vmin));
+  }
+  16.6666666667% {
+    transform: translate3d(calc(var(--x) * 1 * 10vmin), calc(var(--y) * 1 * 10vmin), calc(var(--z) * 2 * 10vmin));
+  }
+  33.3333333333% {
+    transform: translate3d(calc(var(--x) * 2 * 10vmin), calc(var(--y) * 1 * 10vmin), calc(var(--z) * 2 * 10vmin));
+  }
+  50% {
+    transform: translate3d(calc(var(--x) * 2 * 10vmin), calc(var(--y) * 2 * 10vmin), calc(var(--z) * 2 * 10vmin));
+  }
+  66.6666666667% {
+    transform: translate3d(calc(var(--x) * 2 * 10vmin), calc(var(--y) * 2 * 10vmin), calc(var(--z) * 1 * 10vmin));
+  }
+  83.3333333333% {
+    transform: translate3d(calc(var(--x) * 1 * 10vmin), calc(var(--y) * 2 * 10vmin), calc(var(--z) * 1 * 10vmin));
+  }
+  100% {
+    transform: translate3d(calc(var(--x) * 1 * 10vmin), calc(var(--y) * 1 * 10vmin), calc(var(--z) * 1 * 10vmin));
+  }
+}
+
+@keyframes cubePath {
+  0% {
+    transform: translate3d(calc(var(--x) * 1 * 10vmin), calc(var(--y) * 1 * 10vmin), calc(var(--z) * 1 * 10vmin));
+  }
+  16.6666666667% {
+    transform: translate3d(calc(var(--x) * 1 * 10vmin), calc(var(--y) * 1 * 10vmin), calc(var(--z) * 2 * 10vmin));
+  }
+  33.3333333333% {
+    transform: translate3d(calc(var(--x) * 2 * 10vmin), calc(var(--y) * 1 * 10vmin), calc(var(--z) * 2 * 10vmin));
+  }
+  50% {
+    transform: translate3d(calc(var(--x) * 2 * 10vmin), calc(var(--y) * 2 * 10vmin), calc(var(--z) * 2 * 10vmin));
+  }
+  66.6666666667% {
+    transform: translate3d(calc(var(--x) * 2 * 10vmin), calc(var(--y) * 2 * 10vmin), calc(var(--z) * 1 * 10vmin));
+  }
+  83.3333333333% {
+    transform: translate3d(calc(var(--x) * 1 * 10vmin), calc(var(--y) * 2 * 10vmin), calc(var(--z) * 1 * 10vmin));
+  }
+  100% {
+    transform: translate3d(calc(var(--x) * 1 * 10vmin), calc(var(--y) * 1 * 10vmin), calc(var(--z) * 1 * 10vmin));
+  }
+}
+</style>
+<div class="container">
+    <div class="cube" style="--x:-1; --y:-1; --z: -1;"></div>
+    <div class="cube" style="--x:-1; --y:-1; --z: 0;"></div>
+    <div class="cube" style="--x:-1; --y:-1; --z: 1;"></div>
+    <div class="cube" style="--x:-1; --y:0; --z: -1;"></div>
+    <div class="cube" style="--x:-1; --y:0; --z: 0;"></div>
+    <div class="cube" style="--x:-1; --y:0; --z: 1;"></div>
+    <div class="cube" style="--x:-1; --y:1; --z: -1;"></div>
+    <div class="cube" style="--x:-1; --y:1; --z: 0;"></div>
+    <div class="cube" style="--x:-1; --y:1; --z: 1;"></div>
+    <div class="cube" style="--x:0; --y:-1; --z: -1;"></div>
+    <div class="cube" style="--x:0; --y:-1; --z: 0;"></div>
+    <div class="cube" style="--x:0; --y:-1; --z: 1;"></div>
+    <div class="cube" style="--x:0; --y:0; --z: -1;"></div>
+    <div class="cube" style="--x:0; --y:0; --z: 0;"></div>
+    <div class="cube" style="--x:0; --y:0; --z: 1;"></div>
+    <div class="cube" style="--x:0; --y:1; --z: -1;"></div>
+    <div class="cube" style="--x:0; --y:1; --z: 0;"></div>
+    <div class="cube" style="--x:0; --y:1; --z: 1;"></div>
+    <div class="cube" style="--x:1; --y:-1; --z: -1;"></div>
+    <div class="cube" style="--x:1; --y:-1; --z: 0;"></div>
+    <div class="cube" style="--x:1; --y:-1; --z: 1;"></div>
+    <div class="cube" style="--x:1; --y:0; --z: -1;"></div>
+    <div class="cube" style="--x:1; --y:0; --z: 0;"></div>
+    <div class="cube" style="--x:1; --y:0; --z: 1;"></div>
+    <div class="cube" style="--x:1; --y:1; --z: -1;"></div>
+    <div class="cube" style="--x:1; --y:1; --z: 0;"></div>
+    <div class="cube" style="--x:1; --y:1; --z: 1;"></div>
+  </div>
