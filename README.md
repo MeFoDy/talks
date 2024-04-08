@@ -1,6 +1,7 @@
 # Conferences and meetups: public talks
 
 Полный список докладов здесь: https://mefody.dev/talks/.
+
 В формате JSON: https://github.com/MeFoDy/mefody.dev/blob/main/src/data/talks.json.
 
 
