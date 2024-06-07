@@ -1,0 +1,97 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    css-demo {
+        --height: 100vh;
+        height: var(--height);
+        display: block;
+
+        .panels {
+            display: grid;
+            height: var(--height);
+            grid-template-columns: 1fr 1fr;
+            border: 3px solid #777;
+
+            >style {
+                display: block;
+                font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+                white-space: pre;
+                overflow: scroll;
+                height: 100%;
+                padding: 1em 1.5em;
+            }
+
+            >.demo {
+                display: grid;
+                place-items: center;
+                border-left: 3px solid #777;
+            }
+        }
+    }
+</style>
+
+<css-demo>
+    <div class="panels">
+        <style contenteditable="true">.cube {
+    --size: 20vmin;
+    --half-size: calc(var(--size) / 2);
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    background: #9d009d;
+    border: 2px solid #000000;
+    transform-style: preserve-3d;
+    position: relative;
+    box-sizing: border-box;
+    transform-origin: var(--half-size) var(--half-size) var(--half-size);
+    animation: spin 5s ease-in-out infinite;
+}
+
+.cube::before,
+.cube::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: var(--size);
+    height: var(--size);
+    box-sizing: border-box;
+    border: 2px solid #000000;
+}
+
+.cube::before {
+    transform: rotatex(0.25turn);
+    transform-origin: 0 0;
+    background: #ff00ff;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+}
+
+.cube::after {
+    transform: rotatey(0.25turn);
+    transform-origin: 100% 0;
+    background: #bc00bc;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotatex(10deg) rotatey(0.125turn);
+    }
+
+    100% {
+        transform: rotatex(10deg) rotatey(1.125turn);
+    }
+}
+</style>
+
+        <div class="demo">
+            <div class="cube"></div>
+        </div>
+    </div>
+</css-demo>
