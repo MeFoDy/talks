@@ -76,7 +76,7 @@
     </section>
 
     <section class="slide">
-        <pre><code>&lt;css-demo&gt;
+        <pre class="place html"><code>&lt;css-demo&gt;
     &lt;div class="panels"&gt;
         &lt;style&gt;
             /* TODO */
@@ -90,7 +90,7 @@
     </section>
 
     <section class="slide">
-        <pre class="place"><code>css-demo {
+        <pre class="place css"><code>css-demo {
     --height: 100vh;
     height: var(--height);
     display: block;
@@ -98,7 +98,13 @@
     </section>
 
     <section class="slide">
-        <pre class="place"><code>.panels {
+        <pre class="place css"><code>some-new-element {
+    display: inline;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place css"><code>.panels {
     display: grid;
     height: var(--height);
     grid-template-columns: 1fr 1fr;
@@ -107,10 +113,32 @@
     </section>
 
     <section class="slide">
-        <pre class="place"><code>.demo {
+        <pre class="place css"><code>.demo {
     display: grid;
     place-items: center;
     border-left: 3px solid #777;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>style {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    overflow: scroll;
+    height: 100%;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place" style="zoom: 1.5"><code>style {
+    display: block; /* 😱 */
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place" style="zoom: 1.5"><code>script {
+    display: block; /* 🫣 */
 }</code></pre>
     </section>
 
@@ -155,6 +183,7 @@
 
     <section class="slide clear">
         <iframe src="./demo/editor-nojs-start.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="./demo/editor-nojs-start.html">Demo: Start</a>
     </section>
 
     <section class="slide">
@@ -173,10 +202,11 @@
 
     <section class="slide clear">
         <iframe src="./demo/editor-nojs-editable.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="./demo/editor-nojs-editable.html">Demo: Editable</a>
     </section>
 
     <section class="slide">
-        <h2 class="shout">spellcheck</h2>
+        <h2 class="shout"><code>spellcheck</code></h2>
         <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck">spellcheck</a>
     </section>
 
@@ -186,9 +216,10 @@
 
     <section class="slide clear">
         <iframe src="./demo/editor-nojs-spellcheck.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="./demo/editor-nojs-spellcheck.html">Demo: Spellcheck</a>
     </section>
 
-    <section class="slide">
+    <section class="slide black">
         <h2 class="shout">Тёмная тема!</h2>
     </section>
 
@@ -202,6 +233,7 @@
 
     <section class="slide clear">
         <iframe src="./demo/editor-nojs-darktheme.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="./demo/editor-nojs-darktheme.html">Demo: Dark Theme</a>
     </section>
 
     <section class="slide">
@@ -222,9 +254,9 @@
 
     <section class="slide">
         <pre class="place css"><code>css-demo {
-    container: css-demo / size;
+    container: css-demo-container / size;
 
-    @container css-demo (width &lt; 800px) {
+    @container css-demo-container (width &lt; 800px) {
         & {
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr;
@@ -246,6 +278,7 @@
 
     <section class="slide clear">
         <iframe src="./demo/editor-nojs-full.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="./demo/editor-nojs-full.html">Demo: Isolate</a>
     </section>
 
     <section class="slide">
@@ -261,19 +294,52 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout"><code>resize: horizontal</code></h2>
+        <h2 class="shout"><code>resize</code></h2>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/resize">resize</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>.panels {
+    grid-template-columns: auto 1fr;
+
+    >style {
+        resize: horizontal;
+        width: 50cqi;
+    }
+}</code></pre>
     </section>
 
     <section class="slide clear">
         <iframe src="./demo/editor-nojs-resize.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="./demo/editor-nojs-resize.html">Demo: Resize</a>
     </section>
 
     <section class="slide">
-        <iframe src="https://codepen.io/jh3y/full/WNLJLXw" frameborder="0" class="cover width height"></iframe>
+        <h2 class="shout" style="display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3em;">
+            <img src="./pictures/jhey.png" alt="" style="width: 20%; border-radius: 100%;">
+            codepen.io/jh3y
+        </h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout">А если JavaScipt?</h2>
+        <h2>Утехзадание</h2>
+        <ul>
+            <li>✅ Есть превью результата</li>
+            <li>✅ Можно редактировать CSS</li>
+            <li>✅ CSS применяется мгновенно</li>
+            <li>✅ Можно двигать панельки</li>
+            <li>✅ Встраиваемое в слайды</li>
+            <li>✅ Не ломает вёрстку вокруг</li>
+        </ul>
+        <iframe src="./demo/fireworks.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">А если JavaScript?</h2>
+        <img src="./pictures/meme_atkinson.png" alt="" class="place right bottom" width="200">
     </section>
 
     <section class="slide">
@@ -286,7 +352,33 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout"><a href="https://codepen.io/bramus/pen/MWxLjEo" target="_blank">Demo</a></h2>
+        <iframe src="./demo/editor-js-highlight.txt" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <pre class="js place"><code>CSS.highlights.set(
+    'important',
+    new Highlight()
+)</code></pre>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/translate-game.webp" alt="" class="place" width="600">
+    </section>
+
+    <section class="slide">
+        <pre class="css place"><code>::highlight(important) {
+    color: #e90;
+}</code></pre>
+    </section>
+
+    <section class="slide clear">
+        <iframe src="./demo/editor-js-highlight.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="./demo/editor-js-highlight.html">Demo: Highlight</a>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/meme_i_am_great.png" alt="" class="cover place right">
     </section>
 
     <section class="slide black">

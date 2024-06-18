@@ -253,3 +253,18 @@ pre code.hljs {
 .slide.white h2 {
     color: var(--color-red);
 }
+
+a.copyright {
+    color: var(--color-white);
+    padding: 0.2em 0.7em;
+    background-color: var(--color-red);
+    background-image: none;
+}
+a.copyright:hover,
+a.copyright:focus {
+    opacity: 1;
+}
+
+.slide.black h2 {
+    color: var(--color-light-grey);
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor with Highlight</title>
+</head>
+<body>
+
+<style>
+    @layer syntax-highlighting {
+        /* From prism.css */
+        ::highlight(parameter) {
+            color: #1a1a1a;
+        }
+
+        ::highlight(comment),
+        ::highlight(prolog),
+        ::highlight(doctype),
+        ::highlight(cdata) {
+            color: slategray;
+        }
+
+        ::highlight(punctuation) {
+            color: #999;
+        }
+
+        ::highlight(property),
+        ::highlight(tag),
+        ::highlight(boolean),
+        ::highlight(number),
+        ::highlight(constant),
+        ::highlight(symbol),
+        ::highlight(deleted),
+        ::highlight(class-name) {
+            color: #905;
+        }
+
+        ::highlight(selector),
+        ::highlight(attr-name),
+        ::highlight(string),
+        ::highlight(char),
+        ::highlight(builtin),
+        ::highlight(inserted) {
+            color: #690;
+        }
+
+        ::highlight(operator),
+        ::highlight(entity),
+        ::highlight(url) {
+            color: #a67f59;
+            background: hsla(0, 0%, 100%, 0.5);
+        }
+
+        ::highlight(atrule),
+        ::highlight(attr-value),
+        ::highlight(keyword) {
+            color: #07a;
+        }
+
+        ::highlight(function) {
+            color: #dd4a68;
+        }
+
+        ::highlight(regex),
+        ::highlight(important),
+        ::highlight(variable) {
+            color: #e90;
+        }
+
+        ::highlight(important),
+        ::highlight(bold) {
+            font-weight: bold;
+        }
+
+        ::highlight(italic) {
+            font-style: italic;
+        }
+
+        ::highlight(entity) {
+            cursor: help;
+        }
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        html {
+            color-scheme: dark;
+        }
+    }
+
+    body {
+        margin: 0;
+    }
+
+    css-demo {
+        --height: 100vh;
+        height: var(--height);
+        display: block;
+        container: css-demo / size;
+
+        .panels {
+            display: grid;
+            height: var(--height);
+            grid-template-columns: auto 1fr;
+            border: 3px solid #777;
+
+            >style {
+                display: block;
+                font-family: "Fira Code", monospace;
+                white-space: pre;
+                overflow: scroll;
+                height: 100%;
+                padding: 1em 1.5em;
+                resize: horizontal;
+                width: 50cqi;
+            }
+
+            >.demo {
+                display: grid;
+                place-items: center;
+                border-left: 3px solid #777;
+            }
+
+            @container css-demo (width < 800px) {
+                & {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr 1fr;
+
+                    >.demo {
+                        border-top: 3px solid #777;
+                        border-left: none;
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<css-demo>
+    <div class="panels">
+        <style spellcheck="false" contenteditable="plaintext-only" class="editor">@scope {
+    /* DO NOT TOUCH THIS LINE 😅 */
+
+    .cube {
+        --size: 20vmin;
+        --half-size: calc(var(--size) / 2);
+        display: block;
+        width: var(--size);
+        height: var(--size);
+        background: #9d009d;
+        border: 2px solid #000000;
+        transform-style: preserve-3d;
+        position: relative;
+        box-sizing: border-box;
+        transform-origin: var(--half-size) var(--half-size) var(--half-size);
+        animation: spin 5s ease-in-out infinite;
+    }
+
+    .cube::before,
+    .cube::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        width: var(--size);
+        height: var(--size);
+        box-sizing: border-box;
+        border: 2px solid #000000;
+    }
+
+    .cube::before {
+        transform: rotatex(0.25turn);
+        transform-origin: 0 0;
+        background: #ff00ff;
+        border-bottom-width: 5px;
+        border-left-width: 5px;
+    }
+
+    .cube::after {
+        transform: rotatey(0.25turn);
+        transform-origin: 100% 0;
+        background: #bc00bc;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotatex(10deg) rotatey(0.125turn);
+        }
+
+        100% {
+            transform: rotatex(10deg) rotatey(1.125turn);
+        }
+    }
+
+}
+        </style>
+
+        <div class="demo">
+            <div class="cube"></div>
+        </div>
+    </div>
+</css-demo>
+
+<script src="./prism.js"></script>
+
+<script>
+// Source: https://codepen.io/bramus/pen/MWxLjEo
+
+if (CSS.highlights) {
+
+	// Register all token types
+	const tokenTypes = [ 'comment', 'prolog', 'doctype', 'cdata', 'punctuation', 'namespace',
+	                     'property', 'tag', 'boolean', 'number', 'constant', 'symbol', 'deleted',
+	                     'selector', 'attr', 'string', 'char', 'builtin', 'inserted', 'operator',
+	                     'entity', 'url', 'string', 'atrule', 'attr', 'keyword', 'function', 'class',
+	                     'regex', 'important', 'variable', 'important', 'bold', 'italic', 'entity',
+	                     'parameter', 'class-name'];
+
+	tokenTypes.forEach(tokenType => {
+		CSS.highlights.set(tokenType, new Highlight());
+	});
+
+	// Helper function to get the carent position inside an element
+	// Plays nice with an element having multiple text nodes as its children
+	const getCaretPosition = (el) => {
+		const selectionInfo = window.getSelection(el);
+		let node = selectionInfo.anchorNode;
+		let pos = selectionInfo.anchorOffset;
+
+		// Need to loop all previous siblings here becase you only get the position
+		// in the current text node, so we need to offset the previousSibling here
+		// TODO: This might need a rewrite to make sure it only loops textNodes
+		while (node.previousSibling) {
+			pos += node.previousSibling.length;
+			node = node.previousSibling;
+		}
+
+		return pos;
+	}
+
+	// Helper function to flatten the text nodes in an element to
+	// only 1
+	const flattenTextNodes = codeBlock => codeBlock.normalize();
+
+	// Loops all tokens and highlights them based on their type
+	const paintTokenHighlights = (codeBlock, tokens) => {
+		// Paint new highlights
+		let pos = 0;
+		for (const token of tokens) {
+			if (token.type) {
+				const range = new Range();
+				range.setStart(codeBlock.firstChild, pos);
+				range.setEnd(codeBlock.firstChild, pos + token.length);
+				CSS.highlights.get(token.alias ?? token.type)?.add(range);
+			}
+			pos += token.length;
+		}
+	}
+
+	const highlight = (codeBlock, lang = Prism.languages.css) => {
+		// We need the contenteditable to hold only 1 child textNode that
+		// contains all the text. If we don’t do this, the highlight ranges
+		// might go out of bounds.
+		flattenTextNodes(codeBlock);
+
+		// Tokenize the code
+		let tokens = Prism.tokenize(
+			codeBlock.innerText,
+			lang
+		);
+
+		// console.log(tokens);
+
+	  // Clear all current highlights
+		tokenTypes.forEach(tokenType => {
+			CSS.highlights.get(tokenType).clear();
+		});
+
+		// Paint all token highlights
+		paintTokenHighlights(codeBlock, tokens);
+	}
+
+	const codeBlock = document.querySelector('style.editor');
+
+	// Allow only plaintext editing
+	// Firefox doesn’t do 'plaintext-only', but does do 'true'
+	codeBlock.setAttribute('contenteditable', 'plaintext-only');
+	if (codeBlock.contentEditable != 'plaintext-only') {
+		codeBlock.setAttribute('contenteditable', 'true');
+	}
+
+	// Highlight the code block
+	highlight(codeBlock);
+
+	// Re-highlight whenever the content has changed
+	codeBlock.addEventListener('keyup', () => {
+		highlight(codeBlock);
+	});
+
+	// Prevent content-editable from doing nasty stuff when hitting enter/tab
+	codeBlock.addEventListener('keydown', e => {
+		if (e.keyCode == 9) {
+        document.execCommand('insertHTML', false, '&#009');
+        e.preventDefault();
+    }
+	});
+}
+</script>
+
+</body>
+</html>
