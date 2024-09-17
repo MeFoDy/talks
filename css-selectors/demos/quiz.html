@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квиз про CSS на CSS</title>
+    <style>
+        html {
+            color-scheme: dark;
+        }
+
+        body {
+            font-family: "PT Sans", sans-serif;
+            line-height: 1.6;
+            font-size: 20px;
+            counter-reset: correct;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        body:has(:checked:not([data-correct]:checked)) h1::before {
+            content: '❌ ';
+        }
+
+        body:not(:has([data-correct]:not(:checked))) h1::before {
+            content: '✅ ';
+        }
+
+        .cards {
+            max-width: 640px;
+            margin: 0 auto;
+            counter-reset: question;
+        }
+
+        .card {
+            --color-primary: #ccc;
+            counter-increment: question;
+            border: 2px solid var(--color-primary);
+            border-left-width: 15px;
+            position: relative;
+
+            >p::before {
+                content: counter(question) ". ";
+            }
+        }
+
+        .card:not(:last-child) {
+            margin-bottom: 1em;
+        }
+
+        .verdicts {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .verdict {
+            background-color: var(--color-primary);
+            color: #000;
+            border-radius: 10px;
+            padding: 0.2em 0.8em;
+            margin-right: 0.5em;
+            margin-bottom: 0.7em;
+            font-size: 0.8em;
+            text-align: center;
+            display: none;
+        }
+
+        .answer:has(:checked) {
+            color: var(--color-primary);
+            accent-color: var(--color-primary);
+        }
+
+        .answer:has([data-correct]:checked) {
+            counter-increment: correct;
+        }
+
+        .card:has([data-correct]:checked) {
+            --color-primary: lime;
+
+            .verdict-ok {
+                display: block;
+            }
+        }
+
+        .card:has(:checked:not([data-correct])) {
+            --color-primary: tomato;
+
+            .verdict-wa {
+                display: block;
+            }
+        }
+
+        .answers-counter {
+            margin-bottom: 10em;
+        }
+
+        .answers-counter::after {
+            content: counter(correct) " из " counter(question);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS-квиз</h1>
+    <div class="cards">
+        <fieldset class="card">
+            <p>Какой псевдокласс отвечает за выбор непосещённых ссылок?</p>
+            <div class="answer">
+                <input type="radio" name="q1" id="q1-1" value="1" data-correct>
+                <label for="q1-1">:link</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q1" id="q1-2" value="2">
+                <label for="q1-2">:visited</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q1" id="q1-3" value="3">
+                <label for="q1-3">:any-link</label>
+            </div>
+            <div class="verdicts">
+                <p class="verdict verdict-ok">Верно! Ты молодец!</p>
+                <p class="verdict verdict-wa">Неверно. Попробуй ещё.</p>
+            </div>
+        </fieldset>
+        <fieldset class="card">
+            <p>Как можно выбрать чётные элементы списка?</p>
+            <div class="answer">
+                <input type="radio" name="q2" id="q2-1" value="1">
+                <label for="q2-1">li:nth-child(2)</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q2" id="q2-2" value="2" data-correct>
+                <label for="q2-2">li:nth-child(2n)</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q2" id="q2-3" value="3">
+                <label for="q2-3">li:nth-child(2n+1)</label>
+            </div>
+            <div class="verdicts">
+                <p class="verdict verdict-ok">Шаришь в селекторах!</p>
+                <p class="verdict verdict-wa">А если внимательнее?</p>
+            </div>
+        </fieldset>
+        <fieldset class="card">
+            <p>Какой селектор имеет нулевую специфичность?</p>
+            <div class="answer">
+                <input type="radio" name="q3" id="q3-1" value="1" data-correct>
+                <label for="q3-1">:is(*)</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q3" id="q3-2" value="2">
+                <label for="q3-2">li:where(#id)</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q3" id="q3-3" value="3">
+                <label for="q3-3">::before</label>
+            </div>
+            <div class="verdicts">
+                <p class="verdict verdict-ok">Ну красота же!</p>
+                <p class="verdict verdict-wa">Почти, попробуй ещё раз.</p>
+            </div>
+        </fieldset>
+        <fieldset class="card">
+            <p>Как выбрать элемент, у которого атрибут начинается с подстроки?</p>
+            <div class="answer">
+                <input type="radio" name="q4" id="q4-1" value="1">
+                <label for="q4-1">[attr=^"value"]</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q4" id="q4-2" value="2">
+                <label for="q4-2">[attr="value"]</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q4" id="q4-3" value="3" data-correct>
+                <label for="q4-3">[attr^="value"]</label>
+            </div>
+            <div class="verdicts">
+                <p class="verdict verdict-ok">Всё верно!</p>
+                <p class="verdict verdict-wa">Запутывает, понимаю.</p>
+            </div>
+        </fieldset>
+        <fieldset class="card">
+            <p>Как выбрать список, в котором есть ровно 5 элементов?</p>
+            <div class="answer">
+                <input type="radio" name="q5" id="q5-1" value="1" data-correct>
+                <label for="q5-1">ul:has(li:nth-child(5):last-child)</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q5" id="q5-2" value="2">
+                <label for="q5-2">ul:has(li:nth-child(5n):last-child)</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="q5" id="q5-3" value="3">
+                <label for="q5-3">ul:has(li:nth-child(5):only-child)</label>
+            </div>
+            <div class="verdicts">
+                <p class="verdict verdict-ok">Отлично!</p>
+                <p class="verdict verdict-wa">Увы, нет. Попробуй ещё.</p>
+            </div>
+        </fieldset>
+        <p class="answers-counter">Верных ответов: </p>
+    </div>
+</body>
+
+</html>
