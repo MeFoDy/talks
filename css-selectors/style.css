@@ -404,3 +404,7 @@ css-demo {
 .slide .handwritten {
     font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
 }
+
+.place.zoom {
+    transform: translate(-50%, -50%) scale(1.5);
+}

@@ -96,6 +96,11 @@
         <img src="./pictures/wordpress-logo.svg" alt="Wordpress" class="place">
     </section>
 
+    <section class="slide">
+        <img src="./pictures/css-zen-garden.jpeg" alt="" class="cover width">
+        <a class="copyright" href="https://csszengarden.com/">CSS Zen Garden</a>
+    </section>
+
     <section class="slide title">
         <h2 class="shout">Поехали 🚗</h2>
     </section>
@@ -175,6 +180,12 @@
     </section>
 
     <section class="slide">
+        <pre class="place"><code>&lt;div class="grid grid-cols-1 desktop:grid-cols-4"&gt;
+    &lt;!-- ... --&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="slide">
         <pre class="place"><code>&lt;div class="Pos(a) Bgc(#0280ae) W(120px) H(90px)"&gt;&lt;/div&gt;
 &lt;div class="C(#0280ae) BdB Bdc(#0280ae) P(10px)"&gt;
     Lorem ipsum
@@ -191,11 +202,8 @@
     </section>
 
     <section class="slide">
-        <img src="./pictures/speicificity-devtools.jpeg" alt="" class="place" width="500">
-    </section>
-
-    <section class="slide">
-        <img src="./pictures/specificity-vscode.jpeg" alt="" class="place" width="500">
+        <img src="./pictures/specificity-calculator.jpeg" alt="" class="cover width">
+        <a class="copyright" href="https://specificity.keegan.st/">Specificity Calculator</a>
     </section>
 
     <section class="slide">
@@ -204,6 +212,14 @@
             <p>specificity "header:where(#top) nav li, #doormat"<br>(0,1,3)<br>(1,0,0)</p>
         </div>
         <a class="copyright" href="https://github.com/bramus/specificity">bramus/specificity</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/speicificity-devtools.jpeg" alt="" class="place" width="500">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/specificity-vscode.jpeg" alt="" class="place" width="500">
     </section>
 
     <section class="slide">
@@ -532,6 +548,10 @@ svg|a {
     </section>
 
     <section class="slide">
+        <h2 class="shout"><code> </code></h2>
+    </section>
+
+    <section class="slide">
         <h2 class="shout"><code>.parent .child</code></h2>
     </section>
 
@@ -597,7 +617,11 @@ svg|a {
     </section>
 
     <section class="slide">
-        <h2 class="shout"><code>.child + .child</code><br>vs<br><code>.child ~ .child</code></h2>
+        <h2 class="shout"><code>.child + .child</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>.child ~ .child</code></h2>
     </section>
 
     <section class="slide demo">
@@ -657,6 +681,10 @@ svg|a {
     </section>
 
     <section class="slide">
+        <h2 class="shout"><code>img + p</code></h2>
+    </section>
+
+    <section class="slide">
         <h2>CSS Nesting</h2>
         <pre><code>.parent {
     color: tomato;
@@ -703,15 +731,7 @@ svg|a {
     </section>
 
     <section class="slide">
-        <h2>Домашнее задание 📚</h2>
-        <ul>
-            <li><code>::before</code></li>
-            <li><code>::after</code></li>
-            <li><code>::first-letter</code></li>
-            <li><code>::first-line</code></li>
-            <li><code>::backdrop</code></li>
-            <li><code>::placeholder</code></li>
-        </ul>
+        <h2 class="shout"><code>::after, ::before</code></h2>
     </section>
 
     <section class="slide">
@@ -719,6 +739,51 @@ svg|a {
     content: "ⓘ" / "Дополнительная информация:";
 }</code></pre>
         <a class="copyright" href="https://doka.guide/css/before/">::before</a>
+    </section>
+
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style>
+@scope {
+    .card {
+        position: relative;
+        background: darkviolet;
+        padding: 1em 2em;
+        text-align: center;
+        transition: scale 0.3s ease;
+    }
+
+    .card a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .card:hover {
+        scale: 1.05;
+    }
+}
+</style>
+<div class="card">
+    <h3>Какой-то товар</h3>
+    <p><a href="#">Купить</a></p>
+</div>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/minskcss-miocene.png" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=r06cu0U1O5g">3D-моделирование на CSS / Юлия Миоцен</a>
     </section>
 
     <section class="slide">
@@ -754,6 +819,22 @@ svg|a {
 
     <section class="slide">
         <h2 class="shout"><img src="./pictures/safari-logo.svg" alt="" height="65"> Safari — только цвет и размер шрифта</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>::backdrop</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/dialog-talk.jpeg" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>::first-letter</code>, <code>::first-line</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>::placeholder</code></h2>
     </section>
 
     <section class="slide">
@@ -986,22 +1067,19 @@ svg|a {
     </section>
 
     <section class="slide">
-        <h2>Домашнее задание 📚</h2>
-        <ul class="columns two">
-            <li><code>:root</code></li>
-            <li><code>:link</code></li>
-            <li><code>:visited</code></li>
-            <li><code>:any-link</code></li>
-            <li><code>:focus</code></li>
-            <li><code>:active</code></li>
-            <li><code>:hover</code></li>
-            <li><code>:placeholder-shown</code></li>
-            <li><code>:disabled</code></li>
-            <li><code>:enabled</code></li>
-            <li><code>:optional</code></li>
-            <li><code>:required</code></li>
-            <li><code>:picture-in-picture</code></li>
-        </ul>
+        <h2 class="shout"><code>:root</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>:link</code>,<br><code>:visited</code>,<br><code>:any-link</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <code>:focus</code>,<br>
+            <code>:active</code>,<br>
+            <code>:hover</code>
+        </h2>
     </section>
 
     <section class="slide">
@@ -1066,6 +1144,10 @@ svg|a {
 
     <section class="slide">
         <h2 class="shout">⚠️ <code>:target-within</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>:placeholder-shown</code></h2>
     </section>
 
     <section class="slide">
@@ -1141,6 +1223,14 @@ svg|a {
     </section>
 
     <section class="slide">
+        <h2 class="shout"><code>:disabled</code>, <code>:enabled</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>:optional</code>, <code>:required</code></h2>
+    </section>
+
+    <section class="slide">
         <h2 class="shout"><code>:read-only</code>,<br><code>:read-write</code></h2>
     </section>
 
@@ -1176,13 +1266,11 @@ svg|a {
     </section>
 
     <section class="slide">
-        <h2>Валидация ✅</h2>
-        <ul>
-            <li><code>:invalid</code></li>
-            <li><code>:valid</code></li>
-            <li><code>:user-invalid</code></li>
-            <li><code>:user-valid</code></li>
-        </ul>
+        <h2 class="shout"><code>:invalid</code>,<br><code>:valid</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>:user-invalid</code>, <code>:user-valid</code></h2>
     </section>
 
     <section class="slide demo">
@@ -1364,11 +1452,19 @@ svg|a {
     </section>
 
     <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><code>:picture-in-picture</code></h2>
+    </section>
+
+    <section class="slide">
         <h2 class="shout"><code>:popover-open</code></h2>
     </section>
 
     <section class="slide">
         <img src="./pictures/dialog-talk.jpeg" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/dicaprio-we-need-to-go-deeper-deeper.jpg" alt="" class="cover">
     </section>
 
     <section class="slide">
@@ -1406,10 +1502,6 @@ nav:dir(rtl) {
         <img src="./pictures/rtl-101.jpeg" alt="" class="cover">
         <a class="copyright" href="https://rtlstyling.com/posts/rtl-styling/">RTL Styling 101</a>
 
-    </section>
-
-    <section class="slide">
-        <img src="./pictures/dicaprio-we-need-to-go-deeper-deeper.jpg" alt="" class="cover">
     </section>
 
     <section class="slide">
@@ -1465,7 +1557,11 @@ nav:dir(rtl) {
     </section>
 
     <section class="slide">
-        <h2 class="shout"><code>:first-child</code>,<br><code>:first-of-type</code>,<br><code>:last-child</code>,<br><code>:last-of-type</code></h2>
+        <h2 class="shout"><code>:first-child</code>,<br><code>:first-of-type</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>:last-child</code>,<br><code>:last-of-type</code></h2>
     </section>
 
     <section class="slide">
@@ -1502,7 +1598,26 @@ nav:dir(rtl) {
     </section>
 
     <section class="slide">
+        <pre class="place big"><code>.item:not(:last-child) {
+    border-bottom: 1px solid tomato;
+}</code></pre>
+    </section>
+
+    <section class="slide">
         <h2 class="shout"><code>:is(#id)</code><br><small>(1, 0, 0)</small></h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>h1,
+h2,
+h3,
+h4 {
+    font-weight: bold;
+}
+
+:is(h1, h2, h3, h4) {
+    font-weight: bold;
+}</code></pre>
     </section>
 
     <section class="slide">
@@ -1860,8 +1975,11 @@ a:nth-last-child(6):first-child ~ a {
     </section>
 
     <section class="slide">
+        <img src="./pictures/meme-wait-for-pleasure.png" alt="" class="place" width="500">
+    </section>
+
+    <section class="slide">
         <h2 class="shout"><code>:has()</code></h2>
-        <img src="./pictures/meme-wait-for-pleasure.png" alt="" class="place bottom left" width="250" style="left: 230px; bottom: 30px">
     </section>
 
     <section class="slide demo">
@@ -1970,7 +2088,7 @@ a:nth-last-child(6):first-child ~ a {
         <pre class="place"><code>const ParentComponent: FC = (items) => {
     let size = 'default';
 
-    if (items.length >= 6) {
+    if (items.length > 5) {
         size = 'big';
     }
 
@@ -2053,6 +2171,17 @@ a:nth-last-child(6):first-child ~ a {
     </section>
 
     <section class="slide">
+        <pre class="place big"><code>.call-button {
+    position: fixed;
+    bottom: 20px;
+}
+
+body:has(.gdpr-banner) .call-button {
+    bottom: 120px;
+}</code></pre>
+    </section>
+
+    <section class="slide">
         <pre class="place big"><code>.card:has(.button:hover) {
     /* TODO */
 }</code></pre>
@@ -2110,9 +2239,28 @@ a:nth-last-child(6):first-child ~ a {
     </section>
 
     <section class="slide">
+        <pre><code>::picker(select) {
+    appearance: base-select;
+    border-radius: 1rem;
+}
+
+option {
+    font-family: monospace;
+    padding: 0.5rem 1rem 0.5rem 0;
+}
+
+option::before {
+    content: '🩷';
+}</code></pre>
+    </section>
+
+    <section class="slide">
         <img src="./pictures/whatwg-customizable-select.jpeg" alt="" class="place" width="800">
-        <img src="./pictures/meme-happy-cat.png" alt="" class="place bottom left" height="310" style="left: 10px">
         <a class="copyright" href="https://github.com/whatwg/html/issues/9799">Customizable &lt;select&gt; element</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme-happy-cat.png" alt="" class="place bottom" height="600">
     </section>
 
     <section class="slide title">
