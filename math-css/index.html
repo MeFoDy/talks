@@ -422,14 +422,15 @@ h2 {
 
     <section class="slide">
         <img src="./pictures/github_react.png" alt="" class="place" width="700">
-    </section>
-
-    <section class="slide">
-        <img src="./pictures/github_gsap.png" alt="" class="place" width="700">
+        <span class="place top" style="top: 76px; left: 414px;">😬😬📖📖</span>
     </section>
 
     <section class="slide">
         <img src="./pictures/github_lodash.png" alt="" class="place" width="700">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/github_gsap.png" alt="" class="place" width="700">
     </section>
 
     <section class="slide">
@@ -814,11 +815,11 @@ h2 {
 
     <section class="slide">
         <pre class="place"><code>h1 {
-    font-size: clamp(3rem, round(down, 5vw + 1.5rem, 1px), 7rem);
+    font-size: round(down, clamp(3rem, 5vw + 1.5rem, 7rem), 1px);
 }
 
 h2 {
-    font-size: clamp(2rem, round(down, 4vw + 1.5rem, 1px), 5rem);
+    font-size: round(down, clamp(2rem, 4vw + 1.5rem, 5rem), 1px);
 }</code></pre>
     </section>
 
@@ -1035,6 +1036,15 @@ h2 {
     </section>
 
     <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="Radial Menu with CSS trig functions" src="https://codepen.io/una/embed/VwGRpXN?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/una/pen/VwGRpXN">
+                Radial Menu with CSS trig functions</a> by Una Kravets (<a href="https://codepen.io/una">@una</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <a class="copyright" href="https://una.im/radial-menu/">Building a no-JS radial menu with CSS trigonometry, popover, and anchor positioning</a>
+    </section>
+
+    <section class="slide">
         <iframe src="./demos/eye.html" frameborder="0" class="cover width height"></iframe>
         <a class="copyright" href="https://codepen.io/dark_mefody/pen/yyyrQgV">Watching you</a>
     </section>
@@ -1085,13 +1095,31 @@ addEventListener('mousemove', setPositions, false);</code></pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout red">TODO: LQIP</h2>
-        <a class="copyright" href="https://leanrada.com/notes/css-only-lqip/">https://leanrada.com/notes/css-only-lqip/</a>
+        <img src="./pictures/scewed-sections.jpg" alt="" class="cover">
+        <a class="copyright" href="https://blog.logrocket.com/css-trig-functions-practical-applications/">CSS trig functions: Practical applications</a>
     </section>
 
     <section class="slide">
-        <h2 class="shout red">TODO: Skewed parts</h2>
-        <a class="copyright" href="https://blog.logrocket.com/css-trig-functions-practical-applications/">https://blog.logrocket.com/css-trig-functions-practical-applications/</a>
+        <pre class="place"><code>* {
+    --packed-int: 781; /* 11_00_001_101 */
+
+    --bits-9-10: mod(
+        round(down, calc(var(--packed-int) / 256)), 4
+    );
+    --bits-7-8: mod(
+        round(down, calc(var(--packed-int) / 64)), 4
+    );
+    --bits-4-6: mod(
+        round(down, calc(var(--packed-int) / 8)), 8
+    );
+    --bits-0-3: mod(var(--packed-int), 8);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lqip-example.jpg" alt="" class="place" width="700">
+        <a class="copyright" href="https://leanrada.com/notes/css-only-lqip/">Minimal CSS-only blurry
+            image placeholders</a>
     </section>
 
     <section class="slide">
