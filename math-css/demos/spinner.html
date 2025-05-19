@@ -1,0 +1,167 @@
+<!-- https://codepen.io/dark_mefody/pen/raabZqb -->
+
+<style>
+    @property --angle {
+        syntax: '<angle>';
+        inherits: false;
+        initial-value: 0deg;
+    }
+
+    :root {
+        --count: 3;
+    }
+
+    body {
+        margin: 0;
+        width: 100vw;
+        overflow: hidden;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .center {
+        width: 100vmin;
+        height: 100vmin;
+        position: relative;
+    }
+
+    .dot {
+        --size: calc(4vmin / var(--l));
+        --radius: calc(50vmin / pow(2.2, var(--l)));
+        --speed: calc(pow(2, var(--l)));
+        background-color: white;
+        opacity: calc(0.5 + 0.5 / var(--l));
+        border-radius: calc(infinity * 1px);
+    }
+
+    .spin {
+        --x: calc(cos(var(--angle)) * var(--radius) - var(--size) / 2);
+        --y: calc(sin(var(--angle)) * var(--radius) - var(--size) / 2);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--size);
+        height: var(--size);
+        translate: calc(var(--x)) calc(var(--y));
+        animation: spin linear calc(20s / var(--speed)) infinite;
+    }
+
+    @keyframes spin {
+        from {
+            --angle: calc(var(--i) * calc(1turn / var(--count)));
+        }
+
+        to {
+            --angle: calc(var(--i) * 1turn / var(--count) + 1turn);
+        }
+    }
+</style>
+
+<div class="center">
+    <div class="dot spin" style="--l: 1; --i: 0">
+        <div class="dot spin" style="--l: 2; --i: 0">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 1">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 2">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 3">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+    </div>
+    <div class="dot spin" style="--l: 1; --i: 3">
+        <div class="dot spin" style="--l: 2; --i: 0">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 1">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 2">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 3">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+    </div>
+    <div class="dot spin" style="--l: 1; --i: 1">
+        <div class="dot spin" style="--l: 2; --i: 0">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 1">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 2">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 3">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+    </div>
+    <div class="dot spin" style="--l: 1; --i: 2">
+        <div class="dot spin" style="--l: 2; --i: 0">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 1">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 2">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+        <div class="dot spin" style="--l: 2; --i: 3">
+            <div class="dot spin" style="--l: 3; --i: 0"></div>
+            <div class="dot spin" style="--l: 3; --i: 1"></div>
+            <div class="dot spin" style="--l: 3; --i: 2"></div>
+            <div class="dot spin" style="--l: 3; --i: 3"></div>
+        </div>
+    </div>
+</div>

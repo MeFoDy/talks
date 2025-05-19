@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Математика в CSS: что и зачем считать для стилей</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Современный CSS умеет в тригонометрию, округления, возведение в степень, логарифмы и даже в логические операции. Но при первом знакомстве с математическими функциями обычно возникает вопрос: «Зачем?». В докладе постараюсь не просто ответить на этот экзистенциальный вопрос, но и показать на примерах, как математические функции помогут сделать интерфейс впечатляющим.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/github-dark.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Математика в CSS: что и зачем считать для стилей</h1>
+        <p>
+            <a href="https://t.me/mefody_dev">Никита Дубко</a>, Яндекс Контест
+        </p>
+    </header>
+
+    <section class="slide clear">
+        <h2 style="font-size: 2.5em; color: var(--color-red);">Математика в CSS:<br>что и зачем считать<br>для стилей</h2>
+        <img src="./pictures/codefest-logo.svg" alt="" width="50" style="margin-top: 58px;">
+        <p style="margin-top: 10px;">Никита Дубко, Яндекс Контест</p>
+        <iframe src="./demos/demo_cube_wave.html" frameborder="0" class="place right bottom cover" style="width: 60%; height: 50vh;"></iframe>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 350px;">
+            <h2>Никита Дубко</h2>
+            <ul>
+                <li>16 лет в профессии</li>
+                <li>амбассадор CSS</li>
+                <li>третий раз на CodeFest</li>
+                <li>подкастер</li>
+                <li>беларус</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Есть <span class="blue">2 категории</span> людей</h2>
+    </section>
+
+    <section class="slide white">
+        <img class="place" src="./pictures/meme_math_in_life.jpg" alt="">
+    </section>
+
+    <section class="slide">
+        <img class="cover height" src="./pictures/meme_math_77.jpg" alt="">
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" src="./demos/diamond_spin.html" frameborder="0"></iframe>
+        <a class="copyright" href="https://codepen.io/hexagoncircle/pen/XWxZgqx">Diamond Spin by Ryan Mulligan</a>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" src="./demos/eye.html" frameborder="0"></iframe>
+        <a class="copyright" href="https://codepen.io/dark_mefody/pen/yyyrQgV">Watching you</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_its_time.png" alt="" class="place" width="450">
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 1</small><br>Базовые возможности</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🕹️ <code>calc()</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>calc(1vh + 20px)</code></h2>
+    </section>
+
+    <section class="slide">
+        <code class="place" style="font-size: 1.6em; width: max-content;">calc(<br>   1 / var(--count) * 1turn<br>)</code>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>@property --scrollbar {
+    syntax: "&lt;length&gt;";
+    inherits: true;
+    initial-value: 0px;
+}
+
+html {
+    container-type: inline-size;
+}
+
+body {
+    --scrollbar: calc(100vw - 100cqw);
+}</code></pre>
+        <a class="copyright" href="https://css-tip.com/width-scrollbar/">Get the scrollbar width using only CSS</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code style="font-size: 0.9em;">min(90px, 5vw, 5%)</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code style="font-size: 0.9em;">max(90px, 5vw, 5%)</code></h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code style="font-size: 0.9em;">clamp(from, fn, to)</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/MinskCSS13-Speaker-Card-Fokina.png" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=jasV7jll_pY&list=PL3uk4LxG9ZzmZGqpQmIMbGsiwtB6wU5Dp&index=2&ab_channel=MinskCSS">Резиновая типографика: магия clamp()</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/fluid-sizing.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>h1 {
+    font-size: clamp(3rem, 5vw + 1.5rem, 7rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw + 1.5rem, 5rem);
+}</code></pre>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 2</small><br>Логические функции</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>.effects {
+    /* Фантазируем */
+    @if (enabled) {
+        filter:
+            contrast(.9)
+            opacity(.7);
+    }
+
+    [id='toggle']:checked ~ & {
+        enabled: true;
+    }
+}</code></pre>
+        <a class="copyright" href="https://css-tricks.com/logical-operations-with-css-variables/">Logical Operations with CSS Variables</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">AND<br>OR<br>XOR<br>NOT</h2>
+    </section>
+
+    <section class="slide">
+        <h2>NOT</h2>
+        <table style="font-size: 1.5em;">
+            <tr>
+                <th width="20%">A</th>
+                <th width="60%">!A</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <pre class="place big">
+            <code>--not: calc(1 - var(--a))</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>AND</h2>
+        <table style="font-size: 1.5em;">
+            <tr>
+                <th width="20%">A</th>
+                <th width="20%">B</th>
+                <th width="60%">A && B</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <pre class="place big">
+            <code>--and: calc(var(--a) * var(--b))</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>OR</h2>
+        <table style="font-size: 1.5em;">
+            <tr>
+                <th width="20%">A</th>
+                <th width="20%">B</th>
+                <th width="60%">A || B</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">not (A or B)<br><span class="blue">=</span><br>(not A) and (not B)</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big">
+            <code>--or: calc(1 - (1 - var(--a)) * (1 - var(--b)))</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>XOR</h2>
+        <table style="font-size: 1.5em;">
+            <tr>
+                <th width="20%">A</th>
+                <th width="20%">B</th>
+                <th width="60%">A ^ B</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+            <code>--xor: calc((var(--a) - var(--b)) * (var(--a) - var(--b)))</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>.effects {
+    --i: var(--enabled, 0);
+    --noti: calc(1 - var(--i));
+    filter:
+        contrast(calc(1 - var(--noti) * .9))
+        opacity(calc(1 - var(--noti) * .7));
+
+    [id='toggle']:checked ~ & {
+        --enabled: 1;
+    }
+}</code></pre>
+        <a class="copyright" href="https://css-tricks.com/logical-operations-with-css-variables/">Logical Operations with CSS Variables</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 3</small><br>Тригонометрия</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pifagor.png" alt="" class="place bottom" width="400">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/pifagor-shtani.jpg" alt="" class="place" width="500" style="mix-blend-mode: color-dodge; filter: invert(1);">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/triangle.png" alt="" class="place" style="mix-blend-mode: lighten; filter: invert(1);" width="400">
+    </section>
+
+    <section class="slide">
+        <math display="block" style="display:block;">
+            <mrow>
+                <mi>sin</mi>
+                <mo form="prefix" stretchy="false">(</mo>
+                <mi>α</mi>
+                <mo form="postfix" stretchy="false">)</mo>
+                <mo>=</mo>
+                <mfrac>
+                    <mi>a</mi>
+                    <mi>c</mi>
+                </mfrac>
+            </mrow>
+        </math>
+        <br>
+        <math display="block" class="next" style="display:block;">
+            <mrow>
+                <mi>cos</mi>
+                <mo form="prefix" stretchy="false">(</mo>
+                <mi>α</mi>
+                <mo form="postfix" stretchy="false">)</mo>
+                <mo>=</mo>
+                <mfrac>
+                    <mi>b</mi>
+                    <mi>c</mi>
+                </mfrac>
+            </mrow>
+        </math>
+        <br>
+        <math display="block" class="next" style="display:block;">
+            <mrow>
+                <mi>tg</mi>
+                <mo form="prefix" stretchy="false">(</mo>
+                <mi>α</mi>
+                <mo form="postfix" stretchy="false">)</mo>
+                <mo>=</mo>
+                <mfrac>
+                    <mrow>
+                        <mi>sin</mi>
+                        <mo form="prefix" stretchy="false">(</mo>
+                        <mi>α</mi>
+                        <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">)</mo>
+                    </mrow>
+                    <mrow>
+                        <mi>cos</mi>
+                        <mo form="prefix" stretchy="false">(</mo>
+                        <mi>α</mi>
+                        <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">)</mo>
+                    </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mfrac>
+                    <mi>a</mi>
+                    <mi>b</mi>
+                </mfrac>
+            </mrow>
+        </math>
+        <br>
+        <math display="block" class="next" style="display:block;">
+            <mrow>
+                <mi>ctg</mi>
+                <mo form="prefix" stretchy="false">(</mo>
+                <mi>α</mi>
+                <mo form="postfix" stretchy="false">)</mo>
+                <mo>=</mo>
+                <mfrac>
+                    <mrow>
+                        <mi>cos</mi>
+                        <mo form="prefix" stretchy="false">(</mo>
+                        <mi>α</mi>
+                        <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">)</mo>
+                    </mrow>
+                    <mrow>
+                        <mi>sin</mi>
+                        <mo form="prefix" stretchy="false">(</mo>
+                        <mi>α</mi>
+                        <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">)</mo>
+                    </mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mfrac>
+                    <mi>b</mi>
+                    <mi>a</mi>
+                </mfrac>
+            </mrow>
+        </math>
+        <img src="./pictures/triangle.png" alt="" class="place right" style="mix-blend-mode: lighten; filter: invert(1); right: 200px;" width="350">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Зачем мне это <span class="blue">в вебе?</span></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/github_react.png" alt="" class="place" width="700">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/github_gsap.png" alt="" class="place" width="700">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/github_lodash.png" alt="" class="place" width="700">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="">Физика!</span></h2>
+        <img src="./pictures/fizika.jpg" alt="" class="cover width" style="opacity: 0.2;">
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/spring.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <math display="block" class="place big">
+            <mi>y</mi>
+            <mo>=</mo>
+            <mi>A</mi>
+            <mrow data-mjx-texclass="ORD">
+                <mi>cos</mi>
+                <mo data-mjx-texclass="NONE">⁡</mo>
+                <mrow data-mjx-texclass="INNER">
+                    <mo data-mjx-texclass="OPEN">(</mo>
+                    <msub>
+                        <mrow data-mjx-texclass="ORD">
+                            <mi>ω</mi>
+                        </mrow>
+                        <mn>0</mn>
+                    </msub>
+                    <mi>t</mi>
+                    <mo>+</mo>
+                    <mi>φ</mi>
+                    <mo data-mjx-texclass="CLOSE">)</mo>
+                </mrow>
+                <mo>=</mo>
+                <mi>A</mi>
+                <mrow data-mjx-texclass="ORD">
+                    <mi>sin</mi>
+                    <mo data-mjx-texclass="NONE">⁡</mo>
+                    <mrow data-mjx-texclass="INNER">
+                        <mo data-mjx-texclass="OPEN">(</mo>
+                        <msub>
+                            <mrow data-mjx-texclass="ORD">
+                                <mi>ω</mi>
+                            </mrow>
+                            <mn>0</mn>
+                        </msub>
+                        <mi>t</mi>
+                        <mo>+</mo>
+                        <msub>
+                            <mrow data-mjx-texclass="ORD">
+                                <mi>φ</mi>
+                            </mrow>
+                            <mn>1</mn>
+                        </msub>
+                        <mo data-mjx-texclass="CLOSE">)</mo>
+                    </mrow>
+                </mrow>
+            </mrow>
+        </math>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Ряды Фурье</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/Synthesis_square.gif" alt="" class="place">
+    </section>
+
+    <section class="slide">
+        <math display="block" class="place big" style="display:block;">
+            <mrow>
+                <mi>f</mi>
+                <mo form="prefix" stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo form="postfix" stretchy="false">)</mo>
+                <mo>=</mo>
+                <mfrac>
+                    <msub>
+                        <mi>a</mi>
+                        <mn>0</mn>
+                    </msub>
+                    <mn>2</mn>
+                </mfrac>
+                <mo>+</mo>
+                <mrow>
+                    <munderover>
+                        <mo movablelimits="false">∑</mo>
+                        <mrow>
+                            <mi>k</mi>
+                            <mo>=</mo>
+                            <mn>1</mn>
+                        </mrow>
+                        <mrow>
+                            <mo lspace="0em" rspace="0em">+</mo>
+                            <mi>∞</mi>
+                        </mrow>
+                    </munderover>
+                </mrow>
+                <msub>
+                    <mi>A</mi>
+                    <mi>k</mi>
+                </msub>
+                <mrow>
+                    <mi>cos</mi>
+                    <mo>⁡</mo>
+                </mrow>
+                <mrow>
+                    <mo fence="true" form="prefix">(</mo>
+                    <mi>k</mi>
+                    <mfrac>
+                        <mrow>
+                            <mn>2</mn>
+                            <mi>π</mi>
+                        </mrow>
+                        <mi>τ</mi>
+                    </mfrac>
+                    <mi>x</mi>
+                    <mo>+</mo>
+                    <msub>
+                        <mi>θ</mi>
+                        <mi>k</mi>
+                    </msub>
+                    <mo fence="true" form="postfix">)</mo>
+                </mrow>
+            </mrow>
+        </math>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/relax-2.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="CSS Trigonometric Functions: cos() and sin()" src="https://codepen.io/web-dot-dev/embed/NWLxROo?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/web-dot-dev/pen/NWLxROo">
+                CSS Trigonometric Functions: cos() and sin()</a> by web.dev (<a href="https://codepen.io/web-dot-dev">@web-dot-dev</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <math display="block" style="display:inline-block;">
+                <mrow>
+                    <msup>
+                        <mi>R</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <msup>
+                        <mi>x</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>+</mo>
+                    <msup>
+                        <mi>y</mi>
+                        <mn>2</mn>
+                    </msup>
+                </mrow>
+            </math>
+            <br>
+            <math display="block" class="next" style="display:inline-block;">
+                <mrow>
+                    <msup>
+                        <mn>1</mn>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>=</mo>
+                    <mi>c</mi>
+                    <mi>o</mi>
+                    <msup>
+                        <mi>s</mi>
+                        <mn>2</mn>
+                    </msup>
+                    <mo>+</mo>
+                    <mi>s</mi>
+                    <mi>i</mi>
+                    <msup>
+                        <mi>n</mi>
+                        <mn>2</mn>
+                    </msup>
+                </mrow>
+            </math>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="CSS Trigonometric Functions: cos() and sin(): dots on a circle" src="https://codepen.io/web-dot-dev/embed/ExePgOg?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/web-dot-dev/pen/ExePgOg">
+                CSS Trigonometric Functions: cos() and sin(): dots on a circle</a> by web.dev (<a href="https://codepen.io/web-dot-dev">@web-dot-dev</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Можно рисовать <span class="blue">правильные</span> фигуры</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 4</small><br>Спецификации</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Как считали древние?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Ряд Тейлора</h2>
+    </section>
+
+    <section class="slide">
+        <math display="block" class="place big" style="display:block;">
+            <mrow>
+                <mi>sin</mi>
+                <mo form="prefix" stretchy="false">(</mo>
+                <mi>x</mi>
+                <mo form="postfix" stretchy="false">)</mo>
+                <mo>=</mo>
+                <mi>x</mi>
+                <mo>−</mo>
+                <mfrac>
+                    <msup>
+                        <mi>x</mi>
+                        <mn>3</mn>
+                    </msup>
+                    <mrow>
+                        <mn>3</mn>
+                        <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">!</mo>
+                    </mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <msup>
+                        <mi>x</mi>
+                        <mn>5</mn>
+                    </msup>
+                    <mrow>
+                        <mn>5</mn>
+                        <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">!</mo>
+                    </mrow>
+                </mfrac>
+                <mo>−</mo>
+                <mfrac>
+                    <msup>
+                        <mi>x</mi>
+                        <mn>7</mn>
+                    </msup>
+                    <mrow>
+                        <mn>7</mn>
+                        <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">!</mo>
+                    </mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <msup>
+                        <mi>x</mi>
+                        <mn>9</mn>
+                    </msup>
+                    <mrow>
+                        <mn>9</mn>
+                        <mo form="postfix" stretchy="false" lspace="0em" rspace="0em">!</mo>
+                    </mrow>
+                </mfrac>
+                <mo>−</mo>
+                <mi>...</mi>
+            </mrow>
+        </math>
+    </section>
+
+    <section class="slide">
+        <pre><code>@function sin($angle) {
+    $sin: 0;
+    $angle: rad($angle);
+    // Iterate a bunch of times.
+    @for $i from 0 through 20 {
+        $sin:
+            $sin + pow(-1, $i)
+            * pow($angle, (2 * $i + 1))
+            / fact(2 * $i + 1);
+    }
+    @return $sin;
+}</code></pre>
+        <a class="copyright" href="https://dev.mo4tech.com/use-trigonometric-functions-to-draw-curves-and-display-animations-in-css.html">Use trigonometric functions to draw curves and display animations in CSS</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>@function cos($angle) {
+    $cos: 0;
+    $angle: rad($angle);
+    // Iterate a bunch of times.
+    @for $i from 0 through 20 {
+        $cos:
+            $cos + pow(-1, $i)
+            * pow($angle, 2 * $i)
+            / fact(2 * $i);
+    }
+    @return $cos;
+}</code></pre>
+        <a class="copyright" href="https://dev.mo4tech.com/use-trigonometric-functions-to-draw-curves-and-display-animations-in-css.html">Use trigonometric functions to draw curves and display animations in CSS</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_girl_car.webp" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/github-css-math-functions.png" alt="" class="cover">
+        <a class="copyright" href="https://github.com/w3c/csswg-drafts/issues/2331">[css-values] Trigonometric functions</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/github-css-math-functions.png" alt="" class="place left bottom">
+        <a class="copyright" href="https://github.com/w3c/csswg-drafts/issues/2331">[css-values] Trigonometric functions</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/w3c-spec-values.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.w3.org/TR/css-values-4/#trig-funcs">CSS Values and Units Module Level 4</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/github-interop-math.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://github.com/web-platform-tests/interop/issues/149">CSS Math Functions</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/interop-math-tests.png" alt="" class="place" width="600">
+        <a class="copyright" href="https://wpt.fyi/interop-2023?feature=interop-2023-mathfunctions">Interop 2023</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-atan2.png" alt="" class="place" width="800">
+        <a class="copyright" href="https://caniuse.com/mdn-css_types_atan2">atan2</a>
+    </section>
+
+    <section class="slide">
+        <h2>Функции шага</h2>
+        <ul>
+            <li><code>round()</code></li>
+            <li><code>mod()</code></li>
+            <li><code>rem()</code></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 1.6em;"><code>round(var(--w), 50px)</code>
+            <br><span class="blue" style="font-size: 2em;">↓</span><br>
+            <code>Math.round()</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 1.6em;"><code>round(up, var(--w), 50px)</code>
+            <br><span class="blue" style="font-size: 2em;">↓</span><br>
+            <code>Math.ceil()</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 1.6em;"><code>round(down, var(--w), 50px)</code>
+            <br><span class="blue" style="font-size: 2em;">↓</span><br>
+            <code>Math.floor()</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 1.6em;"><code>round(to-zero, var(--w), 50px)</code>
+            <br><span class="blue" style="font-size: 2em;">↓</span><br>
+            <code>Math.trunc()</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>h1 {
+    font-size: clamp(3rem, 5vw + 1.5rem, 7rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw + 1.5rem, 5rem);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>h1 {
+    font-size: clamp(3rem, round(down, 5vw + 1.5rem, 1px), 7rem);
+}
+
+h2 {
+    font-size: clamp(2rem, round(down, 4vw + 1.5rem, 1px), 5rem);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><code>rem(7, 2)</code>
+            <br><span class="blue" style="font-size: 2em;">↓</span><br>
+            <code>7 % 2 = 1</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><code>mod(7, 2)</code>
+            <br><span class="blue" style="font-size: 2em;">↓</span><br>
+            <code>7 % 2 = 1</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <div class="place">
+            <h2 class="center">Домашнее задание</h2>
+            <p class="center">Разобраться, чем отличаются <br><code>rem(-21, 4)</code> и <code>mod(-21, 4)</code></p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Экспоненциальные функции</h2>
+        <ul>
+            <li><code>pow(5, 2) = 25</code></li>
+            <li class="next"><code>sqrt(9) = 3</code></li>
+            <li class="next"><code>hypot(3em, 4em) = 5em</code></li>
+            <li class="next"><code>log(8, 2) = 3</code></li>
+            <li class="next"><code>exp(1) = e</code></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><code>hypot(3em, 4em, 5em)</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Функции знака</h2>
+        <ul>
+            <li><code>abs(-20px) = 20px</code></li>
+            <li><code>sign(-20px) = -1</code></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Тригонометрические функции</h2>
+        <ul>
+            <li><code>sin()</code></li>
+            <li><code>cos()</code></li>
+            <li><code>tan()</code></li>
+            <li><code>asin()</code></li>
+            <li><code>acos()</code></li>
+            <li><code>atan()</code></li>
+            <li><code>atan2()</code></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><code>atan(pi / 2)</code>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><code>atan2(4px, 3px)</code>
+        </h2>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/relax-2.jpg" alt="" class="cover width">
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 5</small><br>Практика</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>:root {
+    /* ❌ */
+    --px-width: calc(100vw / 1px);
+
+    /* ✅ */
+    --px-width: tan(atan2(100vw, 1px));
+}</code></pre>
+        <a class="copyright" href="https://dev.to/janeori/css-type-casting-to-numeric-tanatan2-scalars-582j">CSS Type Casting to Numeric: tan(atan2()) Scalars</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Можно рисовать <span class="blue">правильные</span> фигуры</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><code>clip-path: polygon()</code></h2>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style>
+@scope {
+    .pentagon {
+        width: 80%;
+        aspect-ratio: 1;
+        position: relative;
+        margin: auto;
+    }
+    .pentagon::after {
+        --r: 50%;
+        --c: 50%;
+        clip-path: polygon(
+            calc(var(--c) + sin(0turn) * var(--r))
+            calc(var(--c) - cos(0turn) * var(--r)),
+            calc(var(--c) + sin(0.2turn) * var(--r))
+            calc(var(--c) - cos(0.2turn) * var(--r)),
+            calc(var(--c) + sin(0.4turn) * var(--r))
+            calc(var(--c) - cos(0.4turn) * var(--r)),
+            calc(var(--c) + sin(0.6turn) * var(--r))
+            calc(var(--c) - cos(0.6turn) * var(--r)),
+            calc(var(--c) + sin(0.8turn) * var(--r))
+            calc(var(--c) - cos(0.8turn) * var(--r))
+        );
+        /* clip-path: polygon(
+            calc(var(--c) + sin(0deg) * var(--r))
+            calc(var(--c) - cos(0deg) * var(--r)),
+            calc(var(--c) + sin(120deg) * var(--r))
+            calc(var(--c) - cos(120deg) * var(--r)),
+            calc(var(--c) + sin(240deg) * var(--r))
+            calc(var(--c) - cos(240deg) * var(--r))
+        ); */
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        display: block;
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, hsl(188 100% 50%), hsl(218 100% 60%));
+    }
+    .pentagon::before {
+        position: absolute;
+        inset: 0;
+        border: 1px dotted darkcyan;
+        content: "";
+        display: block;
+        aspect-ratio: 1;
+        margin: auto;
+        width: 100%;
+        border-radius: calc(Infinity * 1px);
+    }
+}
+</style>
+<div class="pentagon"></div>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/wilson-css-shapes.png" alt="" class="cover width place top">
+        <a class="copyright" href="https://danielcwilson.com/posts/css-shapes-with-trig-functions/">Improving CSS Shapes with Trigonometric Functions</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 2em;"><code>mask: radial-gradient()</code></h2>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/flowers-afif.html" class="cover width height" frameborder="0"></iframe>
+        <a class="copyright" href="https://frontendmasters.com/blog/creating-flower-shapes-using-css-mask-trigonometric-functions/">Creating Flower Shapes using CSS Mask & Trigonometric Functions</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/afif-flowers.webp" alt="" class="place">
+        <a class="copyright" href="https://frontendmasters.com/blog/creating-flower-shapes-using-css-mask-trigonometric-functions/">Creating Flower Shapes using CSS Mask & Trigonometric Functions</a>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/solar_system.html" class="cover width height" frameborder="0"></iframe>
+        <a class="copyright" href="https://codepen.io/dark_mefody/pen/qEEwMWv">Solar System</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.9em;"><code>.mercury {
+    --size: 1vmin;
+    --radius: calc(0.4 * var(--ae));
+    --speed: calc(88 / 365);
+    --x: calc(cos(var(--angle)) * var(--radius) - var(--size) / 2);
+    --y: calc(sin(var(--angle)) * var(--radius) - var(--size) / 2);
+    translate: calc(var(--x)) calc(var(--y));
+    animation: spin linear calc(var(--speed) * 100s) infinite;
+}
+
+@keyframes spin {
+    from { --angle: 0turn; }
+    to { --angle: 1turn; }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/spinner.html" class="cover width height" frameborder="0"></iframe>
+        <a class="copyright" href="https://codepen.io/dark_mefody/pen/raabZqb">Spinner</a>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="CSS Ring Text with CSS Trigonometric Functions" src="https://codepen.io/jh3y/embed/LYBdKXE?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/LYBdKXE">
+                CSS Ring Text with CSS Trigonometric Functions</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/eye.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://codepen.io/dark_mefody/pen/yyyrQgV">Watching you</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>const ball = document.querySelector('.ball');
+
+function setPositions(e) {
+    const viewportOffset = ball.getBoundingClientRect();
+    ball.style = `
+        --cx: ${viewportOffset.left + viewportOffset.width / 2};
+        --cy: ${viewportOffset.top + viewportOffset.height / 2};
+        --cursor-x: ${e.pageX};
+        --cursor-y: ${e.pageY}
+    `;
+}
+
+addEventListener('mousemove', setPositions, false);</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_math_find_x.png" alt="" class="place" width="800">
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;"><code>.iris {
+    --angle: atan2(
+        var(--cursor-x) - var(--cx),
+        var(--cursor-y) - var(--cy)
+    );
+    --x: calc((var(--cursor-x) - var(--cx)) / var(--cx));
+    --y: calc((var(--cursor-y) - var(--cy)) / var(--cy));
+    --scale: calc(
+        0.2 * hypot(
+            var(--cursor-y) - var(--cy),
+            var(--cursor-x) - var(--cx)
+        ) / hypot(var(--cy), var(--cx))
+    );
+    scale: 1 calc(1 - var(--scale));
+    translate: calc(var(--x) * 50%) calc(var(--y) * 50%);
+    rotate: calc(-1 * var(--angle));
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/eye.html" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://codepen.io/dark_mefody/pen/yyyrQgV">Watching you</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout red">TODO: LQIP</h2>
+        <a class="copyright" href="https://leanrada.com/notes/css-only-lqip/">https://leanrada.com/notes/css-only-lqip/</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout red">TODO: Skewed parts</h2>
+        <a class="copyright" href="https://blog.logrocket.com/css-trig-functions-practical-applications/">https://blog.logrocket.com/css-trig-functions-practical-applications/</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>Infinity</code></h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>.very-top {
+    /* ❌ */
+    z-index: 9999999;
+
+    /* ✅ */
+    z-index: calc(Infinity);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>.rounded {
+    /* ❌ */
+    border-radius: 100%;
+    border-radius: 9999px;
+
+    /* ✅ */
+    border-radius: calc(Infinity * 1px);
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Когда это всё <span class="blue">не</span> нужно?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">❌ На странице нет динамики</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">❌ IE11</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">❌ SVG или JS весят меньше</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/all.jpg" alt="" class="cover">
+        <a class="copyright" href="https://web-standards.ru">«Веб-стандарты»</a>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/mefody-dev-tg.jpeg" alt="" class="place rounded left" width="600" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+        <img src="./pictures/qr-code-tg.png" alt="" class="place right rounded" width="250" style="margin-right: 100px;">
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Всем добра!</h2>
+        <b>Слайды</b><br>
+        <a href="https://mefody.dev/talks/math-css/">mefody.dev/talks/math-css/</a>
+        <br><br>
+        <b>Подписаться</b><br>
+        <a href="https://x.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/codefest-feedback.gif" alt="QR-код со ссылкой на голосование" class="place bottom right" width="300" style="right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script>
+        (function() {
+            var mouseTimer = null, cursorVisible = true;
+
+            function disappearCursor() {
+                mouseTimer = null;
+                document.body.style.cursor = "none";
+                cursorVisible = false;
+            }
+
+            document.onmousemove = function() {
+                if (mouseTimer) {
+                    window.clearTimeout(mouseTimer);
+                }
+                if (!cursorVisible) {
+                    document.body.style.cursor = "default";
+                    cursorVisible = true;
+                }
+                mouseTimer = window.setTimeout(disappearCursor, 3000);
+            };
+        })();
+    </script>
+
+    <script>
+        const demoCodes = document.querySelectorAll("css-demo .demo-code");
+        const setDemoValue = function(textarea) {
+            const code = textarea.value;
+            const demoResult = textarea.parentNode.querySelector('.demo-result');
+            demoResult.innerHTML = code;
+            if (window.indeterminate) window.indeterminate.indeterminate = true;
+        };
+        const setChangeListener = function(demoCode, listener) {
+            demoCode.addEventListener("blur", listener);
+            demoCode.addEventListener("keyup", listener);
+        }
+        demoCodes.forEach(demoCode => {
+            const textarea = demoCode;
+            setDemoValue(textarea);
+            setChangeListener(demoCode, () => {
+                setDemoValue(textarea);
+            });
+        });
+    </script>
+</body>
+
+</html>

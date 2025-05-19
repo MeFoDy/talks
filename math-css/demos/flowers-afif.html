@@ -1,0 +1,27 @@
+<!-- https://codepen.io/t_afif/pen/NWJQYNx -->
+
+<style>
+    /* the number of circles/petals */
+    .flower {
+        --r: 30px;
+        /* the radius of the small circles */
+        width: calc(2*var(--r)*(1 + 1/sin(180deg/12)));
+        aspect-ratio: 1;
+        /* empty variable */
+        /* loop through the number of circles*/
+        mask: radial-gradient(#000 calc(var(--r)/tan(180deg/12)), #0000 calc(var(--r)/tan(180deg/12) + 1px)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.0833333333)) calc(50% + 50%*sin(360deg*0.0833333333))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.1666666667)) calc(50% + 50%*sin(360deg*0.1666666667))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.25)) calc(50% + 50%*sin(360deg*0.25))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.3333333333)) calc(50% + 50%*sin(360deg*0.3333333333))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.4166666667)) calc(50% + 50%*sin(360deg*0.4166666667))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.5)) calc(50% + 50%*sin(360deg*0.5))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.5833333333)) calc(50% + 50%*sin(360deg*0.5833333333))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.6666666667)) calc(50% + 50%*sin(360deg*0.6666666667))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.75)) calc(50% + 50%*sin(360deg*0.75))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.8333333333)) calc(50% + 50%*sin(360deg*0.8333333333))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*0.9166666667)) calc(50% + 50%*sin(360deg*0.9166666667))/calc(2*var(--r)) calc(2*var(--r)), radial-gradient(50% 50%, #000 98%, #0000) no-repeat calc(50% + 50%*cos(360deg*1)) calc(50% + 50%*sin(360deg*1))/calc(2*var(--r)) calc(2*var(--r));
+        background: linear-gradient(60deg, #2d576d, #e0236f);
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-content: center;
+        grid-auto-flow: column;
+        gap: 30px;
+        background: #E0E4CC;
+    }
+</style>
+
+<div class="flower"></div>

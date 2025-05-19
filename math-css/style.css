@@ -1,0 +1,400 @@
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 100;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-thin.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 300;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-light.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 400;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular.woff)
+        format("woff");
+}
+
+@font-face {
+    font-style: italic;
+    font-family: Yandex Sans Text Web;
+    font-weight: 400;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-regular-italic.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 500;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-medium.woff)
+        format("woff");
+}
+
+@font-face {
+    font-family: Yandex Sans Text Web;
+    font-weight: 700;
+    src: url(../src/shower/themes/yandex2/fonts/yandex-sans-text-web-bold.woff)
+        format("woff");
+}
+
+.slide h2,
+.caption h1 {
+    font-family: "Yandex Sans Text Web", "PT Sans Narrow", Apple Color Emoji, 'Segoe UI Emoji', sans-serif;
+}
+
+.caption {
+    color: white;
+}
+
+.caption a {
+    color: var(--color-lightblue);
+}
+
+.slide {
+    background-color: var(--color-bg);
+}
+
+.slide h2 {
+    color: var(--color-blue);
+}
+
+.slide h2.shout {
+    color: var(--color-text);
+}
+
+.slide h2.shout small {
+    color: var(--color-blue);
+}
+
+.shower.list {
+    background: var(--color-blue);
+}
+
+.shower.list .slide.active {
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5), 0 0 0 20px var(--color-red),
+        0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.slide .shout {
+    font-size: 3em;
+    padding-left: var(--slide-side);
+    padding-right: var(--slide-side);
+    box-sizing: border-box;
+}
+
+.slide .shout a {
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 255, 0.2) 0.06em,
+        transparent 0.06em
+    );
+}
+
+.slide s {
+    text-decoration: none;
+    position: relative;
+    color: #aaa;
+}
+
+.slide s::after {
+    content: "";
+    display: block;
+    background-color: var(--color-red);
+    width: 102%;
+    height: 0.1em;
+    position: absolute;
+    top: 50%;
+    left: -1%;
+    transform: rotate(2deg);
+}
+
+.slide::after {
+    height: auto;
+    width: calc(var(--ribbon-size) * 1.5);
+    background-color: var(--color-blue);
+    color: var(--color-bg);
+    background-image: none;
+    margin-top: 1em;
+    padding-right: 0.5em;
+    padding-top: 0;
+    left: auto;
+    right: 0;
+}
+
+.slide pre code {
+    line-height: 1.4;
+    font-size: 0.9em;
+}
+
+.slide.title {
+    background-image: linear-gradient(to right bottom, var(--color-bg), var(--color-darkblue));
+}
+
+.slide.title::after {
+    content: "";
+}
+
+.slide.title h2 {
+    color: white;
+    text-align: left;
+    padding: 0 100px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.shower {
+    --color-blue: #32a3dc;
+    --color-darkblue: #103345;
+    --color-lightblue: #eff8fc;
+    --color-grey: #999;
+    --color-white: #fff;
+    --color-black: #001c3b;
+    --color-green: #c1ead6;
+    --color-red: #ff3179;
+    --color-bg: var(--color-black);
+    --color-text: var(--color-white);
+}
+
+.shower {
+    --color-fill: rgba(88, 90, 94, 0.4);
+    font-family: "Yandex Sans Text Web", "PT Sans", sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.slide .mark-trigger:not(.active) + * mark {
+    background: none;
+}
+
+.slide .grey {
+    color: var(--color-grey);
+}
+
+.slide .blue {
+    color: var(--color-blue);
+}
+
+.slide ul li:lang(ru)::before {
+    font-size: 1.4em;
+    content: "›";
+    line-height: 1.15em;
+    color: var(--color-blue);
+    font-weight: 300;
+}
+
+.badge a {
+    color: var(--color-text);
+    background-color: var(--color-red);
+}
+
+.slide a {
+    color: var(--color-red);
+}
+
+.slide blockquote.place {
+    width: 60%;
+}
+
+.slide blockquote::before {
+    color: var(--color-blue);
+    opacity: 0.8;
+    font-size: 6em;
+    left: -24px;
+}
+
+.terminal,
+.terminal *,
+.terminal::before,
+.terminal::after {
+    box-sizing: border-box;
+}
+
+.terminal {
+    font-size: 1em;
+    line-height: 1.2em;
+    width: 100%;
+    min-height: 300px;
+    margin-top: 25px;
+    background-color: #0f3642;
+    color: #b4c4c6;
+    padding: 10px;
+    border-radius: 0 0 7px 7px;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 30px 1px rgba(0, 0, 0, 0.2);
+}
+
+.terminal::before {
+    border-radius: 7px 7px 0 0;
+    position: absolute;
+    content: attr(data-content);
+    display: block;
+    width: 100%;
+    text-overflow: ellipsis;
+    padding: 0 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #4c3436;
+    font-size: 0.7em;
+    background: linear-gradient(0deg, #d8d8d8, #ececec);
+    top: -25px;
+    left: 0;
+    font-family: "PT Sans", sans-serif;
+}
+
+.terminal::after {
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    width: 12px;
+    height: 12px;
+    background: #f95c5b;
+    border-radius: 100%;
+    box-shadow: 0 0 0 1px #da3d42, 22px 0 0 0 #fabe3b, 22px 0 0 1px #ecb03e, 44px 0 0 0 #38cd46, 44px 0 0 1px #2eae32;
+}
+
+.terminal p {
+    margin: 0;
+    font-family: 'Fira Code', "PT Sans", sans-serif;
+}
+
+.terminal p::before {
+    color: #5ed7ff;
+    content: '~$ ';
+}
+
+pre code.hljs {
+    padding: 0 0 0 var(--slide-side);
+}
+
+pre code.hljs.wrapped {
+    word-break: break-all;
+    width: 100%;
+    overflow-x: clip;
+    white-space: pre-wrap;
+}
+
+.slide .thin {
+    font-weight: 300;
+}
+
+.shadowed {
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.arrow {
+    color: var(--color-blue);
+}
+
+.slide .opaque {
+    opacity: 0.5;
+}
+
+.slide mark {
+    background-color: var(--color-blue);
+    color: var(--color-text);
+}
+
+.slide mark.label {
+    position: relative;
+    display: inline-block;
+    transform: rotate(-10deg) scale(1.5);
+}
+
+.slide.white {
+    background-color: var(--color-white);
+    background-image: none;
+}
+
+.slide.white h2 {
+    color: var(--color-blue);
+}
+
+.rounded {
+    border-radius: 20px;
+}
+
+.big {
+    font-size: 1.5em;
+}
+
+.cite {
+    font-size: 1.5em;
+}
+
+.cite-author {
+    font-size: 0.7em;
+    color: var(--color-grey);
+}
+
+.title .cite-author {
+    color: var(--color-blue);
+}
+
+a.copyright {
+    color: var(--color-text);
+    padding: 0.2em 0.7em;
+    background-color: var(--color-blue);
+    border-radius: 1em;
+    background-image: none;
+}
+a.copyright:hover,
+a.copyright:focus {
+    opacity: 1;
+}
+
+.slide th {
+    color: var(--color-blue);
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.slide .center {
+    text-align: center;
+}
+
+.slide.demo {
+    padding: 0;
+}
+
+css-demo * {
+    box-sizing: border-box;
+}
+
+css-demo {
+    --height: 100%;
+    height: var(--height);
+    display: block;
+
+    .demo-panels {
+        display: grid;
+        height: var(--height);
+        grid-template-columns: 1fr 1fr;
+        border: 3px solid #777;
+
+        >.demo-code {
+            display: block;
+            font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+            white-space: pre;
+            overflow: scroll;
+            height: 100%;
+            padding: 1em 1.5em;
+            font-size: 0.7em;
+            background-color: transparent;
+            color: inherit;
+            line-height: 1.2;
+        }
+
+        >.demo-result {
+            padding: 1em 1.5em;
+            border-left: 3px solid #777;
+        }
+    }
+}

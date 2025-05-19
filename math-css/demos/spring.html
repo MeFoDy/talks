@@ -1,0 +1,143 @@
+<!-- https://codepen.io/dark_mefody/pen/jEEReQN -->
+
+<div class="pendulum">
+    <div class="ball sin">
+        <div class="volume"></div>
+    </div>
+</div>
+<div class="pendulum">
+    <div class="ball ease">
+        <div class="volume"></div>
+    </div>
+</div>
+<div class="pendulum">
+    <div class="ball dynamic">
+        <div class="volume"></div>
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        background: black;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pendulum {
+        display: inline-flex;
+        justify-content: center;
+        width: 15vmin;
+        height: 90vh;
+    }
+
+    :root {
+        --ball-size: 10vmin;
+    }
+
+    @property --t {
+        syntax: '<number>';
+        inherits: false;
+        initial-value: 0;
+    }
+
+    @property --y {
+        syntax: '<length>';
+        inherits: false;
+        initial-value: 0px;
+    }
+
+    .ball {
+        position: relative;
+        border-radius: calc(Infinity * 1px);
+        background: red;
+        width: var(--ball-size);
+        height: var(--ball-size);
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: var(--ball-size);
+            left: calc(50% - 0.25vmin);
+            width: 0.5vmin;
+            height: 100vmin;
+            background: grey;
+            transform: scaley(calc(2 + var(--yy)));
+            transform-origin: 0 0;
+            animation: spring linear infinite 8s;
+        }
+    }
+
+    .volume {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 1%;
+            left: 5%;
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+            filter: blur(5px);
+            z-index: 2;
+            opacity: 0.5;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            border-radius: 100%;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 0, 0, 0), rgba(20, 20, 20, 0.5) 50%, #575300 100%);
+        }
+    }
+
+    .sin {
+        --A: 20vmin;
+        --w: 2;
+        --y: calc(var(--A) * sin(var(--w) * var(--t)));
+        transform: translatey(calc(var(--y) + var(--A) * 1.5));
+        animation: spring linear infinite 8s;
+    }
+
+    .dynamic {
+        --A: 20vmin;
+        --w: 2;
+        --y: calc(var(--A) * sin(var(--w) * var(--t)) + var(--A) * 0.2 * sin(var(--w) * 5 * var(--t)));
+        transform: translatey(calc(var(--y) + var(--A) * 1.5));
+        animation: spring linear infinite 8s;
+    }
+
+    .ease {
+        --d: 4s;
+        transform: translatey(calc(var(--y)));
+        animation: spring2 ease-in-out infinite var(--d);
+        animation-delay: calc(var(--d) / -4);
+    }
+
+    @keyframes spring {
+        from {
+            --t: 0;
+        }
+
+        to {
+            --t: calc(pi * 2);
+        }
+    }
+
+    @keyframes spring2 {
+
+        from,
+        to {
+            --y: 10vmin;
+        }
+
+        50% {
+            --y: 50vmin;
+        }
+    }
+</style>
