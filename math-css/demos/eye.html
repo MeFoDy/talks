@@ -4,12 +4,15 @@
 
 <section class="stage">
     <figure class="ball">
-        <span class="shadow"></span>
         <span class="iris"></span>
     </figure>
 </section>
 
 <style>
+    :root {
+        --size: 60vmin;
+    }
+
     .ball {
         display: inline-block;
         width: 100%;
@@ -33,9 +36,9 @@
         border-radius: 50%;
         background: radial-gradient(circle at 50% 50%,
                 rgba(255, 255, 255, 0.8),
-                rgba(255, 255, 255, 0.8) 14%,
+                rgba(255, 255, 255, 0.6) 14%,
                 rgba(255, 255, 255, 0) 24%);
-        transform: translateX(-80px) translateY(-90px) skewX(-20deg);
+        transform: translateX(calc(var(--size) * -0.27)) translateY(calc(var(--size) * -0.3)) skewX(-20deg);
     }
 
     .iris {
@@ -69,27 +72,9 @@
         background: black;
     }
 
-    .ball .shadow {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 50% 50%,
-                rgba(0, 0, 0, 0.4),
-                rgba(0, 0, 0, 0.1) 40%,
-                rgba(0, 0, 0, 0) 50%);
-        transform: rotateX(90deg) translateZ(-150px);
-        z-index: -1;
-    }
-
     .stage {
-        width: 300px;
-        height: 300px;
-        display: inline-block;
-        margin: 20px;
-        perspective: 1200px;
-        perspective-origin: 50% 50%;
-        transform-style: preserve-3d;
-        transform: rotateY(0.01deg);
+        width: var(--size);
+        height: var(--size);
     }
 
     body {
@@ -100,22 +85,24 @@
         justify-content: center;
         align-items: center;
         background: linear-gradient(to bottom,
-                rgba(100, 100, 100, 0.1) 0%,
-                rgba(255, 255, 255, 0.1) 40%,
-                rgba(255, 255, 255, 0.3) 100%);
-        background-repeat: no-repeat;
+                rgba(100, 100, 100, 0.2) 0%,
+                rgba(255, 255, 255, 0.5) 40%,
+                rgb(255, 255, 255) 100%);
+        touch-action: none;
+        cursor: pointer;
     }
 </style>
 
 <script>
-    const ball = document.querySelector('.ball');
+    const ball = document.querySelector(".ball");
 
-    function tellPos(p) {
+    function setPositions(e) {
         const viewportOffset = ball.getBoundingClientRect();
         const cy = viewportOffset.top + viewportOffset.height / 2;
         const cx = viewportOffset.left + viewportOffset.width / 2;
-        ball.style = `--cx: ${cx}; --cy: ${cy}; --cursor-x: ${p.pageX}; --cursor-y: ${p.pageY}`;
+        ball.style = `--cx: ${cx}; --cy: ${cy}; --cursor-x: ${Math.max(e.pageX, 0)}; --cursor-y: ${Math.max(e.pageY, 0)}`;
     }
 
-    addEventListener("mousemove", tellPos, false);
+    addEventListener("pointermove", setPositions, false);
+
 </script>
