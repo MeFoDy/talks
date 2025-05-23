@@ -140,14 +140,14 @@ h2 {
     <section class="slide">
         <pre class="place"><code>.effects {
     /* Фантазируем */
-    @if (enabled) {
+    @if (disabled) {
         filter:
             contrast(.9)
             opacity(.7);
     }
 
     [id='toggle']:checked ~ & {
-        enabled: true;
+        disabled: true;
     }
 }</code></pre>
         <a class="copyright" href="https://css-tricks.com/logical-operations-with-css-variables/">Logical Operations with CSS Variables</a>
@@ -298,14 +298,13 @@ h2 {
 
     <section class="slide">
         <pre class="place"><code>.effects {
-    --i: var(--enabled, 0);
-    --noti: calc(1 - var(--i));
+    --i: var(--disabled, 0);
     filter:
-        contrast(calc(1 - var(--noti) * .9))
-        opacity(calc(1 - var(--noti) * .7));
+        contrast(calc(1 - var(--i) * .1))
+        opacity(calc(1 - var(--i) * .3));
 
     [id='toggle']:checked ~ & {
-        --enabled: 1;
+        --disabled: 1;
     }
 }</code></pre>
         <a class="copyright" href="https://css-tricks.com/logical-operations-with-css-variables/">Logical Operations with CSS Variables</a>
@@ -1183,7 +1182,7 @@ addEventListener('mousemove', setPositions, false);</code></pre>
         <a href="https://x.com/dark_mefody">@dark_mefody</a>
         <br>
         <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
-        <img src="./pictures/codefest-feedback.gif" alt="QR-код со ссылкой на голосование" class="place bottom right" width="300" style="right: 100px; bottom: 80px">
+        <img src="./pictures/qr-code.jpeg" alt="QR-код со ссылкой на голосование" class="place bottom right" width="300" style="right: 100px; bottom: 80px">
     </section>
 
     <footer class="badge">
