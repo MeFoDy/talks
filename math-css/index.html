@@ -310,6 +310,17 @@ h2 {
         <a class="copyright" href="https://css-tricks.com/logical-operations-with-css-variables/">Logical Operations with CSS Variables</a>
     </section>
 
+    <section class="slide">
+        <pre class="place"><code>.effects {
+    filter: if(
+        style(--disabled: 1):
+            contrast(.9) opacity(.7);
+        else:
+            none);
+}</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/release-notes/137">Chrome 137</a>
+    </section>
+
     <section class="slide title">
         <h2 class="shout"><small>Часть 3</small><br>Тригонометрия</h2>
     </section>
