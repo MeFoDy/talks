@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Давай поиграем со шрифтами</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="По статистике веб-альманаха за 2024 год 87% сайтов в интернете используют веб-шрифты. При этом загрузить шрифт так, чтобы не съесть весь мобильный трафик пользователя, страничка не прыгала, а идеи дизайнеров не разбивались о суровую реальность рендеринга в браузере, все еще непросто. В докладе я покажу, как готовить и подключать на сайт шрифты, что умеет CSS для работы с типографикой и почему для Core Web Vitals так важно работать со шрифтами правильно.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+    <script type="module" src="./baseline-status.min.js"></script>
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Давай поиграем со шрифтами</h1>
+        <p>
+            <a href="https://t.me/mefody_dev">Никита Дубко</a>, Яндекс Контест
+        </p>
+    </header>
+
+    <section class="slide clear">
+        <h2>Давай поиграем со шрифтами</h2>
+        TODO: wordart
+        <p>Никита Дубко, Яндекс Контест</p>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 360px;">
+            <h2>Никита <br> Дубк�</h2>
+            <ul>
+                <li>рук�в�дитель пр�дукт�в К�нтеста</li>
+                <li>п�дкастер</li>
+                <li>MinskCSS, MinskJS</li>
+                <li>17+ лет в пр�фессии</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+
+    <section class="slide">
+        - Из чего состоит страничка в вебе
+    </section>
+
+
+    <section class="slide">
+        - Текст — это база
+    </section>
+
+
+    <section class="slide">
+        - Демонический шрифт
+    </section>
+
+
+    <section class="slide">
+        - Выносные элементы, У нескладовая
+    </section>
+
+
+    <section class="slide">
+        - Веб-шрифты
+    </section>
+
+
+    <section class="slide">
+        - https://almanac.httparchive.org/en/2024/fonts
+    </section>
+
+
+    <section class="slide">
+        - Scalable Font File — множество таблиц
+    </section>
+
+
+    <section class="slide">
+        - Units Per Em (head)
+    </section>
+
+
+    <section class="slide">
+        - метрики в font-size
+    </section>
+
+
+    <section class="slide">
+        - cmap
+    </section>
+
+
+    <section class="slide">
+        - Character to Glyph Mapping
+    </section>
+
+
+    <section class="slide">
+        - Unicode -> глиф
+    </section>
+
+
+    <section class="slide">
+        - hmtx (Horizontal Metrics)
+    </section>
+
+
+    <section class="slide">
+        - горизонтальные метрики
+    </section>
+
+
+    <section class="slide">
+        - OS/2 — метрики
+    </section>
+
+
+    <section class="slide">
+        - GSUB, GPOS — диакритические знаки, лигатуры
+    </section>
+
+
+    <section class="slide">
+        - FeatureList — font-feature settings
+    </section>
+
+
+    <section class="slide">
+        - Лицензия
+    </section>
+
+
+    <section class="slide">
+        - https://mastodon.social/@nicolaschevobbe/114001255941120909
+    </section>
+
+
+    <section class="slide">
+        - Как его отрендерить
+    </section>
+
+
+    <section class="slide">
+        - Загрузить шрифт
+    </section>
+
+
+    <section class="slide">
+        - Декодировать шрифт
+    </section>
+
+
+    <section class="slide">
+        - Выполнить шрифт
+    </section>
+
+
+    <section class="slide">
+        - Применить к тексту все CSS-свойства
+    </section>
+
+
+    <section class="slide">
+        - https://faultlore.com/blah/text-hates-you/#style-layout-and-shape-all-depend-on-each-other
+    </section>
+
+
+    <section class="slide">
+        - HarfBuzz
+    </section>
+
+
+    <section class="slide">
+        - https://tonsky.me/blog/unicode/
+    </section>
+
+
+    <section class="slide">
+        - Программирование на шрифтах
+    </section>
+
+
+    <section class="slide">
+        - https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/
+    </section>
+
+
+    <section class="slide">
+        - https://fuglede.github.io/llama.ttf/
+    </section>
+
+
+    <section class="slide">
+        - Skrifa https://developer.chrome.com/blog/memory-safety-fonts
+    </section>
+
+
+    <section class="slide">
+        - https://www.coderelay.io/fontemon.html#player
+    </section>
+
+
+    <section class="slide">
+        - Экран
+    </section>
+
+
+    <section class="slide">
+        - PPI, DPI
+    </section>
+
+
+    <section class="slide">
+        - line-box
+    </section>
+
+
+    <section class="slide">
+        - Найти картинку анатомии шрифта
+    </section>
+
+
+    <section class="slide">
+        - внутри разные шрифты
+    </section>
+
+
+    <section class="slide">
+        - line-height
+    </section>
+
+
+    <section class="slide">
+        - https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+    </section>
+
+
+    <section class="slide">
+        - начинается с zero-width символа
+    </section>
+
+
+    <section class="slide">
+        - virtual-area
+    </section>
+
+
+    <section class="slide">
+        - content-area
+    </section>
+
+
+    <section class="slide">
+        - демка vertical-align
+    </section>
+
+
+    <section class="slide">
+        - https://iamvdo.me/en/blog/
+        css-font-metrics-line-height-and-vertical-align#:~:text=First%20we%20set%20all%20font%20metrics%20as%20CSS%20custom%20properties
+    </section>
+
+
+    <section class="slide">
+        - Не бывает пиксель-пёрфекта
+    </section>
+
+
+    <section class="slide">
+        - https://faultlore.com/blah/text-hates-you/#style-layout-and-shape-all-depend-on-each-other
+    </section>
+
+
+    <section class="slide">
+        - https://www.codeclouds.com/blog/why-web-fonts-matter-a-short-history-and-future-of-font-rendering/
+    </section>
+
+
+    <section class="slide">
+        - Что мы знаем о шрифте
+    </section>
+
+
+    <section class="slide">
+        - FontForge
+    </section>
+
+
+    <section class="slide">
+        - DevTools
+    </section>
+
+
+    <section class="slide">
+        - https://wakamaifondue.com/beta/
+    </section>
+
+
+    <section class="slide">
+        - https://fontdrop.info/
+    </section>
+
+
+    <section class="slide">
+        - Одинаковые настройки — разный результат
+    </section>
+
+
+    <section class="slide">
+        - https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+    </section>
+
+
+    <section class="slide">
+        - Фингерпринтинг
+    </section>
+
+
+    <section class="slide">
+        - https://browserleaks.com/fonts
+    </section>
+
+
+    <section class="slide">
+        - text-size-adjust https://developer.chrome.com/release-notes/127?hl=en#text_size_adjust_improvements
+    </section>
+
+
+    <section class="slide">
+        - font-size-adjust https://developer.chrome.com/release-notes/127?hl=en#css_font-size-adjust
+    </section>
+
+
+    <section class="slide">
+        - https://matklad.github.io/2025/07/16/font-size-adjust.html
+    </section>
+
+
+    <section class="slide">
+        - text-box-trim https://developer.chrome.com/release-notes/133?hl=en#css_text-box_text-box-trim_and_text-box-edge
+    </section>
+
+
+    <section class="slide">
+        - size-adjust https://developer.chrome.com/blog/font-fallbacks/
+    </section>
+
+
+    <section class="slide">
+        - Что мы знаем о предпочтениях пользователя
+    </section>
+
+
+    <section class="slide">
+        - https://drafts.csswg.org/css-env-1/#text-zoom
+    </section>
+
+
+    <section class="slide">
+        - pem
+    </section>
+
+
+    <section class="slide">
+        - env(preferred-text-scale)
+    </section>
+
+
+    <section class="slide">
+        - Как мы задаём настройки шрифта
+    </section>
+
+
+    <section class="slide">
+        - @font-face
+    </section>
+
+
+    <section class="slide">
+        - font-variation-settings https://developer.chrome.com/release-notes/140?
+        hl=en#support_font-variation-settings_descriptor_in_font-face_rule
+    </section>
+
+
+    <section class="slide">
+        - https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings
+    </section>
+
+
+    <section class="slide">
+        - https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-position
+    </section>
+
+
+    <section class="slide">
+        - https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/137#css
+    </section>
+
+
+    <section class="slide">
+        - https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing
+    </section>
+
+
+    <section class="slide">
+        - CAP https://ishadeed.com/article/css-cap-unit/
+    </section>
+
+
+    <section class="slide">
+        - демка с outline: 1px
+    </section>
+
+
+    <section class="slide">
+        - https://blog.kizu.dev/cap-height-align/
+    </section>
+
+
+    <section class="slide">
+        - ic, lh https://techhub.iodigital.com/articles/going-beyond-pixels-and-rems-in-css/relative-length-units-based-on-font
+    </section>
+
+
+    <section class="slide">
+        - готовые правила: https://clagnut.com/blog/2433
+    </section>
+
+
+    <section class="slide">
+        - https://highperformancewebfonts.com/read/ditch-BlinkMacSystemFont-and-apple-system
+    </section>
+
+
+    <section class="slide">
+        - text-rendering
+    </section>
+
+
+    <section class="slide">
+        - Эмодзи
+    </section>
+
+
+    <section class="slide">
+        - https://tonsky.me/blog/emoji/
+    </section>
+
+
+    <section class="slide">
+        - On macOS/iOS, that’s Apple Color Emoji. Windows has Segoe UI Emoji, Android has Noto Color Emoji.
+    </section>
+
+
+    <section class="slide">
+        - Нет? Ищет любой другой шрифт
+    </section>
+
+
+    <section class="slide">
+        - U+FE0F — включить,
+    </section>
+
+
+    <section class="slide">
+        - font-variant-emoji https://developer.chrome.com/release-notes/131?hl=en#css_font-variant-emoji
+    </section>
+
+
+    <section class="slide">
+        - Загружаем шрифт
+    </section>
+
+
+    <section class="slide">
+        - https://www.zachleat.com/web/comprehensive-webfonts/
+    </section>
+
+
+    <section class="slide">
+        - https://www.zachleat.com/web/font-checklist/
+    </section>
+
+
+    <section class="slide">
+        - local
+    </section>
+
+
+    <section class="slide">
+        - не надо!
+    </section>
+
+
+    <section class="slide">
+        - https://highperformancewebfonts.com/read/testing-for-locally-installed-fonts
+    </section>
+
+
+    <section class="slide">
+        - system-ui
+    </section>
+
+
+    <section class="slide">
+        - subsetting
+    </section>
+
+
+    <section class="slide">
+        - unicode-range
+    </section>
+
+
+    <section class="slide">
+        - https://www.zachleat.com/web/glyphhanger/
+    </section>
+
+
+    <section class="slide">
+        - https://paulcalvano.com/2024-02-16-identifying-font-subsetting-opportunities/
+    </section>
+
+
+    <section class="slide">
+        - 1 символ весит 0.1 КБ https://www.phpied.com/lessons-learned-from-222557-font-file-subsets/
+    </section>
+
+
+    <section class="slide">
+        - preload
+    </section>
+
+
+    <section class="slide">
+        - Google Fonts
+    </section>
+
+
+    <section class="slide">
+        - не надо
+    </section>
+
+
+    <section class="slide">
+        - https://csswizardry.com/2020/05/the-fastest-google-fonts/
+    </section>
+
+
+    <section class="slide">
+        - DNS, TLS https://blog.cloudflare.com/cloudflare-fonts-enhancing-website-privacy-speed/
+    </section>
+
+
+    <section class="slide">
+        - WOFF2 и всё
+    </section>
+
+
+    <section class="slide">
+        - IFT как будущее https://github.com/w3c/IFT/blob/main/IFT-Explainer.md
+    </section>
+
+
+    <section class="slide">
+        - фолбеки https://modernfontstacks.com/
+    </section>
+
+
+    <section class="slide">
+        - service worker
+    </section>
+
+
+    <section class="slide">
+        - https://web.dev/learn/performance/optimize-web-fonts
+    </section>
+
+
+    <section class="slide">
+        - base64 — нет
+    </section>
+
+
+    <section class="slide">
+        - CLS из Core Web Vitals
+    </section>
+
+
+    <section class="slide">
+        - font-display: swap;
+    </section>
+
+
+    <section class="slide">
+        - https://screenspan.net/fallback
+    </section>
+
+
+    <section class="slide">
+        - LCP
+    </section>
+
+
+    <section class="slide">
+        - жирный и italic грузим позже
+    </section>
+
+
+    <section class="slide">
+        - вариативные шрифты?
+    </section>
+
+
+    <section class="slide">
+        - FOIT, FOUT, FOFT
+    </section>
+
+
+    <section class="slide">
+        - https://www.zachleat.com/web/fout-foit-history/
+    </section>
+
+
+    <section class="slide">
+        - https://css-tricks.com/the-best-font-loading-strategies-and-how-to-execute-them/
+    </section>
+
+
+    <section class="slide">
+        <h2>генератор беджиков</h2>
+    </section>
+
+
+    <section class="slide">
+        - Чеклист как резюме
+    </section>
+
+
+    <section class="slide">
+        1. Всегда self-host (самостоятельное размещение). Не используйте Google Fonts CDN напрямую (проблемы с приватностью/GDPR и
+        производительностью).   
+    </section>
+
+
+    <section class="slide">
+        2. Используйте WOFF2.   
+    </section>
+
+
+    <section class="slide">
+        3. Применяйте font-display: swap вместе с size-adjust и другими override для минимизации CLS.   
+    </section>
+
+
+    <section class="slide">
+        4. Предзагружайте (preload) критически важные шрифты.   
+    </section>
+
+
+    <section class="slide">
+        5. Сабсеттинг — ваш лучший друг.   
+    </section>
+
+
+    <section class="slide">
+        6. Внедряйте вариативные шрифты, где это возможно.   
+    </section>
+
+
+    <section class="slide">
+        - Ссылка на gist с материалами https://gist.github.com/MeFoDy/f44aa1d3f027500d1663abe60532f44b
+    </section>
+
+
+    <section class="slide">
+        <baseline-status featureId="font-family-system" class="place zoom"></baseline-status>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Берегите себя!</h2>
+        <a href="https://mefody.dev/talks/fonts-loading/">mefody.dev/talks/fonts-loading/</a>
+        <br>
+        <a href="https://x.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код на голосование" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script>
+        (function() {
+            var mouseTimer = null, cursorVisible = true;
+
+            function disappearCursor() {
+                mouseTimer = null;
+                document.body.style.cursor = "none";
+                cursorVisible = false;
+            }
+
+            document.onmousemove = function() {
+                if (mouseTimer) {
+                    window.clearTimeout(mouseTimer);
+                }
+                if (!cursorVisible) {
+                    document.body.style.cursor = "default";
+                    cursorVisible = true;
+                }
+                mouseTimer = window.setTimeout(disappearCursor, 3000);
+            };
+        })();
+    </script>
+</body>
+
+</html>
