@@ -150,6 +150,10 @@
     line-height: 1.2;
 }
 
+.slide .shout small {
+    color: var(--color-red);
+}
+
 .slide s {
     text-decoration: none;
     position: relative;
@@ -392,6 +396,7 @@ css-demo {
             background-color: transparent;
             color: inherit;
             line-height: 1.2;
+            resize: horizontal;
         }
 
         >.demo-result {

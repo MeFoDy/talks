@@ -22,9 +22,72 @@
         </p>
     </header>
 
-    <section class="slide clear">
-        <h2>Давай поиграем со шрифтами</h2>
-        TODO: wordart
+    <section class="slide clear" id="title">
+        <style>
+            #title {
+                background: rgb(232 232 232);
+                position: relative;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    top: 5%;
+                    left: 5%;
+                    width: 90%;
+                    height: 95%;
+                    background-color: white;
+                    z-index: 0;
+                }
+
+                h2 {
+                    font-size: 4em;
+                    text-align: center;
+                    margin: 0;
+                    position: relative;
+
+                    &.second {
+                        font-family: Impact, sans-serif;
+                        font-weight: 900;
+                        color: #33ccff;
+                        -webkit-text-stroke: 1.25px #000099;
+                        text-shadow: 0.35rem -0.35rem 0 #000099;
+                        letter-spacing: -0.15vw;
+                    }
+
+                    &.first {
+                        box-sizing: border-box;
+                        font-family: Impact, sans-serif;
+                        color: transparent;
+                        background: radial-gradient(ellipse at center, #fff812, #ff9a32);
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        margin-top: 1em;
+
+                        &::before {
+                            box-sizing: border-box;
+                            position: absolute;
+                            content: attr(data-content);
+                            z-index: -1;
+                            text-shadow: 0.094em 0.063em #cdcdcd;
+                        }
+                    }
+                }
+
+                p {
+                    text-align: center;
+                    position: relative;
+                    color: black;
+                    font-family: 'Times New Roman', Times, serif;
+                    margin-top: 2em;
+                }
+            }
+        </style>
+        <h2 class="first">
+            Давай поиграем
+        </h2>
+        <h2 class="second" data-content="со шрифтами">
+            со шрифтами
+        </h2>
         <p>Никита Дубко, Яндекс Контест</p>
     </section>
 
@@ -44,645 +107,1457 @@
 
 
     <section class="slide">
-        - Из чего состоит страничка в вебе
+        <img src="./pictures/meme_crazy.jpeg" alt="" class="cover">
     </section>
 
 
-    <section class="slide">
-        - Текст — это база
+    <section class="slide clear white">
+        <img src="./pictures/yasearch.jpeg" alt="" class="cover">
     </section>
 
 
-    <section class="slide">
-        - Демонический шрифт
+    <section class="slide clear white">
+        <img src="./pictures/talk-from-site.jpeg" alt="" class="cover">
     </section>
 
 
-    <section class="slide">
-        - Выносные элементы, У нескладовая
+    <section class="slide clear">
+        <img src="./pictures/toy-story-meme-template.jpg" alt="" class="cover">
+        <h2 style="margin-left: 6.5em; margin-top: 0;">Шрифты повсюду</h2>
     </section>
 
 
     <section class="slide">
-        - Веб-шрифты
+        <h2 class="shout">Р̷̢̃а̴̼͇͓̅̾з̴͈͇̌н̴̛̗̖͠ы̶̦̟̉̍е̸̧͑̇ ̴̻̓ш̸͍̩͐̚р̴͇͓̺͑̍̽ӥ̷͖̫́̎ф̶̨͚̔͗̆͜т̶̺͐ы̴̲̐͆</h2>
     </section>
 
 
-    <section class="slide">
-        - https://almanac.httparchive.org/en/2024/fonts
+    <section class="slide white">
+        <img src="./pictures/alamanac-webfont-usage.png" alt="" class="place" width="700">
+        <a class="copyright" href="https://almanac.httparchive.org/en/2024/fonts">Web Alamanac 2024. Fonts</a>
     </section>
 
 
-    <section class="slide">
-        - Scalable Font File — множество таблиц
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 1</small><br>Что такое шрифт</h2>
     </section>
 
 
     <section class="slide">
-        - Units Per Em (head)
+        <h2 style="text-align: center; color: var(--color-red);">Дисклеймер</h2>
+        <p>Спикер — не профессиональный шрифтовик, он всего лишь несколько раз разбирал шрифт на глифы и отключал одну лигатуру. Если вы зачем-то продолжаете читать этот длинный текст, то вот вам пара интересных фактов. Известный шрифт Comic Sans был разработан для использования в детских программах и облачках слов виртуальных помощников. Самым распространенным шрифтом в мире является шрифт Helvetica, созданный Максом Мидингером в 1957 году.</p>
     </section>
 
 
     <section class="slide">
-        - метрики в font-size
+        <img src="./pictures/podlodka-342.jpg" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - cmap
+        <h2 class="shout">Шрифт — набор таблиц</h2>
     </section>
 
 
     <section class="slide">
-        - Character to Glyph Mapping
+        <h2 class="shout">SFNT
+            <br>
+            <small>Scalable Font File</small>
+        </h2>
     </section>
 
 
     <section class="slide">
-        - Unicode -> глиф
+        <h2 class="shout"><code>head</code></h2>
     </section>
 
 
     <section class="slide">
-        - hmtx (Horizontal Metrics)
+        <h2><code>macStyle</code></h2>
+        <ul>
+            <li>Бит 0: Bold (если 1)</li>
+            <li>Бит 1: Italic (если 1)</li>
+            <li>Бит 2: Underline (если 1)</li>
+            <li>Бит 3: Outline (если 1)</li>
+            <li>Бит 4: Shadow (если 1)</li>
+            <li>Бит 5: Condensed (если 1)</li>
+            <li>Бит 6: Extended (если 1)</li>
+            <li>Биты 7–15: Reserved (равны 0).</li>
+        </ul>
+        <a class="copyright" href="https://learn.microsoft.com/en-us/typography/opentype/spec/head">head — Font Header Table</a>
     </section>
 
 
     <section class="slide">
-        - горизонтальные метрики
+        <ul>
+            <li><code>xMin</code> — минимальная координата `x` бокса глифов.</li>
+            <li><code>yMin</code> — минимальная координата `y` бокса глифов.</li>
+            <li><code>xMax</code> — максимальная кордината `x` бокса глифов.</li>
+            <li><code>yMax</code> — максимальная кордината `y` бокса глифов.</li>
+        </ul>
+        <a class="copyright" href="https://learn.microsoft.com/en-us/typography/opentype/spec/head">head — Font Header Table</a>
     </section>
+
 
 
     <section class="slide">
-        - OS/2 — метрики
+        <h2 class="shout">
+            <code>cmap</code>
+            <br>
+            <small>Character to Glyph Mapping</small>
+        </h2>
     </section>
 
 
     <section class="slide">
-        - GSUB, GPOS — диакритические знаки, лигатуры
+        <h2 class="shout">
+            U+262F
+            <br>
+            <span class="arrow">⬇</span>
+            <br>
+            ☯︎
+        </h2>
     </section>
 
 
     <section class="slide">
-        - FeatureList — font-feature settings
+        <img src="./pictures/fontforge-table.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - Лицензия
+        <img src="./pictures/fontforge-glyph.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - https://mastodon.social/@nicolaschevobbe/114001255941120909
+        <img src="./pictures/fontforge-logo.svg" alt="" class="place" width="400">
+        <a class="copyright" href="https://fontforge.org/en-US/">FontForge</a>
     </section>
 
 
     <section class="slide">
-        - Как его отрендерить
+        <h2 class="shout"><code>OS/2</code></h2>
     </section>
 
 
     <section class="slide">
-        - Загрузить шрифт
+        <img src="./pictures/fontforge-metrics.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - Декодировать шрифт
+        <h2 class="shout"><code>GSUB</code>, <code>GPOS</code></h2>
     </section>
 
 
     <section class="slide">
-        - Выполнить шрифт
+        <img src="./pictures/fontforge-ligatures.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - Применить к тексту все CSS-свойства
+        <img src="./pictures/u.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://ru.wikipedia.org/wiki/Ў">Ў</a>
     </section>
 
 
     <section class="slide">
-        - https://faultlore.com/blah/text-hates-you/#style-layout-and-shape-all-depend-on-each-other
+        <h2 class="shout">Шрифт — программа</h2>
     </section>
 
 
     <section class="slide">
-        - HarfBuzz
+        <img src="./pictures/font-with-built-in-syntax-highlighting_.png" alt="" class="place" width="800">
+        <a class="copyright" href="https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/">Font with Built-in Syntax Highlighting</a>
     </section>
 
 
-    <section class="slide">
-        - https://tonsky.me/blog/unicode/
+    <section class="slide" style="background-color: #293238;">
+        <img src="./pictures/fontemon.jpeg" alt="" class="place" width="400">
+        <a class="copyright" href="https://www.coderelay.io/fontemon.html#player">Fontemon</a>
     </section>
 
 
     <section class="slide">
-        - Программирование на шрифтах
+        <h2 class="shout"><a href="https://fuglede.github.io/llama.ttf/">llama.ttf</a></h2>
     </section>
 
 
     <section class="slide">
-        - https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/
+        <h2 class="shout">CVE-2025-27363</h2>
+        <a class="copyright" href="https://www.opennet.ru/opennews/art.shtml?num=62875">CVE-2025-27363 // FreeType</a>
     </section>
 
 
-    <section class="slide">
-        - https://fuglede.github.io/llama.ttf/
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 2</small><br>Как браузер <br> рисует шрифт</h2>
     </section>
 
 
     <section class="slide">
-        - Skrifa https://developer.chrome.com/blog/memory-safety-fonts
+        <h2>Пайплайн</h2>
+        <ol>
+            <li>Стилизация</li>
+            <li>Разметка</li>
+            <li>Шейпинг</li>
+            <li>Растеризация</li>
+            <li>Композиция</li>
+        </ol>
     </section>
 
 
     <section class="slide">
-        - https://www.coderelay.io/fontemon.html#player
+        <pre><code>&lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;Demo&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;p class="arial"&gt;Arial text!&lt;/p&gt;
+      &lt;p class="times"&gt;Times text?&lt;/p&gt;
+      &lt;p&gt;Just text.&lt;/p&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+        <div class="spotlight next" style="
+                    --spotlight-radius: 0;
+                    --spotlight-opacity: 0.5;
+                    --spotlight-width: 47%;
+                    --spotlight-height: 35px;
+                    --spotlight-top: -40px;
+                    --spotlight-left: -11%;
+        "></div>
     </section>
 
 
     <section class="slide">
-        - Экран
+        <pre class="place"><code>.arial {
+    font-family: Arial;
+    font-weight: 400;
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        - PPI, DPI
+        <pre><code>
+@font-face {
+    font-family: Arial;
+    src: url(arial-bold.woff2) format("woff2");
+    font-weight: 700; /* ❌ */
+}
+
+@font-face {
+    font-family: Arial;
+    src: url(arial-regular.woff2) format("woff2");
+    font-weight: 400; /* ✅ */
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        - line-box
+        <pre><code>&lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;Demo&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;p class="arial"&gt;Arial text!&lt;/p&gt;
+      &lt;p class="times"&gt;Times text?&lt;/p&gt;
+      &lt;p&gt;Just text.&lt;/p&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+        <div class="spotlight" style="
+                    --spotlight-radius: 0;
+                    --spotlight-opacity: 0.5;
+                    --spotlight-width: 47%;
+                    --spotlight-height: 35px;
+                    --spotlight-top: -8px;
+                    --spotlight-left: -11%;
+        "></div>
     </section>
 
 
     <section class="slide">
-        - Найти картинку анатомии шрифта
+        <pre class="place"><code>.times {
+    font-family: MyTimes;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: MyTimes;
+    src: url(my-times.woff2) format("woff2");
+    font-weight: 400; /* 🤔 */
+}</code></pre>
+
+        <a class="copyright" href="https://www.designcise.com/web/tutorial/how-is-missing-css-font-weight-substituted-by-the-browser">How Is Missing CSS font-weight Substituted by the Browser?</a>
     </section>
 
 
     <section class="slide">
-        - внутри разные шрифты
+        <h2>Варианты событий</h2>
+        <ul>
+            <li class="next">Шрифт вариативный?
+                <ul>
+                    <li class="next">Да. Рисовать красивое.</li>
+                </ul>
+            </li>
+            <li class="next">Нет. Использовать то, что есть.
+                <ul>
+                    <li class="next">Найти ближайший по <code>font-weight</code> шрифт.</li>
+                    <li class="next">Синтезировать <code>font-weight</code>.</li>
+                </ul>
+            </li>
+        </ul>
     </section>
 
 
-    <section class="slide">
-        - line-height
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+p {
+    font-family: 'PT Mono', monospace;
+    font-synthesis: weight style small-caps;
+}
+
+.bold { font-weight: 700; }
+.italic { font-style: italic; }
+.caps { font-variant: small-caps; }
+
+}
+</style>
+<p class="bold">Если б мишки были пчёлами,</p>
+<p class="italic">То они бы нипочём</p>
+<p class="caps">Никогда б и не подумали...</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
-    <section class="slide">
-        - https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+p {
+    font-family: Arial, sans-serif;
+    font-synthesis: weight style small-caps;
+}
+
+.bold { font-weight: 700; }
+.italic { font-style: italic; }
+.caps { font-variant: small-caps; }
+
+}
+</style>
+<p class="bold">Если б мишки были пчёлами,</p>
+<p class="italic">То они бы нипочём</p>
+<p class="caps">Никогда б и не подумали...</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
     <section class="slide">
-        - начинается с zero-width символа
+        <baseline-status featureId="font-synthesis" class="place zoom"></baseline-status>
     </section>
 
 
     <section class="slide">
-        - virtual-area
+        <pre><code>&lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;Demo&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;p class="arial"&gt;Arial text!&lt;/p&gt;
+      &lt;p class="times"&gt;Times text?&lt;/p&gt;
+      &lt;p&gt;Just text.&lt;/p&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+        <div class="spotlight" style="
+                    --spotlight-radius: 0;
+                    --spotlight-opacity: 0.5;
+                    --spotlight-width: 27%;
+                    --spotlight-height: 35px;
+                    --spotlight-top: 24px;
+                    --spotlight-left: -22%;
+        "></div>
     </section>
 
 
     <section class="slide">
-        - content-area
+        <h2 class="shout" style="font-family: Times;">Times</h2>
     </section>
 
 
     <section class="slide">
-        - демка vertical-align
+        <h2>Пайплайн</h2>
+        <ol>
+            <li>✅ Стилизация</li>
+            <li>👉 Разметка</li>
+            <li>Шейпинг</li>
+            <li>Растеризация</li>
+            <li>Композиция</li>
+        </ol>
     </section>
 
 
     <section class="slide">
-        - https://iamvdo.me/en/blog/
-        css-font-metrics-line-height-and-vertical-align#:~:text=First%20we%20set%20all%20font%20metrics%20as%20CSS%20custom%20properties
+        <p style="text-wrap: nowrap;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur suscipit inventore dolore cum voluptates dignissimos aliquam saepe qui earum quisquam illum quam ipsum similique, fuga accusantium fugit laudantium molestias amet!</p>
     </section>
 
 
     <section class="slide">
-        - Не бывает пиксель-пёрфекта
+        <p style="text-wrap: nowrap; outline: var(--color-red) 1px solid; padding-bottom: 5lh;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur suscipit inventore dolore cum voluptates dignissimos aliquam saepe qui earum quisquam illum quam ipsum similique, fuga accusantium fugit laudantium molestias amet!</p>
     </section>
 
 
     <section class="slide">
-        - https://faultlore.com/blah/text-hates-you/#style-layout-and-shape-all-depend-on-each-other
+        <img src="./pictures/fontforge-metrics.png" alt="" class="cover">
     </section>
 
 
-    <section class="slide">
-        - https://www.codeclouds.com/blog/why-web-fonts-matter-a-short-history-and-future-of-font-rendering/
+    <section class="slide black">
+        <img src="./pictures/glyph_metrics.png" alt="" class="place" width="800" style="filter: invert(1)">
+        <img src="./pictures/garold.png" alt="" class="place bottom right next" width="200">
     </section>
 
 
     <section class="slide">
-        - Что мы знаем о шрифте
+        <p style="outline: var(--color-red) 1px solid; padding-bottom: 5lh; background-image: linear-gradient(to bottom, var(--color-red) 0, var(--color-red) 1px, transparent 1px, transparent 1lh); background-size: auto 1lh;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur suscipit inventore dolore cum voluptates dignissimos aliquam saepe qui earum quisquam illum quam ipsum similique, fuga accusantium fugit laudantium molestias amet!</p>
     </section>
 
 
     <section class="slide">
-        - FontForge
+        <h2>Пайплайн</h2>
+        <ol>
+            <li>✅ Стилизация</li>
+            <li>✅ Разметка</li>
+            <li>👉 Шейпинг</li>
+            <li>Растеризация</li>
+            <li>Композиция</li>
+        </ol>
     </section>
 
 
     <section class="slide">
-        - DevTools
+        <img src="./pictures/meme_math.jpg" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - https://wakamaifondue.com/beta/
+        <h2>Пайплайн</h2>
+        <ol>
+            <li>✅ Стилизация</li>
+            <li>✅ Разметка</li>
+            <li>✅ Шейпинг</li>
+            <li>👉 Растеризация</li>
+            <li>Композиция</li>
+        </ol>
     </section>
 
 
     <section class="slide">
-        - https://fontdrop.info/
+        <img src="./pictures/fontforge-glyph.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - Одинаковые настройки — разный результат
+        <h2>Пайплайн</h2>
+        <ol>
+            <li>✅ Стилизация</li>
+            <li>✅ Разметка</li>
+            <li>✅ Шейпинг</li>
+            <li>✅ Растеризация</li>
+            <li>👉 Композиция</li>
+        </ol>
     </section>
 
 
     <section class="slide">
-        - https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+        <img src="./pictures/lego.jpeg" alt="" class="cover">
     </section>
 
 
-    <section class="slide">
-        - Фингерпринтинг
+    <section class="slide white">
+        <img src="./pictures/font-rendering.gif" alt="" class="place">
+        <a class="copyright" href="https://www.codeclouds.com/blog/why-web-fonts-matter-a-short-history-and-future-of-font-rendering/">Why web fonts matter: a short history (and future) of font rendering</a>
+        <img src="./pictures/garold.png" alt="" class="place bottom right next" width="200">
     </section>
 
 
     <section class="slide">
-        - https://browserleaks.com/fonts
+        <img src="./pictures/meme_di_caprio_sad.jpg" alt="" class="cover height">
+        <h2 style="text-shadow: 1px 2px black;
+    position: relative;
+    top: 8em;
+    left: 3em;
+    font-size: 1.5em;">А почему у вас <br> не пиксель-пёрфект?</h2>
     </section>
 
 
     <section class="slide">
-        - text-size-adjust https://developer.chrome.com/release-notes/127?hl=en#text_size_adjust_improvements
+        <img src="./pictures/text-rendering-hates-you.jpeg" alt="" class="cover place width top">
+        <a class="copyright" href="https://faultlore.com/blah/text-hates-you/#style-layout-and-shape-all-depend-on-each-other">Text Rendering Hates You</a>
     </section>
 
 
     <section class="slide">
-        - font-size-adjust https://developer.chrome.com/release-notes/127?hl=en#css_font-size-adjust
+        <h2>Пайплайн</h2>
+        <ol>
+            <li>🧑‍🎨 Стилизация</li>
+            <li>👽 Разметка</li>
+            <li>🕺 Шейпинг</li>
+            <li>👽 Разметка</li>
+            <li>🧑‍🎨 Стилизация</li>
+            <li>👽 Разметка</li>
+            <li>🕺 Шейпинг</li>
+            <li>💃 Растеризация</li>
+            <li>🥶 Композиция</li>
+        </ol>
     </section>
 
 
     <section class="slide">
-        - https://matklad.github.io/2025/07/16/font-size-adjust.html
+        <img src="./pictures/meme_math.jpg" alt="" class="cover">
     </section>
 
 
-    <section class="slide">
-        - text-box-trim https://developer.chrome.com/release-notes/133?hl=en#css_text-box_text-box-trim_and_text-box-edge
+    <section class="slide white">
+        <img src="./pictures/HarfBuzz.png" alt="" class="place">
+        <a class="copyright" href="https://harfbuzz.github.io/">HarfBuzz</a>
     </section>
 
 
-    <section class="slide">
-        - size-adjust https://developer.chrome.com/blog/font-fallbacks/
+    <section class="slide white">
+        <img src="./pictures/xkcd-harfbuzz.png" alt="" class="place" width="400">
+        <a class="copyright" href="https://harfbuzz.github.io/">HarfBuzz</a>
     </section>
 
 
-    <section class="slide">
-        - Что мы знаем о предпочтениях пользователя
+    <section class="slide white">
+        <img src="./pictures/font-fingerprinting.jpeg" alt="" class="place" width="800">
+        <a class="copyright" href="https://browserleaks.com/fonts">Font Fingerprinting</a>
     </section>
 
 
-    <section class="slide">
-        - https://drafts.csswg.org/css-env-1/#text-zoom
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 3</small><br>Как управлять шрифтом</h2>
     </section>
 
 
-    <section class="slide">
-        - pem
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+span {
+    outline: var(--color-red) 1px solid;
+    vertical-align: baseline;
+}
+
+p  {
+    font-size: 100px;
+    outline: var(--color-blue) 1px solid;
+    /*
+    line-height: 1em;
+    font-family: Times;
+    */
+}
+.a { font-family: Helvetica      }
+.b { font-family: 'Courier New'  }
+.c { font-family: 'Segoe Print', 'Bradley Hand' }
+
+}
+</style>
+<p>
+    <span class="a">Ja</span>
+    <span class="b">Ja</span>
+    <span class="c">Ja</span>
+</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
     <section class="slide">
-        - env(preferred-text-scale)
+        <img src="./pictures/line-height-1.png" alt="" class="place">
+        <a class="copyright" href="https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align">Deep dive CSS: font metrics, line-height and vertical-align</a>
     </section>
 
 
-    <section class="slide">
-        - Как мы задаём настройки шрифта
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+p {
+    font-size: 100px;
+    font-family: Helvetica;
+}
+p::before  {
+    content: '';
+    display: inline-block;
+    aspect-ratio: 1 / 1;
+    width: 100px;
+    box-sizing: border-box;
+    border: 1px solid white;
+}
+
+}
+</style>
+<p>Ja</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
-    <section class="slide">
-        - @font-face
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+p {
+    outline: 1px solid var(--color-blue);
+
+    --font: Helvetica;
+    --fm-unitsPerEm: 2048;
+    --fm-capitalHeight: 1469;
+    --fm-descender: 471;
+    --fm-ascender: 1577;
+    --fm-linegap: 0;
+
+    /* desired font-size for capital height */
+    --capital-height: 100;
+
+    /* apply font-family */
+    font-family: var(--font);
+
+    /* compute font-size to get capital height equal desired font-size */
+    --computedFontSize: (var(--capital-height) / var(--fm-capitalHeight) * var(--fm-unitsPerEm));
+    font-size: calc(var(--computedFontSize) * 1px);
+
+    --lineheightNormal: ((var(--fm-ascender) + var(--fm-descender) + var(--fm-linegap)) / var(--fm-unitsPerEm));
+    --contentArea: (var(--lineheightNormal) * var(--computedFontSize));
+
+    --distanceBottom: (var(--fm-descender) / var(--fm-unitsPerEm));
+    --distanceTop: ((var(--fm-ascender) - var(--fm-capitalHeight)) / var(--fm-unitsPerEm));
+    --valign: ((var(--distanceBottom) - var(--distanceTop)) * var(--computedFontSize));
+    --line-height: 1;
+    line-height: calc(((var(--line-height) * var(--capital-height)) - var(--valign)) * 1px);
+}
+p::before  {
+    content: '';
+    display: inline-block;
+    aspect-ratio: 1 / 1;
+    width: calc(var(--capital-height) * 1px);
+    box-sizing: border-box;
+    border: 1px solid white;
+}
+
+}
+</style>
+<p>Ja</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
-    <section class="slide">
-        - font-variation-settings https://developer.chrome.com/release-notes/140?
-        hl=en#support_font-variation-settings_descriptor_in_font-face_rule
+    <section class="slide black">
+        <img src="./pictures/glyph_metrics.png" alt="" class="place" width="800" style="filter: invert(1)">
     </section>
 
 
-    <section class="slide">
-        - https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings
+    <section class="slide" style="background-color: #111111;">
+        <img src="./pictures/fontdrop.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://fontdrop.info">FontDrop!</a>
     </section>
 
 
-    <section class="slide">
-        - https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-position
+    <section class="slide black">
+        <img src="./pictures/glyph_metrics.png" alt="" class="place top center" width="500" style="filter: invert(1)">
+        <pre class="place" style="width: 90%; text-align: center; top: 60%">cap = em-size *  units-per-em / cap-height</pre>
     </section>
 
 
-    <section class="slide">
-        - https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/137#css
+    <section class="slide black">
+        <img src="./pictures/glyph_metrics.png" alt="" class="place top center" width="500" style="filter: invert(1)">
+        <pre class="place" style="width: 90%; text-align: center; top: 65%">lh = ascent + descent + line-gap<br>bottom = descent<br>top = ascent - cap-height</pre>
     </section>
 
 
-    <section class="slide">
-        - https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+p {
+    outline: 1px solid var(--color-blue);
+
+    --font: Helvetica;
+    --fm-unitsPerEm: 2048;
+    --fm-capitalHeight: 1469;
+    --fm-descender: 471;
+    --fm-ascender: 1577;
+    --fm-linegap: 0;
+
+    /* desired font-size for capital height */
+    --capital-height: 100;
+
+    /* apply font-family */
+    font-family: var(--font);
+
+    /* compute font-size to get capital height equal desired font-size */
+    --computedFontSize: (var(--capital-height) / var(--fm-capitalHeight) * var(--fm-unitsPerEm));
+    font-size: calc(var(--computedFontSize) * 1px);
+
+    --lineheightNormal: ((var(--fm-ascender) + var(--fm-descender) + var(--fm-linegap)) / var(--fm-unitsPerEm));
+    --contentArea: (var(--lineheightNormal) * var(--computedFontSize));
+
+    --distanceBottom: (var(--fm-descender) / var(--fm-unitsPerEm));
+    --distanceTop: ((var(--fm-ascender) - var(--fm-capitalHeight)) / var(--fm-unitsPerEm));
+    --valign: ((var(--distanceBottom) - var(--distanceTop)) * var(--computedFontSize));
+    --line-height: 1;
+    line-height: calc(((var(--line-height) * var(--capital-height)) - var(--valign)) * 1px);
+}
+p::before  {
+    content: '';
+    display: inline-block;
+    aspect-ratio: 1 / 1;
+    width: calc(var(--capital-height) * 1px);
+    box-sizing: border-box;
+    border: 1px solid white;
+}
+
+}
+</style>
+<p>O2V</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
     <section class="slide">
-        - CAP https://ishadeed.com/article/css-cap-unit/
+        <pre class="place"><code>--font: Helvetica;
+--fm-unitsPerEm: 2048;
+--fm-capitalHeight: 1469;
+
+--cap: (var(--fm-capitalHeight) / var(--fm-unitsPerEm));</code></pre>
     </section>
 
 
     <section class="slide">
-        - демка с outline: 1px
+        <pre class="place big">
+            <code>--cap: 1cap;</code>
+        </pre>
     </section>
 
 
     <section class="slide">
-        - https://blog.kizu.dev/cap-height-align/
+        <baseline-status featureId="cap" class="place zoom"></baseline-status>
     </section>
 
 
     <section class="slide">
-        - ic, lh https://techhub.iodigital.com/articles/going-beyond-pixels-and-rems-in-css/relative-length-units-based-on-font
+        <pre class="place"><code>--font: Helvetica;
+
+--fm-unitsPerEm: 2048;
+--fm-descender: 471;
+--fm-ascender: 1577;
+--fm-linegap: 0;
+
+--lh: (
+    (var(--fm-ascender) + var(--fm-descender) + var(--fm-linegap))
+        / var(--fm-unitsPerEm)
+);</code></pre>
     </section>
 
 
     <section class="slide">
-        - готовые правила: https://clagnut.com/blog/2433
+        <pre class="place big">
+            <code>--lh: 1lh;</code>
+        </pre>
     </section>
 
 
     <section class="slide">
-        - https://highperformancewebfonts.com/read/ditch-BlinkMacSystemFont-and-apple-system
+        <baseline-status featureId="lh" class="place zoom"></baseline-status>
     </section>
 
 
     <section class="slide">
-        - text-rendering
+        <h2>Font Relative Units</h2>
+        <ul>
+            <li><code>em</code>, <code>rem</code></li>
+            <li><code>ex</code>, <code>rex</code></li>
+            <li><code>cap</code>, <code>rcap</code></li>
+            <li><code>ch</code>, <code>rch</code></li>
+            <li><code>ic</code>, <code>ric</code></li>
+            <li><code>lh</code>, <code>rlh</code></li>
+        </ul>
+        <a class="copyright" href="https://drafts.csswg.org/css-values-4/#font-relative-lengths">CSS Values and Units Module Level 4</a>
+    </section>
+
+
+    <section class="slide clear">
+        <img src="./pictures/landscape-nature-mountain.jpg" alt="" class="cover width">
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 4</small><br>Как загружать шрифты</h2>
     </section>
 
 
     <section class="slide">
-        - Эмодзи
+        <h2 class="shout"><code>@font-face</code></h2>
     </section>
 
 
     <section class="slide">
-        - https://tonsky.me/blog/emoji/
+        <pre class="place"><code>@font-face {
+    font-family: "Trickster";
+    src: url("trickster.woff2") format("woff2");
+}</code></pre>
+    </section>
+
+
+    <section class="slide white">
+        <img src="./pictures/alamanac-popular-mime-types.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - On macOS/iOS, that’s Apple Color Emoji. Windows has Segoe UI Emoji, Android has Noto Color Emoji.
+        <pre class="place"><code>@font-face {
+    font-family: "Trickster";
+    src: url("trickster.woff2") format("woff2");
+    font-display: swap;
+    font-style: italic;
+    font-weight: 400;
+
+    ascent-override: 90%;
+    descent-override: 85%;
+    line-gap-override: 125%;
+    size-adjust: 90%;
+
+    font-variation-settings: "xhgt" 0.7;
+    font-feature-settings: "swsh" 2;
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        - Нет? Ищет любой другой шрифт
+        <pre><code>&lt;p style="font-family: Trickster"&gt;Some text!&lt;/p&gt;
+&lt;p&gt;Just text.&lt;/p&gt;
+        </code></pre>
+
+        <pre class="next"><code>@font-face {
+    font-family: "Trickster";
+    src: url("trickster.woff2") format("woff2");
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        - U+FE0F — включить,
+        <h2 class="shout">FOUT <br> <small>Flash of Unstyled Text<br>IE4, 1997</small></h2>
+    </section>
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+p {
+    font-family: Times;
+    animation: fout 6s linear forwards;
+}
+
+@keyframes fout {
+    from { font-family: Times; }
+    to { font-family: Arial, Helvetica, sans-serif; }
+}
+
+}
+</style>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio porro praesentium, voluptatem illum mollitia aut suscipit cum quo soluta nihil reprehenderit distinctio dolorum, a beatae dolore doloribus repellat id deleniti.</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
     <section class="slide">
-        - font-variant-emoji https://developer.chrome.com/release-notes/131?hl=en#css_font-variant-emoji
+        <h2 class="shout">FOIT <br> <small>Flash of Invisible Text<br>Safari, 2008</small></h2>
+    </section>
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    animation: foit 3s steps(1) forwards;
+}
+
+@keyframes foit {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+}
+</style>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio porro praesentium, voluptatem illum mollitia aut suscipit cum quo soluta nihil reprehenderit distinctio dolorum, a beatae dolore doloribus repellat id deleniti.</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
     <section class="slide">
-        - Загружаем шрифт
+        <h2 class="shout">⏱️ 3 секунды <br> <small>Firefox, 2011</small></h2>
     </section>
 
 
     <section class="slide">
-        - https://www.zachleat.com/web/comprehensive-webfonts/
+        <h2 class="shout">🥷 Невидимый запасной шрифт</h2>
     </section>
 
 
     <section class="slide">
-        - https://www.zachleat.com/web/font-checklist/
+        <h2 class="shout"><code>font-display</code></h2>
     </section>
 
 
     <section class="slide">
-        - local
+        <img src="./pictures/font-display-block.svg" alt="" class="cover">
+        <a class="copyright" href="https://iainbean.com/posts/2021/5-steps-to-faster-web-fonts/">5 steps to faster web fonts</a>
     </section>
 
 
     <section class="slide">
-        - не надо!
+        <img src="./pictures/font-display-swap.svg" alt="" class="cover">
+        <a class="copyright" href="https://iainbean.com/posts/2021/5-steps-to-faster-web-fonts/">5 steps to faster web fonts</a>
     </section>
 
 
     <section class="slide">
-        - https://highperformancewebfonts.com/read/testing-for-locally-installed-fonts
+        <img src="./pictures/font-display-fallback.svg" alt="" class="cover">
+        <a class="copyright" href="https://iainbean.com/posts/2021/5-steps-to-faster-web-fonts/">5 steps to faster web fonts</a>
     </section>
 
 
     <section class="slide">
-        - system-ui
+        <img src="./pictures/font-display-optional.svg" alt="" class="cover">
+        <a class="copyright" href="https://iainbean.com/posts/2021/5-steps-to-faster-web-fonts/">5 steps to faster web fonts</a>
     </section>
 
 
+    <section class="slide white">
+        <img src="./pictures/alamanac-font-display-usage.png" alt="" class="cover">
+    </section>
+
+
     <section class="slide">
-        - subsetting
+        <h2 class="shout" style="font-size: 2.5em;">👍 <code>font-display: swap</code></h2>
     </section>
 
 
     <section class="slide">
-        - unicode-range
+        <img src="./pictures/zack-guide.jpeg" alt="" class="place" width="800">
+        <a class="copyright" href="https://www.zachleat.com/web/comprehensive-webfonts/">A Comprehensive Guide to Font Loading Strategies</a>
     </section>
 
 
     <section class="slide">
-        - https://www.zachleat.com/web/glyphhanger/
+        <pre class="html place"><code>&lt;link rel=&quot;preload&quot;
+      href=&quot;font.woff2&quot;
+      as=&quot;font&quot;
+      type=&quot;font/woff2&quot;&gt;</code></pre>
+    </section>
+
+
+    <section class="slide white">
+        <img src="./pictures/alamanac-font-resource-hint-usage.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - https://paulcalvano.com/2024-02-16-identifying-font-subsetting-opportunities/
+        <h2 class="shout">Font Subsetting</h2>
     </section>
 
 
     <section class="slide">
-        - 1 символ весит 0.1 КБ https://www.phpied.com/lessons-learned-from-222557-font-file-subsets/
+        <div class="terminal" data-content="subsetting">
+            <p>npm install -g glyphhanger</p>
+            <p></p>
+            <p>glyphhanger https://www.filamentgroup.com/ --subset=Roboto-Regular.ttf --formats=woff2
+                <br>
+                <span style="color: #0ae;">
+                    Subsetting Roboto-Regular.ttf to Roboto-Regular-subset.woff2 (was 298.45 KB, now 10.63 KB)
+                </span>
+            </p>
+        </div>
+        <a class="copyright" href="https://www.zachleat.com/web/glyphhanger/">It’s Dangerous to Go Stallone. Take Glyphhanger</a>
     </section>
 
 
     <section class="slide">
-        - preload
+        <pre class="place"><code>@font-face {
+    font-family: Roboto;
+    src: url(Roboto-Regular-subset.woff2) format("woff2");
+    unicode-range: U+20-7E;
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        - Google Fonts
+        <h2 class="shout">🍰 Разбить на кусочки</h2>
     </section>
 
 
     <section class="slide">
-        - не надо
+        <h2 class="shout">1 символ ≈ 0.1 КБ *</h2>
+        <a class="copyright" href="https://www.phpied.com/lessons-learned-from-222557-font-file-subsets/">Lessons learned from 222,557 font file subsets?</a>
     </section>
 
 
     <section class="slide">
-        - https://csswizardry.com/2020/05/the-fastest-google-fonts/
+        <h2 class="shout">⚠️ Лицензия на шрифт</h2>
     </section>
 
 
     <section class="slide">
-        - DNS, TLS https://blog.cloudflare.com/cloudflare-fonts-enhancing-website-privacy-speed/
+        <pre class="place"><code>@font-face {
+    font-family: MyFont;
+    src:
+        local("MyFont Bold"), /* лучше не надо */
+        local("MyFont-Bold"), /* лучше не надо */
+        url("MyFont-Bold.woff2");
+    font-weight: bold;
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        - WOFF2 и всё
+        <img src="./pictures/meme_di_caprio_sad.jpg" alt="" class="cover height">
+        <h2 style="text-shadow: 1px 2px black;
+    position: relative;
+    top: 8em;
+    left: 3em;
+    font-size: 1.5em;">А почему у вас <br> не пиксель-пёрфект?</h2>
     </section>
 
 
     <section class="slide">
-        - IFT как будущее https://github.com/w3c/IFT/blob/main/IFT-Explainer.md
+        <pre><code>try {
+    const availableFonts = await window.queryLocalFonts();
+
+    for (const fontData of availableFonts) {
+        fontData.fullName;
+        fontData.postscriptName;
+    }
+} catch (err) {
+    console.error(err.name, err.message);
+    this.loadFallback();
+}</code></pre>
+
+        <a class="copyright" href="https://dnd-tokenizer-41471e.netlify.app/">DnD Tokenizer</a>
     </section>
+
 
+    <section class="slide">
+        <h2 class="shout" style="font-family: Times;">Системные шрифты</h2>
+    </section>
 
     <section class="slide">
-        - фолбеки https://modernfontstacks.com/
+        <img src="./pictures/modernfontstack.jpeg" alt="" class="cover width place top">
+        <a class="copyright" href="https://modernfontstacks.com/">Modern Font Stacks</a>
     </section>
 
 
     <section class="slide">
-        - service worker
+        <div class="place">
+            <pre><code>font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            ... sans-serif;</code></pre>
+            <div class="arrow" style="text-align: center;">⬇</div>
+            <pre class=""><code>font-family:
+            system-ui,
+            sans-serif;</code></pre>
+        </div>
+        <a class=" copyright" href="https://highperformancewebfonts.com/read/ditch-BlinkMacSystemFont-and-apple-system">It's time to ditch BlinkMacSystemFont and -apple-system</a>
     </section>
 
 
     <section class="slide">
-        - https://web.dev/learn/performance/optimize-web-fonts
+        <h2 class="shout">Google Fonts?</h2>
+        <img src="./pictures/meme-uzbagoizya.png" alt="Узбагойся" class="place bottom right next" style="bottom: -30px" width="400">
     </section>
 
 
     <section class="slide">
-        - base64 — нет
+        <pre><code>&lt;link rel=&quot;preconnect&quot;
+      href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot;
+      href=&quot;https://fonts.gstatic.com&quot;
+      crossorigin&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap&quot;
+      rel=&quot;stylesheet&quot;&gt;</code></pre>
     </section>
 
 
     <section class="slide">
-        - CLS из Core Web Vitals
+        <h2 class="shout">TLS, DNS 🐢<br>Privacy 🕵️</h2>
+    </section>
+
+
+    <section class="slide white">
+        <img src="./pictures/alamanac-hosting-type.png" alt="" class="cover">
+    </section>
+
+
+    <section class="slide white">
+        <img src="./pictures/alamanac-web-font-usage-by-service.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
-        - font-display: swap;
+        <pre><code>&lt;!-- [1] --&gt;
+&lt;link rel=&quot;preconnect&quot;
+      href=&quot;https://fonts.gstatic.com&quot;
+      crossorigin /&gt;
+
+&lt;!-- [2] --&gt;
+&lt;link rel=&quot;preload&quot;
+      as=&quot;style&quot;
+      href=&quot;$CSS&amp;display=swap&quot; /&gt;</code></pre>
+        <a class="copyright" href="https://csswizardry.com/2020/05/the-fastest-google-fonts/">Speed Up Google Fonts</a>
     </section>
 
 
     <section class="slide">
-        - https://screenspan.net/fallback
+        <pre><code>&lt;!-- [3] --&gt;
+&lt;link rel=&quot;stylesheet&quot;
+      href=&quot;$CSS&amp;display=swap&quot;
+      media=&quot;print&quot; onload=&quot;this.media=&#39;all&#39;&quot; /&gt;
+
+&lt;!-- [4] --&gt;
+&lt;noscript&gt;
+    &lt;link rel=&quot;stylesheet&quot;
+          href=&quot;$CSS&amp;display=swap&quot; /&gt;
+&lt;/noscript&gt;</code></pre>
+        <a class="copyright" href="https://csswizardry.com/2020/05/the-fastest-google-fonts/">Speed Up Google Fonts</a>
     </section>
 
 
     <section class="slide">
-        - LCP
+        <h2 class="shout">Cache 👍<br>Service Worker 👍</h2>
     </section>
 
 
     <section class="slide">
-        - жирный и italic грузим позже
+        <h2 class="shout">Вариативные шрифты 🤔</h2>
     </section>
 
 
     <section class="slide">
-        - вариативные шрифты?
+        <h2 class="shout">🧪 Incremental Font Transfer</h2>
+        <a class="copyright" href="https://github.com/w3c/IFT/blob/main/IFT-Explainer.md">Explainer</a>
     </section>
 
 
     <section class="slide">
-        - FOIT, FOUT, FOFT
+        <h2 class="shout">Но!</h2>
+    </section>
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+p {
+    font-family: Times;
+    animation: fout 6s linear forwards;
+}
+
+@keyframes fout {
+    from { font-family: Times; }
+    to { font-family: Arial, Helvetica, sans-serif; }
+}
+
+}
+</style>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio porro praesentium, voluptatem illum mollitia aut suscipit cum quo soluta nihil reprehenderit distinctio dolorum, a beatae dolore doloribus repellat id deleniti.</p>
+<img src="./pictures/lego.jpeg" width="200">
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
     <section class="slide">
-        - https://www.zachleat.com/web/fout-foit-history/
+        <img src="./pictures/good-cls-values.svg" alt="" class="place" width="800">
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout"><small>Часть 4</small><br>CSS и шрифты</h2>
     </section>
 
 
     <section class="slide">
-        - https://css-tricks.com/the-best-font-loading-strategies-and-how-to-execute-them/
+        <pre class="place"><code>@font-face {
+    font-family: "Trickster";
+    src: url("trickster.woff2") format("woff2");
+    font-display: swap;
+    font-style: italic;
+    font-weight: 400;
+
+    ascent-override: 90%;
+    descent-override: 85%;
+    line-gap-override: 125%;
+    size-adjust: 90%;
+
+    font-variation-settings: "xhgt" 0.7;
+    font-feature-settings: "swsh" 2;
+}</code></pre>
     </section>
 
 
     <section class="slide">
-        <h2>генератор беджиков</h2>
+        <h2 class="shout">🔀 Фолбеки</h2>
     </section>
 
 
     <section class="slide">
-        - Чеклист как резюме
+        <pre><code>body {
+    font-family: "Poppins", poppins-fallback, sans-serif;
+}
+
+@font-face {
+    font-family: poppins-fallback;
+    src: local("Arial");
+    size-adjust: 60.85099821%;
+    ascent-override: 164.3358416%;
+    descent-override: 57.51754455%;
+    line-gap-override: 16.43358416%;
+}</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/blog/font-fallbacks">Improved font fallbacks</a>
     </section>
 
 
     <section class="slide">
-        1. Всегда self-host (самостоятельное размещение). Не используйте Google Fonts CDN напрямую (проблемы с приватностью/GDPR и
-        производительностью).   
+        <pre class="place css"><code>.adj-times-ex-height {
+    font-size-adjust: ex-height 0.85;
+}
+
+.adj-times-cap-height {
+    font-size-adjust: cap-height 0.73;
+}</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust">font-size-adjust</a>
+    </section>
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+span {
+    outline: var(--color-red) 1px solid;
+}
+
+p  {
+    font-size: 100px;
+    outline: var(--color-blue) 1px solid;
+}
+.a {
+    font-family: 'Courier New';
+    font-size-adjust: ex-height 0.5;
+}
+.b {
+    font-family: 'Helvetica';
+    font-size-adjust: cap-height 0.5;
+}
+
+}
+</style>
+<p>
+    <span class="a">Ja</span>
+    <span class="b">Ja</span>
+</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
     <section class="slide">
-        2. Используйте WOFF2.   
+        <baseline-status featureId="font-size-adjust" class="place zoom"></baseline-status>
+    </section>
+
+
+    <section class="slide" style="background-color: #101010;">
+        <img src="./pictures/fallback-generator.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://screenspan.net/fallback">Fallback Font Generator</a>
     </section>
 
 
     <section class="slide">
-        3. Применяйте font-display: swap вместе с size-adjust и другими override для минимизации CLS.   
+        <h2 class="shout"><code>text-box-trim</code></h2>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-box-trim">text-box-trim</a>
+    </section>
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+span {
+    outline: var(--color-red) 1px solid;
+}
+
+p  {
+    font-size: 100px;
+    outline: var(--color-blue) 1px solid;
+    text-box-edge: cap alphabetic;
+    text-box-trim: trim-both;
+}
+.a {
+    font-family: 'Courier New';
+}
+.b {
+    font-family: 'Helvetica';
+}
+
+}
+</style>
+<p>
+    <span class="a">ejI</span>
+    <span class="b">ejI</span>
+</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
     <section class="slide">
-        4. Предзагружайте (preload) критически важные шрифты.   
+        <baseline-status featureId="text-box" class="place zoom"></baseline-status>
     </section>
 
 
     <section class="slide">
-        5. Сабсеттинг — ваш лучший друг.   
+        <h2 class="shout" style="font-size: 2em;"><code>font-feature-settings</code></h2>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings">font-feature-settings</a>
     </section>
 
 
     <section class="slide">
-        6. Внедряйте вариативные шрифты, где это возможно.   
+        <img src="./pictures/wakamaifondue.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://wakamaifondue.com/beta/">Wakamai Fondue</a>
+    </section>
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style> @scope {
+
+p {
+    font-family: 'Fira Code';
+
+    font-feature-settings: "tnum", "zero";
+}
+
+}
+</style>
+<p>
+    <span class="a">Fill the gap</span><br>
+    <span class="b">1.203</span><br>
+    <span class="b">1/3</span><br>
+</p>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
     </section>
 
 
+    <section class="slide clear">
+        <img src="./pictures/landscape-nature-mountain.jpg" alt="" class="cover width">
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout"><small>Резюме</small><br>Чеклист для разработчика</h2>
+    </section>
+
+
     <section class="slide">
-        - Ссылка на gist с материалами https://gist.github.com/MeFoDy/f44aa1d3f027500d1663abe60532f44b
+        <h2>Чеклист</h2>
+        <ul>
+            <li class="next">✅ Только WOFF2</li>
+            <li class="next">✅ Self-hosted</li>
+            <li class="next">✅ Жёсткое кэширование</li>
+            <li class="next">✅ Подходящий <code>font-display</code></li>
+            <li class="next">✅ Настройка фолбека с <code>size-adjust</code></li>
+            <li class="next">✅ <code>preload</code> для критических шрифтов</li>
+            <li class="next">✅ Сабсеттинг</li>
+            <li class="next">✅ Тестирование!</li>
+        </ul>
+        <img src="./pictures/meme_i_am_great.png" alt="" class="place right bottom next" width="500">
     </section>
 
 
     <section class="slide">
-        <baseline-status featureId="font-family-system" class="place zoom"></baseline-status>
+        <img src="./pictures/wst.jpeg" alt="" class="cover width place top">
+    </section>
+
+
+    <section class="slide black">
+        <img src="./pictures/mefody-dev-tg.jpeg" alt="" class="place rounded left" width="600" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+        <img src="./pictures/qr-code-tg.png" alt="" class="place right rounded" width="250" style="margin-right: 100px;">
+        <a class="copyright" href="https://gist.github.com/MeFoDy/f44aa1d3f027500d1663abe60532f44b">Gist с материалами</a>
     </section>
 
 
     <section class="slide clear" id="final">
-        <h2>Берегите себя!</h2>
+        <h2>Берегите природу!</h2>
         <a href="https://mefody.dev/talks/fonts-loading/">mefody.dev/talks/fonts-loading/</a>
         <br>
         <a href="https://x.com/dark_mefody">@dark_mefody</a>
@@ -721,6 +1596,27 @@
                 mouseTimer = window.setTimeout(disappearCursor, 3000);
             };
         })();
+    </script>
+
+    <script>
+        const demoCodes = document.querySelectorAll("css-demo .demo-code");
+        const setDemoValue = function(textarea) {
+            const code = textarea.value;
+            const demoResult = textarea.parentNode.querySelector('.demo-result');
+            demoResult.innerHTML = code;
+            if (window.indeterminate) window.indeterminate.indeterminate = true;
+        };
+        const setChangeListener = function(demoCode, listener) {
+            demoCode.addEventListener("blur", listener);
+            demoCode.addEventListener("keyup", listener);
+        }
+        demoCodes.forEach(demoCode => {
+            const textarea = demoCode;
+            setDemoValue(textarea);
+            setChangeListener(demoCode, () => {
+                setDemoValue(textarea);
+            });
+        });
     </script>
 </body>
 
