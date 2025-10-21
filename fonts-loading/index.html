@@ -22,6 +22,11 @@
         </p>
     </header>
 
+    <section class="slide clear" style="background: url(pictures/face.svg) no-repeat center center; background-size: contain;">
+        <h2 style="color: var(--color-white); font-size: 3em;">Давай поиграем<br>со шрифтами</h2>
+        <p style="color: var(--color-white); margin-top: 2em;">Никита Дубко, Яндекс Контест</p>
+    </section>
+
     <section class="slide clear" id="title">
         <style>
             #title {
@@ -221,18 +226,18 @@
 
 
     <section class="slide">
+        <img src="./pictures/fontforge-logo.svg" alt="" class="place" width="400">
+        <a class="copyright" href="https://fontforge.org/en-US/">FontForge</a>
+    </section>
+
+
+    <section class="slide">
         <img src="./pictures/fontforge-table.png" alt="" class="cover">
     </section>
 
 
     <section class="slide">
         <img src="./pictures/fontforge-glyph.png" alt="" class="cover">
-    </section>
-
-
-    <section class="slide">
-        <img src="./pictures/fontforge-logo.svg" alt="" class="place" width="400">
-        <a class="copyright" href="https://fontforge.org/en-US/">FontForge</a>
     </section>
 
 
@@ -566,7 +571,9 @@ p {
 
 
     <section class="slide">
-        <img src="./pictures/fontforge-glyph.png" alt="" class="cover">
+        <img src="./pictures/fontforge-glyph.png" alt="" class="cover" style="left: 30%">
+        <h2 class="place right" style="right: 20%;
+    font-size: 14em;">й</h2>
     </section>
 
 
@@ -917,7 +924,7 @@ p::before  {
 
 
     <section class="slide clear">
-        <img src="./pictures/landscape-nature-mountain.jpg" alt="" class="cover width">
+        <img src="./pictures/wallpaper-my-1.jpeg" alt="" class="cover width">
     </section>
 
 
@@ -989,6 +996,7 @@ p::before  {
 p {
     font-family: Times;
     animation: fout 6s linear forwards;
+    display: none;
 }
 
 @keyframes fout {
@@ -1169,6 +1177,12 @@ p {
     top: 8em;
     left: 3em;
     font-size: 1.5em;">А почему у вас <br> не пиксель-пёрфект?</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/karatak.jpeg" alt="" class="cover width place top">
+        <a class="copyright" href="https://dnd-tokenizer-41471e.netlify.app/">DnD Tokenizer</a>
     </section>
 
 
@@ -1452,8 +1466,8 @@ span {
 p  {
     font-size: 100px;
     outline: var(--color-blue) 1px solid;
-    text-box-edge: cap alphabetic;
-    text-box-trim: trim-both;
+    /* text-box-edge: cap alphabetic;
+    text-box-trim: trim-both; */
 }
 .a {
     font-family: 'Courier New';
@@ -1519,21 +1533,21 @@ p {
 
 
     <section class="slide clear">
-        <img src="./pictures/landscape-nature-mountain.jpg" alt="" class="cover width">
+        <img src="./pictures/wallpaper-my-2.jpeg" alt="" class="cover width">
     </section>
 
 
     <section class="slide title">
-        <h2 class="shout"><small>Резюме</small><br>Чеклист для разработчика</h2>
+        <h2 class="shout"><small>Резюме</small><br>Чек-лист для разработчика</h2>
     </section>
 
 
     <section class="slide">
-        <h2>Чеклист</h2>
+        <h2>Чек-лист</h2>
         <ul>
             <li class="next">✅ Только WOFF2</li>
             <li class="next">✅ Self-hosted</li>
-            <li class="next">✅ Жёсткое кэширование</li>
+            <li class="next">✅ Жёсткое кеширование</li>
             <li class="next">✅ Подходящий <code>font-display</code></li>
             <li class="next">✅ Настройка фолбека с <code>size-adjust</code></li>
             <li class="next">✅ <code>preload</code> для критических шрифтов</li>
@@ -1553,6 +1567,40 @@ p {
         <img src="./pictures/mefody-dev-tg.jpeg" alt="" class="place rounded left" width="600" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
         <img src="./pictures/qr-code-tg.png" alt="" class="place right rounded" width="250" style="margin-right: 100px;">
         <a class="copyright" href="https://gist.github.com/MeFoDy/f44aa1d3f027500d1663abe60532f44b">Gist с материалами</a>
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Берегите природу!</h2>
+        <a href="https://mefody.dev/talks/fonts-loading/">mefody.dev/talks/fonts-loading/</a>
+        <br>
+        <a href="https://x.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код на голосование" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout"><small>Бонус</small><br>Эмодзи 🤩</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/emoji-article.jpeg" alt="" class="cover width place top">
+        <a class="copyright" href="https://tonsky.me/blog/emoji/">Emoji under the hood</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 1em;">
+            <code>font-variant-emoji: text;</code>
+            <br><span style="font-variant-emoji: text;">☎&#x2611;&#x263A;</span><br><br>
+            <code>font-variant-emoji: emoji;</code>
+            <br><span style="font-variant-emoji: emoji;">☎&#x2611;&#x263A;</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <baseline-status featureId="font-variant-emoji" class="place zoom"></baseline-status>
     </section>
 
 
