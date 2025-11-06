@@ -77,6 +77,10 @@
     font-family: "Yandex Sans Text Web", "PT Sans Narrow", sans-serif;
 }
 
+.slide h2 code {
+    font-synthesis: none;
+}
+
 .caption {
     color: var(--color-white);
 }
