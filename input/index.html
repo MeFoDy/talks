@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>&lt;input&gt;</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Древний и многогранный. Необходимый и такой волнующий. Небезопасный и важный. Давайте поговорим о том, что умеет поле ввода в браузере и как его готовить наиболее эффективно.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/a11y-light.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+    <script type="module" src="./baseline-status.min.js"></script>
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>&lt;input&gt;</h1>
+        <p>
+            <a href="https://t.me/mefody_dev">Никита Дубко</a>, Яндекс Контест
+        </p>
+    </header>
+
+    <section class="slide clear" id="title">
+        <style>
+            @scope {
+                legend {
+                    font-size: 3.5em;
+                }
+
+                input {
+                    font-size: inherit;
+                }
+            }
+        </style>
+        <form>
+            <fieldset>
+                <legend>&lt;input&gt;</legend>
+                <p>
+                    <label for="name">
+                        Спикер:
+                        <input type="text" name="name" id="name" value="Никита Дубко" required>
+                    </label>
+                </p>
+                <p>
+                    <label for="company">
+                        Компания:
+                        <input type="text" name="company" id="company" value="Яндекс">
+                    </label>
+                </p>
+                <p>
+                    <label for="conference">
+                        Конференция:
+                        <input type="text" name="conference" id="conference" value="Dump 2026">
+                    </label>
+                </p>
+                <p>
+                    <label for="remember-me">
+                        <input type="checkbox" id="remember-me" name="remember-me" checked style="aspect-ratio: 1/1; width: 1cap;">
+                        Запомнить меня
+                    </label>
+                </p>
+            </fieldset>
+        </form>
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 360px;">
+            <h2>Никита Дубко</h2>
+            <ul>
+                <li>руководитель продуктов Контеста</li>
+                <li>голос в «Веб-стандартах»</li>
+                <li>MinskCSS, MinskJS</li>
+                <li>«Я 💛 Фронтенд»</li>
+                <li>17+ лет в профессии</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/nikita-a.jpg" alt="" class="cover width">
+        <a class="copyright" href="https://www.youtube.com/watch?v=_UmMLsIeK9k">&lt;a&gt;, Никита Дубко</a>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/nikita-img.jpg" alt="" class="cover width">
+        <a class="copyright" href="https://www.youtube.com/watch?v=WfzKd16LplI">&lt;img&gt;, Никита Дубко</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('blur', () => {
+    input.classList.add('touched');
+  });
+});</code></pre>
+        <pre class="css"><code>/* Показываем ошибки только для "посещённых" полей */
+input.touched:invalid {
+  border-color: red;
+}
+
+input.touched:valid {
+  border-color: green;
+}</code></pre>
+        <img src="./pictures/claude_ai_logo.svg" alt="" class="place bottom right" width="300" style="right: 10%; bottom: 15%">
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/meme_its_time.png" alt="" class="place" width="400">
+    </section>
+
+
+
+
+
+    <section class="slide title">
+        <h2 class="shout">История</h2>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/html2.jpg" alt="" class="place" width="800">
+        <a class="copyright" href="https://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.1.2">HTML 2.0. Forms</a>
+    </section>
+
+    <section class="slide">
+        <h2>INPUT TYPE</h2>
+        <ul>
+            <li><code>TEXT</code></li>
+            <li><code>PASSWORD</code></li>
+            <li><code>CHECKBOX</code></li>
+            <li><code>RADIO</code></li>
+            <li><code>IMAGE</code></li>
+            <li><code>HIDDEN</code></li>
+            <li><code>SUBMIT</code></li>
+            <li><code>RESET</code></li>
+        </ul>
+        <a class="copyright" href="https://www.w3.org/MarkUp/html-spec/html-spec_8.html#SEC8.1.2">HTML 2.0. Forms</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/html3.jpg" alt="" class="place" width="900">
+        <a class="copyright" href="https://www.w3.org/MarkUp/html3/input.html">HTML 3.0. Input</a>
+    </section>
+
+    <section class="slide">
+        <h2>INPUT TYPE</h2>
+        <ul class="columns two">
+            <li><code>text</code></li>
+            <li><code>password</code></li>
+            <li><code>checkbox</code></li>
+            <li><code>radio</code></li>
+            <li><code>hidden</code></li>
+            <li><code>submit</code></li>
+            <li><code>image</code></li>
+            <li><code>reset</code></li>
+            <li><code class="add">+ range</code></li>
+            <li><code class="add">+ scribble</code></li>
+            <li><code class="add">+ file</code></li>
+        </ul>
+        <a class="copyright" href="https://www.w3.org/MarkUp/html3/input.html">HTML 3.0. Input</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/html4.jpg" alt="" class="place left cover height">
+        <a class="copyright" href="https://www.w3.org/TR/html401/interact/forms.html#h-17.4">HTML 4.01. The INPUT element</a>
+    </section>
+
+    <section class="slide">
+        <h2>INPUT TYPE</h2>
+        <ul class="columns two">
+            <li><code>TEXT</code></li>
+            <li><code>PASSWORD</code></li>
+            <li><code>CHECKBOX</code></li>
+            <li><code>RADIO</code></li>
+            <li><code>HIDDEN</code></li>
+            <li><code>SUBMIT</code></li>
+            <li><code>IMAGE</code></li>
+            <li><code>RESET</code></li>
+            <li><code>FILE</code></li>
+            <li><code class="add">+ BUTTON</code></li>
+            <li><code class="remove">- range</code></li>
+            <li><code class="remove">- scribble</code></li>
+        </ul>
+        <a class="copyright" href="https://www.w3.org/TR/html401/interact/forms.html#h-17.4">HTML 4.01. The INPUT element</a>
+    </section>
+
+    <section class="slide">
+        <h2>HTML 5. Input type</h2>
+        <ul class="columns three">
+            <li><code>hidden</code></li>
+            <li><code>text</code></li>
+            <li><code>password</code></li>
+            <li><code>checkbox</code></li>
+            <li><code>radio</code></li>
+            <li><code>submit</code></li>
+            <li><code>image</code></li>
+            <li><code>reset</code></li>
+            <li><code>file</code></li>
+            <li><code>button</code></li>
+            <li><code class="add">+ search</code></li>
+            <li><code class="add">+ tel</code></li>
+            <li><code class="add">+ url</code></li>
+            <li><code class="add">+ email</code></li>
+            <li><code class="add">+ date</code></li>
+            <li><code class="add">+ month</code></li>
+            <li><code class="add">+ week</code></li>
+            <li><code class="add">+ time</code></li>
+            <li><code class="remove">- datetime</code></li>
+            <li><code class="add" style="font-size: 0.8em;">+ datetime-local</code></li>
+            <li><code class="add">+ number</code></li>
+            <li><code class="add">+ range (😁)</code></li>
+            <li><code class="add">+ color</code></li>
+        </ul>
+        <a class="copyright" href="https://html.spec.whatwg.org/multipage/input.html">4.10.5 The input element</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/открыть_ворота.jpg" alt="" class="cover">
+    </section>
+
+    <!-- <section class="slide">
+        <img src="./pictures/css-styling-forms.jpg" alt="" class="place" width="800">
+        <a class="copyright" href="https://drafts.csswg.org/css-forms/">CSS Form Control Styling Module Level 1</a>
+    </section> -->
+
+
+    <section class="slide">
+        <pre class="place big"><code>❌ &lt;input name=isindex&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <pre class="place big"><code>&lt;input type=hidden name=_charset_&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">input — уникальный</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">input — многогранный</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/input-mdn.jpg" alt="" class="cover">
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input">MDN: input</a>
+    </section>
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Форма 1. <br>«Войти на сайт»</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-login.png" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <h2>Принципы</h2>
+        <ul>
+            <li>Удобство пользователя (UX)</li>
+            <li class="next">Доступность (a11y)</li>
+            <li class="next">Удобство разработчика (DX)</li>
+        </ul>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <label>
+        Почта
+        <input type="email" name="email" id="email" required>
+    </label>
+    <label>
+        Пароль
+        <input type="password" name="password" id="password" required>
+    </label>
+    <label>
+        <input type="checkbox" id="remember-me" name="remember-me">
+        Запомнить меня
+    </label>
+    <input type="submit" value="Войти">
+</form>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <label>
+        Почта
+        <input type="email" name="email" id="email" required>
+    </label>
+    <label>
+        Пароль
+        <input type="password" name="password" id="password" required>
+    </label>
+    <label>
+        <input type="checkbox" id="remember-me" name="remember-me">
+        Запомнить меня
+    </label>
+    <input type="submit" value="Войти">
+</form>
+<style>
+    @scope {
+        label {
+            display: block;
+        }
+        input {
+            font-size: inherit;
+        }
+        input[type=email],
+        input[type=password] {
+            display: block;
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>input, textarea {
+    font-size: inherit;
+}</code></pre>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Почта ✉️</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="email"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="center">🙃 Забавный факт</h2>
+        <pre class="place big html"><code>&lt;input type="email" multiple&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place html"><code>/^[\w.!#$%&amp;&apos;*+/ =?^&grave;{|}~-]+@[a-z\d](?:[a-z\d-]{0,61}
+[a-z\d])?(?:\.[a-z\d](?:[a-z\d-]{0,61}[a-z\d])?)*$/i;</code></pre>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<input type="email" value="test@test">
+<input type="email" value="test@ß.com">
+<input type="email" value="test@почта.бел">
+<style>
+    @scope {
+        label {
+            display: block;
+        }
+        input {
+            font-size: inherit;
+        }
+        input[type=email] {
+            display: block;
+            margin-bottom: 1em;
+        }
+        input:valid {
+            border: 2px solid var(--color-green);
+        }
+        input:invalid {
+            border: 2px dashed var(--color-red);
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Не мешай пользователю!</h2>
+        <img src="./pictures/meme_muzhik.jpeg" alt="" class="place bottom right" width="400">
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="text"
+       pattern=".+@.+\..+"&gt;</code></pre>
+        <a class="copyright" href="https://davidcel.is/articles/stop-validating-email-addresses-with-regex/">Stop Validating Email Addresses with Regex</a>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<input type="text" pattern=".+@.+\..+" value="test@test">
+<input type="text" pattern=".+@.+\..+" value="test@ß.com">
+<input type="text" pattern=".+@.+\..+" value="test@почта.бел">
+<style>
+    @scope {
+        label {
+            display: block;
+        }
+        input {
+            font-size: inherit;
+        }
+        input[type=text] {
+            display: block;
+            margin-bottom: 1em;
+        }
+        input:valid {
+            border: 2px solid var(--color-green);
+        }
+        input:invalid {
+            border: 2px dashed var(--color-red);
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="text"
+       pattern=".+@.+\..+"
+       required&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="text"
+       pattern=".+@.+\..+"
+       required
+       inputmode="email"&gt;</code></pre>
+    </section>
+
+    <section class="slide" style="background-color: #18191c;">
+        <img src="./pictures/doka-inputmode-email.webp" alt="" class="cover">
+        <img src="./pictures/arrow.svg" alt="" class="place" style="width: 20%; transform: translate(-280px, 150px) scale(1, 1) rotate(-30deg);">
+        <a class="copyright" href="https://doka.guide/html/inputmode/">Дока, inputmode</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="text"
+       pattern=".+@.+\..+"
+       required
+       inputmode="email"
+       enterkeyhint="next"&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/enterkeyhint">MDN, enterkeyhint</a>
+    </section>
+
+    <section class="slide" style="background-color: #18191c;">
+        <img src="./pictures/doka-inputmode-email.webp" alt="" class="cover">
+        <img src="./pictures/arrow.svg" alt="" class="place" style="width: 20%; transform: translate(200px, 70px) scale(-1, 1) rotate(0deg);">
+        <a class="copyright" href="https://doka.guide/html/enterkeyhint/">Дока, enterkeyhint</a>
+    </section>
+
+    <section class="slide" style="background-color: #18191c;">
+        <img src="./pictures/doka-enterkeyhint-next.webp" alt="" class="cover">
+        <img src="./pictures/arrow.svg" alt="" class="place" style="width: 20%; transform: translate(170px, 35px) scale(-1, 1) rotate(0deg);">
+        <a class="copyright" href="https://doka.guide/html/enterkeyhint/">Дока, enterkeyhint</a>
+    </section>
+
+    <section class="slide">
+        <h2>enterkeyhint</h2>
+        <ul>
+            <li><code>enter</code></li>
+            <li><code>done</code></li>
+            <li><code>go</code></li>
+            <li><code>next</code></li>
+            <li><code>previous</code></li>
+            <li><code>search</code></li>
+            <li><code>send</code></li>
+        </ul>
+        <a class="copyright" href="https://doka.guide/html/enterkeyhint/">Дока, enterkeyhint</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-login.png" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label&gt;
+    Почта
+    &lt;input type="text"
+           name="email"
+           pattern=".+@.+\..+"
+           required
+           inputmode="email"&gt;
+&lt;/label&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="email"&gt;
+    Почта
+    &lt;input type="text"
+           name="email"
+           id="email"
+           pattern=".+@.+\..+"
+           required
+           inputmode="email"&gt;
+&lt;/label&gt;</code></pre>
+        <a class="copyright" href="https://gomakethings.com/implicit-labels-arent/">Implicit labels aren't</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="email"&gt;Почта&lt;/label&gt;
+&lt;input type="text"
+       name="email"
+       id="email"
+       pattern=".+@.+\..+"
+       required
+       inputmode="email"&gt;</code></pre>
+        <a class="copyright" href="https://gomakethings.com/implicit-labels-arent/">Implicit labels aren't</a>
+    </section>
+
+
+
+    <section class="slide">
+        <img src="./pictures/form-login-placeholders.png" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="text"
+       pattern=".+@.+\..+"
+       placeholder="Почта"&gt;</code></pre>
+        <img src="./pictures/meme_no.jpg" alt="" class="place left bottom next" width="300">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/figma-example.jpg" alt="" class="place left" width="300" style="left: 15%">
+        <span class="arrow place" style="font-size: 3em;">→</span>
+        <img src="./pictures/figma-example-black.jpg" alt="" class="place right" width="300" style="right: 15%">
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="email"&gt;Почта&lt;/label&gt;
+&lt;input type="text"
+       name="email"
+       id="email"
+       pattern=".+@.+\..+"
+       required
+       inputmode="email"
+       placeholder="my@mail.com"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="css place"><code>input::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+input::-webkit-input-placeholder { color: #999; }
+input::-moz-placeholder { color: #999; opacity: 1; }
+input:-ms-input-placeholder { color: #999; }</code></pre>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/tg-alexnozer.jpeg" alt="" class="place round" width="600">
+        <a class="copyright" href="https://t.me/alexnozer_dev/293">Плавающие лейблы</a>
+    </section>
+
+
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Автозаполнение ✨</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Очень полезно для a11y!</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/browser-autocomplete.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=Es18Oyo9hg4">Как работает автозаполнение в браузерах</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Браузер пробует угадать 🔮</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="email"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="text"
+       name="email"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="text"
+       id="email"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label&gt;
+    Email
+    &lt;input type="text"&gt;
+&lt;/label&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Давайте поможем браузеру! 🌼</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="email"
+       autocomplete="email"&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">MDN, autocomplete</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="email"
+       autocomplete="work email"&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">MDN, autocomplete</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/autofill-data.png" alt="" class="place" width="900">
+        <a class="copyright" href="https://developer.chrome.com/docs/devtools/autofill">Autofill DevTools</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/autofill-demo.jpg" alt="" class="place" width="600">
+        <a class="copyright" href="https://rsolomakhin.github.io/autofill/">Autofill Demo</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🧑‍🎨 «Фу, некрасиво!»</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place css"><code>
+/* ⚠️ Использовать только в целях улучшения a11y */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #333;
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+    transition: background-color 5000s ease-in-out 0s;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-login.png" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="email"&gt;Почта&lt;/label&gt;
+&lt;input type="text"
+       name="email"
+       id="email"
+       pattern=".+@.+\..+"
+       required
+       inputmode="email"
+       placeholder="my@mail.com"
+       autofocus&gt;</code></pre>
+        <a class="copyright" href="https://www.htmhell.dev/adventcalendar/2024/2/">Starting off right: Where autofocus shines</a>
+    </section>
+
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Валидация 🔍</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⚠️ Никогда не доверяйте пользовательскому вводу!</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;script&gt;
+    alert(&apos;XSS: &apos;+document.cookie)
+&lt;/script&gt;</code></pre>
+    </section>
+
+
+    <section class="slide">
+        <img src="./pictures/cloudfour-validation-part1.jpeg" alt="" class="place" width="800">
+        <a class="copyright" href="https://cloudfour.com/thinks/progressively-enhanced-form-validation-part-1-html-and-css/">Progressively Enhanced Form Validation, Part 1: HTML and CSS</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/cloudfour-validation-part2.jpeg" alt="" class="place" width="800">
+        <a class="copyright" href="https://cloudfour.com/thinks/progressively-enhanced-form-validation-part-2-layering-in-javascript/">Progressively Enhanced Form Validation, Part 2: Layering in JavaScript</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>input:user-invalid {
+    border: 2px solid red;
+}</code></pre>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style>
+@scope {
+    input {
+        font-size: inherit;
+    }
+    #demo-email:invalid {
+        border: 2px solid red;
+    }
+    #demo-email-ok:user-invalid {
+        border: 2px solid red;
+    }
+}
+</style>
+
+<div>
+    <label for="demo-email">Бесючий email</label>
+    <input type="email" id="demo-email" required>
+</div>
+<div>
+    <label for="demo-email-ok">Email поспокойнее</label>
+    <input type="email" id="demo-email-ok" required>
+</div>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <pre class="place html" style="font-size: 1.3em;"><code>&lt;label for="email"&gt;Почта&lt;/label&gt;
+&lt;input type="text"
+       id="email"
+       pattern=".+@.+\..+"
+       required&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>form.setAttribute("novalidate", "");              // ⬅️
+form.addEventListener("submit", onSubmit);
+
+const onSubmit = (event) => {
+    form
+        .querySelectorAll("input")
+        .forEach(updateValidationStateForInput);
+
+    const isFormValid = form.checkValidity();     // ⬅️
+    if (!isFormValid) {
+        event.preventDefault();
+    }
+};</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big js"><code>console.dir(input.validity);</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState">MDN, ValidityState</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js place"><code>const updateValidationStateForInput = (input) => {
+    const isValid = input.checkValidity();
+
+    if (input.validity.valueMissing) {
+        input.setCustomValidity("Заполни, слышь!");
+    }
+};</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>❌ Недостатки</h2>
+        <ul>
+            <li class="next">Сообщение плохо помогает скринридерам</li>
+            <li class="next">Размер текста в сообщении дефолтный</li>
+            <li class="next">Сообщения быстро исчезают</li>
+        </ul>
+        <a class="copyright" href="https://www.htmhell.dev/adventcalendar/2025/28/">HTML Input Validation is (maybe) Good</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🔨 Чиним доступность</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place html" style="font-size: 1.3em;"><code>&lt;label for="email"&gt;Почта&lt;/label&gt;
+&lt;input type="text"
+       id="email"
+       pattern=".+@.+\..+"
+       required
+       aria-errormessage="email-error"&gt;
+&lt;p hidden id=&quot;email-error&quot; class=&quot;error&quot;&gt;
+    &lt;!-- TODO: JavaScript --&gt;
+&lt;/p&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const updateValidationStateForInput = (input) => {
+    const isValid = input.checkValidity();
+    const errorEl = input.nextElementSibling;
+
+    errorEl.textContent = input.validationMessage;
+    errorEl.hidden = isValid;
+};</code></pre>
+        <a class="copyright" href="https://cloudfour.com/thinks/progressively-enhanced-form-validation-part-2-layering-in-javascript/">Progressively Enhanced Form Validation, Part 2: Layering in JavaScript</a>
+    </section>
+
+    <section class="slide">
+        <pre class="js"><code>const updateValidationStateForInput = (input) => {
+    const isValid = input.checkValidity();
+    const errorEl = input.nextElementSibling;
+
+    errorEl.textContent = input.validationMessage;
+    errorEl.hidden = isValid;
+
+    if (isValid) {
+        input.removeAttribute("aria-invalid");
+    } else {
+        input.setAttribute("aria-invalid", "true");
+    }
+};</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Ура! <br>Один инпут готов!</h2>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/kitty.jpeg" alt="" class="cover width">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-login.png" alt="" class="place" width="400">
+    </section>
+
+
+
+
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Пароль 🔑</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="pwd"&gt;Пароль&lt;/label&gt;
+&lt;input type="password"
+       name="pwd"
+       id="pwd"
+       required&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="pwd"&gt;Пароль&lt;/label&gt;
+&lt;input type="password"
+       name="pwd"
+       id="pwd"
+       required
+       autocomplete="current-password"&gt;</code></pre>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<style>
+@scope {
+    input {
+        font-size: inherit;
+        -webkit-text-security: disc;
+    }
+}
+</style>
+
+<label for="pwd">Непароль</label>
+<br>
+<input type="text"
+       name="pwd"
+       id="pwd"
+       required
+       value="p@s$w0RD"
+       autocomplete="current-password">
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Ура! <br>Второй инпут готов!</h2>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Новый пароль 🔑</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="new-pwd"&gt;Новый пароль&lt;/label&gt;
+&lt;input type="password"
+       name="new-pwd"
+       id="new-pwd"
+       required
+       autocomplete="new-password"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">👨🏻‍💼 Менеджеры паролей</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bitwarden_logo.svg" alt="" class="place" width="400">
+    </section>
+
+    <section class="slide">
+        <h2>Лучшие практики</h2>
+        <ul>
+            <li class="next">Уникальные <code>id</code> и <code>name</code> для каждого поля.</li>
+            <li class="next">Все <code>input</code> находятся внутри <code>form</code>.</li>
+            <li class="next">Связанные элементы (например, логин и пароль) — в одной форме.</li>
+            <li class="next">Никак не связанные элементы (например, пароль и дата рождения) — в разных формах.</li>
+            <li class="next">Правильный <code>method</code> у форм.</li>
+            <li class="next">Настроенный <code>autocomplete</code> у элементов.</li>
+        </ul>
+        <a class="copyright" href="https://developer.1password.com/docs/web/compatible-website-design/">Design your website to work best with 1Password</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><code>passwordrules</code></h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big bash"><code>minlength: 12;
+required: lower;
+required: upper;
+required: digit;
+required: [!#$%&*@^];</code></pre>
+        <a class="copyright" href="https://developer.apple.com/password-rules/">Password Rules Validation Tool</a>
+    </section>
+
+    <section class="slide">
+        <pre class="html"><code>&lt;label for="new-pwd"&gt;Новый пароль&lt;/label&gt;
+&lt;input type="password"
+       name="new-pwd"
+       id="new-pwd"
+       required
+       autocomplete="new-password"
+       passwordrules="minlength: 12; required: lower;
+                      required: upper; required: digit;
+                      required: [!#$%&*@^];"&gt;</code></pre>
+        <pre class="bash next"><code>E@cvex9v@Qr@
+CZ7h*mrE#ScJ
+x&585vIz&rFK</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/password-manager-resources.jpeg" alt="" class="cover height">
+        <a class="copyright" href="https://github.com/apple/password-manager-resources#password-rules">password-manager-resources</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/google-login.png" alt="" class="place" width="400">
+        <a class="copyright" href="https://evertpot.com/multi-step-login-forms-for-password-managers/">Building multi-step login forms that work well with password managers</a>
+    </section>
+
+    <section class="slide">
+        <pre class="code html"><code>&lt;input
+    type="email"
+    autocomplete="username"
+    name="username"
+    value="&lt;user email&gt;"
+    style="display: none"&gt;
+
+&lt;input
+    type="password"
+    autocomplete="password"
+    name="password"
+    required&gt;</code></pre>
+        <a class="copyright" href="https://evertpot.com/multi-step-login-forms-for-password-managers/">Building multi-step login forms that work well with password managers</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">⏳ One Time Passcode</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/slack-otp.webp" alt="" class="place" width="700">
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type=&quot;text&quot;
+       inputmode=&quot;numeric&quot;
+       autocomplete=&quot;one-time-code&quot;
+       maxlength=&quot;6&quot;&gt;</code></pre>
+        <a class="copyright" href="https://cloudfour.com/thinks/simple-one-time-passcode-inputs/">Simple One-Time Passcode Inputs</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place js"><code>navigator.credentials.get({
+    otp: {
+        transport: ['sms']
+    }
+}).then(otp => {
+    input.value = otp.code;
+    if (form) form.submit();
+}).catch(err => {
+    console.log(err);
+});</code></pre>
+        <a class="copyright" href="https://web.dev/articles/sms-otp-form">SMS OTP form best practices</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-login.png" alt="" class="place" width="400">
+    </section>
+
+
+
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Чекбоксы и радио ✅</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for=&quot;remember-me&quot;&gt;
+    &lt;input type=&quot;checkbox&quot;
+           id=&quot;remember-me&quot;
+           name=&quot;remember-me&quot;&gt;
+    Запомнить меня
+&lt;/label&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Подходы к стилизации</h2>
+        <ul>
+            <li><code>accent-color</code>;</li>
+            <li>полная визуальная замена:
+                <ul>
+                    <li>прячем <code>input</code>;</li>
+                    <li>стилизуем <code>label</code>.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <div>
+        <label for="email">Почта</label>
+        <input type="text"
+            name="email"
+            id="email"
+            pattern=".+@.+\..+"
+            required
+            inputmode="email"
+            placeholder="my@mail.com">
+    </div>
+    <div>
+        <label for="pwd">Пароль</label>
+        <input type="password"
+            name="pwd"
+            id="pwd"
+            required
+            autocomplete="current-password">
+    </div>
+    <div>
+        <label for="remember-me">
+            <input type="checkbox" id="remember-me" name="remember-me" checked>
+            Запомнить меня
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="Войти">
+    </div>
+</form>
+<style>
+    @scope {
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 20ch;
+        }
+        input {
+            font-size: inherit;
+            accent-color: tomato;
+        }
+        input[type=text],
+        input[type=password] {
+            display: block;
+        }
+        input[type=checkbox] {
+            aspect-ratio: 1 / 1;
+            height: 1cap;
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/accent-color.png" alt="" class="place" width="800">
+        <a class="copyright" href="https://web.dev/articles/accent-color">CSS accent-color</a>
+    </section>
+
+    <section class="slide">
+        <baseline-status featureId="accent-color" class="place zoom"></baseline-status>
+        <a class="copyright" href="https://web.dev/articles/accent-color">CSS accent-color</a>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<div>
+    <input id=un type=checkbox> <label for=un>one</label>
+</div>
+<div>
+    <input id=deux type=checkbox checked> <label for=deux>two</label>
+</div>
+<style>
+    @scope {
+        input[type=checkbox] {
+            appearance: none;
+            -webkit-appearance: none;
+            display: inline-grid;
+            aspect-ratio: 1 / 1;
+            font-size: inherit;
+            width: 60px;
+            line-height: 60px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            border: 0;
+        }
+
+        input[type=checkbox]::after {
+            content: '';
+            grid-area: 1 / 1;
+            border-radius: 5px;
+            pointer-events: none;
+            background: red;
+            font-size: 60px;
+        }
+
+        input[type=checkbox]:checked::after {
+            content: '✓';
+            background: lime;
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+        <a class="copyright" href="https://css-tricks.com/fun-times-styling-checkbox-states/">Fun Times Styling Checkbox States</a>
+    </section>
+
+    <section class="slide">
+        <h2>Safari 17.4+</h2>
+        <pre class="place big html" style="top: 40%"><code>&lt;input type=checkbox switch checked&gt;</code></pre>
+        <img src="./pictures/switch.png" alt="" class="place" width="400" style="top:65%">
+        <a class="copyright" href="https://webkit.org/blog/15054/an-html-switch-control/">An HTML Switch Control</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/input-switch-polyfill.jpeg" alt="" class="place" width="700">
+        <a class="copyright" href="https://github.com/tomayac/input-switch-polyfill">input-switch-polyfill</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">✅ Ура! <br>Форма готова!</h2>
+    </section>
+
+
+
+    <section class="slide black">
+        <img src="./pictures/html-best-practices-for-login-and-signup-forms.jpg" alt="" class="place round" width="800">
+        <a class="copyright" href="https://evilmartians.com/chronicles/html-best-practices-for-login-and-signup-forms">
+            11 HTML best practices for login & sign-up forms</a>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://codepen.io/dsenneff/full/NyVrzB/2c3e5bc86b372d5424b00edaf4990173" frameborder="0" class="cover width height" style="zoom: 0.7"></iframe>
+        <a class="copyright" href="https://codepen.io/dsenneff/pen/NyVrzB/2c3e5bc86b372d5424b00edaf4990173">Animated SVG Avatar v2</a>
+    </section>
+
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Форма 2. <br> «Профиль»</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-personal.png" alt="" class="place" width="600">
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Даты 🗓️</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/harold.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_cat_pain.jpg" alt="" class="place" width="500">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/smashing-perfect-date.jpeg" alt="" class="cover width place top">
+        <a class="copyright" href="https://www.smashingmagazine.com/2017/07/designing-perfect-date-time-picker/">Designing The Perfect Date And Time Picker</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/smashing-perfect-date.jpeg" alt="" class="place left" style="left: 10%; scale: 1.2">
+        <a class="copyright" href="https://www.smashingmagazine.com/2017/07/designing-perfect-date-time-picker/">Designing The Perfect Date And Time Picker</a>
+        <div class="spotlight" style="
+            --spotlight-radius: 0;
+            --spotlight-opacity: 0.5;
+            --spotlight-width: 22%;
+            --spotlight-height: 56px;
+            --spotlight-top: -83px;
+            --spotlight-left: -32%;
+        "></div>
+    </section>
+
+    <section class="slide">
+        <h2>😭 Особенности дейтпикеров</h2>
+        <ul>
+            <li class="next">Во всех браузерах разные.</li>
+            <li class="next">Работают с локальным временем.</li>
+            <li class="next">Нет универсального плагина.</li>
+            <li class="next"><code>MM/DD/YYYY</code> vs <code>DD.MM.YYYY</code>.</li>
+            <li class="next">Нужно верно спозиционировать выпадашки.</li>
+            <li class="next">А если нужно выбрать диапазон дат?</li>
+            <li class="next">Работает с типом <code>Date</code>.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">💁🏻‍♂️ Используйте готовые библиотеки</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/ant-datepicker.jpeg" alt="" class="place" width="700">
+        <a class="copyright" href="https://ant.design/components/date-picker">DatePicker</a>
+    </section>
+
+    <section class="slide">
+        <pre class="big place js"><code>input.valueAsDate</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsDate">MDN, valueAsDate</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Open UI</h2>
+        <a class="copyright" href="https://open-ui.org/components/datepicker.research/">Open UI Datepicker</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😭 Штош. <br>1/6 готово.</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-personal.png" alt="" class="place" width="600">
+    </section>
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Телефоны ☎️</h2>
+    </section>
+
+    <section class="slide" style="background-color: #18191c;">
+        <img src="./pictures/doka_tel_phone.webp" alt="" class="cover">
+        <a class="copyright" href="https://doka.guide/html/inputmode/">Дока, inputmode</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="phone"&gt;Телефон&lt;/label&gt;
+&lt;input type="tel"
+       name="phone"
+       id="phone"
+       placeholder="+375291234567"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;label for="phone"&gt;Телефон&lt;/label&gt;
+&lt;input type="text"
+       name="phone"
+       id="phone"
+       inputmode="tel"
+       autocomplete="tel-national"
+       placeholder="123-555-1212"&gt;</code></pre>
+        <a class="copyright" href="https://t.me/alexnozer_dev/213">Автодополнение номера телефона</a>
+    </section>
+
+    <section class="slide">
+        <h2>autocomplete</h2>
+        <ul>
+            <li><code>tel</code></li>
+            <li><code>tel-country-code</code></li>
+            <li><code>tel-national</code></li>
+            <li><code>tel-area-code</code></li>
+            <li><code>tel-local</code></li>
+            <li><code>tel-extension</code></li>
+        </ul>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete#tel">MDN, autocomplete</a>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/phone-inputs-and-you-the-designers-essential-ui-guide.jpg" alt="" class="place round" width="800">
+        <a class="copyright" href="https://evilmartians.com/chronicles/phone-inputs-and-you-the-designers-essential-ui-guide">Phone inputs and you: the designer's essential UI guide</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/number-structure.webp" alt="" class="place" width="700">
+        <a class="copyright" href="https://evilmartians.com/chronicles/phone-inputs-and-you-the-designers-essential-ui-guide">Phone inputs and you: the designer's essential UI guide</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🌍 В мире много стран</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/birman-phone.jpg" alt="" class="place" width="700">
+        <a class="copyright" href="https://t.me/ilyabirman_channel/8538">Канал Ильи Бирмана</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🙏 Дайте ввести любой номер. Пожалуйста</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place big bash"><code>+___(__)___-__-__</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/jquery-mask.jpeg" alt="" class="place" width="600">
+        <a class="copyright" href="https://igorescobar.github.io/jQuery-Mask-Plugin/">jQuery Mask Plugin</a>
+    </section>
+
+
+    <section class="slide">
+        <pre class="js" style="font-size: 0.8em;"><code>function PhoneInput() {
+    const [value, setValue] = useState('');
+    const ref = useRef();
+
+    const handleChange = (e) => {
+        const cursorPosition = e.target.selectionStart;
+        const formatted = formatPhone(e.target.value);
+        setValue(formatted);
+
+        requestAnimationFrame(() => {
+            ref.current.setSelectionRange(cursorPosition, cursorPosition);
+        });
+    };
+
+    return &lt;input ref={ref} value={value} onChange={handleChange} />;
+}</code></pre>
+        <img src="./pictures/arrow.svg" alt="" class="place" style="width: 20%; transform: translate(170px, -67px) scale(-1, 1)">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😑 Ух. <br>2/6 готово.</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-personal.png" alt="" class="place" width="600">
+    </section>
+
+
+
+    <section class="slide title">
+        <h2 class="shout">Аватарка 🖼️</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place html big"><code>&lt;input type="file"
+       id="avatar"
+       name="avatar"
+       accept="image/*"&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/capture">MDN, capture</a>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <label>
+        Аватарка
+        <br>
+        <input type="file"
+            id="avatar"
+            name="avatar"
+            accept="image/*">
+    </label>
+</form>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/hrds-fileupload.jpeg" alt="" class="place" width="700">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/dvornov-json-limits.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=KpfA19oDfeA">Роман Дворнов — JSON: push the limits</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place html big"><code>&lt;input type="file"
+       id="selfie"
+       name="selfie"
+       accept="image/*"
+       capture="user"&gt;</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/capture">MDN, capture</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/ilf-fix-img.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=zyzXgjEyi2M&list=PLKaafC45L_SQuhSpooDiNrIIPqeLY3mCp&index=5">Чиним img - Дмитрий Махнёв</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place html big"><code>&lt;input type="file"
+       id="photos"
+       webkitdirectory
+       directory
+       multiple&gt;</code></pre>
+        <a class="copyright" href="https://blog.filestack.com/how-to-add-folder-upload-to-your-web-application/">How to Add Folder Upload to Your Web Application</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>folderInput.addEventListener('change', function(e) {
+    const files = e.target.files;
+    const fileArray = Array.from(files);
+
+    fileArray.forEach(file => {
+        const relativePath = file.webkitRelativePath
+                          || file.name;
+        // Some logging
+    });
+
+    uploadFolder(fileArray);
+});</code></pre>
+        <a class="copyright" href="https://blog.filestack.com/how-to-add-folder-upload-to-your-web-application/">How to Add Folder Upload to Your Web Application</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😨 Ух. <br>3/6 готово.</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-personal.png" alt="" class="place" width="600">
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/kitty.jpeg" alt="" class="cover width">
+    </section>
+
+
+    <section class="slide title">
+        <h2 class="shout">Числа 💯</h2>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <label>
+        Любимое число
+        <br>
+        <input type="number"
+            id="num"
+            name="num"
+            min="1"
+            max="12"
+            step="1">
+    </label>
+</form>
+<style>
+    @scope {
+        input {
+            font-size: inherit;
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>input[type="number"] {
+    appearance: textfield;
+}</code></pre>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <button commandfor="cost" command="--decrement" type="button">-</button>
+    <input id="cost" type="number" min="1" max="12" step="1" />
+    <button commandfor="cost" command="--increment" type="button">+</button>
+</form>
+<style>
+    @scope {
+        input {
+            font-size: inherit;
+        }
+        input[type="number"] {
+            appearance: textfield;
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+        <a class="copyright" href="https://olliewilliams.xyz/blog/guide-to-html-number-input/">A complete guide to the HTML number input</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>const numberInputs = document.querySelectorAll('.stepper');
+numberInputs.forEach((input) => {
+    input.addEventListener("command", (event) => {
+        if (event.command === "--increment") {
+            input.stepUp();
+        } else if (event.command === "--decrement") {
+            input.stepDown();
+        }
+    });
+});</code></pre>
+        <a class="copyright" href="https://olliewilliams.xyz/blog/guide-to-html-number-input/">A complete guide to the HTML number input</a>
+    </section>
+
+    <section class="slide">
+        <baseline-status featureId="invoker-commands" class="place zoom"></baseline-status>
+    </section>
+
+    <section class="slide">
+        <pre class="big place js"><code>input.valueAsNumber</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/valueAsNumber">MDN, valueAsNumber</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">3.14 vs 3,14</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>const input = document.querySelector('input[type="number"]');
+
+input.addEventListener('blur', (e) => {
+    e.target.value = e.target.value.replace(',', '.');
+});</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">😀 Уф. <br>4/6 готово.</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/form-personal.png" alt="" class="place" width="600">
+    </section>
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <label>
+        Имя, фамилия
+        <br>
+        <input type="text"
+            id="fio"
+            name="fio"
+            autocapitalize="words"
+            autocomplete="name"
+            spellcheck="false">
+    </label>
+</form>
+<style>
+    @scope {
+        input {
+            font-size: inherit;
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+
+    <section class="slide">
+        <pre class="place big"><code>autocapitalize=words</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/autocapitalize#words">MDN, autocapitalize</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>spellcheck=false</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/spellcheck">MDN, spellcheck</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Елизавета Варвара —<br>валидное имя</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Ю —<br>валидная фамилия</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/uxhell-1.jpeg" alt="" class="place" width="600">
+        <a class="copyright" href="https://t.me/uxfromhell/10789">Адовый UX</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/uxhell-2.jpg" alt="" class="place" width="600">
+        <a class="copyright" href="https://t.me/uxfromhell/10789">Адовый UX</a>
+    </section>
+
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <label>
+        Браузер
+        <br>
+        <input type="text" list="browsers">
+        <datalist id="browsers">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+        </datalist>
+    </label>
+</form>
+<style>
+    @scope {
+        input {
+            font-size: inherit;
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+
+    <section class="slide">
+        <h2 class="shout">✅ Ура! <br>6/6 готово.</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/dostoevski.jpg" alt="" class="place round" width="500">
+        <p class="place" style="color: white;
+    text-shadow: 0 0 3px black;
+    font-weight: bold;
+    width: 280px;
+    text-align: center;
+    left: 41%;
+    font-size: 0.9em;
+    top: 33%;">Говорил же тебе, что там не на 5 минут делов</p>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Бонусы 🎁</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="big place html" style="text-align: center;"><code style="padding: 0;">&lt;!-- ⚠️ будет отправлено на сервер --&gt;
+&lt;input type="text" readonly&gt;</code></pre>
+        <a class="copyright" href="https://adrianroselli.com/2024/11/avoid-read-only-controls.html">Avoid Read-only Controls</a>
+    </section>
+
+    <section class="slide">
+        <pre class="big place html" style="text-align: center;"><code style="padding: 0;">&lt;!-- ❌ ломает UX и a11y --&gt;
+&lt;input type="text" disabled&gt;</code></pre>
+        <a class="copyright" href="https://adrianroselli.com/2024/02/dont-disable-form-controls.html">Don’t Disable Form Controls</a>
+    </section>
+
+    <section class="slide">
+        <pre class="big place html"><code>&lt;div class="input input_readonly"&gt;
+    Текст
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <p>Дорогой зритель! Меня зовут <input type=text value="Никита">, и я читаю доклад на конференции <input type=text value="Dump">. Люблю разбираться в <input type=text value="HTML"> и <input type=text value="CSS">.</p>
+</form>
+<style>
+    @scope {
+        input {
+            font-size: inherit;
+            // field-sizing: content;
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/shadeed-field-sizing.jpg" alt="" class="place round" width="800">
+        <a class="copyright" href="https://ishadeed.com/article/field-sizing/">Use Cases for Field Sizing</a>
+    </section>
+
+    <section class="slide">
+        <baseline-status featureId="field-sizing" class="place zoom"></baseline-status>
+    </section>
+
+
+    <section class="slide">
+        <pre class="place big html"><code>&lt;input type="search"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/type-search-talk.jpg" alt="" class="cover">
+        <a class="copyright" href="https://www.youtube.com/watch?v=OqXJ_DCiuXg">Этот безумный, безумный, безумный, безумный search bar – Роман Прудников</a>
+    </section>
+
+
+    <section class="slide demo">
+        <css-demo>
+            <div class="demo-panels">
+                <textarea class="demo-code" spellcheck="false">
+<form>
+    <input type="text" class="console" value="sudo rm -rf">
+</form>
+<style>
+    @scope {
+        :scope {
+            background-color: var(--color-black);
+            color-scheme: dark;
+        }
+
+        .console {
+            caret-shape: block;
+            // caret-shape: underscore;
+            font-family: monospace;
+            padding: 1ex;
+            font-size: 1em;
+            color: lime;
+
+            caret-animation: manual;
+            caret-color: lime;
+            animation: caret-alternate 2s ease-in-out infinite;
+        }
+        @keyframes caret-alternate {
+            50% { caret-color: transparent; }
+        }
+    }
+</style>
+                </textarea>
+                <div class="demo-result"></div>
+            </div>
+        </css-demo>
+        <a class="copyright" href="https://drafts.csswg.org/css-ui/#caret-shape">CSS Basic User Interface Module Level 4</a>
+    </section>
+
+    <section class="slide">
+        <pre class="big place bash"><code>caret-animation: manual;
+caret-shape: underscore;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>Капча 🤖</h2>
+        <pre class="html"><code>&lt;input id="captcha"
+       type="image"
+       name="captcha"
+       width="100"
+       height="30"
+       alt="А не робот ли ты часом?"
+       src="path/to/captcha.png"&gt;</code></pre>
+        <span class="arrow">                                                ↓</span>
+        <pre><code>{ captcha: { x: 10, y: 20 } }</code></pre>
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/image">MDN, type image</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>&lt;a href=&quot;/imagemapper&quot;&gt;
+    &lt;img src=&quot;image.png&quot; ismap /&gt;
+&lt;/a&gt;</code></pre>
+    </section>
+
+
+
+
+    <!-- <section class="slide">
+        <h2>maxlength</h2>
+        <pre><code>console.log('😀'.length); // ?
+console.log([...'😀'].length); // ?</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2>maxlength</h2>
+        <pre><code>console.log('😀'.length); // 2
+console.log([...'😀'].length); // 1
+
+// «Правильный» подсчёт
+function realLength(str) {
+    return [...str].length;
+}</code></pre>
+    </section> -->
+    <!--
+    <section class="slide">
+        <pre style="font-size: 0.75em;"><code>&lt;form id=&quot;checkout&quot;&gt;
+    &lt;input autocomplete=&quot;country&quot; placeholder=&quot;Страна&quot;&gt;
+&lt;/form&gt;
+&lt;script&gt;
+    document.addEventListener(&apos;autofill&apos;, async function(event) {
+        let countryValue = null;
+        for (const [element, value] of event.autofillValues) {
+            if (element.autocomplete === &apos;country&apos;) {
+                countryValue = value;
+                break;
+            }
+        }
+        if (countryValue === &apos;US&apos;) {
+            addStateSelectToForm();
+            await event.refill();
+        }
+    });
+&lt;/script&gt;</code></pre>
+        <a class="copyright" href="https://developer.chrome.com/release-notes/147?hl=en#autofill_event">Autofill Event</a>
+    </section> -->
+
+    <section class="slide">
+        <pre class="html"><code>&lt;form action=&quot;/login&quot; method=&quot;get&quot;&gt;
+    &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+    &lt;input type=&quot;text&quot;
+           name=&quot;username&quot;
+           id=&quot;username&quot;
+           required&gt;
+&lt;/form&gt;
+
+&lt;input type=&quot;submit&quot; value="Потеряшка"&gt;
+</code></pre>
+        <a class="copyright" href="https://www.htmhell.dev/adventcalendar/2023/3/">The Form Attribute - Enhancing Form Layout Flexibility</a>
+    </section>
+
+    <section class="slide">
+        <pre class="html"><code>&lt;form action=&quot;/login&quot; method=&quot;get&quot; id="my-form"&gt;
+    &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+    &lt;input type=&quot;text&quot;
+           name=&quot;username&quot;
+           id=&quot;username&quot;
+           required&gt;
+&lt;/form&gt;
+
+&lt;input type=&quot;submit&quot; form="my-form" value="Потеряшка"&gt;
+</code></pre>
+        <a class="copyright" href="https://www.htmhell.dev/adventcalendar/2023/3/">The Form Attribute - Enhancing Form Layout Flexibility</a>
+    </section>
+
+    <section class="slide">
+        <h2 style="text-align: center;"><code>input</code><br> <span class="arrow">+</span><br> <code>label</code><br><span class="arrow">+</span> <br>селекторы <br><span class="arrow">=</span><br> 💪 могущество</h2>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/css-sc2.jpg" alt="" class="place round" width="800">
+        <a class="copyright" href="https://habr.com/ru/articles/267801/">Игры на CSS. Часть 2: StarCraft</a>
+    </section>
+
+    <section class="slide title">
+        <h2 class="shout">Резюмируем 📚</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Пошаговый алгоритм</h2>
+        <ol>
+            <li class="next">💻 Нативный input</li>
+            <li class="next">✅ Нативная валидация</li>
+            <li class="next">♿️ Доступность</li>
+            <li class="next">⌨️ Правильная клавиатура</li>
+            <li class="next">😀 Автодополнение</li>
+            <li class="next">🧑‍🎨 Базовые стили</li>
+            <li class="next">💅 Рюшечки и «вау»</li>
+            <li class="next">😭 Плакать над дейтпикером</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤖 AI-агенты лучше работают с семантичной вёрсткой</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">SKILL.md</h2>
+        <a class="copyright" href="https://skillmd.ai/how-to-build/forms-3/">How to Build forms Agent Skill</a>
+    </section>
+
+    <section class="slide black">
+        <img src="./pictures/mefody-dev-tg.jpeg" alt="" class="place round left" width="600" style="border-top-left-radius: 0; border-bottom-left-radius: 0; left: 5%">
+        <img src="./pictures/qr-code-tg.png" alt="" class="place right round" width="250" style="margin-right: 100px;">
+    </section>
+
+
+    <section class="slide clear" id="final">
+        <h2>Берегите природу!</h2>
+        <a href="https://mefody.dev/talks/input/">mefody.dev/talks/input/</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.png" alt="QR-код на голосование" class="place bottom right" width="300" style="right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script>
+        (function() {
+            var mouseTimer = null, cursorVisible = true;
+
+            function disappearCursor() {
+                mouseTimer = null;
+                document.body.style.cursor = "none";
+                cursorVisible = false;
+            }
+
+            document.onmousemove = function() {
+                if (mouseTimer) {
+                    window.clearTimeout(mouseTimer);
+                }
+                if (!cursorVisible) {
+                    document.body.style.cursor = "default";
+                    cursorVisible = true;
+                }
+                mouseTimer = window.setTimeout(disappearCursor, 3000);
+            };
+        })();
+    </script>
+
+    <script>
+        const demoCodes = document.querySelectorAll("css-demo .demo-code");
+        const setDemoValue = function(textarea) {
+            const code = textarea.value;
+            const demoResult = textarea.parentNode.querySelector('.demo-result');
+            demoResult.innerHTML = code;
+            if (window.indeterminate) window.indeterminate.indeterminate = true;
+        };
+        const setChangeListener = function(demoCode, listener) {
+            demoCode.addEventListener("blur", listener);
+            demoCode.addEventListener("keyup", listener);
+        }
+        demoCodes.forEach(demoCode => {
+            const textarea = demoCode;
+            setDemoValue(textarea);
+            setChangeListener(demoCode, () => {
+                setDemoValue(textarea);
+            });
+        });
+    </script>
+
+
+    <script>
+        const numberInputs = document.querySelectorAll('input[type="number"]');
+        numberInputs.forEach((input) => {
+            input.addEventListener("command", (event) => {
+                if (event.command === "--increment") {
+                    input.stepUp();
+                } else if (event.command === "--decrement") {
+                    input.stepDown();
+                }
+            });
+        });</script>
+</body>
+
+</html>
